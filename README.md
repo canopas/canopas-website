@@ -8,11 +8,11 @@ best practices.
 ## To run front-end
 
 ```
-$ cd vue-frontend
-$ npm run serve
+cd vue-frontend
+npm run serve
 ```
 
-You can access the page by pointing a web browser at http://localhost:8081.
+You can access the page by pointing a web browser at http://localhost:8080.
 
 ## To run full website
 
