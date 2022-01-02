@@ -2,9 +2,9 @@ name: CI
 on:
   push:
     branches:
-      - '*'
+      - master
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -43,3 +43,17 @@ jobs:
       - name: Upload to S3
         run: |
           aws s3 cp canopas-website-v1.zip s3://lambda-canopas-webside-v1-dev/
+
+      - name: Deploy lambda function
+        id: canopas-website-dev-stack
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with:
+          name: canopas-website-dev-stack
+          template: infrastructure/template.yml
+          capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
+          timeout-in-minutes: "2"
+          no-fail-on-empty-changeset: "1"
+          parameter-overrides: >-
+            EnvName=prod,
+            LambdaHandlerPath=main,
+            LambdaZipFilePath=canopas-website-v1.zip
