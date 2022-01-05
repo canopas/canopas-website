@@ -1,14 +1,15 @@
 package main
 
 import (
-	"github.com/gin-contrib/static"
-    "github.com/gin-gonic/gin"
-	"github.com/apex/gateway"
-	"net/http"
 	"embed"
 	"io/fs"
 	"log"
+	"net/http"
 	"os"
+
+	"github.com/apex/gateway"
+	"github.com/gin-contrib/static"
+	"github.com/gin-gonic/gin"
 )
 
 //go:embed vue-frontend/dist
