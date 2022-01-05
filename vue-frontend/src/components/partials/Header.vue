@@ -81,7 +81,7 @@ export default {
 }
 
 .navbar-nav .nav-item-margin .nav-link {
-  margin: 0 50px 0 0;
+  margin: 0 40px 0 0;
 }
 
 .gradient-border-btn {

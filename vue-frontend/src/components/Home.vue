@@ -3,17 +3,20 @@
     <!-- Main Website -->
     <div class="main-wrapper">
       <Header />
+      <HomeLandingPage />
     </div>
   </div>
 </template>
 
 <script>
 import Header from "./partials/Header.vue";
+import HomeLandingPage from "./home/HomeLandingPage.vue";
 
 export default {
   name: "App",
   components: {
     Header,
+    HomeLandingPage,
   },
 };
 </script>
