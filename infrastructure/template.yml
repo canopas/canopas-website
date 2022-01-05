@@ -101,6 +101,7 @@ Resources:
           - REGIONAL
       BinaryMediaTypes: ['*/*']
       DisableExecuteApiEndpoint: true
+      MinimumCompressionSize: 100
       Name: rest-api-canopas-website-v1-prod
 
   ApiGatewayRootMethod:
