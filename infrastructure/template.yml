@@ -77,7 +77,7 @@ Resources:
       Runtime: go1.x
       Code:
         S3Bucket: lambda-canopas-webside-v1-dev
-        S3Key: canopas-website-v1.zip
+        S3Key: !Ref LambdaZipFilePath
       Handler: main
       MemorySize: 128
       Timeout: 10

@@ -38,12 +38,13 @@ jobs:
       - name: Zip function
         run: |
           apt-get update && apt-get install -y zip
-          zip canopas-website-v1.zip main
-
+          uuid=$(uuidgen)
+          export ZIP_NAME="canopas-website-v1-${uuid}.zip"
+          zip $ZIP_NAME main
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
       - name: Upload to S3
         run: |
-          aws s3 cp canopas-website-v1.zip s3://lambda-canopas-webside-v1-dev/
-
+          aws s3 cp ${{ env.ZIP_NAME }} s3://lambda-canopas-webside-v1-dev/
       - name: Deploy lambda function
         id: canopas-website-dev-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
@@ -56,4 +57,4 @@ jobs:
           parameter-overrides: >-
             EnvName=prod,
             LambdaHandlerPath=main,
-            LambdaZipFilePath=canopas-website-v1.zip
+            LambdaZipFilePath=${{ env.ZIP_NAME }}
