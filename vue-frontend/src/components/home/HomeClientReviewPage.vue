@@ -1,180 +1,178 @@
 <template>
-  <div class="success-stories-bg text-center" id="clientSection">
+  <div class="success-stories-bg text-center">
     <div>
       <div class="header-text canopas-gradient-text">
         Success stories of <br />
         people like You!
       </div>
       <div class="horizontal-slider normal-text text-center">
-        <section>
-          <div
-            id="clientsIndicators"
-            class="carousel slide"
-            ref="carousel"
-            data-bs-ride="carousel"
-          >
-            <ol class="clients__list text-center" id="clientsList">
-              <li
-                data-bs-target="#clientsIndicators"
-                data-slide-to="0"
-                class="clients__list__item gradient-circular-border"
-              >
-                <img
-                  src="@/assets/images/clients/lisa.jpg"
-                  alt="client"
-                  draggable="false"
-                />
-              </li>
-              <li
-                data-bs-target="#clientsIndicators"
-                data-slide-to="1"
-                class="clients__list__item gradient-circular-border"
-              >
-                <img
-                  src="@/assets/images/clients/marcus.jpg"
-                  alt="client"
-                  draggable="false"
-                />
-              </li>
-              <li
-                data-bs-target="#clientsIndicators"
-                data-slide-to="2"
-                class="clients__list__item gradient-circular-border"
-              >
-                <img
-                  src="@/assets/images/clients/jake.jpg"
-                  alt="client"
-                  draggable="false"
-                />
-              </li>
-              <li
-                data-bs-target="#clientsIndicators"
-                data-slide-to="3"
-                class="clients__list__item gradient-circular-border"
-              >
-                <img
-                  src="@/assets/images/clients/maor.jpg"
-                  alt="client"
-                  draggable="false"
-                />
-              </li>
-              <li
-                data-bs-target="#clientsIndicators"
-                data-slide-to="4"
-                class="clients__list__item gradient-circular-border"
-              >
-                <img
-                  src="@/assets/images/clients/ramasis.jpg"
-                  alt="client"
-                  draggable="false"
-                />
-              </li>
-              <li
-                data-bs-target="#clientsIndicators"
-                data-slide-to="5"
-                class="clients__list__item gradient-circular-border"
-              >
-                <img
-                  src="@/assets/images/clients/jake.jpg"
-                  alt="client"
-                  draggable="false"
-                />
-              </li>
-            </ol>
-            <div class="carousel-inner">
-              <div class="carousel-item">
-                <div class="client">
-                  <div class="normal-text canopas-gradient-text mt-4">
-                    Lisa W.
-                  </div>
-                  <div class="normal-text text-left mt-4">
-                    There is not enough space to say all the wonderful things I
-                    would want to share about Canopas. They are incredibly
-                    helpful, stay calm even when we had to deal with tough
-                    issues on our app, and always found a way to help us fix
-                    whatever was needed or roll out any new features for our app
-                    in both the iOS and Android stores. I will absolutely find a
-                    way to work with Canopas again!
-                  </div>
+        <div
+          id="clientsIndicators"
+          class="carousel slide"
+          ref="carousel"
+          data-bs-ride="carousel"
+        >
+          <ol class="clients__list text-center">
+            <li
+              data-bs-target="#clientsIndicators"
+              data-slide-to="0"
+              class="clients__list__item gradient-circular-border"
+            >
+              <img
+                src="@/assets/images/clients/lisa.jpg"
+                alt="client"
+                draggable="false"
+              />
+            </li>
+            <li
+              data-bs-target="#clientsIndicators"
+              data-slide-to="1"
+              class="clients__list__item gradient-circular-border"
+            >
+              <img
+                src="@/assets/images/clients/marcus.jpg"
+                alt="client"
+                draggable="false"
+              />
+            </li>
+            <li
+              data-bs-target="#clientsIndicators"
+              data-slide-to="2"
+              class="clients__list__item gradient-circular-border"
+            >
+              <img
+                src="@/assets/images/clients/jake.jpg"
+                alt="client"
+                draggable="false"
+              />
+            </li>
+            <li
+              data-bs-target="#clientsIndicators"
+              data-slide-to="3"
+              class="clients__list__item gradient-circular-border"
+            >
+              <img
+                src="@/assets/images/clients/maor.jpg"
+                alt="client"
+                draggable="false"
+              />
+            </li>
+            <li
+              data-bs-target="#clientsIndicators"
+              data-slide-to="4"
+              class="clients__list__item gradient-circular-border"
+            >
+              <img
+                src="@/assets/images/clients/ramasis.jpg"
+                alt="client"
+                draggable="false"
+              />
+            </li>
+            <li
+              data-bs-target="#clientsIndicators"
+              data-slide-to="5"
+              class="clients__list__item gradient-circular-border"
+            >
+              <img
+                src="@/assets/images/clients/jake.jpg"
+                alt="client"
+                draggable="false"
+              />
+            </li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item">
+              <div class="client">
+                <div class="normal-text canopas-gradient-text mt-4">
+                  Lisa W.
+                </div>
+                <div class="normal-text text-left mt-4">
+                  There is not enough space to say all the wonderful things I
+                  would want to share about Canopas. They are incredibly
+                  helpful, stay calm even when we had to deal with tough issues
+                  on our app, and always found a way to help us fix whatever was
+                  needed or roll out any new features for our app in both the
+                  iOS and Android stores. I will absolutely find a way to work
+                  with Canopas again!
                 </div>
               </div>
-              <div class="carousel-item">
-                <div class="client">
-                  <div class="normal-text canopas-gradient-text mt-4">
-                    Marcus L.
-                  </div>
-                  <div class="normal-text text-left mt-4">
-                    Canopas has been nothing but wonderful on this project. His
-                    communication and ability to advise on the best solutions
-                    throughout the project were top-notch. I have very much
-                    enjoyed working with Darpan and his team and would surely
-                    recommend them to anyone looking for a solid developer.
-                  </div>
+            </div>
+            <div class="carousel-item">
+              <div class="client">
+                <div class="normal-text canopas-gradient-text mt-4">
+                  Marcus L.
+                </div>
+                <div class="normal-text text-left mt-4">
+                  Canopas has been nothing but wonderful on this project. His
+                  communication and ability to advise on the best solutions
+                  throughout the project were top-notch. I have very much
+                  enjoyed working with Darpan and his team and would surely
+                  recommend them to anyone looking for a solid developer.
                 </div>
               </div>
-              <div class="carousel-item active">
-                <div class="client">
-                  <div class="normal-text canopas-gradient-text mt-4">
-                    Jake N.
-                  </div>
-                  <div class="normal-text text-left mt-4">
-                    Canopas team was also incredibly kind and always willing to
-                    solve any problem through research something that we highly
-                    appreciate. Many people do not take the time to understand a
-                    problem but Canopas did it every time and found a way to fix
-                    it. They even thought about the User Experience and the
-                    design which not many engineers think about. We are so lucky
-                    to have worked with them and look forward to working with
-                    them again in the future!
-                  </div>
+            </div>
+            <div class="carousel-item active">
+              <div class="client">
+                <div class="normal-text canopas-gradient-text mt-4">
+                  Jake N.
+                </div>
+                <div class="normal-text text-left mt-4">
+                  Canopas team was also incredibly kind and always willing to
+                  solve any problem through research something that we highly
+                  appreciate. Many people do not take the time to understand a
+                  problem but Canopas did it every time and found a way to fix
+                  it. They even thought about the User Experience and the design
+                  which not many engineers think about. We are so lucky to have
+                  worked with them and look forward to working with them again
+                  in the future!
                 </div>
               </div>
-              <div class="carousel-item">
-                <div class="client">
-                  <div class="normal-text canopas-gradient-text mt-4">
-                    Maor T.
-                  </div>
-                  <div class="normal-text text-left mt-4">
-                    This is our favorite expert for all mobile and web
-                    developing areas. Darpan has a great team who get the job
-                    done above our expectations. We would like to hire Canopas
-                    for more projects in the future and highly recommend their
-                    kind and professional services.
-                  </div>
+            </div>
+            <div class="carousel-item">
+              <div class="client">
+                <div class="normal-text canopas-gradient-text mt-4">
+                  Maor T.
+                </div>
+                <div class="normal-text text-left mt-4">
+                  This is our favorite expert for all mobile and web developing
+                  areas. Darpan has a great team who get the job done above our
+                  expectations. We would like to hire Canopas for more projects
+                  in the future and highly recommend their kind and professional
+                  services.
                 </div>
               </div>
-              <div class="carousel-item">
-                <div class="client">
-                  <div class="normal-text canopas-gradient-text mt-4">
-                    Ramsis A.
-                  </div>
-                  <div class="normal-text text-left mt-4">
-                    Canopas has been great to work with. From day 1, they made
-                    sure they understood exactly what I wanted and advised and
-                    guided me during the process (with patience). This project
-                    has ended, but I am sure to work with them again on other
-                    projects. I would recommend their services.
-                  </div>
+            </div>
+            <div class="carousel-item">
+              <div class="client">
+                <div class="normal-text canopas-gradient-text mt-4">
+                  Ramsis A.
+                </div>
+                <div class="normal-text text-left mt-4">
+                  Canopas has been great to work with. From day 1, they made
+                  sure they understood exactly what I wanted and advised and
+                  guided me during the process (with patience). This project has
+                  ended, but I am sure to work with them again on other
+                  projects. I would recommend their services.
                 </div>
               </div>
-              <div class="carousel-item">
-                <div class="client">
-                  <div class="normal-text canopas-gradient-text mt-4">
-                    Jake N.
-                  </div>
-                  <div class="normal-text text-left mt-4">
-                    Canopas team was unbelievable. They did everything and
-                    above. We had initially hired them just for engineering the
-                    app, but they were able to jump between app development, web
-                    development, different integrations, and more. It was really
-                    impressive, and we were so lucky to work with them. They
-                    thought about everything, even things we did not bring up.
-                  </div>
+            </div>
+            <div class="carousel-item">
+              <div class="client">
+                <div class="normal-text canopas-gradient-text mt-4">
+                  Jake N.
+                </div>
+                <div class="normal-text text-left mt-4">
+                  Canopas team was unbelievable. They did everything and above.
+                  We had initially hired them just for engineering the app, but
+                  they were able to jump between app development, web
+                  development, different integrations, and more. It was really
+                  impressive, and we were so lucky to work with them. They
+                  thought about everything, even things we did not bring up.
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </div>
       <div class="mt-4 client-arrow">
         <button type="button" class="clients-indicators" @click="leftIndicator">
@@ -213,7 +211,8 @@ export default {
     FontAwesomeIcon,
   },
   mounted: function () {
-    this.totalLength = document.querySelector(".carousel-item").length - 1;
+    this.totalLength =
+      document.querySelector("#clientsIndicators .carousel-item").length - 1;
     this.clientList = document.querySelector(".clients__list");
     this.clientListItem = document.querySelector(".clients__list__item");
 
@@ -227,22 +226,8 @@ export default {
   },
   methods: {
     carouselSlider() {
-      this.carouselElem.addEventListener(
-        "slide.bs.carousel",
-        this.slideTo(this.direction),
-        false
-      );
-
-      this.clientList.on("swipeleft", function () {
-        this.clicked = false;
-        this.direction = "left";
-        this.carousel.next();
-      });
-
-      this.clientList.on("swiperight", function () {
-        this.clicked = false;
-        this.direction = "right";
-        this.carousel.prev();
+      this.carouselElem.addEventListener("slide.bs.carousel", (e) => {
+        this.slideTo(e, this.direction);
       });
     },
     leftIndicator() {
@@ -388,11 +373,6 @@ export default {
   width: 60%;
 }
 
-/* .client {
-  width: auto;
-  margin: 2rem 7rem;
-} */
-
 .clients__list {
   display: flex;
   align-items: center;
@@ -400,7 +380,6 @@ export default {
   height: 10rem;
   margin: 0 auto;
   padding-left: 0 !important;
-  /* transition: all 0.6s linear; */
 }
 
 .clients__list > li:last-child {
@@ -414,7 +393,6 @@ export default {
   -webkit-mask: none;
   cursor: pointer;
   margin: 0 1rem;
-  /* transition: all 0.6s linear; */
 }
 
 .clients__list__item > img {
@@ -561,6 +539,16 @@ export default {
   .client {
     width: 40rem;
     margin: 2rem auto;
+  }
+
+  .clients__list__item:first-child {
+    opacity: 0.15;
+    width: 9%;
+  }
+
+  .clients__list__item:last-child {
+    opacity: 0.15;
+    width: 9%;
   }
 }
 
