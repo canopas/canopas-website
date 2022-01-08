@@ -15,7 +15,7 @@
           <ol class="clients__list text-center">
             <li
               data-bs-target="#clientsIndicators"
-              data-slide-to="0"
+              data-bs-slide-to="0"
               class="clients__list__item gradient-circular-border"
             >
               <img
@@ -26,7 +26,7 @@
             </li>
             <li
               data-bs-target="#clientsIndicators"
-              data-slide-to="1"
+              data-bs-slide-to="1"
               class="clients__list__item gradient-circular-border"
             >
               <img
@@ -37,7 +37,7 @@
             </li>
             <li
               data-bs-target="#clientsIndicators"
-              data-slide-to="2"
+              data-bs-slide-to="2"
               class="clients__list__item gradient-circular-border"
             >
               <img
@@ -48,7 +48,7 @@
             </li>
             <li
               data-bs-target="#clientsIndicators"
-              data-slide-to="3"
+              data-bs-slide-to="3"
               class="clients__list__item gradient-circular-border"
             >
               <img
@@ -59,7 +59,7 @@
             </li>
             <li
               data-bs-target="#clientsIndicators"
-              data-slide-to="4"
+              data-bs-slide-to="4"
               class="clients__list__item gradient-circular-border"
             >
               <img
@@ -70,7 +70,7 @@
             </li>
             <li
               data-bs-target="#clientsIndicators"
-              data-slide-to="5"
+              data-bs-slide-to="5"
               class="clients__list__item gradient-circular-border"
             >
               <img
@@ -226,26 +226,39 @@ export default {
   },
   methods: {
     carouselSlider() {
-      this.carouselElem.addEventListener("slide.bs.carousel", (e) => {
+      this.carouselElem.addEventListener("data-bs-slide-to", (e) => {
+        console.log("call slied to function");
         this.slideTo(e, this.direction);
       });
+
+      document.querySelector(".clients__list__item").onclick = () => {
+        this.myFunction();
+      };
+    },
+    myFunction() {
+      console.log(this);
+      this.clicked = true;
+      this.index = this.index();
+      this.direction = this.index > this.totalLength / 2 ? "left" : "right";
+      this.carousel.to(parseInt(this.attr("data-bs-slide-to")));
     },
     leftIndicator() {
       this.clicked = false;
       this.direction = "left";
-      this.carousel.next();
+      this.carousel.prev();
     },
     rightIndicator() {
       this.clicked = false;
       this.direction = "right";
-      this.carousel.prev();
+      this.carousel.next();
     },
     slideTo(event, direction) {
-      var indicators = document.querySelector(".client__list");
+      var indicators = document.querySelector(".clients__list");
       var items = document.querySelector(".carousel-item");
       var active = document.querySelector(".carousel-item.active");
       var item = event.relatedTarget;
       var itemIndex = item.index();
+      console.log(itemIndex);
 
       if (typeof direction === "undefined") direction = "left";
 
@@ -254,7 +267,7 @@ export default {
 
         if (direction === "right") {
           item.insertBefore(active);
-          this.carousel.prev();
+          this.carousel.next();
 
           setTimeout(function () {
             if (itemIndex === items.length - 1) {
@@ -265,7 +278,7 @@ export default {
           }, 600);
         } else {
           item.insertAfter(active);
-          this.carousel.next();
+          this.carousel.prev();
 
           setTimeout(function () {
             if (itemIndex === 0) {
@@ -278,81 +291,7 @@ export default {
 
         indicators.find(".active").classList.remove("active");
         indicators.children().eq(itemIndex).classList.add("active");
-      } else {
-        direction === "right" ? this.moveRight() : this.moveLeft();
       }
-    },
-    // Move clients image right on scroll
-    moveRight() {
-      document.querySelector(".client-arrow").style.pointerEvents = "none";
-
-      let elem = document.querySelector(".clients__list__item:last-child");
-      this.clientList.prepend(elem);
-      this.pushListToRight();
-
-      if (this.clicked && this.index === 0) {
-        let ele2 = document.querySelector(".clients__list__item:last-child");
-        this.clientList.prepend(ele2);
-
-        let secondElem = document.querySelector(
-          ".clients__list__item:nth-child(2)"
-        );
-        secondElem.style.animation = "expand 0.6s linear";
-
-        this.pushListToRight();
-      }
-
-      this.clientListItem.style.display = "block";
-      document.querySelector(".clients__list__item:last-child").style.display =
-        "none";
-      setTimeout(function () {
-        document.querySelector(".client-arrow").style.pointerEvents = "auto";
-        document.querySelector(
-          ".clients__list__item:nth-child(2)"
-        ).style.animation = "";
-      }, 500);
-    },
-    // Move clients image left on scroll
-    moveLeft() {
-      document.querySelector(".client-arrow").style.pointerEvents = "none";
-
-      let elem = document.querySelector(".clients__list__item:first-child");
-      this.clientList.append(elem);
-      this.pushListToLeft();
-
-      if (this.clicked && this.index === this.totalLength - 1) {
-        let ele2 = document.querySelector(".clients__list__item:first-child");
-        this.clientList.append(ele2);
-
-        let fourthElem = document.querySelector(
-          ".clients__list__item:nth-child(4)"
-        );
-        fourthElem.style.animation = "expand 0.6s linear";
-        this.pushListToLeft();
-      }
-
-      this.clientListItem.style.display = "block";
-      document.querySelector(".clients__list__item:last-child").style.display =
-        "none";
-
-      setTimeout(function () {
-        document.querySelector(".client-arrow").style.pointerEvents = "auto";
-        document.querySelector(
-          ".clients__list__item:nth-child(4)"
-        ).style.animation = "";
-      }, 500);
-    },
-    pushListToLeft() {
-      this.clientList.classList.add("pushleft");
-      setTimeout(function () {
-        this.clientList.classList.remove("pushleft");
-      }, 600);
-    },
-    pushListToRight() {
-      this.clientList.classList.add("pushright");
-      setTimeout(function () {
-        this.clientList.classList.remove("pushright");
-      }, 600);
     },
   },
 };
