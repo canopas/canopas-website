@@ -14,160 +14,27 @@
         >
           <ol class="clients__list text-center">
             <li
+              v-for="(client, i) in clients"
+              :key="'client-' + i"
               data-bs-target="#clientsIndicators"
-              data-slide-to="0"
+              :data-slide-to="i"
               class="clients__list__item gradient-circular-border"
             >
-              <img
-                src="@/assets/images/clients/lisa.jpg"
-                alt="client"
-                draggable="false"
-              />
-            </li>
-            <li
-              data-bs-target="#clientsIndicators"
-              data-slide-to="1"
-              class="clients__list__item gradient-circular-border"
-            >
-              <img
-                src="@/assets/images/clients/marcus.jpg"
-                alt="client"
-                draggable="false"
-              />
-            </li>
-            <li
-              data-bs-target="#clientsIndicators"
-              data-slide-to="2"
-              class="clients__list__item gradient-circular-border"
-            >
-              <img
-                src="@/assets/images/clients/jake.jpg"
-                alt="client"
-                draggable="false"
-              />
-            </li>
-            <li
-              data-bs-target="#clientsIndicators"
-              data-slide-to="3"
-              class="clients__list__item gradient-circular-border"
-            >
-              <img
-                src="@/assets/images/clients/maor.jpg"
-                alt="client"
-                draggable="false"
-              />
-            </li>
-            <li
-              data-bs-target="#clientsIndicators"
-              data-slide-to="4"
-              class="clients__list__item gradient-circular-border"
-            >
-              <img
-                src="@/assets/images/clients/ramasis.jpg"
-                alt="client"
-                draggable="false"
-              />
-            </li>
-            <li
-              data-bs-target="#clientsIndicators"
-              data-slide-to="5"
-              class="clients__list__item gradient-circular-border"
-            >
-              <img
-                src="@/assets/images/clients/jake.jpg"
-                alt="client"
-                draggable="false"
-              />
+              <img :src="client.image" alt="client" draggable="false" />
             </li>
           </ol>
           <div class="carousel-inner">
-            <div class="carousel-item">
+            <div
+              v-for="(item, i) in clients"
+              :key="'client-' + i"
+              :class="{ 'carousel-item': true, active: i === index }"
+            >
               <div class="client">
                 <div class="normal-text canopas-gradient-text mt-4">
-                  Lisa W.
+                  {{ item.name }}
                 </div>
                 <div class="normal-text text-left mt-4">
-                  There is not enough space to say all the wonderful things I
-                  would want to share about Canopas. They are incredibly
-                  helpful, stay calm even when we had to deal with tough issues
-                  on our app, and always found a way to help us fix whatever was
-                  needed or roll out any new features for our app in both the
-                  iOS and Android stores. I will absolutely find a way to work
-                  with Canopas again!
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="client">
-                <div class="normal-text canopas-gradient-text mt-4">
-                  Marcus L.
-                </div>
-                <div class="normal-text text-left mt-4">
-                  Canopas has been nothing but wonderful on this project. His
-                  communication and ability to advise on the best solutions
-                  throughout the project were top-notch. I have very much
-                  enjoyed working with Darpan and his team and would surely
-                  recommend them to anyone looking for a solid developer.
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item active">
-              <div class="client">
-                <div class="normal-text canopas-gradient-text mt-4">
-                  Jake N.
-                </div>
-                <div class="normal-text text-left mt-4">
-                  Canopas team was also incredibly kind and always willing to
-                  solve any problem through research something that we highly
-                  appreciate. Many people do not take the time to understand a
-                  problem but Canopas did it every time and found a way to fix
-                  it. They even thought about the User Experience and the design
-                  which not many engineers think about. We are so lucky to have
-                  worked with them and look forward to working with them again
-                  in the future!
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="client">
-                <div class="normal-text canopas-gradient-text mt-4">
-                  Maor T.
-                </div>
-                <div class="normal-text text-left mt-4">
-                  This is our favorite expert for all mobile and web developing
-                  areas. Darpan has a great team who get the job done above our
-                  expectations. We would like to hire Canopas for more projects
-                  in the future and highly recommend their kind and professional
-                  services.
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="client">
-                <div class="normal-text canopas-gradient-text mt-4">
-                  Ramsis A.
-                </div>
-                <div class="normal-text text-left mt-4">
-                  Canopas has been great to work with. From day 1, they made
-                  sure they understood exactly what I wanted and advised and
-                  guided me during the process (with patience). This project has
-                  ended, but I am sure to work with them again on other
-                  projects. I would recommend their services.
-                </div>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="client">
-                <div class="normal-text canopas-gradient-text mt-4">
-                  Jake N.
-                </div>
-                <div class="normal-text text-left mt-4">
-                  Canopas team was unbelievable. They did everything and above.
-                  We had initially hired them just for engineering the app, but
-                  they were able to jump between app development, web
-                  development, different integrations, and more. It was really
-                  impressive, and we were so lucky to work with them. They
-                  thought about everything, even things we did not bring up.
+                  {{ item.review }}
                 </div>
               </div>
             </div>
@@ -175,13 +42,17 @@
         </div>
       </div>
       <div class="mt-4 client-arrow">
-        <button type="button" class="clients-indicators" @click="leftIndicator">
+        <button
+          type="button"
+          class="clients-indicators"
+          @click="setIndex(index - 1)"
+        >
           <font-awesome-icon class="arrow" icon="arrow-left" id="leftArrow" />
         </button>
         <button
           type="button"
           class="clients-indicators"
-          @click="rightIndicator"
+          @click="setIndex(index + 1)"
         >
           <font-awesome-icon class="arrow" icon="arrow-right" id="rightArrow" />
         </button>
@@ -192,167 +63,92 @@
 
 <script type="module">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import * as Bootstrap from "bootstrap";
 
 export default {
   data() {
     return {
-      totalLength: null,
-      direction: "left",
+      clients: [
+        {
+          image: require("@/assets/images/clients/lisa.jpg"),
+          name: "Lisa W.",
+          review:
+            "There is not enough space to say all the wonderful things I\
+                  would want to share about Canopas. They are incredibly\
+                  helpful, stay calm even when we had to deal with tough issues\
+                  on our app, and always found a way to help us fix whatever was\
+                  needed or roll out any new features for our app in both the\
+                  iOS and Android stores. I will absolutely find a way to work\
+                  with Canopas again!",
+        },
+        {
+          image: require("@/assets/images/clients/marcus.jpg"),
+          name: "Marcus L.",
+          review:
+            "Canopas has been nothing but wonderful on this project. His\
+                  communication and ability to advise on the best solutions\
+                  throughout the project were top-notch. I have very much\
+                  enjoyed working with Darpan and his team and would surely\
+                  recommend them to anyone looking for a solid developer.",
+        },
+        {
+          image: require("@/assets/images/clients/jake.jpg"),
+          name: "Jake N.",
+          review:
+            "Canopas team was also incredibly kind and always willing to\
+                  solve any problem through research something that we highly\
+                  appreciate. Many people do not take the time to understand a\
+                  problem but Canopas did it every time and found a way to fix\
+                  it. They even thought about the User Experience and the design\
+                  which not many engineers think about. We are so lucky to have\
+                  worked with them and look forward to working with them again\
+                  in the future!",
+        },
+        {
+          image: require("@/assets/images/clients/maor.jpg"),
+          name: "Maor T.",
+          review:
+            "This is our favorite expert for all mobile and web developing\
+                  areas. Darpan has a great team who get the job done above our\
+                  expectations. We would like to hire Canopas for more projects\
+                  in the future and highly recommend their kind and professional\
+                  services.",
+        },
+        {
+          image: require("@/assets/images/clients/ramasis.jpg"),
+          name: "Ramsis A.",
+          review:
+            "Canopas has been great to work with. From day 1, they made\
+                  sure they understood exactly what I wanted and advised and\
+                  guided me during the process (with patience). This project has\
+                  ended, but I am sure to work with them again on other\
+                  projects. I would recommend their services.",
+        },
+        {
+          image: require("@/assets/images/clients/jake.jpg"),
+          name: "Jake N.",
+          review:
+            "Canopas team was unbelievable. They did everything and above.\
+                  We had initially hired them just for engineering the app, but\
+                  they were able to jump between app development, web\
+                  development, different integrations, and more. It was really\
+                  impressive, and we were so lucky to work with them. They\
+                  thought about everything, even things we did not bring up.",
+        },
+      ],
       index: 0,
-      clicked: false,
-      clientList: null,
-      clientListItem: null,
-      carouselElem: null,
-      carousel: null,
     };
   },
   components: {
     FontAwesomeIcon,
   },
-  mounted: function () {
-    this.totalLength =
-      document.querySelector("#clientsIndicators .carousel-item").length - 1;
-    this.clientList = document.querySelector(".clients__list");
-    this.clientListItem = document.querySelector(".clients__list__item");
-
-    this.carouselElem = this.$refs.carousel;
-    this.carousel = new Bootstrap.Carousel(this.carouselElem, {
-      interval: false,
-      touch: false,
-    });
-
-    this.carouselSlider();
-  },
   methods: {
-    carouselSlider() {
-      this.carouselElem.addEventListener("slide.bs.carousel", (e) => {
-        this.slideTo(e, this.direction);
-      });
-    },
-    leftIndicator() {
-      this.clicked = false;
-      this.direction = "left";
-      this.carousel.next();
-    },
-    rightIndicator() {
-      this.clicked = false;
-      this.direction = "right";
-      this.carousel.prev();
-    },
-    slideTo(event, direction) {
-      var indicators = document.querySelector(".client__list");
-      var items = document.querySelector(".carousel-item");
-      var active = document.querySelector(".carousel-item.active");
-      var item = event.relatedTarget;
-      var itemIndex = item.index();
+    setIndex(newIndex) {
+      let index = newIndex;
 
-      if (typeof direction === "undefined") direction = "left";
+      if (index === this.clients.length) index = 0;
+      else if (index === -1) index = this.clients.length - 1;
 
-      if (event.direction !== direction) {
-        event.preventDefault();
-
-        if (direction === "right") {
-          item.insertBefore(active);
-          this.carousel.prev();
-
-          setTimeout(function () {
-            if (itemIndex === items.length - 1) {
-              item.insertAfter(items.eq(itemIndex - 1));
-            } else {
-              item.insertBefore(items.eq(itemIndex + 1));
-            }
-          }, 600);
-        } else {
-          item.insertAfter(active);
-          this.carousel.next();
-
-          setTimeout(function () {
-            if (itemIndex === 0) {
-              item.insertBefore(items.eq(1));
-            } else {
-              item.insertAfter(items.eq(itemIndex - 1));
-            }
-          }, 600);
-        }
-
-        indicators.find(".active").classList.remove("active");
-        indicators.children().eq(itemIndex).classList.add("active");
-      } else {
-        direction === "right" ? this.moveRight() : this.moveLeft();
-      }
-    },
-    // Move clients image right on scroll
-    moveRight() {
-      document.querySelector(".client-arrow").style.pointerEvents = "none";
-
-      let elem = document.querySelector(".clients__list__item:last-child");
-      this.clientList.prepend(elem);
-      this.pushListToRight();
-
-      if (this.clicked && this.index === 0) {
-        let ele2 = document.querySelector(".clients__list__item:last-child");
-        this.clientList.prepend(ele2);
-
-        let secondElem = document.querySelector(
-          ".clients__list__item:nth-child(2)"
-        );
-        secondElem.style.animation = "expand 0.6s linear";
-
-        this.pushListToRight();
-      }
-
-      this.clientListItem.style.display = "block";
-      document.querySelector(".clients__list__item:last-child").style.display =
-        "none";
-      setTimeout(function () {
-        document.querySelector(".client-arrow").style.pointerEvents = "auto";
-        document.querySelector(
-          ".clients__list__item:nth-child(2)"
-        ).style.animation = "";
-      }, 500);
-    },
-    // Move clients image left on scroll
-    moveLeft() {
-      document.querySelector(".client-arrow").style.pointerEvents = "none";
-
-      let elem = document.querySelector(".clients__list__item:first-child");
-      this.clientList.append(elem);
-      this.pushListToLeft();
-
-      if (this.clicked && this.index === this.totalLength - 1) {
-        let ele2 = document.querySelector(".clients__list__item:first-child");
-        this.clientList.append(ele2);
-
-        let fourthElem = document.querySelector(
-          ".clients__list__item:nth-child(4)"
-        );
-        fourthElem.style.animation = "expand 0.6s linear";
-        this.pushListToLeft();
-      }
-
-      this.clientListItem.style.display = "block";
-      document.querySelector(".clients__list__item:last-child").style.display =
-        "none";
-
-      setTimeout(function () {
-        document.querySelector(".client-arrow").style.pointerEvents = "auto";
-        document.querySelector(
-          ".clients__list__item:nth-child(4)"
-        ).style.animation = "";
-      }, 500);
-    },
-    pushListToLeft() {
-      this.clientList.classList.add("pushleft");
-      setTimeout(function () {
-        this.clientList.classList.remove("pushleft");
-      }, 600);
-    },
-    pushListToRight() {
-      this.clientList.classList.add("pushright");
-      setTimeout(function () {
-        this.clientList.classList.remove("pushright");
-      }, 600);
+      this.index = index;
     },
   },
 };
