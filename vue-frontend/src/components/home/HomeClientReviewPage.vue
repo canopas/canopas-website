@@ -6,54 +6,38 @@
         people like You!
       </div>
       <div class="horizontal-slider normal-text text-center">
-        <div
-          id="clientsIndicators"
-          class="carousel slide"
-          ref="carousel"
-          data-bs-ride="carousel"
+        <transition-group
+          name="client-image"
+          tag="ol"
+          class="clients__list text-center"
         >
-          <ol class="clients__list text-center">
-            <li
-              v-for="(client, i) in clients"
-              :key="'client-' + i"
-              data-bs-target="#clientsIndicators"
-              :data-slide-to="i"
-              class="clients__list__item gradient-circular-border"
-            >
-              <img :src="client.image" alt="client" draggable="false" />
-            </li>
-          </ol>
-          <div class="carousel-inner">
-            <div
-              v-for="(item, i) in clients"
-              :key="'client-' + i"
-              :class="{ 'carousel-item': true, active: i === index }"
-            >
-              <div class="client">
-                <div class="normal-text canopas-gradient-text mt-4">
-                  {{ item.name }}
-                </div>
-                <div class="normal-text text-left mt-4">
-                  {{ item.review }}
-                </div>
+          <li
+            v-for="(client, i) in currentClients"
+            :key="client"
+            class="gradient-circular-border client-image-item"
+            :class="'client-image-item-' + i"
+          >
+            <img :src="client.image" alt="client" draggable="false" />
+          </li>
+        </transition-group>
+        <div class="client-review-slider">
+          <transition-group tag="div" :name="reviewTransitionName">
+            <div class="client-review" :key="clients[current].id">
+              <div class="normal-text canopas-gradient-text mt-4">
+                {{ clients[current].name }}
+              </div>
+              <div class="normal-text text-left mt-4">
+                {{ clients[current].review }}
               </div>
             </div>
-          </div>
+          </transition-group>
         </div>
       </div>
-      <div class="mt-4 client-arrow">
-        <button
-          type="button"
-          class="clients-indicators"
-          @click="setIndex(index - 1)"
-        >
+      <div class="mt-4">
+        <button type="button" class="clients-indicators" @click="slide(-1)">
           <font-awesome-icon class="arrow" icon="arrow-left" id="leftArrow" />
         </button>
-        <button
-          type="button"
-          class="clients-indicators"
-          @click="setIndex(index + 1)"
-        >
+        <button type="button" class="clients-indicators" @click="slide(1)">
           <font-awesome-icon class="arrow" icon="arrow-right" id="rightArrow" />
         </button>
       </div>
@@ -69,6 +53,7 @@ export default {
     return {
       clients: [
         {
+          id: "client-1",
           image: require("@/assets/images/clients/lisa.jpg"),
           name: "Lisa W.",
           review:
@@ -81,6 +66,7 @@ export default {
                   with Canopas again!",
         },
         {
+          id: "client-2",
           image: require("@/assets/images/clients/marcus.jpg"),
           name: "Marcus L.",
           review:
@@ -91,6 +77,7 @@ export default {
                   recommend them to anyone looking for a solid developer.",
         },
         {
+          id: "client-3",
           image: require("@/assets/images/clients/jake.jpg"),
           name: "Jake N.",
           review:
@@ -104,6 +91,7 @@ export default {
                   in the future!",
         },
         {
+          id: "client-4",
           image: require("@/assets/images/clients/maor.jpg"),
           name: "Maor T.",
           review:
@@ -114,6 +102,7 @@ export default {
                   services.",
         },
         {
+          id: "client-5",
           image: require("@/assets/images/clients/ramasis.jpg"),
           name: "Ramsis A.",
           review:
@@ -124,6 +113,7 @@ export default {
                   projects. I would recommend their services.",
         },
         {
+          id: "client-6",
           image: require("@/assets/images/clients/jake.jpg"),
           name: "Jake N.",
           review:
@@ -135,21 +125,40 @@ export default {
                   thought about everything, even things we did not bring up.",
         },
       ],
-      index: 0,
+      current: 0,
+      currentClients: ["", "", "", "", ""],
+      reviewTransitionName: "",
     };
   },
   components: {
     FontAwesomeIcon,
   },
   methods: {
-    setIndex(newIndex) {
-      let index = newIndex;
-
-      if (index === this.clients.length) index = 0;
-      else if (index === -1) index = this.clients.length - 1;
-
-      this.index = index;
+    slide(dir) {
+      dir === 1
+        ? (this.reviewTransitionName = "review-next")
+        : (this.reviewTransitionName = "review-prev");
+      this.current = this.getRoundedIndex(dir);
+      this.refreshCurrentClients();
     },
+    getRoundedIndex(diff) {
+      var len = this.clients.length;
+      return (this.current + (diff % len) + len) % len;
+    },
+    refreshCurrentClients() {
+      this.currentClients.splice(
+        0,
+        5,
+        this.clients[this.getRoundedIndex(-2)],
+        this.clients[this.getRoundedIndex(-1)],
+        this.clients[this.getRoundedIndex(0)],
+        this.clients[this.getRoundedIndex(1)],
+        this.clients[this.getRoundedIndex(2)]
+      );
+    },
+  },
+  mounted() {
+    this.refreshCurrentClients();
   },
 };
 </script>
@@ -158,7 +167,6 @@ export default {
 .success-stories-bg {
   background: rgba(255, 148, 114, 0.05);
   padding: 6% 0;
-
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -178,11 +186,7 @@ export default {
   padding-left: 0 !important;
 }
 
-.clients__list > li:last-child {
-  display: none;
-}
-
-.clients__list__item {
+.client-image-item {
   overflow: hidden;
   border-radius: 50%;
   position: relative;
@@ -191,7 +195,7 @@ export default {
   margin: 0 1rem;
 }
 
-.clients__list__item > img {
+.client-image-item > img {
   border-radius: 50%;
   margin: 0 auto;
   width: 100%;
@@ -199,36 +203,27 @@ export default {
   border: 5px solid transparent;
 }
 
-.clients__list__item:first-child {
+.client-image-item-0 {
   opacity: 0.15;
   width: 9%;
 }
 
-.clients__list__item:nth-child(2) {
+.client-image-item-1 {
   opacity: 0.4;
   width: 12%;
 }
 
-.clients__list__item:nth-child(3) {
+.client-image-item-2 {
   opacity: 1;
   width: 15%;
 }
 
-.clients__list__item:nth-child(3) > img {
-  pointer-events: none;
-}
-
-.clients__list__item:nth-child(4) {
+.client-image-item-3 {
   opacity: 0.4;
   width: 12%;
 }
 
-.clients__list__item:nth-child(5) {
-  opacity: 0.15;
-  width: 9%;
-}
-
-.clients__list__item:last-child {
+.client-image-item-4 {
   opacity: 0.15;
   width: 9%;
 }
@@ -263,44 +258,61 @@ export default {
   color: #f2709c;
 }
 
-.pushleft {
-  animation: pushleft 0.6s;
+.client-image-item {
+  transition: all 0.6s ease-in-out;
 }
 
-.pushright {
-  animation: pushright 0.6s;
+.client-image-leave-active {
+  display: none;
 }
 
-@-webkit-keyframes pushleft {
-  0% {
-    -webkit-transform: translateX(10%);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-  }
+.client-review-slider {
+  margin: 0 auto;
+  position: relative;
+  height: 350px;
+  width: 100%;
 }
 
-@-webkit-keyframes pushright {
-  0% {
-    -webkit-transform: translateX(-10%);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-  }
+.client-review {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 32px auto;
+  align-items: center;
 }
 
-@keyframes expand {
-  from {
-    transform: scale(0.8);
-    opacity: 0.15;
-  }
+/* GO TO NEXT SLIDE */
+.review-next-enter-active,
+.review-next-leave-active {
+  transition: transform 0.5s ease-in-out;
+}
+.review-next-enter-active {
+  transform: translate(150%);
+}
+.review-next-enter-to {
+  transform: translate(0%);
+}
+.review-next-leave-to {
+  transform: translate(-150%);
 }
 
-@keyframes expand-in {
-  from {
-    transform: scale(1.1);
-    opacity: 0.4;
-  }
+/* GO TO PREVIOUS SLIDE */
+.review-prev-enter-active,
+.review-prev-leave-active {
+  transition: transform 0.5s ease-in-out;
+}
+.review-prev-enter-active {
+  transform: translate(-150%);
+}
+.review-prev-enter-to {
+  transform: translate(0%);
+}
+.review-prev-leave-to {
+  transform: translate(150%);
 }
 
 /* responsive */
@@ -332,9 +344,9 @@ export default {
     height: 15rem;
   }
 
-  .client {
-    width: 40rem;
-    margin: 2rem auto;
+  .client-review-slider {
+    width: 640px;
+    overflow: hidden;
   }
 
   .clients__list__item:first-child {
