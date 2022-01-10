@@ -195,6 +195,7 @@ export default {
   backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  overflow: hidden;
 }
 
 .horizontal-slider {
