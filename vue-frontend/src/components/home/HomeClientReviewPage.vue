@@ -200,7 +200,7 @@ export default {
 
 .horizontal-slider {
   margin: 48px auto 0;
-  width: 80%;
+  width: 85%;
 }
 
 .clients-list {
@@ -255,7 +255,7 @@ export default {
 }
 
 .client-image-prev-enter-active {
-  transform: translate(120%);
+  transform: translate(-120%);
 }
 .client-image-prev-enter-to {
   transform: translate(0%);
