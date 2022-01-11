@@ -4,7 +4,7 @@
       Listen what real app users <br />
       are saying...
     </div>
-    <div class="horizontal-grid">
+    <div class="horizontal-grid" ref="horizontalGrid">
       <div class="grid-animation">
         <div class="horizontal-grid-1 animation" ref="horizontalGrid1">
           <div
@@ -23,7 +23,7 @@
             </div>
           </div>
         </div>
-        <div class="horizontal-grid-2 animation">
+        <div class="horizontal-grid-2 animation" ref="horizontalGrid2">
           <div
             v-for="userReview in usersReviewsGrid2"
             :key="userReview.id"
@@ -121,8 +121,36 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
-    let hello = this.$refs.userReviewGrid1[0];
-    hello.style.marginLeft = "300px";
+    this.$refs.userReviewGrid1[0].style.marginLeft = "300px";
+
+    this.initSmoothScrolling();
+  },
+  methods: {
+    initSmoothScrolling() {
+      let container = this.$refs.horizontalGrid;
+      let userReviewGrid1 = this.$refs.userReviewGrid1;
+      let userReviewGrid2 = this.$refs.userReviewGrid2;
+
+      var slidesVisible1 =
+        container.clientWidth / userReviewGrid1[0].clientWidth;
+      slidesVisible1 = Math.ceil(slidesVisible1);
+
+      var slidesVisible2 =
+        container.clientWidth / userReviewGrid2[0].clientWidth;
+      slidesVisible2 = Math.ceil(slidesVisible2);
+
+      // append the tail
+
+      userReviewGrid1
+        .slice(0, slidesVisible1)
+        .cloneNode(true)
+        .append(this.$refs.userReviewGrid1);
+
+      userReviewGrid2
+        .slice(0, slidesVisible2)
+        .cloneNode(true)
+        .append(this.$refs.userReviewGrid1);
+    },
   },
 };
 </script>
@@ -146,7 +174,7 @@ export default {
 .horizontal-grid {
   margin-top: 32px;
   overflow-x: hidden;
-  overflow-y: hidden;
+  overflow-y: auto;
   text-align: left;
   scrollbar-width: none;
 }
@@ -157,8 +185,7 @@ export default {
 
 .grid-animation {
   margin-bottom: 32px;
-  /* white-space: nowrap; */
-  animation: slide 20s linear infinite;
+  animation: scroll 30s linear infinite;
 }
 
 .grid-animation:hover {
@@ -181,6 +208,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transform: translate3d(0, 0, 0);
 }
 
 .users-review:hover {
@@ -189,12 +217,12 @@ export default {
   transform: scale(0.97);
 }
 
-@keyframes slide {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
+@keyframes scroll {
   100% {
-    transform: translate3d(-1910px, 0, 0); /* The image width */
+    left: 0 !important;
+    transform: translateX(
+      -3696px
+    ); /* The gridView cards width multiplied by numbers of gridView cards  */
   }
 }
 
