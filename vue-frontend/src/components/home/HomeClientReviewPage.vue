@@ -30,7 +30,7 @@
         <div class="client-review-slider">
           <transition-group tag="div" :name="'review-' + reviewTransitionName">
             <div class="client-review" :key="clients[current].id">
-              <div class="normal-text canopas-gradient-text mt-4">
+              <div class="normal-text canopas-gradient-text">
                 {{ clients[current].name }}
               </div>
               <div class="normal-text text-left mt-4">
@@ -311,9 +311,11 @@ export default {
   height: 100%;
   top: 0;
   left: 0;
+  right: 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  margin: 32px auto;
+  justify-content: center;
   align-items: center;
 }
 
@@ -349,6 +351,12 @@ export default {
 
 /* responsive */
 
+@media (min-width: 630px) {
+  .client-review {
+    width: 70%;
+  }
+}
+
 @media (min-width: 768px) {
   .header-text {
     line-height: 2rem;
@@ -358,6 +366,21 @@ export default {
   .normal-text {
     font-size: 1.125rem;
     line-height: 1.375rem;
+  }
+
+  .client-image-item-0 {
+    opacity: 1;
+    width: 15%;
+  }
+
+  .client-image-item-1 {
+    opacity: 0.4;
+    width: 12%;
+  }
+
+  .client-image-item-2 {
+    opacity: 0.15;
+    width: 9%;
   }
 }
 
@@ -380,6 +403,10 @@ export default {
     width: 60%;
   }
 
+  .client-review {
+    width: 100%;
+  }
+
   .clients-list {
     height: 160 px;
   }
@@ -387,21 +414,6 @@ export default {
   .client-review-slider {
     width: 640px;
     overflow: hidden;
-  }
-
-  .client-image-item-0 {
-    opacity: 1;
-    width: 15%;
-  }
-
-  .client-image-item-1 {
-    opacity: 0.4;
-    width: 12%;
-  }
-
-  .client-image-item-2 {
-    opacity: 0.15;
-    width: 9%;
   }
 }
 
