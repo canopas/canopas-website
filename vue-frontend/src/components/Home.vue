@@ -4,6 +4,7 @@
     <div class="main-wrapper">
       <Header />
       <HomeLandingPage />
+      <HomeClientReviewPage />
     </div>
   </div>
 </template>
@@ -11,12 +12,14 @@
 <script>
 import Header from "./partials/Header.vue";
 import HomeLandingPage from "./home/HomeLandingPage.vue";
+import HomeClientReviewPage from "./home/HomeClientReviewPage.vue";
 
 export default {
   name: "App",
   components: {
     Header,
     HomeLandingPage,
+    HomeClientReviewPage,
   },
 };
 </script>
@@ -28,5 +31,11 @@ export default {
   font-size: 1.1rem;
   line-height: 1.3rem;
   color: rgba(0, 0, 0, 0.5);
+}
+
+.header-text {
+  font-weight: 700;
+  line-height: 1.813rem;
+  font-size: 1.5rem;
 }
 </style>

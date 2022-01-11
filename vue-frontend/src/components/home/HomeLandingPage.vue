@@ -66,12 +66,6 @@ export default {
   z-index: -5;
 }
 
-.header-text {
-  font-weight: 700;
-  line-height: 1.813rem;
-  font-size: 1.5rem;
-}
-
 .overlay {
   background: rgba(255, 255, 255, 0.95);
   padding: 7% 0;

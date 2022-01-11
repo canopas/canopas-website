@@ -4,10 +4,10 @@
 
 <script>
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Home from "./components/Home.vue";
 
-library.add(faArrowRight);
+library.add(faArrowRight, faArrowLeft);
 
 export default {
   name: "App",
