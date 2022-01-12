@@ -193,7 +193,7 @@ export default {
 
   methods: {
     handleScroll() {
-      var diff = window.scrollY - this.lastScrollY;
+      let diff = window.scrollY - this.lastScrollY;
       if (diff < 0) {
         this.gridAnimationReverse = "grid-animation-reverse-running";
       } else {
