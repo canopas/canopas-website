@@ -3,23 +3,26 @@
     <!-- Main Website -->
     <div class="main-wrapper">
       <Header />
-      <HomeLandingPage />
-      <HomeClientReviewPage />
+      <LandingView />
+      <ClientReview />
+      <UserReviews />
     </div>
   </div>
 </template>
 
 <script>
 import Header from "./partials/Header.vue";
-import HomeLandingPage from "./home/HomeLandingPage.vue";
-import HomeClientReviewPage from "./home/HomeClientReviewPage.vue";
+import LandingView from "./home/LandingView.vue";
+import UserReviews from "./home/UserReviews.vue";
+import ClientReview from "./home/ClientReview.vue";
 
 export default {
   name: "App",
   components: {
     Header,
-    HomeLandingPage,
-    HomeClientReviewPage,
+    LandingView,
+    UserReviews,
+    ClientReview,
   },
 };
 </script>
