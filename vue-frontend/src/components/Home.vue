@@ -5,6 +5,7 @@
       <Header />
       <HomeLandingPage />
       <HomeClientReviewPage />
+      <ProblemSolutionPage />
     </div>
   </div>
 </template>
@@ -13,6 +14,7 @@
 import Header from "./partials/Header.vue";
 import HomeLandingPage from "./home/HomeLandingPage.vue";
 import HomeClientReviewPage from "./home/HomeClientReviewPage.vue";
+import ProblemSolutionPage from "./home/ProblemSolution.vue";
 
 export default {
   name: "App",
@@ -20,6 +22,7 @@ export default {
     Header,
     HomeLandingPage,
     HomeClientReviewPage,
+    ProblemSolutionPage,
   },
 };
 </script>
