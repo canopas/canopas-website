@@ -4,7 +4,7 @@
       class="parallax-image"
       :src="developerBackgroundImage"
       loading="lazy"
-      alt="Avatar"
+      alt="developer-background-image"
     />
     <div class="parallax-image developer-gradient"></div>
 
@@ -58,12 +58,12 @@
           satisfaction, not headache and nightmares.
         </div>
         <div class="normal-text resources-text">
-          <div class="normal-text text-white pb-30">
+          <div class="normal-text text-white">
             You probably need a team that helps you to develop a digital product
             that is…
           </div>
 
-          <ul class="resources-list normal-text text-white">
+          <ul class="resources-list normal-text text-white mt-20">
             <li>
               <span class="bullet"></span>
               <div>
@@ -169,10 +169,14 @@ li > div {
   margin: 32px 0;
 }
 
+.resources-list{
+    padding-left: 0;
+}
+
 .resources-list > li {
   padding: 0.6rem 0;
   display: flex;
-  opacity: 75%;
+  opacity: .75;
 }
 
 .resources-list > li > div {
@@ -196,6 +200,10 @@ li > div {
   margin: 0.3rem 1.5rem 0 0;
 }
 
+.mt-20 {
+    margin-top: 1.25rem;
+}
+
 @media (min-width: 768px) {
   .header-text {
     line-height: 2rem;
@@ -208,7 +216,7 @@ li > div {
   }
 
   .resource-content {
-    width: 49%;
+    width: 55%;
   }
 
   .carousel-indicator {
