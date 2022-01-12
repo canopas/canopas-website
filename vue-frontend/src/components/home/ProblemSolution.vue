@@ -1,92 +1,94 @@
 <template>
-  <div class="parallax">
-    <div class="rellax rellax-image-parent">
-      <img class="rellax-img" :src="developerBackgroundImage" alt="Avatar" />
-    </div>
-    <div class="rellax" data-rellax-speed="7">
-      <div class="resource-content">
-        <div class="resource-item" id="item1">
-          <div
-            class="header-text canopas-gradient-text"
-            data-scroll-class="item1"
-          >
-            What's more painful than hiring a developer or team who
-            misunderstands every little thing about your project.
-          </div>
-          <div class="normal-text resources-text" data-scroll-class="item2">
-            <div class="text-white">
-              <b> THREE REASONS WHY </b> You can’t afford to outsource your
-              project to someone who struggles to understand you and your
-              business.
-            </div>
-            <ul class="text-white resources-list mt-20">
-              <li>
-                <span class="bullet"></span>
-                <div>
-                  You might end up wasting your precious resources like Time,
-                  Money, and Energy.
-                </div>
-              </li>
-              <li>
-                <span class="bullet"></span>
-                <div>
-                  Your final product might have issues like bad quality, poor
-                  performance, awful design, and sometimes you won’t receive
-                  anything.
-                </div>
-              </li>
-              <li>
-                <span class="bullet"></span>
-                <div>
-                  Most IMPORTANTLY, unsuccessful business relationships might
-                  affect your mood and behaviour. You might experience stress,
-                  anxiety, negativity, insecurity, uncertainty, etc. It might
-                  influence your behaviour, and you may end up doubting everyone
-                  around you including YOURSELF.
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="resource-item" id="item2">
-          <div class="header-text canopas-gradient-text">
-            You need a solution that will reward you with money, peace, and
-            satisfaction, not headache and nightmares.
-          </div>
-          <div class="normal-text resources-text">
-            <div class="normal-text text-white pb-30">
-              You probably need a team that helps you to develop a digital
-              product that is…
-            </div>
+  <div class="parallax-container">
+    <img
+      class="parallax-image"
+      :src="developerBackgroundImage"
+      loading="lazy"
+      alt="Avatar"
+    />
+    <div class="parallax-image developer-gradient"></div>
 
-            <ul class="resources-list normal-text text-white">
-              <li>
-                <span class="bullet"></span>
-                <div>
-                  Simple<br />
-                  Easy to use<br />
-                  Beautifully Crafted<br />
-                  And Users love it.<br />
-                </div>
-              </li>
-            </ul>
-            <div class="normal-text text-white mt-20">
-              But, I guess that’s not enough
-              <br />
-              <br />
-              You want somebody who asks questions, suggests ways to improve
-              your apps and tries to understand YOU, your vision(or helps you
-              achieve your goals or dreams), and the value of your app or
-              product.
-              <br />
-              <br />
-              You’re looking for a team who knows that your time is limited and
-              knows how to use it wisely to build a high-quality product.
-              <br />
-              <br />
-              Canopas understands these issues and knows how to handle them. So,
-              you don't have to.
-            </div>
+    <div class="parallax-scroll-container">
+      <div class="resource-item" id="item1">
+        <div
+          class="header-text canopas-gradient-text"
+          data-scroll-class="item1"
+        >
+          What's more painful than hiring a developer or team who misunderstands
+          every little thing about your project.
+        </div>
+        <div class="normal-text resources-text" data-scroll-class="item2">
+          <div class="text-white">
+            <b> THREE REASONS WHY </b> You can’t afford to outsource your
+            project to someone who struggles to understand you and your
+            business.
+          </div>
+          <ul class="text-white resources-list mt-20">
+            <li>
+              <span class="bullet"></span>
+              <div>
+                You might end up wasting your precious resources like Time,
+                Money, and Energy.
+              </div>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <div>
+                Your final product might have issues like bad quality, poor
+                performance, awful design, and sometimes you won’t receive
+                anything.
+              </div>
+            </li>
+            <li>
+              <span class="bullet"></span>
+              <div>
+                Most IMPORTANTLY, unsuccessful business relationships might
+                affect your mood and behaviour. You might experience stress,
+                anxiety, negativity, insecurity, uncertainty, etc. It might
+                influence your behaviour, and you may end up doubting everyone
+                around you including YOURSELF.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="resource-item" id="item2">
+        <div class="header-text canopas-gradient-text">
+          You need a solution that will reward you with money, peace, and
+          satisfaction, not headache and nightmares.
+        </div>
+        <div class="normal-text resources-text">
+          <div class="normal-text text-white pb-30">
+            You probably need a team that helps you to develop a digital product
+            that is…
+          </div>
+
+          <ul class="resources-list normal-text text-white">
+            <li>
+              <span class="bullet"></span>
+              <div>
+                Simple<br />
+                Easy to use<br />
+                Beautifully Crafted<br />
+                And Users love it.<br />
+              </div>
+            </li>
+          </ul>
+          <div class="normal-text text-white mt-20">
+            But, I guess that’s not enough
+            <br />
+            <br />
+            You want somebody who asks questions, suggests ways to improve your
+            apps and tries to understand YOU, your vision(or helps you achieve
+            your goals or dreams), and the value of your app or product.
+            <br />
+            <br />
+            You’re looking for a team who knows that your time is limited and
+            knows how to use it wisely to build a high-quality product.
+            <br />
+            <br />
+            Canopas understands these issues and knows how to handle them. So,
+            you don't have to.
           </div>
         </div>
       </div>
@@ -95,7 +97,6 @@
 </template>
 
 <script type="module">
-import Rellax from "rellax";
 import developerBackgroundImage from "@/assets/images/theme/developer.webp";
 
 export default {
@@ -104,39 +105,38 @@ export default {
       developerBackgroundImage: developerBackgroundImage,
     };
   },
-  mounted() {
-    new Rellax(".rellax", {
-      vertical: true,
-      horizontal: false,
-      center: true,
-    });
-  },
+  mounted() {},
 };
 </script>
 
 <style scoped>
-.parallax {
-  overflow: hidden;
+.parallax-container {
   margin: 5% auto;
-  background-image: l;
+  position: relative;
 }
 
-.rellax-image-parent {
-  background: linear-gradient(
-    to bottom,
-    rgba(61, 61, 61, 0.85) 0%,
-    rgba(61, 61, 61, 0.85) 100%
+.parallax-image {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -5;
+  object-fit: cover;
+}
+
+.developer-gradient {
+  margin-top: -100vh;
+  background-image: linear-gradient(
+    rgba(61, 61, 61, 0.85),
+    rgba(61, 61, 61, 0.85)
   );
 }
 
-.rellax-img {
-  width: 100%;
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  display: block;
+.parallax-scroll-container {
+  width: 70%;
+  margin: -100vh auto 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .resource-content {
@@ -237,6 +237,10 @@ li > div {
     background: linear-gradient(180deg, #ff9472 0%, #f2709c 100%);
     border: 1px solid #ffffff;
     transform: scale(1.6);
+  }
+
+  .parallax-scroll-container {
+    width: 49%;
   }
 }
 
