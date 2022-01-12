@@ -6,12 +6,25 @@
     </div>
     <div class="horizontal-grid" ref="horizontalGrid">
       <div class="grid-animation">
-        <div class="horizontal-grid-1 animation" ref="horizontalGrid1">
+        <div class="horizontal-grid-1" ref="horizontalGrid1">
           <div
             v-for="userReview in usersReviewsGrid1"
             :key="userReview.id"
             class="users-review"
-            ref="userReviewGrid1"
+          >
+            {{ userReview.review }}
+            <div>
+              <font-awesome-icon icon="star" class="checked mt-3" />
+              <font-awesome-icon icon="star" class="checked" />
+              <font-awesome-icon icon="star" class="checked" />
+              <font-awesome-icon icon="star" class="checked" />
+              <font-awesome-icon icon="star" class="checked" />
+            </div>
+          </div>
+          <div
+            v-for="userReview in usersReviewsGrid1"
+            :key="userReview.id"
+            class="users-review"
           >
             {{ userReview.review }}
             <div>
@@ -23,7 +36,21 @@
             </div>
           </div>
         </div>
-        <div class="horizontal-grid-2 animation" ref="horizontalGrid2">
+        <div class="horizontal-grid-2" ref="horizontalGrid2">
+          <div
+            v-for="userReview in usersReviewsGrid2"
+            :key="userReview.id"
+            class="users-review"
+          >
+            {{ userReview.review }}
+            <div>
+              <font-awesome-icon icon="star" class="checked mt-3" />
+              <font-awesome-icon icon="star" class="checked" />
+              <font-awesome-icon icon="star" class="checked" />
+              <font-awesome-icon icon="star" class="checked" />
+              <font-awesome-icon icon="star" class="checked" />
+            </div>
+          </div>
           <div
             v-for="userReview in usersReviewsGrid2"
             :key="userReview.id"
@@ -120,38 +147,8 @@ export default {
   components: {
     FontAwesomeIcon,
   },
-  mounted() {
-    this.$refs.userReviewGrid1[0].style.marginLeft = "300px";
-
-    this.initSmoothScrolling();
-  },
-  methods: {
-    initSmoothScrolling() {
-      let container = this.$refs.horizontalGrid;
-      let userReviewGrid1 = this.$refs.userReviewGrid1;
-      let userReviewGrid2 = this.$refs.userReviewGrid2;
-
-      var slidesVisible1 =
-        container.clientWidth / userReviewGrid1[0].clientWidth;
-      slidesVisible1 = Math.ceil(slidesVisible1);
-
-      var slidesVisible2 =
-        container.clientWidth / userReviewGrid2[0].clientWidth;
-      slidesVisible2 = Math.ceil(slidesVisible2);
-
-      // append the tail
-
-      userReviewGrid1
-        .slice(0, slidesVisible1)
-        .cloneNode(true)
-        .append(this.$refs.userReviewGrid1);
-
-      userReviewGrid2
-        .slice(0, slidesVisible2)
-        .cloneNode(true)
-        .append(this.$refs.userReviewGrid1);
-    },
-  },
+  mounted() {},
+  methods: {},
 };
 </script>
 
@@ -199,12 +196,16 @@ export default {
   height: fit-content;
 }
 
+.horizontal-grid-1 {
+  margin-left: 160px;
+}
+
 .users-review {
   border: 1px solid #e2e2e2;
   border-radius: 16px;
   padding: 32px;
   margin: 32px 0 0 32px;
-  flex: 0 0 20rem;
+  flex: 0 0 320px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -218,17 +219,38 @@ export default {
 }
 
 @keyframes scroll {
+  /*
+     We animate from 3.5 review cards to 10.5 review card. We have total 14 cards, so user will 
+     see animation as infinite animation.
+     The review cards width + margin - multiplied by numbers of gridView cards
+     = (320 + 32) * 3.5  to (320 + 32) * 10.5
+     */
+  0% {
+    transform: translate(-1232px);
+  }
+
   100% {
-    left: 0 !important;
-    transform: translateX(
-      -3696px
-    ); /* The gridView cards width multiplied by numbers of gridView cards  */
+    transform: translate(-3696px);
   }
 }
 
 @media (min-width: 481px) {
+  .horizontal-grid-1 {
+    margin-left: 240px;
+  }
+
   .users-review {
-    flex: 0 0 30rem;
+    flex: 0 0 480px;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translate(-1792px);
+    }
+
+    100% {
+      transform: translate(-5376px);
+    }
   }
 }
 
@@ -255,8 +277,22 @@ export default {
     line-height: 1.8rem;
   }
 
+  .horizontal-grid-1 {
+    margin-left: 264px;
+  }
+
   .users-review {
-    flex: 0 0 33rem !important;
+    flex: 0 0 528px;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translate(-1960px);
+    }
+
+    100% {
+      transform: translate(-5880px);
+    }
   }
 }
 </style>
