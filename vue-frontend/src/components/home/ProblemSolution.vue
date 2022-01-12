@@ -201,7 +201,7 @@ li > div {
 }
 
 .mt-20 {
-    margin-top: 1.25rem;
+    margin-top: 20px;
 }
 
 @media (min-width: 768px) {
