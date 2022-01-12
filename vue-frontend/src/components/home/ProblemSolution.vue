@@ -18,12 +18,12 @@
           every little thing about your project.
         </div>
         <div class="normal-text resources-text" data-scroll-class="item2">
-          <div class="text-white">
+          <div class="text-white mt-4">
             <b> THREE REASONS WHY </b> You can’t afford to outsource your
             project to someone who struggles to understand you and your
             business.
           </div>
-          <ul class="text-white resources-list mt-20">
+          <ul class="text-white resources-list mt-4">
             <li>
               <span class="bullet"></span>
               <div>
@@ -63,7 +63,7 @@
             that is…
           </div>
 
-          <ul class="resources-list normal-text text-white">
+          <ul class="resources-list normal-text text-white mt-3">
             <li>
               <span class="bullet"></span>
               <div>
@@ -170,9 +170,9 @@ li > div {
 }
 
 .resources-list > li {
-  padding: 0.6rem 0;
+  padding: 10px 0;
   display: flex;
-  opacity: 75%;
+  opacity: 0.75;
 }
 
 .resources-list > li > div {
@@ -209,34 +209,6 @@ li > div {
 
   .resource-content {
     width: 49%;
-  }
-
-  .carousel-indicator {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 50%;
-    right: 15%;
-    transform: translate(-50%, -50%);
-  }
-
-  .carousel-indicator > a {
-    width: 20px;
-    height: 20px;
-    margin: 10px;
-    cursor: pointer;
-    box-sizing: border-box;
-    border-radius: 20px;
-    transform: rotate(90deg);
-    background: #7e7e7e;
-  }
-
-  .carousel-indicator > .active {
-    width: 20px;
-    height: 28px;
-    background: linear-gradient(180deg, #ff9472 0%, #f2709c 100%);
-    border: 1px solid #ffffff;
-    transform: scale(1.6);
   }
 
   .parallax-scroll-container {
