@@ -5,64 +5,98 @@
       are saying...
     </div>
     <div class="horizontal-grid" ref="horizontalGrid">
-      <div class="grid-animation">
-        <div class="horizontal-grid-1" ref="horizontalGrid1">
-          <div
-            v-for="userReview in usersReviewsGrid1"
-            :key="userReview.id"
-            class="users-review"
-          >
-            {{ userReview.review }}
-            <div>
-              <font-awesome-icon icon="star" class="checked mt-3" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
+      <div class="grid-animation-reverse" :class="gridAnimationReverse">
+        <div
+          class="grid-animation"
+          v-on:mouseover="mouseOver"
+          v-on:mouseleave="mouseLeave"
+        >
+          <div class="horizontal-grid-1" ref="horizontalGrid1">
+            <div
+              v-for="userReview in usersReviewsGrid1"
+              :key="userReview.id"
+              class="users-review"
+            >
+              {{ userReview.review }}
+              <div>
+                <font-awesome-icon icon="star" class="checked mt-3" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+              </div>
+            </div>
+            <div
+              v-for="userReview in usersReviewsGrid1"
+              :key="userReview.id"
+              class="users-review"
+            >
+              {{ userReview.review }}
+              <div>
+                <font-awesome-icon icon="star" class="checked mt-3" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+              </div>
+            </div>
+            <div
+              v-for="userReview in usersReviewsGrid1"
+              :key="userReview.id"
+              class="users-review"
+            >
+              {{ userReview.review }}
+              <div>
+                <font-awesome-icon icon="star" class="checked mt-3" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+              </div>
             </div>
           </div>
-          <div
-            v-for="userReview in usersReviewsGrid1"
-            :key="userReview.id"
-            class="users-review"
-          >
-            {{ userReview.review }}
-            <div>
-              <font-awesome-icon icon="star" class="checked mt-3" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
+          <div class="horizontal-grid-2" ref="horizontalGrid2">
+            <div
+              v-for="userReview in usersReviewsGrid2"
+              :key="userReview.id"
+              class="users-review"
+            >
+              {{ userReview.review }}
+              <div>
+                <font-awesome-icon icon="star" class="checked mt-3" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+              </div>
             </div>
-          </div>
-        </div>
-        <div class="horizontal-grid-2" ref="horizontalGrid2">
-          <div
-            v-for="userReview in usersReviewsGrid2"
-            :key="userReview.id"
-            class="users-review"
-          >
-            {{ userReview.review }}
-            <div>
-              <font-awesome-icon icon="star" class="checked mt-3" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
+            <div
+              v-for="userReview in usersReviewsGrid2"
+              :key="userReview.id"
+              class="users-review"
+            >
+              {{ userReview.review }}
+              <div>
+                <font-awesome-icon icon="star" class="checked mt-3" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+              </div>
             </div>
-          </div>
-          <div
-            v-for="userReview in usersReviewsGrid2"
-            :key="userReview.id"
-            class="users-review"
-          >
-            {{ userReview.review }}
-            <div>
-              <font-awesome-icon icon="star" class="checked mt-3" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
-              <font-awesome-icon icon="star" class="checked" />
+            <div
+              v-for="userReview in usersReviewsGrid2"
+              :key="userReview.id"
+              class="users-review"
+            >
+              {{ userReview.review }}
+              <div>
+                <font-awesome-icon icon="star" class="checked mt-3" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+                <font-awesome-icon icon="star" class="checked" />
+              </div>
             </div>
           </div>
         </div>
@@ -142,13 +176,32 @@ export default {
           review: "Elegant , splendid well designed app.",
         },
       ],
+      gridAnimationReverse: "",
+      lastScrollY: 0,
     };
   },
   components: {
     FontAwesomeIcon,
   },
-  mounted() {},
-  methods: {},
+
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+
+  methods: {
+    handleScroll() {
+      var diff = window.scrollY - this.lastScrollY;
+      if (diff < 0) {
+        this.gridAnimationReverse = "grid-animation-reverse-running";
+      } else {
+        this.gridAnimationReverse = "";
+      }
+      this.lastScrollY = window.scrollY;
+    },
+  },
 };
 </script>
 
@@ -170,6 +223,7 @@ export default {
 
 .horizontal-grid {
   margin-top: 32px;
+  margin-bottom: 32px;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: left;
@@ -181,12 +235,28 @@ export default {
 }
 
 .grid-animation {
-  margin-bottom: 32px;
   animation: scroll 30s linear infinite;
 }
 
 .grid-animation:hover {
   animation-play-state: paused;
+}
+
+/*
+* We can not reverse the running animation from current state. So we add a reverse animation on parent with 
+double speed and keep it paused. When we want reverse animation, we just run it.
+*/
+.grid-animation-reverse {
+  animation: scroll-reverse 15s linear infinite;
+  animation-play-state: paused;
+}
+
+.grid-animation-reverse:hover {
+  animation-play-state: paused;
+}
+
+.grid-animation-reverse-running {
+  animation-play-state: running;
 }
 
 .horizontal-grid-1,
@@ -220,17 +290,26 @@ export default {
 
 @keyframes scroll {
   /*
-     We animate from 3.5 review cards to 10.5 review card. We have total 14 cards, so user will 
+     We animate from 10.5 review cards to 17.5 review card. We have total 21 cards, so user will 
      see animation as infinite animation.
      The review cards width + margin - multiplied by numbers of gridView cards
-     = (320 + 32) * 3.5  to (320 + 32) * 10.5
+     = (320 + 32) * 10.5  to (320 + 32) * 17.5
      */
   0% {
-    transform: translate(-1232px);
+    transform: translate(-3690px);
   }
 
   100% {
-    transform: translate(-3696px);
+    transform: translate(-6160px);
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(2464px);
   }
 }
 
@@ -245,11 +324,20 @@ export default {
 
   @keyframes scroll {
     0% {
-      transform: translate(-1792px);
+      transform: translate(-5376px);
     }
 
     100% {
-      transform: translate(-5376px);
+      transform: translate(-8960px);
+    }
+  }
+
+  @keyframes scroll-reverse {
+    0% {
+      transform: translate(0);
+    }
+    100% {
+      transform: translate(3584px);
     }
   }
 }
@@ -287,11 +375,18 @@ export default {
 
   @keyframes scroll {
     0% {
-      transform: translate(-1960px);
-    }
-
-    100% {
       transform: translate(-5880px);
+    }
+    100% {
+      transform: translate(-9800px);
+    }
+  }
+  @keyframes scroll-reverse {
+    0% {
+      transform: translate(0);
+    }
+    100% {
+      transform: translate(3920px);
     }
   }
 }
