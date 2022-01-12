@@ -6,6 +6,7 @@
       <LandingView />
       <ClientReview />
       <UserReviews />
+      <DoYouKnow />
     </div>
   </div>
 </template>
@@ -15,6 +16,7 @@ import Header from "./partials/Header.vue";
 import LandingView from "./home/LandingView.vue";
 import UserReviews from "./home/UserReviews.vue";
 import ClientReview from "./home/ClientReview.vue";
+import DoYouKnow from "./home/DoYouKnow.vue";
 
 export default {
   name: "App",
@@ -23,6 +25,7 @@ export default {
     LandingView,
     UserReviews,
     ClientReview,
+    DoYouKnow,
   },
 };
 </script>
