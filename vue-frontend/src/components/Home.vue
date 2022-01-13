@@ -6,7 +6,9 @@
       <LandingView />
       <ClientReview />
       <UserReviews />
+      <ProblemSolution />
       <DoYouKnow />
+      <CanopasDescription />
     </div>
   </div>
 </template>
@@ -16,7 +18,9 @@ import Header from "./partials/Header.vue";
 import LandingView from "./home/LandingView.vue";
 import UserReviews from "./home/UserReviews.vue";
 import ClientReview from "./home/ClientReview.vue";
+import ProblemSolution from "./home/ProblemSolution.vue";
 import DoYouKnow from "./home/DoYouKnow.vue";
+import CanopasDescription from "./home/CanopasDescription.vue";
 
 export default {
   name: "App",
@@ -26,6 +30,8 @@ export default {
     UserReviews,
     ClientReview,
     DoYouKnow,
+    ProblemSolution,
+    CanopasDescription,
   },
 };
 </script>
