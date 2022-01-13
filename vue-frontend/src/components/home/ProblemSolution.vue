@@ -169,14 +169,14 @@ li > div {
   margin: 32px 0;
 }
 
-.resources-list{
-    padding-left: 0;
+.resources-list {
+  padding-left: 0;
 }
 
 .resources-list > li {
   padding: 0.6rem 0;
   display: flex;
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .resources-list > li > div {
@@ -201,7 +201,7 @@ li > div {
 }
 
 .mt-20 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 @media (min-width: 768px) {
