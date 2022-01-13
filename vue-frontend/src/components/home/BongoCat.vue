@@ -450,13 +450,41 @@ export default {
       .add(animatePawState(cat.pawLeft.down), "start+=0.19")
       .add(animatePawState(cat.pawRight.up), "start+=0.19")
       .timeScale(1.6);
-    gsap.from(".terminal-code line", {
-      drawSVG: "0%",
-      duration: 0.1,
-      stagger: 0.1,
-      ease: "none",
-      repeat: -1,
-    });
+
+    let lines = document.querySelectorAll(".terminal-code line");
+
+    var index = 0,
+      length = lines.length;
+    let dashedLineInterval;
+
+    dashedLineInterval = setInterval(timer, 100);
+
+    function timer() {
+      if (index === length) {
+        clearInterval(dashedLineInterval);
+        let el = document.querySelectorAll(".terminal-code")[0];
+        for (let child in el.childNodes) {
+          if (el.childNodes[child].nodeType === 1) {
+            let childNode = el.childNodes[child];
+            childNode.setAttribute("style", "");
+          }
+        }
+        for (var i = 0; i < length; i++) {
+          lines[i].style.strokeWidth = 0;
+        }
+        setTimeout(function () {
+          index = 0;
+          dashedLineInterval = setInterval(timer, 100);
+        }, 100);
+      } else {
+        lines[index].setAttribute(
+          "style",
+          "stroke-width : 5 ; stroke-dash-array: 400,400; stroke-dash-offset:400"
+        );
+        lines[index].style.animation = "dashed-line 3s infinite";
+        index++;
+      }
+    }
     // typing for pipe function doesn't seem to be working for usage when partially applied?
     const noteElFn = gsap.utils.pipe(gsap.utils.toArray, gsap.utils.shuffle);
     const noteEls = noteElFn(music.note);
@@ -509,46 +537,6 @@ export default {
 </script>
 
 <style scoped>
-#bongo-cat {
-  fill: var(--bg);
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-width: 4;
-}
-#bongo-cat .laptop-cover,
-#bongo-cat .headphone .band {
-  fill: none;
-}
-#bongo-cat .paw,
-#bongo-cat .head {
-  stroke: var(--orange);
-}
-#bongo-cat .laptop-keyboard {
-  stroke-width: 2;
-}
-#bongo-cat .terminal-code {
-  stroke-width: 5;
-}
-#bongo-cat .music .note,
-#bongo-cat .laptop-base,
-#bongo-cat .laptop-cover,
-#bongo-cat .paw .pads {
-  stroke: var(--pink);
-}
-#bongo-cat .table line,
-#bongo-cat .headphone .band,
-#bongo-cat .headphone .speaker path:nth-child(3) {
-  stroke: var(--green);
-}
-#bongo-cat .terminal-frame,
-#bongo-cat .laptop-keyboard,
-#bongo-cat .headphone .speaker path:nth-child(2) {
-  stroke: var(--blue);
-}
-#bongo-cat .terminal-code,
-#bongo-cat .headphone .speaker path:first-child {
-  stroke: var(--cyan);
-}
 
 @keyframes dashed-line {
   from {
