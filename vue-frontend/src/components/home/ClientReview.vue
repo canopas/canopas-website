@@ -20,8 +20,7 @@
                 'client-image-item-' + Math.abs(i - (clientImageCount - 1) / 2)
               "
             >
-              <img
-                class="gradient-circular-border"
+              <img              
                 :src="client.image"
                 alt="client"
                 draggable="false"
@@ -230,6 +229,7 @@ export default {
   position: relative;
   cursor: pointer;
   margin: 0 16px;
+  background: linear-gradient(180deg, #ff9472 0%, #f2709c 100%);
 }
 
 .client-image-item > img {
@@ -279,14 +279,6 @@ export default {
 }
 .client-image-prev-leave-active {
   display: none;
-}
-
-.gradient-circular-border {
-  content: "";
-  padding: 2px;
-  background: linear-gradient(180deg, #ff9472 0%, #f2709c 100%);
-  -webkit-mask-composite: destination-out;
-  mask-composite: exclude !important;
 }
 
 .clients-indicators {

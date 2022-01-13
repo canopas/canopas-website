@@ -21,7 +21,9 @@
       can be used by many people worldwide.
     </div>
     <div class="bongo-cat-wrapper">
-      <BongoCat class="bongo-cat-div" />
+      <div class="bongo-cat-div">
+      <BongoCat class="bongo-cat-image" />
+      </div>
     </div>
   </div>
 </template>
@@ -50,12 +52,16 @@ export default {
 }
 
 .bongo-cat-wrapper {
-  position: relative;
-  padding-top: 63%;
   width: 90%;
 }
 
 .bongo-cat-div {
+  position: relative;
+  width: 100%;
+  padding-top: 63%;
+}
+
+.bongo-cat-image {
   position: absolute;
   top: 0;
   left: 0;
@@ -102,9 +108,10 @@ export default {
   }
 }
 
-@media (min-width: 1280px) {
-  .bongo-cat-wrapper {
+@media (min-width: 1280px) 
+{  .bongo-cat-wrapper {
     flex: 1.3 1 0;
   }
+
 }
 </style>
