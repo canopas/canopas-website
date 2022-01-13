@@ -262,7 +262,7 @@ export default {
   }
 
   .light-orange-bg > .m-lr-10 > .description {
-    width: 33% !important;
+    width: 50% !important;
     padding-top: 185px;
   }
 

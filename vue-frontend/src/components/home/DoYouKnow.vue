@@ -1,11 +1,7 @@
 <template>
-  <div>
+  <div class="do-you-know-div">
     <div class="flex-row que-section">
-      <img
-        :src="doYouKnowImage"
-        class="image que-image"
-        alt="do-you-know-image"
-      />
+      <img :src="doYouKnowImage" class="image que-image" alt="do-you-know" />
       <div class="text-div do-you-know-text">
         <h4 class="header-text pb-30">Do you know ?</h4>
 
@@ -76,7 +72,7 @@ export default {
   }
 
   .flex-row {
-    margin: 0 15%;
+    margin: 0 10%;
   }
 
   .flex-row > .image {
@@ -99,6 +95,10 @@ export default {
   .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
+  }
+
+  .flex-row {
+    margin: 0 12%;
   }
 
   .flex-row > .image {
