@@ -6,27 +6,30 @@
         people like You!
       </div>
       <div class="horizontal-slider normal-text text-center">
-        <transition-group
-          :name="'client-image-' + reviewTransitionName"
-          tag="ol"
-          class="clients-list text-center"
-        >
-          <li
-            v-for="(client, i) in currentClients"
-            :key="client"
-            class="gradient-circular-border client-image-item"
-            :class="
-              'client-image-item-' + Math.abs(i - (clientImageCount - 1) / 2)
-            "
+        <div class="clients-list-wrapper">
+          <transition-group
+            :name="'client-image-' + reviewTransitionName"
+            tag="ol"
+            class="clients-list text-center"
           >
-            <img
-              :src="client.image"
-              alt="client"
-              draggable="false"
-              loading="lazy"
-            />
-          </li>
-        </transition-group>
+            <div
+              v-for="(client, i) in currentClients"
+              :key="client"
+              class="client-image-item"
+              :class="
+                'client-image-item-' + Math.abs(i - (clientImageCount - 1) / 2)
+              "
+            >
+              <img
+                class="gradient-circular-border"
+                :src="client.image"
+                alt="client"
+                draggable="false"
+                loading="lazy"
+              />
+            </div>
+          </transition-group>
+        </div>
         <div class="client-review-slider">
           <transition-group tag="div" :name="'review-' + reviewTransitionName">
             <div class="client-review" :key="clients[current].id">
@@ -203,20 +206,28 @@ export default {
   width: 85%;
 }
 
+.clients-list-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 24%;
+}
+
 .clients-list {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 128px;
   margin: 0 auto;
   padding-left: 0 !important;
 }
 
 .client-image-item {
-  overflow: hidden;
   border-radius: 50%;
   position: relative;
-  -webkit-mask: none;
   cursor: pointer;
   margin: 0 16px;
 }
@@ -224,6 +235,9 @@ export default {
 .client-image-item > img {
   border-radius: 50%;
   margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   border: 5px solid transparent;
@@ -232,16 +246,19 @@ export default {
 .client-image-item-0 {
   opacity: 1;
   width: 24%;
+  padding-top: 24%;
 }
 
 .client-image-item-1 {
   opacity: 0.4;
   width: 21%;
+  padding-top: 21%;
 }
 
 .client-image-item-2 {
   opacity: 0.15;
   width: 18%;
+  padding-top: 18%;
 }
 
 .client-image-next-enter-active {
@@ -266,18 +283,10 @@ export default {
 
 .gradient-circular-border {
   content: "";
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   padding: 2px;
   background: linear-gradient(180deg, #ff9472 0%, #f2709c 100%);
   -webkit-mask-composite: destination-out;
   mask-composite: exclude !important;
-}
-
-.carousel-inner {
-  height: 19rem;
 }
 
 .clients-indicators {
@@ -368,19 +377,26 @@ export default {
     line-height: 1.375rem;
   }
 
+  .clients-list-wrapper {
+    padding-top: 15%;
+  }
+
   .client-image-item-0 {
     opacity: 1;
     width: 15%;
+    padding-top: 15%;
   }
 
   .client-image-item-1 {
     opacity: 0.4;
     width: 12%;
+    padding-top: 12%;
   }
 
   .client-image-item-2 {
     opacity: 0.15;
     width: 9%;
+    padding-top: 9%;
   }
 }
 
@@ -395,20 +411,12 @@ export default {
     line-height: 1.8rem;
   }
 
-  .carousel-inner {
-    height: 15rem;
-  }
-
   .horizontal-slider {
     width: 60%;
   }
 
   .client-review {
     width: 100%;
-  }
-
-  .clients-list {
-    height: 160 px;
   }
 
   .client-review-slider {
@@ -420,10 +428,6 @@ export default {
 @media (min-width: 1025px) {
   .success-stories-bg {
     border-radius: 400px 0;
-  }
-
-  .carousel-inner {
-    height: 320px;
   }
 }
 </style>

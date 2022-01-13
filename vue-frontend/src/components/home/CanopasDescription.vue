@@ -20,7 +20,9 @@
       We're quality-focused people who want to work on a few handful apps that
       can be used by many people worldwide.
     </div>
-    <BongoCat class="px-5 bongo-cat-div" />
+    <div class="bongo-cat-wrapper">
+      <BongoCat class="bongo-cat-div" />
+    </div>
   </div>
 </template>
 
@@ -47,7 +49,16 @@ export default {
   align-items: center;
 }
 
+.bongo-cat-wrapper {
+  position: relative;
+  padding-top: 63%;
+  width: 90%;
+}
+
 .bongo-cat-div {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
 }
@@ -72,9 +83,10 @@ export default {
     flex: 1 1 0;
   }
 
-  .bongo-cat-div {
+  .bongo-cat-wrapper {
     flex: 1 1 0;
     margin-right: -10%;
+    margin-left: 5%;
   }
 }
 
@@ -91,8 +103,8 @@ export default {
 }
 
 @media (min-width: 1280px) {
-  .bongo-cat-div {
-    flex: 1.4 1 0;
+  .bongo-cat-wrapper {
+    flex: 1.3 1 0;
   }
 }
 </style>
