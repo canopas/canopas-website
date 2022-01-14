@@ -1,10 +1,10 @@
-name: CI
-on:
-  push:
-    branches:
-      - master
+name: Deploy
+on: push
+  # push:
+  #   branches:
+  #     - master
 jobs:
-  deploy:
+  deploy-backend:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -24,17 +24,9 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::569704406482:role/github-actions-s3-access
           aws-region: ap-south-1
-
-      - name: Build frontend
-        run: |
-          cd vue-frontend
-          npm ci
-          npm run build
-
       - name: Build backend
         run: |
           GOOS=linux GOARCH=amd64 go build -o main main.go
-
       - name: Zip function
         run: |
           apt-get update && apt-get install -y zip
@@ -46,13 +38,13 @@ jobs:
         run: |
           aws s3 cp ${{ env.ZIP_NAME }} s3://lambda-canopas-webside-v1-dev/
       - name: Deploy lambda function
-        id: canopas-website-dev-stack
+        id: canopas-website-backend-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: canopas-website-dev-stack
-          template: infrastructure/template.yml
+          name: canopas-website-backend-stack
+          template: infrastructure/template-backend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
-          timeout-in-minutes: "2"
+          timeout-in-minutes: "5"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
             EnvName=prod,
