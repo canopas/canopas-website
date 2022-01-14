@@ -8,6 +8,7 @@
       <UserReviews />
       <ProblemSolution />
       <CanopasDescription />
+      <Consultation />
     </div>
   </div>
 </template>
@@ -19,6 +20,17 @@ import UserReviews from "./home/UserReviews.vue";
 import ClientReview from "./home/ClientReview.vue";
 import ProblemSolution from "./home/ProblemSolution.vue";
 import CanopasDescription from "./home/CanopasDescription.vue";
+import Consultation from "./home/Consultation.vue";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faArrowRight,
+  faArrowLeft,
+  faStar,
+  faPlus,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faArrowRight, faStar, faArrowLeft, faPlus);
 
 export default {
   name: "App",
@@ -29,6 +41,7 @@ export default {
     ClientReview,
     ProblemSolution,
     CanopasDescription,
+    Consultation,
   },
 };
 </script>

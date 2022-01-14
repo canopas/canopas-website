@@ -3,15 +3,7 @@
 </template>
 
 <script>
-import { library } from "@fortawesome/fontawesome-svg-core";
-import {
-  faArrowRight,
-  faArrowLeft,
-  faStar,
-} from "@fortawesome/free-solid-svg-icons";
 import Home from "./components/Home.vue";
-
-library.add(faArrowRight, faStar, faArrowLeft);
 
 export default {
   name: "App",
@@ -40,5 +32,13 @@ body {
   background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.abs-fit-parent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 </style>
