@@ -1,0 +1,72 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: An s3 bucket cloudfront
+
+Parameters:
+  S3BucketName:  
+    Type: String
+    Description: Name of the S3 bucket 
+    AllowedPattern: ^.*[^0-9]$
+    ConstraintDescription: Must end with non-numeric character.
+
+Outputs:
+  CloudFrontDist:
+    Value:
+      Ref: CloudFrontDistribution
+
+Resources:
+  S3Bucket:
+        Type: AWS::S3::Bucket
+        Properties:
+            AccessControl: Private
+            BucketName: !Ref S3BucketName
+  CloudFrontOriginIdentity:
+    Type: AWS::CloudFront::CloudFrontOriginAccessIdentity
+    Properties:
+      CloudFrontOriginAccessIdentityConfig:
+        Comment: 'origin identity'
+  BucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref S3BucketName
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              AWS: !Sub 'arn:aws:iam::cloudfront:user/CloudFront Origin Access Identity ${CloudFrontOriginIdentity}'
+            Action: 's3:GetObject'
+            Resource: !Sub 'arn:aws:s3:::${S3BucketName}/*'
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Origins:
+        - DomainName: !Sub '${S3BucketName}.s3.amazonaws.com'
+          Id: dev-go-vue-canopas-frontend
+          S3OriginConfig:
+            OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CloudFrontOriginIdentity}'
+        Enabled: 'true'
+        DefaultRootObject: index.html
+        HttpVersion: http2
+        Aliases:
+        - dev-stack.canopas.com
+        ViewerCertificate:
+          AcmCertificateArn: 'arn:aws:acm:us-east-1:569704406482:certificate/61f88a8a-9346-4e90-9d62-d0b20cd71765'
+          MinimumProtocolVersion: TLSv1.2_2021
+          SslSupportMethod: sni-only
+        DefaultCacheBehavior:
+          AllowedMethods:
+          - DELETE
+          - GET
+          - HEAD
+          - OPTIONS
+          - PATCH
+          - POST
+          - PUT
+          Compress: true
+          TargetOriginId: dev-go-vue-canopas-frontend
+          ForwardedValues:
+            QueryString: 'false'
+            Cookies:
+              Forward: none
+          ViewerProtocolPolicy: redirect-to-https
