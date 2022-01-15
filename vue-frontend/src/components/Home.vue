@@ -1,15 +1,13 @@
 <template>
-  <div class="main-page-wrapper">
-    <!-- Main Website -->
-    <div class="main-wrapper">
-      <Header />
-      <LandingView />
-      <ClientReview />
-      <UserReviews />
-      <ProblemSolution />
-      <CanopasDescription />
-      <Consultation />
-    </div>
+  <div>
+    <Header />
+    <LandingView />
+    <ClientReview />
+    <UserReviews />
+    <ProblemSolution />
+    <CanopasDescription />
+    <Consultation />
+    <CTA />
   </div>
 </template>
 
@@ -21,6 +19,7 @@ import ClientReview from "./home/ClientReview.vue";
 import ProblemSolution from "./home/ProblemSolution.vue";
 import CanopasDescription from "./home/CanopasDescription.vue";
 import Consultation from "./home/Consultation.vue";
+import CTA from "./home/CTA.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -28,9 +27,20 @@ import {
   faArrowLeft,
   faStar,
   faPlus,
+  faCommentAlt,
+  faPhoneAlt,
+  faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faArrowRight, faStar, faArrowLeft, faPlus);
+library.add(
+  faArrowRight,
+  faStar,
+  faArrowLeft,
+  faPlus,
+  faCommentAlt,
+  faPhoneAlt,
+  faPaperPlane
+);
 
 export default {
   name: "App",
@@ -42,6 +52,7 @@ export default {
     ProblemSolution,
     CanopasDescription,
     Consultation,
+    CTA,
   },
 };
 </script>
