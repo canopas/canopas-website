@@ -8,6 +8,7 @@
     <CanopasDescription />
     <Consultation />
     <CTA />
+    <Footer />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import ProblemSolution from "./home/ProblemSolution.vue";
 import CanopasDescription from "./home/CanopasDescription.vue";
 import Consultation from "./home/Consultation.vue";
 import CTA from "./home/CTA.vue";
+import Footer from "./partials/Footer.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -53,6 +55,7 @@ export default {
     CanopasDescription,
     Consultation,
     CTA,
+    Footer,
   },
 };
 </script>

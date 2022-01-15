@@ -240,6 +240,7 @@ export default {
 
   .cta-container {
     width: 800px;
+    margin: 7% auto;
   }
 }
 </style>
