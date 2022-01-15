@@ -46,4 +46,42 @@ body {
   top: 0;
   left: 0;
 }
+
+.normal-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.header-text {
+  font-weight: 700;
+  line-height: 1.813rem;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .header-text {
+    line-height: 2rem;
+    font-size: 1.875rem;
+  }
+
+  .normal-text {
+    font-size: 1.125rem;
+    line-height: 1.375rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-text {
+    font-size: 3rem;
+    line-height: 3.6rem;
+  }
+
+  .normal-text {
+    font-size: 1.5rem;
+    line-height: 1.8rem;
+  }
+}
 </style>
