@@ -1,13 +1,15 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-light main-header" id="mainHeader">
     <div class="container">
-      <div class="navbar-brand" onclick="window.location.replace('/')">
-        <img
-          :src="headerLogoImage"
-          class="header-logo-image"
-          alt="canopas-logo"
-        />
-      </div>
+      <router-link to="/" replace>
+        <div class="navbar-brand">
+          <img
+            :src="headerLogoImage"
+            class="header-logo-image"
+            alt="canopas-logo"
+          />
+        </div>
+      </router-link>
       <div class="navbar-collapse">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item-margin">
@@ -25,15 +27,15 @@
             >
           </li>
           <li>
-            <a
+            <router-link
+              to="/contact"
               class="nav-link start-btn normal-text gradient-border-btn"
-              :href="getStartedURL"
-              target="_self"
-              ><span
+            >
+              <span
                 ><span class="canopas-gradient-text">Get started &nbsp;</span>
                 <font-awesome-icon class="fa-arrow-right" icon="arrow-right" />
               </span>
-            </a>
+            </router-link>
           </li>
           <li>
             <a

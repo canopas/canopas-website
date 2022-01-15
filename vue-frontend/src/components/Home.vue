@@ -45,7 +45,7 @@ library.add(
 );
 
 export default {
-  name: "App",
+  name: "Home",
   components: {
     Header,
     LandingView,

@@ -1,15 +1,20 @@
 <template>
-  <Home />
+  <router-view></router-view>
 </template>
 
 <script>
-import Home from "./components/Home.vue";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faArrowRight,
+  faArrowLeft,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faArrowRight, faStar, faArrowLeft);
 
 export default {
   name: "App",
-  components: {
-    Home,
-  },
+  components: {},
 };
 </script>
 
