@@ -10,32 +10,32 @@
     </div>
     <div class="social-media-icons">
       <li>
-        <a href="<%= process.env.BLOGS_URL %>" target="_blank">
+        <a :href="mediumUrl" target="_blank">
           <font-awesome-icon class="fab" :icon="mediumIcon" />
         </a>
       </li>
       <li>
-        <a href="<%= process.env.FACEBOOK_URL %>" target="_blank">
+        <a :href="facebookUrl" target="_blank">
           <font-awesome-icon class="fab" :icon="facebookIcon" />
         </a>
       </li>
       <li>
-        <a href="<%= process.env.TWITTER_URL %>" target="_blank">
+        <a :href="twitterUrl" target="_blank">
           <font-awesome-icon class="fab" :icon="twitterIcon" />
         </a>
       </li>
       <li>
-        <a href="<%= process.env.INSTAGRAM_URL %>" target="_blank">
+        <a :href="instagramUrl" target="_blank">
           <font-awesome-icon class="fab" :icon="instagramIcon" />
         </a>
       </li>
       <li>
-        <a href="<%= process.env.GITHUB_URL %>" target="_blank">
+        <a :href="githubUrl" target="_blank">
           <font-awesome-icon class="fab" :icon="githubIcon" />
         </a>
       </li>
       <li>
-        <a href="<%= process.env.LINKEDIN_URL %>" target="_blank">
+        <a :href="linkedInUrl" target="_blank">
           <font-awesome-icon class="fab" :icon="linkedInIcon" />
         </a>
       </li>
@@ -56,6 +56,7 @@ import {
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 
 import footerLogoImage from "@/assets/images/logo/logo-footer.svg";
+import Config from "@/config.js";
 
 export default {
   data() {
@@ -68,6 +69,12 @@ export default {
       githubIcon: faGithub,
       linkedInIcon: faLinkedin,
       footerLogoImage: footerLogoImage,
+      mediumUrl: Config.MEDIUM_URL,
+      twitterUrl: Config.TWITTER_URL,
+      instagramUrl: Config.INSTAGRAM_URL,
+      githubUrl: Config.GITHUB_URL,
+      linkedInUrl: Config.LINKEDIN_URL,
+      facebookUrl: Config.FACEBOOK_URL,
     };
   },
   components: {

@@ -9,7 +9,7 @@
     <div class="communication">
       <div class="item communication-item1">
         I love talking with people
-        <button class="gradient-btn" @click="callNow">
+        <button class="gradient-btn" @click="openContact">
           <font-awesome-icon class="fa" icon="phone-alt" aria-hidden="true" />
           <span>Call Now</span>
         </button>
@@ -18,7 +18,7 @@
       <div class="item communication-item2">
         I am an Introvert. I prefer to chat or writing a mail.
         <div class="chat-btn-container">
-          <button class="gradient-btn" @click="chatNow">
+          <button class="gradient-btn" @click="openContact">
             <font-awesome-icon
               class="fa"
               icon="comment-alt"
@@ -26,7 +26,7 @@
             />
             <span>Chat Now</span>
           </button>
-          <button class="gradient-btn" @click="mailNow">
+          <button class="gradient-btn" @click="openContact">
             <font-awesome-icon
               class="fa"
               icon="paper-plane"
@@ -82,9 +82,9 @@ export default {
     FontAwesomeIcon,
   },
   methods: {
-    callNow() {},
-    chatNow() {},
-    mailNow() {},
+    openContact() {
+      this.$router.push("/contact");
+    },
   },
 };
 </script>

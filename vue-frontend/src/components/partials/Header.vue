@@ -18,12 +18,8 @@
             >
           </li>
           <li class="nav-item-margin">
-            <a
-              class="nav-link blogs normal-text"
-              :href="blogsURL"
-              target="_blank"
-            >
-              Blogs</a
+            <a class="nav-link normal-text" :href="blogsURL" target="_blank"
+              >Blogs</a
             >
           </li>
           <li>
@@ -38,13 +34,12 @@
             </router-link>
           </li>
           <li>
-            <a
+            <router-link
+              to="/contact"
               class="nav-link start-btn-link normal-text"
-              :href="getStartedURL"
-              target="_self"
             >
-              Get started</a
-            >
+              Get started
+            </router-link>
           </li>
         </ul>
       </div>
@@ -55,14 +50,14 @@
 <script type="module">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import headerLogoImage from "@/assets/images/logo/logo-header.svg";
+import Config from "@/config.js";
 
 export default {
   data() {
     return {
       headerLogoImage: headerLogoImage,
-      careerURL: process.env.JOBS_URL,
-      blogsURL: process.env.BLOGS_URL,
-      getStartedURL: "/content",
+      careerURL: Config.JOBS_URL,
+      blogsURL: Config.BLOG_URL,
     };
   },
   components: {
