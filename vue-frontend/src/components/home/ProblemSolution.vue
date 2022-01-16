@@ -109,7 +109,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .parallax-container {
   margin: 5% auto;
   position: relative;
@@ -204,7 +204,7 @@ li > div {
   margin-top: 20px;
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
     font-size: 1.875rem;
@@ -252,7 +252,7 @@ li > div {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;

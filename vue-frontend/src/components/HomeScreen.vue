@@ -1,27 +1,27 @@
 <template>
   <div>
-    <Header />
+    <ScreenHeader />
     <LandingView />
     <ClientReview />
     <UserReviews />
     <ProblemSolution />
     <CanopasDescription />
-    <Consultation />
-    <CTA />
-    <Footer />
+    <HomeConsultation />
+    <HomeCTA />
+    <ScreenFooter />
   </div>
 </template>
 
 <script>
-import Header from "./partials/Header.vue";
+import ScreenHeader from "./partials/ScreenHeader.vue";
 import LandingView from "./home/LandingView.vue";
 import UserReviews from "./home/UserReviews.vue";
 import ClientReview from "./home/ClientReview.vue";
 import ProblemSolution from "./home/ProblemSolution.vue";
 import CanopasDescription from "./home/CanopasDescription.vue";
-import Consultation from "./home/Consultation.vue";
-import CTA from "./home/CTA.vue";
-import Footer from "./partials/Footer.vue";
+import HomeConsultation from "./home/HomeConsultation.vue";
+import HomeCTA from "./home/HomeCTA.vue";
+import ScreenFooter from "./partials/ScreenFooter.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -46,15 +46,15 @@ library.add(
 
 export default {
   components: {
-    Header,
+    ScreenHeader,
     LandingView,
     UserReviews,
     ClientReview,
     ProblemSolution,
     CanopasDescription,
-    Consultation,
-    CTA,
-    Footer,
+    HomeConsultation,
+    HomeCTA,
+    ScreenFooter,
   },
 };
 </script>

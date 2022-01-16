@@ -399,7 +399,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .apply-information {
   margin: 48px 10%;
 }
@@ -712,7 +712,7 @@ input:-webkit-autofill:active {
   font-size: 1.1rem;
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .apply-information {
     margin: 48px 18%;
   }
@@ -751,7 +751,7 @@ input:-webkit-autofill:active {
   }
 }
 
-@media (min-width: 1280px) {
+@include media-breakpoint-up(xl) {
   .apply-information {
     margin: 48px 22%;
   }

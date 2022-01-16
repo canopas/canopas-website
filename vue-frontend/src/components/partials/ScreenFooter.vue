@@ -83,7 +83,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .bottom-footer-div {
   margin: 0 15%;
   padding: 3% 0;
@@ -114,7 +114,7 @@ export default {
   font-size: 1.2rem;
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .bottom-footer-div {
     align-items: center;
     flex-direction: row;
@@ -125,7 +125,7 @@ export default {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .fab {
     font-size: 1.5rem;
   }

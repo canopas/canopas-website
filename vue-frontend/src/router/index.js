@@ -1,17 +1,17 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Home from "@/components/Home.vue";
-import Contact from "@/components/Contact.vue";
+import HomeScreen from "@/components/HomeScreen.vue";
+import ContactScreen from "@/components/ContactScreen.vue";
 
 const routes = [
   {
     path: "/",
-    name: "Home",
-    component: Home,
+    name: "HomeScreen",
+    component: HomeScreen,
   },
   {
     path: "/contact",
-    name: "Contact",
-    component: Contact,
+    name: "ContactScreen",
+    component: ContactScreen,
   },
 ];
 

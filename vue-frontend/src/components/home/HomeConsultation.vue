@@ -91,7 +91,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .consultant-container {
   margin: 48px 10%;
   display: flex;
@@ -169,7 +169,7 @@ export default {
   color: rgba(61, 61, 61, 0.5);
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .consultant-container {
     flex-direction: row;
   }
@@ -191,7 +191,7 @@ export default {
   }
 }
 
-@media (min-width: 1200px) {
+@include media-breakpoint-up(xl) {
   .consultant-container {
     margin: 48px 15%;
   }

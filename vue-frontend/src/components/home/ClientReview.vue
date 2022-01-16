@@ -20,7 +20,7 @@
                 'client-image-item-' + Math.abs(i - (clientImageCount - 1) / 2)
               "
             >
-              <img              
+              <img
                 :src="client.image"
                 alt="client"
                 draggable="false"
@@ -190,7 +190,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .success-stories-bg {
   background: rgba(255, 148, 114, 0.05);
   padding: 6% 0;
@@ -350,15 +350,7 @@ export default {
   transform: translate(150%);
 }
 
-/* responsive */
-
-@media (min-width: 630px) {
-  .client-review {
-    width: 70%;
-  }
-}
-
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
     font-size: 1.875rem;
@@ -367,6 +359,10 @@ export default {
   .normal-text {
     font-size: 1.125rem;
     line-height: 1.375rem;
+  }
+
+  .client-review {
+    width: 70%;
   }
 
   .clients-list-wrapper {
@@ -392,7 +388,7 @@ export default {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;
@@ -417,7 +413,7 @@ export default {
   }
 }
 
-@media (min-width: 1025px) {
+@include media-breakpoint-up(xl) {
   .success-stories-bg {
     border-radius: 400px 0;
   }

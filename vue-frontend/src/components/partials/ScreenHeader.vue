@@ -61,7 +61,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .navbar {
   padding: 22px 3%;
 }
@@ -95,7 +95,7 @@ export default {
   display: none;
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .navbar-nav .nav-item-margin .nav-link {
     margin: 0 40px 0 0;
   }
@@ -108,7 +108,7 @@ export default {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .navbar {
     padding: 45px 14%;
   }

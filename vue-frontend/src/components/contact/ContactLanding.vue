@@ -25,7 +25,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .landing-container {
   margin: 48px 15%;
 }
@@ -49,7 +49,7 @@ export default {
   margin-bottom: 24px;
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .landing-container {
     margin: 48px 18%;
   }

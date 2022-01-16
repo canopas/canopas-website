@@ -89,7 +89,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .cta-container {
   display: flex;
   flex-direction: column;
@@ -184,7 +184,7 @@ export default {
   width: 90%;
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
     font-size: 1.875rem;
@@ -227,7 +227,7 @@ export default {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;

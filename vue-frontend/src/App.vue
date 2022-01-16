@@ -18,7 +18,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 @font-face {
   font-family: "Product Sans";
   font-style: normal;
@@ -61,7 +61,7 @@ body {
   font-size: 1.5rem;
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
     font-size: 1.875rem;
@@ -73,7 +73,7 @@ body {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;
