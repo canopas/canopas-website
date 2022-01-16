@@ -28,8 +28,7 @@
               class="nav-link start-btn normal-text gradient-border-btn"
             >
               <span
-                ><span class="canopas-gradient-text">Get started &nbsp;</span>
-                <font-awesome-icon class="fa-arrow-right" icon="arrow-right" />
+                ><span class="canopas-gradient-text">Let's talk business</span>
               </span>
             </router-link>
           </li>
@@ -37,9 +36,8 @@
             <router-link
               to="/contact"
               class="nav-link start-btn-link normal-text"
+              >Let's talk business</router-link
             >
-              Get started
-            </router-link>
           </li>
         </ul>
       </div>
@@ -48,7 +46,6 @@
 </template>
 
 <script type="module">
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import headerLogoImage from "@/assets/images/logo/logo-header.svg";
 import Config from "@/config.js";
 
@@ -60,9 +57,7 @@ export default {
       blogsURL: Config.BLOG_URL,
     };
   },
-  components: {
-    FontAwesomeIcon,
-  },
+  components: {},
 };
 </script>
 
@@ -78,7 +73,7 @@ export default {
 }
 
 .navbar-nav .nav-item-margin .nav-link {
-  margin: 0 40px 0 0;
+  margin: 0 30px 0 0;
 }
 
 .gradient-border-btn {
@@ -138,10 +133,6 @@ export default {
 
   .start-btn-link {
     display: none;
-  }
-
-  .fa-arrow-right {
-    color: #f2709c;
   }
 }
 </style>
