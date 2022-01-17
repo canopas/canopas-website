@@ -420,7 +420,7 @@ export default {
 }
 
 .information-pd {
-  padding: 25px 40px;
+  padding: 25px 15px;
 }
 
 .contact-form-text,
@@ -720,7 +720,6 @@ input:-webkit-autofill:active {
   border-radius: 0.6rem;
   padding: 1rem 1.25rem;
   margin: 1.25rem auto 0 auto;
-  display: flex;
   text-align: center;
   color: white;
   background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
@@ -731,6 +730,12 @@ input:-webkit-autofill:active {
   margin: 0 10px;
   font-weight: 700;
   font-size: 1.1rem;
+}
+
+@include media-breakpoint-up(md) {
+  .information-pd {
+    padding: 25px 40px;
+  }
 }
 
 @include media-breakpoint-up(lg) {
