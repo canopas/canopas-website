@@ -97,10 +97,10 @@
             </div>
           </div>
 
-          <div class="social-media mb-4">
+          <div class="social-media">
             <div
               v-for="(website, i) in websites"
-              class="btn btn-social-media"
+              class="btn btn-social-media mb-3"
               :key="website"
               :class="{
                 'item-selected': i == currentWebsiteIndex || website.url != '',
@@ -111,11 +111,17 @@
                 <font-awesome-icon
                   :icon="website.url == '' ? plusIcon : website.icon"
                   class="fas me-1"
+                  :class="{
+                    'facebook-twitter-icon':
+                      (i == 1 || i == 2) && website.url != '',
+                    'website-instagram-icon':
+                      (i == 0 || i == 3) && website.url != '',
+                  }"
                 />
                 <div class="contact-form-text">
-                  <span id="span-web-text">{{
-                    website.url == "" ? website.title : website.url
-                  }}</span>
+                  <div id="span-web-text" class="ellipsis-social-media-url">
+                    {{ website.url == "" ? website.title : website.url }}
+                  </div>
                 </div>
                 <font-awesome-icon
                   v-if="website.url != ''"
@@ -425,6 +431,12 @@ export default {
   font-weight: normal;
 }
 
+.contact-form-text > a,
+.contact-form-text > a:hover {
+  color: rgba(0, 0, 0, 0.5) !important;
+  text-decoration: none !important;
+}
+
 .contact-text-black {
   color: rgba(61, 61, 61, 1) !important;
 }
@@ -467,6 +479,21 @@ export default {
 .radio-buttons > label {
   padding: 8px 0;
   width: 100%;
+}
+
+.ellipsis-social-media-url {
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.facebook-twitter-icon {
+  color: #5da9dd;
+}
+
+.website-instagram-icon {
+  color: #f2709c;
 }
 
 input[type="radio"] {
@@ -595,12 +622,6 @@ input[type="radio"]:checked ~ .box {
   -moz-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.twitter-custom {
-  color: #5da9dd !important;
-  background: transparent;
-  border-radius: 25px !important;
 }
 
 .add-url {
@@ -741,7 +762,7 @@ input:-webkit-autofill:active {
   }
 
   .box {
-    height: 7rem;
+    height: 9rem;
     padding: 0 1.5rem;
   }
 

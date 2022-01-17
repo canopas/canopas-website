@@ -34,9 +34,9 @@
 </template>
 
 <script type="module">
-import step1Image from "@/assets/images/home/step1.webp";
-import step2Image from "@/assets/images/home/step2.webp";
-import step3Image from "@/assets/images/home/step3.webp";
+import consultantStep1Image from "@/assets/images/home/step1.webp";
+import consultantStep2Image from "@/assets/images/home/step2.webp";
+import consultantStep3Image from "@/assets/images/home/step3.webp";
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -49,7 +49,7 @@ export default {
     return {
       steps: [
         {
-          image: step1Image,
+          image: consultantStep1Image,
           title: "FREE Consultation",
           descriptions: [
             "For Canopas, WHY do you want to develop a product is more IMPORTANT than what do you want to develop?",
@@ -59,7 +59,7 @@ export default {
           ],
         },
         {
-          image: step2Image,
+          image: consultantStep2Image,
           title: "100% Money back Guarantee",
           descriptions: [
             "A Journey of Thousand Miles Begins with a Single Step - Confucius.",
@@ -69,7 +69,7 @@ export default {
           ],
         },
         {
-          image: step3Image,
+          image: consultantStep3Image,
           title: "Journey Begins",
           descriptions: [
             "We will start on a small scale by defining a couple of goals or features based on your requirements. Then, on every next iteration, we design, code, test, and add to your existing product.",
