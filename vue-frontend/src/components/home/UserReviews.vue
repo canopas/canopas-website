@@ -205,7 +205,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .user-reviews-div {
   padding: 10% 0 2%;
   color: black;
@@ -313,7 +313,7 @@ double speed and keep it paused. When we want reverse animation, we just run it.
   }
 }
 
-@media (min-width: 481px) {
+@include media-breakpoint-up(sm) {
   .horizontal-grid-1 {
     margin-left: 240px;
   }
@@ -342,7 +342,7 @@ double speed and keep it paused. When we want reverse animation, we just run it.
   }
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
     font-size: 1.875rem;
@@ -354,7 +354,7 @@ double speed and keep it paused. When we want reverse animation, we just run it.
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;

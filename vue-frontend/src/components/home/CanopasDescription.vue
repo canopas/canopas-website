@@ -22,7 +22,7 @@
     </div>
     <div class="bongo-cat-wrapper">
       <div class="bongo-cat-div">
-      <BongoCat class="bongo-cat-image" />
+        <BongoCat class="bongo-cat-image" />
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .container-canopas-description {
   display: flex;
   flex-direction: column-reverse;
@@ -69,7 +69,7 @@ export default {
   height: 100%;
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
     font-size: 1.875rem;
@@ -96,7 +96,7 @@ export default {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;
@@ -108,10 +108,9 @@ export default {
   }
 }
 
-@media (min-width: 1280px) 
-{  .bongo-cat-wrapper {
+@include media-breakpoint-up(xl) {
+  .bongo-cat-wrapper {
     flex: 1.3 1 0;
   }
-
 }
 </style>
