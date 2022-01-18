@@ -111,7 +111,7 @@ export default {
 
 <style lang="scss" scoped>
 .parallax-container {
-  margin: 5% auto;
+  margin: 5% auto 0;
   position: relative;
 }
 

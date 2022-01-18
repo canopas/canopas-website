@@ -35,6 +35,10 @@ body {
   font-family: "Product Sans" !important;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 .canopas-gradient-text {
   background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
   -webkit-background-clip: text;

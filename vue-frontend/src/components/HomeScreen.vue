@@ -5,6 +5,8 @@
     <ClientReview />
     <UserReviews />
     <ProblemSolution />
+    <DoYouKnow />
+    <HowDoWeDiffer />
     <CanopasDescription />
     <HomeConsultation />
     <HomeCTA />
@@ -22,6 +24,8 @@ import CanopasDescription from "./home/CanopasDescription.vue";
 import HomeConsultation from "./home/HomeConsultation.vue";
 import HomeCTA from "./home/HomeCTA.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
+import DoYouKnow from "./home/DoYouKnow.vue";
+import HowDoWeDiffer from "./home/HowDoWeDiffer.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -55,6 +59,8 @@ export default {
     HomeConsultation,
     HomeCTA,
     ScreenFooter,
+    DoYouKnow,
+    HowDoWeDiffer,
   },
 };
 </script>

@@ -9,34 +9,15 @@
       </p>
     </div>
     <div class="social-media-icons">
-      <li>
-        <a :href="mediumUrl" target="_blank">
-          <font-awesome-icon class="fab" :icon="mediumIcon" />
-        </a>
-      </li>
-      <li>
-        <a :href="facebookUrl" target="_blank">
-          <font-awesome-icon class="fab" :icon="facebookIcon" />
-        </a>
-      </li>
-      <li>
-        <a :href="twitterUrl" target="_blank">
-          <font-awesome-icon class="fab" :icon="twitterIcon" />
-        </a>
-      </li>
-      <li>
-        <a :href="instagramUrl" target="_blank">
-          <font-awesome-icon class="fab" :icon="instagramIcon" />
-        </a>
-      </li>
-      <li>
-        <a :href="githubUrl" target="_blank">
-          <font-awesome-icon class="fab" :icon="githubIcon" />
-        </a>
-      </li>
-      <li>
-        <a :href="linkedInUrl" target="_blank">
-          <font-awesome-icon class="fab" :icon="linkedInIcon" />
+      <li v-for="(socialMedia, index) in socialMediaIcons" :key="socialMedia">
+        <a :href="socialMedia.url" target="_blank">
+          <font-awesome-icon
+            class="fab"
+            :icon="socialMedia.icon"
+            @mouseover="hoverIndex = index"
+            @mouseleave="hoverIndex = null"
+            :class="{ 'fa-icon': hoverIndex == index }"
+          />
         </a>
       </li>
     </div>
@@ -62,19 +43,34 @@ export default {
   data() {
     return {
       copyrightIcon: faCopyright,
-      mediumIcon: faMedium,
-      facebookIcon: faFacebook,
-      twitterIcon: faTwitter,
-      instagramIcon: faInstagram,
-      githubIcon: faGithub,
-      linkedInIcon: faLinkedin,
       footerLogoImage: footerLogoImage,
-      mediumUrl: Config.MEDIUM_URL,
-      twitterUrl: Config.TWITTER_URL,
-      instagramUrl: Config.INSTAGRAM_URL,
-      githubUrl: Config.GITHUB_URL,
-      linkedInUrl: Config.LINKEDIN_URL,
-      facebookUrl: Config.FACEBOOK_URL,
+      hoverIndex: null,
+      socialMediaIcons: [
+        {
+          url: Config.MEDIUM_URL,
+          icon: faMedium,
+        },
+        {
+          url: Config.FACEBOOK_URL,
+          icon: faFacebook,
+        },
+        {
+          url: Config.TWITTER_URL,
+          icon: faTwitter,
+        },
+        {
+          url: Config.INSTAGRAM_URL,
+          icon: faInstagram,
+        },
+        {
+          url: Config.GITHUB_URL,
+          icon: faGithub,
+        },
+        {
+          url: Config.LINKEDIN_URL,
+          icon: faLinkedin,
+        },
+      ],
     };
   },
   components: {
@@ -84,6 +80,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fa-icon {
+  color: #f2709c !important;
+}
+
 .bottom-footer-div {
   margin: 0 15%;
   padding: 3% 0;
