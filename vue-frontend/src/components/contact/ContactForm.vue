@@ -585,7 +585,7 @@ input[type="radio"]:checked ~ .box {
 
 .call-now-btn,
 .chat-email-btn {
-  width: 15rem;
+  width: 100%;
   margin-left: 0 !important;
 }
 
@@ -736,6 +736,11 @@ input:-webkit-autofill:active {
   .information-pd {
     padding: 25px 40px;
   }
+
+.call-now-btn,
+.chat-email-btn {
+  width: 40%;
+}
 }
 
 @include media-breakpoint-up(lg) {
