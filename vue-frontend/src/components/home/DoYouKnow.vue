@@ -77,7 +77,7 @@ export default {
 
   .do-you-know-text {
     width: 50%;
-    margin: -10rem auto 0;
+    margin: -160px auto 0;
   }
 }
 

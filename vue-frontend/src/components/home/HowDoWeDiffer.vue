@@ -31,7 +31,7 @@
         smoother, and better. We help quality-conscious people(or companies)
         design, develop, and expand their business through digital products.
       </div>
-      <div class="flex-grid">
+      <div class="flex-grid mt-3">
         <div class="flex-grid-1" ref="flexGridOne">
           <div class="text-center normal-text text-black">
             <object
@@ -176,10 +176,10 @@ export default {
 }
 
 .steve-box {
-  margin: 2rem 0.5rem;
+  margin: 32px 8px;
   line-height: 2;
-  padding: 1.5rem;
-  border-radius: 0.9rem;
+  padding: 24px;
+  border-radius: 14px;
   text-align: left;
   border: 1px solid transparent !important;
   position: relative;
@@ -218,7 +218,7 @@ export default {
 
 .flex-grid-1 > div,
 .flex-grid-2 > div {
-  padding: 1.25rem;
+  padding: 20px;
   width: 50%;
   display: flex;
   flex-direction: column;
@@ -226,7 +226,7 @@ export default {
 
 .flex-grid-1 > div > object,
 .flex-grid-2 > div > object {
-  height: 7.5rem;
+  height: 120px;
 }
 
 .flex-grid-1 > div > b,
@@ -246,7 +246,7 @@ export default {
   }
 
   .light-orange-bg {
-    margin-top: -13rem;
+    margin-top: -208px;
   }
 
   .light-orange-bg > .m-lr-10 > .description {
@@ -255,7 +255,7 @@ export default {
   }
 
   .steve-box {
-    padding: 2rem;
+    padding: 32px;
   }
 
   .differ-description {
@@ -285,7 +285,7 @@ export default {
   }
 
   .steve-box {
-    padding: 3rem;
+    padding: 48px;
   }
 
   .flex-grid-1 > div,
