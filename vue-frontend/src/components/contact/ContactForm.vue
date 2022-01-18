@@ -737,10 +737,10 @@ input:-webkit-autofill:active {
     padding: 25px 40px;
   }
 
-.call-now-btn,
-.chat-email-btn {
-  width: 40%;
-}
+  .call-now-btn,
+  .chat-email-btn {
+    width: 40%;
+  }
 }
 
 @include media-breakpoint-up(lg) {

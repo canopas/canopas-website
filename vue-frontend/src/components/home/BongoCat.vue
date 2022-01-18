@@ -537,7 +537,6 @@ export default {
 </script>
 
 <style scoped>
-
 @keyframes dashed-line {
   from {
     stroke-dashoffset: 400;
