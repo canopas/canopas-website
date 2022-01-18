@@ -1,48 +1,59 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-light main-header" id="mainHeader">
-    <div class="container">
-      <router-link to="/" replace>
-        <div class="navbar-brand">
-          <img
-            :src="headerLogoImage"
-            class="header-logo-image"
-            alt="canopas-logo"
-          />
+  <div class="nav-container" :style="{ height: navContainerHeight + 'px' }">
+    <nav
+      class="navbar navbar-expand-md navbar-light main-header"
+      :class="{
+        'navbar-sticky': navbarSticky,
+        'navbar-animation': navbarAnimation,
+      }"
+      ref="mainHeader"
+    >
+      <div class="container">
+        <router-link to="/" replace>
+          <div class="navbar-brand">
+            <img
+              :src="headerLogoImage"
+              class="header-logo-image mt-1"
+              alt="canopas-logo"
+            />
+          </div>
+        </router-link>
+        <div class="navbar-collapse">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item-margin">
+              <a class="nav-link normal-text" :href="careerURL" target="_blank"
+                >Career</a
+              >
+            </li>
+            <li class="nav-item-margin">
+              <a class="nav-link normal-text" :href="blogsURL" target="_blank"
+                >Blogs</a
+              >
+            </li>
+            <li>
+              <router-link
+                to="/contact"
+                class="nav-link start-btn normal-text gradient-border-btn"
+              >
+                <span
+                  ><span class="canopas-gradient-text"
+                    >Let's talk business</span
+                  >
+                </span>
+              </router-link>
+            </li>
+            <li>
+              <router-link
+                to="/contact"
+                class="nav-link start-btn-link normal-text"
+                >Let's talk business</router-link
+              >
+            </li>
+          </ul>
         </div>
-      </router-link>
-      <div class="navbar-collapse">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item-margin">
-            <a class="nav-link normal-text" :href="careerURL" target="_blank"
-              >Career</a
-            >
-          </li>
-          <li class="nav-item-margin">
-            <a class="nav-link normal-text" :href="blogsURL" target="_blank"
-              >Blogs</a
-            >
-          </li>
-          <li>
-            <router-link
-              to="/contact"
-              class="nav-link start-btn normal-text gradient-border-btn"
-            >
-              <span
-                ><span class="canopas-gradient-text">Let's talk business</span>
-              </span>
-            </router-link>
-          </li>
-          <li>
-            <router-link
-              to="/contact"
-              class="nav-link start-btn-link normal-text"
-              >Let's talk business</router-link
-            >
-          </li>
-        </ul>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script type="module">
@@ -55,20 +66,85 @@ export default {
       headerLogoImage: headerLogoImage,
       careerURL: Config.JOBS_URL,
       blogsURL: Config.BLOG_URL,
+      navbarSticky: false,
+      navbarAnimation: false,
+      navContainerHeight: 0,
+      lastScrollY: 0,
     };
   },
   components: {},
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+    this.navContainerHeight = this.$refs.mainHeader.clientHeight + 30;
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  computed: {},
+  methods: {
+    handleScroll() {
+      let wasSticky = this.navbarSticky;
+      this.navbarSticky = window.scrollY > 30;
+
+      // If scroll diff is large, we show navbar with animation
+      let diff = window.scrollY - this.lastScrollY;
+      if (this.navbarSticky != wasSticky && diff > 15) {
+        this.navbarAnimation = true;
+      }
+      if (!this.navbarSticky) {
+        this.navbarAnimation = false;
+      }
+      this.lastScrollY = window.scrollY;
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
+.nav-container {
+  background: #fff;
+  z-index: 100;
+  position: relative;
+}
+
 .navbar {
-  padding: 22px 3%;
+  padding: 10px 3%;
+  width: 100%;
+  background: #fff;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 101;
+  transition: all 0.6s ease-in-out;
+}
+
+.navbar-sticky {
+  position: fixed;
+  left: unset;
+  bottom: unset;
+  box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15);
+}
+
+.navbar-animation {
+  animation: menu_sticky 0.6s ease-in-out;
+}
+
+@keyframes menu_sticky {
+  0% {
+    top: -120px;
+    opacity: 0;
+  }
+
+  100% {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 .navbar-nav {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: flex-start;
 }
 
@@ -84,7 +160,7 @@ export default {
 
 .header-logo-image {
   width: 205px;
-  height: 40px;
+  height: 38.5px;
 }
 
 .start-btn-link {
@@ -101,16 +177,13 @@ export default {
   }
 
   .navbar {
-    padding: 45px 10%;
-    transition: all 0.6s ease-in-out;
-    background: #fff;
-    z-index: 10000;
+    padding: 20px 10%;
   }
 }
 
 @include media-breakpoint-up(lg) {
   .navbar {
-    padding: 45px 14%;
+    padding: 20px 14%;
   }
 
   .normal-text {
