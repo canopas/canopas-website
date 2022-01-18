@@ -161,6 +161,8 @@ Resources:
 
   ApiGatewayCustomDomainMapping:
     Type: AWS::ApiGateway::BasePathMapping
+    DependsOn:
+      - ApiGatewayDeployment
     Properties: 
       DomainName: dev-go-vue.canopas.com
       RestApiId: !Ref ApiGateway

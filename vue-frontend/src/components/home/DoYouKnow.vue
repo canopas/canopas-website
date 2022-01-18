@@ -17,13 +17,11 @@
         >
       </div>
     </div>
-    <HowWeDoDiffer />
   </div>
 </template>
 
 <script type="module">
 import doYouKnowImage from "@/assets/images/theme/question.svg";
-import HowWeDoDiffer from "./HowDoWeDiffer.vue";
 
 export default {
   data() {
@@ -31,13 +29,10 @@ export default {
       doYouKnowImage: doYouKnowImage,
     };
   },
-  components: {
-    HowWeDoDiffer,
-  },
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .que-section {
   margin: 15% 10%;
 }
@@ -60,7 +55,7 @@ export default {
   margin: 0;
 }
 
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
     font-size: 1.875rem;
@@ -86,7 +81,7 @@ export default {
   }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;

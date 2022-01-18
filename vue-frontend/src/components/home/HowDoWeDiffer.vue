@@ -149,7 +149,7 @@ export default {
     };
   },
   mounted() {
-    if (window.innerWidth >= 600 && window.innerWidth <= 992) {
+    if (window.innerWidth >= 768 && window.innerWidth <= 992) {
       this.$refs.flexGridTwo.prepend(this.$refs.uiUxDiv);
     } else {
       this.$refs.flexGridOne.append(this.$refs.uiUxDiv);
@@ -158,7 +158,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .m-lr-10 {
   margin: 0 10%;
 }
@@ -170,6 +170,7 @@ export default {
 }
 
 .light-orange-bg > .m-lr-10 > .description {
+  width: auto;
   padding-top: 80px;
   margin: auto;
 }
@@ -233,20 +234,7 @@ export default {
   font-size: 1.125rem;
 }
 
-@media (min-width: 481px) {
-  .light-orange-bg > .m-lr-10 > .description {
-    width: 80% !important;
-  }
-}
-
-@media (min-width: 600px) {
-  .flex-grid-1 > div,
-  .flex-grid-2 > div {
-    width: 33%;
-  }
-}
-
-@media (min-width: 768px) {
+@include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
     font-size: 1.875rem;
@@ -273,9 +261,14 @@ export default {
   .differ-description {
     margin: 3% 10%;
   }
+
+  .flex-grid-1 > div,
+  .flex-grid-2 > div {
+    width: 33%;
+  }
 }
 
-@media (min-width: 992px) {
+@include media-breakpoint-up(lg) {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;
