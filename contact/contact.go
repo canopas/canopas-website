@@ -119,7 +119,7 @@ func SendEmail(emailTemplate *ses.SendEmailInput) int {
 }
 
 func GetAWSIAMUserSession() (*session.Session, error) {
-	awsRegion := os.Getenv("REGION_AWS")
+	awsRegion := os.Getenv("AWS_REGION")
 	awsAccessKeyId := os.Getenv("ACCESS_KEY_ID")
 	awsSecretAccessKey := os.Getenv("SECRET_ACCESS_KEY")
 
