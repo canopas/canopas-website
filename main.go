@@ -18,7 +18,7 @@ func main() {
 
 	contactRepo := contact.New(tmplFS)
 
-	router.POST("/api/send-contact-mail", contactRepo.ContactDetail)
+	router.POST("/api/send-contact-mail", contactRepo.SendContactMail)
 
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{

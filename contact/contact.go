@@ -7,7 +7,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
 
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
@@ -36,14 +35,14 @@ type Template struct {
 	templates *template.Template
 }
 
-func New(TemplateFs embed.FS) *Template {
-	templates, _ := template.ParseFS(TemplateFs, "templates/email-template.html")
+func New(templateFs embed.FS) *Template {
+	templates, _ := template.ParseFS(templateFs, "templates/email-template.html")
 	return &Template{
 		templates: templates,
 	}
 }
 
-func (repository *Template) ContactDetail(c *gin.Context) {
+func (repository *Template) SendContactMail(c *gin.Context) {
 	var input ContactDetails
 
 	err := c.ShouldBindWith(&input, binding.JSON)
@@ -139,7 +138,6 @@ func GetAWSIAMUserSession() (*session.Session, error) {
 }
 
 func GetEmailTemplate(htmlBody string, data ContactDetails, title string, sender string, receiver string) (template *ses.SendEmailInput) {
-	contactData := ConcatenateContactData(data)
 
 	template = &ses.SendEmailInput{
 		Destination: &ses.Destination{
@@ -156,7 +154,7 @@ func GetEmailTemplate(htmlBody string, data ContactDetails, title string, sender
 				},
 				Text: &ses.Content{
 					Charset: aws.String(CHARSET),
-					Data:    aws.String(contactData),
+					Data:    aws.String("Contact Info"),
 				},
 			},
 			Subject: &ses.Content{
@@ -167,13 +165,4 @@ func GetEmailTemplate(htmlBody string, data ContactDetails, title string, sender
 		Source: aws.String(sender),
 	}
 	return
-}
-
-func ConcatenateContactData(data ContactDetails) (contactData string) {
-	values := []string{}
-	values = append(values, data.Name, data.Designation, data.DesignationInfo, data.Idea, data.Email, data.Message)
-
-	contactData = strings.Join(values, "")
-
-	return contactData
 }
