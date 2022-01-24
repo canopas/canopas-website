@@ -3,7 +3,6 @@ package contact
 import (
 	"bytes"
 	"embed"
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -33,13 +32,11 @@ type ContactDetails struct {
 
 const CHARSET = "utf-8"
 
-var TemplateFs embed.FS
-
 type Template struct {
 	templates *template.Template
 }
 
-func New() *Template {
+func New(TemplateFs embed.FS) *Template {
 	templates, _ := template.ParseFS(TemplateFs, "templates/email-template.html")
 	return &Template{
 		templates: templates,
@@ -73,8 +70,6 @@ func (repository *Template) getEmailTemplate(input ContactDetails) (template *se
 	RECEIVER := os.Getenv("RECEIVER")
 
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)
-
-	fmt.Println(htmlBody)
 
 	title := "Canopas Website - Contact Information (By " + input.ContactType + ")"
 

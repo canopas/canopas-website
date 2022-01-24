@@ -14,10 +14,9 @@ import (
 var tmplFS embed.FS
 
 func main() {
-	contact.TemplateFs = tmplFS
 	router := gin.Default()
 
-	contactRepo := contact.New()
+	contactRepo := contact.New(tmplFS)
 
 	router.POST("/api/send-contact-mail", contactRepo.ContactDetail)
 
