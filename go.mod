@@ -26,4 +26,6 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
+	github.com/aws/aws-sdk-go v1.42.38
+	github.com/jmespath/go-jmespath v0.4.0 // indirect
 )
