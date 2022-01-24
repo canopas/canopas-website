@@ -1,6 +1,8 @@
 package main
 
 import (
+	"canopas-website/contact"
+	"embed"
 	"log"
 	"os"
 
@@ -8,8 +10,16 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+//go:embed templates/email-template.html
+var tmplFS embed.FS
+
 func main() {
-    router := gin.Default()
+	contact.TemplateFs = tmplFS
+	router := gin.Default()
+
+	contactRepo := contact.New()
+
+	router.POST("/api/send-contact-mail", contactRepo.ContactDetail)
 
 	router.GET("/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
