@@ -7,6 +7,21 @@ Parameters:
     Description: Name of an environment. 'dev', 'staging', 'prod' and any name.
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
+  Sender:
+    Type: String
+    Description: Email address of sender.
+  Receiver:
+    Type: String
+    Description: Email address of receiver.
+  AccessKeyId:
+    Type: String
+    Description: access-key-id.
+  SecretAccessKey:
+    Type: String
+    Description: secret-access-key.
+  Region:
+    Type: String
+    Description: aws-region.
   LambdaHandlerPath:  
     Type: String
     Description: Path of a Lambda Handler. 
@@ -89,6 +104,16 @@ Resources:
         Variables:
           ENV:
             Fn::Sub: ${EnvName}
+          SENDER:
+            Fn::Sub: ${Sender}
+          RECEIVER:
+            Fn::Sub: ${Receiver}
+          ACCESS_KEY_ID:
+            Fn::Sub: ${AccessKeyId}
+          SECRET_ACCESS_KEY:
+            Fn::Sub: ${SecretAccessKey}
+          REGION:
+            Fn::Sub: ${Region}
           TZ: UTC
           GIN_MODE: release
 
