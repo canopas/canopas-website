@@ -7,5 +7,6 @@ export default Object.freeze({
   MEDIUM_URL: "https://medium.com/canopas",
   BLOG_URL: "https://blog.canopas.com",
   JOBS_URL: "https://jobs.canopas.com",
-  API_BASE: "https://dev-stack.canopas.com/",
+  API_BASE: "https://dev-go-vue.canopas.com",
+  CALENDLY_IFRAME_URL: "https://calendly.com/darpanvithani/15min",
 });

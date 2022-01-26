@@ -103,7 +103,6 @@ export default {
 <style lang="scss" scoped>
 .nav-container {
   background: #fff;
-  z-index: 100;
   position: relative;
 }
 
@@ -114,7 +113,7 @@ export default {
   position: absolute;
   left: 0;
   bottom: 0;
-  z-index: 101;
+  z-index: 1;
   transition: all 0.6s ease-in-out;
 }
 
