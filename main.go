@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/apex/gateway"
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
@@ -15,6 +16,8 @@ var tmplFS embed.FS
 
 func main() {
 	router := gin.Default()
+
+	router.Use(cors.New(corsConfig()))
 
 	contactRepo := contact.New(tmplFS)
 
@@ -38,4 +41,10 @@ func inLambda() bool {
 		return true
 	}
 	return false
+}
+
+func corsConfig() cors.Config {
+	defaultCors := cors.DefaultConfig()
+	defaultCors.AllowAllOrigins = true
+	return defaultCors
 }
