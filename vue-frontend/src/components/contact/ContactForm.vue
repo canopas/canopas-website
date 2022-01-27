@@ -292,27 +292,24 @@
     <div v-if="openCalendlyIframeModal">
       <transition name="modal">
         <div class="modal-mask">
-          <div class="modal-wrapper">
-            <div
-              class="modal-dialog login-modal modal-lg modal-dialog-centered"
-              role="document"
-            >
-              <div class="modal-content calendly-iframe-modal-content">
-                <div class="modal-body">
-                  <div class="modal-close-div">
-                    <button
-                      type="button"
-                      class="close modal-close-btn"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true" @click="closeCalendlyIframeModal"
-                        >&times;</span
-                      >
-                    </button>
-                  </div>
-                  <CalendlyIframe />
-                </div>
+          <div
+            class="modal-dialog login-modal modal-xl modal-dialog-centered"
+            role="document"
+          >
+            <div class="modal-content calendly-iframe-modal-content">
+              <div class="modal-body">
+                <CalendlyIframe />
+
+                <button
+                  type="button"
+                  class="close modal-close-btn"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true" @click="closeCalendlyIframeModal"
+                    >&times;</span
+                  >
+                </button>
               </div>
             </div>
           </div>
@@ -337,9 +334,9 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import axios from "axios";
+// import axios from "axios";
 import CalendlyIframe from "./CalendlyIframe.vue";
-import config from "@/config.js";
+// import config from "@/config.js";
 
 const CONTACT_BY_CHAT_OR_MAIL = 1;
 
@@ -455,61 +452,67 @@ export default {
       this.currentWebsiteIndex = i;
     },
     submitApplication() {
-      let designationValue, designationInfo;
+      // let designationValue, designationInfo;
 
-      if (this.name || this.email == "") {
-        this.showValidationError = true;
-      }
+      // if (this.name || this.email == "") {
+      //   this.showValidationError = true;
+      // }
 
-      if (this.designationType == 0) {
-        designationValue =
-          "I am individual entrepreneur running my own business.";
-        designationInfo =
-          "I am an owner of the business and I run " +
-          this.business +
-          " business. For more information about my business, you can visit the following links.";
+      // if (this.designationType == 0) {
+      //   designationValue =
+      //     "I am individual entrepreneur running my own business.";
+      //   designationInfo =
+      //     "I am an owner of the business and I run " +
+      //     this.business +
+      //     " business. For more information about my business, you can visit the following links.";
+      // } else {
+      //   designationValue =
+      //     "I work for the company and I am approaching on behalf of the company.";
+      //   designationInfo =
+      //     "I am representing " +
+      //     this.business +
+      //     " company. You can find more information about our business by visiting the following links.";
+      // }
+
+      // var socialMediaUrls = {};
+      // this.websites.forEach((website) => {
+      //   socialMediaUrls[website.title] = website.url ? website.url : "NA";
+      // });
+
+      // let formData = {
+      //   name: this.name,
+      //   designation: designationValue ? designationValue : "NA",
+      //   designation_info: designationInfo ? designationInfo : "NA",
+      //   social_media_links: socialMediaUrls,
+      //   idea: this.helpType != -1 ? this.helps[this.helpType].title : "NA",
+      //   reason: this.reason ? this.reason : "NA",
+      //   email: this.email,
+      //   message: this.message ? this.message : "NA",
+      //   contact_type:
+      //     this.contactType == CONTACT_BY_CHAT_OR_MAIL
+      //       ? "Chat or Email"
+      //       : "Call",
+      // };
+
+      // axios
+      //   .post(config.API_BASE + "/api/send-contact-mail", formData)
+      //   .then(() => {
+      //     if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
+      //       this.showSuccessMessage();
+      //     } else {
+      //       this.openCalendlyIframe();
+      //     }
+      //   })
+      //   .catch(() => {
+      //     // If error is there show model with below message.
+      //     alert("Something went wrong on our side");
+      //   });
+
+      if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
+        this.showSuccessMessage();
       } else {
-        designationValue =
-          "I work for the company and I am approaching on behalf of the company.";
-        designationInfo =
-          "I am representing " +
-          this.business +
-          " company. You can find more information about our business by visiting the following links.";
+        this.openCalendlyIframe();
       }
-
-      var socialMediaUrls = {};
-      this.websites.forEach((website) => {
-        socialMediaUrls[website.title] = website.url ? website.url : "NA";
-      });
-
-      let formData = {
-        name: this.name,
-        designation: designationValue ? designationValue : "NA",
-        designation_info: designationInfo ? designationInfo : "NA",
-        social_media_links: socialMediaUrls,
-        idea: this.helpType != -1 ? this.helps[this.helpType].title : "NA",
-        reason: this.reason ? this.reason : "NA",
-        email: this.email,
-        message: this.message ? this.message : "NA",
-        contact_type:
-          this.contactType == CONTACT_BY_CHAT_OR_MAIL
-            ? "Chat or Email"
-            : "Call",
-      };
-
-      axios
-        .post(config.API_BASE + "/api/send-contact-mail", formData)
-        .then(() => {
-          if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
-            this.showSuccessMessage();
-          } else {
-            this.openCalendlyIframe();
-          }
-        })
-        .catch(() => {
-          // If error is there show model with below message.
-          alert("Something went wrong on our side");
-        });
     },
     openCalendlyIframe() {
       this.openCalendlyIframeModal = true;
@@ -872,25 +875,19 @@ input:-webkit-autofill:active {
   outline: none !important;
 }
 
-.modal-close-div {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .modal-close-btn {
   border: none;
   color: #f2709c;
   font-size: 40px;
   font-weight: lighter;
-  background-color: #fff;
+  background-color: transparent;
+  position: absolute;
+  right: 10px;
+  bottom: 516px;
 }
 
 .modal-close-btn:focus {
   outline: none;
-}
-
-.modal-lg {
-  max-width: 700px;
 }
 
 .modal-mask {
@@ -905,11 +902,6 @@ input:-webkit-autofill:active {
   transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
 @include media-breakpoint-up(md) {
   .information-pd {
     padding: 25px 40px;
@@ -918,6 +910,10 @@ input:-webkit-autofill:active {
   .call-now-btn,
   .chat-email-btn {
     width: 40%;
+  }
+
+  .modal-close-btn {
+    bottom: 680px;
   }
 }
 
