@@ -41,8 +41,8 @@ Resources:
     Properties:
       DistributionConfig:
         Origins:
-        - DomainName: !Sub '${S3BucketName}.s3.amazonaws.com'
-          Id: dev-go-vue-canopas-frontend
+        - DomainName: !GetAtt S3Bucket.RegionalDomainName
+          Id: !Sub '${S3BucketName}-canopas-frontend'
           S3OriginConfig:
             OriginAccessIdentity: !Sub 'origin-access-identity/cloudfront/${CloudFrontOriginIdentity}'
         Enabled: 'true'
@@ -50,6 +50,11 @@ Resources:
         HttpVersion: http2
         Aliases:
         - dev-stack.canopas.com
+        CustomErrorResponses:
+        - ErrorCachingMinTTL: 31536000
+          ErrorCode: 403
+          ResponseCode: 200
+          ResponsePagePath: '/index.html'
         ViewerCertificate:
           AcmCertificateArn: 'arn:aws:acm:us-east-1:569704406482:certificate/61f88a8a-9346-4e90-9d62-d0b20cd71765'
           MinimumProtocolVersion: TLSv1.2_2021
@@ -64,7 +69,7 @@ Resources:
           - POST
           - PUT
           Compress: true
-          TargetOriginId: dev-go-vue-canopas-frontend
+          TargetOriginId: !Sub '${S3BucketName}-canopas-frontend'
           ForwardedValues:
             QueryString: 'false'
             Cookies:

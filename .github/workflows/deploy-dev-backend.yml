@@ -1,8 +1,6 @@
-name: Deploy
-on:
-  push:
-    branches:
-      - master
+name: DeployDevBackend
+on: push
+
 
 jobs:
   deploy-backend:
@@ -37,18 +35,19 @@ jobs:
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
       - name: Upload to S3
         run: |
-          aws s3 cp ${{ env.ZIP_NAME }} s3://lambda-canopas-webside-v1-dev/
+          aws s3 cp ${{ env.ZIP_NAME }} s3://dev-stack-canopas-backend/
       - name: Deploy lambda function
-        id: canopas-website-backend-stack
+        id: canopas-website-dev-backend-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: canopas-website-backend-stack
+          name: canopas-website-dev-backend-stack
           template: infrastructure/template-backend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "5"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            EnvName=prod,
+            EnvName=dev,
+            S3BucketName=dev-stack-canopas-backend,
             LambdaHandlerPath=main,
             LambdaZipFilePath=${{ env.ZIP_NAME }},
             Sender=${{ secrets.SENDER }},
@@ -56,4 +55,5 @@ jobs:
             AccessKeyId=${{ secrets.ACCESS_KEY_ID }},
             SecretAccessKey=${{ secrets.SECRET_ACCESS_KEY }},
             Region=${{ secrets.AWS_REGION }}
+
             

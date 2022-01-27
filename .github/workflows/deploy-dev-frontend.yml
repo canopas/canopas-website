@@ -1,8 +1,6 @@
-name: Deploy
-on:
-  push:
-    branches:
-      - master
+name: DeployDevFrontend
+on: push
+
 jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
@@ -26,13 +24,13 @@ jobs:
         id: canopas-website-dev-frontend-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: canopas-website-frontend-stack
+          name: canopas-website-dev-frontend-stack
           template: infrastructure/template-frontend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "10"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            S3BucketName=dev-go-vue.canopas.com
+            S3BucketName=dev-stack-canopas-v1-frontend
       - name: Build frontend
         run: |
           cd vue-frontend
@@ -41,5 +39,5 @@ jobs:
       - name: Upload to S3
         run: |
           cd vue-frontend
-          aws s3 sync --delete --cache-control 'max-age=31536000' --exclude *.html dist/ s3://dev-go-vue.canopas.com/
-          aws s3 sync --cache-control 'no-cache' dist/ s3://dev-go-vue.canopas.com/
+          aws s3 sync --delete --cache-control 'max-age=31536000' --exclude *.html dist/ s3://dev-stack-canopas-v1-frontend/
+          aws s3 sync --cache-control 'no-cache' dist/ s3://dev-stack-canopas-v1-frontend/
