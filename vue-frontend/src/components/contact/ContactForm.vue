@@ -1,6 +1,6 @@
 <template>
   <div class="apply-information">
-    <form action="" method="post" id="contactForm">
+    <form>
       <div class="required-field-msg">
         All fields marked with * are required.
       </div>
@@ -19,6 +19,9 @@
                 autocomplete="given-name"
                 v-model="name"
               />
+              <span v-if="showValidationError" class="error"
+                >This field is required</span
+              >
             </label>
           </div>
         </div>
@@ -183,7 +186,12 @@
           <br />
           <div class="radio-buttons reason-label for-reason-label-1">
             <label v-for="item in helps[helpType].reasons" :key="item">
-              <input type="radio" name="reason" v-bind="reason" :value="item" />
+              <input
+                type="radio"
+                name="reason"
+                :value="item"
+                v-model="reason"
+              />
               <div class="box">
                 <span class="contact-form-text">{{ item }}</span>
               </div>
@@ -203,7 +211,11 @@
               type="text"
               name="email"
               required
+              v-model="email"
             />
+            <span v-if="showValidationError" class="error"
+              >This field is required</span
+            >
           </div>
           <br />
           <div class="my-3">
@@ -212,6 +224,7 @@
               name="message"
               rows="10"
               :v-bind="message"
+              v-model="message"
               placeholder="I have a message or information for Canopas team."
             ></textarea>
           </div>
@@ -249,7 +262,7 @@
               type="submit"
               v-if="contactType == 1"
               class="gradient-btn gradient-bg-btn chat-email-btn"
-              onclick="submitApplication()"
+              @click.prevent="submitApplication()"
             >
               <font-awesome-icon
                 class="fas"
@@ -262,7 +275,7 @@
               type="submit"
               v-if="contactType == 0"
               class="gradient-btn gradient-bg-btn call-now-btn"
-              onclick="submitApplication()"
+              @click.prevent="submitApplication()"
             >
               <font-awesome-icon
                 :icon="calendarIcon"
@@ -275,6 +288,37 @@
         </div>
       </div>
     </form>
+    <!-- Show Calendly Iframe -->
+    <div v-if="openCalendlyIframeModal">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-wrapper">
+            <div
+              class="modal-dialog login-modal modal-lg modal-dialog-centered"
+              role="document"
+            >
+              <div class="modal-content calendly-iframe-modal-content">
+                <div class="modal-body">
+                  <div class="modal-close-div">
+                    <button
+                      type="button"
+                      class="close modal-close-btn"
+                      data-dismiss="modal"
+                      aria-label="Close"
+                    >
+                      <span aria-hidden="true" @click="closeCalendlyIframeModal"
+                        >&times;</span
+                      >
+                    </button>
+                  </div>
+                  <CalendlyIframe />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -293,6 +337,11 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
+import axios from "axios";
+import CalendlyIframe from "./CalendlyIframe.vue";
+import config from "@/config.js";
+
+const CONTACT_BY_CHAT_OR_MAIL = 1;
 
 export default {
   data() {
@@ -379,10 +428,14 @@ export default {
       currentWebsiteUrl: "",
       currentWebsiteIndex: -1,
       contactType: -1,
+      email: "",
+      openCalendlyIframeModal: false,
+      showValidationError: false,
     };
   },
   components: {
     FontAwesomeIcon,
+    CalendlyIframe,
   },
   methods: {
     onWebsiteClick(i) {
@@ -400,6 +453,72 @@ export default {
     onRemoveWebsiteClick(i) {
       this.websites[i].url = "";
       this.currentWebsiteIndex = i;
+    },
+    submitApplication() {
+      let designationValue, designationInfo;
+
+      if (this.name || this.email == "") {
+        this.showValidationError = true;
+      }
+
+      if (this.designationType == 0) {
+        designationValue =
+          "I am individual entrepreneur running my own business.";
+        designationInfo =
+          "I am an owner of the business and I run " +
+          this.business +
+          " business. For more information about my business, you can visit the following links.";
+      } else {
+        designationValue =
+          "I work for the company and I am approaching on behalf of the company.";
+        designationInfo =
+          "I am representing " +
+          this.business +
+          " company. You can find more information about our business by visiting the following links.";
+      }
+
+      var socialMediaUrls = {};
+      this.websites.forEach((website) => {
+        socialMediaUrls[website.title] = website.url ? website.url : "NA";
+      });
+
+      let formData = {
+        name: this.name,
+        designation: designationValue ? designationValue : "NA",
+        designation_info: designationInfo ? designationInfo : "NA",
+        social_media_links: socialMediaUrls,
+        idea: this.helpType != -1 ? this.helps[this.helpType].title : "NA",
+        reason: this.reason ? this.reason : "NA",
+        email: this.email,
+        message: this.message ? this.message : "NA",
+        contact_type:
+          this.contactType == CONTACT_BY_CHAT_OR_MAIL
+            ? "Chat or Email"
+            : "Call",
+      };
+
+      axios
+        .post(config.API_BASE + "/api/send-contact-mail", formData)
+        .then(() => {
+          if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
+            this.showSuccessMessage();
+          } else {
+            this.openCalendlyIframe();
+          }
+        })
+        .catch(() => {
+          // If error is there show model with below message.
+          alert("Something went wrong on our side");
+        });
+    },
+    openCalendlyIframe() {
+      this.openCalendlyIframeModal = true;
+    },
+    closeCalendlyIframeModal() {
+      this.openCalendlyIframeModal = false;
+    },
+    showSuccessMessage() {
+      alert("Thank you");
     },
   },
 };
@@ -555,6 +674,7 @@ input[type="radio"]:checked ~ .box {
 
 .input-textarea:focus {
   border: 1px solid rgba(61, 61, 61, 0.1);
+  outline: none;
 }
 
 .btn-social-media > span {
@@ -730,6 +850,64 @@ input:-webkit-autofill:active {
   margin: 0 10px;
   font-weight: 700;
   font-size: 1.1rem;
+}
+
+// calendly iframe
+
+.calendly-iframe-modal-content {
+  border-radius: 25px !important;
+}
+
+.calendly-iframe-modal-content > .modal-header {
+  border: none;
+}
+
+.calendly-iframe-modal-content > .modal-header > .close {
+  font-weight: 300;
+  font-size: 40px;
+  margin-right: -10px;
+}
+
+.calendly-iframe-modal-content > .modal-header > .close:focus {
+  outline: none !important;
+}
+
+.modal-close-div {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-close-btn {
+  border: none;
+  color: #f2709c;
+  font-size: 40px;
+  font-weight: lighter;
+  background-color: #fff;
+}
+
+.modal-close-btn:focus {
+  outline: none;
+}
+
+.modal-lg {
+  max-width: 700px;
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 @include media-breakpoint-up(md) {

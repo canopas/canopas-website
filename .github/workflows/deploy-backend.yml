@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+
 jobs:
   deploy-backend:
     runs-on: ubuntu-latest
@@ -49,4 +50,10 @@ jobs:
           parameter-overrides: >-
             EnvName=prod,
             LambdaHandlerPath=main,
-            LambdaZipFilePath=${{ env.ZIP_NAME }}
+            LambdaZipFilePath=${{ env.ZIP_NAME }},
+            Sender=${{ secrets.SENDER }},
+            Receiver=${{ secrets.RECEIVER }},
+            AccessKeyId=${{ secrets.ACCESS_KEY_ID }},
+            SecretAccessKey=${{ secrets.SECRET_ACCESS_KEY }},
+            Region=${{ secrets.AWS_REGION }}
+            
