@@ -18,16 +18,13 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
-  scrollBehavior(_to, _from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
+    } else {
+      return { top: 0, behavior: "instant" };
     }
-    return { left: 0, top: 0 };
   },
-});
-
-router.beforeEach(() => {
-  return { top: 0 };
 });
 
 export default router;

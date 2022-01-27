@@ -20,9 +20,7 @@ export default {
     ScreenFooter,
     ContactForm,
   },
-  mounted() {
-    this.$refs.contactScreen.scrollTop = 0;
-  },
+  mounted() {},
 };
 </script>
 
