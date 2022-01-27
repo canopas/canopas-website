@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="contactScreen">
     <ScreenHeader />
     <ContactLanding />
     <ContactForm />
@@ -19,6 +19,9 @@ export default {
     ContactLanding,
     ScreenFooter,
     ContactForm,
+  },
+  mounted() {
+    this.$refs.contactScreen.scrollTop = 0;
   },
 };
 </script>

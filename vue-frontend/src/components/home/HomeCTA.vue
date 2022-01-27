@@ -84,6 +84,7 @@ export default {
   methods: {
     openContact() {
       this.$router.push("/contact");
+      return { top: 0 };
     },
   },
 };
