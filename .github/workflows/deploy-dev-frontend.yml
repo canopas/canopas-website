@@ -1,6 +1,9 @@
 name: DeployDevFrontend
-on: push
-
+on:
+  push:
+    branches:
+      - master
+      
 jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
