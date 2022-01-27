@@ -292,27 +292,24 @@
     <div v-if="openCalendlyIframeModal">
       <transition name="modal">
         <div class="modal-mask">
-          <div class="modal-wrapper">
-            <div
-              class="modal-dialog login-modal modal-lg modal-dialog-centered"
-              role="document"
-            >
-              <div class="modal-content calendly-iframe-modal-content">
-                <div class="modal-body">
-                  <div class="modal-close-div">
-                    <button
-                      type="button"
-                      class="close modal-close-btn"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true" @click="closeCalendlyIframeModal"
-                        >&times;</span
-                      >
-                    </button>
-                  </div>
-                  <CalendlyIframe />
-                </div>
+          <div
+            class="modal-dialog login-modal modal-xl modal-dialog-centered"
+            role="document"
+          >
+            <div class="modal-content calendly-iframe-modal-content">
+              <div class="modal-body">
+                <CalendlyIframe />
+
+                <button
+                  type="button"
+                  class="close modal-close-btn"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true" @click="closeCalendlyIframeModal"
+                    >&times;</span
+                  >
+                </button>
               </div>
             </div>
           </div>
@@ -872,25 +869,19 @@ input:-webkit-autofill:active {
   outline: none !important;
 }
 
-.modal-close-div {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .modal-close-btn {
   border: none;
   color: #f2709c;
   font-size: 40px;
   font-weight: lighter;
-  background-color: #fff;
+  background-color: transparent;
+  position: absolute;
+  right: 10px;
+  bottom: 516px;
 }
 
 .modal-close-btn:focus {
   outline: none;
-}
-
-.modal-lg {
-  max-width: 700px;
 }
 
 .modal-mask {
@@ -905,11 +896,6 @@ input:-webkit-autofill:active {
   transition: opacity 0.3s ease;
 }
 
-.modal-wrapper {
-  display: table-cell;
-  vertical-align: middle;
-}
-
 @include media-breakpoint-up(md) {
   .information-pd {
     padding: 25px 40px;
@@ -918,6 +904,10 @@ input:-webkit-autofill:active {
   .call-now-btn,
   .chat-email-btn {
     width: 40%;
+  }
+
+  .modal-close-btn {
+    bottom: 680px;
   }
 }
 

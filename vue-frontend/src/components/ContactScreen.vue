@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="contactScreen">
     <ScreenHeader />
     <ContactLanding />
     <ContactForm />
@@ -20,6 +20,7 @@ export default {
     ScreenFooter,
     ContactForm,
   },
+  mounted() {},
 };
 </script>
 

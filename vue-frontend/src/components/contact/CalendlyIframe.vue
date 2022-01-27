@@ -28,10 +28,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .calendly-iframe-div {
-  height: 500px;
+  width: 100%;
+  height: 550px;
   border: none;
+  padding-top: 20px;
 }
 
 .iframe-loader {
@@ -52,5 +54,11 @@ export default {
 
 .calendly-iframe::-webkit-scrollbar {
   display: none;
+}
+
+@include media-breakpoint-up(md) {
+  .calendly-iframe-div {
+    height: 700px;
+  }
 }
 </style>
