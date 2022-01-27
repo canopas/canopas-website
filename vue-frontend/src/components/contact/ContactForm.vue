@@ -334,9 +334,9 @@ import {
   faTwitter,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-// import axios from "axios";
+import axios from "axios";
 import CalendlyIframe from "./CalendlyIframe.vue";
-// import config from "@/config.js";
+import config from "@/config.js";
 
 const CONTACT_BY_CHAT_OR_MAIL = 1;
 
@@ -452,67 +452,61 @@ export default {
       this.currentWebsiteIndex = i;
     },
     submitApplication() {
-      // let designationValue, designationInfo;
+      let designationValue, designationInfo;
 
-      // if (this.name || this.email == "") {
-      //   this.showValidationError = true;
-      // }
-
-      // if (this.designationType == 0) {
-      //   designationValue =
-      //     "I am individual entrepreneur running my own business.";
-      //   designationInfo =
-      //     "I am an owner of the business and I run " +
-      //     this.business +
-      //     " business. For more information about my business, you can visit the following links.";
-      // } else {
-      //   designationValue =
-      //     "I work for the company and I am approaching on behalf of the company.";
-      //   designationInfo =
-      //     "I am representing " +
-      //     this.business +
-      //     " company. You can find more information about our business by visiting the following links.";
-      // }
-
-      // var socialMediaUrls = {};
-      // this.websites.forEach((website) => {
-      //   socialMediaUrls[website.title] = website.url ? website.url : "NA";
-      // });
-
-      // let formData = {
-      //   name: this.name,
-      //   designation: designationValue ? designationValue : "NA",
-      //   designation_info: designationInfo ? designationInfo : "NA",
-      //   social_media_links: socialMediaUrls,
-      //   idea: this.helpType != -1 ? this.helps[this.helpType].title : "NA",
-      //   reason: this.reason ? this.reason : "NA",
-      //   email: this.email,
-      //   message: this.message ? this.message : "NA",
-      //   contact_type:
-      //     this.contactType == CONTACT_BY_CHAT_OR_MAIL
-      //       ? "Chat or Email"
-      //       : "Call",
-      // };
-
-      // axios
-      //   .post(config.API_BASE + "/api/send-contact-mail", formData)
-      //   .then(() => {
-      //     if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
-      //       this.showSuccessMessage();
-      //     } else {
-      //       this.openCalendlyIframe();
-      //     }
-      //   })
-      //   .catch(() => {
-      //     // If error is there show model with below message.
-      //     alert("Something went wrong on our side");
-      //   });
-
-      if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
-        this.showSuccessMessage();
-      } else {
-        this.openCalendlyIframe();
+      if (this.name || this.email == "") {
+        this.showValidationError = true;
       }
+
+      if (this.designationType == 0) {
+        designationValue =
+          "I am individual entrepreneur running my own business.";
+        designationInfo =
+          "I am an owner of the business and I run " +
+          this.business +
+          " business. For more information about my business, you can visit the following links.";
+      } else {
+        designationValue =
+          "I work for the company and I am approaching on behalf of the company.";
+        designationInfo =
+          "I am representing " +
+          this.business +
+          " company. You can find more information about our business by visiting the following links.";
+      }
+
+      var socialMediaUrls = {};
+      this.websites.forEach((website) => {
+        socialMediaUrls[website.title] = website.url ? website.url : "NA";
+      });
+
+      let formData = {
+        name: this.name,
+        designation: designationValue ? designationValue : "NA",
+        designation_info: designationInfo ? designationInfo : "NA",
+        social_media_links: socialMediaUrls,
+        idea: this.helpType != -1 ? this.helps[this.helpType].title : "NA",
+        reason: this.reason ? this.reason : "NA",
+        email: this.email,
+        message: this.message ? this.message : "NA",
+        contact_type:
+          this.contactType == CONTACT_BY_CHAT_OR_MAIL
+            ? "Chat or Email"
+            : "Call",
+      };
+
+      axios
+        .post(config.API_BASE + "/api/send-contact-mail", formData)
+        .then(() => {
+          if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
+            this.showSuccessMessage();
+          } else {
+            this.openCalendlyIframe();
+          }
+        })
+        .catch(() => {
+          // If error is there show model with below message.
+          alert("Something went wrong on our side");
+        });
     },
     openCalendlyIframe() {
       this.openCalendlyIframeModal = true;
