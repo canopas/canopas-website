@@ -14,13 +14,10 @@ npm run serve
 
 You can access the page by pointing a web browser at http://localhost:8080.
 
-## To run full website
+## To run backend
 
 ```
-cd todo-vue
-npm run build
-cd ..
 go run main.go
 ```
 
-You can access the page by pointing a web browser at http://localhost:8080.
+You can access the APIs at http://localhost:8080.
