@@ -1,12 +1,12 @@
 <template>
   <div>
     <ScreenHeader />
-    <ContactLanding v-on:formSubmitted="formSubmit" v-if="formSubmitted" />
-    <ContactForm v-on:formSubmitted="formSubmit" v-if="formSubmitted" />
-    <div class="finally" :style="!formSubmitted ? 'position: absolute;' : ''">
-      <ThankYou v-if="!formSubmitted" />
-      <ScreenFooter />
+    <div v-on:formSubmitted="!formSubmit" v-if="!formSubmitted">
+    <ContactLanding />
+    <ContactForm />
     </div>
+    <ThankYou v-if="formSubmitted" />
+    <ScreenFooter :class="formSubmitted ? 'footer-fixed' : ''" />
   </div>
 </template>
 
@@ -42,8 +42,8 @@ export default {
 </script>
 
 <style scoped>
-.finally {
-  height: 60%;
-  width: 100%;
+.footer-fixed {
+  position: fixed;
+  bottom: 0;
 }
 </style>
