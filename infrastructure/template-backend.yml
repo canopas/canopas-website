@@ -7,6 +7,11 @@ Parameters:
     Description: Name of an environment. 'dev', 'staging', 'prod' and any name.
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
+  S3BucketName:  
+    Type: String
+    Description: Name of the S3 bucket 
+    AllowedPattern: ^.*[^0-9]$
+    ConstraintDescription: Must end with non-numeric character.
   Sender:
     Type: String
     Description: Email address of sender.
@@ -67,7 +72,7 @@ Resources:
     Type: AWS::IAM::Role
     Properties:
       RoleName:
-        Fn::Sub: lambda-role
+        Fn::Sub: lambda-role-canopas-website-v1-${EnvName}
       AssumeRolePolicyDocument:
         Statement:
           - Action:
@@ -91,7 +96,7 @@ Resources:
       Description: LambdaFunction of canopas website v1 - golang
       Runtime: go1.x
       Code:
-        S3Bucket: lambda-canopas-webside-v1-dev
+        S3Bucket: !Ref S3BucketName
         S3Key: !Ref LambdaZipFilePath
       Handler: main
       MemorySize: 128
