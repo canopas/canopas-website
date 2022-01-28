@@ -316,6 +316,31 @@
         </div>
       </transition>
     </div>
+    <!-- Show Thank you message -->
+    <div v-if="showSuccessMessagePopup">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content calendly-iframe-modal-content">
+              <div class="modal-body">
+                <div class="success-message-div">
+                  <div
+                    class="success-message-text canopas-gradient-text text-center"
+                  >
+                    Thank you for choosing us to make a difference in your
+                    business.
+                  </div>
+                  <div class="">
+                    If you prefer to chat or email, sit back and relax our team
+                    will get back to you within 24 hours.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -428,6 +453,7 @@ export default {
       email: "",
       openCalendlyIframeModal: false,
       showValidationError: false,
+      showSuccessMessagePopup: false,
     };
   },
   components: {
@@ -516,7 +542,10 @@ export default {
       this.openCalendlyIframeModal = false;
     },
     showSuccessMessage() {
-      alert("Thank you");
+      this.showSuccessMessagePopup = true;
+      setTimeout(() => {
+        this.$router.push("/");
+      }, 2000);
     },
   },
 };
@@ -895,6 +924,18 @@ input:-webkit-autofill:active {
   background-color: rgba(0, 0, 0, 0.5);
   display: table;
   transition: opacity 0.3s ease;
+}
+
+// success/thank-you message
+
+.success-message-div {
+  padding: 20px;
+}
+
+.success-message-text {
+  line-height: 2rem;
+  font-size: 1.875rem;
+  margin-bottom: 30px;
 }
 
 @include media-breakpoint-up(md) {
