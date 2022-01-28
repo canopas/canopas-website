@@ -516,7 +516,7 @@ export default {
       this.openCalendlyIframeModal = false;
     },
     showSuccessMessage() {
-      alert("Thank you");
+      this.$emit("formSubmitted", false);
     },
   },
 };
