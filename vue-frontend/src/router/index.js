@@ -1,6 +1,7 @@
 import { createWebHistory, createRouter } from "vue-router";
 import HomeScreen from "@/components/HomeScreen.vue";
 import ContactScreen from "@/components/ContactScreen.vue";
+import ErrorScreen from "@/components/ErrorScreen.vue";
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: "/contact",
     name: "ContactScreen",
     component: ContactScreen,
+  },
+  {
+    path: "/:catchAll(.*)",
+    name: "ErrorScreen",
+    component: ErrorScreen,
   },
 ];
 
