@@ -1,7 +1,8 @@
 import { createWebHistory, createRouter } from "vue-router";
-import HomeScreen from "@/components/HomeScreen.vue";
-import ContactScreen from "@/components/ContactScreen.vue";
-import Error404Page from "@/components/Error404Page.vue";
+
+const HomeScreen = () => import("@/components/HomeScreen.vue");
+const Error404Page = () => import("@/components/Error404Page.vue");
+const ContactScreen = () => import("@/components/ContactScreen.vue");
 
 const routes = [
   {
