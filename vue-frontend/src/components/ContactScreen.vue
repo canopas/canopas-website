@@ -20,7 +20,9 @@ export default {
     ScreenFooter,
     ContactForm,
   },
-  mounted() {},
+  mounted() {
+    gtag("event", "view_canopas_client_contact");
+  },
 };
 </script>
 

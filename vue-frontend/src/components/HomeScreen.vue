@@ -62,6 +62,9 @@ export default {
     DoYouKnow,
     HowDoWeDiffer,
   },
+  mounted() {
+    gtag("event", "view_canopas_home");
+  },
 };
 </script>
 

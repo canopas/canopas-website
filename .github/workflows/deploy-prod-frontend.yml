@@ -1,4 +1,4 @@
-name: DeployDevFrontend
+name: DeployProdFrontend
 on:
   push:
     tags:
