@@ -483,6 +483,8 @@ export default {
       if (this.name === "" || this.email === "") {
         this.showValidationError = true;
       } else {
+        window.gtag("event", "canopas_client_contact_submit");
+
         this.showValidationError = false;
         if (this.designationType == 0) {
           designationValue =

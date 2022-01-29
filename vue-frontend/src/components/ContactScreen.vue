@@ -21,7 +21,7 @@ export default {
     ContactForm,
   },
   mounted() {
-    gtag("event", "view_canopas_client_contact");
+    window.gtag("event", "view_canopas_client_contact");
   },
 };
 </script>

@@ -45,7 +45,7 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
-    gtag("event", "view_canopas_404");
+    window.gtag("event", "view_canopas_404");
   },
 };
 </script>

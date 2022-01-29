@@ -63,7 +63,7 @@ export default {
     HowDoWeDiffer,
   },
   mounted() {
-    gtag("event", "view_canopas_home");
+    window.gtag("event", "view_canopas_home");
   },
 };
 </script>
