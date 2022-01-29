@@ -1,4 +1,4 @@
-name: DeployDevFrontend
+name: DeployProdFrontend
 on:
   push:
     tags:
@@ -27,26 +27,27 @@ jobs:
           aws-region: ap-south-1
 
       - name: Deploy cloudfront
-        id: canopas-website-dev-frontend-stack
+        id: canopas-website-prod-frontend-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: canopas-website-dev-frontend-stack
+          name: canopas-website-prod-frontend-stack
           template: infrastructure/template-frontend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "10"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            S3BucketName=dev-stack-canopas-v1-frontend,
-            CustomDomainName=dev-stack.canopas.com
+            S3BucketName=prod-stack-canopas-v1-frontend,
+            CustomDomainName=canopas.com
 
       - name: Build frontend
         run: |
           cd vue-frontend
           npm ci
+          mv src/config.prod.js src/config.js
           npm run build
 
       - name: Upload to S3
         run: |
           cd vue-frontend
-          aws s3 sync --delete --cache-control 'max-age=31536000' --exclude *.html dist/ s3://dev-stack-canopas-v1-frontend/
-          aws s3 sync --cache-control 'no-cache' dist/ s3://dev-stack-canopas-v1-frontend/
+          aws s3 sync --delete --cache-control 'max-age=31536000' --exclude *.html dist/ s3://prod-stack-canopas-v1-frontend/
+          aws s3 sync --cache-control 'no-cache' dist/ s3://prod-stack-canopas-v1-frontend/

@@ -44,6 +44,9 @@ export default {
     ScreenFooter,
     FontAwesomeIcon,
   },
+  mounted() {
+    window.gtag("event", "view_canopas_404");
+  },
 };
 </script>
 
