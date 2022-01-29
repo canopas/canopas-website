@@ -41,8 +41,7 @@ export default {
 }
 
 .contact-description {
-  text-align: justify;
-  line-height: 2rem;
+  line-height: 1.5rem;
 }
 
 .contact-description > p {

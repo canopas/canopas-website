@@ -57,7 +57,7 @@ body::-webkit-scrollbar {
   font-style: normal;
   font-weight: 400;
   font-size: 1.1rem;
-  line-height: 1.3rem;
+  line-height: 1.5rem;
   color: rgba(0, 0, 0, 0.5);
 }
 

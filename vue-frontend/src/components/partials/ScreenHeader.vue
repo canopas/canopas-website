@@ -154,7 +154,7 @@ export default {
 .gradient-border-btn {
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
     linear-gradient(to top, #ff9472, #f2709c);
-  box-shadow: 2px 1000px 1px #fff inset !important;
+  box-shadow: 2px 1000px 1px #fff inset;
 }
 
 .header-logo-image {
@@ -168,6 +168,17 @@ export default {
 
 .start-btn {
   display: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .gradient-border-btn:hover{
+    background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
+    border: 2px solid transparent;
+    box-shadow: none;
+  }
+
+  .gradient-border-btn:hover > span > span{
+    -webkit-text-fill-color: white;
+  }
 }
 
 @include media-breakpoint-up(md) {

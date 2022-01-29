@@ -16,7 +16,7 @@
         onclick="window.location.replace('/')"
       >
         <font-awesome-icon class="arrow" icon="arrow-left" id="leftArrow" />
-        <span class="black">Back to Home page</span>
+        <span class="canopas-gradient-text">Back to Home page</span>
       </a>
     </div>
     <ScreenFooter />
@@ -103,7 +103,6 @@ export default {
   text-align: center !important;
   font-weight: 700;
   font-size: 1.1rem !important;
-  line-height: 0.5rem;
 }
 
 .black {
@@ -123,7 +122,23 @@ export default {
 .gradient-border-btn {
   background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
     linear-gradient(to top, #ff9472, #f2709c);
-  box-shadow: 2px 1000px 1px #fff inset !important;
+  box-shadow: 2px 1000px 1px #fff inset;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gradient-border-btn:hover{
+    background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
+    border: 2px solid transparent;
+    box-shadow: none;
+  }
+
+  .gradient-border-btn:hover > span{
+    -webkit-text-fill-color: white;
+  }
+
+  .gradient-border-btn:hover > .arrow{
+    color: white;
+  }
 }
 
 @include media-breakpoint-up(md) {

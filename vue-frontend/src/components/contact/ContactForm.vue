@@ -261,7 +261,7 @@
             <button
               type="submit"
               v-if="contactType == 1"
-              class="gradient-btn gradient-bg-btn chat-email-btn"
+              class="gradient-btn chat-email-btn"
               @click.prevent="submitApplication()"
             >
               <font-awesome-icon
@@ -274,7 +274,7 @@
             <button
               type="submit"
               v-if="contactType == 0"
-              class="gradient-btn gradient-bg-btn call-now-btn"
+              class="gradient-btn call-now-btn"
               @click.prevent="submitApplication()"
             >
               <font-awesome-icon
@@ -879,6 +879,24 @@ input:-webkit-autofill:active {
   margin: 0 10px;
   font-weight: 700;
   font-size: 1.1rem;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gradient-btn:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+      linear-gradient(to top, #ff9472, #f2709c);
+    box-shadow: 2px 1000px 1px #fff inset;
+  }
+
+  .gradient-btn:hover > span{
+    background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-btn:hover > .fas{
+    color: #f2709c !important;
+  }
 }
 
 // calendly iframe
