@@ -895,7 +895,7 @@ input:-webkit-autofill:active {
   }
 
   .gradient-btn:hover > .fas{
-    color: #f2709c !important;
+    color: #f2709c;
   }
 }
 

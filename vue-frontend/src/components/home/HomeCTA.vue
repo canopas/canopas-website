@@ -154,7 +154,7 @@ export default {
   }
 
   .gradient-btn:hover > .fa{
-    color: #f2709c !important;
+    color: #f2709c;
   }
 }
 
