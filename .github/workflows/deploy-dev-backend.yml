@@ -1,10 +1,8 @@
 name: DeployDevBackend
 on:
   push:
-    tags:
-      - '*'
     branches:
-      - '*'
+      - 'master'
 
 jobs:
   deploy-backend:
