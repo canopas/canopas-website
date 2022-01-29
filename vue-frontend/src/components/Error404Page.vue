@@ -63,7 +63,7 @@ export default {
   justify-content: center;
   flex: 1;
   flex-direction: column;
-  margin: 16px 48px;
+  margin: 16px;
 }
 
 .image-404 {
@@ -96,6 +96,7 @@ export default {
   display: flex;
   justify-content: space-around !important;
   align-items: center;
+  text-decoration: none;
 }
 
 .back-btn > span {
