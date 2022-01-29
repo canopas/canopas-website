@@ -7,6 +7,9 @@ Parameters:
     Description: Name of the S3 bucket 
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
+  CustomDomainName:  
+    Type: String
+    Description: Name of the custom domain
 
 Outputs:
   CloudFrontDist:
@@ -49,14 +52,14 @@ Resources:
         DefaultRootObject: index.html
         HttpVersion: http2
         Aliases:
-        - dev-stack.canopas.com
+        - !Ref CustomDomainName
         CustomErrorResponses:
         - ErrorCachingMinTTL: 31536000
           ErrorCode: 403
           ResponseCode: 200
           ResponsePagePath: '/index.html'
         ViewerCertificate:
-          AcmCertificateArn: 'arn:aws:acm:us-east-1:569704406482:certificate/61f88a8a-9346-4e90-9d62-d0b20cd71765'
+          AcmCertificateArn: 'arn:aws:acm:us-east-1:569704406482:certificate/4e2d0bf9-3e0d-4581-9292-a0ba91179f00'
           MinimumProtocolVersion: TLSv1.2_2021
           SslSupportMethod: sni-only
         DefaultCacheBehavior:
