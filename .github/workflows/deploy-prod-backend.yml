@@ -1,4 +1,4 @@
-name: DeployDevBackend
+name: DeployProdBackend
 on:
   push:
     tags:
@@ -37,20 +37,20 @@ jobs:
           echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
       - name: Upload to S3
         run: |
-          aws s3 cp ${{ env.ZIP_NAME }} s3://dev-stack-canopas-backend/
+          aws s3 cp ${{ env.ZIP_NAME }} s3://prod-stack-canopas-backend/
       - name: Deploy lambda function
-        id: canopas-website-dev-backend-stack
+        id: canopas-website-prod-backend-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: canopas-website-dev-backend-stack
+          name: canopas-website-prod-backend-stack
           template: infrastructure/template-backend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "5"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            EnvName=dev,
-            S3BucketName=dev-stack-canopas-backend,
-            CustomDomainName=dev-stack-api.cannopas.com,
+            EnvName=prod,
+            S3BucketName=prod-stack-canopas-backend,
+            CustomDomainName=prod-stack-api.cannopas.com,
             LambdaHandlerPath=main,
             LambdaZipFilePath=${{ env.ZIP_NAME }},
             Sender=${{ secrets.SENDER }},

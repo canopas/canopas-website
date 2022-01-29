@@ -12,6 +12,9 @@ Parameters:
     Description: Name of the S3 bucket 
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
+  CustomDomainName:  
+    Type: String
+    Description: Name of the custom domain
   Sender:
     Type: String
     Description: Email address of sender.
@@ -194,7 +197,7 @@ Resources:
     DependsOn:
       - ApiGatewayDeployment
     Properties: 
-      DomainName: dev-go-vue.canopas.com
+      DomainName: !Ref CustomDomainName
       RestApiId: !Ref ApiGateway
       Stage: !Ref ApiGatewayStageName
 
