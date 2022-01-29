@@ -52,6 +52,7 @@ Outputs:
       Fn::GetAtt:
         - LambdaRole
         - Arn
+    Export:
       Name:
         Fn::Sub: LambdaRole-${EnvName}
   LambdaFunctionName:
