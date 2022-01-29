@@ -3,9 +3,7 @@ on:
   push:
     tags:
       - '*'
-    branches:
-      - '*'
-
+      
 jobs:
   deploy-backend:
     runs-on: ubuntu-latest
