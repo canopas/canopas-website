@@ -50,7 +50,7 @@ jobs:
           parameter-overrides: >-
             EnvName=dev,
             S3BucketName=dev-stack-canopas-backend,
-            CustomDomainName=dev-stack-api.cannopas.com,
+            CustomDomainName=dev-stack-api.canopas.com,
             LambdaHandlerPath=main,
             LambdaZipFilePath=${{ env.ZIP_NAME }},
             Sender=${{ secrets.SENDER }},
