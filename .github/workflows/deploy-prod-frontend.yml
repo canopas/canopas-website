@@ -43,6 +43,7 @@ jobs:
         run: |
           cd vue-frontend
           npm ci
+          mv src/config.prod.js src/config.js
           npm run build
 
       - name: Upload to S3
