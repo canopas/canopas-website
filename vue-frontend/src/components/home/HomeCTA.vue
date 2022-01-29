@@ -140,6 +140,24 @@ export default {
   font-weight: 700;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .gradient-btn:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+      linear-gradient(to top, #ff9472, #f2709c);
+    box-shadow: 2px 1000px 1px #fff inset;
+  }
+
+  .gradient-btn:hover > span{
+    background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-btn:hover > .fa{
+    color: #f2709c;
+  }
+}
+
 .communication .fa {
   font-size: 1.5rem;
 }
