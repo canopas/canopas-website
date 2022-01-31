@@ -9,4 +9,5 @@ export default Object.freeze({
   JOBS_URL: "https://jobs.canopas.com",
   API_BASE: "https://dev-stack-api.canopas.com",
   CALENDLY_IFRAME_URL: "https://calendly.com/darpanvithani/15min",
+  IS_SHOW_JOBS: true,
 });

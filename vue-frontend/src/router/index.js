@@ -1,8 +1,10 @@
 import { createWebHistory, createRouter } from "vue-router";
+import Config from "@/config.js";
 
 const HomeScreen = () => import("@/components/HomeScreen.vue");
 const Error404Page = () => import("@/components/Error404Page.vue");
 const ContactScreen = () => import("@/components/ContactScreen.vue");
+const JobsScreen = () => import("@/components/JobsScreen.vue");
 
 const routes = [
   {
@@ -21,6 +23,14 @@ const routes = [
     component: Error404Page,
   },
 ];
+
+if(Config.IS_SHOW_JOBS){
+  routes.push({
+    path: "/jobs",
+    name: "JobsScreen",
+    component: JobsScreen
+  })
+}
 
 const router = createRouter({
   history: createWebHistory(),
