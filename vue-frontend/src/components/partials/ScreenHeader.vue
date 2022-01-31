@@ -18,7 +18,7 @@
             />
           </div>
         </router-link>
-        <div class="navbar-collapse">
+        <div class="navbar-collapse" v-if="!isJobsPage">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin">
               <a class="nav-link normal-text" :href="careerURL" target="_blank"
@@ -70,6 +70,7 @@ export default {
       navbarAnimation: false,
       navContainerHeight: 0,
       lastScrollY: 0,
+      isJobsPage: this.$route.path.includes('jobs'),
     };
   },
   components: {},
