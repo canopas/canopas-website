@@ -18,7 +18,7 @@
             />
           </div>
         </router-link>
-        <div class="navbar-collapse" v-if="!isJobsPage">
+        <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin">
               <a class="nav-link normal-text" :href="careerURL" target="_blank"
@@ -64,13 +64,12 @@ export default {
   data() {
     return {
       headerLogoImage: headerLogoImage,
-      careerURL: Config.JOBS_URL,
+      careerURL: Config.IS_SHOW_JOBS ? "/jobs" : Config.JOBS_URL,
       blogsURL: Config.BLOG_URL,
       navbarSticky: false,
       navbarAnimation: false,
       navContainerHeight: 0,
       lastScrollY: 0,
-      isJobsPage: this.$route.path.includes('jobs'),
     };
   },
   components: {},

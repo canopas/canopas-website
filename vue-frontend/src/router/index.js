@@ -18,16 +18,19 @@ const routes = [
     component: ContactScreen,
   },
   {
-    path: "/jobs",
-    name: "JobsScreen",
-    component: Config.IS_SHOW_JOBS? JobsScreen : Error404Page
-  },
-  {
     path: "/:catchAll(.*)",
     name: "Error404Page",
     component: Error404Page,
   },
 ];
+
+if(Config.IS_SHOW_JOBS){
+  routes.push({
+    path: "/jobs",
+    name: "JobsScreen",
+    component: JobsScreen
+  })
+}
 
 const router = createRouter({
   history: createWebHistory(),
