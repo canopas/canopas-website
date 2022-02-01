@@ -147,13 +147,13 @@ export default {
     box-shadow: 2px 1000px 1px #fff inset;
   }
 
-  .gradient-btn:hover > span{
+  .gradient-btn:hover > span {
     background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .gradient-btn:hover > .fa{
+  .gradient-btn:hover > .fa {
     color: #f2709c;
   }
 }
@@ -238,11 +238,6 @@ export default {
   .communication-item2 {
     flex: 65%;
   }
-
-  .gradient-btn {
-    padding: 1rem 1rem;
-    margin: 1.25rem 0.5rem 0 0.5rem;
-  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -259,6 +254,11 @@ export default {
   .cta-container {
     width: 800px;
     margin: 7% auto;
+  }
+
+  .gradient-btn {
+    padding: 1rem 1rem;
+    margin: 1.25rem 0.5rem 0 0.5rem;
   }
 }
 </style>
