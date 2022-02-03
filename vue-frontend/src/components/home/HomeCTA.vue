@@ -252,13 +252,20 @@ export default {
   }
 
   .cta-container {
-    width: 800px;
+    width: 70%;
     margin: 7% auto;
   }
 
   .gradient-btn {
     padding: 1rem 1rem;
     margin: 1.25rem 0.5rem 0 0.5rem;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .cta-container {
+    width: 40%;
+    min-width: 900px;
   }
 }
 </style>

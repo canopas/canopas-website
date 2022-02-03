@@ -209,12 +209,12 @@ export default {
   border-radius: 100px 0;
 }
 
-.red-text{
+.red-text {
   font-style: normal;
   font-weight: 400;
   font-size: 1.1rem;
   line-height: 1.5rem;
-  color: #E8505B;
+  color: #e8505b;
 }
 
 .title {
@@ -279,8 +279,10 @@ export default {
   opacity: 1;
 }
 
-.flex-div > div:hover .description {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .flex-div > div:hover .description {
+    opacity: 1;
+  }
 }
 
 .image {
@@ -378,7 +380,8 @@ export default {
     width: 60%;
   }
 
-  .desc, .red-text {
+  .desc,
+  .red-text {
     font-size: 1.3rem;
   }
 
@@ -388,18 +391,16 @@ export default {
 }
 
 @include media-breakpoint-up(xl) {
+  .background {
+    padding: 0 15%;
+  }
+  
   .description {
     padding: 5%;
 
     div {
       margin-bottom: 5%;
     }
-  }
-}
-
-@media (min-width: 1500px) {
-  .background {
-    padding: 0 15%;
   }
 }
 </style>
