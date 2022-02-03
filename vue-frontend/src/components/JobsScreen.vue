@@ -8,13 +8,16 @@
 
 <script>
 import ScreenHeader from "./partials/ScreenHeader.vue";
+import LandingView from "./jobs/LandingView.vue";
 import VirtuesView from "./jobs/VirtuesView.vue";
-import VirtuesView from "./jobs/LandingView.vue";
+
 
 export default {
   components: {
       ScreenHeader,
+      LandingView,
       VirtuesView,
+      
   },
 };
 </script>

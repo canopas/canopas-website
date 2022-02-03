@@ -84,14 +84,25 @@
 
 @include media-breakpoint-up(md) {
   .description{
-    width: 25%;
-
+    width: 36%;
+  }
   .para2-text {
    padding-bottom: 8%;
-
+   font-size: 115%;
     }
-  }
-}
+  .para1-text {
+    padding: 0%;
+    font-size: 142%;
+    width: 84%;
+    padding-left: 10%;
+    }
+    .button{
+
+        font-size: 95%;
+    }
+ }
+  
+
 
 
 
