@@ -21,7 +21,7 @@
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin">
-              <a class="nav-link normal-text" :href="careerURL" target="_blank"
+              <a class="nav-link normal-text" :href="careerURL"
                 >Career</a
               >
             </li>
