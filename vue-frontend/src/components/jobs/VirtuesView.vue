@@ -209,6 +209,14 @@ export default {
   border-radius: 100px 0;
 }
 
+.red-text{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  color: #E8505B;
+}
+
 .title {
   padding: 10% 0;
   color: #3d3d3d;

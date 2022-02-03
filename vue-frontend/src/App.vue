@@ -45,14 +45,6 @@ body::-webkit-scrollbar {
   -webkit-text-fill-color: transparent;
 }
 
-.red-text{
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.1rem;
-  line-height: 1.5rem;
-  color: #E8505B;
-}
-
 .abs-fit-parent {
   position: absolute;
   width: 100%;
