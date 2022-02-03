@@ -86,24 +86,67 @@
   .description{
     width: 36%;
   }
+  .para1-text {
+
+    padding: 0%;
+    font-size: 142%;
+    width: 93%;
+    padding-left: 10%;
+    }
+
   .para2-text {
+
    padding-bottom: 8%;
    font-size: 115%;
     }
-  .para1-text {
-    padding: 0%;
-    font-size: 142%;
-    width: 84%;
-    padding-left: 10%;
-    }
+  
     .button{
-
         font-size: 95%;
+        padding: 1.5% 0%;
+        width: 24%;
     }
  }
-  
+  @include media-breakpoint-between(md, xl) { 
+    .description{
+        width: 46%;
+     }
+     
+    .para1-text {
+     width: 100%;
+   
+    }
+    .para2-text{
+        width: 144%;
+        margin-left: -20%;
+    }
+    .button{
+        width: 42%;
+    }
 
+    @include media-breakpoint-between(xl, xxl) { 
+    .description{
+        width: 60%;
+        margin-left: 28%;
+     }
+     
+    .para1-text {
+     padding-left: 10%;
+   
+    }
+    .para2-text{
+       width: 75%;
+    }
+    .button{
+            width: 22%;
+            margin-left: -30%;
+        }
 
-
+        }
+}
+// @include media-breakpoint-up(xl) {
+//   .description{
+//     width: 50%;
+//   }
+// }
 
 </style>
