@@ -143,10 +143,6 @@
 
         }
 }
-// @include media-breakpoint-up(xl) {
-//   .description{
-//     width: 50%;
-//   }
-// }
+
 
 </style>
