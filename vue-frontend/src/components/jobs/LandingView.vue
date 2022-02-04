@@ -36,14 +36,14 @@
      font-weight: bold;
      text-align: center;
      color: #3d3d3d;
+     width: 82%;
 }
  .para2-text {
      position: relative;
-     padding-bottom: 10%;
      margin-top:6%;
-     font-size: 1rem;
      text-align: center;
      color: rgba(61, 61, 61, 0.8);
+     
 }
  .flex-container {
      display: flex;
@@ -72,6 +72,7 @@
          width: 49%;
     }
 }
+
  @include media-breakpoint-up(md) {
      .description{
          width: 36%;
@@ -122,6 +123,15 @@
         }
     }
 }
-
+ @include media-breakpoint-up(xxl) {
+   .para1-text {
+     line-height: 2.5rem;
+     font-size: 2rem;
+    }
+   .para2-text {
+     font-size: 1.4rem;
+     line-height: 1.5em;
+    }
+ }
 
 </style>
