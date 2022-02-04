@@ -21,9 +21,7 @@
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin">
-              <a class="nav-link normal-text" :href="careerURL"
-                >Career</a
-              >
+              <a class="nav-link normal-text" :href="careerURL">Career</a>
             </li>
             <li class="nav-item-margin">
               <a class="nav-link normal-text" :href="blogsURL" target="_blank"
@@ -170,13 +168,13 @@ export default {
   display: none;
 }
 @media (hover: hover) and (pointer: fine) {
-  .gradient-border-btn:hover{
+  .gradient-border-btn:hover {
     background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
     border: 2px solid transparent;
     box-shadow: none;
   }
 
-  .gradient-border-btn:hover > span > span{
+  .gradient-border-btn:hover > span > span {
     -webkit-text-fill-color: white;
   }
 }

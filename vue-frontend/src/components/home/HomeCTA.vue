@@ -126,7 +126,7 @@ export default {
 
 .gradient-btn {
   border-radius: 0.6rem;
-  padding: 1rem 1.25rem;
+  padding: 1rem;
   margin: 1.25rem auto 0 auto;
   display: flex;
   text-align: center;
