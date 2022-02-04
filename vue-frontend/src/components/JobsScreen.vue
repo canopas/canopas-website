@@ -1,8 +1,9 @@
 <template>
     <div>
         <ScreenHeader />
-        <VirtuesView />
         <LandingView />
+        <VirtuesView />
+        
     </div>
 </template>
 
