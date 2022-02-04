@@ -1,7 +1,9 @@
 import { createWebHistory, createRouter } from "vue-router";
 import Config from "@/config.js";
 
-const HomeScreen = () => import("@/components/HomeScreen.vue");
+// Don't lazy load home screen
+import HomeScreen from "@/components/HomeScreen.vue";
+
 const Error404Page = () => import("@/components/Error404Page.vue");
 const ContactScreen = () => import("@/components/ContactScreen.vue");
 const JobsScreen = () => import("@/components/JobsScreen.vue");
@@ -24,12 +26,12 @@ const routes = [
   },
 ];
 
-if(Config.IS_SHOW_JOBS){
+if (Config.IS_SHOW_JOBS) {
   routes.push({
     path: "/jobs",
     name: "JobsScreen",
-    component: JobsScreen
-  })
+    component: JobsScreen,
+  });
 }
 
 const router = createRouter({
