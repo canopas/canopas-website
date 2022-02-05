@@ -382,7 +382,7 @@ export default {
 
   .desc,
   .red-text {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .title {
@@ -392,14 +392,21 @@ export default {
 
 @include media-breakpoint-up(xl) {
   .background {
-    padding: 0 15%;
+    padding: 0 15% 5%;
   }
-  
+}
+
+@include media-breakpoint-up(xxl) {
+  .desc,
+  .red-text {
+    font-size: 1.3rem;
+  }
+
   .description {
-    padding: 5%;
+    padding: 3%;
 
     div {
-      margin-bottom: 5%;
+      margin-bottom: 2%;
     }
   }
 }

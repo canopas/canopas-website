@@ -289,27 +289,27 @@ double speed and keep it paused. When we want reverse animation, we just run it.
 }
 
 @keyframes scroll {
-  /*
-     We animate from 10.5 review cards to 17.5 review card. We have total 21 cards, so user will 
+    /*
+     We animate from 0 review cards to 7 review card. We have total 21 cards, so user will 
      see animation as infinite animation.
      The review cards width + margin - multiplied by numbers of gridView cards
-     = (320 + 32) * 10.5  to (320 + 32) * 17.5
+     = (320 + 32) * 0  to (320 + 32) * 7
      */
   0% {
-    transform: translate(-3690px);
+    transform: translate(0px);
   }
 
   100% {
-    transform: translate(-6160px);
+    transform: translate(-2464px);
   }
 }
 
 @keyframes scroll-reverse {
   0% {
-    transform: translate(0);
+    transform: translate(-2464px);
   }
   100% {
-    transform: translate(2464px);
+    transform: translate(0px);
   }
 }
 
@@ -324,20 +324,20 @@ double speed and keep it paused. When we want reverse animation, we just run it.
 
   @keyframes scroll {
     0% {
-      transform: translate(-5376px);
+      transform: translate(0px);
     }
 
     100% {
-      transform: translate(-8960px);
+      transform: translate(-3584px);
     }
   }
 
   @keyframes scroll-reverse {
     0% {
-      transform: translate(0);
+      transform: translate(-3584px);
     }
     100% {
-      transform: translate(3584px);
+      transform: translate(0px);
     }
   }
 }
@@ -375,18 +375,18 @@ double speed and keep it paused. When we want reverse animation, we just run it.
 
   @keyframes scroll {
     0% {
-      transform: translate(-5880px);
+      transform: translate(0px);
     }
     100% {
-      transform: translate(-9800px);
+      transform: translate(-3920px);
     }
   }
   @keyframes scroll-reverse {
     0% {
-      transform: translate(0);
+      transform: translate(-3920px);
     }
     100% {
-      transform: translate(3920px);
+      transform: translate(0px);
     }
   }
 }
