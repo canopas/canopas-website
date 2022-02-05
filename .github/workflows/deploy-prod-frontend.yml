@@ -1,8 +1,8 @@
 name: DeployProdFrontend
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - 'master'
       
 jobs:
   deploy-frontend:

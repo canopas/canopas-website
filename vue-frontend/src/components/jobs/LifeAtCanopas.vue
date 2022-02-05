@@ -1,0 +1,135 @@
+<template>
+  <div class="pb-32">
+    <div class="main-div normal-text">
+      <div class="header-text canopas-gradient-text text-center">
+        <span class="underline-text">Life a</span>t Canopas
+      </div>
+      <div class="description text-center">
+        We wanted to create an environment that helps you get out of bed in the
+        morning and an office that creates excellent work and encourages fun. As
+        we play the infinite game, it is not about winning or losing, it's about
+        striving to be better.
+      </div>
+    </div>
+    <div class="swiper-content">
+      <swiper
+        :slidesPerView="1"
+        :centeredSlides="true"
+        :loop="true"
+        :pagination="pagination"
+        :breakpoints="{
+          '768': {
+            slidesPerView: 1.125,
+            spaceBetween: 20,
+          },
+        }"
+        class="swiper-container"
+      >
+        <swiper-slide v-for="(sider, index) in slides" :key="index">
+          <img
+            :src="sider.image"
+            alt="Life at canopas"
+            class="swiper-slide"
+            loading="lazy"
+          />
+        </swiper-slide>
+        <div class="swiper-pagination"></div>
+      </swiper>
+    </div>
+  </div>
+</template>
+
+<script>
+import SwiperCore, { Pagination } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper/css";
+import "swiper/css/pagination";
+
+SwiperCore.use([Pagination]);
+
+export default {
+  data() {
+    return {
+      slides: [
+        {
+          id: 1,
+          image: require("@/assets/images/life/jobs_canopas_life_1.webp"),
+        },
+        {
+          id: 2,
+          image: require("@/assets/images/life/jobs_canopas_life_2.webp"),
+        },
+        {
+          id: 3,
+          image: require("@/assets/images/life/jobs_canopas_life_3.webp"),
+        },
+        {
+          id: 4,
+          image: require("@/assets/images/life/jobs_canopas_life_4.webp"),
+        },
+        {
+          id: 5,
+          image: require("@/assets/images/life/jobs_canopas_life_5.webp"),
+        },
+        {
+          id: 6,
+          image: require("@/assets/images/life/jobs_canopas_life_6.webp"),
+        },
+      ],
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      modules: [Pagination],
+    };
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.main-div {
+  padding: 15% 10% 5%;
+}
+
+.description {
+  margin: 5% auto;
+}
+
+.swiper-content {
+  display: flex;
+}
+
+.swiper {
+  z-index: 0;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 95%;
+  object-fit: cover;
+}
+
+.underline-text {
+  border-bottom: 3px solid rgba(61, 61, 61, 0.8);
+}
+
+.swiper-pagination {
+  bottom: unset;
+}
+
+@include media-breakpoint-up(md) {
+  .main-div {
+    padding: 10% 10% 2%;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .main-div {
+    padding: 10% 25% 2%;
+  }
+}
+</style>

@@ -67,6 +67,27 @@ body::-webkit-scrollbar {
   font-size: 1.5rem;
 }
 
+.swiper-wrapper {
+  height: 90% !important;
+}
+
+.swiper-pagination-bullet {
+  width: 15px !important;
+  height: 15px !important;
+  border-radius: 3px !important;
+  background: transparent !important;
+  border: 1px solid !important;
+}
+
+.swiper-pagination-bullet-active {
+  border: none !important;
+  background: linear-gradient(
+    45deg,
+    rgb(246, 146, 89),
+    rgb(241, 105, 117)
+  ) !important;
+}
+
 @include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
@@ -76,6 +97,10 @@ body::-webkit-scrollbar {
   .normal-text {
     font-size: 1.125rem;
     line-height: 1.375rem;
+  }
+
+  .swiper-wrapper {
+    height: 65% !important;
   }
 }
 
@@ -88,6 +113,10 @@ body::-webkit-scrollbar {
   .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
+  }
+
+  .swiper-wrapper {
+    height: 60% !important;
   }
 }
 </style>
