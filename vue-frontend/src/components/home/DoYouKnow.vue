@@ -47,7 +47,6 @@ export default {
 
 .que-image {
   display: none;
-  width: 25%;
 }
 
 .pink-text {
@@ -72,6 +71,7 @@ export default {
 
   .que-image {
     display: block;
+    width: 25%;
   }
 
   .do-you-know-text {
@@ -103,9 +103,6 @@ export default {
 
   .do-you-know-text {
     margin: 0 0 15% 14%;
-  }
-
-  .do-you-know-text {
     padding-left: 0%;
   }
 }
