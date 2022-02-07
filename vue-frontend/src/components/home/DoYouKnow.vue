@@ -1,7 +1,9 @@
 <template>
   <div class="do-you-know-div">
-    <div class="flex-row que-section">
-      <img :src="doYouKnowImage" class="image que-image" alt="do-you-know" />
+    <div class="flex-row">
+      <div class="que-image">
+        <img :src="doYouKnowImage" class="image" alt="do-you-know" />
+      </div>
       <div class="text-div do-you-know-text">
         <h4 class="header-text pb-30">Do you know ?</h4>
 
@@ -33,8 +35,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.que-section {
-  margin: 15% 10%;
+.do-you-know-div {
+  width: 80%;
+  margin: auto;
 }
 
 .flex-row {
@@ -42,7 +45,7 @@ export default {
   align-items: center;
 }
 
-.flex-row > .image {
+.que-image {
   display: none;
 }
 
@@ -51,8 +54,8 @@ export default {
 }
 
 .do-you-know-text {
-  width: 100%;
-  margin: 0;
+  flex: 75%;
+  margin: 10% 0;
 }
 
 @include media-breakpoint-up(md) {
@@ -66,18 +69,14 @@ export default {
     line-height: 1.375rem;
   }
 
-  .flex-row {
-    margin: 0 10%;
-  }
-
-  .flex-row > .image {
+  .que-image {
     display: block;
-    width: 190px;
+    width: 25%;
   }
 
   .do-you-know-text {
-    width: 50%;
-    margin: -160px auto 0;
+    padding-left: 10%;
+    margin: 10% 0 28%;
   }
 }
 
@@ -92,13 +91,29 @@ export default {
     line-height: 1.8rem;
   }
 
-  .flex-row {
-    margin: 0 12%;
+  .do-you-know-div {
+    width: 70%;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .que-image {
+    width: 24%;
   }
 
-  .flex-row > .image {
-    display: block;
-    width: 250px;
+  .do-you-know-text {
+    margin: 0 0 15% 14%;
+    padding-left: 0%;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .que-image {
+    width: 20%;
+  }
+
+  .do-you-know-text {
+    margin: 0 0 6% 14%;
   }
 }
 </style>

@@ -1,20 +1,18 @@
 <template>
   <div class="light-orange-bg exclude-parent-margin">
-    <div class="m-lr-10">
+    <div class="how-do-we-differ-section">
       <div class="description text-left">
-        <div
-          class="header-text canopas-gradient-text line-header-text text-center"
+        <span class="header-text canopas-gradient-text text-center"
+          >How do we differ from others?</span
         >
-          How do we differ from others?
-        </div>
         <div class="steve-box gradient-border">
           <span class="normal-text" style="color: #3d3d3d"
             >You gotta start with the customer experience and work backward to
             the technology.</span
           >
-          <p class="normal-text orange-gradient-text mt-3 font-weight-bold">
+          <div class="normal-text orange-gradient-text mt-3 font-weight-bold">
             - Steve Jobs
-          </p>
+          </div>
         </div>
       </div>
       <div class="normal-text differ-description">
@@ -31,7 +29,7 @@
         smoother, and better. We help quality-conscious people(or companies)
         design, develop, and expand their business through digital products.
       </div>
-      <div class="flex-grid mt-3">
+      <div class="flex-grid mt-3 pb-5">
         <div class="flex-grid-1" ref="flexGridOne">
           <div class="text-center normal-text text-black">
             <object
@@ -159,8 +157,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.m-lr-10 {
-  margin: 0 10%;
+.how-do-we-differ-section {
+  width: 80%;
+  margin: auto;
 }
 
 .light-orange-bg {
@@ -169,10 +168,12 @@ export default {
   margin-top: 0;
 }
 
-.light-orange-bg > .m-lr-10 > .description {
+.description {
   width: auto;
-  padding-top: 80px;
+  padding-top: 75px;
   margin: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .steve-box {
@@ -206,7 +207,6 @@ export default {
 .flex-grid {
   display: flex;
   flex-direction: column;
-  padding-bottom: 7%;
 }
 
 .flex-grid-1,
@@ -246,25 +246,24 @@ export default {
   }
 
   .light-orange-bg {
-    margin-top: -208px;
+    margin-top: -150px;
   }
 
-  .light-orange-bg > .m-lr-10 > .description {
-    width: 50% !important;
-    padding-top: 185px;
+  .description {
+    width: 50%;
   }
 
   .steve-box {
     padding: 32px;
   }
 
-  .differ-description {
-    margin: 3% 10%;
-  }
-
   .flex-grid-1 > div,
   .flex-grid-2 > div {
     width: 33%;
+  }
+
+  .description {
+    padding-top: 126px;
   }
 }
 
@@ -277,11 +276,6 @@ export default {
   .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
-  }
-
-  .light-orange-bg > .m-lr-10 > .description {
-    width: 45% !important;
-    padding-top: 173px;
   }
 
   .steve-box {
@@ -301,6 +295,25 @@ export default {
   .flex-grid-1,
   .flex-grid-2 {
     justify-content: center;
+  }
+
+  .description {
+    padding-top: 112px;
+  }
+}
+
+@include media-breakpoint-up(xl) {
+  .how-do-we-differ-section {
+    width: 60%;
+    min-width: 900px;
+  }
+
+  .differ-description {
+    padding: 0 10%;
+  }
+
+  .description {
+    padding-top: 116px;
   }
 }
 </style>
