@@ -26,14 +26,14 @@
         class="swiper-container"
       >
         <swiper-slide v-for="(sider, index) in slides" :key="index">
-          <AspectRatio height="66%" class="image-container">
+          <aspect-ratio height="66%" class="image-container">
             <img
               :src="sider.image"
               alt="Life at canopas"
               class="swiper-slide"
               loading="lazy"
             />
-          </AspectRatio>
+          </aspect-ratio>
         </swiper-slide>
         <div class="swiper-pagination"></div>
       </swiper>

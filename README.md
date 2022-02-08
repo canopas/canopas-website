@@ -1,16 +1,25 @@
 # canopas-website
 
-Source code repository of Canopas Software LLP.
+Source code repository of Canopas Software LLP Website.
 
 We intend to keep this open source. Plan is to keep the repository up to date with latest technologies and
 best practices.
 
+## Requirements
+- Node16
+- Go 1.17
+
 ## To run front-end
 
-```
-cd vue-frontend
-npm run serve
-```
+- Install dependencies
+
+  ```
+  cd vue-frontend && npm install
+  ```
+- Run vue server
+  ```
+  npm run serve
+  ```
 
 You can access the page by pointing a web browser at http://localhost:8080.
 
