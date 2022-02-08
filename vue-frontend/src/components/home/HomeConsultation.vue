@@ -5,6 +5,7 @@
         class="consultant-image abs-fit-parent"
         loading="lazy"
         :src="steps[currentStep].image"
+        :alt="steps[currentStep].title"
       />
     </div>
     <div class="steps-container">

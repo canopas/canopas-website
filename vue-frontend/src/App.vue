@@ -67,10 +67,6 @@ body::-webkit-scrollbar {
   font-size: 1.5rem;
 }
 
-.swiper-wrapper {
-  height: 90% !important;
-}
-
 .swiper-pagination-bullet {
   width: 15px !important;
   height: 15px !important;
@@ -98,10 +94,6 @@ body::-webkit-scrollbar {
     font-size: 1.125rem;
     line-height: 1.375rem;
   }
-
-  .swiper-wrapper {
-    height: 65% !important;
-  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -113,10 +105,6 @@ body::-webkit-scrollbar {
   .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
-  }
-
-  .swiper-wrapper {
-    height: 60% !important;
   }
 }
 </style>

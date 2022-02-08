@@ -26,12 +26,14 @@
         class="swiper-container"
       >
         <swiper-slide v-for="(sider, index) in slides" :key="index">
-          <img
-            :src="sider.image"
-            alt="Life at canopas"
-            class="swiper-slide"
-            loading="lazy"
-          />
+          <AspectRatio height="66%" class="image-container">
+            <img
+              :src="sider.image"
+              alt="Life at canopas"
+              class="swiper-slide"
+              loading="lazy"
+            />
+          </AspectRatio>
         </swiper-slide>
         <div class="swiper-pagination"></div>
       </swiper>
@@ -42,6 +44,7 @@
 <script>
 import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import AspectRatio from "@/components/AspectRatio.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -86,6 +89,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    AspectRatio,
   },
 };
 </script>
@@ -107,18 +111,17 @@ export default {
   z-index: 0;
 }
 
-.swiper-slide img {
-  width: 100%;
-  height: 95%;
-  object-fit: cover;
+.image-container {
+  margin-bottom: 80px;
+  border: 1px solid transparent;
+
+  img {
+    object-fit: cover;
+  }
 }
 
 .underline-text {
   border-bottom: 3px solid rgba(61, 61, 61, 0.8);
-}
-
-.swiper-pagination {
-  bottom: unset;
 }
 
 @include media-breakpoint-up(md) {
