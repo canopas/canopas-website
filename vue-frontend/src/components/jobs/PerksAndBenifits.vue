@@ -240,6 +240,7 @@ export default {
 .desc-text {
   text-align: left;
   padding-top: 10px;
+  font-size: 0.9rem;
 }
 
 @include media-breakpoint-up(sm) {
@@ -248,6 +249,12 @@ export default {
   }
   .details {
     padding: 40px;
+  }
+
+  .title,
+  .desc-text {
+    font-size: 1rem;
+    line-height: 1.2rem;
   }
 }
 
@@ -273,12 +280,6 @@ export default {
 
   .details {
     height: auto;
-  }
-
-  .title,
-  .desc-text {
-    font-size: 1rem;
-    line-height: 1.2rem;
   }
 }
 
