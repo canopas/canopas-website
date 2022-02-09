@@ -107,6 +107,7 @@ export default {
 
 .description {
   margin: 30px auto;
+  color: #3d3d3d;
 }
 
 .swiper-content {
@@ -124,10 +125,6 @@ export default {
   img {
     object-fit: cover;
   }
-}
-
-.underline-text {
-  border-bottom: 3px solid rgba(61, 61, 61, 0.8);
 }
 
 @include media-breakpoint-up(md) {
