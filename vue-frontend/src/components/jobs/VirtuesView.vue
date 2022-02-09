@@ -1,7 +1,7 @@
 <template>
   <div class="background">
     <div class="normal-text title">Canopas is built on the 10 virtues</div>
-    <div>
+    <div class="text-center container">
       <div class="flex-div">
         <div
           v-for="virtue in virtues.slice(0, 3)"
@@ -203,7 +203,7 @@ export default {
     rgba(255, 173, 147, 0.15) 11.18%,
     rgba(242, 112, 156, 0.15) 80.3%
   );
-  padding: 6% 0;
+  padding: 100px 0;
   overflow: hidden;
   text-align: center;
   border-radius: 100px 0;
@@ -218,7 +218,6 @@ export default {
 }
 
 .title {
-  padding: 10% 0;
   color: #3d3d3d;
   font-weight: 700;
 }
@@ -314,10 +313,6 @@ export default {
     margin: 2% 0;
   }
 
-  .title {
-    padding: 5% 0;
-  }
-
   .image {
     width: 30%;
     padding-bottom: 30%;
@@ -326,7 +321,6 @@ export default {
 
 @include media-breakpoint-up(md) {
   .background {
-    padding: 2% 0;
     border-radius: 200px 0;
   }
 
@@ -344,7 +338,6 @@ export default {
   }
 
   .title {
-    padding: 2% 0;
     letter-spacing: 1px;
   }
 
@@ -383,16 +376,6 @@ export default {
   .desc,
   .red-text {
     font-size: 1rem;
-  }
-
-  .title {
-    padding: 5% 0;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .background {
-    padding: 0 15% 5%;
   }
 }
 
