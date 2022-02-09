@@ -4,6 +4,7 @@
     <LandingView />
     <VirtuesView />
     <LifeAtCanopas />
+    <PreksAndBenifits />
   </div>
 </template>
 
@@ -12,6 +13,7 @@ import ScreenHeader from "./partials/ScreenHeader.vue";
 import LandingView from "./jobs/LandingView.vue";
 import VirtuesView from "./jobs/VirtuesView.vue";
 import LifeAtCanopas from "./jobs/LifeAtCanopas.vue";
+import PreksAndBenifits from "./jobs/PerksAndBenifits.vue";
 
 export default {
   components: {
@@ -19,6 +21,7 @@ export default {
     LandingView,
     VirtuesView,
     LifeAtCanopas,
+    PreksAndBenifits,
   },
 };
 </script>

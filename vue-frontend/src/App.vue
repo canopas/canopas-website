@@ -67,6 +67,10 @@ body::-webkit-scrollbar {
   font-size: 1.5rem;
 }
 
+.underline-text {
+  border-bottom: 3px solid rgba(61, 61, 61, 0.8);
+}
+
 .swiper-pagination-bullet {
   width: 15px !important;
   height: 15px !important;
