@@ -84,6 +84,40 @@ body::-webkit-scrollbar {
   ) !important;
 }
 
+.gradient-btn {
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin: 1.25rem auto 0 auto;
+  text-align: center;
+  color: white;
+  background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
+  border: 1px solid transparent;
+}
+
+.gradient-btn > span {
+  margin: 0 6px;
+  font-weight: 700;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gradient-btn:hover {
+    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+      linear-gradient(to top, #ff9472, #f2709c);
+    box-shadow: 2px 1000px 1px #fff inset;
+  }
+
+  .gradient-btn:hover > span {
+    background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .gradient-btn:hover > .fa,
+  .gradient-btn:hover > .fas {
+    color: #f2709c;
+  }
+}
+
 @include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
@@ -105,6 +139,11 @@ body::-webkit-scrollbar {
   .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
+  }
+
+  .gradient-btn {
+    padding: 1rem 1rem;
+    margin: 1.25rem 0.5rem 0 0.5rem;
   }
 }
 </style>

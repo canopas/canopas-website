@@ -1,6 +1,6 @@
 <template>
   <div class="pb-32">
-    <div class="main-div normal-text">
+    <div class="container normal-text">
       <div class="header-text canopas-gradient-text text-center">
         <span class="underline-text">Life a</span>t Canopas
       </div>
@@ -16,11 +16,17 @@
         :slidesPerView="1"
         :centeredSlides="true"
         :loop="true"
+        :spaceBetween="20"
         :pagination="pagination"
         :breakpoints="{
           '768': {
             slidesPerView: 1.125,
-            spaceBetween: 20,
+          },
+          '1024': {
+            slidesPerView: 1.5,
+          },
+          '1800': {
+            slidesPerView: 2.1,
           },
         }"
         class="swiper-container"
@@ -44,7 +50,7 @@
 <script>
 import SwiperCore, { Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import AspectRatio from "@/components/AspectRatio.vue";
+import AspectRatio from "@/components/utils/AspectRatio.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -95,12 +101,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main-div {
-  padding: 15% 10% 5%;
+.container {
+  padding: 50px 20px 30px;
 }
 
 .description {
-  margin: 5% auto;
+  margin: 30px auto;
 }
 
 .swiper-content {
@@ -125,14 +131,17 @@ export default {
 }
 
 @include media-breakpoint-up(md) {
-  .main-div {
-    padding: 10% 10% 2%;
+  .container {
+    padding: 100px 50px 50px;
+  }
+  .description {
+    margin: 50px auto;
   }
 }
 
-@include media-breakpoint-up(xl) {
-  .main-div {
-    padding: 10% 25% 2%;
+@include media-breakpoint-up(lg) {
+  .container {
+    padding-top: 150px;
   }
 }
 </style>
