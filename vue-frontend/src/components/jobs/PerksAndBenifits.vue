@@ -25,7 +25,7 @@
           height="90%"
           v-else
           class="padding"
-          :style="{ backgroundColor: perk.backgroundCss }"
+          :style="{ backgroundColor: perk.bgColor }"
         >
           <div class="details padding">
             <div class="normal-text title">
@@ -52,7 +52,7 @@ export default {
           id: 1,
           title: "",
           icon: "",
-          backgroundCss: "transparent",
+          bgColor: "transparent",
           image: require("@/assets/images/perks/jobs_canopas_perks_1.webp"),
           description: "",
         },
@@ -60,7 +60,7 @@ export default {
           id: 2,
           title: "Learning & Development",
           icon: require("@/assets/images/benifits/jobs_canopas_learning.svg"),
-          backgroundCss: "rgba(249, 129, 136, 0.08)",
+          bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description:
             "You will get exposure to new challenges, weekly internal knowledge sharing sessions, book library for career and personal growth.",
@@ -69,7 +69,7 @@ export default {
           id: 3,
           title: "",
           icon: "",
-          backgroundCss: "transparent",
+          bgColor: "transparent",
           image: require("@/assets/images/perks/jobs_canopas_perks_2.webp"),
           description: "",
         },
@@ -77,7 +77,7 @@ export default {
           id: 4,
           title: "Health & Wellbeing",
           icon: require("@/assets/images/benifits/jobs_canopas_health.svg"),
-          backgroundCss: "rgba(61, 61, 61, 0.08)",
+          bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
             "We organize weekly cardio sessions and daily meditation in the office. We also organize yoga events or similar activities monthly.",
@@ -86,7 +86,7 @@ export default {
           id: 5,
           title: "",
           icon: "",
-          backgroundCss: "transparent",
+          bgColor: "transparent",
           image: require("@/assets/images/perks/jobs_canopas_perks_3.webp"),
           description: "",
         },
@@ -94,7 +94,7 @@ export default {
           id: 6,
           title: "Equipment And Tools",
           icon: require("@/assets/images/benifits/jobs_canopas_laptop.svg"),
-          backgroundCss: "rgba(61, 61, 61, 0.08)",
+          bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
             "Sitting desks to standing desks, up-to-date desktop or laptop, MacBooks, and other tools and accessories based on your requirements.",
@@ -103,7 +103,7 @@ export default {
           id: 7,
           title: "",
           icon: "",
-          backgroundCss: "transparent",
+          bgColor: "transparent",
           image: require("@/assets/images/perks/jobs_canopas_perks_4.webp"),
           description: "",
         },
@@ -111,7 +111,7 @@ export default {
           id: 8,
           title: "Celebrations",
           icon: require("@/assets/images/benifits/jobs_canopas_celebration.svg"),
-          backgroundCss: "rgba(249, 129, 136, 0.08)",
+          bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description:
             "Whether it's a festival, birthdays (and births!), work anniversaries, or national holidays - we celebrate wherever we can, be it at the office or anywhere else.",
@@ -120,7 +120,7 @@ export default {
           id: 9,
           title: "",
           icon: "",
-          backgroundCss: "transparent",
+          bgColor: "transparent",
           image: require("@/assets/images/perks/jobs_canopas_perks_5.webp"),
           description: "",
         },
@@ -128,7 +128,7 @@ export default {
           id: 10,
           title: "Lunch and learn sessions",
           icon: require("@/assets/images/benifits/jobs_canopas_cooking.svg"),
-          backgroundCss: "rgba(61, 61, 61, 0.08)",
+          bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
             "We organize bi-weekly or monthly lunch and learn sessions where one of our team members shares knowledge about the tech and non-tech topics like AI, blockchain, ML, etc.",
@@ -137,7 +137,7 @@ export default {
           id: 11,
           title: "",
           icon: "",
-          backgroundCss: "transparent",
+          bgColor: "transparent",
           image: require("@/assets/images/perks/jobs_canopas_perks_6.webp"),
           description: "",
         },
@@ -145,7 +145,7 @@ export default {
           id: 12,
           title: "Flexible working",
           icon: require("@/assets/images/benifits/jobs_canopas_clock.svg"),
-          backgroundCss: "rgba(61, 61, 61, 0.08)",
+          bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
             "We offer flexible working hours ranging from 7 AM to 9 PM for early birds and night owls. We also don't put unnecessary restrictions in the workplace. We want everyone to enjoy their work by being themselves. ",
@@ -154,7 +154,7 @@ export default {
           id: 13,
           title: "",
           icon: "",
-          backgroundCss: "transparent",
+          bgColor: "transparent",
           image: require("@/assets/images/perks/jobs_canopas_perks_7.webp"),
           description: "",
         },
@@ -162,7 +162,7 @@ export default {
           id: 14,
           title: "We are hiring",
           icon: require("@/assets/images/benifits/jobs_canopas_hiring.svg"),
-          backgroundCss: "rgba(249, 129, 136, 0.08)",
+          bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description:
             "Want to become part of a Canopas team? Check out our openings and apply today.",
@@ -171,7 +171,7 @@ export default {
           id: 15,
           title: "",
           icon: "",
-          backgroundCss: "transparent",
+          bgColor: "transparent",
           image: require("@/assets/images/perks/jobs_canopas_perks_8.webp"),
           description: "",
         },
