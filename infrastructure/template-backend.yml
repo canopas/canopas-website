@@ -30,6 +30,21 @@ Parameters:
   Region:
     Type: String
     Description: aws-region.
+  DbUsername:
+    Type: String
+    Description: Mysql database username.
+  DbPassword:
+    Type: String
+    Description: Mysql database password.
+  DbHost:
+    Type: String
+    Description: Mysql database host.
+  DbPort:
+    Type: String
+    Description: Mysql database port.
+  DbName:
+    Type: String
+    Description: Mysql database name.
   LambdaHandlerPath:  
     Type: String
     Description: Path of a Lambda Handler. 
@@ -122,6 +137,16 @@ Resources:
             Fn::Sub: ${SecretAccessKey}
           REGION:
             Fn::Sub: ${Region}
+          DB_USERNAME:
+            Fn::Sub: ${DbUsername}
+          DB_PASSWORD:
+            Fn::Sub: ${DbPassword}
+          DB_HOST:
+            Fn::Sub: ${DbHost}
+          DB_PORT:
+            Fn::Sub: ${DbPort}
+          DB_NAME:
+            Fn::Sub: ${DbName}
           TZ: UTC
           GIN_MODE: release
 

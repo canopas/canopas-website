@@ -55,6 +55,11 @@ jobs:
             Receiver=${{ secrets.RECEIVER }},
             AccessKeyId=${{ secrets.ACCESS_KEY_ID }},
             SecretAccessKey=${{ secrets.SECRET_ACCESS_KEY }},
-            Region=${{ secrets.AWS_REGION }}
+            Region=${{ secrets.AWS_REGION }},
+            DbUsername=${{ secrets.DB_USERNAME }},
+            DbPassword=${{ secrets.DB_PASSWORD }},
+            DbHost=${{ secrets.DB_HOST }},
+            DbPort=${{ secrets.DB_PORT }},
+            DbName=${{ secrets.DB_NAME }}
 
             
