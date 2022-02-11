@@ -102,9 +102,7 @@ Resources:
         Version: 2012-10-17
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AWSLambdaExecute
-        - arn:aws:iam::aws:policy/AmazonS3FullAccess
-        - arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess
-        - arn:aws:iam::aws:policy/AmazonKinesisFullAccess
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole
       Path: /
   LambdaFunction:
     Type: AWS::Lambda::Function
@@ -123,6 +121,12 @@ Resources:
         Fn::GetAtt:
           - LambdaRole
           - Arn
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-08962f43eb26cf253
+        SubnetIds:
+          - subnet-747c1b38
+          - subnet-a8b086c0
       Environment:
         Variables:
           ENV:
