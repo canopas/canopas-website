@@ -127,6 +127,7 @@ Resources:
         SubnetIds:
           - subnet-747c1b38
           - subnet-a8b086c0
+          - subnet-0a9799eaea11a2553
       Environment:
         Variables:
           ENV:
