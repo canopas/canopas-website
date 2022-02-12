@@ -228,7 +228,8 @@ export default {
 
 .title {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
   color: #3d3d3d;
   font-weight: 700;
 
@@ -238,7 +239,7 @@ export default {
 }
 
 .desc-text {
-  text-align: left;
+  text-align: center;
   padding-top: 10px;
   font-size: 0.9rem;
 }
@@ -280,6 +281,14 @@ export default {
 
   .details {
     height: auto;
+  }
+
+  .title {
+    justify-content: unset;
+  }
+
+  .desc-text {
+    text-align: left;
   }
 }
 

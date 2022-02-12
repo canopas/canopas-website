@@ -33,6 +33,12 @@ export default {
 
 body {
   font-family: "Product Sans" !important;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
 }
 
 body::-webkit-scrollbar {
@@ -63,8 +69,16 @@ body::-webkit-scrollbar {
 
 .header-text {
   font-weight: 700;
-  line-height: 1.813rem;
   font-size: 1.5rem;
+  line-height: 1.813rem;
+}
+
+.header-2-text {
+  color: #3d3d3d;
+  font-weight: bold;
+  font-size: 1.25rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.1rem;
 }
 
 .underline-text {
@@ -128,6 +142,11 @@ body::-webkit-scrollbar {
     font-size: 1.875rem;
   }
 
+  .header-2-text {
+    font-size: 1.75rem;
+    line-height: 2rem;
+  }
+
   .normal-text {
     font-size: 1.125rem;
     line-height: 1.375rem;
@@ -138,6 +157,11 @@ body::-webkit-scrollbar {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;
+  }
+
+  .header-2-text {
+    font-size: 2.25rem;
+    line-height: 2.729rem;
   }
 
   .normal-text {

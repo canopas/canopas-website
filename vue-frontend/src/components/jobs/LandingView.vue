@@ -1,6 +1,6 @@
 <template>
   <div class="text-center container">
-    <div class="header-text">
+    <div class="header-2-text">
       Are you looking for a job where you can leverage your knowledge and
       experience to build digital products that will be used by millions of
       customers.
@@ -18,6 +18,7 @@
 
 <style lang="scss" scoped>
 .container {
+  max-width: 687px;
   margin: 30px auto 75px;
   padding: 0 20px;
 }
@@ -26,7 +27,7 @@
   margin: 30px 0;
 }
 
-@include media-breakpoint-up(md) {
+@include media-breakpoint-up(sm) {
   .gradient-btn {
     margin: auto;
   }
@@ -47,8 +48,7 @@
   }
 
   .container {
-    margin: 75px auto 100px;
-    padding: 0 150px;
+    padding: 0;
   }
 }
 </style>
