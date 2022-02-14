@@ -5,11 +5,11 @@
       experience to build digital products that will be used by millions of
       customers.
     </div>
-    <div class="normal-text desc-text">
+    <div class="jobs-normal-text desc-text">
       You've come to the right place. We're looking for an AVENGER who can join
       our existing team of AVENGERS.
     </div>
-    <button class="gradient-btn normal-text">
+    <button class="gradient-btn jobs-normal-text">
       <span>SEE ALL POSITIONS</span>
     </button>
   </div>
@@ -25,6 +25,10 @@
 
 .desc-text {
   margin: 30px 0;
+}
+
+.gradient-btn {
+  border-radius: 0.93rem;
 }
 
 @include media-breakpoint-up(sm) {
