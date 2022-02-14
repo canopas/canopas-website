@@ -5,8 +5,8 @@
     <VirtuesView />
     <LifeAtCanopas />
     <PerksAndBenifits />
-    <WhyCanopas v-if="!isMobile" />
-    <WhyCanopasMobile v-if="isMobile" />
+    <WhyCanopas class="why-canopas-desktop" />
+    <WhyCanopasMobile class="why-canopas-mobile" />
   </div>
 </template>
 
@@ -20,11 +20,6 @@ import WhyCanopas from "./jobs/WhyCanopas.vue";
 import WhyCanopasMobile from "./jobs/WhyCanopasMobile.vue";
 
 export default {
-  data() {
-    return {
-      isMobile: false,
-    };
-  },
   components: {
     ScreenHeader,
     LandingView,
@@ -34,17 +29,23 @@ export default {
     WhyCanopas,
     WhyCanopasMobile,
   },
-  mounted: function () {
-    this.showWhyCanopas();
-    window.addEventListener("resize", this.showWhyCanopas);
-  },
-  unmounted: function () {
-    window.removeEventListener("resize", this.showWhyCanopas);
-  },
-  methods: {
-    showWhyCanopas() {
-      this.isMobile = window.innerWidth <= 768;
-    },
-  },
 };
 </script>
+
+<style lang="scss" scoped>
+.why-canopas-mobile {
+  display: block;
+}
+.why-canopas-desktop {
+  display: none;
+}
+
+@include media-breakpoint-up(md) {
+  .why-canopas-mobile {
+    display: none;
+  }
+  .why-canopas-desktop {
+    display: block;
+  }
+}
+</style>

@@ -116,8 +116,12 @@ export default {
 .reason:nth-of-type(2) {
   margin-top: -70px;
 
-  .content > div {
-    width: 70%;
+  .content {
+    margin-top: 5%;
+
+    div {
+      width: 70%;
+    }
   }
 }
 
