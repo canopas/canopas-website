@@ -67,6 +67,23 @@ body::-webkit-scrollbar {
   color: rgba(0, 0, 0, 0.5);
 }
 
+.jobs-normal-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  color: rgba(61, 61, 61, 0.8);
+  letter-spacing: 0.5px;
+}
+
+.normal-2-text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.9rem;
+  line-height: 1rem;
+  color: rgba(61, 61, 61, 0.8);
+}
+
 .header-text {
   font-weight: 700;
   font-size: 1.5rem;
@@ -82,7 +99,8 @@ body::-webkit-scrollbar {
 }
 
 .underline-text {
-  border-bottom: 3px solid rgba(61, 61, 61, 0.8);
+  text-decoration: underline solid rgba(61, 61, 61, 0.8) 2px ;
+  text-underline-offset: 1rem;
 }
 
 .swiper-pagination-bullet {
@@ -147,9 +165,19 @@ body::-webkit-scrollbar {
     line-height: 2rem;
   }
 
-  .normal-text {
+  .normal-text,
+  .jobs-normal-text {
     font-size: 1.125rem;
     line-height: 1.375rem;
+  }
+
+  .normal-2-text {
+    font-size: 1rem;
+    line-height: 1.18rem;
+  }
+
+  .underline-text {
+    text-decoration: underline solid rgba(61, 61, 61, 0.8) 3px ;
   }
 }
 
@@ -164,9 +192,15 @@ body::-webkit-scrollbar {
     line-height: 2.729rem;
   }
 
-  .normal-text {
+  .normal-text,
+  .jobs-normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
+  }
+
+  .normal-2-text {
+    font-size: 1.1875rem;
+    line-height: 1.437rem;
   }
 
   .gradient-btn {

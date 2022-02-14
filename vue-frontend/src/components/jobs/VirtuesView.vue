@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <div class="normal-text title">Canopas is built on the 10 virtues</div>
+    <div class="jobs-normal-text title">Canopas is built on the 10 virtues</div>
     <div class="text-center container">
       <div class="flex-div">
         <div
@@ -23,7 +23,7 @@
             <div class="red-text">
               {{ virtue.title }}
             </div>
-            <div class="normal-text desc">
+            <div class="normal-2-text">
               {{ virtue.description }}
             </div>
           </div>
@@ -50,7 +50,7 @@
             <div class="red-text">
               {{ virtue.title }}
             </div>
-            <div class="normal-text desc">
+            <div class="normal-2-text">
               {{ virtue.description }}
             </div>
           </div>
@@ -77,7 +77,7 @@
             <div class="red-text">
               {{ virtue.title }}
             </div>
-            <div class="normal-text desc">
+            <div class="normal-2-text">
               {{ virtue.description }}
             </div>
           </div>
@@ -104,7 +104,7 @@
             <div class="red-text">
               {{ virtue.title }}
             </div>
-            <div class="normal-text desc">
+            <div class="normal-2-text">
               {{ virtue.description }}
             </div>
           </div>
@@ -212,7 +212,7 @@ export default {
 .red-text {
   font-style: normal;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1rem;
   line-height: 1.5rem;
   color: #e8505b;
 }
@@ -278,6 +278,10 @@ export default {
   opacity: 1;
 }
 
+.normal-2-text {
+  margin-top: 20px;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .flex-div > div:hover .description {
     opacity: 1;
@@ -337,10 +341,6 @@ export default {
     flex: 33%;
   }
 
-  .title {
-    letter-spacing: 1px;
-  }
-
   .description {
     width: 100%;
     padding: 1%;
@@ -358,6 +358,11 @@ export default {
     width: 50%;
     padding-bottom: 50%;
   }
+
+  .red-text {
+    font-size: 1.18rem;
+    line-height: 1.25rem;
+  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -373,18 +378,13 @@ export default {
     width: 60%;
   }
 
-  .desc,
   .red-text {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    line-height: 1.56rem;
   }
 }
 
 @include media-breakpoint-up(xxl) {
-  .desc,
-  .red-text {
-    font-size: 1.3rem;
-  }
-
   .description {
     padding: 3%;
 

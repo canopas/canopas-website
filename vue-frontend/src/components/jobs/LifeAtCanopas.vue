@@ -1,10 +1,10 @@
 <template>
   <div class="pb-32">
-    <div class="container normal-text">
-      <div class="header-text canopas-gradient-text text-center">
+    <div class="container jobs-normal-text text-center">
+      <div class="header-text canopas-gradient-text">
         <span class="underline-text">Life a</span>t Canopas
       </div>
-      <div class="description text-center">
+      <div class="description">
         We wanted to create an environment that helps you get out of bed in the
         morning and an office that creates excellent work and encourages fun. As
         we play the infinite game, it is not about winning or losing, it's about
@@ -107,7 +107,7 @@ export default {
 
 .description {
   margin: 30px auto;
-  color: #3d3d3d;
+  color: rgba(61, 61, 61, 0.8);
 }
 
 .swiper-content {

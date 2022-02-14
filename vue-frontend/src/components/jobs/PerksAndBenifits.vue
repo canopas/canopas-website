@@ -4,7 +4,7 @@
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Perks</span> and Benefits section
       </div>
-      <div class="description normal-text">
+      <div class="description jobs-normal-text">
         We wanted to create an environment that helps you get out of bed in the
         morning and an office that creates excellent work and encourages fun. As
         we play the infinite game, it is not about winning or losing, it's about
@@ -28,11 +28,11 @@
           :style="{ backgroundColor: perk.bgColor }"
         >
           <div class="details padding">
-            <div class="normal-text title">
+            <div class="normal-2-text title">
               <img :src="perk.icon" loading="lazy" />
               <span>{{ perk.title }}</span>
             </div>
-            <div class="normal-text desc-text">
+            <div class="normal-2-text desc-text">
               {{ perk.description }}
             </div>
           </div>
@@ -191,7 +191,7 @@ export default {
 
 .description {
   margin: 30px 10px;
-  color: #3d3d3d;
+  color: rgba(61, 61, 61, 0.8);
 }
 
 .padding {
@@ -228,7 +228,7 @@ export default {
 
 .title {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   color: #3d3d3d;
   font-weight: 700;
@@ -241,7 +241,6 @@ export default {
 .desc-text {
   text-align: center;
   padding-top: 10px;
-  font-size: 0.9rem;
 }
 
 @include media-breakpoint-up(sm) {
@@ -250,12 +249,6 @@ export default {
   }
   .details {
     padding: 40px;
-  }
-
-  .title,
-  .desc-text {
-    font-size: 1rem;
-    line-height: 1.2rem;
   }
 }
 
@@ -293,11 +286,6 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-  .title,
-  .desc-text {
-    font-size: 1.2rem;
-    line-height: 1.5rem;
-  }
 
   .padding {
     padding: 20px;
@@ -307,8 +295,6 @@ export default {
 @include media-breakpoint-up(xl) {
   .title,
   .desc-text {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
     padding-top: 20px;
   }
 }
