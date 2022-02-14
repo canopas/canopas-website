@@ -2,7 +2,7 @@
   <div class="container">
     <div class="text-center">
       <div class="header-text canopas-gradient-text">
-        <span class="underline-text">Perks</span> and Benefits section
+        <span class="underline-text">Perks</span> and Benefits
       </div>
       <div class="description jobs-normal-text">
         We wanted to create an environment that helps you get out of bed in the
@@ -286,7 +286,6 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-
   .padding {
     padding: 20px;
   }

@@ -341,6 +341,36 @@
         </div>
       </transition>
     </div>
+    <!-- Shoe error message -->
+    <div v-if="showErrorMessagePopup">
+      <transition name="modal">
+        <div class="modal-mask">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content calendly-iframe-modal-content">
+              <div class="modal-body">
+                <div v-if="isLoading" class="loader-div">
+                  <img :src="loader" />
+                </div>
+                <div v-else class="success-message-div">
+                  <div class="error-message-text text-center">
+                    Something went wrong on our side
+                  </div>
+                  <div class="close-btn-div">
+                    <button
+                      type="submit"
+                      class="gradient-btn close-btn"
+                      @click.prevent="closeErrorMessageModal()"
+                    >
+                      <span>Close</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -362,6 +392,7 @@ import {
 import axios from "axios";
 import CalendlyIframe from "./CalendlyIframe.vue";
 import config from "@/config.js";
+import loader from "@/assets/images/theme/loader.svg";
 
 const CONTACT_BY_CHAT_OR_MAIL = 1;
 
@@ -454,6 +485,9 @@ export default {
       openCalendlyIframeModal: false,
       showValidationError: false,
       showSuccessMessagePopup: false,
+      showErrorMessagePopup: false,
+      isLoading: true,
+      loader: loader,
     };
   },
   components: {
@@ -532,8 +566,8 @@ export default {
             }
           })
           .catch(() => {
-            // If error is there show model with below message.
-            alert("Something went wrong on our side");
+            this.isLoading = false;
+            this.showErrorMessage();
           });
       }
     },
@@ -548,6 +582,12 @@ export default {
       setTimeout(() => {
         this.$router.push("/");
       }, 2000);
+    },
+    showErrorMessage() {
+      this.showErrorMessagePopup = true;
+    },
+    closeErrorMessageModal() {
+      this.showErrorMessagePopup = false;
     },
   },
 };
@@ -921,6 +961,25 @@ input:-webkit-autofill:active {
 .success-message-text {
   line-height: 2rem;
   font-size: 1.875rem;
+  margin-bottom: 30px;
+}
+
+.loader-div {
+  display: flex;
+  justify-content: center;
+}
+
+.close-btn-div {
+  width: 100%;
+}
+
+.close-btn {
+  float: right;
+}
+
+.error-message-text {
+  line-height: 2rem;
+  font-size: 1.5rem;
   margin-bottom: 30px;
 }
 

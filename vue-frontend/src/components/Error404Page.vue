@@ -119,28 +119,6 @@ export default {
   margin-right: 16px;
 }
 
-.gradient-border-btn {
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
-    linear-gradient(to top, #ff9472, #f2709c);
-  box-shadow: 2px 1000px 1px #fff inset;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .gradient-border-btn:hover{
-    background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
-    border: 2px solid transparent;
-    box-shadow: none;
-  }
-
-  .gradient-border-btn:hover > span{
-    -webkit-text-fill-color: white;
-  }
-
-  .gradient-border-btn:hover > .arrow{
-    color: white;
-  }
-}
-
 @include media-breakpoint-up(md) {
   .not-found-container {
     width: 50%;
