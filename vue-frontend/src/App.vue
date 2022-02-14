@@ -99,7 +99,7 @@ body::-webkit-scrollbar {
 }
 
 .underline-text {
-  text-decoration: underline solid rgba(61, 61, 61, 0.8) 2px ;
+  text-decoration: underline solid rgba(61, 61, 61, 0.8) 2px;
   text-underline-offset: 1rem;
 }
 
@@ -154,6 +154,40 @@ body::-webkit-scrollbar {
   }
 }
 
+.gradient-border-btn {
+  border-radius: 0.6rem;
+  padding: 1rem;
+  margin: 5px;
+  text-align: center;
+  border: 1px solid transparent !important;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+    linear-gradient(to top, #ff9472, #f2709c);
+  box-shadow: 2px 1000px 1px #fff inset;
+}
+
+.gradient-border-btn > span {
+  margin: 0 6px;
+  color: rgba(61, 61, 61, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gradient-border-btn:hover {
+    background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
+    border: 2px solid transparent;
+    box-shadow: none;
+  }
+
+  .gradient-border-btn:hover > span,
+  .gradient-border-btn:hover > span > span {
+    -webkit-text-fill-color: white;
+  }
+
+  .gradient-border-btn:hover > .fa,
+  .gradient-border-btn:hover > .arrow {
+    color: white;
+  }
+}
+
 @include media-breakpoint-up(md) {
   .header-text {
     line-height: 2rem;
@@ -177,7 +211,7 @@ body::-webkit-scrollbar {
   }
 
   .underline-text {
-    text-decoration: underline solid rgba(61, 61, 61, 0.8) 3px ;
+    text-decoration: underline solid rgba(61, 61, 61, 0.8) 3px;
   }
 }
 
