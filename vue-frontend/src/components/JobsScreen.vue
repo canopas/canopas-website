@@ -8,6 +8,7 @@
     <WhyCanopas class="why-canopas-desktop" />
     <WhyCanopasMobile class="why-canopas-mobile" />
     <Career id="career" />
+    <ScreenFooter2 />
   </div>
 </template>
 
@@ -25,6 +26,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faAlignLeft, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faAlignLeft, faCheckCircle);
+import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 
 export default {
   components: {
@@ -36,6 +38,7 @@ export default {
     PerksAndBenifits,
     WhyCanopas,
     WhyCanopasMobile,
+    ScreenFooter2,
   },
   methods: {
     scrollToCareer() {

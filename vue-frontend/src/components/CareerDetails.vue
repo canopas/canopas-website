@@ -57,7 +57,8 @@
           </button>
         </div>
       </div>
-      <ScreenFooter />
+      <ScreenFooter v-if="!showJobs" />
+      <ScreenFooter2 v-if="showJobs" />
     </div>
   </div>
 </template>
@@ -65,12 +66,14 @@
 <script>
 import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
+import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import loader from "@/assets/images/theme/loader.svg";
 import router from "@/router";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import Config from "@/config.js";
 
 import {
   faCheckCircle,
@@ -88,11 +91,13 @@ export default {
       loader: loader,
       isLoading: true,
       showErrorMessagePopup: false,
+      showJobs: Config.IS_SHOW_JOBS,
     };
   },
   components: {
     ScreenHeader,
     ScreenFooter,
+    ScreenFooter2,
     FontAwesomeIcon,
   },
   mounted() {
@@ -141,6 +146,10 @@ export default {
 .loader-div {
   display: flex;
   justify-content: center;
+}
+
+.container {
+  padding: 3rem 1rem;
 }
 
 .title-hr {
