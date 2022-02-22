@@ -126,7 +126,7 @@ body::-webkit-scrollbar {
   margin: 1.25rem auto 0 auto;
   text-align: center;
   color: white;
-  background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
+  background:linear-gradient(270.11deg, #FF835B -24.42%, #F2709C 101.76%);;
   border: 1px solid transparent;
 }
 
@@ -142,14 +142,15 @@ body::-webkit-scrollbar {
     box-shadow: 2px 1000px 1px #fff inset;
   }
 
-  .gradient-btn:hover > span {
+  .gradient-btn:hover * {
     background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
   .gradient-btn:hover > .fa,
-  .gradient-btn:hover > .fas {
+  .gradient-btn:hover > .fas,
+  .gradient-btn:hover > a > .fab{
     color: #f2709c;
   }
 }
