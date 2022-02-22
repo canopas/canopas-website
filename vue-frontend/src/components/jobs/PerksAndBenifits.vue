@@ -33,7 +33,7 @@
               <span>{{ perk.title }}</span>
             </div>
             <div class="normal-2-text desc-text">
-              {{ perk.description }}
+              <div v-html="perk.description" @click="scrollToCareer"></div>
             </div>
           </div>
         </aspect-ratio>
@@ -44,6 +44,7 @@
 
 <script type="module">
 import AspectRatio from "@/components/utils/AspectRatio.vue";
+
 export default {
   data() {
     return {
@@ -164,8 +165,7 @@ export default {
           icon: require("@/assets/images/benifits/jobs_canopas_hiring.svg"),
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
-          description:
-            "Want to become part of a Canopas team? Check out our openings and apply today.",
+          description: `Want to become part of a Canopas team? Check out our openings and <div class="career-link" style="color: #fe88a2; font-weight:700"> apply today.</div>`,
         },
         {
           id: 15,
@@ -180,6 +180,13 @@ export default {
   },
   components: {
     AspectRatio,
+  },
+  methods: {
+    scrollToCareer(e) {
+      if (e.target.matches(".career-link")) {
+        this.$emit("scroll-to-career");
+      }
+    },
   },
 };
 </script>
