@@ -1,5 +1,5 @@
 <template>
-  <div class="user-reviews-div normal-text">
+  <div class="container-fluid normal-text">
     <div class="header-text canopas-gradient-text text-center">
       Listen what real app users <br />
       are saying...
@@ -206,8 +206,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.user-reviews-div {
-  padding: 10% 0 2%;
+.container-fluid {
+  padding: 10% 0;
   color: black;
 }
 
@@ -264,6 +264,7 @@ double speed and keep it paused. When we want reverse animation, we just run it.
   display: flex;
   width: 100%;
   height: fit-content;
+  margin-bottom: 1rem;
 }
 
 .horizontal-grid-1 {

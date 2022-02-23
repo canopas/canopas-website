@@ -1,5 +1,5 @@
 <template>
-  <div class="parallax-container">
+  <div class="container-fluid">
     <img
       class="parallax-image"
       :src="developerBackgroundImage"
@@ -8,7 +8,7 @@
     />
     <div class="parallax-image developer-gradient"></div>
 
-    <div class="parallax-scroll-container">
+    <div class="container">
       <div class="resource-item" id="item1">
         <div
           class="header-text canopas-gradient-text"
@@ -95,7 +95,7 @@
     </div>
   </div>
 </template>
-
+ 
 <script type="module">
 import developerBackgroundImage from "@/assets/images/theme/developer.webp";
 
@@ -105,14 +105,14 @@ export default {
       developerBackgroundImage: developerBackgroundImage,
     };
   },
-  mounted() {},
 };
 </script>
-
+ 
 <style lang="scss" scoped>
-.parallax-container {
-  margin: 5% auto 0;
+.container-fluid {
   position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 .parallax-image {
@@ -132,11 +132,11 @@ export default {
   );
 }
 
-.parallax-scroll-container {
-  width: 70%;
+.container {
   margin: -100vh auto 0;
   display: flex;
   flex-direction: column;
+  padding: 0 10%;
 }
 
 .resource-content {
@@ -246,10 +246,6 @@ li > div {
     border: 1px solid #ffffff;
     transform: scale(1.6);
   }
-
-  .parallax-scroll-container {
-    width: 49%;
-  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -261,6 +257,12 @@ li > div {
   .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .container {
+    padding: 0 5%;
   }
 }
 </style>

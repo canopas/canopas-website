@@ -1,5 +1,5 @@
 <template>
-  <div class="cta-container text-center">
+  <div class="container text-center">
     <div class="header-text canopas-gradient-text mt-2">
       How do you know we’re a good fit for you or not?
     </div>
@@ -90,12 +90,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cta-container {
+.container {
   display: flex;
   flex-direction: column;
-  margin: 10% auto;
-  width: 80%;
-  padding: 0 5%;
+  padding: 10% 5%;
 }
 
 .communication {
@@ -221,16 +219,14 @@ export default {
     line-height: 1.8rem;
   }
 
-  .cta-container {
-    width: 70%;
-    margin: 7% auto;
+  .container {
+    max-width: 900px;
   }
 }
 
-@include media-breakpoint-up(xl) {
-  .cta-container {
-    width: 40%;
-    min-width: 900px;
+@include media-breakpoint-up(xxl) {
+  .container {
+    padding: 10% 0;
   }
 }
 </style>

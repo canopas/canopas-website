@@ -165,7 +165,8 @@ Resources:
       BinaryMediaTypes: ['*/*']
       DisableExecuteApiEndpoint: true
       MinimumCompressionSize: 100
-      Name: rest-api-canopas-website-v1-prod
+      Name:
+        Fn::Sub: rest-api-canopas-website-v1-${EnvName}
 
   ApiGatewayRootMethod:
     Type: AWS::ApiGateway::Method
