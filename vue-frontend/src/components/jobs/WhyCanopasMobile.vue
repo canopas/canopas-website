@@ -93,7 +93,7 @@ export default {
 
 .reason {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   position: relative;
   padding: 20px 0;
 }
@@ -117,7 +117,7 @@ export default {
   flex: 70%;
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: flex-end;
 
   div {
     padding: 15px 0;

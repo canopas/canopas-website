@@ -1,5 +1,5 @@
 <template>
-  <footer class="bottom-footer-div">
+  <footer class="container bottom-footer-div">
     <div class="logo-div">
       <img width="180" :src="footerLogoImage" alt="logo" />
       <p class="text-left">
@@ -85,7 +85,7 @@ export default {
 }
 
 .bottom-footer-div {
-  margin: 0 15%;
+  margin: 0 auto;
   padding: 3% 0;
   display: flex;
   align-items: flex-start;

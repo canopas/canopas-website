@@ -1,7 +1,7 @@
 <template>
-  <div class="text-center landing-container">
+  <div class="container-fluid overlay">
     <img :src="backgroundImage" class="render-background" />
-    <div class="overlay">
+    <div class="container text-center">
       <div class="description">
         <div class="header-text canopas-gradient-text pb-3">
           Do you have a massive ad budget for your business?
@@ -34,7 +34,7 @@
     </div>
   </div>
 </template>
-
+ 
 <script type="module">
 import backgroundImage from "@/assets/images/theme/bg.webp";
 import arrowImage from "@/assets/images/theme/arrow.svg";
@@ -50,10 +50,12 @@ export default {
   method: {},
 };
 </script>
-
+ 
 <style lang="scss" scoped>
-.landing-container {
+.container-fluid {
   position: relative;
+  padding: 0;
+  margin: 0;
 }
 
 .render-background {
@@ -108,12 +110,6 @@ export default {
   .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .description {
-    width: 37%;
   }
 }
 </style>

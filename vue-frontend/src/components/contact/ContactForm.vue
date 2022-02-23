@@ -1,5 +1,5 @@
 <template>
-  <div class="apply-information">
+  <div class="container">
     <form>
       <div class="required-field-msg">
         All fields marked with * are required.
@@ -325,7 +325,11 @@
               <div class="modal-body">
                 <div class="success-message-div">
                   <div
-                    class="success-message-text canopas-gradient-text text-center"
+                    class="
+                      success-message-text
+                      canopas-gradient-text
+                      text-center
+                    "
                   >
                     Thank you for choosing us to make a difference in your
                     business.
@@ -594,8 +598,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.apply-information {
-  margin: 48px 10%;
+.container {
+  margin: 48px auto;
+  padding: 0 5%;
 }
 
 .information-detail {
@@ -999,10 +1004,6 @@ input:-webkit-autofill:active {
 }
 
 @include media-breakpoint-up(lg) {
-  .apply-information {
-    margin: 48px 18%;
-  }
-
   .fas {
     font-size: 1.4rem;
   }
@@ -1034,12 +1035,6 @@ input:-webkit-autofill:active {
   .contact-form-text,
   .contact-form-text:hover {
     line-height: 1.875rem;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .apply-information {
-    margin: 48px 22%;
   }
 }
 </style>

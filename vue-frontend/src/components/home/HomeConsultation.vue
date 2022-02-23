@@ -1,34 +1,39 @@
 <template>
-  <div class="consultant-container normal-text">
-    <div class="image-container">
-      <img
-        class="consultant-image abs-fit-parent"
-        loading="lazy"
-        :src="steps[currentStep].image"
-        :alt="steps[currentStep].title"
-      />
-    </div>
-    <div class="steps-container">
-      <div v-for="(step, i) in steps" :key="step" class="step-item">
-        <div class="step-header normal-text text-left" @click="onStepClick(i)">
-          <div class="step-number">{{ i + 1 }}</div>
-          <div class="step-title">{{ step.title }}</div>
-          <font-awesome-icon
-            v-if="i != currentStep"
-            class="step-plus-icon"
-            icon="plus"
-          />
-        </div>
-        <collapse-transition>
+  <div class="container-fluid">
+    <div class="container normal-text">
+      <div class="image-container">
+        <img
+          class="consultant-image abs-fit-parent"
+          loading="lazy"
+          :src="steps[currentStep].image"
+          :alt="steps[currentStep].title"
+        />
+      </div>
+      <div class="steps-container">
+        <div v-for="(step, i) in steps" :key="step" class="step-item">
           <div
-            v-if="i == currentStep"
-            :key="step.descriptions"
-            class="step-description card-body"
+            class="step-header normal-text text-left"
+            @click="onStepClick(i)"
           >
-            {{ step.descriptions.join("\n\n") }}
+            <div class="step-number">{{ i + 1 }}</div>
+            <div class="step-title">{{ step.title }}</div>
+            <font-awesome-icon
+              v-if="i != currentStep"
+              class="step-plus-icon"
+              icon="plus"
+            />
           </div>
-        </collapse-transition>
-        <div class="step-divider" v-if="i != steps.length"></div>
+          <collapse-transition>
+            <div
+              v-if="i == currentStep"
+              :key="step.descriptions"
+              class="step-description card-body"
+            >
+              {{ step.descriptions.join("\n\n") }}
+            </div>
+          </collapse-transition>
+          <div class="step-divider" v-if="i < steps.length - 1"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -93,8 +98,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.consultant-container {
-  margin: 48px 10%;
+.container-fluid {
+  padding: 0 10%;
+}
+
+.container {
+  padding: 0;
   display: flex;
   flex-direction: column;
   border-radius: 0.9rem;
@@ -171,13 +180,12 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-  .consultant-container {
+  .container {
     flex-direction: row;
+    padding: 0;
   }
 
   .image-container {
-    position: relative;
-    width: 100%;
     padding-top: 0;
   }
 
@@ -193,10 +201,6 @@ export default {
 }
 
 @include media-breakpoint-up(xl) {
-  .consultant-container {
-    margin: 48px 15%;
-  }
-
   .step-plus-icon {
     font-size: 1.5rem;
   }

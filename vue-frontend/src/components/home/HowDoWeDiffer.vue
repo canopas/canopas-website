@@ -1,6 +1,6 @@
 <template>
-  <div class="light-orange-bg exclude-parent-margin">
-    <div class="how-do-we-differ-section">
+  <div class="container-fluid">
+    <div class="container">
       <div class="description text-left">
         <span class="header-text canopas-gradient-text text-center"
           >How do we differ from others?</span
@@ -157,15 +157,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.how-do-we-differ-section {
-  width: 80%;
+.container {
   margin: auto;
 }
 
-.light-orange-bg {
+.container-fluid {
   background: rgba(255, 148, 114, 0.05);
   z-index: 100;
-  margin-top: 0;
 }
 
 .description {
@@ -245,7 +243,7 @@ export default {
     line-height: 1.375rem;
   }
 
-  .light-orange-bg {
+  .container-fluid {
     margin-top: -150px;
   }
 
@@ -268,6 +266,9 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
+  .container {
+    padding: 0 10%;
+  }
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;
@@ -303,11 +304,9 @@ export default {
 }
 
 @include media-breakpoint-up(xl) {
-  .how-do-we-differ-section {
-    width: 60%;
-    min-width: 900px;
+  .container {
+    padding: 0;
   }
-
   .differ-description {
     padding: 0 10%;
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="success-stories-bg text-center">
-    <div>
+    <div class="container">
       <div class="header-text canopas-gradient-text">
         Success stories of <br />
         people like You!

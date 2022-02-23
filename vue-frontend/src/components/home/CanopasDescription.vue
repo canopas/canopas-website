@@ -1,28 +1,29 @@
 <template>
-  <div class="container-canopas-description">
-    <div class="mt-4 canopas-text-div normal-text">
-      <h4 class="header-text canopas-gradient-text mb-4">What is Canopas?</h4>
-
-      Canopas is a company helping Entrepreneurs, startups, and small companies
-      to bring their IDEA to LIFE by developing digital products(or improving
-      existing products) for their business.
-      <br /><br />
-      Our vision is
-      <b
-        ><i
-          ><q
-            >To put humanity in better condition compared to what it was before
-            our presence in the world.</q
-          ></i
-        ></b
-      >
-      <br /><br />
-      We're quality-focused people who want to work on a few handful apps that
-      can be used by many people worldwide.
-    </div>
-    <div class="bongo-cat-wrapper">
-      <div class="bongo-cat-div">
-        <BongoCat class="bongo-cat-image" />
+  <div class="container-fluid">
+    <div class="container">
+      <div class="mt-4 canopas-text-div normal-text">
+        <h4 class="header-text canopas-gradient-text mb-4">What is Canopas?</h4>
+        Canopas is a company helping Entrepreneurs, startups, and small
+        companies to bring their IDEA to LIFE by developing digital products(or
+        improving existing products) for their business.
+        <br /><br />
+        Our vision is
+        <b
+          ><i
+            ><q
+              >To put humanity in better condition compared to what it was
+              before our presence in the world.</q
+            ></i
+          ></b
+        >
+        <br /><br />
+        We're quality-focused people who want to work on a few handful apps that
+        can be used by many people worldwide.
+      </div>
+      <div class="bongo-cat-wrapper">
+        <div class="bongo-cat-div text-right">
+          <BongoCat class="bongo-cat-image" />
+        </div>
       </div>
     </div>
   </div>
@@ -43,10 +44,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-canopas-description {
+.container-fluid {
+  padding: 5% 10%;
+}
+
+.container {
   display: flex;
   flex-direction: column-reverse;
-  margin: 5% 10%;
+  margin: 5% 0 5% auto;
+  padding: 0;
   overflow: hidden;
   align-items: center;
 }
@@ -80,9 +86,9 @@ export default {
     line-height: 1.375rem;
   }
 
-  .container-canopas-description {
+  .container {
     flex-direction: row;
-    margin: 5% 0 5% 15%;
+    margin: 5% auto;
   }
 
   .canopas-text-div {
