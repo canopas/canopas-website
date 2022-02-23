@@ -1,13 +1,13 @@
 <template>
   <div>
     <ScreenHeader />
-    <LandingView />
+    <LandingView v-on:scroll-to-career="scrollToCareer" />
     <VirtuesView />
     <LifeAtCanopas />
-    <PerksAndBenifits />
+    <PerksAndBenifits v-on:scroll-to-career="scrollToCareer" />
     <WhyCanopas class="why-canopas-desktop" />
     <WhyCanopasMobile class="why-canopas-mobile" />
-    <Career />
+    <Career id="career" />
     <ScreenFooter2 />
   </div>
 </template>
@@ -39,6 +39,13 @@ export default {
     WhyCanopas,
     WhyCanopasMobile,
     ScreenFooter2,
+  },
+  methods: {
+    scrollToCareer() {
+      var careerDiv = document.getElementById("career");
+      var top = careerDiv.offsetTop;
+      window.scrollTo({ top: top, behavior: "smooth" });
+    },
   },
 };
 </script>

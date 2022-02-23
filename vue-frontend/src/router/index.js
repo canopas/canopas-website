@@ -7,6 +7,7 @@ import HomeScreen from "@/components/HomeScreen.vue";
 const Error404Page = () => import("@/components/Error404Page.vue");
 const ContactScreen = () => import("@/components/ContactScreen.vue");
 const JobsScreen = () => import("@/components/JobsScreen.vue");
+const CareerDetailsPage = () => import("@/components/CareerDetails.vue");
 
 const routes = [
   {
@@ -27,11 +28,18 @@ const routes = [
 ];
 
 if (Config.IS_SHOW_JOBS) {
-  routes.push({
-    path: "/jobs",
-    name: "JobsScreen",
-    component: JobsScreen,
-  });
+  routes.push(
+    {
+      path: "/jobs",
+      name: "JobsScreen",
+      component: JobsScreen,
+    },
+    {
+      path: "/jobs/:id",
+      name: "CareerDetailsPage",
+      component: CareerDetailsPage,
+    }
+  );
 }
 
 const router = createRouter({

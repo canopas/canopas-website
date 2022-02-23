@@ -47,10 +47,14 @@
               </div>
 
               <div class="read-apply-btns">
-                <button class="gradient-border-btn">
+                <button
+                  class="gradient-border-btn"
+                  @click="getCareerDetails(career.id)"
+                >
                   <font-awesome-icon
                     class="fa gradient-icon"
                     icon="align-left"
+                    flip="vertical"
                     aria-hidden="true"
                   />
                   <span>Read More</span>
@@ -79,6 +83,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
 import config from "@/config.js";
 import loader from "@/assets/images/theme/loader.svg";
+import router from "@/router";
 
 import { faApple, faAndroid } from "@fortawesome/free-brands-svg-icons";
 
@@ -106,7 +111,7 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
-    this.getCareer();
+    this.getCareers();
   },
   methods: {
     expandListItem(index) {
@@ -119,7 +124,7 @@ export default {
       this.currentIndex = index;
       this.previousIndex = this.currentIndex;
     },
-    getCareer() {
+    getCareers() {
       axios
         .get(config.API_BASE + "/api/careers")
         .then((response) => {
@@ -132,6 +137,11 @@ export default {
         .catch((error) => {
           console.log(error);
         });
+    },
+    getCareerDetails(id) {
+      router.push({
+        path: `/jobs/${id}`,
+      });
     },
   },
 };
@@ -187,6 +197,7 @@ export default {
 
 .career-summary {
   padding: 30px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .career-title {
@@ -225,12 +236,14 @@ export default {
 .gradient-btn {
   display: flex;
   align-items: center;
+  padding: 0.7rem;
 }
 
 .gradient-border-btn > span,
 .gradient-btn > span {
   font-size: 0.9rem;
   font-weight: 700;
+  letter-spacing: 0.06rem;
 }
 
 .loader-div {
@@ -239,8 +252,7 @@ export default {
 }
 
 .icon {
-  height: 40%;
-  width: 40%;
+  font-size: 1.575rem;
 }
 
 @include media-breakpoint-up(sm) {
@@ -249,9 +261,13 @@ export default {
     padding: 0 20px 30px;
   }
 
-  .gradient-border-btn > span,
-  .gradient-btn > span {
-    font-size: 1.125rem;
+  .icon {
+    font-size: 1.875rem;
+  }
+
+  .gradient-border-btn,
+  .gradient-btn {
+    padding: 1rem;
   }
 }
 
@@ -275,6 +291,11 @@ export default {
   .career-icon {
     width: 4rem;
   }
+
+  .gradient-border-btn > span,
+  .gradient-btn > span {
+    font-size: 1rem;
+  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -284,6 +305,12 @@ export default {
 
   .career-summary {
     padding: 40px 48px;
+    line-height: 2rem;
+  }
+
+  .gradient-border-btn > span,
+  .gradient-btn > span {
+    font-size: 1.125rem;
   }
 }
 </style>
