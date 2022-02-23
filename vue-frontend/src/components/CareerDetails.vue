@@ -1,5 +1,12 @@
 <template>
   <div class="container-fluid">
+    <Teleport to="head">
+      <component
+        :is="'script'"
+        type="application/ld+json"
+        v-text="jsonld"
+      ></component>
+    </Teleport>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -85,13 +92,14 @@ library.add(faCheckCircle, faChevronRight);
 export default {
   data() {
     return {
-      details: "",
+      details: null,
       description: "",
       checkCircle: faCheckCircle,
       loader: loader,
       isLoading: true,
       showErrorMessagePopup: false,
       showJobs: Config.IS_SHOW_JOBS,
+      jsonld: {},
     };
   },
   components: {
@@ -112,6 +120,7 @@ export default {
           this.isLoading = false;
           this.details = res.data;
           this.description = this.details.description;
+          this.prepareJSONLDSchema();
         })
         .catch((err) => {
           this.isLoading = false;
@@ -129,6 +138,130 @@ export default {
       router.push({
         path: `/jobs`,
       });
+    },
+    prepareJSONLDSchema() {
+      var career = this.details;
+      this.jsonld = {
+        "@context": "http://schema.org",
+        "@type": "JobPosting",
+        title: career.title,
+        hiringOrganization: {
+          "@type": "Organization",
+          name: "Canopas Software LLP",
+          sameAs: "https://www.canopas.com/",
+          logo: "https://canopas.com/images/logo/canopas-logo.png",
+        },
+        employmentType: (career.employment_type
+          ? career.employment_type
+          : "FULL_TIME"
+        ).toUpperCase(),
+        baseSalary: {
+          "@type": "MonetaryAmount",
+          currency: "INR",
+          value: {
+            "@type": "QuantitativeValue",
+            minValue: parseInt(
+              career.base_salary ? career.base_salary : "10000"
+            ),
+            maxValue: 50000,
+            unitText: "MONTH",
+          },
+        },
+        datePosted: "",
+        description: this.setDescriptionForGoogleSchema(),
+        educationRequirements: {
+          "@type": "EducationalOccupationalCredential",
+          credentialCategory: "bachelor degree",
+        },
+        jobBenefits:
+          "Stipend in training. Paid leaves. Flexible working hours. Friendly environment. Work-Life balance",
+        industry: "Computer Software",
+        jobImmediateStart: true,
+        jobLocation: {
+          "@type": "Place",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress:
+              "552-554, Laxmi enclave-2, near laxmi circle, opp. gajera school, katargam",
+            addressLocality: "Surat",
+            addressRegion: "GJ",
+            postalCode: "395004",
+            addressCountry: "IN",
+          },
+        },
+        qualifications:
+          "A deep desire to learn new technology. Analytical thinking, Decision-making, and problem-solving skills,Ability to work in a team environment with members of varying skill levels. Highly motivated. Learns quickly.",
+        responsibilities: career.responsibilities,
+        salaryCurrency: "INR",
+        skills: career.skills,
+        workHours: "9am-6pm",
+        directApply: true,
+        validThrough: "",
+      };
+    },
+    setDescriptionForGoogleSchema() {
+      var html = this.unescapeHTML(this.description);
+      var tmp = document.createElement("DIV");
+      tmp.innerHTML = html;
+      html = tmp.textContent || tmp.innerText;
+
+      //convert string to array
+      let descContent = html.split("\n");
+
+      //remove empty string
+      descContent.forEach(function (element, i) {
+        if (descContent[i].length == 0) {
+          descContent.splice(i, 1);
+        }
+      });
+
+      // append p and li tags to desc
+      descContent.forEach(function (element, i) {
+        if (i == 0) {
+          descContent[i] = element.replace(
+            element,
+            "<p>" + element + "</p></br><ul>"
+          );
+        } else if (
+          element.includes("Responsibilities and Duties") ||
+          element.includes("Benefits") ||
+          element.includes("Qualifications") ||
+          element.includes("Venue")
+        ) {
+          descContent[i] = element.replace(
+            element,
+            "</ul></br><p>" + element + "</p></br><ul>"
+          );
+        } else if (element.length != 0) {
+          descContent[i] = element.replace(
+            element,
+            "<li>" + element + "</li></br>"
+          );
+        }
+        if (i == descContent.length - 1) {
+          descContent[i] = element.replace(
+            element,
+            "<li>" + element + "</li></br></ul>"
+          );
+        }
+      });
+
+      return descContent.join("");
+    },
+    unescapeHTML(escapedHTML) {
+      if (escapedHTML.indexOf("&lt;") !== -1) {
+        escapedHTML = escapedHTML.replace(/&lt;/g, "<");
+      }
+      if (escapedHTML.indexOf("&gt;") !== -1) {
+        escapedHTML = escapedHTML.replace(/&gt;/g, ">");
+      }
+      if (escapedHTML.indexOf("&amp;") !== -1) {
+        escapedHTML = escapedHTML.replace(/&amp;/g, "&");
+      }
+      if (escapedHTML.indexOf("&#34;") !== -1) {
+        escapedHTML = escapedHTML.replace(/&#34;/g, '"');
+      }
+      return escapedHTML;
     },
   },
   updated() {
