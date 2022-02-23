@@ -352,10 +352,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content calendly-iframe-modal-content">
               <div class="modal-body">
-                <div v-if="isLoading" class="loader-div">
-                  <img :src="loader" />
-                </div>
-                <div v-else class="success-message-div">
+                <div class="success-message-div">
                   <div class="error-message-text text-center">
                     Something went wrong on our side
                   </div>
@@ -377,7 +374,7 @@
     </div>
   </div>
 </template>
-
+ 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
@@ -396,7 +393,6 @@ import {
 import axios from "axios";
 import CalendlyIframe from "./CalendlyIframe.vue";
 import config from "@/config.js";
-import loader from "@/assets/images/theme/loader.svg";
 
 const CONTACT_BY_CHAT_OR_MAIL = 1;
 
@@ -490,8 +486,6 @@ export default {
       showValidationError: false,
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
-      isLoading: true,
-      loader: loader,
     };
   },
   components: {
@@ -516,6 +510,7 @@ export default {
       this.currentWebsiteIndex = i;
     },
     submitApplication() {
+      this.$emit("isLoading", true);
       let designationValue, designationInfo;
 
       if (this.name === "" || this.email === "") {
@@ -563,6 +558,7 @@ export default {
         axios
           .post(config.API_BASE + "/api/send-contact-mail", formData)
           .then(() => {
+            this.$emit("isLoading", false);
             if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
               this.showSuccessMessage();
             } else {
@@ -570,7 +566,7 @@ export default {
             }
           })
           .catch(() => {
-            this.isLoading = false;
+            this.$emit("isLoading", false);
             this.showErrorMessage();
           });
       }
@@ -596,7 +592,7 @@ export default {
   },
 };
 </script>
-
+ 
 <style lang="scss" scoped>
 .container {
   margin: 48px auto;
@@ -967,11 +963,6 @@ input:-webkit-autofill:active {
   line-height: 2rem;
   font-size: 1.875rem;
   margin-bottom: 30px;
-}
-
-.loader-div {
-  display: flex;
-  justify-content: center;
 }
 
 .close-btn-div {
