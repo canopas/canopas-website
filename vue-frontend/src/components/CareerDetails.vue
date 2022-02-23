@@ -81,6 +81,7 @@ import loader from "@/assets/images/theme/loader.svg";
 import router from "@/router";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import Config from "@/config.js";
+import moment from "moment";
 
 import {
   faCheckCircle,
@@ -100,6 +101,8 @@ export default {
       showErrorMessagePopup: false,
       showJobs: Config.IS_SHOW_JOBS,
       jsonld: {},
+      jobPosted: "",
+      validThrough: "",
     };
   },
   components: {
@@ -110,6 +113,7 @@ export default {
   },
   mounted() {
     this.getCareerDetails();
+    this.setJobDates();
   },
   methods: {
     getCareerDetails() {
@@ -167,7 +171,7 @@ export default {
             unitText: "MONTH",
           },
         },
-        datePosted: "",
+        datePosted: this.jobPosted,
         description: this.setDescriptionForGoogleSchema(),
         educationRequirements: {
           "@type": "EducationalOccupationalCredential",
@@ -196,7 +200,7 @@ export default {
         skills: career.skills,
         workHours: "9am-6pm",
         directApply: true,
-        validThrough: "",
+        validThrough: this.validThrough,
       };
     },
     setDescriptionForGoogleSchema() {
@@ -262,6 +266,26 @@ export default {
         escapedHTML = escapedHTML.replace(/&#34;/g, '"');
       }
       return escapedHTML;
+    },
+    setJobDates() {
+      var maxDays = 15;
+
+      // current month day
+      var currentDay = moment().format("DD");
+
+      // start date of current month
+      var startDateOfMonth = moment().startOf("month").add(-2, "days");
+
+      var jobPosted =
+        currentDay <= maxDays
+          ? startDateOfMonth
+          : startDateOfMonth.add(maxDays, "days");
+
+      this.jobPosted = jobPosted.format("YYYY-MM-DD");
+
+      this.validThrough = jobPosted
+        .add(maxDays + 5, "days")
+        .format("YYYY-MM-DDT00:00");
     },
   },
   updated() {
