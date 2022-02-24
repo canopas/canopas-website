@@ -321,23 +321,17 @@
       <transition name="modal">
         <div class="modal-mask">
           <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content calendly-iframe-modal-content">
+            <div class="modal-content">
+              <div class="modal-header">
+                <div class="jobs-normal-text canopas-gradient-text text-center">
+                  Thank you for choosing us to make a difference in your
+                  business.
+                </div>
+              </div>
               <div class="modal-body">
-                <div class="success-message-div">
-                  <div
-                    class="
-                      success-message-text
-                      canopas-gradient-text
-                      text-center
-                    "
-                  >
-                    Thank you for choosing us to make a difference in your
-                    business.
-                  </div>
-                  <div class="">
-                    If you prefer to chat or email, sit back and relax our team
-                    will get back to you within 24 hours.
-                  </div>
+                <div class="normal-2-text">
+                  If you prefer to chat or email, sit back and relax our team
+                  will get back to you within 24 hours.
                 </div>
               </div>
             </div>
@@ -345,26 +339,27 @@
         </div>
       </transition>
     </div>
-    <!-- Shoe error message -->
+    <!-- Show error message -->
     <div v-if="showErrorMessagePopup">
       <transition name="modal">
         <div class="modal-mask">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content calendly-iframe-modal-content">
+              <div class="modal-header justify-center">
+                <div class="header-2-text canopas-gradient-text">Error</div>
+              </div>
               <div class="modal-body">
-                <div class="success-message-div">
-                  <div class="error-message-text text-center">
-                    Something went wrong on our side
-                  </div>
-                  <div class="close-btn-div">
-                    <button
-                      type="submit"
-                      class="gradient-btn close-btn"
-                      @click.prevent="closeErrorMessageModal()"
-                    >
-                      <span>Close</span>
-                    </button>
-                  </div>
+                <div class="jobs-normal-text text-center">
+                  Something went wrong on our side
+                </div>
+                <div class="close-btn-div">
+                  <button
+                    type="submit"
+                    class="gradient-btn close-btn"
+                    @click.prevent="showErrorMessagePopup = false"
+                  >
+                    <span>Close</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -567,7 +562,7 @@ export default {
           })
           .catch(() => {
             this.$emit("isLoading", false);
-            this.showErrorMessage();
+            this.showErrorMessagePopup = true;
           });
       }
     },
@@ -582,12 +577,6 @@ export default {
       setTimeout(() => {
         this.$router.push("/");
       }, 2000);
-    },
-    showErrorMessage() {
-      this.showErrorMessagePopup = true;
-    },
-    closeErrorMessageModal() {
-      this.showErrorMessagePopup = false;
     },
   },
 };
@@ -799,11 +788,6 @@ input[type="radio"]:checked ~ .box {
   width: 10rem;
 }
 
-.modal-middle-div {
-  display: flex;
-  flex-direction: row;
-}
-
 .custom-fa-icon {
   background: -moz-linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
   background: -webkit-linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
@@ -906,24 +890,11 @@ input:-webkit-autofill:active {
   flex-wrap: initial !important;
 }
 
-// calendly iframe
+// modals
 
-.calendly-iframe-modal-content {
+.modal-content {
   border-radius: 25px !important;
-}
-
-.calendly-iframe-modal-content > .modal-header {
-  border: none;
-}
-
-.calendly-iframe-modal-content > .modal-header > .close {
-  font-weight: 300;
-  font-size: 40px;
-  margin-right: -10px;
-}
-
-.calendly-iframe-modal-content > .modal-header > .close:focus {
-  outline: none !important;
+  padding: 2rem;
 }
 
 .modal-close-btn {
@@ -935,6 +906,9 @@ input:-webkit-autofill:active {
   position: absolute;
   right: 10px;
   bottom: 516px;
+  font-weight: 300;
+  font-size: 40px;
+  margin-right: -10px;
 }
 
 .modal-close-btn:focus {
@@ -953,30 +927,12 @@ input:-webkit-autofill:active {
   transition: opacity 0.3s ease;
 }
 
-// success/thank-you message
-
-.success-message-div {
-  padding: 20px;
-}
-
-.success-message-text {
-  line-height: 2rem;
-  font-size: 1.875rem;
-  margin-bottom: 30px;
-}
-
-.close-btn-div {
-  width: 100%;
-}
-
 .close-btn {
   float: right;
 }
 
-.error-message-text {
-  line-height: 2rem;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+.justify-center {
+  justify-content: center;
 }
 
 @include media-breakpoint-up(md) {
@@ -989,7 +945,7 @@ input:-webkit-autofill:active {
     width: 40%;
   }
 
-  .modal-close-btn {
+   .modal-close-btn {
     bottom: 680px;
   }
 }

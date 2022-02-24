@@ -7,6 +7,7 @@ import HomeScreen from "@/components/HomeScreen.vue";
 const Error404Page = () => import("@/components/Error404Page.vue");
 const ContactScreen = () => import("@/components/ContactScreen.vue");
 const JobsScreen = () => import("@/components/JobsScreen.vue");
+const ApplyForCareerPage = () => import("@/components/ApplyForCareer.vue");
 const CareerDetailsPage = () => import("@/components/CareerDetails.vue");
 
 const routes = [
@@ -38,7 +39,12 @@ if (Config.IS_SHOW_JOBS) {
       path: "/jobs/:id",
       name: "CareerDetailsPage",
       component: CareerDetailsPage,
-    }
+    },
+    {
+      path: "/jobs/apply/:id",
+      name: "ApplyForCareerPage",
+      component: ApplyForCareerPage,
+    },
   );
 }
 

@@ -45,6 +45,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+a{
+  text-decoration: none !important;
+}
+
 .canopas-gradient-text {
   background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
   -webkit-background-clip: text;

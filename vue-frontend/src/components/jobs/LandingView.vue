@@ -3,7 +3,7 @@
     <div class="header-2-text">
       Are you looking for a job where you can leverage your knowledge and
       experience to build digital products that will be used by millions of
-      customers.
+      customers?
     </div>
     <div class="jobs-normal-text desc-text">
       You've come to the right place. We're looking for an AVENGER who can join

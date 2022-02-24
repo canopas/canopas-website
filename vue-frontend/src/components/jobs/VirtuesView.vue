@@ -209,6 +209,10 @@ export default {
   border-radius: 100px 0;
 }
 
+.container{
+  margin-top: 5rem;
+}
+
 .red-text {
   font-style: normal;
   font-weight: 400;

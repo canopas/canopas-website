@@ -47,9 +47,9 @@
               </div>
 
               <div class="read-apply-btns">
-                <button
+                <router-link
                   class="gradient-border-btn"
-                  @click="getCareerDetails(career.id)"
+                  :to="career.detail_link"
                 >
                   <font-awesome-icon
                     class="fa gradient-icon"
@@ -58,15 +58,15 @@
                     aria-hidden="true"
                   />
                   <span>Read More</span>
-                </button>
-                <button class="gradient-btn">
+                </router-link>
+                <router-link class="gradient-btn" :to="career.job_link">
                   <font-awesome-icon
                     class="fa"
                     icon="check-circle"
                     aria-hidden="true"
                   />
                   <span>Apply Now</span>
-                </button>
+                </router-link>
               </div>
             </div>
           </collapse-transition>
@@ -131,6 +131,9 @@ export default {
           this.isLoading = false;
           this.careers = response.data;
           for (let i = 0; i < this.careers.length; i++) {
+            var id = this.careers[i].id
+            this.careers[i].detail_link = "/jobs/" + id;
+            this.careers[i].job_link = "/jobs/apply/" + id;
             this.careers[i].icon_name = this.icon[i];
           }
         })

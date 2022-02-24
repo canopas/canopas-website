@@ -15,7 +15,7 @@
           data-scroll-class="item1"
         >
           What's more painful than hiring a developer or team who misunderstands
-          every little thing about your project.
+          every little thing about your project?
         </div>
         <div class="normal-text resources-text" data-scroll-class="item2">
           <div class="text-white">
