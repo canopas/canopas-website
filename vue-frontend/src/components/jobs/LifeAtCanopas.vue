@@ -8,7 +8,7 @@
         We wanted to create an environment that helps you get out of bed in the
         morning and an office that creates excellent work and encourages fun. As
         we play the infinite game, it is not about winning or losing, it's about
-        striving to be better.
+        striving to be better at whatever we do.
       </div>
     </div>
     <div class="swiper-content">
