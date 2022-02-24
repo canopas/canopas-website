@@ -5,10 +5,9 @@
         <span class="underline-text">Perks</span> and Benefits
       </div>
       <div class="description jobs-normal-text">
-        We wanted to create an environment that helps you get out of bed in the
-        morning and an office that creates excellent work and encourages fun. As
-        we play the infinite game, it is not about winning or losing, it's about
-        striving to be better at whatever we do.
+        Whether it's about your learning, well being, or competitive
+        compensation, we've got you covered. Check out all perks and benefits
+        offered at Canopas! Many more to come as we grow!
       </div>
     </div>
     <div class="flex-div">
@@ -165,7 +164,7 @@ export default {
           icon: require("@/assets/images/benifits/jobs_canopas_hiring.svg"),
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
-          description: `Want to become part of a Canopas team? Check out our openings and <div class="career-link" style="color: #fe88a2; font-weight:700"> apply today.</div>`,
+          description: `Want to become part of a Canopas team? Check out our openings and <div class="career-link" style="color: #fe88a2; font-weight:700; cursor:pointer"> apply today.</div>`,
         },
         {
           id: 15,
