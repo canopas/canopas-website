@@ -4,17 +4,20 @@ import (
 	"bytes"
 	"embed"
 	"html/template"
-	"log"
 	"net/http"
 	"os"
+	"utils"
+
+	log "github.com/sirupsen/logrus"
 
 	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/aws/credentials"
-	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
+)
+
+const (
+	CHARSET = "utf-8"
 )
 
 type ContactDetails struct {
@@ -29,14 +32,12 @@ type ContactDetails struct {
 	ContactType      string            `json:"contact_type"`
 }
 
-const CHARSET = "utf-8"
-
 type Template struct {
 	templates *template.Template
 }
 
 func New(templateFs embed.FS) *Template {
-	templates, _ := template.ParseFS(templateFs, "templates/email-template.html")
+	templates, _ := template.ParseFS(templateFs, "templates/contact-email-template.html")
 	return &Template{
 		templates: templates,
 	}
@@ -54,7 +55,7 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 
 	emailTemplate := repository.getEmailTemplate(input)
 
-	statusCode := SendEmail(emailTemplate)
+	statusCode := utils.SendEmail(emailTemplate, nil)
 
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)
@@ -65,14 +66,12 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 }
 
 func (repository *Template) getEmailTemplate(input ContactDetails) (template *ses.SendEmailInput) {
-	SENDER := os.Getenv("SENDER")
-	RECEIVER := os.Getenv("RECEIVER")
 
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)
 
 	title := "Canopas Website - Contact Information (By " + input.ContactType + ")"
 
-	template = GetEmailTemplate(htmlBody, input, title, SENDER, RECEIVER)
+	template = GetEmailTemplate(htmlBody, input, title)
 
 	return
 }
@@ -81,69 +80,26 @@ func (repository *Template) getHTMLBodyOfEmailTemplate(input ContactDetails) str
 
 	var templateBuffer bytes.Buffer
 
-	err := repository.templates.ExecuteTemplate(&templateBuffer, "email-template.html", input)
+	err := repository.templates.ExecuteTemplate(&templateBuffer, "contact-email-template.html", input)
 
 	if err != nil {
-		log.Fatal(err)
+		log.Error(err)
 		return ""
 	}
 
 	return templateBuffer.String()
 }
 
-func SendEmail(emailTemplate *ses.SendEmailInput) int {
+func GetEmailTemplate(htmlBody string, data ContactDetails, title string) (template *ses.SendEmailInput) {
 
-	sess, err := GetAWSIAMUserSession()
-
-	if err != nil {
-		log.Fatal(err)
-		return http.StatusInternalServerError
-	}
-
-	service := ses.New(sess)
-
-	// Attempt to send the email.
-	_, err = service.SendEmail(emailTemplate)
-
-	if err != nil {
-		if aerr, ok := err.(awserr.Error); ok {
-			log.Fatal(aerr.Error())
-			return http.StatusInternalServerError
-		} else {
-			log.Fatal(err)
-			return http.StatusBadRequest
-		}
-	}
-
-	return 0
-}
-
-func GetAWSIAMUserSession() (*session.Session, error) {
-	awsRegion := os.Getenv("REGION")
-	awsAccessKeyId := os.Getenv("ACCESS_KEY_ID")
-	awsSecretAccessKey := os.Getenv("SECRET_ACCESS_KEY")
-
-	sess, err := session.NewSession(&aws.Config{
-		Region:      aws.String(awsRegion),
-		Credentials: credentials.NewStaticCredentials(awsAccessKeyId, awsSecretAccessKey, ""),
-	})
-
-	if err != nil {
-		log.Fatal(err)
-		return nil, err
-	}
-
-	return sess, err
-
-}
-
-func GetEmailTemplate(htmlBody string, data ContactDetails, title string, sender string, receiver string) (template *ses.SendEmailInput) {
+	SENDER := os.Getenv("SENDER")
+	RECEIVER := os.Getenv("RECEIVER")
 
 	template = &ses.SendEmailInput{
 		Destination: &ses.Destination{
 			CcAddresses: []*string{},
 			ToAddresses: []*string{
-				aws.String(receiver),
+				aws.String(RECEIVER),
 			},
 		},
 		Message: &ses.Message{
@@ -162,7 +118,7 @@ func GetEmailTemplate(htmlBody string, data ContactDetails, title string, sender
 				Data:    aws.String(title),
 			},
 		},
-		Source: aws.String(sender),
+		Source: aws.String(SENDER),
 	}
 	return
 }

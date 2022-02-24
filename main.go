@@ -14,8 +14,9 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-//go:embed templates/email-template.html
-var tmplFS embed.FS
+//go:embed templates/contact-email-template.html
+//go:embed templates/career-email-template.html
+var templateFS embed.FS
 
 func main() {
 	sqlDb := db.NewSql()
@@ -31,14 +32,16 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 
 	router.Use(cors.New(corsConfig()))
 
-	contactRepo := contact.New(tmplFS)
-	jobsRepo := jobs.New(sqlDb)
+	contactRepo := contact.New(templateFS)
+	jobsRepo := jobs.New(sqlDb, templateFS)
 
 	router.POST("/api/send-contact-mail", contactRepo.SendContactMail)
 
 	router.GET("/api/careers", jobsRepo.Careers)
 
 	router.GET("/api/careers/:id", jobsRepo.CareerById)
+
+	router.POST("/api/send-career-mail", jobsRepo.SendCareerMail)
 
 	router.GET("/api/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{

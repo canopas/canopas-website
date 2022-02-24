@@ -1,14 +1,28 @@
 package jobs
 
 import (
+	"bytes"
 	"database/sql"
-	"log"
+	"embed"
+	"io"
 	"net/http"
+	"os"
 	"strconv"
+	"text/template"
+	"utils"
 
+	log "github.com/sirupsen/logrus"
+
+	"github.com/aws/aws-sdk-go/aws"
+	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
+	"gopkg.in/gomail.v2"
 	"gopkg.in/guregu/null.v3"
+)
+
+const (
+	CHARSET = "utf-8"
 )
 
 type Career struct {
@@ -28,12 +42,24 @@ type Career struct {
 	IconName         string      `json:"icon_name"`
 }
 
-type CareerRepository struct {
-	Db *sqlx.DB
+type CareerDetails struct {
+	JobTitle   string `json:"job_title" form:"job_title"`
+	Name       string `json:"name" form:"name"`
+	Email      string `json:"email" form:"email"`
+	Phone      string `json:"phone" form:"phone"`
+	Place      string `json:"place" form:"place"`
+	References string `json:"references" form:"references"`
+	Message    string `json:"message" form:"message"`
 }
 
-func New(db *sqlx.DB) *CareerRepository {
-	return &CareerRepository{Db: db}
+type CareerRepository struct {
+	Db        *sqlx.DB
+	templates *template.Template
+}
+
+func New(db *sqlx.DB, templateFs embed.FS) *CareerRepository {
+	templates, _ := template.ParseFS(templateFs, "templates/career-email-template.html")
+	return &CareerRepository{Db: db, templates: templates}
 }
 
 func (repository *CareerRepository) Careers(c *gin.Context) {
@@ -42,7 +68,7 @@ func (repository *CareerRepository) Careers(c *gin.Context) {
 	err := repository.Db.Select(&careersList, `SELECT id, title, summary, description, button_name, qualification, employment_type, base_salary, experience, is_active, skills, total_openings, responsibilities, icon_name FROM jobs WHERE is_active = 1 `)
 
 	if err != nil {
-		log.Print(err)
+		log.Error(err)
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
@@ -58,7 +84,7 @@ func (repository *CareerRepository) CareerById(c *gin.Context) {
 	id, err := strconv.Atoi(c.Param("id"))
 
 	if err != nil {
-		log.Print(err)
+		log.Error(err)
 		c.AbortWithStatus(http.StatusBadRequest)
 		return
 	}
@@ -78,4 +104,109 @@ func (repository *CareerRepository) CareerById(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, career)
+}
+
+func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
+	input := CareerDetails{}
+
+	err := c.Bind(&input)
+
+	if err != nil {
+		c.Abort()
+		c.JSON(http.StatusBadRequest, gin.H{"message": "Invalid data"})
+		return
+	}
+
+	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)
+
+	title := input.JobTitle + " job application - Canopas Website"
+
+	attachmentBytes, err := getFileBytes(c)
+	if err != nil {
+		c.Abort()
+		c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		return
+	}
+
+	emailTemplate := GetEmailTemplate(htmlBody, title, attachmentBytes)
+
+	statusCode := utils.SendEmail(nil, emailTemplate)
+
+	if statusCode != 0 {
+		c.AbortWithStatus(statusCode)
+		return
+	}
+
+	c.JSON(http.StatusOK, input)
+}
+
+func getFileBytes(c *gin.Context) (*bytes.Buffer, error) {
+	fileHeader, err := c.FormFile("file")
+
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+
+	file, err := fileHeader.Open()
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+
+	attachmentBytes := bytes.NewBuffer(nil)
+	if _, err := io.Copy(attachmentBytes, file); err != nil {
+		log.Error(err)
+		return nil, err
+	}
+
+	return attachmentBytes, nil
+}
+
+func GetEmailTemplate(htmlBody string, title string, attachmentBytes *bytes.Buffer) (template *ses.SendRawEmailInput) {
+
+	SENDER := os.Getenv("SENDER")
+	RECEIVER := os.Getenv("RECEIVER")
+
+	msg := gomail.NewMessage()
+	msg.SetHeader("From", SENDER)
+	msg.SetHeader("To", RECEIVER)
+	msg.SetHeader("Subject", title)
+	msg.SetBody("text/html", htmlBody)
+
+	msg.Attach("resume.pdf", gomail.SetCopyFunc(func(w io.Writer) error {
+		_, err := w.Write(attachmentBytes.Bytes())
+		return err
+	}))
+
+	var emailRaw bytes.Buffer
+	msg.WriteTo(&emailRaw)
+
+	message := ses.RawMessage{
+		Data: emailRaw.Bytes(),
+	}
+
+	template = &ses.SendRawEmailInput{
+		RawMessage: &message,
+		Destinations: []*string{
+			aws.String(RECEIVER),
+		},
+		Source: aws.String(SENDER),
+	}
+
+	return template
+}
+
+func (repository *CareerRepository) getHTMLBodyOfEmailTemplate(input CareerDetails) string {
+
+	var templateBuffer bytes.Buffer
+
+	err := repository.templates.ExecuteTemplate(&templateBuffer, "career-email-template.html", input)
+
+	if err != nil {
+		log.Error(err)
+		return ""
+	}
+
+	return templateBuffer.String()
 }

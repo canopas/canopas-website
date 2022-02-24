@@ -54,14 +54,14 @@
           <div id="description" v-html="description"></div>
         </div>
         <div class="text-center mt-5">
-          <button class="gradient-btn">
+          <router-link class="gradient-btn" :to="jobLink">
             <font-awesome-icon
               class="fa icon"
               :icon="checkCircle"
               aria-hidden="true"
             />
             <span>Apply Now</span>
-          </button>
+          </router-link>
         </div>
       </div>
       <ScreenFooter v-if="!showJobs" />
@@ -80,7 +80,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import loader from "@/assets/images/theme/loader.svg";
 import router from "@/router";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import Config from "@/config.js";
 import moment from "moment";
 
 import {
@@ -99,10 +98,11 @@ export default {
       loader: loader,
       isLoading: true,
       showErrorMessagePopup: false,
-      showJobs: Config.IS_SHOW_JOBS,
+      showJobs: config.IS_SHOW_JOBS,
       jsonld: {},
       jobPosted: "",
       validThrough: "",
+      jobLink: "",
     };
   },
   components: {
@@ -123,6 +123,7 @@ export default {
         .then((res) => {
           this.isLoading = false;
           this.details = res.data;
+          this.jobLink = "/jobs/apply/" + this.details.id;
           this.description = this.details.description;
           this.prepareJSONLDSchema();
         })
