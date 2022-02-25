@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <LandingView />
     <ClientReview />
@@ -26,6 +27,7 @@ import HomeConsultation from "./home/HomeConsultation.vue";
 import HomeCTA from "./home/HomeCTA.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
+import ScreenMeta from "./partials/ScreenMeta.vue";
 import DoYouKnow from "./home/DoYouKnow.vue";
 import HowDoWeDiffer from "./home/HowDoWeDiffer.vue";
 import Config from "@/config.js";
@@ -55,9 +57,11 @@ export default {
   data() {
     return {
       showJobs: Config.IS_SHOW_JOBS,
+      seoData: Config.SEO_META_DATA,
     };
   },
   components: {
+    ScreenMeta,
     ScreenHeader,
     LandingView,
     ClientReview,

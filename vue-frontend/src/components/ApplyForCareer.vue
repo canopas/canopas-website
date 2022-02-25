@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <div v-if="isLoading" class="loader-div">
       <img :src="loader" />
@@ -341,6 +342,7 @@
 import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
+import ScreenMeta from "./partials/ScreenMeta.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -403,7 +405,6 @@ export default {
       ],
       checkCircle: faCheckCircle,
       loader: loader,
-      isLoading: true,
       currentReferenceIndex: -1,
       fullName: "",
       email: "",
@@ -413,6 +414,7 @@ export default {
       referenceBy: "",
       message: "",
       file: "",
+      isLoading: true,
       isShowingReferenceInput: false,
       showValidationError: false,
       showEmailValidationError: false,
@@ -422,12 +424,17 @@ export default {
       showErrorMessagePopup: false,
       showReviewFormPopup: false,
       showJobs: config.IS_SHOW_JOBS,
+      seoData: {
+        type: "Jobs Posting Website",
+        url: location.toString(),
+      },
     };
   },
   components: {
     ScreenHeader,
     ScreenFooter,
     ScreenFooter2,
+    ScreenMeta,
     FontAwesomeIcon,
   },
   mounted() {
@@ -441,11 +448,20 @@ export default {
         .then((res) => {
           this.isLoading = false;
           this.title = res.data.title;
+          this.prepareSEOdata(res.data);
         })
         .catch(() => {
           this.isLoading = false;
           this.showErrorMessagePopup = true;
         });
+    },
+    prepareSEOdata(job) {
+      var seo_title = job.apply_seo_title
+        ? job.apply_seo_title
+        : "Apply for " + job.title + " job at canopas";
+
+      this.seoData.title = seo_title;
+      this.seoData.description = job.apply_seo_description;
     },
     referenceList(e) {
       var target = e.target;

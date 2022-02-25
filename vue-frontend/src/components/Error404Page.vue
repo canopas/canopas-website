@@ -1,5 +1,6 @@
 <template>
   <div class="error-container">
+    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <div class="not-found-container">
       <div class="image-404">
@@ -26,10 +27,12 @@
 <script>
 import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
+import ScreenMeta from "./partials/ScreenMeta.vue";
 import firstErrorLetter from "@/assets/images/logo/404page_4_1.svg";
 import middleErrorLetter from "@/assets/images/logo/canopas-icon.svg";
 import lastErrorLetter from "@/assets/images/logo/404page_4_2.svg";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import Config from "@/config.js";
 
 export default {
   data() {
@@ -37,11 +40,13 @@ export default {
       firstErrorLetter: firstErrorLetter,
       middleErrorLetter: middleErrorLetter,
       lastErrorLetter: lastErrorLetter,
+      seoData: Config.SEO_META_DATA,
     };
   },
   components: {
     ScreenHeader,
     ScreenFooter,
+    ScreenMeta,
     FontAwesomeIcon,
   },
   mounted() {
