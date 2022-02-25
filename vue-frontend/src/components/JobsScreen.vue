@@ -1,5 +1,6 @@
 <template>
   <div>
+    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <LandingView v-on:scroll-to-career="scrollToCareer" />
     <VirtuesView />
@@ -21,14 +22,28 @@ import Career from "./jobs/CareerView.vue";
 import PerksAndBenifits from "./jobs/PerksAndBenifits.vue";
 import WhyCanopas from "./jobs/WhyCanopas.vue";
 import WhyCanopasMobile from "./jobs/WhyCanopasMobile.vue";
+import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import { faAlignLeft, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 
 library.add(faAlignLeft, faCheckCircle);
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
+import ScreenMeta from "./partials/ScreenMeta.vue";
 
 export default {
+  data() {
+    return {
+      seoData: {
+        title:
+          "Career at Canopas - Explore Life at Canopas, Find Jobs at Canopas, and Apply Today.",
+        description:
+          "Canopas is looking for professionals who are ready to step out of their comfort zones, want to acquire new skills, and want to make an impact in the world with their work.",
+        type: "Jobs Posting Website",
+        url: config.JOBS_URL,
+      },
+    };
+  },
   components: {
     ScreenHeader,
     LandingView,
@@ -39,6 +54,7 @@ export default {
     WhyCanopas,
     WhyCanopasMobile,
     ScreenFooter2,
+    ScreenMeta,
   },
   methods: {
     scrollToCareer() {

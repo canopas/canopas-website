@@ -1,5 +1,6 @@
 <template>
   <div class="container-fluid">
+    <ScreenMeta v-bind:seoData="seoData" />
     <Teleport to="head">
       <component
         :is="'script'"
@@ -44,11 +45,11 @@
     <div v-else>
       <div class="container">
         <div class="canopas-gradient-text text-center">
-          {{ this.details.title }}
+          {{ details.title }}
         </div>
         <hr class="title-hr mt-4" />
         <div class="normal-text summary-text mt-5">
-          {{ this.details.summary }}
+          {{ details.summary }}
         </div>
         <div class="mt-5">
           <div id="description" v-html="description"></div>
@@ -74,6 +75,7 @@
 import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
+import ScreenMeta from "./partials/ScreenMeta.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -103,12 +105,17 @@ export default {
       jobPosted: "",
       validThrough: "",
       jobLink: "",
+      seoData: {
+        type: "Jobs Posting Website",
+        url: location.toString(),
+      },
     };
   },
   components: {
     ScreenHeader,
     ScreenFooter,
     ScreenFooter2,
+    ScreenMeta,
     FontAwesomeIcon,
   },
   mounted() {
@@ -125,6 +132,7 @@ export default {
           this.details = res.data;
           this.jobLink = "/jobs/apply/" + this.details.unique_id;
           this.description = this.details.description;
+          this.prepareSEOdata();
           this.prepareJSONLDSchema();
         })
         .catch((err) => {
@@ -143,6 +151,14 @@ export default {
       router.push({
         path: `/jobs`,
       });
+    },
+    prepareSEOdata() {
+      var seo_title = this.details.seo_title
+        ? this.details.seo_title
+        : this.details.title + " job at canopas";
+
+      this.seoData.title = seo_title;
+      this.seoData.description = this.details.seo_description;
     },
     prepareJSONLDSchema() {
       var career = this.details;
@@ -196,9 +212,7 @@ export default {
         },
         qualifications:
           "A deep desire to learn new technology. Analytical thinking, Decision-making, and problem-solving skills,Ability to work in a team environment with members of varying skill levels. Highly motivated. Learns quickly.",
-        responsibilities: career.responsibilities,
         salaryCurrency: "INR",
-        skills: career.skills,
         workHours: "9am-6pm",
         directApply: true,
         validThrough: this.validThrough,

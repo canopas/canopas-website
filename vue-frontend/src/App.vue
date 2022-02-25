@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-a{
+a {
   text-decoration: none !important;
 }
 
@@ -130,7 +130,7 @@ a{
   margin: 1.25rem auto 0 auto;
   text-align: center;
   color: white;
-  background:linear-gradient(270.11deg, #FF835B -24.42%, #F2709C 101.76%);;
+  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
   border: 1px solid transparent;
 }
 
@@ -154,7 +154,7 @@ a{
 
   .gradient-btn:hover > .fa,
   .gradient-btn:hover > .fas,
-  .gradient-btn:hover > a > .fab{
+  .gradient-btn:hover > a > .fab {
     color: #f2709c;
   }
 }

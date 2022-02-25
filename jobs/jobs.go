@@ -25,21 +25,25 @@ const (
 )
 
 type Career struct {
-	Id               int         `json:"id"`
-	Title            string      `json:"title"`
-	Summary          string      `json:"summary"`
-	Description      string      `json:"description"`
-	ButtonName       string      `json:"button_name"`
-	Qualification    string      `json:"qualification"`
-	EmploymentType   string      `json:"employment_type"`
-	BaseSalary       int         `json:"base_salary"`
-	Experience       string      `json:"experience"`
-	IsActive         bool        `json:"is_active"`
-	Skills           null.String `json:"skills"`
-	TotalOpenings    int         `json:"total_openings"`
-	Responsibilities null.String `json:"responsibilities"`
-	IconName         string      `json:"icon_name"`
-	UniqueId         string      `json:"unique_id"`
+	Id                  int         `json:"id"`
+	Title               string      `json:"title"`
+	Summary             string      `json:"summary"`
+	Description         string      `json:"description"`
+	ButtonName          string      `json:"button_name"`
+	Qualification       string      `json:"qualification"`
+	EmploymentType      string      `json:"employment_type"`
+	BaseSalary          int         `json:"base_salary"`
+	Experience          string      `json:"experience"`
+	IsActive            bool        `json:"is_active"`
+	Skills              null.String `json:"skills"`
+	TotalOpenings       int         `json:"total_openings"`
+	Responsibilities    null.String `json:"responsibilities"`
+	IconName            string      `json:"icon_name"`
+	UniqueId            string      `json:"unique_id"`
+	SEOTitle            null.String `json:"seo_title"`
+	SEODescription      null.String `json:"seo_description"`
+	ApplySEOTitle       null.String `json:"apply_seo_title"`
+	ApplySEODescription null.String `json:"apply_seo_description"`
 }
 
 type CareerDetails struct {
@@ -65,7 +69,11 @@ func New(db *sqlx.DB, templateFs embed.FS) *CareerRepository {
 func (repository *CareerRepository) Careers(c *gin.Context) {
 	var careersList []Career
 
-	err := repository.Db.Select(&careersList, `SELECT id, title, summary, description, button_name, qualification, employment_type, base_salary, experience, is_active, skills, total_openings, responsibilities, icon_name, unique_id FROM jobs WHERE is_active = 1 `)
+	err := repository.Db.Select(&careersList, `SELECT id, title, summary, description, button_name, qualification, employment_type, 
+	 										   base_salary, experience, is_active, skills, total_openings, 
+											   responsibilities, icon_name, unique_id, seo_title, seo_description,
+											   apply_seo_title, apply_seo_description
+											   FROM jobs WHERE is_active = 1 `)
 
 	if err != nil {
 		log.Error(err)
@@ -83,9 +91,14 @@ func (repository *CareerRepository) CareerById(c *gin.Context) {
 
 	id := c.Param("id")
 
-	err := repository.Db.Get(&career, `SELECT id, title, summary, description, button_name, qualification, employment_type, base_salary, experience, is_active, skills, total_openings, responsibilities, icon_name, unique_id FROM jobs
-										WHERE unique_id = ?
-										AND is_active = 1`, id)
+	err := repository.Db.Get(&career, `SELECT id, title, summary, description, button_name, qualification, 
+							   		   employment_type, base_salary, experience, is_active, skills, 
+									   total_openings, responsibilities, icon_name, 
+									   unique_id, seo_title, seo_description,
+									   apply_seo_title, apply_seo_description
+									   FROM jobs
+									   WHERE unique_id = ?
+									   AND is_active = 1`, id)
 
 	if err != nil {
 		log.Error(err)

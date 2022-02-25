@@ -10,4 +10,11 @@ export default Object.freeze({
   API_BASE: "https://prod-stack-api.canopas.com",
   CALENDLY_IFRAME_URL: "https://calendly.com/darpanvithani/15min",
   IS_SHOW_JOBS: false,
+  SEO_META_DATA: {
+    title: "Canopas - A software development company in surat helping businesses bring their idea to life!",
+    description:
+      "Canopas is a software company helping people like you(entrepreneurs, startups, small companies) bring your IDEA to LIFE by improving or developing digital products.",
+    type: "Website",
+    url: "https://canopas.com",
+  },
 });
