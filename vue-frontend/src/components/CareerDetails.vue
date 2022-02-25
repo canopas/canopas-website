@@ -123,7 +123,7 @@ export default {
         .then((res) => {
           this.isLoading = false;
           this.details = res.data;
-          this.jobLink = "/jobs/apply/" + this.details.id;
+          this.jobLink = "/jobs/apply/" + this.details.unique_id;
           this.description = this.details.description;
           this.prepareJSONLDSchema();
         })

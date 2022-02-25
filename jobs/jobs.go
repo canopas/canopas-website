@@ -7,7 +7,6 @@ import (
 	"io"
 	"net/http"
 	"os"
-	"strconv"
 	"text/template"
 	"utils"
 
@@ -40,6 +39,7 @@ type Career struct {
 	TotalOpenings    int         `json:"total_openings"`
 	Responsibilities null.String `json:"responsibilities"`
 	IconName         string      `json:"icon_name"`
+	UniqueId         string      `json:"unique_id"`
 }
 
 type CareerDetails struct {
@@ -65,7 +65,7 @@ func New(db *sqlx.DB, templateFs embed.FS) *CareerRepository {
 func (repository *CareerRepository) Careers(c *gin.Context) {
 	var careersList []Career
 
-	err := repository.Db.Select(&careersList, `SELECT id, title, summary, description, button_name, qualification, employment_type, base_salary, experience, is_active, skills, total_openings, responsibilities, icon_name FROM jobs WHERE is_active = 1 `)
+	err := repository.Db.Select(&careersList, `SELECT id, title, summary, description, button_name, qualification, employment_type, base_salary, experience, is_active, skills, total_openings, responsibilities, icon_name, unique_id FROM jobs WHERE is_active = 1 `)
 
 	if err != nil {
 		log.Error(err)
@@ -81,20 +81,14 @@ func (repository *CareerRepository) CareerById(c *gin.Context) {
 
 	career := Career{}
 
-	id, err := strconv.Atoi(c.Param("id"))
+	id := c.Param("id")
 
-	if err != nil {
-		log.Error(err)
-		c.AbortWithStatus(http.StatusBadRequest)
-		return
-	}
-
-	err = repository.Db.Get(&career, `SELECT id, title, summary, description, button_name, qualification, employment_type, base_salary, experience, is_active, skills, total_openings, responsibilities, icon_name FROM jobs
-										WHERE id = ?
+	err := repository.Db.Get(&career, `SELECT id, title, summary, description, button_name, qualification, employment_type, base_salary, experience, is_active, skills, total_openings, responsibilities, icon_name, unique_id FROM jobs
+										WHERE unique_id = ?
 										AND is_active = 1`, id)
 
 	if err != nil {
-		log.Print(err)
+		log.Error(err)
 		if err == sql.ErrNoRows {
 			c.AbortWithStatus(http.StatusNotFound)
 			return

@@ -131,9 +131,9 @@ export default {
           this.isLoading = false;
           this.careers = response.data;
           for (let i = 0; i < this.careers.length; i++) {
-            var id = this.careers[i].id
-            this.careers[i].detail_link = "/jobs/" + id;
-            this.careers[i].job_link = "/jobs/apply/" + id;
+            var unique_id = this.careers[i].unique_id
+            this.careers[i].detail_link = "/jobs/" + unique_id;
+            this.careers[i].job_link = "/jobs/apply/" + unique_id;
             this.careers[i].icon_name = this.icon[i];
           }
         })
