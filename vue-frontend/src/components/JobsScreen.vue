@@ -9,11 +9,13 @@
     <WhyCanopas class="why-canopas-desktop" />
     <WhyCanopasMobile class="why-canopas-mobile" />
     <Career id="career" />
+    <FaqSection />
     <ScreenFooter2 />
   </div>
 </template>
 
 <script>
+import ScreenMeta from "./partials/ScreenMeta.vue";
 import ScreenHeader from "./partials/ScreenHeader.vue";
 import LandingView from "./jobs/LandingView.vue";
 import VirtuesView from "./jobs/VirtuesView.vue";
@@ -22,14 +24,18 @@ import Career from "./jobs/CareerView.vue";
 import PerksAndBenifits from "./jobs/PerksAndBenifits.vue";
 import WhyCanopas from "./jobs/WhyCanopas.vue";
 import WhyCanopasMobile from "./jobs/WhyCanopasMobile.vue";
+import FaqSection from "./jobs/FaqSection.vue";
+import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
-import { faAlignLeft, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import {
+  faAlignLeft,
+  faCheckCircle,
+  faMinus,
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faAlignLeft, faCheckCircle);
-import ScreenFooter2 from "./partials/ScreenFooter2.vue";
-import ScreenMeta from "./partials/ScreenMeta.vue";
+library.add(faAlignLeft, faCheckCircle, faMinus);
 
 export default {
   data() {
@@ -53,6 +59,7 @@ export default {
     PerksAndBenifits,
     WhyCanopas,
     WhyCanopasMobile,
+    FaqSection,
     ScreenFooter2,
     ScreenMeta,
   },
