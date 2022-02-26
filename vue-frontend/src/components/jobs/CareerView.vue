@@ -35,7 +35,10 @@
               />
             </div>
             <div class="career-title">{{ career.title }}</div>
-            <font-awesome-icon class="career-plus-icon" icon="plus" />
+            <font-awesome-icon
+              class="career-plus-icon"
+              :icon="openList && career.id == currentIndex ? 'minus' : 'plus'"
+            />
           </div>
           <collapse-transition>
             <div
@@ -131,7 +134,7 @@ export default {
           this.isLoading = false;
           this.careers = response.data;
           for (let i = 0; i < this.careers.length; i++) {
-            var unique_id = this.careers[i].unique_id
+            var unique_id = this.careers[i].unique_id;
             this.careers[i].detail_link = "/jobs/" + unique_id;
             this.careers[i].job_link = "/jobs/apply/" + unique_id;
             this.careers[i].icon_name = this.icon[i];
