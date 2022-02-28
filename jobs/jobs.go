@@ -67,9 +67,21 @@ func New(db *sqlx.DB, templateFs embed.FS) *CareerRepository {
 }
 
 func (repository *CareerRepository) Careers(c *gin.Context) {
-	var careersList []Career
 
-	err := repository.Db.Select(&careersList, `SELECT id, title, summary, description, button_name, qualification, employment_type, 
+	careerList, err := repository.GetCareers()
+
+	if err != nil {
+		c.AbortWithStatus(http.StatusInternalServerError)
+		return
+	}
+
+	c.JSON(http.StatusOK, careerList)
+
+}
+
+func (repository *CareerRepository) GetCareers() (careersList []Career, err error) {
+
+	err = repository.Db.Select(&careersList, `SELECT id, title, summary, description, button_name, qualification, employment_type, 
 	 										   base_salary, experience, is_active, skills, total_openings, 
 											   responsibilities, icon_name, unique_id, seo_title, seo_description,
 											   apply_seo_title, apply_seo_description
@@ -77,12 +89,10 @@ func (repository *CareerRepository) Careers(c *gin.Context) {
 
 	if err != nil {
 		log.Error(err)
-		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
 
-	c.JSON(http.StatusOK, careersList)
-
+	return
 }
 
 func (repository *CareerRepository) CareerById(c *gin.Context) {

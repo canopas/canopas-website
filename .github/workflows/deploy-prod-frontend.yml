@@ -42,6 +42,7 @@ jobs:
           cd vue-frontend
           npm ci
           mv src/config.prod.js src/config.js
+          sh generate-sitemap.sh https://canopas.com https://prod-stack-api.canopas.com
           npm run build
 
       - name: Upload to S3
