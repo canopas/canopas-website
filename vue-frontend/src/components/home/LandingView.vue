@@ -74,7 +74,7 @@ export default {
 }
 
 .animated-down-arrow {
-  height: 12rem;
+  height: 192px;
   margin: 5% 0;
 }
 
@@ -85,31 +85,7 @@ export default {
 
 @include media-breakpoint-up(sm) {
   .description {
-    width: 49%;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .header-text {
-    line-height: 2rem;
-    font-size: 1.875rem;
-  }
-
-  .normal-text {
-    font-size: 1.125rem;
-    line-height: 1.375rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .header-text {
-    font-size: 3rem;
-    line-height: 3.6rem;
-  }
-
-  .normal-text {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
+    width: 50%;
   }
 }
 </style>

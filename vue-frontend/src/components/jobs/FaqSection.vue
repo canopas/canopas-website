@@ -25,8 +25,11 @@
                 v-for="faq in faqs.slice(sliceFrom, sliceTo)"
                 :key="faq"
               >
-                <div class="faq-container jobs-normal-text">
-                  <div class="faq-header" @click="expandListItem(faq.id)">
+                <div
+                  class="faq-container jobs-normal-text"
+                  @click="expandListItem(faq.id)"
+                >
+                  <div class="faq-header">
                     <div class="faq-icon gradient-icon">
                       <font-awesome-icon
                         class="plus-icon"
@@ -270,7 +273,7 @@ export default {
 .clients-indicators {
   background: none;
   border: none;
-  margin: 0 0.5rem;
+  margin: 0 8px;
   cursor: pointer;
 }
 
@@ -348,10 +351,11 @@ button[disabled] {
 @include media-breakpoint-up(md) {
   .row {
     margin: 0 6%;
+    margin-left: -32px;
   }
 
   .faq-content {
-    padding-left: 2rem;
+    padding-left: 60px;
   }
 
   .image {

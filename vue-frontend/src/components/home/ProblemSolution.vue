@@ -174,7 +174,7 @@ li > div {
 }
 
 .resources-list > li {
-  padding: 0.6rem 0;
+  padding: 10px 0;
   display: flex;
   opacity: 0.75;
 }
@@ -192,12 +192,9 @@ li > div {
 .bullet {
   content: "";
   background: linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
-  width: 1rem;
-  height: 1rem;
-  border-radius: 30%;
   display: inline-block;
   line-height: 1;
-  margin: 0.3rem 1.5rem 0 0;
+  margin: 3px 24px 0 0;
 }
 
 .mt-20 {
@@ -205,16 +202,6 @@ li > div {
 }
 
 @include media-breakpoint-up(md) {
-  .header-text {
-    line-height: 2rem;
-    font-size: 1.875rem;
-  }
-
-  .normal-text {
-    font-size: 1.125rem;
-    line-height: 1.375rem;
-  }
-
   .resource-content {
     width: 55%;
   }
@@ -245,18 +232,6 @@ li > div {
     background: linear-gradient(180deg, #ff9472 0%, #f2709c 100%);
     border: 1px solid #ffffff;
     transform: scale(1.6);
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .header-text {
-    font-size: 3rem;
-    line-height: 3.6rem;
-  }
-
-  .normal-text {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
   }
 }
 

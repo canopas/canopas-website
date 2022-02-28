@@ -198,7 +198,7 @@ export default {
 }
 
 .career-icon {
-  width: 3.3rem;
+  width: 50px;
 }
 
 .career-summary {
@@ -242,7 +242,7 @@ export default {
 .gradient-btn {
   display: flex;
   align-items: center;
-  padding: 0.7rem;
+  padding: 11px;
 }
 
 .gradient-border-btn > span,
@@ -273,7 +273,11 @@ export default {
 
   .gradient-border-btn,
   .gradient-btn {
-    padding: 1rem;
+    padding: 16px;
+  }
+
+  .career-icon {
+    width: 60px;
   }
 }
 
@@ -292,10 +296,6 @@ export default {
 
   .career-container {
     margin: 0 6%;
-  }
-
-  .career-icon {
-    width: 4rem;
   }
 
   .gradient-border-btn > span,

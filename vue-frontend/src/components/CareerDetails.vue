@@ -54,7 +54,7 @@
         <div class="mt-5">
           <div id="description" v-html="description"></div>
         </div>
-        <div class="text-center mt-5">
+        <div class="application-submit-btns mt-5">
           <router-link class="gradient-btn" :to="jobLink">
             <font-awesome-icon
               class="fa icon"
@@ -129,7 +129,8 @@ export default {
       axios
         .get(config.API_BASE + "/api/careers/" + id)
         .then((res) => {
-          this.isLoading = false;
+          setTimeout(() => (this.isLoading = false), 1000);
+
           this.details = res.data;
           this.jobLink = "/jobs/apply/" + this.details.unique_id;
           this.description = this.details.description;
@@ -317,12 +318,15 @@ export default {
 
 <style lang="scss" scoped>
 .loader-div {
-  display: flex;
-  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .container {
-  padding: 3rem 1rem;
+  padding: 48px 16px;
 }
 
 .title-hr {
@@ -337,8 +341,16 @@ export default {
   letter-spacing: 0.1rem;
 }
 
+.application-submit-btns {
+  display: flex;
+  justify-content: center;
+  font-size: 1rem;
+}
+
 .gradient-btn {
-  padding: 1rem 3rem;
+  padding: 16px 64px;
+  display: flex;
+  align-items: center;
 }
 
 .gradient-btn > span {
@@ -359,7 +371,7 @@ export default {
 :deep(h2) {
   display: flex;
   flex-direction: row;
-  margin: 3rem 0 1rem;
+  margin: 48px 0 16px;
 }
 
 :deep(h2 *) {
@@ -374,9 +386,9 @@ export default {
   background: linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
   display: inline-block;
   line-height: 1;
-  margin: -0.3rem 1.2rem -0.3rem 0;
+  margin: 5px 20px 5px 0;
   height: auto;
-  width: 0.5rem;
+  width: 8px;
   border-radius: 0;
 }
 
@@ -419,18 +431,19 @@ export default {
 
 @include media-breakpoint-up(md) {
   .container {
-    padding: 6rem;
+    padding: 96px;
   }
 
   .canopas-gradient-text {
     font-size: 2.25rem !important;
     line-height: 2.729rem !important;
   }
+
   .gradient-btn {
-    padding: 1rem 5rem;
+    padding: 16px 80px;
   }
 
-  .gradient-btn > span {
+  .application-submit-btns {
     font-size: 1.125rem;
   }
 

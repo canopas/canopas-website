@@ -5,336 +5,341 @@
     <div v-if="isLoading" class="loader-div">
       <img :src="loader" />
     </div>
-    <div
-      class="container form-container"
-      :style="{
-        'pointer-events': isLoading ? 'none' : '',
-        filter: isLoading ? 'blur(1px)' : '',
-      }"
-    >
-      <div class="job-application">
-        <div class="header-text text-center canopas-gradient-text">
-          Applying For {{ title }}
-        </div>
-        <form class="contact-form-text apply-form">
-          <div class="row">
-            <span class="required-field-msg"
-              >All fields marked with * are required.</span
-            >
-
-            <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
-              <label class="required">Full Name</label>
-              <input
-                class="form-control custom"
-                type="text"
-                name="fullname"
-                required
-                autocomplete="given-name"
-                v-model="fullName"
-              />
-              <span v-if="showValidationError" class="error"
-                >This field is required</span
+    <div v-else>
+      <div
+        class="container form-container"
+        :style="{
+          'pointer-events': isLoading ? 'none' : '',
+          filter: isLoading ? 'blur(1px)' : '',
+        }"
+      >
+        <div class="job-application">
+          <div class="header-text text-center canopas-gradient-text">
+            Applying For {{ title }}
+          </div>
+          <form class="contact-form-text pt-5 pb-5">
+            <div class="row">
+              <span class="required-field-msg mb-5"
+                >All fields marked with * are required.</span
               >
-            </div>
 
-            <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
-              <label class="required">Email</label>
-              <input
-                class="form-control custom"
-                type="email"
-                name="email"
-                required
-                autocomplete="email"
-                v-model="email"
-              />
-              <span v-if="showValidationError" class="error"
-                >This field is required</span
-              >
-              <span v-if="showEmailValidationError" class="error"
-                >Please enter valid email address</span
-              >
-            </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+                <label class="required">Full Name</label>
+                <input
+                  class="form-control custom"
+                  type="text"
+                  name="fullname"
+                  required
+                  autocomplete="given-name"
+                  v-model="fullName"
+                />
+                <span v-if="showValidationError" class="error"
+                  >This field is required</span
+                >
+              </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
-              <label class="required">Phone Number</label>
-              <input
-                class="form-control custom"
-                type="tel"
-                name="phonenumber"
-                autocomplete="tel"
-                v-model="phoneNumber"
-              />
-              <span id="phoneError"></span>
-              <span v-if="showValidationError" class="error"
-                >This field is required</span
-              >
-              <span v-if="showPhoneValidationError" class="error"
-                >Please enter valid phone number</span
-              >
-            </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+                <label class="required">Email</label>
+                <input
+                  class="form-control custom"
+                  type="email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  v-model="email"
+                />
+                <span v-if="showValidationError" class="error"
+                  >This field is required</span
+                >
+                <span v-if="showEmailValidationError" class="error"
+                  >Please enter valid email address</span
+                >
+              </div>
 
-            <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
-              <label class="">City</label>
-              <input
-                class="form-control custom"
-                type="text"
-                name="city"
-                autocomplete="address-level2"
-                v-model="city"
-              />
-            </div>
+              <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
+                <label class="required">Phone Number</label>
+                <input
+                  class="form-control custom"
+                  type="tel"
+                  name="phonenumber"
+                  autocomplete="tel"
+                  v-model="phoneNumber"
+                />
+                <span id="phoneError"></span>
+                <span v-if="showValidationError" class="error"
+                  >This field is required</span
+                >
+                <span v-if="showPhoneValidationError" class="error"
+                  >Please enter valid phone number</span
+                >
+              </div>
 
-            <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
-              <label class="">How did you find Canopas?</label>
-              <div class="reference-option-list" ref="referenceList">
-                <div>
-                  <input
-                    name="howdidyoufindcanopas"
-                    class="reference-option-text"
-                    type="text"
-                    placeholder="choose any one"
-                    id="reference-option-text"
-                    readonly
-                    v-model="reference"
-                  />
-                </div>
-                <div class="options">
-                  <div
-                    class="option"
-                    v-for="reference in references"
-                    :key="reference"
-                    @click="showOptions(reference)"
-                  >
-                    {{ reference.option }}
+              <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
+                <label class="">City</label>
+                <input
+                  class="form-control custom"
+                  type="text"
+                  name="city"
+                  autocomplete="address-level2"
+                  v-model="city"
+                />
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+                <label class="">How did you find Canopas?</label>
+                <div class="reference-option-list" ref="referenceList">
+                  <div>
+                    <input
+                      name="howdidyoufindcanopas"
+                      class="reference-option-text"
+                      type="text"
+                      placeholder="choose any one"
+                      id="reference-option-text"
+                      readonly
+                      v-model="reference"
+                    />
+                  </div>
+                  <div class="options">
+                    <div
+                      class="option"
+                      v-for="reference in references"
+                      :key="reference"
+                      @click="showOptions(reference)"
+                    >
+                      {{ reference.option }}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div
-              v-if="isShowingReferenceInput"
-              class="col-lg-12 col-md-12 col-sm-12 mb-5 reference-input"
-            >
-              <input
-                class="form-control custom reference-by-input"
-                type="text"
-                name="referenceby"
-                autocomplete="given-reference-name"
-                :placeholder="references[currentReferenceIndex].hint"
-                v-model="referenceBy"
-              />
-            </div>
-
-            <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
-              <label class="">Message</label>
-              <textarea
-                class="form-control custom"
-                name="message"
-                rows="5"
-                v-model="message"
-              ></textarea>
-            </div>
-
-            <div class="col-lg-5 col-md-5 col-sm-12">
-              <label class="required"
-                >Resume <br />
-                <i>Supported formats:</i
-                ><span class="black pdf-text">.PDF</span>
-                <i>only</i>
-              </label>
-            </div>
-            <div class="col-lg-7 col-md-7 col-sm-12 resume-upload-div">
-              <button
-                type="button"
-                class="btn resume-upload-btn"
-                @click="chooseFiles()"
+              <div
+                v-if="isShowingReferenceInput"
+                class="col-lg-12 col-md-12 col-sm-12 mb-5 reference-input"
               >
-                {{ fileButtonName }}
+                <input
+                  class="form-control custom reference-by-input"
+                  type="text"
+                  name="referenceby"
+                  autocomplete="given-reference-name"
+                  :placeholder="references[currentReferenceIndex].hint"
+                  v-model="referenceBy"
+                />
+              </div>
+
+              <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+                <label class="">Message</label>
+                <textarea
+                  class="form-control custom"
+                  name="message"
+                  rows="5"
+                  v-model="message"
+                ></textarea>
+              </div>
+
+              <div class="col-lg-5 col-md-5 col-sm-12">
+                <label class="required"
+                  >Resume <br />
+                  <i>Supported formats:</i
+                  ><span class="black pdf-text">.PDF</span>
+                  <i>only</i>
+                </label>
+              </div>
+              <div class="col-lg-7 col-md-7 col-sm-12 resume-upload-div">
+                <button
+                  type="button"
+                  class="btn resume-upload-btn"
+                  @click="chooseFiles()"
+                >
+                  {{ fileButtonName }}
+                </button>
+                <input
+                  id="fileUpload"
+                  type="file"
+                  class="form-control custom-file-input"
+                  name="resume"
+                  accept="application/pdf"
+                  @change="previewFiles"
+                  required
+                />
+
+                <span v-if="showValidationError" class="error"
+                  >This field is required</span
+                >
+              </div>
+            </div>
+            <div class="application-submit-btns mt-5">
+              <button class="gradient-btn" @click.prevent="validateForm()">
+                <font-awesome-icon
+                  class="fa"
+                  :icon="checkCircle"
+                  aria-hidden="true"
+                />
+                <span>Apply Now</span>
               </button>
-              <input
-                id="fileUpload"
-                type="file"
-                class="form-control custom-file-input"
-                name="resume"
-                accept="application/pdf"
-                @change="previewFiles"
-                required
-              />
-
-              <span v-if="showValidationError" class="error"
-                >This field is required</span
-              >
-              <div class="file-name-wrapper" hidden>
-                <span class="file-name"></span>
-              </div>
             </div>
-          </div>
-          <div class="application-submit-btns mt-5">
-            <button class="gradient-btn" @click.prevent="validateForm()">
-              <font-awesome-icon
-                class="fa"
-                :icon="checkCircle"
-                aria-hidden="true"
-              />
-              <span>Apply Now</span>
-            </button>
-          </div>
-        </form>
-      </div>
+          </form>
+        </div>
 
-      <!-- Show applicant details review popup -->
-      <div v-if="showReviewFormPopup">
-        <transition name="modal">
-          <div class="modal-mask">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <div class="jobs-normal-text canopas-gradient-text text-left">
-                    Please review your details before submitting !
-                  </div>
-                  <button
-                    type="button"
-                    class="modal-close-btn"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span
-                      aria-hidden="true"
-                      @click="showReviewFormPopup = false"
-                      >&times;</span
+        <!-- Show applicant details review popup -->
+        <div v-if="showReviewFormPopup">
+          <transition name="modal">
+            <div class="modal-mask">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div
+                      class="jobs-normal-text canopas-gradient-text text-left"
                     >
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <div class="">
-                    <form>
-                      <div class="mb-3">
-                        <label for="fullname" class="col-form-label"
-                          >Full name:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          v-model="fullName"
-                          disabled
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="phonenumber" class="col-form-label"
-                          >Phone:</label
-                        >
-                        <input
-                          type="tel"
-                          class="form-control"
-                          v-model="phoneNumber"
-                          disabled
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="email" class="col-form-label">Email:</label>
-                        <input
-                          type="email"
-                          class="form-control"
-                          v-model="email"
-                          disabled
-                        />
-                      </div>
-                      <div class="mb-3">
-                        <label for="howdidyoufindcanopas" class="col-form-label"
-                          >How did you find Canopas?</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          v-model="reference"
-                          disabled
-                        />
-                      </div>
-                      <div class="mb-3 referenceBy">
-                        <label for="referenceby" class="col-form-label"
-                          >Reference By:</label
-                        >
-                        <input
-                          type="text"
-                          class="form-control"
-                          v-model="referenceBy"
-                          disabled
-                        />
-                      </div>
-                    </form>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button
-                    class="gradient-btn"
-                    @click.prevent="submitApplication()"
-                  >
-                    <span> Submit </span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </transition>
-      </div>
-
-      <!-- Show Thank you message -->
-      <div v-if="showSuccessMessagePopup">
-        <transition name="modal">
-          <div class="modal-mask">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <div
-                    class="jobs-normal-text canopas-gradient-text text-center"
-                  >
-                    Thank you for choosing us to make a difference in your
-                    business.
-                  </div>
-                </div>
-                <div class="modal-body">
-                  <div class="normal-2-text">
-                    If you prefer to chat or email, sit back and relax our team
-                    will get back to you within 24 hours.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </transition>
-      </div>
-
-      <!-- Show error message -->
-      <div v-if="showErrorMessagePopup">
-        <transition name="modal">
-          <div class="modal-mask">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header justify-center">
-                  <div class="header-2-text canopas-gradient-text">Error</div>
-                </div>
-                <div class="modal-body">
-                  <div class="jobs-normal-text text-center">
-                    Something went wrong on our side
-                  </div>
-                  <div class="close-btn-div">
+                      Please review your details before submitting !
+                    </div>
                     <button
-                      type="submit"
-                      class="gradient-btn close-btn"
-                      @click.prevent="showErrorMessagePopup = false"
+                      type="button"
+                      class="modal-close-btn"
+                      data-dismiss="modal"
+                      aria-label="Close"
                     >
-                      <span>Close</span>
+                      <span
+                        aria-hidden="true"
+                        @click="showReviewFormPopup = false"
+                        >&times;</span
+                      >
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="">
+                      <form>
+                        <div class="mb-3">
+                          <label for="fullname" class="col-form-label"
+                            >Full name:</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            v-model="fullName"
+                            disabled
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="phonenumber" class="col-form-label"
+                            >Phone:</label
+                          >
+                          <input
+                            type="tel"
+                            class="form-control"
+                            v-model="phoneNumber"
+                            disabled
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="email" class="col-form-label"
+                            >Email:</label
+                          >
+                          <input
+                            type="email"
+                            class="form-control"
+                            v-model="email"
+                            disabled
+                          />
+                        </div>
+                        <div class="mb-3" v-if="reference">
+                          <label
+                            for="howdidyoufindcanopas"
+                            class="col-form-label"
+                            >How did you find Canopas?</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            v-model="reference"
+                            disabled
+                          />
+                        </div>
+                        <div class="mb-3 referenceBy" v-if="referenceBy">
+                          <label for="referenceby" class="col-form-label"
+                            >Reference By:</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            v-model="referenceBy"
+                            disabled
+                          />
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button
+                      class="gradient-btn"
+                      @click.prevent="submitApplication()"
+                    >
+                      <span> Submit </span>
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </transition>
+          </transition>
+        </div>
+
+        <!-- Show Thank you message -->
+        <div v-if="showSuccessMessagePopup">
+          <transition name="modal">
+            <div class="modal-mask">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <div
+                      class="jobs-normal-text canopas-gradient-text text-center"
+                    >
+                      Thank you for choosing us to make a difference in your
+                      business.
+                    </div>
+                  </div>
+                  <div class="modal-body">
+                    <div class="normal-2-text">
+                      If you prefer to chat or email, sit back and relax our
+                      team will get back to you within 24 hours.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+
+        <!-- Show error message -->
+        <div v-if="showErrorMessagePopup">
+          <transition name="modal">
+            <div class="modal-mask">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header justify-center">
+                    <div class="header-2-text canopas-gradient-text">Error</div>
+                  </div>
+                  <div class="modal-body">
+                    <div class="jobs-normal-text text-center">
+                      Something went wrong on our side
+                    </div>
+                    <div class="close-btn-div">
+                      <button
+                        type="submit"
+                        class="gradient-btn close-btn"
+                        @click.prevent="showErrorMessagePopup = false"
+                      >
+                        <span>Close</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
       </div>
+      <ScreenFooter v-if="!showJobs" />
+      <ScreenFooter2 v-if="showJobs" />
     </div>
-    <ScreenFooter v-if="!showJobs" />
-    <ScreenFooter2 v-if="showJobs" />
   </div>
 </template>
 
@@ -447,7 +452,8 @@ export default {
       axios
         .get(config.API_BASE + "/api/careers/" + this.$route.params.id)
         .then((res) => {
-          this.isLoading = false;
+          setTimeout(() => (this.isLoading = false), 1000);
+
           this.title = res.data.title;
           this.prepareSEOdata(res.data);
         })
@@ -562,21 +568,17 @@ export default {
 
 <style lang="scss" scoped>
 .gradient-btn {
-  padding: 1rem 4rem;
+  padding: 16px 64px;
 }
 
 .form-container {
-  margin: 5rem auto;
+  margin: 80px auto;
 }
 
 .job-application {
   border: 1px solid #e2e2e2;
   border-radius: 15px;
-  padding: 2rem 1.5rem;
-}
-
-.apply-form {
-  padding: 3rem 0;
+  padding: 32px 24px;
 }
 
 .form-control.custom {
@@ -614,9 +616,10 @@ input:-webkit-autofill:active {
 }
 
 .error {
-  margin-top: 0.5rem;
+  margin-top: 8px;
   display: table;
   font-size: 1rem;
+  color: #ff0000;
 }
 
 .required:after {
@@ -625,11 +628,6 @@ input:-webkit-autofill:active {
 }
 
 .required-field-msg {
-  color: #ff0000;
-  margin-bottom: 3rem;
-}
-
-.error {
   color: #ff0000;
 }
 
@@ -655,19 +653,8 @@ input:-webkit-autofill:active {
   border: 1px solid #e2e2e2;
   box-shadow: none !important;
   outline: 0 !important;
-  padding: 1rem 3rem;
+  padding: 16px 48px;
   border-radius: 10px;
-}
-
-.file-name-wrapper {
-  border: 1px solid #e2e2e2;
-  border-radius: 10px;
-  width: auto;
-  padding: 1rem 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .application-submit-btns {
@@ -676,7 +663,7 @@ input:-webkit-autofill:active {
 }
 
 .loader-div {
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -790,13 +777,13 @@ input:-webkit-autofill:active {
 }
 
 .modal-content {
-  padding: 2rem;
+  padding: 32px;
   border-radius: 25px;
 }
 
 .close-btn {
   float: right;
-  padding: 0.5rem 1rem !important;
+  padding: 8px 16px !important;
 }
 
 .justify-center {
@@ -805,7 +792,7 @@ input:-webkit-autofill:active {
 
 @include media-breakpoint-up(md) {
   .gradient-btn {
-    padding: 1rem 5rem;
+    padding: 16px 80px;
   }
 
   .header-text {
@@ -819,13 +806,13 @@ input:-webkit-autofill:active {
   }
 
   .job-application {
-    padding: 3rem;
+    padding: 48px;
   }
 }
 
 @include media-breakpoint-up(lg) {
   .form-container {
-    padding: 0 10rem;
+    padding: 0 160px;
   }
 }
 </style>
