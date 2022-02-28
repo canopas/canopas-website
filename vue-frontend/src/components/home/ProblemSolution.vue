@@ -95,7 +95,7 @@
     </div>
   </div>
 </template>
- 
+
 <script type="module">
 import developerBackgroundImage from "@/assets/images/theme/developer.webp";
 
@@ -107,7 +107,7 @@ export default {
   },
 };
 </script>
- 
+
 <style lang="scss" scoped>
 .container-fluid {
   position: relative;

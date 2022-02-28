@@ -30,3 +30,10 @@ go run main.go
 ```
 
 You can access the APIs at http://localhost:8080.
+
+## To enable pre-commit hook
+
+```
+git config core.hooksPath .githooks
+```
+

@@ -290,7 +290,7 @@ double speed and keep it paused. When we want reverse animation, we just run it.
 }
 
 @keyframes scroll {
-    /*
+  /*
      We animate from 0 review cards to 7 review card. We have total 21 cards, so user will 
      see animation as infinite animation.
      The review cards width + margin - multiplied by numbers of gridView cards

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+## compose all go files to format
+STAGED_GO_FILES=$(git ls-files '*.go')
+
+if [[ $STAGED_GO_FILES == "" ]]; then
+    echo "No Go Files to Update"
+else
+    for file in $STAGED_GO_FILES; do
+        ## format file
+        go fmt $file
+        ## add updated file to commit
+        git add $file
+    done
+fi
+
+cd vue-frontend && npx prettier -w . && git add . 

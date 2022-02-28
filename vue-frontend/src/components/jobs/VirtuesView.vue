@@ -114,7 +114,7 @@
   </div>
 </template>
 
-<script  type="module">
+<script type="module">
 export default {
   data() {
     return {
@@ -195,7 +195,6 @@ export default {
 };
 </script>
 
-
 <style scoped lang="scss">
 .background {
   background: linear-gradient(
@@ -209,7 +208,7 @@ export default {
   border-radius: 100px 0;
 }
 
-.container{
+.container {
   margin-top: 5rem;
 }
 

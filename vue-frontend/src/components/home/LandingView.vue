@@ -34,7 +34,7 @@
     </div>
   </div>
 </template>
- 
+
 <script type="module">
 import backgroundImage from "@/assets/images/theme/bg.webp";
 import arrowImage from "@/assets/images/theme/arrow.svg";
@@ -50,7 +50,7 @@ export default {
   method: {},
 };
 </script>
- 
+
 <style lang="scss" scoped>
 .container-fluid {
   position: relative;

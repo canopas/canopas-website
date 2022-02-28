@@ -22,7 +22,7 @@
     </div>
   </div>
 </template>
- 
+
 <script type="module">
 import doYouKnowImage from "@/assets/images/theme/question.svg";
 
@@ -34,7 +34,7 @@ export default {
   },
 };
 </script>
- 
+
 <style lang="scss" scoped>
 .container-fluid {
   z-index: 10000;

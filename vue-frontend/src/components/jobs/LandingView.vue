@@ -9,7 +9,10 @@
       You've come to the right place. We're looking for an AVENGER who can join
       our existing team of AVENGERS.
     </div>
-    <button class="gradient-btn jobs-normal-text" @click="$emit('scroll-to-career')">
+    <button
+      class="gradient-btn jobs-normal-text"
+      @click="$emit('scroll-to-career')"
+    >
       <span>SEE ALL POSITIONS</span>
     </button>
   </div>
