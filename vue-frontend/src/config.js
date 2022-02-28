@@ -18,4 +18,5 @@ export default Object.freeze({
     type: "Website",
     url: "https://dev-stack.canopas.com",
   },
+  GAP_ID_ROOT: "",
 });

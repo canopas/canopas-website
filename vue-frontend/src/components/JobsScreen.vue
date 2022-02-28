@@ -70,6 +70,9 @@ export default {
       window.scrollTo({ top: top, behavior: "smooth" });
     },
   },
+  mounted() {
+    this.$gtag.event("view_page_home");
+  },
 };
 </script>
 

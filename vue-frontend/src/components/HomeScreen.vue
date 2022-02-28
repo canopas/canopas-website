@@ -76,7 +76,7 @@ export default {
     ScreenFooter2,
   },
   mounted() {
-    window.gtag("event", "view_canopas_home");
+    this.$gtag.event("view_page_home");
   },
 };
 </script>

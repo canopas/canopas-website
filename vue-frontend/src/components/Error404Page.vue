@@ -50,7 +50,7 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
-    window.gtag("event", "view_canopas_404");
+    this.$gtag.event("view_page_404");
   },
 };
 </script>
