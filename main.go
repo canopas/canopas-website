@@ -7,6 +7,7 @@ import (
 	"jobs"
 	"log"
 	"os"
+	"sitemap"
 
 	"github.com/apex/gateway"
 	"github.com/gin-contrib/cors"
@@ -34,6 +35,7 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 
 	contactRepo := contact.New(templateFS)
 	jobsRepo := jobs.New(sqlDb, templateFS)
+	sitemapRepo := sitemap.New(jobsRepo)
 
 	router.POST("/api/send-contact-mail", contactRepo.SendContactMail)
 
@@ -42,6 +44,8 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 	router.GET("/api/careers/:id", jobsRepo.CareerById)
 
 	router.POST("/api/send-career-mail", jobsRepo.SendCareerMail)
+
+	router.GET("/sitemap", sitemapRepo.GenerateSitemap)
 
 	router.GET("/api/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{

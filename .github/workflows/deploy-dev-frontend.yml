@@ -41,6 +41,7 @@ jobs:
         run: |
           cd vue-frontend
           npm ci
+          sh generate-sitemap.sh https://dev-stack.canopas.com https://dev-stack-api.canopas.com
           npm run build
 
       - name: Upload to S3
