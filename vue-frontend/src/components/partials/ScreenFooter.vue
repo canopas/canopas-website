@@ -4,7 +4,7 @@
       <img width="180" :src="footerLogoImage" alt="logo" />
       <p class="text-left">
         <font-awesome-icon :icon="copyrightIcon" />
-        {{new Date().getFullYear()}} Canopas Software LLP. All rights
+        {{ new Date().getFullYear() }} Canopas Software LLP. All rights
         reserved.
       </p>
     </div>

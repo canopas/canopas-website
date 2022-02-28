@@ -10,6 +10,6 @@
 
 <script>
 export default {
-  props : ["seoData"],
+  props: ["seoData"],
 };
 </script>

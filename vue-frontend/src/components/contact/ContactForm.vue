@@ -369,7 +369,7 @@
     </div>
   </div>
 </template>
- 
+
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import {
@@ -581,7 +581,7 @@ export default {
   },
 };
 </script>
- 
+
 <style lang="scss" scoped>
 .container {
   margin: 48px auto;
@@ -945,7 +945,7 @@ input:-webkit-autofill:active {
     width: 40%;
   }
 
-   .modal-close-btn {
+  .modal-close-btn {
     bottom: 680px;
   }
 }

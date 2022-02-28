@@ -23,6 +23,8 @@ jobs:
         run: |
           cd vue-frontend
           npm ci
+          npx prettier -c .
+          npx eslint .
           npm run build
 
       - name: Build backend

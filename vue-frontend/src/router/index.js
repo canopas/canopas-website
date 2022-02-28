@@ -44,7 +44,7 @@ if (Config.IS_SHOW_JOBS) {
       path: "/jobs/apply/:id",
       name: "ApplyForCareerPage",
       component: ApplyForCareerPage,
-    },
+    }
   );
 }
 

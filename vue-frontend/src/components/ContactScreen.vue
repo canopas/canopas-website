@@ -18,7 +18,7 @@
     <ScreenFooter2 v-if="showJobs" />
   </div>
 </template>
- 
+
 <script>
 import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
@@ -60,7 +60,7 @@ export default {
   },
 };
 </script>
- 
+
 <style scoped>
 .loader-div {
   position: fixed;
