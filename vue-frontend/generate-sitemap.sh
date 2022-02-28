@@ -7,4 +7,6 @@ BASE_API_URL=$2
 
 API_URL="$BASE_API_URL/sitemap?baseUrl=$BASE_URL"
 
-$(curl -X GET --header "Accept: */*" $API_URL)
+xml=$(curl -X GET --header "Accept: */*" $API_URL)
+
+echo $xml >> public/sitemap.xml
