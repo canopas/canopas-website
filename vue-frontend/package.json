@@ -24,6 +24,7 @@
     "prettier": "^2.5.1",
     "swiper": "^7.4.1",
     "vue": "^3.0.0",
+    "vue-gtag": "^2.0.1",
     "vue-router": "^4.0.12"
   },
   "devDependencies": {

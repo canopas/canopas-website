@@ -438,6 +438,7 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
+    this.$gtag.event("view_page_job_apply");
     this.getCareerDetails();
     document.addEventListener("click", this.referenceList);
   },
@@ -517,6 +518,8 @@ export default {
       }
     },
     submitApplication() {
+      this.$gtag.event("job_submit");
+
       this.showReviewFormPopup = false;
       this.isLoading = true;
       const formData = new FormData();

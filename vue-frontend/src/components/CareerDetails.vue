@@ -121,6 +121,7 @@ export default {
   mounted() {
     this.getCareerDetails();
     this.setJobDates();
+    this.$gtag.event("view_page_job_detail");
   },
   methods: {
     getCareerDetails() {
