@@ -106,7 +106,7 @@ export default {
   padding: 0;
   display: flex;
   flex-direction: column;
-  border-radius: 0.9rem;
+  border-radius: 14px;
   border: 1px solid #e2e2e2;
   overflow: hidden;
 }
@@ -162,8 +162,8 @@ export default {
   -webkit-text-fill-color: transparent;
   font-weight: 700;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.9rem;
-  padding: 5px 0.9rem;
+  border-radius: 14px;
+  padding: 5px 14px;
   margin-right: 10px;
 }
 

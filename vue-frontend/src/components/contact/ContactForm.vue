@@ -624,7 +624,7 @@ export default {
   border-radius: 0;
   border-bottom: 1px dashed rgba(61, 61, 61, 0.5);
   box-shadow: none;
-  padding: 0.5rem 0 0 !important;
+  padding: 8px 0 0 !important;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -701,7 +701,7 @@ input[type="radio"]:checked ~ .box {
   cursor: pointer;
   position: relative;
   width: 100%;
-  padding: 1.5rem;
+  padding: 24px;
   background: rgba(226, 226, 226, 0.5);
   border-radius: 15px;
 }
@@ -728,7 +728,7 @@ input[type="radio"]:checked ~ .box {
   font-size: 1rem;
   border-radius: 10px;
   border: 1px solid rgba(61, 61, 61, 0.1);
-  padding: 0.5rem 1rem !important;
+  padding: 8px 16px !important;
 }
 
 .input-textarea:focus {
@@ -770,7 +770,7 @@ input[type="radio"]:checked ~ .box {
 
 .call-now-btn > i,
 .chat-email-btn > i {
-  margin-right: 0.5rem;
+  margin-right: 8px;
 }
 
 .btn-social-media {
@@ -785,7 +785,7 @@ input[type="radio"]:checked ~ .box {
 }
 
 .input-text-width {
-  width: 10rem;
+  width: 160px;
 }
 
 .custom-fa-icon {
@@ -821,7 +821,7 @@ input:-webkit-autofill:active {
 
 .contact-btn {
   width: auto !important;
-  padding: 0.5rem 1rem !important;
+  padding: 8px 16px !important;
   justify-content: center !important;
   display: inline !important;
   margin-left: 0 !important;
@@ -858,7 +858,7 @@ input:-webkit-autofill:active {
 }
 
 .error {
-  margin-top: 0.5rem;
+  margin-top: 8px;
   display: table;
   font-size: 1rem;
 }
@@ -868,7 +868,7 @@ input:-webkit-autofill:active {
 }
 
 .required-field-msg {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .required-field-msg,
@@ -894,7 +894,7 @@ input:-webkit-autofill:active {
 
 .modal-content {
   border-radius: 25px !important;
-  padding: 2rem;
+  padding: 32px;
 }
 
 .modal-close-btn {
@@ -971,12 +971,12 @@ input:-webkit-autofill:active {
   }
 
   .radio-buttons > label {
-    padding: 0.5rem 16px 0.5rem 0;
+    padding: 9px 16px 8px 0;
   }
 
   .box {
-    height: 9rem;
-    padding: 0 1.5rem;
+    height: 144px;
+    padding: 0 24px;
   }
 
   .contact-form-text,

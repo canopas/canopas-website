@@ -30,7 +30,7 @@
 }
 
 .gradient-btn {
-  border-radius: 0.93rem;
+  border-radius: 15px;
 }
 
 @include media-breakpoint-up(sm) {

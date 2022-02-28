@@ -211,12 +211,6 @@ export default {
   color: black;
 }
 
-.header-text {
-  font-weight: 700;
-  line-height: 1.813rem;
-  font-size: 1.5rem;
-}
-
 .checked {
   color: #ffc700;
 }
@@ -264,7 +258,7 @@ double speed and keep it paused. When we want reverse animation, we just run it.
   display: flex;
   width: 100%;
   height: fit-content;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .horizontal-grid-1 {
@@ -343,29 +337,7 @@ double speed and keep it paused. When we want reverse animation, we just run it.
   }
 }
 
-@include media-breakpoint-up(md) {
-  .header-text {
-    line-height: 2rem;
-    font-size: 1.875rem;
-  }
-
-  .normal-text {
-    font-size: 1.125rem;
-    line-height: 1.375rem;
-  }
-}
-
 @include media-breakpoint-up(lg) {
-  .header-text {
-    font-size: 3rem;
-    line-height: 3.6rem;
-  }
-
-  .normal-text {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
-  }
-
   .horizontal-grid-1 {
     margin-left: 264px;
   }

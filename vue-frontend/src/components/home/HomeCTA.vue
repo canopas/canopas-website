@@ -99,13 +99,13 @@ export default {
 .communication {
   display: flex;
   flex-direction: column;
-  margin: 1.25rem 0;
+  margin: 20px 0;
   border: 2px solid #e2e2e2;
-  border-radius: 0.9rem;
+  border-radius: 14px;
 }
 
 .communication > .item {
-  padding: 1rem;
+  padding: 16px;
   margin: auto;
   text-align: -webkit-center;
 }
@@ -137,7 +137,7 @@ export default {
 
 .reason-text {
   color: black;
-  margin-top: 1.25rem;
+  margin-top: 20px;
 }
 
 .text-left {
@@ -147,12 +147,12 @@ export default {
 .bullet {
   content: "";
   background: linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
-  width: 1rem;
-  height: 1rem;
+  width: 16px;
+  height: 16px;
   border-radius: 30%;
   display: inline-block;
   line-height: 1;
-  margin: 0.3rem 1.5rem 0 0;
+  margin: 5px 24px 0 0;
 }
 
 .chat-list {
@@ -162,7 +162,7 @@ export default {
 }
 
 .chat-list > li {
-  padding: 0.6rem 0;
+  padding: 10px 0;
   display: flex;
 }
 
@@ -186,7 +186,7 @@ export default {
   }
 
   .communication > .item {
-    padding: 2.5rem 1rem;
+    padding: 40px 16px;
   }
 
   .item-divider {

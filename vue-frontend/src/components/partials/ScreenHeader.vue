@@ -198,5 +198,9 @@ export default {
   .start-btn-link {
     display: none;
   }
+
+  .gradient-border-btn > span {
+    margin: 0 4px;
+  }
 }
 </style>
