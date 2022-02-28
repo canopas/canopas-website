@@ -1,13 +1,13 @@
 package sitemap
 
 import (
+	"encoding/xml"
 	"jobs"
 	"net/http"
 	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/pahanini/go-sitemap-generator"
 )
 
 type SitemapRepository struct {
@@ -18,12 +18,26 @@ func New(careerRepo *jobs.CareerRepository) *SitemapRepository {
 	return &SitemapRepository{careerRepo: careerRepo}
 }
 
+type URL struct {
+	XMLName    xml.Name `xml:"url"`
+	Loc        string   `xml:"loc"`
+	ChangeFreq string   `xml:"changefreq"`
+	LastMod    string   `xml:"lastmod"`
+	Priority   string   `xml:"priority"`
+}
+
+type URLset struct {
+	XMLName xml.Name `xml:"urlset"`
+	XMLNS   string   `xml:"xmlns,attr"`
+	URL     []URL
+}
+
 func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	baseUrl := c.Query("baseUrl")
 	jobsUrl := baseUrl + "/jobs"
 	blogsUrl := "https://blog.canopas.com"
 
-	sitemapUrls := []sitemap.URL{
+	sitemapUrls := []URL{
 		{Loc: baseUrl, Priority: `1`},
 		{Loc: jobsUrl, Priority: `1`},
 		{Loc: baseUrl + `/contact`, Priority: `0.9`},
@@ -39,8 +53,8 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 		}
 
 		for i := range careers {
-			sitemapUrls = append(sitemapUrls, sitemap.URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
-			sitemapUrls = append(sitemapUrls, sitemap.URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
+			sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
+			sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
 		}
 	}
 
@@ -48,17 +62,14 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	year, month, _ := time.Now().Date()
 	lastmod := time.Date(year, month, 1, 0, 0, 0, 0, time.UTC).Format("2006-01-02T00:00:00.000Z")
 
-	// generate sitemap
-	sitemapXML := sitemap.New(sitemap.Options{
-		Dir:     "vue-frontend/public",
-		BaseURL: baseUrl,
-	})
-
-	sitemapXML.Open()
 	for i := range sitemapUrls {
 		sitemapUrls[i].ChangeFreq = "monthly"
 		sitemapUrls[i].LastMod = lastmod
-		sitemapXML.Add(sitemapUrls[i])
 	}
-	sitemapXML.Close()
+
+	urlset := URLset{URL: sitemapUrls, XMLNS: "http://www.sitemaps.org/schemas/sitemap/0.9"}
+
+	c.Header("Content-Type", "application/xml")
+
+	c.XML(http.StatusOK, urlset)
 }

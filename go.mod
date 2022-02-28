@@ -19,7 +19,6 @@ require (
 	github.com/gin-contrib/cors v1.3.1
 	github.com/gin-gonic/gin v1.7.7
 	github.com/jmoiron/sqlx v1.3.4
-	github.com/pahanini/go-sitemap-generator v0.0.0-20161102132113-fe0794d1e806
 	jobs v0.0.0-00010101000000-000000000000
 	sitemap v0.0.0-00010101000000-000000000000
 )
