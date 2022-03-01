@@ -125,9 +125,8 @@ Resources:
         SecurityGroupIds:
           - sg-08962f43eb26cf253
         SubnetIds:
-          - subnet-747c1b38
-          - subnet-a8b086c0
-          - subnet-0a9799eaea11a2553
+          - subnet-016b1da82d8102565
+          - subnet-0d8441776ccc7e8a4
       Environment:
         Variables:
           ENV:
