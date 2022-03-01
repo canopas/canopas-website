@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="HandheldFriendly" content="true" />
-  </head>
-  <body>
-    <div class="review-application-div">
-      <p>
-        <span><strong>Subject : </strong> </span>
-        <span class="title-span">{{.JobTitle}} - {{.Name}}</span>
-      </p>
-      Hello,
-      <p><span>{{.Message}}</span></p>
-      <p><span>Please find my resume from attachment.</span></p>
-      <br />
-      Sincerely,
-      <p>
-        <span>{{.Name}}</span>
-      </p>
-      <p>
-        <span>{{.Email}}</span>
-      </p>
-      <p>
-        <span>{{.Phone}}</span>
-      </p>
-      <p><span>From: </span><span>{{.Place}}</span></p>
-      <p><span>Reference Option : </span><span>{{.References}}</span></p>
-    </div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="HandheldFriendly" content="true" />
+</head>
+
+<body>
+  <div class="review-application-div">
+    <p>
+      <span><strong>Application: </strong> </span>
+      <span class="title-span">{{.JobTitle}} - {{.Name}}</span>
+    </p>
+    <p>
+      <span><strong>Message: </strong> </span>
+      <span>{{.Message}}</span>
+    </p>
+    <p>
+      <span><strong>Email: </strong> </span>
+      <span>{{.Email}}</span>
+    </p>
+    <p>
+      <span><strong>Phone:</strong> </span>
+      <span>{{.Phone}}</span>
+    </p>
+    <p>
+      <span><strong>City: </strong></span>
+      <span>{{.Place}}</span>
+    </p>
+    <p>
+      <span><strong>Reference: </strong></span>
+      <span>{{.References}}</span>
+    </p>
+  </div>
+</body>
+
 </html>
