@@ -1,5 +1,10 @@
 <template>
-  <router-view></router-view>
+  <div>
+    <Teleport to="head" v-if="!crawl">
+      <meta name="robots" content="noindex" />
+    </Teleport>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -9,12 +14,18 @@ import {
   faArrowLeft,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
+import Config from "@/config.js";
 
 library.add(faArrowRight, faStar, faArrowLeft);
 
 export default {
   name: "App",
   components: {},
+  data() {
+    return {
+      crawl: Config.IS_PROD,
+    };
+  },
 };
 </script>
 
@@ -51,6 +62,7 @@ a {
 
 .canopas-gradient-text {
   background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -148,6 +160,7 @@ a {
 
   .gradient-btn:hover * {
     background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }

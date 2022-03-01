@@ -19,4 +19,5 @@ export default Object.freeze({
     url: "https://canopas.com",
   },
   GAP_ID_ROOT: "G-VXHMMMEJ5X",
+  IS_PROD: true,
 });
