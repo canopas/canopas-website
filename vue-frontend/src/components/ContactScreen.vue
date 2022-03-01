@@ -12,26 +12,23 @@
       <ContactLanding />
       <ContactForm v-on:isLoading="setLoader" />
     </div>
-    <ScreenFooter v-if="!showJobs" />
-    <ScreenFooter2 v-if="showJobs" />
+    <ScreenFooter2 />
   </div>
 </template>
 
 <script>
 import ScreenHeader from "./partials/ScreenHeader.vue";
-import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
 import ScreenLoader from "./utils/ScreenLoader.vue";
 import ContactLanding from "./contact/ContactLanding.vue";
 import ContactForm from "./contact/ContactForm.vue";
-import Config from "@/config.js";
+import config from "@/config.js";
 
 export default {
   components: {
     ScreenHeader,
     ContactLanding,
-    ScreenFooter,
     ScreenFooter2,
     ScreenMeta,
     ContactForm,
@@ -39,16 +36,18 @@ export default {
   },
   data() {
     return {
-      showJobs: Config.IS_SHOW_JOBS,
       isLoading: false,
-      seoData: Config.SEO_META_DATA,
+      seoData: {
+        title:
+          "Let's discuss your idea or problem you're facing in your business.",
+        description:
+          "Thank you for choosing Canopas for your business. Fill out all the required information about you and your business. We will get back to you soon.",
+        type: "Website",
+        url: config.BASE_URL + "/contact",
+      },
     };
   },
   mounted() {
-    this.seoData.title =
-      "Let's discuss your idea or problem you're facing in your business.";
-    this.seoData.description =
-      "Thank you for choosing Canopas for your business. Fill out all the required information about you and your business. We will get back to you soon.";
     this.$gtag.event("view_page_contact");
   },
   methods: {

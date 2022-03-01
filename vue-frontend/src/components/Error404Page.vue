@@ -1,8 +1,8 @@
 <template>
-  <div class="error-container">
+  <div>
     <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
-    <div class="not-found-container">
+    <div class="container">
       <div class="image-404">
         <img :src="firstErrorLetter" alt="404" />
         <img :src="middleErrorLetter" class="middle-logo" alt="404" />
@@ -20,13 +20,13 @@
         <span class="canopas-gradient-text">Back to Home page</span>
       </a>
     </div>
-    <ScreenFooter />
+    <ScreenFooter2 />
   </div>
 </template>
 
 <script>
 import ScreenHeader from "./partials/ScreenHeader.vue";
-import ScreenFooter from "./partials/ScreenFooter.vue";
+import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
 import firstErrorLetter from "@/assets/images/logo/404page_4_1.svg";
 import middleErrorLetter from "@/assets/images/logo/canopas-icon.svg";
@@ -45,7 +45,7 @@ export default {
   },
   components: {
     ScreenHeader,
-    ScreenFooter,
+    ScreenFooter2,
     ScreenMeta,
     FontAwesomeIcon,
   },
@@ -56,19 +56,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.error-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.not-found-container {
+.container {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
   flex-direction: column;
-  margin: 16px;
+  margin: 0 auto;
+  padding: 150px 5%;
+  min-height: 50vh;
 }
 
 .image-404 {
@@ -122,12 +117,5 @@ export default {
   color: #f2709c;
   font-size: 1.5rem;
   margin-right: 16px;
-}
-
-@include media-breakpoint-up(md) {
-  .not-found-container {
-    width: 50%;
-    margin: 16px auto;
-  }
 }
 </style>

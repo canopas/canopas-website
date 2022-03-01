@@ -6,10 +6,9 @@ export default Object.freeze({
   LINKEDIN_URL: "https://www.linkedin.com/company/canopasinc",
   MEDIUM_URL: "https://medium.com/canopas",
   BLOG_URL: "https://blog.canopas.com",
-  JOBS_URL: "https://jobs.canopas.com",
   API_BASE: "https://prod-stack-api.canopas.com",
+  BASE_URL: "https://canopas.com",
   CALENDLY_IFRAME_URL: "https://calendly.com/darpanvithani/15min",
-  IS_SHOW_JOBS: false,
   SEO_META_DATA: {
     title:
       "Canopas - A software development company in surat helping businesses bring their idea to life!",

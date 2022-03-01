@@ -1,5 +1,4 @@
 import { createWebHistory, createRouter } from "vue-router";
-import Config from "@/config.js";
 
 // Don't lazy load home screen
 import HomeScreen from "@/components/HomeScreen.vue";
@@ -26,27 +25,22 @@ const routes = [
     name: "Error404Page",
     component: Error404Page,
   },
+  {
+    path: "/jobs",
+    name: "JobsScreen",
+    component: JobsScreen,
+  },
+  {
+    path: "/jobs/:id",
+    name: "CareerDetailsPage",
+    component: CareerDetailsPage,
+  },
+  {
+    path: "/jobs/apply/:id",
+    name: "ApplyForCareerPage",
+    component: ApplyForCareerPage,
+  },
 ];
-
-if (Config.IS_SHOW_JOBS) {
-  routes.push(
-    {
-      path: "/jobs",
-      name: "JobsScreen",
-      component: JobsScreen,
-    },
-    {
-      path: "/jobs/:id",
-      name: "CareerDetailsPage",
-      component: CareerDetailsPage,
-    },
-    {
-      path: "/jobs/apply/:id",
-      name: "ApplyForCareerPage",
-      component: ApplyForCareerPage,
-    }
-  );
-}
 
 const router = createRouter({
   history: createWebHistory(),

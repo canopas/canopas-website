@@ -4,7 +4,6 @@ import (
 	"encoding/xml"
 	"jobs"
 	"net/http"
-	"strings"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -44,18 +43,16 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 		{Loc: blogsUrl, Priority: `0.8`},
 	}
 
-	if strings.Contains(baseUrl, "dev-stack") {
-		careers, err := repository.careerRepo.GetCareers()
+	careers, err := repository.careerRepo.GetCareers()
 
-		if err != nil {
-			c.AbortWithStatus(http.StatusInternalServerError)
-			return
-		}
+	if err != nil {
+		c.AbortWithStatus(http.StatusInternalServerError)
+		return
+	}
 
-		for i := range careers {
-			sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
-			sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
-		}
+	for i := range careers {
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
 	}
 
 	//get first day of current month
