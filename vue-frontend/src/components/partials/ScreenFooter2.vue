@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <img :src="backgroundFooterImage" class="background" />
     <div class="container text-center">
-      <div class="container-flex">
+      <div class="container-flex" v-if="isJobsUrl">
         <a :href="glassdoorLink">
           <img :src="glassdoorImage" class="glassdoor-img" />
         </a>
@@ -49,6 +49,7 @@ import {
 import backgroundFooterImage from "@/assets/images/footer/Canopas-footer-img.svg";
 import glassdoorImage from "@/assets/images/footer/glassdoor.webp";
 import Config from "@/config.js";
+import router from "@/router";
 
 export default {
   data() {
@@ -80,6 +81,7 @@ export default {
           icon: faLinkedinIn,
         },
       ],
+      isJobsUrl: router.currentRoute.value.fullPath.indexOf("/jobs") > -1,
     };
   },
   components: {

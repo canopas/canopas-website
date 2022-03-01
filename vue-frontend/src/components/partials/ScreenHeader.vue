@@ -105,7 +105,7 @@ export default {
 }
 
 .navbar {
-  padding: 10px 3%;
+  padding: 10px 2%;
   width: 100%;
   background: #fff;
   position: absolute;
@@ -168,15 +168,11 @@ export default {
   }
 
   .navbar {
-    padding: 20px 10%;
+    padding: 20px 0;
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .navbar {
-    padding: 20px 14%;
-  }
-
   .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;

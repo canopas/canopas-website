@@ -2,28 +2,23 @@
   <div>
     <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
-    <div v-if="isLoading" class="loader-div">
-      <img :src="loader" />
-    </div>
+    <ScreenLoader v-if="isLoading" />
     <div v-else>
+      <ScreenLoader v-if="isLoad" v-bind:loader="true" />
       <div
         class="container form-container"
         :style="{
-          'pointer-events': isLoading ? 'none' : '',
-          filter: isLoading ? 'blur(1px)' : '',
+          'pointer-events': isLoad ? 'none' : '',
+          filter: isLoad ? 'blur(1px)' : '',
         }"
       >
         <div class="job-application">
-          <div class="header-text text-center canopas-gradient-text">
+          <div class="header-2-text text-center canopas-gradient-text pb-3">
             Applying For {{ title }}
           </div>
           <form class="contact-form-text pt-5 pb-5">
             <div class="row">
-              <span class="required-field-msg mb-5"
-                >All fields marked with * are required.</span
-              >
-
-              <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+              <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
                 <label class="required">Full Name</label>
                 <input
                   class="form-control custom"
@@ -38,7 +33,7 @@
                 >
               </div>
 
-              <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+              <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
                 <label class="required">Email</label>
                 <input
                   class="form-control custom"
@@ -91,9 +86,8 @@
                   <div>
                     <input
                       name="howdidyoufindcanopas"
-                      class="reference-option-text"
                       type="text"
-                      placeholder="choose any one"
+                      placeholder="Choose anyone"
                       id="reference-option-text"
                       readonly
                       v-model="reference"
@@ -131,16 +125,17 @@
                 <textarea
                   class="form-control custom"
                   name="message"
-                  rows="5"
+                  rows="1"
                   v-model="message"
                 ></textarea>
               </div>
 
               <div class="col-lg-5 col-md-5 col-sm-12">
-                <label class="required"
-                  >Resume <br />
+                <label class="required">Resume </label>
+                <br />
+                <label>
                   <i>Supported formats:</i
-                  ><span class="black pdf-text">.PDF</span>
+                  ><span class="black pdf-text">PDF</span>
                   <i>only</i>
                 </label>
               </div>
@@ -176,6 +171,9 @@
                 />
                 <span>Apply Now</span>
               </button>
+            </div>
+            <div class="required-field-msg">
+              All fields marked with * are required.
             </div>
           </form>
         </div>
@@ -348,10 +346,10 @@ import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
+import ScreenLoader from "./utils/ScreenLoader.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import loader from "@/assets/images/theme/loader.svg";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
@@ -409,7 +407,6 @@ export default {
         },
       ],
       checkCircle: faCheckCircle,
-      loader: loader,
       currentReferenceIndex: -1,
       fullName: "",
       email: "",
@@ -420,6 +417,7 @@ export default {
       message: "",
       file: "",
       isLoading: true,
+      isLoad: false,
       isShowingReferenceInput: false,
       showValidationError: false,
       showEmailValidationError: false,
@@ -441,6 +439,7 @@ export default {
     ScreenFooter2,
     ScreenMeta,
     FontAwesomeIcon,
+    ScreenLoader,
   },
   mounted() {
     this.$gtag.event("view_page_job_apply");
@@ -452,8 +451,7 @@ export default {
       axios
         .get(config.API_BASE + "/api/careers/" + this.$route.params.id)
         .then((res) => {
-          setTimeout(() => (this.isLoading = false), 1000);
-
+          this.isLoading = false;
           this.title = res.data.title;
           this.prepareSEOdata(res.data);
         })
@@ -525,9 +523,8 @@ export default {
     },
     submitApplication() {
       this.$gtag.event("job_submit");
-
       this.showReviewFormPopup = false;
-      this.isLoading = true;
+      this.isLoad = true;
       const formData = new FormData();
       formData.append("job_title", this.title);
       formData.append("name", this.fullName);
@@ -551,14 +548,14 @@ export default {
       axios
         .post(config.API_BASE + "/api/send-career-mail", formData)
         .then(() => {
-          this.isLoading = false;
+          this.isLoad = false;
           this.showSuccessMessagePopup = true;
           setTimeout(() => {
             this.$router.push("/");
           }, 2000);
         })
         .catch(() => {
-          this.isLoading = false;
+          this.isLoad = false;
           this.showErrorMessagePopup = true;
         });
     },
@@ -572,7 +569,7 @@ export default {
 }
 
 .form-container {
-  margin: 80px auto;
+  margin: 80px auto 150px;
 }
 
 .job-application {
@@ -628,6 +625,7 @@ input:-webkit-autofill:active {
 }
 
 .required-field-msg {
+  margin-top: 48px;
   color: #ff0000;
 }
 
@@ -660,14 +658,6 @@ input:-webkit-autofill:active {
 .application-submit-btns {
   display: flex;
   justify-content: center;
-}
-
-.loader-div {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
 }
 
 /* for dropdown list */
@@ -710,7 +700,6 @@ input:-webkit-autofill:active {
   height: 100%;
   cursor: pointer;
   background: #fff;
-  font-size: 1.2em;
   border: none;
   outline: none;
   padding: 12px 0;
@@ -795,18 +784,13 @@ input:-webkit-autofill:active {
     padding: 16px 80px;
   }
 
-  .header-text {
-    font-size: 2.5rem;
-    line-height: 2.729rem;
-  }
-
   .contact-form-text,
   .contact-form-text:hover {
     font-size: 1.125rem;
   }
 
   .job-application {
-    padding: 48px;
+    padding: 48px 48px 0;
   }
 }
 

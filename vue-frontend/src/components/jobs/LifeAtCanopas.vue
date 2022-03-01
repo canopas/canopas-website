@@ -66,11 +66,11 @@ export default {
         },
         {
           id: 2,
-          image: require("@/assets/images/life/jobs_canopas_life_2.webp"),
+          image: require("@/assets/images/life/jobs_canopas_life_3.webp"),
         },
         {
           id: 3,
-          image: require("@/assets/images/life/jobs_canopas_life_3.webp"),
+          image: require("@/assets/images/life/jobs_canopas_life_6.webp"),
         },
         {
           id: 4,
@@ -78,11 +78,11 @@ export default {
         },
         {
           id: 5,
-          image: require("@/assets/images/life/jobs_canopas_life_5.webp"),
+          image: require("@/assets/images/life/jobs_canopas_life_2.webp"),
         },
         {
           id: 6,
-          image: require("@/assets/images/life/jobs_canopas_life_6.webp"),
+          image: require("@/assets/images/life/jobs_canopas_life_5.webp"),
         },
       ],
       pagination: {
