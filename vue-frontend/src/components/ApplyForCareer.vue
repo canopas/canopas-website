@@ -5,13 +5,7 @@
     <ScreenLoader v-if="isLoading" />
     <div v-else>
       <ScreenLoader v-if="isLoad" v-bind:loader="true" />
-      <div
-        class="container form-container"
-        :style="{
-          'pointer-events': isLoad ? 'none' : '',
-          filter: isLoad ? 'blur(1px)' : '',
-        }"
-      >
+      <div class="container form-container">
         <div class="job-application">
           <div class="header-2-text text-center canopas-gradient-text pb-3">
             Applying For {{ title }}
@@ -290,14 +284,13 @@
                     <div
                       class="jobs-normal-text canopas-gradient-text text-center"
                     >
-                      Thank you for choosing us to make a difference in your
-                      business.
+                      Congratulations !!
                     </div>
                   </div>
                   <div class="modal-body">
                     <div class="normal-2-text">
-                      If you prefer to chat or email, sit back and relax our
-                      team will get back to you within 24 hours.
+                      We have received your job application, sit back and relax!
+                      Our team will contact you within 24 hours.
                     </div>
                   </div>
                 </div>
@@ -771,7 +764,7 @@ input:-webkit-autofill:active {
 }
 
 .modal-content {
-  padding: 32px;
+  padding: 10px;
   border-radius: 25px;
 }
 

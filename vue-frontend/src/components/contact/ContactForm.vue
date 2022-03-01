@@ -505,7 +505,6 @@ export default {
       this.currentWebsiteIndex = i;
     },
     submitApplication() {
-      this.$emit("isLoading", true);
       let designationValue, designationInfo;
 
       if (this.name === "" || this.email === "") {
@@ -514,6 +513,7 @@ export default {
         this.$gtag.event("contact_submit");
 
         this.showValidationError = false;
+        this.$emit("isLoading", true);
         if (this.designationType == 0) {
           designationValue =
             "I am individual entrepreneur running my own business.";
@@ -894,7 +894,7 @@ input:-webkit-autofill:active {
 
 .modal-content {
   border-radius: 25px !important;
-  padding: 32px;
+  padding: 10px;
 }
 
 .modal-close-btn {
