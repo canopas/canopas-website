@@ -1,22 +1,20 @@
 <template>
-  <div class="container-fluid">
-    <div class="container">
-      <div class="contact-title">Hey smarty,</div>
-      <div class="normal-text contact-description">
-        <p>
-          Thanks for reaching out to us. We’re happy to help you achieve your
-          goals and dreams.
-        </p>
-        <p>
-          As you’re landed here, I guess you’re looking for help with your idea
-          or existing product and you’re wondering how our team can help you.
-        </p>
-        <p>
-          We will guide you through the process so you don’t have to worry about
-          it. Before that, you gotta fill up the form so we can know more about
-          you before we approach you.
-        </p>
-      </div>
+  <div class="container">
+    <div class="contact-title">Hey smarty,</div>
+    <div class="normal-text contact-description">
+      <p>
+        Thanks for reaching out to us. We’re happy to help you achieve your
+        goals and dreams.
+      </p>
+      <p>
+        As you’re landed here, I guess you’re looking for help with your idea or
+        existing product and you’re wondering how our team can help you.
+      </p>
+      <p>
+        We will guide you through the process so you don’t have to worry about
+        it. Before that, you gotta fill up the form so we can know more about
+        you before we approach you.
+      </p>
     </div>
   </div>
 </template>
@@ -28,12 +26,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.container-fluid {
-  padding: 0 10%;
-}
-
 .container {
   margin: 48px auto;
+  padding: 0 5%;
 }
 
 .contact-title {

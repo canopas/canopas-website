@@ -13,9 +13,7 @@
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
     <ScreenHeader />
-    <div v-if="isLoading" class="loader-div">
-      <img :src="loader" />
-    </div>
+    <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
         <div class="modal-mask">
@@ -76,10 +74,10 @@ import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
+import ScreenLoader from "./utils/ScreenLoader.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import loader from "@/assets/images/theme/loader.svg";
 import router from "@/router";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import moment from "moment";
@@ -97,7 +95,6 @@ export default {
       details: null,
       description: "",
       checkCircle: faCheckCircle,
-      loader: loader,
       isLoading: true,
       showErrorMessagePopup: false,
       showJobs: config.IS_SHOW_JOBS,
@@ -117,6 +114,7 @@ export default {
     ScreenFooter2,
     ScreenMeta,
     FontAwesomeIcon,
+    ScreenLoader,
   },
   mounted() {
     this.getCareerDetails();
@@ -129,8 +127,7 @@ export default {
       axios
         .get(config.API_BASE + "/api/careers/" + id)
         .then((res) => {
-          setTimeout(() => (this.isLoading = false), 1000);
-
+          this.isLoading = false;
           this.details = res.data;
           this.jobLink = "/jobs/apply/" + this.details.unique_id;
           this.description = this.details.description;
@@ -317,14 +314,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.loader-div {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-}
-
 .container {
   padding: 48px 16px;
 }
@@ -431,7 +420,7 @@ export default {
 
 @include media-breakpoint-up(md) {
   .container {
-    padding: 96px;
+    padding: 96px 96px 150px;
   }
 
   .canopas-gradient-text {

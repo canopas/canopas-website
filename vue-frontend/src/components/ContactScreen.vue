@@ -2,9 +2,7 @@
   <div ref="contactScreen">
     <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
-    <div v-if="isLoading" class="loader-div">
-      <img :src="loader" />
-    </div>
+    <ScreenLoader v-if="isLoading" v-bind:loader="true" />
     <div
       :style="{
         'pointer-events': isLoading ? 'none' : '',
@@ -24,10 +22,10 @@ import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
+import ScreenLoader from "./utils/ScreenLoader.vue";
 import ContactLanding from "./contact/ContactLanding.vue";
 import ContactForm from "./contact/ContactForm.vue";
 import Config from "@/config.js";
-import loader from "@/assets/images/theme/loader.svg";
 
 export default {
   components: {
@@ -37,12 +35,12 @@ export default {
     ScreenFooter2,
     ScreenMeta,
     ContactForm,
+    ScreenLoader,
   },
   data() {
     return {
       showJobs: Config.IS_SHOW_JOBS,
       isLoading: false,
-      loader: loader,
       seoData: Config.SEO_META_DATA,
     };
   },
@@ -61,12 +59,4 @@ export default {
 };
 </script>
 
-<style scoped>
-.loader-div {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-}
-</style>
+<style scoped></style>

@@ -47,9 +47,10 @@
                       :key="faq.answer"
                     >
                       <div class="faq-icon"></div>
-                      <div class="normal-2-text faq-answer mt-3">
-                        {{ faq.answer }}
-                      </div>
+                      <div
+                        class="normal-2-text faq-answer mt-3"
+                        v-html="faq.answer"
+                      ></div>
                     </div>
                   </collapse-transition>
                   <div class="faq-divider" v-if="faq.id != faq.length"></div>
@@ -104,8 +105,11 @@ export default {
         {
           id: 1,
           question: "What are the top skills you look for in a candidate?",
-          answer:
-            "It mostly depends on the job you’re applying for. Usually, we look for a deep desire to learn, willingness to work hard, always looking for a challenge, not afraid to leave your comfort zone, and a desire to excel.",
+          answer: `It mostly depends on the job you are applying for. Usually, apart from the technical skills, we look for someone who, </br>
+                   - has a deep desire to learn and excel </br>
+                   - has a willingness to work hard</br>
+                   - is looking for a challenging environment</br>
+                   - is not afraid to leave the comfort zone</br>`,
         },
         {
           id: 2,
@@ -244,12 +248,12 @@ export default {
   box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   padding: 15px;
+  cursor: pointer;
 }
 
 .faq-header {
   display: flex;
   flex-direction: row;
-  cursor: pointer;
 }
 
 .faq-icon {
