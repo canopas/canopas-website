@@ -3,12 +3,7 @@
     <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
-    <div
-      :style="{
-        'pointer-events': isLoading ? 'none' : '',
-        filter: isLoading ? 'blur(1px)' : '',
-      }"
-    >
+    <div>
       <ContactLanding />
       <ContactForm v-on:isLoading="setLoader" />
     </div>

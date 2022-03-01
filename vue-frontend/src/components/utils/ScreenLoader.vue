@@ -1,6 +1,6 @@
 <template>
-  <div class="loader-div" v-if="isLoad">
-    <img :src="loaderImage" />
+  <div :class="loader ? 'loader-div' : ''" v-if="isLoad">
+    <img class="loader-image" :src="loaderImage" />
   </div>
 </template>
 
@@ -21,9 +21,21 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .loader-div {
-  position: absolute;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: table;
+  transition: opacity 0.3s ease;
+}
+
+.loader-image {
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
