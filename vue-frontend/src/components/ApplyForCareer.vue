@@ -335,20 +335,19 @@
           </transition>
         </div>
       </div>
-      <ScreenFooter v-if="!showJobs" />
-      <ScreenFooter2 v-if="showJobs" />
+      <ScreenFooter2 />
     </div>
   </div>
 </template>
 
 <script>
 import ScreenHeader from "./partials/ScreenHeader.vue";
-import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
 import ScreenLoader from "./utils/ScreenLoader.vue";
 import axios from "axios";
 import config from "@/config.js";
+import router from "@/router";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -426,7 +425,6 @@ export default {
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
       showReviewFormPopup: false,
-      showJobs: config.IS_SHOW_JOBS,
       seoData: {
         type: "Jobs Posting Website",
         url: location.toString(),
@@ -435,7 +433,6 @@ export default {
   },
   components: {
     ScreenHeader,
-    ScreenFooter,
     ScreenFooter2,
     ScreenMeta,
     FontAwesomeIcon,
@@ -448,16 +445,24 @@ export default {
   },
   methods: {
     getCareerDetails() {
+      var id = this.$route.params.id;
       axios
-        .get(config.API_BASE + "/api/careers/" + this.$route.params.id)
+        .get(config.API_BASE + "/api/careers/" + id)
         .then((res) => {
           this.isLoading = false;
           this.title = res.data.title;
           this.prepareSEOdata(res.data);
         })
-        .catch(() => {
+        .catch((err) => {
           this.isLoading = false;
-          this.showErrorMessagePopup = true;
+          if (err.response && err.response.status == 404) {
+            router.push({
+              name: "Error404Page",
+              params: { catchAll: "jobs/" + id },
+            });
+          } else {
+            this.showErrorMessagePopup = true;
+          }
         });
     },
     prepareSEOdata(job) {

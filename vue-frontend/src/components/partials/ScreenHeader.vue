@@ -62,7 +62,7 @@ export default {
   data() {
     return {
       headerLogoImage: headerLogoImage,
-      careerURL: Config.IS_SHOW_JOBS ? "/jobs" : Config.JOBS_URL,
+      careerURL: "/jobs",
       blogsURL: Config.BLOG_URL,
       navbarSticky: false,
       navbarAnimation: false,

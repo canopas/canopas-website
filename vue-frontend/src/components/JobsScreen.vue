@@ -46,7 +46,7 @@ export default {
         description:
           "Canopas is looking for professionals who are ready to step out of their comfort zones, want to acquire new skills, and want to make an impact in the world with their work.",
         type: "Jobs Posting Website",
-        url: config.JOBS_URL,
+        url: config.BASE_URL + "/jobs",
       },
     };
   },

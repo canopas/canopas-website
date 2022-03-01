@@ -63,15 +63,13 @@
           </router-link>
         </div>
       </div>
-      <ScreenFooter v-if="!showJobs" />
-      <ScreenFooter2 v-if="showJobs" />
+      <ScreenFooter2 />
     </div>
   </div>
 </template>
 
 <script>
 import ScreenHeader from "./partials/ScreenHeader.vue";
-import ScreenFooter from "./partials/ScreenFooter.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
 import ScreenLoader from "./utils/ScreenLoader.vue";
@@ -97,7 +95,6 @@ export default {
       checkCircle: faCheckCircle,
       isLoading: true,
       showErrorMessagePopup: false,
-      showJobs: config.IS_SHOW_JOBS,
       jsonld: {},
       jobPosted: "",
       validThrough: "",
@@ -110,7 +107,6 @@ export default {
   },
   components: {
     ScreenHeader,
-    ScreenFooter,
     ScreenFooter2,
     ScreenMeta,
     FontAwesomeIcon,
