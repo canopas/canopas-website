@@ -62,27 +62,27 @@ export default {
       slides: [
         {
           id: 1,
-          image: require("@/assets/images/life/jobs_canopas_life_1.webp"),
-        },
-        {
-          id: 2,
-          image: require("@/assets/images/life/jobs_canopas_life_3.webp"),
-        },
-        {
-          id: 3,
-          image: require("@/assets/images/life/jobs_canopas_life_6.webp"),
-        },
-        {
-          id: 4,
-          image: require("@/assets/images/life/jobs_canopas_life_4.webp"),
-        },
-        {
-          id: 5,
           image: require("@/assets/images/life/jobs_canopas_life_2.webp"),
         },
         {
-          id: 6,
+          id: 2,
+          image: require("@/assets/images/life/jobs_canopas_life_1.webp"),
+        },
+        {
+          id: 3,
+          image: require("@/assets/images/life/jobs_canopas_life_4.webp"),
+        },
+        {
+          id: 4,
+          image: require("@/assets/images/life/jobs_canopas_life_3.webp"),
+        },
+        {
+          id: 5,
           image: require("@/assets/images/life/jobs_canopas_life_5.webp"),
+        },
+        {
+          id: 6,
+          image: require("@/assets/images/life/jobs_canopas_life_6.webp"),
         },
       ],
       pagination: {
