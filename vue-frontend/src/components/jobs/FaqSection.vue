@@ -95,7 +95,7 @@ import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTrans
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import faqImage from "@/assets/images/faq/FAQ.svg";
 
-const TOTAL_FAQ_IN_SLIDE = 6;
+const TOTAL_FAQ_IN_SLIDE = 5;
 
 export default {
   data() {
@@ -130,40 +130,34 @@ export default {
         },
         {
           id: 5,
-          question: "How can I prepare?",
-          answer:
-            "Write answers for the engineering, HR, and marketing team separately.",
-        },
-        {
-          id: 6,
           question: "What should I wear?",
           answer: "Whatever makes you comfortable. We don’t have a dress code.",
         },
         {
-          id: 7,
+          id: 6,
           question: "What does the hiring process look like?",
           answer:
             "You will be greeted by HR when you visit us for an interview. There will be two rounds of interviews. Technical or Non-technical followed by an HR interview. ",
         },
         {
-          id: 8,
+          id: 7,
           question: "How much time will the interview take?",
           answer: "Max 1 hour.",
         },
         {
-          id: 9,
+          id: 8,
           question: "How should I apply?",
           answer:
             "Browse through all openings available on this website and apply for positions you’re looking for. If any job doesn’t match with your skills, you can check back later.",
         },
         {
-          id: 10,
+          id: 9,
           question: "How much experience do I need?",
           answer:
             "You will find more details about it in the job descriptions page.",
         },
         {
-          id: 11,
+          id: 10,
           question: "I’m a college graduate. Do you hire freshers?",
           answer:
             "Yes, We are always looking for people who want a challenging career with personal growth. You can apply from the available openings that you find most interesting.",
@@ -287,7 +281,7 @@ button[disabled] {
 }
 
 .faq-section {
-  min-height: 33rem;
+  min-height: 28rem;
   height: auto;
 }
 
@@ -344,7 +338,7 @@ button[disabled] {
   }
 
   .faq-section {
-    min-height: 40rem;
+    min-height: 33rem;
   }
 
   .underline-text {

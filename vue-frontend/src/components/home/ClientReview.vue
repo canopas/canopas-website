@@ -302,7 +302,7 @@ export default {
 .client-review-slider {
   margin: 0 auto;
   position: relative;
-  height: 350px;
+  height: 430px;
   width: 100%;
 }
 
@@ -348,6 +348,12 @@ export default {
 }
 .review-prev-leave-to {
   transform: translate(150%);
+}
+
+@include media-breakpoint-up(sm) {
+  .client-review-slider {
+    height: 350px;
+  }
 }
 
 @include media-breakpoint-up(md) {
