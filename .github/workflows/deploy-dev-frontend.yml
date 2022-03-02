@@ -47,5 +47,5 @@ jobs:
       - name: Upload to S3
         run: |
           cd vue-frontend
-          aws s3 sync --delete --cache-control 'max-age=31536000' --exclude *.html dist/ s3://dev-stack-canopas-v1-frontend/
+          aws s3 sync --delete --cache-control 'max-age=31536000' --exclude *.html --exclude sitemap.xml dist/ s3://dev-stack-canopas-v1-frontend/
           aws s3 sync --cache-control 'no-cache' dist/ s3://dev-stack-canopas-v1-frontend/
