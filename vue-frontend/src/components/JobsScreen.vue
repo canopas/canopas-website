@@ -71,7 +71,7 @@ export default {
     },
   },
   mounted() {
-    this.$gtag.event("view_page_home");
+    this.$gtag.event("view_page_jobs");
   },
 };
 </script>
