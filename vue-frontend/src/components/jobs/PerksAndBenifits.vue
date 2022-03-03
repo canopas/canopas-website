@@ -53,7 +53,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: require("@/assets/images/perks/jobs_canopas_perks_1.webp"),
+          image: require("@/assets/images/perks/jobs_canopas_perks_1.jpg"),
           description: "",
         },
         {
@@ -70,7 +70,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: require("@/assets/images/perks/jobs_canopas_perks_2.webp"),
+          image: require("@/assets/images/perks/jobs_canopas_perks_2.jpg"),
           description: "",
         },
         {
@@ -87,7 +87,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: require("@/assets/images/perks/jobs_canopas_perks_3.webp"),
+          image: require("@/assets/images/perks/jobs_canopas_perks_3.jpg"),
           description: "",
         },
         {
@@ -104,7 +104,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: require("@/assets/images/perks/jobs_canopas_perks_4.webp"),
+          image: require("@/assets/images/perks/jobs_canopas_perks_4.jpg"),
           description: "",
         },
         {
@@ -121,7 +121,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: require("@/assets/images/perks/jobs_canopas_perks_5.webp"),
+          image: require("@/assets/images/perks/jobs_canopas_perks_5.jpg"),
           description: "",
         },
         {
@@ -138,7 +138,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: require("@/assets/images/perks/jobs_canopas_perks_6.webp"),
+          image: require("@/assets/images/perks/jobs_canopas_perks_6.jpg"),
           description: "",
         },
         {
@@ -155,7 +155,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: require("@/assets/images/perks/jobs_canopas_perks_7.webp"),
+          image: require("@/assets/images/perks/jobs_canopas_perks_7.jpg"),
           description: "",
         },
         {
@@ -171,7 +171,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: require("@/assets/images/perks/jobs_canopas_perks_8.webp"),
+          image: require("@/assets/images/perks/jobs_canopas_perks_8.jpg"),
           description: "",
         },
       ],
