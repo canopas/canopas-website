@@ -201,7 +201,7 @@ export default {
           : this.sliceTo - TOTAL_FAQ_IN_SLIDE;
 
       this.isActivePrev = this.sliceFrom >= TOTAL_FAQ_IN_SLIDE;
-      this.isActiveNext = this.sliceTo <= this.faqs.length;
+      this.isActiveNext = this.sliceTo < this.faqs.length;
       this.current = this.getRoundedIndex(dir);
     },
     getRoundedIndex(diff) {
@@ -248,6 +248,7 @@ export default {
 .faq-header {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .faq-icon {
