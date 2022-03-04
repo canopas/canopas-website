@@ -86,17 +86,17 @@ a {
 .jobs-normal-text {
   font-style: normal;
   font-weight: 400;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   line-height: 1.5rem;
   color: rgba(61, 61, 61, 0.8);
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .normal-2-text {
   font-style: normal;
   font-weight: 400;
-  font-size: 0.9rem;
-  line-height: 1rem;
+  font-size: 1.1rem;
+  line-height: 1.3rem;
   color: rgba(61, 61, 61, 0.8);
 }
 
@@ -111,7 +111,7 @@ a {
   font-weight: bold;
   font-size: 1.25rem;
   line-height: 1.6rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.5px;
 }
 
 .underline-text {
@@ -219,13 +219,8 @@ a {
 
   .normal-text,
   .jobs-normal-text {
-    font-size: 1.125rem;
+    font-size: 1.2rem;
     line-height: 1.375rem;
-  }
-
-  .normal-2-text {
-    font-size: 1rem;
-    line-height: 1.18rem;
   }
 
   .underline-text {
@@ -252,7 +247,7 @@ a {
 
   .normal-2-text {
     font-size: 1.1875rem;
-    line-height: 1.437rem;
+    line-height: 1.4rem;
   }
 
   .gradient-btn {

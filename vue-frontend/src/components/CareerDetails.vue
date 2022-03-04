@@ -364,6 +364,7 @@ export default {
   font-size: 1.5rem !important;
   line-height: 2rem !important;
   letter-spacing: 0.05rem;
+  padding: 12px 0;
 }
 
 :deep(h2 > .bullet) {

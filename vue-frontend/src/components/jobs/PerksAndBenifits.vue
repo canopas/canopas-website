@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="flex-div">
-      <div v-for="perk in perks" :key="perk.id" class="padding flex-elements">
+      <div v-for="perk in perks" :key="perk.id" class="flex-elements">
         <aspect-ratio height="120%" v-if="perk.image">
           <img
             class="image"
@@ -20,18 +20,13 @@
             alt="perks-and-benefits-image"
           />
         </aspect-ratio>
-        <aspect-ratio
-          height="90%"
-          v-else
-          class="padding"
-          :style="{ backgroundColor: perk.bgColor }"
-        >
-          <div class="details padding">
+        <aspect-ratio v-else :style="{ backgroundColor: perk.bgColor }">
+          <div class="details">
             <div class="normal-2-text title">
               <img :src="perk.icon" loading="lazy" />
               <span>{{ perk.title }}</span>
             </div>
-            <div class="normal-2-text desc-text">
+            <div class="normal-2-text text-center">
               <div v-html="perk.description" @click="scrollToCareer"></div>
             </div>
           </div>
@@ -193,15 +188,12 @@ export default {
 <style lang="scss" scoped>
 .container {
   margin: 100px auto;
+  padding: 0 10%;
 }
 
 .description {
   margin: 30px 10px;
   color: rgba(61, 61, 61, 0.8);
-}
-
-.padding {
-  padding: 10px;
 }
 
 .flex-div {
@@ -215,8 +207,14 @@ export default {
   border-radius: 10px;
 }
 
+.flex-elements {
+  padding: 20px;
+}
+
 .flex-elements:nth-child(even) {
-  padding: 10px 30px;
+  .vue-aspect-ratio {
+    padding-top: 120% !important;
+  }
 }
 
 .image {
@@ -229,36 +227,65 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100%;
+  padding: 16px;
+
+  div {
+    flex: none !important;
+  }
+
+  .text-center {
+    margin-top: 10px;
+  }
 }
 
 .title {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
   color: #3d3d3d;
   font-weight: 700;
 
   span {
     margin-left: 10px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
 
-.desc-text {
-  text-align: center;
-  padding-top: 10px;
-}
-
-@include media-breakpoint-up(sm) {
+@media (min-width: 440px) {
   .flex-elements:nth-child(even) {
-    padding: 10px 35px;
+    padding: 10px 40px;
   }
+
   .details {
     padding: 40px;
+  }
+
+  .flex-elements:nth-child(even) {
+    .vue-aspect-ratio {
+      padding-top: 100% !important;
+    }
+  }
+}
+
+@include media-breakpoint-only(md) {
+  .container {
+    max-width: 760px;
+  }
+
+  .flex-elements:nth-child(even) {
+    .vue-aspect-ratio {
+      padding-top: 120% !important;
+    }
   }
 }
 
 @include media-breakpoint-up(md) {
+  .container {
+    padding: 0;
+  }
+
   .description {
     margin: 50px 80px;
   }
@@ -273,38 +300,28 @@ export default {
     }
   }
 
-  .flex-elements:nth-child(even),
-  .details {
-    padding: 9px;
+  .flex-elements,
+  .flex-elements:nth-child(even) {
+    padding: 10px;
   }
 
   .details {
-    height: auto;
-  }
-
-  .title {
-    justify-content: unset;
-  }
-
-  .desc-text {
-    text-align: left;
+    padding: 16px;
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .padding {
+  .flex-elements,
+  .flex-elements:nth-child(even) {
     padding: 20px;
+  }
+
+  .details {
+    padding: 30px;
   }
 }
 
 @include media-breakpoint-up(xl) {
-  .title,
-  .desc-text {
-    padding-top: 20px;
-  }
-}
-
-@include media-breakpoint-up(xxl) {
   .details {
     padding: 40px;
   }

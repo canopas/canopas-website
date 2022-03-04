@@ -12,7 +12,7 @@
             <div class="image">
               <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
             </div>
-            <div class="virtue-text red-text">
+            <div class="virtue-text red-text jobs-normal-text">
               {{ virtue.title }}
             </div>
           </div>
@@ -20,7 +20,7 @@
             class="description"
             :class="activeIndex == virtue.id ? 'active' : ''"
           >
-            <div class="red-text">
+            <div class="red-text jobs-normal-text">
               {{ virtue.title }}
             </div>
             <div class="normal-2-text">
@@ -39,7 +39,7 @@
             <div class="image">
               <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
             </div>
-            <div class="virtue-text red-text">
+            <div class="virtue-text red-text jobs-normal-text">
               {{ virtue.title }}
             </div>
           </div>
@@ -47,7 +47,7 @@
             class="description"
             :class="activeIndex == virtue.id ? 'active' : ''"
           >
-            <div class="red-text">
+            <div class="red-text jobs-normal-text">
               {{ virtue.title }}
             </div>
             <div class="normal-2-text">
@@ -66,7 +66,7 @@
             <div class="image">
               <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
             </div>
-            <div class="virtue-text red-text">
+            <div class="virtue-text red-text jobs-normal-text">
               {{ virtue.title }}
             </div>
           </div>
@@ -74,7 +74,7 @@
             class="description"
             :class="activeIndex == virtue.id ? 'active' : ''"
           >
-            <div class="red-text">
+            <div class="red-text jobs-normal-text">
               {{ virtue.title }}
             </div>
             <div class="normal-2-text">
@@ -93,7 +93,7 @@
             <div class="image">
               <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
             </div>
-            <div class="virtue-text red-text">
+            <div class="virtue-text red-text jobs-normal-text">
               {{ virtue.title }}
             </div>
           </div>
@@ -101,7 +101,7 @@
             class="description"
             :class="activeIndex == virtue.id ? 'active' : ''"
           >
-            <div class="red-text">
+            <div class="red-text jobs-normal-text">
               {{ virtue.title }}
             </div>
             <div class="normal-2-text">
@@ -213,10 +213,6 @@ export default {
 }
 
 .red-text {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5rem;
   color: #e8505b;
 }
 
@@ -228,6 +224,7 @@ export default {
 .flex-div {
   display: flex;
   flex-flow: wrap;
+  margin: auto;
 }
 
 .flex-div > div {
@@ -239,7 +236,8 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5% 0;
+  margin: 5% auto;
+  padding: 0 10%;
 
   div {
     margin-bottom: 5%;
@@ -252,8 +250,8 @@ export default {
 
 .description {
   position: absolute;
-  height: 100%;
-  width: 75%;
+  height: auto;
+  width: 290px;
   left: 50%;
   top: 0;
   bottom: 0;
@@ -272,17 +270,13 @@ export default {
   transition: all 0.4s ease-in-out 0s;
 
   div {
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     width: 100%;
   }
 }
 
 .active {
   opacity: 1;
-}
-
-.normal-2-text {
-  margin-top: 20px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -308,6 +302,10 @@ export default {
 }
 
 @include media-breakpoint-up(sm) {
+  .container {
+    padding: 0%;
+  }
+
   .background {
     border-radius: 150px 0;
   }
@@ -318,6 +316,7 @@ export default {
 
   .details {
     margin: 2% 0;
+    padding: 0;
   }
 
   .image {
@@ -331,13 +330,8 @@ export default {
     border-radius: 200px 0;
   }
 
-  .flex-div {
-    width: 90%;
-    margin: auto;
-  }
-
   .flex-div:nth-of-type(even) {
-    width: 60%;
+    width: 70%;
   }
 
   .flex-div > div {
@@ -345,8 +339,7 @@ export default {
   }
 
   .description {
-    width: 100%;
-    padding: 1%;
+    width: 90%;
 
     div {
       margin-bottom: 0;
@@ -362,9 +355,8 @@ export default {
     padding-bottom: 50%;
   }
 
-  .red-text {
-    font-size: 1.18rem;
-    line-height: 1.25rem;
+  .normal-2-text {
+    margin-top: 10px;
   }
 }
 
@@ -382,8 +374,8 @@ export default {
   }
 
   .red-text {
-    font-size: 1.3rem;
-    line-height: 1.56rem;
+    font-size: 1.3125rem;
+    line-height: 1.5918rem;
   }
 }
 

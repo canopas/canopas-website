@@ -152,11 +152,6 @@ export default {
   font-weight: bold;
 }
 
-.normal-2-text {
-  font-size: 0.9375rem;
-  line-height: 1.125rem;
-}
-
 .mb-24 {
   margin-bottom: 1.5rem;
 }
