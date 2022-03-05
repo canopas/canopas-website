@@ -18,15 +18,31 @@ func NewSql() *sqlx.DB {
 	var db *sqlx.DB
 	username := os.Getenv("DB_USERNAME")
 
+	if username == "" {
+		username = "root"
+	}
+
 	password := os.Getenv("DB_PASSWORD")
+
+	if password == "" {
+		password = "root"
+	}
 
 	host := os.Getenv("DB_HOST")
 
+	if host == "" {
+		host = "localhost"
+	}
+
 	port := os.Getenv("DB_PORT")
+
+	if port == "" {
+		port = "3306"
+	}
 
 	name := os.Getenv("DB_NAME")
 
-	db = sqlx.MustConnect("mysql", username+":"+password+"@tcp("+host+":"+port+")/"+name)
+	db = sqlx.MustConnect("mysql", username+":"+password+"@("+host+":"+port+")/"+name)
 
 	db.Mapper = reflectx.NewMapperFunc("json", strings.ToLower)
 	db.SetConnMaxLifetime(time.Minute * 1)
