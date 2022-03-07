@@ -30,8 +30,8 @@
         design, develop, and expand their business through digital products.
       </div>
       <div class="flex-grid mt-3 pb-5">
-        <div class="flex-grid-1" ref="flexGridOne">
-          <div class="text-center normal-text text-black">
+        <div class="flex-grid-1 normal-text" ref="flexGridOne">
+          <div class="text-center text-black">
             <object
               type="image/svg+xml"
               :data="mobileIcon"
@@ -42,7 +42,7 @@
               development</b
             >
           </div>
-          <div class="text-center normal-text text-black">
+          <div class="text-center text-black">
             <object
               type="image/svg+xml"
               :data="watchIcon"
@@ -53,11 +53,11 @@
               development</b
             >
           </div>
-          <div class="text-center normal-text text-black">
+          <div class="text-center text-black">
             <object type="image/svg+xml" :data="webIcon" class="pb-4"></object>
             <b>Web app <br />development</b>
           </div>
-          <div class="text-center normal-text text-black" ref="uiUxDiv">
+          <div class="text-center text-black" ref="uiUxDiv">
             <object type="image/svg+xml" :data="uiuxIcon" class="pb-4"></object>
             <b
               >UI/UX<br />
@@ -65,8 +65,8 @@
             >
           </div>
         </div>
-        <div class="flex-grid-2" ref="flexGridTwo">
-          <div class="text-center normal-text text-black">
+        <div class="flex-grid-2 normal-text" ref="flexGridTwo">
+          <div class="text-center text-black">
             <object
               type="image/svg+xml"
               :data="desktopIcon"
@@ -77,7 +77,7 @@
               development</b
             >
           </div>
-          <div class="text-center normal-text text-black">
+          <div class="text-center text-black">
             <object
               type="image/svg+xml"
               :data="customIcon"
@@ -88,7 +88,7 @@
               development</b
             >
           </div>
-          <div class="text-center normal-text text-black">
+          <div class="text-center text-black">
             <object
               type="image/svg+xml"
               :data="cloudIcon"
@@ -99,14 +99,14 @@
               DevOps services</b
             >
           </div>
-          <div class="text-center normal-text text-black">
+          <div class="text-center text-black">
             <object type="image/svg+xml" :data="qaIcon" class="pb-4"></object>
             <b
               >QA and <br />
               Testing</b
             >
           </div>
-          <div class="text-center normal-text text-black">
+          <div class="text-center text-black">
             <object type="image/svg+xml" :data="seoIcon" class="pb-4"></object>
             <b>
               SEO and <br />

@@ -25,7 +25,7 @@
               loading="lazy"
               class="bullets"
             />
-            <div class="jobs-normal-text">{{ reason.title }}</div>
+            <div class="normal-text">{{ reason.title }}</div>
             <div class="normal-2-text description">
               {{ reason.description }}
             </div>
@@ -86,7 +86,7 @@ export default {
   z-index: -5;
 }
 
-.jobs-normal-text {
+.normal-text {
   color: #3d3d3d;
   font-weight: 700;
 }

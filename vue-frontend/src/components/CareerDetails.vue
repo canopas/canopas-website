@@ -50,7 +50,7 @@
           {{ details.summary }}
         </div>
         <div class="mt-5">
-          <div id="description" v-html="description"></div>
+          <div id="description" class="normal-text" v-html="description"></div>
         </div>
         <div class="application-submit-btns mt-5">
           <router-link class="gradient-btn" :to="jobLink">

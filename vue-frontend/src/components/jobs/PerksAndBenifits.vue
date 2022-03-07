@@ -4,7 +4,7 @@
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Perks</span> and Benefits
       </div>
-      <div class="description jobs-normal-text">
+      <div class="description normal-text">
         Whether it's about your learning, well being, or competitive
         compensation, we've got you covered. Check out all perks and benefits
         offered at Canopas! Many more to come as we grow!

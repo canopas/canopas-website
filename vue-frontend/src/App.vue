@@ -78,14 +78,6 @@ a {
 .normal-text {
   font-style: normal;
   font-weight: 400;
-  font-size: 1.1rem;
-  line-height: 1.5rem;
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.jobs-normal-text {
-  font-style: normal;
-  font-weight: 400;
   font-size: 1.15rem;
   line-height: 1.5rem;
   color: rgba(61, 61, 61, 0.8);
@@ -217,8 +209,7 @@ a {
     line-height: 2rem;
   }
 
-  .normal-text,
-  .jobs-normal-text {
+  .normal-text {
     font-size: 1.2rem;
     line-height: 1.375rem;
   }
@@ -239,8 +230,7 @@ a {
     line-height: 2.729rem;
   }
 
-  .normal-text,
-  .jobs-normal-text {
+  .normal-text {
     font-size: 1.5rem;
     line-height: 1.8rem;
   }

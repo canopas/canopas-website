@@ -1,6 +1,6 @@
 <template>
   <div class="background">
-    <div class="jobs-normal-text title">Canopas is built on the 10 virtues</div>
+    <div class="normal-text title">Canopas is built on the 10 virtues</div>
     <div class="text-center container">
       <div class="flex-div">
         <div
@@ -12,7 +12,7 @@
             <div class="image">
               <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
             </div>
-            <div class="virtue-text red-text jobs-normal-text">
+            <div class="virtue-text red-text normal-text">
               {{ virtue.title }}
             </div>
           </div>
@@ -20,7 +20,7 @@
             class="description"
             :class="activeIndex == virtue.id ? 'active' : ''"
           >
-            <div class="red-text jobs-normal-text">
+            <div class="red-text normal-text">
               {{ virtue.title }}
             </div>
             <div class="normal-2-text">
@@ -39,7 +39,7 @@
             <div class="image">
               <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
             </div>
-            <div class="virtue-text red-text jobs-normal-text">
+            <div class="virtue-text red-text normal-text">
               {{ virtue.title }}
             </div>
           </div>
@@ -47,7 +47,7 @@
             class="description"
             :class="activeIndex == virtue.id ? 'active' : ''"
           >
-            <div class="red-text jobs-normal-text">
+            <div class="red-text normal-text">
               {{ virtue.title }}
             </div>
             <div class="normal-2-text">
@@ -66,7 +66,7 @@
             <div class="image">
               <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
             </div>
-            <div class="virtue-text red-text jobs-normal-text">
+            <div class="virtue-text red-text normal-text">
               {{ virtue.title }}
             </div>
           </div>
@@ -74,7 +74,7 @@
             class="description"
             :class="activeIndex == virtue.id ? 'active' : ''"
           >
-            <div class="red-text jobs-normal-text">
+            <div class="red-text normal-text">
               {{ virtue.title }}
             </div>
             <div class="normal-2-text">
@@ -93,7 +93,7 @@
             <div class="image">
               <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
             </div>
-            <div class="virtue-text red-text jobs-normal-text">
+            <div class="virtue-text red-text normal-text">
               {{ virtue.title }}
             </div>
           </div>
@@ -101,7 +101,7 @@
             class="description"
             :class="activeIndex == virtue.id ? 'active' : ''"
           >
-            <div class="red-text jobs-normal-text">
+            <div class="red-text normal-text">
               {{ virtue.title }}
             </div>
             <div class="normal-2-text">

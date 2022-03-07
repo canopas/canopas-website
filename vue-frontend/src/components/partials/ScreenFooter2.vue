@@ -8,7 +8,7 @@
         </a>
       </div>
       <div class="container-flex">
-        <div class="jobs-normal-text mb-24">Follow us on</div>
+        <div class="normal-text mb-24">Follow us on</div>
         <div class="social-media-icons">
           <li
             v-for="socialMedia in socialMediaIcons"
@@ -146,7 +146,7 @@ export default {
   color: white;
 }
 
-.jobs-normal-text {
+.normal-text {
   font-size: 1.375rem;
   line-height: 1.75rem;
   font-weight: bold;
@@ -169,7 +169,7 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-  .jobs-normal-text {
+  .normal-text {
     font-size: 1.75rem;
     line-height: 2.125rem;
   }

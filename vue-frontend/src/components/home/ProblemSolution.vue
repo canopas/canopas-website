@@ -58,12 +58,12 @@
           satisfaction, not headache and nightmares.
         </div>
         <div class="normal-text resources-text">
-          <div class="normal-text text-white">
+          <div class="text-white">
             You probably need a team that helps you to develop a digital product
             that is…
           </div>
 
-          <ul class="resources-list normal-text text-white mt-20">
+          <ul class="resources-list text-white mt-20">
             <li>
               <span class="bullet"></span>
               <div>
@@ -74,7 +74,7 @@
               </div>
             </li>
           </ul>
-          <div class="normal-text text-white mt-20">
+          <div class="text-white mt-20">
             But, I guess that’s not enough
             <br />
             <br />

@@ -1,6 +1,6 @@
 <template>
   <div class="container-fluid">
-    <div class="container normal-text">
+    <div class="container">
       <div class="image-container">
         <img
           class="consultant-image abs-fit-parent"
@@ -27,7 +27,7 @@
             <div
               v-if="i == currentStep"
               :key="step.descriptions"
-              class="step-description card-body"
+              class="step-description normal-text card-body"
             >
               {{ step.descriptions.join("\n\n") }}
             </div>
@@ -176,7 +176,7 @@ export default {
 .step-plus-icon {
   margin-left: auto;
   order: 2;
-  color: rgba(61, 61, 61, 0.5);
+  color: rgba(61, 61, 61, 0.8);
 }
 
 @include media-breakpoint-up(lg) {

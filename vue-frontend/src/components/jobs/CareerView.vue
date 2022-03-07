@@ -4,7 +4,7 @@
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Find t</span>he career of your dreams
       </div>
-      <div class="description jobs-normal-text">
+      <div class="description normal-text">
         <div class="text-weight">
           When was the last time you did something for the first time?
         </div>
@@ -21,11 +21,11 @@
     <div v-if="isLoading" class="loader-div">
       <img :src="loader" />
     </div>
-    <div v-else class="career-container jobs-normal-text mt-5">
+    <div v-else class="career-container normal-text mt-5">
       <div class="career-list-container">
         <div v-for="career in careers" :key="career" class="career-list">
           <div
-            class="career-header jobs-normal-text text-left"
+            class="career-header normal-text text-left"
             @click="expandListItem(career.id)"
           >
             <div class="career-icon">
@@ -203,7 +203,7 @@ export default {
 
 .career-summary {
   padding: 30px;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(61, 61, 61, 0.8);
 }
 
 .career-title {
@@ -215,7 +215,7 @@ export default {
 .career-plus-icon {
   margin-left: auto;
   order: 2;
-  color: rgba(61, 61, 61, 0.5);
+  color: rgba(61, 61, 61, 0.8);
 }
 
 .read-apply-btns {
