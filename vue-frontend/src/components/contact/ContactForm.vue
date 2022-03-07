@@ -688,7 +688,11 @@ input[type="radio"]:checked ~ .box {
     linear-gradient(to bottom, #ff9472, #f2709c) border-box;
   border: 2px solid transparent;
   border-radius: 15px;
+  transition: 0.3s;
+
+  
 }
+
 
 .box > span:before {
   opacity: 1;
