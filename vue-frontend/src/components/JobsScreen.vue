@@ -42,7 +42,7 @@ export default {
     return {
       seoData: {
         title:
-          "Career at Canopas - Explore Life at Canopas, Find Jobs at Canopas, and Apply Today.",
+          "Explore Life at Canopas, Find software jobs in surat at Canopas.",
         description:
           "Canopas is looking for professionals who are ready to step out of their comfort zones, want to acquire new skills, and want to make an impact in the world with their work.",
         type: "Jobs Posting Website",
