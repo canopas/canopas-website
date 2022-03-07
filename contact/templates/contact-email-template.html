@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="HandheldFriendly" content="true" />
+  </head>
+  <body>
+    <div class="review-application-div">
+      <p>
+        <span>Hello, My name is </span
+        ><span class="title-span"><b>{{.Name}}</b></span>
+      </p>
+      <p>
+        <span class="apply-title">{{.Designation}}</span>
+      </p>
+      <p>
+        <span>{{.DesignationInfo}}</span>
+      </p>
+      <p>
+        Website : {{.SocialMediaLinks.website}} <br />
+        Facebook : {{.SocialMediaLinks.facebook}} <br />
+        Twitter : {{.SocialMediaLinks.twitter}} <br />
+        Instagram : {{.SocialMediaLinks.instagram}} <br />
+        Other : {{.SocialMediaLinks.other}} <br />
+      </p>
+      <p>
+        <span><b>Here are my preferences:</b></span> <br />
+        <span class="title-span"> {{.Idea}}</span><br />
+        <span class="title-span"> {{.Reason}}</span>
+      </p>
+
+      <p>
+        <span><i>Email : </i></span><span class="title-span"> {{.Email}}</span>
+      </p>
+      <p><span class="title-span">Description : {{.Message}}</span></p>
+    </div>
+  </body>
+</html>

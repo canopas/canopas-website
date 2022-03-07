@@ -21,15 +21,15 @@ const (
 )
 
 type ContactDetails struct {
-	Name             string            `json:"name"`
-	Designation      string            `json:"designation"`
-	DesignationInfo  string            `json:"designation_info"`
-	SocialMediaLinks map[string]string `json:"social_media_links"`
-	Idea             string            `json:"idea"`
-	Reason           string            `json:"reason"`
-	Email            string            `json:"email"`
-	Message          string            `json:"message"`
-	ContactType      string            `json:"contact_type"`
+	Name             string                 `json:"name"`
+	Designation      string                 `json:"designation"`
+	DesignationInfo  string                 `json:"designation_info"`
+	SocialMediaLinks map[string]interface{} `json:"social_media_links"`
+	Idea             string                 `json:"idea"`
+	Reason           string                 `json:"reason"`
+	Email            string                 `json:"email"`
+	Message          string                 `json:"message"`
+	ContactType      string                 `json:"contact_type"`
 }
 
 type Template struct {
