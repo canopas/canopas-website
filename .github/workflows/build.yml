@@ -23,6 +23,7 @@ jobs:
       - name: Run API test
         run: |
           go test jobs
+          go test contact
         env:
           DB_HOST: localhost
           DB_NAME: website_admin_test
