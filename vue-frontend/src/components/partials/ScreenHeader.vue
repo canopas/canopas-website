@@ -147,6 +147,7 @@ export default {
 
 .navbar-nav .nav-item-margin .nav-link {
   margin: 0 20px 0 0;
+  color: rgba(61, 61, 61, 0.8);
 }
 
 .header-logo-image {
@@ -173,11 +174,6 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-  .normal-text {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
-  }
-
   a.start-btn,
   a.start-btn:focus {
     border: 2px solid transparent !important;

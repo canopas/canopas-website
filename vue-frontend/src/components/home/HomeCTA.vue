@@ -8,7 +8,7 @@
     </div>
     <div class="communication">
       <div class="item communication-item1">
-        I love talking with people
+        <div class="normal-2-text">I love talking with people</div>
         <button class="gradient-btn" @click="openContact">
           <font-awesome-icon class="fa" icon="phone-alt" aria-hidden="true" />
           <span>Call Now</span>
@@ -16,7 +16,9 @@
       </div>
       <div class="item-divider"></div>
       <div class="item communication-item2">
-        I am an Introvert. I prefer to chat or writing a mail.
+        <div class="normal-2-text">
+          I am an Introvert. I prefer to chat or writing a mail.
+        </div>
         <div class="chat-btn-container">
           <button class="gradient-btn" @click="openContact">
             <font-awesome-icon
@@ -126,6 +128,10 @@ export default {
   display: flex;
 }
 
+.gradient-btn > span {
+  letter-spacing: 0.06rem;
+}
+
 .communication .fa {
   font-size: 1.5rem;
 }
@@ -176,11 +182,6 @@ export default {
     font-size: 1.875rem;
   }
 
-  .normal-text {
-    font-size: 1.125rem;
-    line-height: 1.375rem;
-  }
-
   .communication {
     flex-direction: row;
   }
@@ -212,11 +213,6 @@ export default {
   .header-text {
     font-size: 3rem;
     line-height: 3.6rem;
-  }
-
-  .normal-text {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
   }
 
   .container {

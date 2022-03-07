@@ -19,7 +19,7 @@
             class="bullets"
           />
           <div class="header-text">{{ reason.title }}</div>
-          <div class="jobs-normal-text description">
+          <div class="normal-text description">
             {{ reason.description }}
           </div>
         </div>

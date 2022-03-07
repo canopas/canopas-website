@@ -26,7 +26,7 @@
                 :key="faq"
               >
                 <div
-                  class="faq-container jobs-normal-text"
+                  class="faq-container normal-text"
                   @click="expandListItem(faq.id)"
                 >
                   <div class="faq-header">

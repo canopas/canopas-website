@@ -323,7 +323,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <div class="jobs-normal-text canopas-gradient-text text-center">
+                <div class="normal-text canopas-gradient-text text-center">
                   Thank you for choosing us to make a difference in your
                   business.
                 </div>
@@ -349,7 +349,7 @@
                 <div class="header-2-text canopas-gradient-text">Error</div>
               </div>
               <div class="modal-body">
-                <div class="jobs-normal-text text-center">
+                <div class="normal-text text-center">
                   Something went wrong on our side
                 </div>
                 <div class="close-btn-div">
@@ -603,16 +603,10 @@ export default {
 
 .contact-form-text,
 .contact-form-text:hover {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(61, 61, 61, 0.8);
   font-size: 1.125rem;
   font-style: normal;
   font-weight: normal;
-}
-
-.contact-form-text > a,
-.contact-form-text > a:hover {
-  color: rgba(0, 0, 0, 0.5) !important;
-  text-decoration: none !important;
 }
 
 .contact-text-black {

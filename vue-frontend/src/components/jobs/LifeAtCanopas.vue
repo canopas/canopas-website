@@ -1,6 +1,6 @@
 <template>
   <div class="pb-32">
-    <div class="container jobs-normal-text text-center">
+    <div class="container normal-text text-center">
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Life a</span>t Canopas
       </div>
