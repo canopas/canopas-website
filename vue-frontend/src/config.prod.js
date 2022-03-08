@@ -17,6 +17,20 @@ export default Object.freeze({
     type: "Website",
     url: "https://canopas.com",
   },
+  JOBS_SEO_META_DATA: {
+    title: "Explore Life at Canopas, Find IT jobs in surat at Canopas.",
+    description:
+      "Software developer jobs in surat, IT jobs in surat. If you're ready to step out of your comfort zone, want to acquire new skills, we would love to meet you.",
+    type: "Jobs Posting Website",
+    url: "https://canopas.com/jobs",
+  },
+  CONTACT_SEO_META_DATA: {
+    title: "Let's discuss your idea or problem you're facing in your business.",
+    description:
+      "Thank you for choosing Canopas for your business. Fill out all the required information about you and your business. We will get back to you soon.",
+    type: "Website",
+    url: "https://canopas.com/contact",
+  },
   GAP_ID_ROOT: "G-VXHMMMEJ5X",
   IS_PROD: true,
 });

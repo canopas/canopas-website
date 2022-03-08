@@ -32,14 +32,7 @@ export default {
   data() {
     return {
       isLoading: false,
-      seoData: {
-        title:
-          "Let's discuss your idea or problem you're facing in your business.",
-        description:
-          "Thank you for choosing Canopas for your business. Fill out all the required information about you and your business. We will get back to you soon.",
-        type: "Website",
-        url: config.BASE_URL + "/contact",
-      },
+      seoData: config.CONTACT_SEO_META_DATA,
     };
   },
   mounted() {
