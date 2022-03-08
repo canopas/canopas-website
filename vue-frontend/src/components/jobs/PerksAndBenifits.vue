@@ -10,7 +10,7 @@
         offered at Canopas! Many more to come as we grow!
       </div>
     </div>
-    <div class="flex-div">
+    <div class="flex-div hover03">
       <div v-for="perk in perks" :key="perk.id" class="flex-elements">
         <aspect-ratio height="120%" v-if="perk.image">
           <img
@@ -21,7 +21,7 @@
           />
         </aspect-ratio>
         <aspect-ratio v-else :style="{ backgroundColor: perk.bgColor }">
-          <div class="details">
+          <div class="details tdimension">
             <div class="normal-2-text title">
               <img :src="perk.icon" loading="lazy" />
               <span>{{ perk.title }}</span>
@@ -252,6 +252,49 @@ export default {
     overflow-wrap: break-word;
   }
 }
+
+/* Zoom Out #1 */
+.hover03 div > img {
+	-webkit-transform: scale(1.5);
+	transform: scale(1.1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.hover03 div:hover > img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+}
+/* 3D Transform.*/
+// .tdimension {
+// width: 300px;
+// height: 300px;
+// margin: 20px auto 40px auto;
+// perspective: 1000px;
+// }
+// .tdimension .text-center {
+// display: block;
+// width: 100%;
+// height: 100%;
+
+// background-size: cover;
+// transform-style: preserve-3d;
+// transform: rotateY(50deg);
+// transition: all 0.8s;
+// }
+// .tdimension:hover .text-center {
+// transform: rotateX(20deg); 
+// }
+// .tdimension .text-center:after {
+//     content: '';
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     width: 100%;
+//     height: 40px;
+//     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1));    
+//    transform: rotateX(90deg);
+//     transform-origin: bottom;
+// }
 
 @media (min-width: 440px) {
   .flex-elements:nth-child(even) {
