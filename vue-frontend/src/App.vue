@@ -26,10 +26,6 @@ export default {
       crawl: Config.IS_PROD,
     };
   },
-  mounted () {
-    // You'll need this for renderAfterDocumentEvent.
-    document.dispatchEvent(new Event('render-event'))
-  }
 };
 </script>
 

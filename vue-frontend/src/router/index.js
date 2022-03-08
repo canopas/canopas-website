@@ -1,13 +1,14 @@
 import { createWebHistory, createRouter } from "vue-router";
 
 // Don't lazy load home screen
-import HomeScreen from "@/components/HomeScreen.vue";
+import HomeScreen from "../components/HomeScreen.vue";
+// import ContactScreen from "../components/ContactScreen.vue";
 
-const Error404Page = () => import("@/components/Error404Page.vue");
-const ContactScreen = () => import("@/components/ContactScreen.vue");
-const JobsScreen = () => import("@/components/JobsScreen.vue");
-const ApplyForCareerPage = () => import("@/components/ApplyForCareer.vue");
-const CareerDetailsPage = () => import("@/components/CareerDetails.vue");
+// const Error404Page = () => import("@/components/Error404Page.vue");
+// const ContactScreen = () => import("@/components/ContactScreen.vue");
+// const JobsScreen = () => import("@/components/JobsScreen.vue");
+// const ApplyForCareerPage = () => import("@/components/ApplyForCareer.vue");
+// const CareerDetailsPage = () => import("@/components/CareerDetails.vue");
 
 const routes = [
   {
@@ -15,31 +16,31 @@ const routes = [
     name: "HomeScreen",
     component: HomeScreen,
   },
-  {
-    path: "/contact",
-    name: "ContactScreen",
-    component: ContactScreen,
-  },
-  {
-    path: "/:catchAll(.*)",
-    name: "Error404Page",
-    component: Error404Page,
-  },
-  {
-    path: "/jobs",
-    name: "JobsScreen",
-    component: JobsScreen,
-  },
-  {
-    path: "/jobs/:id",
-    name: "CareerDetailsPage",
-    component: CareerDetailsPage,
-  },
-  {
-    path: "/jobs/apply/:id",
-    name: "ApplyForCareerPage",
-    component: ApplyForCareerPage,
-  },
+  // {
+  //   path: "/contact",
+  //   name: "ContactScreen",
+  //   component: ContactScreen,
+  // },
+  // {
+  //   path: "/:catchAll(.*)",
+  //   name: "Error404Page",
+  //   component: Error404Page,
+  // },
+  // {
+  //   path: "/jobs",
+  //   name: "JobsScreen",
+  //   component: JobsScreen,
+  // },
+  // {
+  //   path: "/jobs/:id",
+  //   name: "CareerDetailsPage",
+  //   component: CareerDetailsPage,
+  // },
+  // {
+  //   path: "/jobs/apply/:id",
+  //   name: "ApplyForCareerPage",
+  //   component: ApplyForCareerPage,
+  // },
 ];
 
 const router = createRouter({
