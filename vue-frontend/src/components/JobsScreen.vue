@@ -40,14 +40,7 @@ library.add(faAlignLeft, faCheckCircle, faMinus);
 export default {
   data() {
     return {
-      seoData: {
-        title:
-          "Career at Canopas - Explore Life at Canopas, Find Jobs at Canopas, and Apply Today.",
-        description:
-          "Canopas is looking for professionals who are ready to step out of their comfort zones, want to acquire new skills, and want to make an impact in the world with their work.",
-        type: "Jobs Posting Website",
-        url: config.BASE_URL + "/jobs",
-      },
+      seoData: config.JOBS_SEO_META_DATA,
     };
   },
   components: {
