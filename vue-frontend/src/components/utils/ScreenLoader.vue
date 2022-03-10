@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import loaderImage from "@/assets/images/theme/loader.svg";
+import loaderImage from "./../../assets/images/theme/loader.svg";
 
 export default {
   props: ["loader"],

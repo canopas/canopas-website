@@ -36,8 +36,8 @@
 </template>
 
 <script type="module">
-import backgroundImage from "@/assets/images/theme/bg.webp";
-import arrowImage from "@/assets/images/theme/arrow.svg";
+import backgroundImage from "./../../assets/images/theme/bg.webp";
+import arrowImage from "./../../assets/images/theme/arrow.svg";
 
 export default {
   data() {

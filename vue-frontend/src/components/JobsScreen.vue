@@ -26,7 +26,7 @@ import WhyCanopas from "./jobs/WhyCanopas.vue";
 import WhyCanopasMobile from "./jobs/WhyCanopasMobile.vue";
 import FaqSection from "./jobs/FaqSection.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
-import config from "@/config.js";
+import config from "./../config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {

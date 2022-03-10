@@ -18,7 +18,7 @@ import ScreenMeta from "./partials/ScreenMeta.vue";
 import ScreenLoader from "./utils/ScreenLoader.vue";
 import ContactLanding from "./contact/ContactLanding.vue";
 import ContactForm from "./contact/ContactForm.vue";
-import config from "@/config.js";
+import config from "./../config.js";
 
 export default {
   components: {

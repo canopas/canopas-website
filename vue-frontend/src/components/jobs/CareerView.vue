@@ -84,9 +84,9 @@
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
-import config from "@/config.js";
-import loader from "@/assets/images/theme/loader.svg";
-import router from "@/router";
+import config from "./../../config.js";
+import loader from "./../../assets/images/theme/loader.svg";
+import router from "./../../router";
 
 import { faApple, faAndroid } from "@fortawesome/free-brands-svg-icons";
 

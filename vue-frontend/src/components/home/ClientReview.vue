@@ -56,14 +56,17 @@
 
 <script type="module">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import lisaImage from "./../../assets/images/clients/lisa.webp";
+import marcusImage from "./../../assets/images/clients/marcus.webp";
 
 export default {
   data() {
     return {
+      lisaImage: lisaImage,
       clients: [
         {
           id: "client-1",
-          image: require("@/assets/images/clients/lisa.webp"),
+          image: lisaImage,
           name: "Lisa W.",
           review:
             "There is not enough space to say all the wonderful things I\
@@ -76,7 +79,7 @@ export default {
         },
         {
           id: "client-2",
-          image: require("@/assets/images/clients/marcus.webp"),
+          image: marcusImage,
           name: "Marcus L.",
           review:
             "Canopas has been nothing but wonderful on this project. His\
@@ -87,7 +90,7 @@ export default {
         },
         {
           id: "client-3",
-          image: require("@/assets/images/clients/jake.webp"),
+          image: "./../../assets/images/clients/jake.webp",
           name: "Jake N.",
           review:
             "Canopas team was also incredibly kind and always willing to\
@@ -101,7 +104,7 @@ export default {
         },
         {
           id: "client-4",
-          image: require("@/assets/images/clients/maor.webp"),
+          image: "./../../assets/images/clients/maor.webp",
           name: "Maor T.",
           review:
             "This is our favorite expert for all mobile and web developing\
@@ -112,7 +115,7 @@ export default {
         },
         {
           id: "client-5",
-          image: require("@/assets/images/clients/ramasis.webp"),
+          image: "./../../assets/images/clients/ramasis.webp",
           name: "Ramsis A.",
           review:
             "Canopas has been great to work with. From day 1, they made\
@@ -123,7 +126,7 @@ export default {
         },
         {
           id: "client-6",
-          image: require("@/assets/images/clients/jake.webp"),
+          image: "./../../assets/images/clients/jake.webp",
           name: "Jake N.",
           review:
             "Canopas team was unbelievable. They did everything and above.\

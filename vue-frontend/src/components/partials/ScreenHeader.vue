@@ -55,8 +55,8 @@
 </template>
 
 <script type="module">
-import headerLogoImage from "@/assets/images/logo/logo-header.svg";
-import Config from "@/config.js";
+import headerLogoImage from "./../../assets/images/logo/logo-header.svg";
+import Config from "./../../config.js";
 
 export default {
   data() {

@@ -14,8 +14,8 @@
 </template>
 
 <script type="module">
-import config from "@/config.js";
-import loader from "@/assets/images/theme/loader.svg";
+import config from "./../../config.js";
+import loader from "./../../assets/images/theme/loader.svg";
 
 export default {
   data() {

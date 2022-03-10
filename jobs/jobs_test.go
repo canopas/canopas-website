@@ -96,7 +96,6 @@ func TestAllAPIs(t *testing.T) {
 		}
 
 		assert.Equal(t, testData.ExpectedData, got)
-
 	}
 }
 

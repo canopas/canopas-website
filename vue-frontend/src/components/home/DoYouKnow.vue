@@ -24,7 +24,7 @@
 </template>
 
 <script type="module">
-import doYouKnowImage from "@/assets/images/theme/question.svg";
+import doYouKnowImage from "./../../assets/images/theme/question.svg";
 
 export default {
   data() {

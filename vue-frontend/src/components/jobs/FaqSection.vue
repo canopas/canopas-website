@@ -93,7 +93,7 @@
 <script type="module">
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import faqImage from "@/assets/images/faq/FAQ.svg";
+import faqImage from "./../../assets/images/faq/FAQ.svg";
 
 const TOTAL_FAQ_IN_SLIDE = 5;
 

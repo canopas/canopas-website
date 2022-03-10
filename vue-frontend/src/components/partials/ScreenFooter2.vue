@@ -46,10 +46,10 @@ import {
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
 
-import backgroundFooterImage from "@/assets/images/footer/Canopas-footer-img.svg";
-import glassdoorImage from "@/assets/images/footer/glassdoor.webp";
-import Config from "@/config.js";
-import router from "@/router";
+import backgroundFooterImage from "./../../assets/images/footer/Canopas-footer-img.svg";
+import glassdoorImage from "./../../assets/images/footer/glassdoor.webp";
+import Config from "./../../config.js";
+import router from "./../../router";
 
 export default {
   data() {

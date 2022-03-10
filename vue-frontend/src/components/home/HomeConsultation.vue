@@ -40,9 +40,9 @@
 </template>
 
 <script type="module">
-import consultantStep1Image from "@/assets/images/home/step1.webp";
-import consultantStep2Image from "@/assets/images/home/step2.webp";
-import consultantStep3Image from "@/assets/images/home/step3.webp";
+import consultantStep1Image from "./../../assets/images/home/step1.webp";
+import consultantStep2Image from "./../../assets/images/home/step2.webp";
+import consultantStep3Image from "./../../assets/images/home/step3.webp";
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 

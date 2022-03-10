@@ -37,7 +37,7 @@ import {
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 
 import footerLogoImage from "@/assets/images/logo/logo-footer.svg";
-import Config from "@/config.js";
+import Config from "./../../config.js";
 
 export default {
   data() {

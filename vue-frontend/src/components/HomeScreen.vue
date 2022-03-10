@@ -28,7 +28,7 @@ import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
 import DoYouKnow from "./home/DoYouKnow.vue";
 import HowDoWeDiffer from "./home/HowDoWeDiffer.vue";
-import Config from "@/config.js";
+import Config from "./../config.js";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {

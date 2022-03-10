@@ -14,7 +14,7 @@ import {
   faArrowLeft,
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
-import Config from "@/config.js";
+import Config from "./config.js";
 
 library.add(faArrowRight, faStar, faArrowLeft);
 
@@ -30,6 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
+@import "./assets/scss/custom.scss";
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 @font-face {

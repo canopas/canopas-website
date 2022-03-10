@@ -2,7 +2,8 @@ import { createWebHistory, createRouter } from "vue-router";
 
 // Don't lazy load home screen
 import HomeScreen from "../components/HomeScreen.vue";
-// import ContactScreen from "../components/ContactScreen.vue";
+import ContactScreen from "../components/ContactScreen.vue";
+import JobsScreen from "../components/JobsScreen.vue";
 
 // const Error404Page = () => import("@/components/Error404Page.vue");
 // const ContactScreen = () => import("@/components/ContactScreen.vue");
@@ -16,21 +17,21 @@ const routes = [
     name: "HomeScreen",
     component: HomeScreen,
   },
-  // {
-  //   path: "/contact",
-  //   name: "ContactScreen",
-  //   component: ContactScreen,
-  // },
+  {
+    path: "/contact",
+    name: "ContactScreen",
+    component: ContactScreen,
+  },
   // {
   //   path: "/:catchAll(.*)",
   //   name: "Error404Page",
   //   component: Error404Page,
   // },
-  // {
-  //   path: "/jobs",
-  //   name: "JobsScreen",
-  //   component: JobsScreen,
-  // },
+  {
+    path: "/jobs",
+    name: "JobsScreen",
+    component: JobsScreen,
+  },
   // {
   //   path: "/jobs/:id",
   //   name: "CareerDetailsPage",

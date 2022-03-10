@@ -387,7 +387,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 import CalendlyIframe from "./CalendlyIframe.vue";
-import config from "@/config.js";
+import config from "./../../config.js";
 
 const CONTACT_BY_CHAT_OR_MAIL = 1;
 

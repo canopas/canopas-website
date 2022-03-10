@@ -28,11 +28,11 @@
 import ScreenHeader from "./partials/ScreenHeader.vue";
 import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
-import firstErrorLetter from "@/assets/images/logo/404page_4_1.svg";
-import middleErrorLetter from "@/assets/images/logo/canopas-icon.svg";
-import lastErrorLetter from "@/assets/images/logo/404page_4_2.svg";
+import firstErrorLetter from "./../assets/images/logo/404page_4_1.svg";
+import middleErrorLetter from "./../assets/images/logo/canopas-icon.svg";
+import lastErrorLetter from "./../assets/images/logo/404page_4_2.svg";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import Config from "@/config.js";
+import Config from "./../config.js";
 
 export default {
   data() {

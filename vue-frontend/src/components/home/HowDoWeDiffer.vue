@@ -120,16 +120,16 @@
 </template>
 
 <script type="module">
-import cloudIcon from "@/assets/images/icon/cloud.svg";
-import customIcon from "@/assets/images/icon/custom.svg";
-import desktopIcon from "@/assets/images/icon/desktop.svg";
-import mobileIcon from "@/assets/images/icon/mobile.svg";
-import qaIcon from "@/assets/images/icon/qa.svg";
-import scrollArrowToUpIcon from "@/assets/images/icon/scroll-arrow-to-up.svg";
-import seoIcon from "@/assets/images/icon/seo.svg";
-import uiuxIcon from "@/assets/images/icon/uiux.svg";
-import watchIcon from "@/assets/images/icon/watch.svg";
-import webIcon from "@/assets/images/icon/web.svg";
+import cloudIcon from "./../../assets/images/icon/cloud.svg";
+import customIcon from "./../../assets/images/icon/custom.svg";
+import desktopIcon from "./../../assets/images/icon/desktop.svg";
+import mobileIcon from "./../../assets/images/icon/mobile.svg";
+import qaIcon from "./../../assets/images/icon/qa.svg";
+import scrollArrowToUpIcon from "./../../assets/images/icon/scroll-arrow-to-up.svg";
+import seoIcon from "./../../assets/images/icon/seo.svg";
+import uiuxIcon from "./../../assets/images/icon/uiux.svg";
+import watchIcon from "./../../assets/images/icon/watch.svg";
+import webIcon from "./../../assets/images/icon/web.svg";
 
 export default {
   data() {

@@ -335,8 +335,8 @@ import ScreenFooter2 from "./partials/ScreenFooter2.vue";
 import ScreenMeta from "./partials/ScreenMeta.vue";
 import ScreenLoader from "./utils/ScreenLoader.vue";
 import axios from "axios";
-import config from "@/config.js";
-import router from "@/router";
+import config from "./../config.js";
+import router from "./../router";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
