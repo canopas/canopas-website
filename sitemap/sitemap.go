@@ -28,7 +28,7 @@ type URL struct {
 type URLset struct {
 	XMLName xml.Name `xml:"urlset"`
 	XMLNS   string   `xml:"xmlns,attr"`
-	URL     []URL
+	URL     []URL    `xml:"url"`
 }
 
 func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
