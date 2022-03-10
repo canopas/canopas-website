@@ -21,7 +21,7 @@
           />
         </aspect-ratio>
         <aspect-ratio v-else :style="{ backgroundColor: perk.bgColor }">
-          <div class="details tdimension">
+          <div class="details">
             <div class="normal-2-text title">
               <img :src="perk.icon" loading="lazy" />
               <span>{{ perk.title }}</span>
@@ -200,15 +200,12 @@ export default {
   display: flex;
   flex-direction: column;
 }
-/* Zoom Out #1 */
+
 .flex-div div > img {
-	-webkit-transform: scale(1.5);
 	transform: scale(1.1);
-	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
 .flex-div div:hover > img {
-	-webkit-transform: scale(1);
 	transform: scale(1);
 }
 
