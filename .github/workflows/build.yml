@@ -24,6 +24,7 @@ jobs:
         run: |
           go test jobs
           go test contact
+          go test sitemap
         env:
           DB_HOST: localhost
           DB_NAME: website_admin_test
