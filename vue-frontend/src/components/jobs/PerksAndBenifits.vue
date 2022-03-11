@@ -10,7 +10,7 @@
         offered at Canopas! Many more to come as we grow!
       </div>
     </div>
-    <div class="flex-div ">
+    <div class="flex-div">
       <div v-for="perk in perks" :key="perk.id" class="flex-elements">
         <aspect-ratio height="120%" v-if="perk.image">
           <img
@@ -202,11 +202,11 @@ export default {
 }
 
 .flex-div div > img {
-	transform: scale(1.1);
-	transition: .3s ease-in-out;
+  transform: scale(1.1);
+  transition: 0.3s ease-in-out;
 }
 .flex-div div:hover > img {
-	transform: scale(1);
+  transform: scale(1);
 }
 
 .flex-elements > div,
@@ -260,7 +260,6 @@ export default {
     overflow-wrap: break-word;
   }
 }
-
 
 @media (min-width: 440px) {
   .flex-elements:nth-child(even) {
