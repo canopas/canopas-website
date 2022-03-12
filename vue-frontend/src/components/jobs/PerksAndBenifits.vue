@@ -274,9 +274,9 @@ export default {
       padding-top: 100% !important;
     }
   }
-  .flex-elements {
-    padding: 40px;
-  }
+  // .flex-elements {
+  //   padding: 40px;
+  // }
 }
 
 @include media-breakpoint-only(md) {
@@ -312,7 +312,7 @@ export default {
 
   .flex-elements,
   .flex-elements:nth-child(even) {
-    padding: 17px;
+    padding: 10px;
   }
 
   .details {
