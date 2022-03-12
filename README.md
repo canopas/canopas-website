@@ -6,6 +6,7 @@ We intend to keep this open source. Plan is to keep the repository up to date wi
 best practices.
 
 ## Requirements
+
 - Node16
 - Go 1.17
 
@@ -16,6 +17,7 @@ best practices.
   ```
   cd vue-frontend && npm install
   ```
+
 - Run vue server
   ```
   npm run serve
@@ -37,3 +39,6 @@ You can access the APIs at http://localhost:8080.
 git config core.hooksPath .githooks
 ```
 
+## LICENSE
+
+Canopas is released under the [GNU V3](https://github.com/canopas/canopas-website/blob/master/LICENSE.md).
