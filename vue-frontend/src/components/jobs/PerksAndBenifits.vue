@@ -202,11 +202,10 @@ export default {
 }
 
 .flex-div div > img {
-  transform: scale(1.1);
   transition: 0.3s ease-in-out;
 }
 .flex-div div:hover > img {
-  transform: scale(1);
+  transform: scale(1.1);
 }
 
 .flex-elements > div,
