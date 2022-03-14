@@ -133,7 +133,7 @@ a {
   padding: 1rem;
   margin: 1.25rem auto 0 auto;
   text-align: center;
-  color: white;
+  color: white !important;
   background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
   border: 1px solid transparent;
 }
