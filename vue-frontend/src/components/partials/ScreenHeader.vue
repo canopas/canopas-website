@@ -21,7 +21,19 @@
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin">
-              <a class="nav-link normal-text" :href="careerURL">Career</a>
+              <a
+                class="nav-link normal-text"
+                :style="[
+                  activeCareerPath
+                    ? {
+                        textDecoration: `underline !important`,
+                        'text-underline-offset': '0.3rem',
+                      }
+                    : { textDecoration: `none` },
+                ]"
+                :href="careerURL"
+                >Career</a
+              >
             </li>
             <li class="nav-item-margin">
               <a class="nav-link normal-text" :href="blogsURL" target="_blank"
@@ -30,11 +42,15 @@
             </li>
             <li>
               <router-link
-                to="/contact"
-                class="nav-link start-btn normal-text gradient-border-btn"
+                :to="contactURL"
+                class="nav-link start-btn normal-text"
+                v-bind:class="
+                  activeContactPath ? 'gradient-btn' : 'gradient-border-btn'
+                "
               >
                 <span
-                  ><span class="canopas-gradient-text"
+                  ><span
+                    :class="activeContactPath ? '' : 'canopas-gradient-text'"
                     >Let's talk business</span
                   >
                 </span>
@@ -42,8 +58,16 @@
             </li>
             <li>
               <router-link
-                to="/contact"
+                :to="contactURL"
                 class="nav-link start-btn-link normal-text"
+                :style="[
+                  activeContactPath
+                    ? {
+                        textDecoration: `underline !important`,
+                        'text-underline-offset': '0.3rem',
+                      }
+                    : { textDecoration: `none` },
+                ]"
                 >Let's talk business</router-link
               >
             </li>
@@ -63,15 +87,24 @@ export default {
     return {
       headerLogoImage: headerLogoImage,
       careerURL: "/jobs",
+      contactURL: "/contact",
       blogsURL: Config.BLOG_URL,
       navbarSticky: false,
       navbarAnimation: false,
       navContainerHeight: 0,
       lastScrollY: 0,
+      activeCareerPath: false,
+      activeContactPath: false,
     };
   },
   components: {},
   mounted() {
+    let currentRoutePath = this.$router.currentRoute._value.path;
+
+    this.activeCareerPath = currentRoutePath == this.careerURL;
+
+    this.activeContactPath = currentRoutePath == this.contactURL;
+
     window.addEventListener("scroll", this.handleScroll);
     this.navContainerHeight = this.$refs.mainHeader.clientHeight + 30;
   },
@@ -124,6 +157,14 @@ export default {
 
 .navbar-animation {
   animation: menu_sticky 0.6s ease-in-out;
+}
+
+.gradient-btn {
+  margin: 5px !important;
+}
+
+.gradient-btn > span {
+  font-weight: normal !important;
 }
 
 @keyframes menu_sticky {
@@ -192,6 +233,10 @@ export default {
   }
 
   .gradient-border-btn > span {
+    margin: 0 4px;
+  }
+
+  .gradient-btn > span {
     margin: 0 4px;
   }
 }
