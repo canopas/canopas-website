@@ -260,6 +260,12 @@ export default {
   }
 }
 
+@media only screen and (max-width: 992px) {
+  .flex-div div:hover > img {
+    transform: scale(1);
+  }
+}
+
 @media (min-width: 440px) {
   .flex-elements:nth-child(even) {
     padding: 10px 40px;
