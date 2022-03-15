@@ -200,6 +200,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 @media (hover: hover) and (pointer: fine) {
   .flex-div div > img {
     transition: 0.3s ease-in-out;
@@ -257,12 +258,6 @@ export default {
     margin-left: 10px;
     word-wrap: break-word;
     overflow-wrap: break-word;
-  }
-}
-
-@media only screen and (max-width: 992px) {
-  .flex-div div:hover > img {
-    transform: scale(1);
   }
 }
 
