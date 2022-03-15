@@ -200,14 +200,14 @@ export default {
   display: flex;
   flex-direction: column;
 }
-
-.flex-div div > img {
-  transition: 0.3s ease-in-out;
+@media (hover: hover) and (pointer: fine) {
+  .flex-div div > img {
+    transition: 0.3s ease-in-out;
+  }
+  .flex-div div:hover > img {
+    transform: scale(1.1);
+  }
 }
-.flex-div div:hover > img {
-  transform: scale(1.1);
-}
-
 .flex-elements > div,
 .image {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
