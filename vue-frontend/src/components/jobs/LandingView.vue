@@ -29,6 +29,10 @@
 .gradient-btn {
   border-radius: 15px;
 }
+bottom.gradient-btn:active {
+  transform: scale(0.85);
+  box-shadow: 3px 2px 25px 1px rgba(0, 0, 0, 0.25);
+}
 
 @include media-breakpoint-up(sm) {
   .gradient-btn {

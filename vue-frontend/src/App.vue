@@ -136,33 +136,35 @@ a {
   color: white !important;
   background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
   border: 1px solid transparent;
+  box-shadow: 5px 5px 25px 1px rgba(0, 0, 0, 0.25);
+  transition: 0.3s linear;
 }
 
-.gradient-btn > span {
-  margin: 0 6px;
-  font-weight: 700;
-}
+// .gradient-btn > span {
+//   margin: 0 6px;
+//   font-weight: 700;
+// }
 
-@media (hover: hover) and (pointer: fine) {
-  .gradient-btn:hover {
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
-      linear-gradient(to top, #ff9472, #f2709c);
-    box-shadow: 2px 1000px 1px #fff inset;
-  }
+// @media (hover: hover) and (pointer: fine) {
+//   .gradient-btn:hover {
+//     background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
+//       linear-gradient(to top, #ff9472, #f2709c);
+//     box-shadow: 2px 1000px 1px #fff inset;
+//   }
 
-  .gradient-btn:hover * {
-    background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+//   .gradient-btn:hover * {
+//     background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
+//     background-clip: text;
+//     -webkit-background-clip: text;
+//     -webkit-text-fill-color: transparent;
+//   }
 
-  .gradient-btn:hover > .fa,
-  .gradient-btn:hover > .fas,
-  .gradient-btn:hover > a > .fab {
-    color: #f2709c;
-  }
-}
+//   .gradient-btn:hover > .fa,
+//   .gradient-btn:hover > .fas,
+//   .gradient-btn:hover > a > .fab {
+//     color: #f2709c;
+//   }
+// }
 
 .gradient-border-btn {
   border-radius: 0.6rem;
@@ -180,23 +182,23 @@ a {
   color: rgba(61, 61, 61, 1);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .gradient-border-btn:hover {
-    background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
-    border: 2px solid transparent;
-    box-shadow: none;
-  }
+// @media (hover: hover) and (pointer: fine) {
+//   .gradient-border-btn:hover {
+//     background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
+//     border: 2px solid transparent;
+//     box-shadow: none;
+//   }
 
-  .gradient-border-btn:hover > span,
-  .gradient-border-btn:hover > span > span {
-    -webkit-text-fill-color: white;
-  }
+//   .gradient-border-btn:hover > span,
+//   .gradient-border-btn:hover > span > span {
+//     -webkit-text-fill-color: white;
+//   }
 
-  .gradient-border-btn:hover > .fa,
-  .gradient-border-btn:hover > .arrow {
-    color: white;
-  }
-}
+//   .gradient-border-btn:hover > .fa,
+//   .gradient-border-btn:hover > .arrow {
+//     color: white;
+//   }
+// }
 
 @include media-breakpoint-up(md) {
   .header-text {
