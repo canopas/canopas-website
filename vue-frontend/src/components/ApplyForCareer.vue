@@ -4,7 +4,6 @@
     <ScreenHeader />
     <ScreenLoader v-if="isLoading" />
     <div v-else>
-      <ScreenLoader v-if="isLoad" v-bind:loader="true" />
       <div class="container form-container">
         <div class="job-application">
           <div class="header-2-text text-center canopas-gradient-text pb-3">
@@ -21,6 +20,7 @@
                   required
                   autocomplete="given-name"
                   v-model="fullName"
+                  :disabled="disableInput"
                 />
                 <span v-if="showValidationError" class="error"
                   >This field is required</span
@@ -36,6 +36,7 @@
                   required
                   autocomplete="email"
                   v-model="email"
+                  :disabled="disableInput"
                 />
                 <span v-if="showValidationError" class="error"
                   >This field is required</span
@@ -53,6 +54,7 @@
                   name="phonenumber"
                   autocomplete="tel"
                   v-model="phoneNumber"
+                  :disabled="disableInput"
                 />
                 <span id="phoneError"></span>
                 <span v-if="showValidationError" class="error"
@@ -71,6 +73,7 @@
                   name="city"
                   autocomplete="address-level2"
                   v-model="city"
+                  :disabled="disableInput"
                 />
               </div>
 
@@ -85,6 +88,7 @@
                       id="reference-option-text"
                       readonly
                       v-model="reference"
+                      :disabled="disableInput"
                     />
                   </div>
                   <div class="options">
@@ -111,6 +115,7 @@
                   autocomplete="given-reference-name"
                   :placeholder="references[currentReferenceIndex].hint"
                   v-model="referenceBy"
+                  :disabled="disableInput"
                 />
               </div>
 
@@ -121,6 +126,7 @@
                   name="message"
                   rows="1"
                   v-model="message"
+                  :disabled="disableInput"
                 ></textarea>
               </div>
 
@@ -149,6 +155,7 @@
                   accept="application/pdf"
                   @change="previewFiles"
                   required
+                  :disabled="disableInput"
                 />
 
                 <span v-if="showValidationError" class="error"
@@ -188,9 +195,7 @@
                       data-dismiss="modal"
                       aria-label="Close"
                     >
-                      <span
-                        aria-hidden="true"
-                        @click="showReviewFormPopup = false"
+                      <span aria-hidden="true" @click="closeReviewFormPopup"
                         >&times;</span
                       >
                     </button>
@@ -259,7 +264,14 @@
                     </div>
                   </div>
                   <div class="modal-footer">
+                    <img
+                      class="loader-image"
+                      :src="loaderImage"
+                      v-if="showLoader"
+                    />
+
                     <button
+                      v-else
                       class="gradient-btn"
                       @click.prevent="submitApplication()"
                     >
@@ -338,6 +350,7 @@ import axios from "axios";
 import config from "@/config.js";
 import router from "@/router";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import loaderImage from "@/assets/images/theme/small-loader.svg";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
@@ -418,6 +431,9 @@ export default {
         type: "Jobs Posting Website",
         url: location.toString(),
       },
+      disableInput: false,
+      showLoader: false,
+      loaderImage: loaderImage,
     };
   },
   components: {
@@ -512,46 +528,57 @@ export default {
         this.showValidationError = false;
         this.showPhoneValidationError = false;
         this.showEmailValidationError = false;
+        this.disableInput = true;
         this.showReviewFormPopup = true;
       }
     },
     submitApplication() {
       this.$gtag.event("job_submit");
-      this.showReviewFormPopup = false;
-      this.isLoad = true;
-      const formData = new FormData();
-      formData.append("job_title", this.title);
-      formData.append("name", this.fullName);
-      formData.append("email", this.email);
-      formData.append("phone", this.phoneNumber);
-      formData.append("place", this.city ? this.city : "NA");
-      formData.append(
-        "references",
-        this.reference &&
-          this.reference != "" &&
-          this.referenceBy &&
-          this.referenceBy != ""
-          ? this.reference + " - " + this.referenceBy
-          : this.reference && this.reference != ""
-          ? this.reference
-          : "NA"
-      );
-      formData.append("message", this.message ? this.message : "NA");
-      formData.append("file", this.file, this.file.name);
+      this.showLoader = true;
+      this.disableInput = false;
+      setTimeout(() => {
+        this.showReviewFormPopup = false;
+        this.isLoad = true;
+        const formData = new FormData();
+        formData.append("job_title", this.title);
+        formData.append("name", this.fullName);
+        formData.append("email", this.email);
+        formData.append("phone", this.phoneNumber);
+        formData.append("place", this.city ? this.city : "NA");
+        formData.append(
+          "references",
+          this.reference &&
+            this.reference != "" &&
+            this.referenceBy &&
+            this.referenceBy != ""
+            ? this.reference + " - " + this.referenceBy
+            : this.reference && this.reference != ""
+            ? this.reference
+            : "NA"
+        );
+        formData.append("message", this.message ? this.message : "NA");
+        formData.append("file", this.file, this.file.name);
 
-      axios
-        .post(config.API_BASE + "/api/send-career-mail", formData)
-        .then(() => {
-          this.isLoad = false;
-          this.showSuccessMessagePopup = true;
-          setTimeout(() => {
-            this.$router.push("/");
-          }, 2000);
-        })
-        .catch(() => {
-          this.isLoad = false;
-          this.showErrorMessagePopup = true;
-        });
+        axios
+          .post(config.API_BASE + "/api/send-career-mail", formData)
+          .then(() => {
+            this.isLoad = false;
+            this.showLoader = false;
+            this.showSuccessMessagePopup = true;
+            setTimeout(() => {
+              this.$router.push("/");
+            }, 2000);
+          })
+          .catch(() => {
+            this.isLoad = false;
+            this.showErrorMessagePopup = true;
+          });
+      }, 1000);
+    },
+    closeReviewFormPopup() {
+      this.showReviewFormPopup = false;
+      this.disableInput = false;
+      this.showLoader = false;
     },
   },
 };
@@ -560,6 +587,11 @@ export default {
 <style lang="scss" scoped>
 .gradient-btn {
   padding: 16px 64px;
+}
+
+.loader-image {
+  margin: 1.25rem auto 0 auto;
+  padding: 0 64px;
 }
 
 .form-container {
@@ -778,6 +810,10 @@ input:-webkit-autofill:active {
     padding: 16px 80px;
   }
 
+  .loader-image {
+    padding: 0 80px;
+  }
+
   .contact-form-text,
   .contact-form-text:hover {
     font-size: 1.125rem;
@@ -791,6 +827,10 @@ input:-webkit-autofill:active {
 @include media-breakpoint-up(lg) {
   .form-container {
     padding: 0 160px;
+  }
+
+  .loader-image {
+    margin: 1.25rem 0.5rem 0 0.5rem;
   }
 }
 </style>

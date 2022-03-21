@@ -36,9 +36,12 @@ export default {
   padding-top: 20px;
 }
 
-.iframe-loader {
-  display: flex;
-  justify-content: center;
+.loader-div {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
 }
 
 .iframe-div {
