@@ -18,6 +18,7 @@
                 required
                 autocomplete="given-name"
                 v-model="name"
+                :disabled="disableInput"
               />
               <span v-if="showValidationError" class="error"
                 >This field is required</span
@@ -36,6 +37,7 @@
                 name="designation"
                 value="0"
                 v-model.number="designationType"
+                :disabled="disableInput"
               />
               <div class="box">
                 <span class="contact-form-text"
@@ -49,6 +51,7 @@
                 name="designation"
                 value="1"
                 v-model.number="designationType"
+                :disabled="disableInput"
               />
               <div class="box">
                 <span class="contact-form-text"
@@ -72,6 +75,7 @@
                     type="text"
                     name="company"
                     v-model="business"
+                    :disabled="disableInput"
                   />
                 </label>
                 business. For more information, you can visit my website /
@@ -91,6 +95,7 @@
                     type="text"
                     name="company"
                     v-model="business"
+                    :disabled="disableInput"
                   />
                 </label>
                 company. You can find more information about our business by
@@ -143,6 +148,7 @@
               name="contactURL"
               :placeholder="websites[currentWebsiteIndex].hint"
               v-model="currentWebsiteUrl"
+              :disabled="disableInput"
             />
             <font-awesome-icon
               class="fas set-url-icon"
@@ -171,6 +177,7 @@
                 name="idea"
                 :value="i"
                 v-model.number="helpType"
+                :disabled="disableInput"
               />
               <div class="box">
                 <span class="contact-form-text">{{ help.title }}</span>
@@ -191,6 +198,7 @@
                 name="reason"
                 :value="item"
                 v-model="reason"
+                :disabled="disableInput"
               />
               <div class="box">
                 <span class="contact-form-text">{{ item }}</span>
@@ -212,6 +220,7 @@
               name="email"
               required
               v-model="email"
+              :disabled="disableInput"
             />
             <span v-if="showValidationError" class="error"
               >This field is required</span
@@ -226,6 +235,7 @@
               :v-bind="message"
               v-model="message"
               placeholder="I have a message or information for Canopas team."
+              :disabled="disableInput"
             ></textarea>
           </div>
           <div>
@@ -236,6 +246,7 @@
                   name="contact_type"
                   value="0"
                   v-model.number="contactType"
+                  :disabled="disableInput"
                 />
                 <div class="box">
                   <span class="contact-form-text"
@@ -250,6 +261,7 @@
                   name="contact_type"
                   value="1"
                   v-model.number="contactType"
+                  :disabled="disableInput"
                 />
                 <div class="box">
                   <span class="contact-form-text"
@@ -258,32 +270,41 @@
                 </div>
               </label>
             </div>
-            <button
-              type="submit"
-              v-if="contactType == 1"
-              class="gradient-btn chat-email-btn"
-              @click.prevent="submitApplication()"
+
+            <div
+              v-if="showLoader"
+              class="d-flex justify-content-center loader-div"
             >
-              <font-awesome-icon
-                class="fas"
-                :icon="planeIcon"
-                aria-hidden="true"
-              />
-              <span>Submit</span>
-            </button>
-            <button
-              type="submit"
-              v-if="contactType == 0"
-              class="gradient-btn call-now-btn"
-              @click.prevent="submitApplication()"
-            >
-              <font-awesome-icon
-                :icon="calendarIcon"
-                class="fas"
-                aria-hidden="true"
-              />
-              <span>Schedule Meeting</span>
-            </button>
+              <img :src="loaderImage" />
+            </div>
+            <div v-else>
+              <button
+                type="submit"
+                v-if="contactType == 1"
+                class="gradient-btn chat-email-btn"
+                @click.prevent="submitApplication()"
+              >
+                <font-awesome-icon
+                  class="fas"
+                  :icon="planeIcon"
+                  aria-hidden="true"
+                />
+                <span>Submit</span>
+              </button>
+              <button
+                type="submit"
+                v-if="contactType == 0"
+                class="gradient-btn call-now-btn"
+                @click.prevent="submitApplication()"
+              >
+                <font-awesome-icon
+                  :icon="calendarIcon"
+                  class="fas"
+                  aria-hidden="true"
+                />
+                <span>Schedule Meeting</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -388,6 +409,7 @@ import {
 import axios from "axios";
 import CalendlyIframe from "./CalendlyIframe.vue";
 import config from "@/config.js";
+import loaderImage from "@/assets/images/theme/small-loader.svg";
 
 const CONTACT_BY_CHAT_OR_MAIL = 1;
 
@@ -481,6 +503,9 @@ export default {
       showValidationError: false,
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
+      disableInput: false,
+      showLoader: false,
+      loaderImage: loaderImage,
     };
   },
   components: {
@@ -512,8 +537,8 @@ export default {
       } else {
         this.$gtag.event("contact_submit");
 
+        this.disableInput = true;
         this.showValidationError = false;
-        this.$emit("isLoading", true);
         if (this.designationType == 0) {
           designationValue =
             "I am individual entrepreneur running my own business.";
@@ -553,21 +578,32 @@ export default {
         axios
           .post(config.API_BASE + "/api/send-contact-mail", formData)
           .then(() => {
-            this.$emit("isLoading", false);
+            this.showLoader = true;
             if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
-              this.showSuccessMessage();
+              setTimeout(() => {
+                this.showSuccessMessage();
+                if (this.showSuccessMessagePopup) {
+                  this.showLoader = false;
+                }
+              }, 1000);
             } else {
-              this.openCalendlyIframe();
+              setTimeout(() => {
+                this.openCalendlyIframe();
+                if (this.openCalendlyIframeModal) {
+                  this.showLoader = false;
+                }
+              }, 1000);
             }
           })
           .catch(() => {
-            this.$emit("isLoading", false);
             this.showErrorMessagePopup = true;
           });
       }
     },
     openCalendlyIframe() {
       this.openCalendlyIframeModal = true;
+      this.disableInput = false;
+      this.showLoader = false;
     },
     closeCalendlyIframeModal() {
       this.openCalendlyIframeModal = false;
@@ -757,7 +793,8 @@ input[type="radio"]:checked ~ .box {
 }
 
 .call-now-btn,
-.chat-email-btn {
+.chat-email-btn,
+.loader-div {
   width: 100%;
   margin-left: 0 !important;
 }
@@ -935,7 +972,8 @@ input:-webkit-autofill:active {
   }
 
   .call-now-btn,
-  .chat-email-btn {
+  .chat-email-btn,
+  .loader-div {
     width: 40%;
   }
 
