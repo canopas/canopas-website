@@ -152,7 +152,7 @@
                   type="file"
                   class="form-control custom-file-input"
                   name="resume"
-                  accept="application/pdf"
+                  accept="application/pdf,.doc,.docx"
                   @change="previewFiles"
                   required
                   :disabled="disableInput"
