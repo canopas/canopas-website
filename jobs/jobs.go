@@ -7,6 +7,7 @@ import (
 	"io"
 	"net/http"
 	"os"
+	"path/filepath"
 	"text/template"
 	"utils"
 
@@ -23,6 +24,8 @@ import (
 const (
 	CHARSET = "utf-8"
 )
+
+var extension string
 
 type Career struct {
 	Id                  int         `json:"id"`
@@ -160,6 +163,8 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 func getFileBytes(c *gin.Context) (*bytes.Buffer, error) {
 	fileHeader, err := c.FormFile("file")
 
+	extension = filepath.Ext(fileHeader.Filename)
+
 	if err != nil {
 		log.Error(err)
 		return nil, err
@@ -191,7 +196,7 @@ func GetEmailTemplate(htmlBody string, title string, attachmentBytes *bytes.Buff
 	msg.SetHeader("Subject", title)
 	msg.SetBody("text/html", htmlBody)
 
-	msg.Attach("resume.pdf", gomail.SetCopyFunc(func(w io.Writer) error {
+	msg.Attach("resume"+extension, gomail.SetCopyFunc(func(w io.Writer) error {
 		_, err := w.Write(attachmentBytes.Bytes())
 		return err
 	}))
