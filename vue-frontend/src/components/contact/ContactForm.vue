@@ -645,10 +645,6 @@ export default {
   font-weight: normal;
 }
 
-.contact-text-black {
-  color: rgba(61, 61, 61, 1) !important;
-}
-
 .form-control.custom {
   border: none;
   border-radius: 0;
@@ -740,7 +736,6 @@ input[type="radio"]:checked ~ .box {
 .box > span :hover {
   transition: all 300ms ease;
   user-select: none;
-  color: rgba(61, 61, 61, 1) !important;
 }
 
 .social-media {

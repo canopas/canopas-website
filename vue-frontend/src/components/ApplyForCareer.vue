@@ -135,7 +135,7 @@
                 <br />
                 <label>
                   <i>Supported formats:</i
-                  ><span class="black pdf-text">PDF</span>
+                  ><span class="black pdf-text">PDF and Docs </span>
                   <i>only</i>
                 </label>
               </div>
@@ -679,6 +679,7 @@ input:-webkit-autofill:active {
   outline: 0 !important;
   padding: 16px 48px;
   border-radius: 10px;
+  height: 60px;
 }
 
 .application-submit-btns {
