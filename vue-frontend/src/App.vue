@@ -175,6 +175,11 @@ a {
   box-shadow: 2px 1000px 1px #fff inset;
 }
 
+.gradient-btn:active,
+.gradient-border-btn:active {
+  transform: scale(0.98);
+}
+
 .gradient-border-btn > span {
   margin: 0 6px;
   color: rgba(61, 61, 61, 1);
