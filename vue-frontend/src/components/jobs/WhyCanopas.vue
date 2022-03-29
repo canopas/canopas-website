@@ -18,7 +18,7 @@
             loading="lazy"
             v-if="reason.image"
           />
-          <div class="content">
+          <div class="content animate__animated" ref="whyCanopas">
             <img
               :src="reason.bullet"
               alt="why-canopas-image"
@@ -65,6 +65,26 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      for (var i = 0; i < 3; i++) {
+        let data = {
+          name: this.$refs.whyCanopas[i],
+          animation: "animate__fadeIn",
+          childRef: [],
+        };
+        if (data) {
+          this.$emit("add-animation", data);
+        }
+      }
+    },
   },
 };
 </script>

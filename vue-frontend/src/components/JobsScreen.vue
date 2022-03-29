@@ -6,10 +6,13 @@
     <VirtuesView />
     <LifeAtCanopas />
     <PerksAndBenifits v-on:scroll-to-career="scrollToCareer" />
-    <WhyCanopas class="why-canopas-desktop" />
-    <WhyCanopasMobile class="why-canopas-mobile" />
+    <WhyCanopas class="why-canopas-desktop" v-on:add-animation="handleScroll" />
+    <WhyCanopasMobile
+      class="why-canopas-mobile"
+      v-on:add-animation="handleScroll"
+    />
     <Career id="career" />
-    <FaqSection />
+    <FaqSection v-on:add-animation="handleScroll" />
     <ScreenFooter2 />
   </div>
 </template>
@@ -61,6 +64,22 @@ export default {
       var careerDiv = document.getElementById("career");
       var top = careerDiv.offsetTop;
       window.scrollTo({ top: top, behavior: "smooth" });
+    },
+    handleScroll(data) {
+      if (data) {
+        let { top, bottom } = data.name.getBoundingClientRect();
+        let height = document.documentElement.clientHeight;
+
+        if (top < height && bottom > 0) {
+          if (data.childRef.length > 0) {
+            for (let i = 0; i < data.childRef.length; i++) {
+              data.childRef[i].name.classList.add(data.childRef[i].animation);
+            }
+          } else {
+            data.name.classList.add(data.animation);
+          }
+        }
+      }
     },
   },
   mounted() {

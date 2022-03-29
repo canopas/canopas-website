@@ -1,7 +1,10 @@
 <template>
   <div class="container-fluid">
-    <div class="container">
-      <div class="mt-4 canopas-text-div normal-text">
+    <div class="container" ref="canopasDescription">
+      <div
+        ref="description"
+        class="mt-4 canopas-text-div normal-text animate__animated"
+      >
         <h4 class="header-text canopas-gradient-text mb-4">What is Canopas?</h4>
         Canopas is a company helping Entrepreneurs, startups, and small
         companies to bring their IDEA to LIFE by developing digital products(or
@@ -21,7 +24,7 @@
         can be used by many people worldwide.
       </div>
       <div class="bongo-cat-wrapper">
-        <div class="bongo-cat-div text-right">
+        <div class="bongo-cat-div text-right animate__animated" ref="bongoCat">
           <BongoCat class="bongo-cat-image" />
         </div>
       </div>
@@ -39,7 +42,33 @@ export default {
   components: {
     BongoCat,
   },
-  method: {},
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      let data = {
+        name: this.$refs.canopasDescription,
+        animation: "",
+        childRef: [
+          {
+            name: this.$refs.description,
+            animation: "animate__fadeInLeft",
+          },
+          {
+            name: this.$refs.bongoCat,
+            animation: "animate__zoomIn",
+          },
+        ],
+      };
+      if (data) {
+        this.$emit("add-animation", data);
+      }
+    },
+  },
 };
 </script>
 

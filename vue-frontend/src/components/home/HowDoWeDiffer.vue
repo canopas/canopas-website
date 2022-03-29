@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
-    <div class="container">
-      <div class="description text-left">
+    <div class="container" ref="howDoWeDiffer">
+      <div class="description text-left animate__animated" ref="description">
         <span class="header-text canopas-gradient-text text-center"
           >How do we differ from others?</span
         >
@@ -29,7 +29,7 @@
         smoother, and better. We help quality-conscious people(or companies)
         design, develop, and expand their business through digital products.
       </div>
-      <div class="flex-grid mt-3 pb-5">
+      <div class="flex-grid mt-3 pb-5 animate__animated" ref="flexGridIcon">
         <div class="flex-grid-1 normal-text" ref="flexGridOne">
           <div class="text-center text-black">
             <object
@@ -152,6 +152,31 @@ export default {
     } else {
       this.$refs.flexGridOne.append(this.$refs.uiUxDiv);
     }
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      let data = {
+        name: this.$refs.howDoWeDiffer,
+        animation: "",
+        childRef: [
+          {
+            name: this.$refs.description,
+            animation: "animate__fadeIn",
+          },
+          {
+            name: this.$refs.flexGridIcon,
+            animation: "animate__fadeIn",
+          },
+        ],
+      };
+      if (data) {
+        this.$emit("add-animation", data);
+      }
+    },
   },
 };
 </script>

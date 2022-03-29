@@ -6,7 +6,7 @@
       >
         <span class="underline-text">Freq</span>uently Asked Questions
       </div>
-      <div class="col-md-4 image">
+      <div class="col-md-4 image animate__animated" ref="faqImage">
         <img
           :src="faqImage"
           loading="lazy"
@@ -178,6 +178,12 @@ export default {
     CollapseTransition,
     FontAwesomeIcon,
   },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
   methods: {
     expandListItem(index) {
       if (this.previousIndex == index && this.openList) {
@@ -210,6 +216,16 @@ export default {
         (this.current + (diff % Math.ceil(len)) + Math.ceil(len)) %
         Math.ceil(len)
       );
+    },
+    handleScroll() {
+      let data = {
+        name: this.$refs.faqImage,
+        animation: "animate__zoomIn",
+        childRef: [],
+      };
+      if (data) {
+        this.$emit("add-animation", data);
+      }
     },
   },
 };
