@@ -1,11 +1,11 @@
 <template>
   <div class="container-fluid">
     <div class="container-xl">
-      <div class="flex-row">
-        <div class="que-image">
+      <div class="flex-row" ref="doYouKnow">
+        <div ref="doYouKnowImage" class="que-image animate__animated">
           <img :src="doYouKnowImage" alt="do-you-know" />
         </div>
-        <div class="container">
+        <div ref="doYouKnowDetails" class="container animate__animated">
           <h4 class="header-text pb-30">Do you know ?</h4>
           <span class="normal-text pink-text mt-20">
             We’ve worked with just <b>10 clients</b> in the last <b>5 years</b>.
@@ -31,6 +31,33 @@ export default {
     return {
       doYouKnowImage: doYouKnowImage,
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      let data = {
+        name: this.$refs.doYouKnow,
+        animation: "",
+        childRef: [
+          {
+            name: this.$refs.doYouKnowImage,
+            animation: "animate__fadeInLeft",
+          },
+          {
+            name: this.$refs.doYouKnowDetails,
+            animation: "animate__fadeInRight",
+          },
+        ],
+      };
+      if (data) {
+        this.$emit("add-animation", data);
+      }
+    },
   },
 };
 </script>

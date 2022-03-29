@@ -1,15 +1,18 @@
 <template>
   <div class="text-center container">
-    <div class="header-2-text">
+    <div class="header-2-text mt-5 animate__animated animate__fadeInDown">
       Are you looking for a job where you can leverage your knowledge and
       experience to build digital products that will be used by millions of
       customers?
     </div>
-    <div class="normal-text desc-text">
+    <div class="normal-text desc-text animate__animated animate__fadeInLeft">
       You've come to the right place. We're looking for an AVENGER who can join
       our existing team of AVENGERS.
     </div>
-    <button class="gradient-btn normal-text" @click="$emit('scroll-to-career')">
+    <button
+      class="gradient-btn normal-text animate__animated animate__fadeInUp"
+      @click="$emit('scroll-to-career')"
+    >
       <span>SEE ALL POSITIONS</span>
     </button>
   </div>

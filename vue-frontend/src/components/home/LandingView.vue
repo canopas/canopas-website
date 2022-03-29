@@ -3,21 +3,23 @@
     <img :src="backgroundImage" class="render-background" />
     <div class="container text-center">
       <div class="description">
-        <div class="header-text canopas-gradient-text pb-3">
+        <div
+          class="header-text canopas-gradient-text pb-3 animate__animated animate__fadeInDown"
+        >
           Do you have a massive ad budget for your business?
         </div>
 
-        <div class="mt-5 normal-text">
+        <div class="mt-5 normal-text animate__animated animate__fadeInLeft">
           Unless you’re a Multimillion or a Billion-dollar company, you probably
           don’t have a multimillion-dollar ad budget or professional Spinners.
           <br /><br /><br />
           Your product needs to stand out on its own merits like App Quality,
           Performance, UI design, and User Experience.
         </div>
-        <div class="text-center down-arrow">
+        <div class="text-center down-arrow animate__animated animate__fadeInUp">
           <img class="animated-down-arrow" :src="arrowImage" alt="" />
         </div>
-        <div class="normal-text second-div">
+        <div class="normal-text second-div animate__animated animate__fadeInUp">
           Most companies don't care about you, your product, and your vision or
           dreams. They don't give a damn about whether their work helped you to
           get more business, revenue, users, or solving a problem.

@@ -10,7 +10,12 @@
       class="image"
     />
     <div class="reasons-container">
-      <div v-for="reason in reasons" :key="reason" class="reason">
+      <div
+        v-for="reason in reasons"
+        :key="reason"
+        class="reason animate__animated"
+        ref="whyCanopasMobile"
+      >
         <div class="content">
           <img
             :src="reason.bullet"
@@ -65,6 +70,26 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      for (var i = 0; i < 3; i++) {
+        let data = {
+          name: this.$refs.whyCanopasMobile[i],
+          animation: "animate__fadeIn",
+          childRef: [],
+        };
+        if (data) {
+          this.$emit("add-animation", data);
+        }
+      }
+    },
   },
 };
 </script>
