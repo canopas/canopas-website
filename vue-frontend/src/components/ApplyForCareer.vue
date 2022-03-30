@@ -605,17 +605,18 @@ export default {
 }
 
 .form-control.custom {
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #e2e2e2;
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
   box-shadow: none;
   color: #3d3d3d;
   font-size: 1.125rem;
-  padding-left: 0;
+  margin-top: 15px;
+  padding: 10px 16px !important;
 }
 
 .form-control.custom:focus {
-  border-bottom: 1px solid #3d3d3d;
+  border: 1px solid #e2e2e2;
+  outline: none;
 }
 
 .form-control:disabled {
@@ -677,9 +678,9 @@ input:-webkit-autofill:active {
   border: 1px solid #e2e2e2;
   box-shadow: none !important;
   outline: 0 !important;
-  padding: 16px 48px;
+  padding: 10px 48px;
   border-radius: 10px;
-  height: 60px;
+  height: 50px;
 }
 
 .application-submit-btns {
@@ -694,14 +695,13 @@ input:-webkit-autofill:active {
   margin-top: 15px;
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid #e2e2e2;
   outline: 0 !important;
 }
 
 .reference-option-list::before {
   content: "";
   position: absolute;
-  top: 15px;
+  top: 20px;
   right: 20px;
   z-index: 1;
   width: 8px;
@@ -727,10 +727,11 @@ input:-webkit-autofill:active {
   height: 100%;
   cursor: pointer;
   background: #fff;
-  border: none;
+  border: 1px solid #e2e2e2;
   outline: none;
-  padding: 12px 0;
+  padding: 12px 16px;
   border-radius: 10px;
+  box-shadow: none;
 }
 
 .reference-option-list .options {
