@@ -10,20 +10,18 @@
             <label for="username" class="contact-form-text required"
               >Hi, Canopas team. My name is</label
             >
-            <label>
-              <input
-                class="form-control custom"
-                type="text"
-                name="username"
-                required
-                autocomplete="given-name"
-                v-model="name"
-                :disabled="disableInput"
-              />
-              <span v-if="showValidationError" class="error"
-                >This field is required</span
-              >
-            </label>
+            <input
+              class="form-control custom custom-input-text"
+              type="text"
+              name="username"
+              required
+              autocomplete="given-name"
+              v-model="name"
+              :disabled="disableInput"
+            />
+            <span v-if="showValidationError" class="error username-error"
+              >This field is required</span
+            >
           </div>
         </div>
 
@@ -71,7 +69,7 @@
                 I am an owner of the business and I run
                 <label>
                   <input
-                    class="form-control custom input-text-width"
+                    class="form-control input-dotted input-text-width"
                     type="text"
                     name="company"
                     v-model="business"
@@ -91,7 +89,7 @@
                 >I am representing
                 <label>
                   <input
-                    class="form-control custom input-text-width"
+                    class="form-control input-dotted input-text-width"
                     type="text"
                     name="company"
                     v-model="business"
@@ -215,14 +213,14 @@
               You can reach out to me at (email address)
             </label>
             <input
-              class="form-control custom url-width"
+              class="form-control custom custom-input-text"
               type="text"
               name="email"
               required
               v-model="email"
               :disabled="disableInput"
             />
-            <span v-if="showValidationError" class="error"
+            <span v-if="showValidationError" class="error email-error"
               >This field is required</span
             >
           </div>
@@ -646,6 +644,25 @@ export default {
 }
 
 .form-control.custom {
+  border: 1px solid #e2e2e2;
+  border-radius: 10px;
+  box-shadow: none;
+  padding: 10px 16px !important;
+  color: #3d3d3d;
+}
+
+.form-control.custom:focus {
+  border: 1px solid #e2e2e2;
+  outline: none;
+}
+
+.custom-input-text {
+  margin-left: 0;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.form-control.input-dotted {
   border: none;
   border-radius: 0;
   border-bottom: 1px dashed rgba(61, 61, 61, 0.5);
@@ -655,7 +672,7 @@ export default {
   margin-right: 5px;
 }
 
-.form-control.custom:focus {
+.form-control.input-dotted:focus {
   border-bottom: 1px dashed rgba(61, 61, 61, 0.5);
 }
 
@@ -752,12 +769,12 @@ input[type="radio"]:checked ~ .box {
   color: #3d3d3d;
   font-size: 1rem;
   border-radius: 10px;
-  border: 1px solid rgba(61, 61, 61, 0.1);
+  border: 1px solid #e2e2e2;
   padding: 8px 16px !important;
 }
 
 .input-textarea:focus {
-  border: 1px solid rgba(61, 61, 61, 0.1);
+  border: 1px solid #e2e2e2;
   outline: none;
 }
 
@@ -784,7 +801,9 @@ input[type="radio"]:checked ~ .box {
 }
 
 .item-selected {
-  border: 1px solid #ff9472 !important;
+  background: -webkit-linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(to bottom, #ff9472, #f2709c) border-box;
+  border: 1px solid transparent !important;
 }
 
 .call-now-btn,
@@ -854,6 +873,7 @@ input:-webkit-autofill:active {
 }
 
 .set-url-icon {
+  margin-left: 10px;
   font-size: 1rem;
   color: rgba(0, 0, 0, 0.5);
   cursor: pointer;
@@ -1009,6 +1029,20 @@ input:-webkit-autofill:active {
   .contact-form-text,
   .contact-form-text:hover {
     line-height: 1.875rem;
+  }
+
+  .custom-input-text {
+    margin-left: 5px;
+    margin-top: 0;
+    max-width: 50%;
+  }
+
+  .username-error {
+    margin-left: 248px;
+  }
+
+  .email-error {
+    margin-left: 350px;
   }
 }
 </style>
