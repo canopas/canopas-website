@@ -31,7 +31,7 @@
             <div class="career-icon">
               <font-awesome-icon
                 class="gradient-icon icon"
-                :icon="career.icon_name"
+                :icon="[career.icon_name.prefix, career.icon_name.icon]"
               />
             </div>
             <div class="career-title">{{ career.title }}</div>
@@ -88,20 +88,22 @@ import config from "@/config.js";
 import loader from "@/assets/images/theme/loader.svg";
 import router from "@/router";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
 import { faApple, faAndroid } from "@fortawesome/free-brands-svg-icons";
-
 import {
   faGlobe,
   faBullhorn,
   faPenNib,
   faUser,
+  faF,
 } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faApple, faAndroid, faPenNib, faGlobe, faBullhorn, faUser, faF);
 
 export default {
   data() {
     return {
       careers: [],
-      icon: [faApple, faAndroid, faGlobe, faBullhorn, faPenNib, faUser],
       currentIndex: 0,
       openList: true,
       previousIndex: 0,
@@ -134,10 +136,17 @@ export default {
           this.isLoading = false;
           this.careers = response.data;
           for (let i = 0; i < this.careers.length; i++) {
+            let prefix = this.careers[i].icon_name.split(" ")[0];
+            let iconName = this.careers[i].icon_name.split(/-(.*)/);
+            let icon = {
+              prefix: prefix,
+              icon: iconName[1],
+            };
+
             var unique_id = this.careers[i].unique_id;
             this.careers[i].detail_link = "/jobs/" + unique_id;
             this.careers[i].job_link = "/jobs/apply/" + unique_id;
-            this.careers[i].icon_name = this.icon[i];
+            this.careers[i].icon_name = icon;
           }
         })
         .catch((error) => {
