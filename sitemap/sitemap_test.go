@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
+	"time"
 	"utils"
 
 	"github.com/gin-gonic/gin"
@@ -86,6 +87,14 @@ func initializeRepo() (*SitemapRepository, error) {
 		return nil, err
 	}
 
+	err = utils.CreateTables(testDB)
+	if err != nil {
+		return nil, err
+	}
+
+	utils.TruncateTables(testDB)
+	utils.PrepareTablesData(testDB)
+
 	careerRepo = jobs.New(testDB, templateFS)
 	repo = New(careerRepo)
 
@@ -107,7 +116,14 @@ func expectedSitemapData() URLset {
 	return sitemap
 }
 
+func BeginningOfMonthDate(t time.Time) time.Time {
+	return time.Date(t.Year(), t.Month(), 1, 0, 0, 0, 0, t.Location())
+}
+
 func expectedURLData() []URL {
+	t := time.Now()
+	dateFormat := "2006-01-02"
+	date := BeginningOfMonthDate(t).Format(dateFormat) + "T00:00:00.000Z"
 
 	sitemapUrls := []URL{
 		{Loc: "http://localhost:8080", Priority: `1`},
@@ -122,7 +138,7 @@ func expectedURLData() []URL {
 		sitemapUrls[i].XMLName.Space = "http://www.sitemaps.org/schemas/sitemap/0.9"
 		sitemapUrls[i].XMLName.Local = "url"
 		sitemapUrls[i].ChangeFreq = "monthly"
-		sitemapUrls[i].LastMod = "2022-03-01T00:00:00.000Z"
+		sitemapUrls[i].LastMod = date
 	}
 
 	return sitemapUrls
