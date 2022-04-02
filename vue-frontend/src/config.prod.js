@@ -33,4 +33,5 @@ export default Object.freeze({
   },
   GAP_ID_ROOT: "G-VXHMMMEJ5X",
   IS_PROD: true,
+  IS_SHOW_NEW_HOME_PAGE: false,
 });
