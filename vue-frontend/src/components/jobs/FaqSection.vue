@@ -305,8 +305,8 @@ button[disabled] {
 .arrow {
   border: 1px solid rgba(61, 61, 61, 0.15);
   border-radius: 15px;
-  height: 45px;
-  width: 45px;
+  height: 25px;
+  width: 25px;
   padding: 10px;
   color: #fff;
   background: #3d3d3d;
