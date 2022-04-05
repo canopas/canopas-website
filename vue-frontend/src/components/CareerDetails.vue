@@ -305,6 +305,15 @@ export default {
       bullet.className = "bullet";
       descriptionTitle.prepend(bullet);
     });
+    let descriptionLists = document.querySelectorAll(
+      "#description > ul > li > div"
+    );
+    descriptionLists.forEach((descriptionList) => {
+      let fa = document.createElement("span");
+      fa.className = "fas fa-chevron-right";
+      fa.innerHTML = "&nbsp;";
+      descriptionList.prepend(fa);
+    });
   },
 };
 </script>
@@ -347,7 +356,9 @@ export default {
 }
 
 .summary-text,
-:deep(div > span *) {
+:deep(div > span *),
+:deep(ul *),
+:deep(div) {
   font-size: 1.1rem !important;
   line-height: 2rem;
   text-align: justify;
@@ -365,6 +376,7 @@ export default {
   line-height: 2rem !important;
   letter-spacing: 0.05rem;
   padding: 12px 0;
+  color: #3d3d3d;
 }
 
 :deep(h2 > .bullet) {
@@ -376,6 +388,11 @@ export default {
   height: auto;
   width: 8px;
   border-radius: 0;
+}
+
+:deep(ul) {
+  list-style-type: none !important;
+  padding-left: 0 !important;
 }
 
 // error message
@@ -434,7 +451,9 @@ export default {
   }
 
   .summary-text,
-  :deep(div > span *) {
+  :deep(div > span *),
+  :deep(ul *),
+  :deep(div) {
     font-size: 1.125rem !important;
     line-height: 2.5rem !important;
   }
@@ -447,7 +466,9 @@ export default {
 
 @include media-breakpoint-up(lg) {
   .summary-text,
-  :deep(div > span *) {
+  :deep(div > span *),
+  :deep(ul *),
+  :deep(div) {
     font-size: 1.4rem !important;
   }
 }
