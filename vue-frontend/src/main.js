@@ -8,9 +8,11 @@ import "animate.css";
 
 createApp(App)
   .use(router)
-  .use(VueGtag, {
-    config: {
-      id: config.GAP_ID_ROOT,
+  .use(
+    VueGtag,
+    {
+      config: { id: config.GAP_ID_ROOT },
     },
-  })
+    router
+  )
   .mount("#app");

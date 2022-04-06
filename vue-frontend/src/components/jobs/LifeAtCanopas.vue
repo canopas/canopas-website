@@ -54,17 +54,6 @@ import AspectRatio from "@/components/utils/AspectRatio.vue";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import life1 from "@/assets/images/life/jobs_canopas_life_1.jpg";
-import life2 from "@/assets/images/life/jobs_canopas_life_2.jpg";
-import life3 from "@/assets/images/life/jobs_canopas_life_3.jpg";
-import life4 from "@/assets/images/life/jobs_canopas_life_4.jpg";
-import life5 from "@/assets/images/life/jobs_canopas_life_5.jpg";
-import life6 from "@/assets/images/life/jobs_canopas_life_6.jpg";
-import life7 from "@/assets/images/life/jobs_canopas_life_7.jpg";
-import life8 from "@/assets/images/life/jobs_canopas_life_8.jpg";
-import life9 from "@/assets/images/life/jobs_canopas_life_9.jpg";
-import life10 from "@/assets/images/life/jobs_canopas_life_10.jpg";
-import life11 from "@/assets/images/life/jobs_canopas_life_11.jpg";
 SwiperCore.use([Pagination]);
 
 export default {
@@ -73,47 +62,47 @@ export default {
       slides: [
         {
           id: 1,
-          image: life2,
+          image: require("@/assets/images/life/jobs_canopas_life_2.jpg"),
         },
         {
           id: 2,
-          image: life1,
+          image: require("@/assets/images/life/jobs_canopas_life_1.jpg"),
         },
         {
           id: 3,
-          image: life4,
+          image: require("@/assets/images/life/jobs_canopas_life_4.jpg"),
         },
         {
           id: 4,
-          image: life10,
+          image: require("@/assets/images/life/jobs_canopas_life_10.jpg"),
         },
         {
           id: 5,
-          image: life3,
+          image: require("@/assets/images/life/jobs_canopas_life_3.jpg"),
         },
         {
           id: 6,
-          image: life6,
+          image: require("@/assets/images/life/jobs_canopas_life_6.jpg"),
         },
         {
           id: 7,
-          image: life9,
+          image: require("@/assets/images/life/jobs_canopas_life_9.jpg"),
         },
         {
           id: 8,
-          image: life7,
+          image: require("@/assets/images/life/jobs_canopas_life_7.jpg"),
         },
         {
           id: 9,
-          image: life8,
+          image: require("@/assets/images/life/jobs_canopas_life_8.jpg"),
         },
         {
           id: 10,
-          image: life5,
+          image: require("@/assets/images/life/jobs_canopas_life_5.jpg"),
         },
         {
           id: 11,
-          image: life11,
+          image: require("@/assets/images/life/jobs_canopas_life_11.jpg"),
         },
       ],
       pagination: {

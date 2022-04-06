@@ -56,11 +56,6 @@
 
 <script type="module">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import lisa from "@/assets/images/clients/lisa.webp";
-import marcus from "@/assets/images/clients/marcus.webp";
-import jake from "@/assets/images/clients/jake.webp";
-import maor from "@/assets/images/clients/maor.webp";
-import ramasis from "@/assets/images/clients/ramasis.webp";
 
 export default {
   data() {
@@ -68,7 +63,7 @@ export default {
       clients: [
         {
           id: "client-1",
-          image: lisa,
+          image: require("@/assets/images/clients/lisa.webp"),
           name: "Lisa W.",
           review:
             "There is not enough space to say all the wonderful things I\
@@ -81,7 +76,7 @@ export default {
         },
         {
           id: "client-2",
-          image: marcus,
+          image: require("@/assets/images/clients/marcus.webp"),
           name: "Marcus L.",
           review:
             "Canopas has been nothing but wonderful on this project. His\
@@ -92,7 +87,7 @@ export default {
         },
         {
           id: "client-3",
-          image: jake,
+          image: require("@/assets/images/clients/jake.webp"),
           name: "Jake N.",
           review:
             "Canopas team was also incredibly kind and always willing to\
@@ -106,7 +101,7 @@ export default {
         },
         {
           id: "client-4",
-          image: maor,
+          image: require("@/assets/images/clients/maor.webp"),
           name: "Maor T.",
           review:
             "This is our favorite expert for all mobile and web developing\
@@ -117,7 +112,7 @@ export default {
         },
         {
           id: "client-5",
-          image: ramasis,
+          image: require("@/assets/images/clients/ramasis.webp"),
           name: "Ramsis A.",
           review:
             "Canopas has been great to work with. From day 1, they made\
@@ -128,7 +123,7 @@ export default {
         },
         {
           id: "client-6",
-          image: jake,
+          image: require("@/assets/images/clients/jake.webp"),
           name: "Jake N.",
           review:
             "Canopas team was unbelievable. They did everything and above.\
@@ -289,7 +284,6 @@ export default {
 .clients-indicators {
   background: none;
   border: none;
-  padding: 5px;
 }
 
 .arrow {

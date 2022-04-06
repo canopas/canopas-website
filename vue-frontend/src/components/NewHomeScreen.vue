@@ -16,6 +16,4 @@ export default {
 };
 </script>
 
-<style scoped>
-@import "@/assets/css/tailwind.css";
-</style>
+<style scoped></style>

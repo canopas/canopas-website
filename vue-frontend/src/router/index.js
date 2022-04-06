@@ -60,10 +60,7 @@ const router = createRouter({
     if (savedPosition) {
       return savedPosition;
     } else {
-      return {
-        top: 0,
-        behavior: "instant",
-      };
+      return { top: 0, behavior: "instant" };
     }
   },
 });

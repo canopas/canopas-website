@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap.min.css";
 
 @font-face {
   font-family: "Product Sans";
