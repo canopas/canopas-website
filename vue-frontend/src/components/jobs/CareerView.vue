@@ -23,7 +23,11 @@
     </div>
     <div v-else class="career-container normal-text mt-5">
       <div class="career-list-container">
-        <div v-for="career in careers" :key="career" class="career-list">
+        <div
+          v-for="(career, index) in careers"
+          :key="career"
+          class="career-list"
+        >
           <div
             class="career-header normal-text text-left"
             @click="expandListItem(career.id)"
@@ -73,7 +77,7 @@
               </div>
             </div>
           </collapse-transition>
-          <div class="career-divider" v-if="career.id != careers.length"></div>
+          <div class="career-divider" v-if="index <= careers.length"></div>
         </div>
       </div>
     </div>
