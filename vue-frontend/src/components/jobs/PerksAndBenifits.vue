@@ -39,23 +39,6 @@
 <script type="module">
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 
-import perks1 from "@/assets/images/perks/jobs_canopas_perks_1.jpg";
-import perks2 from "@/assets/images/perks/jobs_canopas_perks_2.jpg";
-import perks3 from "@/assets/images/perks/jobs_canopas_perks_3.jpg";
-import perks4 from "@/assets/images/perks/jobs_canopas_perks_4.jpg";
-import perks5 from "@/assets/images/perks/jobs_canopas_perks_5.jpg";
-import perks6 from "@/assets/images/perks/jobs_canopas_perks_6.jpg";
-import perks7 from "@/assets/images/perks/jobs_canopas_perks_7.jpg";
-import perks8 from "@/assets/images/perks/jobs_canopas_perks_8.jpg";
-
-import learning from "@/assets/images/benifits/jobs_canopas_learning.svg";
-import health from "@/assets/images/benifits/jobs_canopas_health.svg";
-import clock from "@/assets/images/benifits/jobs_canopas_clock.svg";
-import cooking from "@/assets/images/benifits/jobs_canopas_cooking.svg";
-import hiring from "@/assets/images/benifits/jobs_canopas_hiring.svg";
-import laptop from "@/assets/images/benifits/jobs_canopas_laptop.svg";
-import celebration from "@/assets/images/benifits/jobs_canopas_celebration.svg";
-
 export default {
   data() {
     return {
@@ -65,13 +48,13 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks1,
+          image: require("@/assets/images/perks/jobs_canopas_perks_1.jpg"),
           description: "",
         },
         {
           id: 2,
           title: "Learning & Development",
-          icon: learning,
+          icon: require("@/assets/images/benifits/jobs_canopas_learning.svg"),
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description:
@@ -82,13 +65,13 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks2,
+          image: require("@/assets/images/perks/jobs_canopas_perks_2.jpg"),
           description: "",
         },
         {
           id: 4,
           title: "Health & Wellbeing",
-          icon: health,
+          icon: require("@/assets/images/benifits/jobs_canopas_health.svg"),
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
@@ -99,13 +82,13 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks3,
+          image: require("@/assets/images/perks/jobs_canopas_perks_3.jpg"),
           description: "",
         },
         {
           id: 6,
           title: "Equipment And Tools",
-          icon: laptop,
+          icon: require("@/assets/images/benifits/jobs_canopas_laptop.svg"),
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
@@ -116,13 +99,13 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks4,
+          image: require("@/assets/images/perks/jobs_canopas_perks_4.jpg"),
           description: "",
         },
         {
           id: 8,
           title: "Celebrations",
-          icon: celebration,
+          icon: require("@/assets/images/benifits/jobs_canopas_celebration.svg"),
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description:
@@ -133,13 +116,13 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks5,
+          image: require("@/assets/images/perks/jobs_canopas_perks_5.jpg"),
           description: "",
         },
         {
           id: 10,
           title: "Lunch and learn sessions",
-          icon: cooking,
+          icon: require("@/assets/images/benifits/jobs_canopas_cooking.svg"),
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
@@ -150,13 +133,13 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks6,
+          image: require("@/assets/images/perks/jobs_canopas_perks_6.jpg"),
           description: "",
         },
         {
           id: 12,
           title: "Flexible working",
-          icon: clock,
+          icon: require("@/assets/images/benifits/jobs_canopas_clock.svg"),
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
@@ -167,13 +150,13 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks7,
+          image: require("@/assets/images/perks/jobs_canopas_perks_7.jpg"),
           description: "",
         },
         {
           id: 14,
           title: "We are hiring",
-          icon: hiring,
+          icon: require("@/assets/images/benifits/jobs_canopas_hiring.svg"),
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description: `Want to become part of a Canopas team? Check out our openings and <div class="career-link" style="color: #fe88a2; font-weight:700; cursor:pointer"> apply today.</div>`,
@@ -183,7 +166,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks8,
+          image: require("@/assets/images/perks/jobs_canopas_perks_8.jpg"),
           description: "",
         },
       ],
