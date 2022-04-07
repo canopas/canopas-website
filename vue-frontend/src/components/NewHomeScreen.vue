@@ -1,17 +1,17 @@
 <template>
   <div>
-    <ScreenHeader />
+    <HeaderV2 />
   </div>
 </template>
 
 <script>
-import ScreenHeader from "./partials/ScreenHeader.vue";
+import HeaderV2 from "./partials/HeaderV2.vue";
 export default {
   data() {
     return {};
   },
   components: {
-    ScreenHeader,
+    HeaderV2,
   },
 };
 </script>
