@@ -1,13 +1,5 @@
 <template>
   <div class="container-fluid">
-    <ScreenMeta v-bind:seoData="seoData" />
-    <Teleport to="head">
-      <component
-        :is="'script'"
-        type="application/ld+json"
-        v-text="jsonld"
-      ></component>
-    </Teleport>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -43,24 +35,28 @@
     <div v-else>
       <div class="container">
         <div class="canopas-gradient-text text-center">
-          {{ details.title }}
+          {{ job.title }}
         </div>
         <hr class="title-hr mt-4" />
         <div class="normal-text summary-text mt-5">
-          {{ details.summary }}
+          {{ job.summary }}
         </div>
         <div class="mt-5">
-          <div id="description" class="normal-text" v-html="description"></div>
+          <div
+            id="description"
+            class="normal-text"
+            v-html="job.description"
+          ></div>
         </div>
         <div class="application-submit-btns mt-5">
-          <router-link class="gradient-btn" :to="jobLink">
+          <a class="gradient-btn" :href="jobLink">
             <font-awesome-icon
               class="fa icon"
               :icon="checkCircle"
               aria-hidden="true"
             />
             <span>Apply Now</span>
-          </router-link>
+          </a>
         </div>
       </div>
       <ScreenFooter2 />
@@ -69,15 +65,15 @@
 </template>
 
 <script>
-import ScreenHeader from "./partials/ScreenHeader.vue";
-import ScreenFooter2 from "./partials/ScreenFooter2.vue";
-import ScreenMeta from "./partials/ScreenMeta.vue";
-import ScreenLoader from "./utils/ScreenLoader.vue";
-import axios from "axios";
-import config from "@/config.js";
+import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import router from "@/router";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { mapGetters } from "vuex";
+import store from "@/store";
+import config from "@/config.js";
+import { useMeta } from "vue-meta";
 import moment from "moment";
 
 import {
@@ -88,76 +84,87 @@ import {
 library.add(faCheckCircle, faChevronRight);
 
 export default {
+  setup() {
+    const { meta } = useMeta({
+      og: {
+        type: "Jobs Posting Website",
+      },
+      script: [{ innerHTML: "", type: "application/ld+json" }],
+    });
+    return {
+      meta,
+    };
+  },
   data() {
     return {
-      details: null,
-      description: "",
+      id: this.$route.params.id,
       checkCircle: faCheckCircle,
       isLoading: true,
       showErrorMessagePopup: false,
-      jsonld: {},
-      jobPosted: "",
-      validThrough: "",
       jobLink: "",
-      seoData: {
-        type: "Jobs Posting Website",
-        url: location.toString(),
-      },
     };
   },
   components: {
     ScreenHeader,
     ScreenFooter2,
-    ScreenMeta,
     FontAwesomeIcon,
     ScreenLoader,
   },
+  computed: {
+    ...mapGetters({
+      job: "jobById",
+      jobsError: "jobsError",
+    }),
+  },
+  async serverPrefetch() {
+    await this.getCareerDetails();
+  },
   mounted() {
-    this.getCareerDetails();
-    this.setJobDates();
+    if (this.job == null) {
+      this.getCareerDetails();
+    }
+    this.setCareerDetails();
     this.$gtag.event("view_page_job_detail");
   },
   methods: {
-    getCareerDetails() {
-      var id = this.$route.params.id;
-      axios
-        .get(config.API_BASE + "/api/careers/" + id)
-        .then((res) => {
-          this.isLoading = false;
-          this.details = res.data;
-          this.jobLink = "/jobs/apply/" + this.details.unique_id;
-          this.description = this.details.description;
-          this.prepareSEOdata();
-          this.prepareJSONLDSchema();
-        })
-        .catch((err) => {
-          this.isLoading = false;
-          if (err.response && err.response.status == 404) {
-            router.push({
-              name: "Error404Page",
-              params: { catchAll: "jobs/" + id },
-            });
-          } else {
-            this.showErrorMessagePopup = true;
-          }
-        });
+    async getCareerDetails() {
+      var req = {
+        jobId: this.id,
+        href: this.$route.href,
+      };
+      await store.dispatch("getJobsById", req);
+      if (this.jobsError == null) {
+        this.setMetaProperties();
+      }
     },
-    closeErrorMessageModal() {
-      router.push({
-        path: `/jobs`,
-      });
+    setCareerDetails() {
+      this.isLoading = false;
+      if (this.jobsError != null) {
+        var err = this.jobsError;
+        if (err && err.status == 404) {
+          this.$router.push({
+            name: "Error404Page",
+            params: { catchAll: "jobs/" + this.id },
+          });
+        } else {
+          this.showErrorMessagePopup = true;
+        }
+      } else {
+        this.jobLink = "/jobs/apply/" + this.job.unique_id;
+      }
     },
-    prepareSEOdata() {
-      var seo_title = this.details.seo_title
-        ? this.details.seo_title
-        : this.details.title + " job at canopas";
-
-      this.seoData.title = seo_title;
-      this.seoData.description = this.details.seo_description;
+    setMetaProperties() {
+      var seoMeta = this.job.seoData;
+      this.meta.title = seoMeta.title;
+      this.meta.description = seoMeta.description;
+      this.meta.og.title = seoMeta.title;
+      this.meta.og.url = config.BASE_URL + this.$route.href;
+      this.meta.script[0].innerHTML = JSON.stringify(this.JSONLDSchema());
     },
-    prepareJSONLDSchema() {
-      var career = this.details;
-      this.jsonld = {
+    JSONLDSchema() {
+      var career = this.job;
+      var dates = this.setJobDates();
+      return {
         "@context": "http://schema.org",
         "@type": "JobPosting",
         title: career.title,
@@ -183,7 +190,7 @@ export default {
             unitText: "MONTH",
           },
         },
-        datePosted: this.jobPosted,
+        datePosted: dates.jobPosted,
         description: this.setDescriptionForGoogleSchema(),
         educationRequirements: {
           "@type": "EducationalOccupationalCredential",
@@ -210,14 +217,11 @@ export default {
         salaryCurrency: "INR",
         workHours: "9am-6pm",
         directApply: true,
-        validThrough: this.validThrough,
+        validThrough: dates.validThrough,
       };
     },
     setDescriptionForGoogleSchema() {
-      var html = this.unescapeHTML(this.description);
-      var tmp = document.createElement("DIV");
-      tmp.innerHTML = html;
-      html = tmp.textContent || tmp.innerText;
+      var html = this.unescapeHTML(this.job.description);
 
       //convert string to array
       let descContent = html.split("\n");
@@ -286,16 +290,23 @@ export default {
       // start date of current month
       var startDateOfMonth = moment().startOf("month").add(-2, "days");
 
-      var jobPosted =
+      var postedDate =
         currentDay <= maxDays
           ? startDateOfMonth
           : startDateOfMonth.add(maxDays, "days");
 
-      this.jobPosted = jobPosted.format("YYYY-MM-DD");
+      var jobPosted = postedDate.format("YYYY-MM-DD");
 
-      this.validThrough = jobPosted
+      var validThrough = postedDate
         .add(maxDays + 5, "days")
         .format("YYYY-MM-DDT00:00");
+
+      return { jobPosted, validThrough };
+    },
+    closeErrorMessageModal() {
+      this.$router.push({
+        path: `/jobs`,
+      });
     },
   },
   updated() {

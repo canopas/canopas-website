@@ -1,6 +1,5 @@
 <template>
   <div>
-    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <LandingView v-on:scroll-to-career="scrollToCareer" />
     <VirtuesView />
@@ -18,33 +17,41 @@
 </template>
 
 <script>
-import ScreenMeta from "./partials/ScreenMeta.vue";
-import ScreenHeader from "./partials/ScreenHeader.vue";
-import LandingView from "./jobs/LandingView.vue";
-import VirtuesView from "./jobs/VirtuesView.vue";
-import LifeAtCanopas from "./jobs/LifeAtCanopas.vue";
-import Career from "./jobs/CareerView.vue";
-import PerksAndBenifits from "./jobs/PerksAndBenifits.vue";
-import WhyCanopas from "./jobs/WhyCanopas.vue";
-import WhyCanopasMobile from "./jobs/WhyCanopasMobile.vue";
-import FaqSection from "./jobs/FaqSection.vue";
-import ScreenFooter2 from "./partials/ScreenFooter2.vue";
+import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import LandingView from "@/components/jobs/LandingView.vue";
+import VirtuesView from "@/components/jobs/VirtuesView.vue";
+import LifeAtCanopas from "@/components/jobs/LifeAtCanopas.vue";
+import Career from "@/components/jobs/CareerView.vue";
+import PerksAndBenifits from "@/components/jobs/PerksAndBenifits.vue";
+import WhyCanopas from "@/components/jobs/WhyCanopas.vue";
+import WhyCanopasMobile from "@/components/jobs/WhyCanopasMobile.vue";
+import FaqSection from "@/components/jobs/FaqSection.vue";
+import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
+import { useMeta } from "vue-meta";
 
 import {
   faAlignLeft,
   faCheckCircle,
   faMinus,
+  faPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faAlignLeft, faCheckCircle, faMinus);
+library.add(faAlignLeft, faCheckCircle, faMinus, faPlus);
 
 export default {
-  data() {
-    return {
-      seoData: config.JOBS_SEO_META_DATA,
-    };
+  setup() {
+    var seoData = config.JOBS_SEO_META_DATA;
+    useMeta({
+      title: seoData.title,
+      description: seoData.description,
+      og: {
+        type: seoData.type,
+        title: seoData.title,
+        url: seoData.url,
+      },
+    });
   },
   components: {
     ScreenHeader,
@@ -57,7 +64,6 @@ export default {
     WhyCanopasMobile,
     FaqSection,
     ScreenFooter2,
-    ScreenMeta,
   },
   methods: {
     scrollToCareer() {

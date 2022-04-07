@@ -2,7 +2,7 @@ name: DeployDevBackend
 on:
   push:
     branches:
-      - 'master'
+      - "master"
 
 jobs:
   deploy-backend:
@@ -16,12 +16,12 @@ jobs:
 
       - uses: actions/setup-go@v2
         with:
-          go-version: '^1.17.5'
+          go-version: "^1.17.5"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::569704406482:role/github-actions-s3-access
+          role-to-assume: arn:aws:iam::569704406482:role/github-actions-backend-access
           aws-region: ap-south-1
       - name: Build backend
         run: |
@@ -61,5 +61,3 @@ jobs:
             DbHost=${{ secrets.DB_HOST }},
             DbPort=${{ secrets.DB_PORT }},
             DbName=${{ secrets.DB_NAME }}
-
-            

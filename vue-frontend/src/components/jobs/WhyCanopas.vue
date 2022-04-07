@@ -39,6 +39,11 @@
 <script>
 import WhyCanopasImage from "@/assets/images/why/why-canopas-bg.svg";
 
+import bullet1 from "@/assets/images/why/why-canopas-dot-1.svg";
+import bullet2 from "@/assets/images/why/why-canopas-dot-2.svg";
+import bullet3 from "@/assets/images/why/why-canopas-dot-3.svg";
+import circle from "@/assets/images/why/why-canopas-circle.svg";
+
 export default {
   data() {
     return {
@@ -48,20 +53,20 @@ export default {
           title: "Our Vision",
           description:
             "To put humanity and the world into a better position than it was prior to our existence.",
-          bullet: require("@/assets/images/why/why-canopas-dot-1.svg"),
+          bullet: bullet1,
         },
         {
           title: "How is it relevant to me?",
           description:
             "At Canopas, you will thrive if you want to grow, learn, and stretch yourself. Canopas is built on teamwork and overcoming obstacles, helping each other to achieve shared goals.",
-          bullet: require("@/assets/images/why/why-canopas-dot-3.svg"),
-          image: require("@/assets/images/why/why-canopas-circle.svg"),
+          bullet: bullet3,
+          image: circle,
         },
         {
           title: "What's in it for me?",
           description:
             "We have some of the most brilliant, diverse, and humble people you'll ever meet. At Canopas, we have created an environment where everyone asks questions, shares expertise and knowledge, learns something new that helps everyone grow.",
-          bullet: require("@/assets/images/why/why-canopas-dot-2.svg"),
+          bullet: bullet2,
         },
       ],
     };

@@ -10,7 +10,7 @@
       <div class="item communication-item1">
         <div class="normal-2-text">I love talking with people</div>
         <button class="gradient-btn" @click="openContact">
-          <font-awesome-icon class="fa" icon="phone-alt" aria-hidden="true" />
+          <font-awesome-icon class="fa" icon="phone" aria-hidden="true" />
           <span>Call Now</span>
         </button>
       </div>
