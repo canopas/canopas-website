@@ -20,34 +20,23 @@
         </router-link>
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-               <li class="nav-item-margin ">
-              <a class="nav-link  v2-title-3-text bottom-border"  target="_blank"
+            <li class="nav-item-margin">
+              <a class="nav-link v2-title-3-text bottom-border" target="_blank"
                 >Home</a
               >
             </li>
-            <li class="nav-item-margin v2-title-3-text ">
-              <a
-                class="nav-link "
-                :href="careerURL"
-                >Career</a
-              >
+            <li class="nav-item-margin v2-title-3-text">
+              <a class="nav-link" :href="careerURL">Career</a>
             </li>
-            <li class="nav-item-margin v2-title-3-text ">
-              <a class="nav-link  " target="_blank"
-                >Blogs</a
-              >
+            <li class="nav-item-margin v2-title-3-text">
+              <a class="nav-link" target="_blank">Blogs</a>
             </li>
-             <li class="nav-item-margin v2-title-3-text ">
-              <a class="nav-link " target="_blank"
-                >Portfolio</a
-              >
+            <li class="nav-item-margin v2-title-3-text">
+              <a class="nav-link" target="_blank">Portfolio</a>
             </li>
-            <li class="nav-item-margin round-btn v2-title-3-text ">
-              <a class="anchor-color" target="_blank"
-                >Let's Talk</a
-              >
+            <li class="nav-item-margin round-btn v2-title-3-text">
+              <a class="anchor-color" target="_blank">Let's Talk</a>
             </li>
-       
           </ul>
         </div>
       </div>
@@ -109,7 +98,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .nav-container {
   background: #fff;
   position: relative;
@@ -132,29 +120,27 @@ export default {
   bottom: unset;
   box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15);
 }
-.anchor-color{
-    color:white;
-
+.anchor-color {
+  color: white;
 }
 .navbar-animation {
   animation: menu_sticky 0.6s ease-in-out;
 }
 
-.bottom-border::after{
-   content: "";
-    display: block;
-    position: relative;
-    width: 50.4%;
-    border-top: 3px solid black;
+.bottom-border::after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 50.4%;
+  border-top: 3px solid black;
 }
-.round-btn{
-    background-color: #000;
-    border-radius: 25px;
-    padding: 10px 25px;
-    color:#fff;
-     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.round-btn {
+  background-color: #000;
+  border-radius: 25px;
+  padding: 10px 25px;
+  color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 
 @keyframes menu_sticky {
   0% {
@@ -185,7 +171,6 @@ export default {
   height: 38.5px;
 }
 
-
 @include media-breakpoint-up(md) {
   .navbar-nav .nav-item-margin .nav-link {
     margin: 0 40px 0 0;
@@ -195,5 +180,4 @@ export default {
     padding: 20px 0;
   }
 }
-
 </style>
