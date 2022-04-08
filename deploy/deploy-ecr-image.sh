@@ -3,15 +3,16 @@
 set -e
 
 IMAGE_TAG="$GITHUB_SHA"
-IMAGE_ARN=$1
+IMAGE_ARN=$2
+PLATFORM=$1
 
 aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 569704406482.dkr.ecr.ap-south-1.amazonaws.com
 
-docker build -t canopas-website-ssr-app:$IMAGE_TAG .
+docker build -t canopas-website-ssr-app:$IMAGE_TAG-$PLATFORM .
 
-docker tag canopas-website-ssr-app:$IMAGE_TAG $IMAGE_ARN:$IMAGE_TAG
+docker tag canopas-website-ssr-app:$IMAGE_TAG-$PLATFORM $IMAGE_ARN:$IMAGE_TAG-$PLATFORM
 
-docker push $IMAGE_ARN:$IMAGE_TAG
+docker push $IMAGE_ARN:$IMAGE_TAG-$PLATFORM
 
 # delete untagged images
 aws ecr describe-repositories --output text | awk '{print $5}' | egrep -v '^$' | while read line; do

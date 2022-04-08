@@ -27,8 +27,9 @@ jobs:
       - name: Build frontend and push on ECR
         run: |
           cd vue-frontend
+          mv src/config.prod.js src/config.js
           sh ./../deploy/generate-sitemap.sh https://canopas.com https://prod-stack-api.canopas.com && cd ..
-          sh ./deploy/deploy-ecr-image.sh 569704406482.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-ssr-app
+          sh ./deploy/deploy-ecr-image.sh prod 569704406482.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-ssr-app
           
       - name: Deploy cloudformation stack with cloudfront
         id: canopas-website-prod-frontend-stack-ECS
@@ -45,4 +46,4 @@ jobs:
             TargetGroupName=canopas-website-tg-prod,
             SecurityGroupName=canopas-website-alb-sg-prod,
             SecurityGroupContainerName=canopas-website-alb-to-farget-prod,
-            ImageTag=${{ github.sha }}
+            ImageTag=${{ github.sha }}-prod

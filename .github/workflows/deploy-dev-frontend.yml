@@ -28,7 +28,7 @@ jobs:
         run: |
           cd vue-frontend
           sh ./../deploy/generate-sitemap.sh https://dev-stack.canopas.com https://dev-stack-api.canopas.com && cd ..
-          sh ./deploy/deploy-ecr-image.sh 569704406482.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-ssr-app
+          sh ./deploy/deploy-ecr-image.sh dev 569704406482.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-ssr-app
 
       - name: Deploy cloudformation stack with cloudfront
         id: canopas-website-dev-frontend-stack-ECS
@@ -45,4 +45,4 @@ jobs:
             TargetGroupName=canopas-website-tg-dev,
             SecurityGroupName=canopas-website-alb-sg-dev,
             SecurityGroupContainerName=canopas-website-alb-to-farget-dev,
-            ImageTag=${{ github.sha }}
+            ImageTag=${{ github.sha }}-dev
