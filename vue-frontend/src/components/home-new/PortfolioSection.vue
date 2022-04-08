@@ -7,7 +7,12 @@
         :key="portfolio"
         class="portfolio-details mt-4"
       >
-        <img :src="portfolio.image" class="portfolio-image" />
+        <img
+          :src="portfolio.image"
+          class="portfolio-image"
+          loading="lazy"
+          :alt="portfolio.title + `-image`"
+        />
         <div class="description">
           <div class="v2-title-text">{{ portfolio.title }}</div>
           <div class="v2-normal-text mt-3">
