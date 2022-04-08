@@ -1,8 +1,5 @@
 <template>
   <div>
-    <Teleport to="head" v-if="!crawl">
-      <meta name="robots" content="noindex" />
-    </Teleport>
     <router-view></router-view>
   </div>
 </template>
@@ -15,22 +12,29 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import Config from "@/config.js";
+import { useMeta } from "vue-meta";
 
 library.add(faArrowRight, faStar, faArrowLeft);
 
 export default {
   name: "App",
   components: {},
-  data() {
-    return {
-      crawl: Config.IS_PROD,
-    };
+  setup() {
+    useMeta({
+      meta: [
+        {
+          name: "robots",
+          content: Config.IS_PROD ? "" : "noindex",
+          vmid: "robots",
+        },
+      ],
+    });
   },
 };
 </script>
 
 <style lang="scss">
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 @font-face {
   font-family: "Product Sans";

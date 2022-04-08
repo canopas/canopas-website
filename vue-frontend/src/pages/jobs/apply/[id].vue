@@ -1,13 +1,12 @@
 <template>
   <div>
-    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <ScreenLoader v-if="isLoading" />
     <div v-else>
       <div class="container form-container">
         <div class="job-application">
           <div class="header-2-text text-center canopas-gradient-text pb-3">
-            Applying For {{ title }}
+            Applying For {{ job.title }}
           </div>
           <form class="contact-form-text pt-5 pb-5">
             <div class="row">
@@ -342,13 +341,14 @@
 </template>
 
 <script>
-import ScreenHeader from "./partials/ScreenHeader.vue";
-import ScreenFooter2 from "./partials/ScreenFooter2.vue";
-import ScreenMeta from "./partials/ScreenMeta.vue";
-import ScreenLoader from "./utils/ScreenLoader.vue";
+import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import axios from "axios";
 import config from "@/config.js";
-import router from "@/router";
+import store from "@/store";
+import { mapGetters } from "vuex";
+import { useMeta } from "vue-meta";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import loaderImage from "@/assets/images/theme/small-loader.svg";
 
@@ -357,9 +357,19 @@ import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 library.add(faCheckCircle);
 
 export default {
+  setup() {
+    const { meta } = useMeta({
+      og: {
+        type: "Jobs Posting Website",
+      },
+    });
+    return {
+      meta,
+    };
+  },
   data() {
     return {
-      title: "",
+      id: this.$route.params.id,
       references: [
         {
           id: 1,
@@ -427,10 +437,6 @@ export default {
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
       showReviewFormPopup: false,
-      seoData: {
-        type: "Jobs Posting Website",
-        url: location.toString(),
-      },
       disableInput: false,
       showLoader: false,
       loaderImage: loaderImage,
@@ -439,44 +445,57 @@ export default {
   components: {
     ScreenHeader,
     ScreenFooter2,
-    ScreenMeta,
     FontAwesomeIcon,
     ScreenLoader,
   },
+  async serverPrefetch() {
+    await this.getCareerDetails();
+  },
   mounted() {
+    if (this.job == null) {
+      this.getCareerDetails();
+    }
+    this.setCareerDetails();
     this.$gtag.event("view_page_job_apply");
-    this.getCareerDetails();
     document.addEventListener("click", this.referenceList);
   },
+  computed: {
+    ...mapGetters({
+      job: "jobById",
+      jobsError: "jobsError",
+    }),
+  },
   methods: {
-    getCareerDetails() {
-      var id = this.$route.params.id;
-      axios
-        .get(config.API_BASE + "/api/careers/" + id)
-        .then((res) => {
-          this.isLoading = false;
-          this.title = res.data.title;
-          this.prepareSEOdata(res.data);
-        })
-        .catch((err) => {
-          this.isLoading = false;
-          if (err.response && err.response.status == 404) {
-            router.push({
-              name: "Error404Page",
-              params: { catchAll: "jobs/" + id },
-            });
-          } else {
-            this.showErrorMessagePopup = true;
-          }
-        });
+    async getCareerDetails() {
+      var req = {
+        jobId: this.id,
+        href: this.$route.href,
+      };
+      await store.dispatch("getJobsById", req);
+      if (this.jobsError == null) {
+        this.setMetaProperties();
+      }
     },
-    prepareSEOdata(job) {
-      var seo_title = job.apply_seo_title
-        ? job.apply_seo_title
-        : "Apply for " + job.title + " job at canopas";
-
-      this.seoData.title = seo_title;
-      this.seoData.description = job.apply_seo_description;
+    setCareerDetails() {
+      this.isLoading = false;
+      if (this.jobsError != null) {
+        var err = this.jobsError;
+        if (err && err.status == 404) {
+          this.$router.push({
+            name: "Error404Page",
+            params: { catchAll: "jobs/" + this.id },
+          });
+        } else {
+          this.showErrorMessagePopup = true;
+        }
+      }
+    },
+    setMetaProperties() {
+      var seoMeta = this.job.seoData;
+      this.meta.title = seoMeta.title;
+      this.meta.description = seoMeta.description;
+      this.meta.og.title = seoMeta.title;
+      this.meta.og.url = config.BASE_URL + this.$route.href;
     },
     referenceList(e) {
       var target = e.target;
@@ -540,7 +559,7 @@ export default {
         this.showReviewFormPopup = false;
         this.isLoad = true;
         const formData = new FormData();
-        formData.append("job_title", this.title);
+        formData.append("job_title", this.job.title);
         formData.append("name", this.fullName);
         formData.append("email", this.email);
         formData.append("phone", this.phoneNumber);

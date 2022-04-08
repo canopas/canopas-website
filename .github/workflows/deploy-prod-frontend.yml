@@ -2,8 +2,8 @@ name: DeployProdFrontend
 on:
   push:
     branches:
-      - 'master'
-      
+      - "master"
+
 jobs:
   deploy-frontend:
     runs-on: ubuntu-latest
@@ -16,37 +16,33 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: '16'
+          node-version: "17"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::569704406482:role/github-actions-s3-access
+          role-to-assume: arn:aws:iam::569704406482:role/github-actions-frontend-access
           aws-region: ap-south-1
 
-      - name: Deploy cloudfront
-        id: canopas-website-prod-frontend-stack
+      - name: Build frontend and push on ECR
+        run: |
+          cd vue-frontend
+          sh ./../deploy/generate-sitemap.sh https://canopas.com https://prod-stack-api.canopas.com && cd ..
+          sh ./deploy/deploy-ecr-image.sh 569704406482.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-ssr-app
+          
+      - name: Deploy cloudformation stack with cloudfront
+        id: canopas-website-prod-frontend-stack-ECS
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: canopas-website-prod-frontend-stack
+          name: canopas-website-prod-frontend-stack-ECS
           template: infrastructure/template-frontend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "10"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            S3BucketName=prod-stack-canopas-v1-frontend,
-            CustomDomainName=canopas.com
-
-      - name: Build frontend
-        run: |
-          cd vue-frontend
-          npm ci
-          mv src/config.prod.js src/config.js
-          sh generate-sitemap.sh https://canopas.com https://prod-stack-api.canopas.com
-          npm run build
-
-      - name: Upload to S3
-        run: |
-          cd vue-frontend
-          aws s3 sync --delete --cache-control 'max-age=31536000' --exclude *.html --exclude sitemap.xml dist/ s3://prod-stack-canopas-v1-frontend/
-          aws s3 sync --cache-control 'no-cache' dist/ s3://prod-stack-canopas-v1-frontend/
+            LoadBalancerName=CanopasWebsiteALB-prod,
+            ClusterName=canopas-website-prod,
+            TargetGroupName=canopas-website-tg-prod,
+            SecurityGroupName=canopas-website-alb-sg-prod,
+            SecurityGroupContainerName=canopas-website-alb-to-farget-prod,
+            ImageTag=${{ github.sha }}

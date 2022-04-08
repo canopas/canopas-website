@@ -1,18 +1,13 @@
-import { createApp } from "vue";
 import App from "./App.vue";
-import router from "./router";
-import VueGtag from "vue-gtag";
-import config from "@/config.js";
+import { createSSRApp } from "vue";
+import { createRouter } from "./router";
+import store from "./store";
+import { createMetaManager } from "vue-meta";
 
-import "animate.css";
-
-createApp(App)
-  .use(router)
-  .use(
-    VueGtag,
-    {
-      config: { id: config.GAP_ID_ROOT },
-    },
-    router
-  )
-  .mount("#app");
+export function createApp(isSSR) {
+  const app = createSSRApp(App);
+  const router = createRouter();
+  const metaManager = createMetaManager(isSSR);
+  app.use(router).use(store).use(metaManager);
+  return { app, router, store, metaManager };
+}

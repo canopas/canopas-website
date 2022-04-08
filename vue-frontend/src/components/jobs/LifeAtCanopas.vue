@@ -15,7 +15,12 @@
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: true,
+        }"
         :loop="true"
+        :loopedSlides="50"
         :spaceBetween="20"
         :pagination="pagination"
         :breakpoints="{
@@ -48,13 +53,25 @@
 </template>
 
 <script>
-import SwiperCore, { Pagination } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/vue";
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import "swiper/css";
-import "swiper/css/pagination";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import "swiper.css";
+import "swiper.css.pagination";
 
-SwiperCore.use([Pagination]);
+import life1 from "@/assets/images/life/jobs_canopas_life_1.jpg";
+import life2 from "@/assets/images/life/jobs_canopas_life_2.jpg";
+import life3 from "@/assets/images/life/jobs_canopas_life_3.jpg";
+import life4 from "@/assets/images/life/jobs_canopas_life_4.jpg";
+import life5 from "@/assets/images/life/jobs_canopas_life_5.jpg";
+import life6 from "@/assets/images/life/jobs_canopas_life_6.jpg";
+import life7 from "@/assets/images/life/jobs_canopas_life_7.jpg";
+import life8 from "@/assets/images/life/jobs_canopas_life_8.jpg";
+import life9 from "@/assets/images/life/jobs_canopas_life_9.jpg";
+import life10 from "@/assets/images/life/jobs_canopas_life_10.jpg";
+import life11 from "@/assets/images/life/jobs_canopas_life_11.jpg";
+
+SwiperCore.use([Pagination, Autoplay]);
 
 export default {
   data() {
@@ -62,54 +79,53 @@ export default {
       slides: [
         {
           id: 1,
-          image: require("@/assets/images/life/jobs_canopas_life_2.jpg"),
+          image: life2,
         },
         {
           id: 2,
-          image: require("@/assets/images/life/jobs_canopas_life_1.jpg"),
+          image: life1,
         },
         {
           id: 3,
-          image: require("@/assets/images/life/jobs_canopas_life_4.jpg"),
+          image: life4,
         },
         {
           id: 4,
-          image: require("@/assets/images/life/jobs_canopas_life_10.jpg"),
+          image: life10,
         },
         {
           id: 5,
-          image: require("@/assets/images/life/jobs_canopas_life_3.jpg"),
+          image: life3,
         },
         {
           id: 6,
-          image: require("@/assets/images/life/jobs_canopas_life_6.jpg"),
+          image: life6,
         },
         {
           id: 7,
-          image: require("@/assets/images/life/jobs_canopas_life_9.jpg"),
+          image: life9,
         },
         {
           id: 8,
-          image: require("@/assets/images/life/jobs_canopas_life_7.jpg"),
+          image: life7,
         },
         {
           id: 9,
-          image: require("@/assets/images/life/jobs_canopas_life_8.jpg"),
+          image: life8,
         },
         {
           id: 10,
-          image: require("@/assets/images/life/jobs_canopas_life_5.jpg"),
+          image: life5,
         },
         {
           id: 11,
-          image: require("@/assets/images/life/jobs_canopas_life_11.jpg"),
+          image: life11,
         },
       ],
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
       },
-      modules: [Pagination],
     };
   },
   components: {

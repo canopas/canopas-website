@@ -7,7 +7,7 @@ best practices.
 
 ## Requirements
 
-- Node16
+- Node17
 - Go 1.17
 
 ## To run front-end
@@ -21,13 +21,23 @@ best practices.
 - Run vue server
 
   ```
-  npm run serve
+  npm run dev
   ```
 
 - Compiles and minifies for production
 
   ```
   npm run build
+  ```
+
+- Server side rendering
+
+  ```
+  npm run build
+  ```
+
+  ```
+  npm run serve
   ```
 
 You can access the page by pointing a web browser at http://localhost:8080.
@@ -102,6 +112,13 @@ You can access the page by pointing a web browser at http://localhost:8080.
 
   [Here](https://github.com/canopas/canopas-website/blob/master/api-doc.md) is APIs reference used in the website.
 
+
+## To enable pre-commit hook
+
+```
+git config core.hooksPath .githooks
+```
+
 ## Dependencies
 
 Following are dependencies used by the project
@@ -109,6 +126,10 @@ Following are dependencies used by the project
 #### [VueJs](https://github.com/vuejs/core)
 
 - It is used to build web interfaces and one-page applications.
+
+#### [Vite](https://github.com/vitejs/vite)
+
+- It is frontend build tool that significantly improves the frontend development experience. We have used it for server side rendering. 
 
 #### [Bootstrap](https://github.com/twbs/bootstrap)
 
@@ -133,12 +154,6 @@ Following are dependencies used by the project
 #### [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 
 - Used for icons.
-
-## To enable pre-commit hook
-
-```
-git config core.hooksPath .githooks
-```
 
 ## LICENSE
 

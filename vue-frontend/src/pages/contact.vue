@@ -1,6 +1,5 @@
 <template>
   <div ref="contactScreen">
-    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
     <div>
@@ -12,27 +11,37 @@
 </template>
 
 <script>
-import ScreenHeader from "./partials/ScreenHeader.vue";
-import ScreenFooter2 from "./partials/ScreenFooter2.vue";
-import ScreenMeta from "./partials/ScreenMeta.vue";
-import ScreenLoader from "./utils/ScreenLoader.vue";
-import ContactLanding from "./contact/ContactLanding.vue";
-import ContactForm from "./contact/ContactForm.vue";
+import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+import ScreenLoader from "@/components/utils/ScreenLoader.vue";
+import ContactLanding from "@/components/contact/ContactLanding.vue";
+import ContactForm from "@/components/contact/ContactForm.vue";
 import config from "@/config.js";
+import { useMeta } from "vue-meta";
 
 export default {
+  setup() {
+    var seoData = config.CONTACT_SEO_META_DATA;
+    useMeta({
+      title: seoData.title,
+      description: seoData.description,
+      og: {
+        type: seoData.type,
+        title: seoData.title,
+        url: seoData.url,
+      },
+    });
+  },
   components: {
     ScreenHeader,
     ContactLanding,
     ScreenFooter2,
-    ScreenMeta,
     ContactForm,
     ScreenLoader,
   },
   data() {
     return {
       isLoading: false,
-      seoData: config.CONTACT_SEO_META_DATA,
     };
   },
   mounted() {

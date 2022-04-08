@@ -7,12 +7,12 @@ Parameters:
     Description: Name of an environment. 'dev', 'staging', 'prod' and any name.
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
-  S3BucketName:  
+  S3BucketName:
     Type: String
-    Description: Name of the S3 bucket 
+    Description: Name of the S3 bucket
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
-  CustomDomainName:  
+  CustomDomainName:
     Type: String
     Description: Name of the custom domain
   Sender:
@@ -45,14 +45,14 @@ Parameters:
   DbName:
     Type: String
     Description: Mysql database name.
-  LambdaHandlerPath:  
+  LambdaHandlerPath:
     Type: String
-    Description: Path of a Lambda Handler. 
+    Description: Path of a Lambda Handler.
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
-  LambdaZipFilePath:  
+  LambdaZipFilePath:
     Type: String
-    Description: Path of a Lambda function zip file. 
+    Description: Path of a Lambda function zip file.
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
   ApiGatewayStageName:
@@ -94,11 +94,11 @@ Resources:
       AssumeRolePolicyDocument:
         Statement:
           - Action:
-            - sts:AssumeRole
+              - sts:AssumeRole
             Effect: Allow
             Principal:
               Service:
-              - lambda.amazonaws.com
+                - lambda.amazonaws.com
         Version: 2012-10-17
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AWSLambdaExecute
@@ -161,7 +161,7 @@ Resources:
       EndpointConfiguration:
         Types:
           - REGIONAL
-      BinaryMediaTypes: ['*/*']
+      BinaryMediaTypes: ["*/*"]
       DisableExecuteApiEndpoint: true
       MinimumCompressionSize: 100
       Name:
@@ -188,7 +188,7 @@ Resources:
     Properties:
       RestApiId: !Ref ApiGateway
       ParentId: !GetAtt ApiGateway.RootResourceId
-      PathPart: '{proxy+}'
+      PathPart: "{proxy+}"
 
   ApiGatewayResourceProxyMethod:
     Type: AWS::ApiGateway::Method
@@ -226,8 +226,7 @@ Resources:
     Type: AWS::ApiGateway::BasePathMapping
     DependsOn:
       - ApiGatewayDeployment
-    Properties: 
+    Properties:
       DomainName: !Ref CustomDomainName
       RestApiId: !Ref ApiGateway
       Stage: !Ref ApiGatewayStageName
-

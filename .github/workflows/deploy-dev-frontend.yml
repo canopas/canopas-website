@@ -2,7 +2,7 @@ name: DeployDevFrontend
 on:
   push:
     branches:
-      - 'master'
+      - "master"
       
 jobs:
   deploy-frontend:
@@ -16,36 +16,33 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: '16'
+          node-version: "17"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::569704406482:role/github-actions-s3-access
+          role-to-assume: arn:aws:iam::569704406482:role/github-actions-frontend-access
           aws-region: ap-south-1
 
-      - name: Deploy cloudfront
-        id: canopas-website-dev-frontend-stack
+      - name: Build frontend and push on ECR
+        run: |
+          cd vue-frontend
+          sh ./../deploy/generate-sitemap.sh https://dev-stack.canopas.com https://dev-stack-api.canopas.com && cd ..
+          sh ./deploy/deploy-ecr-image.sh 569704406482.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-ssr-app
+
+      - name: Deploy cloudformation stack with cloudfront
+        id: canopas-website-dev-frontend-stack-ECS
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: canopas-website-dev-frontend-stack
+          name: canopas-website-dev-frontend-stack-ECS
           template: infrastructure/template-frontend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "10"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            S3BucketName=dev-stack-canopas-v1-frontend,
-            CustomDomainName=dev-stack.canopas.com
-
-      - name: Build frontend
-        run: |
-          cd vue-frontend
-          npm ci
-          sh generate-sitemap.sh https://dev-stack.canopas.com https://dev-stack-api.canopas.com
-          npm run build
-
-      - name: Upload to S3
-        run: |
-          cd vue-frontend
-          aws s3 sync --delete --cache-control 'max-age=31536000' --exclude *.html --exclude sitemap.xml dist/ s3://dev-stack-canopas-v1-frontend/
-          aws s3 sync --cache-control 'no-cache' dist/ s3://dev-stack-canopas-v1-frontend/
+            LoadBalancerName=CanopasWebsiteALB-dev,
+            ClusterName=canopas-website-dev,
+            TargetGroupName=canopas-website-tg-dev,
+            SecurityGroupName=canopas-website-alb-sg-dev,
+            SecurityGroupContainerName=canopas-website-alb-to-farget-dev,
+            ImageTag=${{ github.sha }}
