@@ -183,7 +183,7 @@ export default {
 
 @include media-breakpoint-up(md) {
   .navbar-nav .nav-item-margin .nav-link {
-    margin: 0 40px 0 0;
+    margin: 0 20px 0 0;
   }
 
   .navbar {
@@ -194,25 +194,11 @@ export default {
   }
 }
 @include media-breakpoint-up(lg) {
-  .navbar-nav .nav-item-margin .nav-link {
-    margin: 0 40px 0 0;
-  }
-
-  .navbar {
-    padding: 20px 0;
-  }
   .round-btn {
     padding: 10px 40px;
   }
 }
 @include media-breakpoint-up(xl) {
-  .navbar-nav .nav-item-margin .nav-link {
-    margin: 0 20px 0 0;
-  }
-
-  .navbar {
-    padding: 20px 0;
-  }
   .round-btn {
     padding: 10px 40px;
   }
