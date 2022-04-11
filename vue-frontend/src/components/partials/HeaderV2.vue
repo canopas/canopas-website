@@ -36,7 +36,7 @@
             </li>
             <router-link :to="contactURL">
               <li class="nav-item-margin round-btn v2-title-3-text">
-                <a class="anchor" target="_blank">Let's Talk</a>
+                <a class="anchor btn-border" target="_blank">Let's Talk</a>
               </li></router-link
             >
           </ul>
@@ -122,12 +122,9 @@ export default {
   bottom: unset;
   box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15);
 }
-.anchor {
-  color: white;
-}
-.round-btn:hover {
-  background-color: white;
-  color: black;
+
+a {
+  color: #000;
 }
 
 .navbar-animation {
@@ -140,16 +137,6 @@ export default {
   position: relative;
   width: 50.4%;
   border-top: 3px solid black;
-}
-.round-btn {
-  background-color: #000;
-  border-radius: 25px;
-  padding: 10px 25px;
-  color: #fff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.round-btn:hover > a {
-  color: black;
 }
 
 @keyframes menu_sticky {
@@ -189,13 +176,25 @@ export default {
   .navbar {
     padding: 20px 0;
   }
-  .round-btn {
-    padding: 0px 40px;
-  }
 }
+
 @include media-breakpoint-up(lg) {
   .round-btn {
-    padding: 10px 40px;
+    background-color: #000;
+    border-radius: 25px;
+    padding: 10px 25px;
+    color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .round-btn:hover > a {
+    color: black;
+  }
+  .round-btn:hover {
+    background-color: white;
+    color: black;
+  }
+  .anchor {
+    color: white;
   }
 }
 @include media-breakpoint-up(xl) {
