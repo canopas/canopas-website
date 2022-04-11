@@ -150,7 +150,7 @@ export default {
           this.showErrorMessagePopup = true;
         }
       } else {
-        this.jobLink = "jobs/apply/" + this.job.unique_id;
+        this.jobLink = "apply/" + this.job.unique_id;
       }
     },
     setMetaProperties() {
