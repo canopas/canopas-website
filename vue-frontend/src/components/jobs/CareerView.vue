@@ -56,7 +56,7 @@
               <div class="read-apply-btns">
                 <a
                   class="gradient-border-btn"
-                  :href="'/jobs/' + career.unique_id"
+                  :href="'jobs/' + career.unique_id"
                 >
                   <font-awesome-icon
                     class="fa gradient-icon"
@@ -68,7 +68,7 @@
                 </a>
                 <a
                   class="gradient-btn"
-                  :href="'/jobs/apply/' + career.unique_id"
+                  :href="'jobs/apply/' + career.unique_id"
                 >
                   <font-awesome-icon
                     class="fa"
