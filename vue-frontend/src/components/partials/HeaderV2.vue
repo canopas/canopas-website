@@ -8,7 +8,7 @@
       }"
       ref="mainHeader"
     >
-      <div class="container">
+      <div class="container col-md">
         <router-link to="/" replace>
           <div class="navbar-brand">
             <img
@@ -176,6 +176,9 @@ a {
   .navbar {
     padding: 20px 0;
   }
+  .col-md {
+    flex-direction: column;
+  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -196,10 +199,16 @@ a {
   .anchor {
     color: white;
   }
+  .col-md {
+    flex-direction: row;
+  }
 }
 @include media-breakpoint-up(xl) {
   .round-btn {
     padding: 10px 40px;
+  }
+  .col-md {
+    flex-direction: row;
   }
 }
 </style>
