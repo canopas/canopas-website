@@ -1,13 +1,18 @@
 {
   "name": "vue-frontend",
-  "version": "0.1.0",
   "private": true,
+  "version": "0.1.0",
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "serve": "cross-env NODE_ENV=production node server",
+    "dev": "node server",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "vite build --ssrManifest --outDir dist/client",
+    "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
+    "generate": "vite build --ssrManifest --outDir dist/static && npm run build:server && node prerender"
   },
-  "dependencies": {
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.5",
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/free-regular-svg-icons": "^6.1.1",
@@ -15,29 +20,36 @@
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
     "@ivanv/vue-collapse-transition": "^1.0.2",
     "@popperjs/core": "^2.11.2",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vitejs/plugin-vue-jsx": "^1.3.8",
+    "@vue/cli-plugin-babel": "~5.0.0-rc.2",
+    "@vue/cli-plugin-eslint": "~5.0.0-rc.2",
+    "@vue/compiler-sfc": "^3.0.0",
     "animate.css": "^4.1.1",
     "axios": "^0.25.0",
-    "bootstrap": "^5.1.3",
+    "compression": "^1.7.4",
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.7.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "express": "^4.17.3",
     "gsap": "^3.9.1",
     "moment": "^2.29.1",
     "prettier": "^2.5.1",
-    "swiper": "^7.4.1",
-    "vue": "^3.0.0",
+    "sass": "^1.49.9",
+    "serve-static": "^1.14.2",
+    "swiper": "^8.0.7",
+    "vite-plugin-pages": "^0.21.4",
     "vue-gtag": "^2.0.1",
-    "vue-router": "^4.0.12"
+    "vue-meta": "^3.0.0-alpha.10",
+    "vue-router": "^4.0.14"
   },
-  "devDependencies": {
-    "@babel/core": "^7.16.7",
-    "@babel/eslint-parser": "^7.16.5",
-    "@vue/cli-plugin-babel": "~5.0.0-rc.2",
-    "@vue/cli-plugin-eslint": "~5.0.0-rc.2",
-    "@vue/cli-service": "^5.0.4",
-    "@vue/compiler-sfc": "^3.0.0",
-    "eslint": "^8.7.0",
-    "eslint-plugin-vue": "^8.5.0",
-    "sass": "^1.48.0",
-    "sass-loader": "^12.4.0"
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "serialize-javascript": "^6.0.0",
+    "vite": "^2.9.1",
+    "vue": "^3.2.25",
+    "vuex": "^4.0.2"
   },
   "eslintConfig": {
     "root": true,

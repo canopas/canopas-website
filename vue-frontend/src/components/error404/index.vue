@@ -1,6 +1,5 @@
 <template>
   <div>
-    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <div class="container">
       <div class="image-404">
@@ -25,28 +24,38 @@
 </template>
 
 <script>
-import ScreenHeader from "./partials/ScreenHeader.vue";
-import ScreenFooter2 from "./partials/ScreenFooter2.vue";
-import ScreenMeta from "./partials/ScreenMeta.vue";
+import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import firstErrorLetter from "@/assets/images/logo/404page_4_1.svg";
 import middleErrorLetter from "@/assets/images/logo/canopas-icon.svg";
 import lastErrorLetter from "@/assets/images/logo/404page_4_2.svg";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Config from "@/config.js";
+import { useMeta } from "vue-meta";
 
 export default {
+  setup() {
+    var seoData = Config.SEO_META_DATA;
+    useMeta({
+      title: seoData.title,
+      description: seoData.description,
+      og: {
+        type: seoData.type,
+        title: seoData.title,
+        url: seoData.url,
+      },
+    });
+  },
   data() {
     return {
       firstErrorLetter: firstErrorLetter,
       middleErrorLetter: middleErrorLetter,
       lastErrorLetter: lastErrorLetter,
-      seoData: Config.SEO_META_DATA,
     };
   },
   components: {
     ScreenHeader,
     ScreenFooter2,
-    ScreenMeta,
     FontAwesomeIcon,
   },
   mounted() {

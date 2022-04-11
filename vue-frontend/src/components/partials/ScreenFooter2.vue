@@ -49,7 +49,6 @@ import {
 import backgroundFooterImage from "@/assets/images/footer/Canopas-footer-img.svg";
 import glassdoorImage from "@/assets/images/footer/glassdoor.webp";
 import Config from "@/config.js";
-import router from "@/router";
 
 export default {
   data() {
@@ -81,7 +80,7 @@ export default {
           icon: faLinkedinIn,
         },
       ],
-      isJobsUrl: router.currentRoute.value.fullPath.indexOf("/jobs") > -1,
+      isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,
     };
   },
   components: {

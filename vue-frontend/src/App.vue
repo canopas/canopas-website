@@ -1,8 +1,5 @@
 <template>
   <div>
-    <Teleport to="head" v-if="!crawl">
-      <meta name="robots" content="noindex" />
-    </Teleport>
     <router-view></router-view>
   </div>
 </template>
@@ -15,22 +12,29 @@ import {
   faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import Config from "@/config.js";
+import { useMeta } from "vue-meta";
 
 library.add(faArrowRight, faStar, faArrowLeft);
 
 export default {
   name: "App",
   components: {},
-  data() {
-    return {
-      crawl: Config.IS_PROD,
-    };
+  setup() {
+    useMeta({
+      meta: [
+        {
+          name: "robots",
+          content: Config.IS_PROD ? "" : "noindex",
+          vmid: "robots",
+        },
+      ],
+    });
   },
 };
 </script>
 
 <style lang="scss">
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 @font-face {
   font-family: "Product Sans";
@@ -40,6 +44,13 @@ export default {
   src: local("Open Sans"), local("OpenSans"),
     url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
       format("woff2");
+}
+
+@font-face {
+  font-family: "FuturaLT-Bold";
+  font-style: bold;
+  font-weight: 700;
+  src: url(./assets/fonts/FuturaLT-Bold.woff2);
 }
 
 body {
@@ -108,10 +119,12 @@ a {
 
 // 120px/119px - 90px/107px - 65px/94px
 .v2-header-text {
+  font-family: "FuturaLT-Bold";
   font-weight: 700;
   font-size: 4.0625rem;
   line-height: 5.875rem;
   letter-spacing: 1px;
+  color: #3d3d3d;
 }
 
 // 90px/107px - 65px/94px - 50px/80px
@@ -120,6 +133,7 @@ a {
   font-size: 3.125rem;
   line-height: 5rem;
   letter-spacing: 1px;
+  color: #3d3d3d;
 }
 
 // 65px/94px - 50px/80px - 35px/60px
@@ -128,6 +142,7 @@ a {
   font-size: 2.1875rem;
   line-height: 3.75rem;
   letter-spacing: 1px;
+  color: #3d3d3d;
 }
 
 // 80px/95px - 60px/75px - 40px/55px
@@ -136,6 +151,7 @@ a {
   font-size: 2.5rem;
   line-height: 3.4375rem;
   letter-spacing: 1px;
+  color: #3d3d3d;
 }
 
 // 35px/68px - 30px/60px - 25px/45px
@@ -144,6 +160,7 @@ a {
   font-size: 1.5625rem;
   line-height: 2.8125rem;
   letter-spacing: 1px;
+  color: #3d3d3d !important;
 }
 
 // 24px/29px - 20px/24px - 16px/20px
@@ -152,6 +169,7 @@ a {
   font-size: 1rem;
   line-height: 1.25rem;
   letter-spacing: 1px;
+  color: #3d3d3d;
 }
 
 // 27px/43px - 22px/32px - 19px/30px
@@ -160,6 +178,7 @@ a {
   font-size: 1.1875rem;
   line-height: 1.875rem;
   letter-spacing: 1px;
+  color: #3d3d3d;
 }
 
 // 22px/32px - 19px/30px - 17px/19px
@@ -168,6 +187,7 @@ a {
   font-size: 1.0625rem;
   line-height: 1.1875rem;
   letter-spacing: 1px;
+  color: #3d3d3d;
 }
 
 // 18px/30px - 17px/24px - 16px/18px
@@ -176,6 +196,7 @@ a {
   font-size: 1rem;
   line-height: 1.125rem;
   letter-spacing: 1px;
+  color: #3d3d3d;
 }
 
 .underline-text {
@@ -198,6 +219,31 @@ a {
     rgb(246, 146, 89),
     rgb(241, 105, 117)
   ) !important;
+}
+
+.v2-button {
+  border-radius: 3rem;
+  padding: 0.7rem 1.5rem;
+  text-align: center;
+  border: 1px solid #3d3d3d;
+  background-color: #fff;
+  color: #3d3d3d !important;
+}
+
+.v2-button > span {
+  margin-right: 6px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .v2-button:hover {
+    background-color: #3d3d3d;
+    color: #fff;
+  }
+
+  .v2-button:hover > span,
+  .v2-button:hover > .fa {
+    color: #fff;
+  }
 }
 
 .gradient-btn {
@@ -248,7 +294,8 @@ a {
 }
 
 .gradient-btn:active,
-.gradient-border-btn:active {
+.gradient-border-btn:active,
+.v2-button:active {
   transform: scale(0.98);
 }
 

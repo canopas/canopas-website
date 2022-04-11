@@ -1,6 +1,5 @@
 <template>
   <div>
-    <ScreenMeta v-bind:seoData="seoData" />
     <ScreenHeader />
     <LandingView />
     <ClientReview />
@@ -16,19 +15,19 @@
 </template>
 
 <script>
-import ScreenHeader from "./partials/ScreenHeader.vue";
-import LandingView from "./home/LandingView.vue";
-import UserReviews from "./home/UserReviews.vue";
-import ClientReview from "./home/ClientReview.vue";
-import ProblemSolution from "./home/ProblemSolution.vue";
-import CanopasDescription from "./home/CanopasDescription.vue";
-import HomeConsultation from "./home/HomeConsultation.vue";
-import HomeCTA from "./home/HomeCTA.vue";
-import ScreenFooter2 from "./partials/ScreenFooter2.vue";
-import ScreenMeta from "./partials/ScreenMeta.vue";
-import DoYouKnow from "./home/DoYouKnow.vue";
-import HowDoWeDiffer from "./home/HowDoWeDiffer.vue";
+import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import LandingView from "@/components/home/LandingView.vue";
+import ClientReview from "@/components/home/ClientReview.vue";
+import UserReviews from "@/components/home/UserReviews.vue";
+import ProblemSolution from "@/components/home/ProblemSolution.vue";
+import DoYouKnow from "@/components/home/DoYouKnow.vue";
+import HowDoWeDiffer from "@/components/home/HowDoWeDiffer.vue";
+import CanopasDescription from "@/components/home/CanopasDescription.vue";
+import HomeConsultation from "@/components/home/HomeConsultation.vue";
+import HomeCTA from "@/components/home/HomeCTA.vue";
+import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import Config from "@/config.js";
+import { useMeta } from "vue-meta";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -37,7 +36,7 @@ import {
   faStar,
   faPlus,
   faCommentAlt,
-  faPhoneAlt,
+  faPhone,
   faPaperPlane,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -47,32 +46,35 @@ library.add(
   faArrowLeft,
   faPlus,
   faCommentAlt,
-  faPhoneAlt,
+  faPhone,
   faPaperPlane
 );
 
 export default {
-  data() {
-    return {
-      seoData: Config.SEO_META_DATA,
-    };
+  setup() {
+    var seoData = Config.SEO_META_DATA;
+    useMeta({
+      title: seoData.title,
+      description: seoData.description,
+      og: {
+        type: seoData.type,
+        title: seoData.title,
+        url: seoData.url,
+      },
+    });
   },
   components: {
-    ScreenMeta,
     ScreenHeader,
     LandingView,
     ClientReview,
     UserReviews,
     ProblemSolution,
     DoYouKnow,
-    HowDoWeDiffer,
     CanopasDescription,
+    HowDoWeDiffer,
     HomeConsultation,
     HomeCTA,
     ScreenFooter2,
-  },
-  mounted() {
-    this.$gtag.event("view_page_home");
   },
   methods: {
     handleScroll(data) {

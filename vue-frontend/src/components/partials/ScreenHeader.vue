@@ -9,7 +9,7 @@
       ref="mainHeader"
     >
       <div class="container">
-        <router-link to="/" replace>
+        <a href="/" replace>
           <div class="navbar-brand">
             <img
               :src="headerLogoImage"
@@ -17,7 +17,7 @@
               alt="canopas-logo"
             />
           </div>
-        </router-link>
+        </a>
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin">
@@ -41,8 +41,8 @@
               >
             </li>
             <li>
-              <router-link
-                :to="contactURL"
+              <a
+                :href="contactURL"
                 class="nav-link start-btn normal-text"
                 v-bind:class="
                   activeContactPath ? 'gradient-btn' : 'gradient-border-btn'
@@ -54,11 +54,11 @@
                     >Let's talk business</span
                   >
                 </span>
-              </router-link>
+              </a>
             </li>
             <li>
-              <router-link
-                :to="contactURL"
+              <a
+                :href="contactURL"
                 class="nav-link start-btn-link normal-text"
                 :style="[
                   activeContactPath
@@ -68,7 +68,7 @@
                       }
                     : { textDecoration: `none` },
                 ]"
-                >Let's talk business</router-link
+                >Let's talk business</a
               >
             </li>
           </ul>
@@ -91,7 +91,7 @@ export default {
       blogsURL: Config.BLOG_URL,
       navbarSticky: false,
       navbarAnimation: false,
-      navContainerHeight: 0,
+      navContainerHeight: 133,
       lastScrollY: 0,
       activeCareerPath: false,
       activeContactPath: false,

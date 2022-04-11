@@ -18,7 +18,7 @@
       </div>
     </div>
 
-    <div v-if="isLoading" class="loader-div">
+    <div v-if="careers == null" class="loader-div">
       <img :src="loader" />
     </div>
     <div v-else class="career-container normal-text mt-5">
@@ -54,9 +54,9 @@
               </div>
 
               <div class="read-apply-btns">
-                <router-link
+                <a
                   class="gradient-border-btn"
-                  :to="career.detail_link"
+                  :href="'jobs/' + career.unique_id"
                 >
                   <font-awesome-icon
                     class="fa gradient-icon"
@@ -65,15 +65,18 @@
                     aria-hidden="true"
                   />
                   <span>Read More</span>
-                </router-link>
-                <router-link class="gradient-btn" :to="career.job_link">
+                </a>
+                <a
+                  class="gradient-btn"
+                  :href="'jobs/apply/' + career.unique_id"
+                >
                   <font-awesome-icon
                     class="fa"
                     icon="check-circle"
                     aria-hidden="true"
                   />
                   <span>Apply Now</span>
-                </router-link>
+                </a>
               </div>
             </div>
           </collapse-transition>
@@ -87,27 +90,13 @@
 <script type="module">
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import axios from "axios";
-import config from "@/config.js";
 import loader from "@/assets/images/theme/loader.svg";
-import router from "@/router";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faApple, faAndroid } from "@fortawesome/free-brands-svg-icons";
-import {
-  faGlobe,
-  faBullhorn,
-  faPenNib,
-  faUser,
-  faF,
-} from "@fortawesome/free-solid-svg-icons";
-
-library.add(faApple, faAndroid, faPenNib, faGlobe, faBullhorn, faUser, faF);
+import store from "@/store";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
     return {
-      careers: [],
       currentIndex: 0,
       openList: true,
       previousIndex: 0,
@@ -119,8 +108,20 @@ export default {
     CollapseTransition,
     FontAwesomeIcon,
   },
+  async serverPrefetch() {
+    await store.dispatch("getJobs");
+  },
   mounted() {
-    this.getCareers();
+    console.log(this.careers.length);
+    if (this.careers == null) {
+      store.dispatch("getJobs");
+    }
+  },
+  computed: {
+    ...mapGetters({
+      careers: "jobs",
+      jobsError: "jobsError",
+    }),
   },
   methods: {
     expandListItem(index) {
@@ -132,35 +133,6 @@ export default {
 
       this.currentIndex = index;
       this.previousIndex = this.currentIndex;
-    },
-    getCareers() {
-      axios
-        .get(config.API_BASE + "/api/careers")
-        .then((response) => {
-          this.isLoading = false;
-          this.careers = response.data;
-          for (let i = 0; i < this.careers.length; i++) {
-            let prefix = this.careers[i].icon_name.split(" ")[0];
-            let iconName = this.careers[i].icon_name.split(/-(.*)/);
-            let icon = {
-              prefix: prefix,
-              icon: iconName[1],
-            };
-
-            var unique_id = this.careers[i].unique_id;
-            this.careers[i].detail_link = "/jobs/" + unique_id;
-            this.careers[i].job_link = "/jobs/apply/" + unique_id;
-            this.careers[i].icon_name = icon;
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
-    getCareerDetails(id) {
-      router.push({
-        path: `/jobs/${id}`,
-      });
     },
   },
 };
