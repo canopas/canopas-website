@@ -233,6 +233,21 @@ a {
 .v2-button > span {
   margin-right: 6px;
 }
+.round-btn {
+  background-color: #000;
+  border-radius: 25px;
+  padding: 10px 25px;
+  color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-decoration: none;
+}
+.round-btn:hover > a {
+  color: black;
+}
+.round-btn:hover {
+  background-color: white;
+  color: black;
+}
 
 @media (hover: hover) and (pointer: fine) {
   .v2-button:hover {
