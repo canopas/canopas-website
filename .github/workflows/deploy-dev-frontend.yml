@@ -21,14 +21,14 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::569704406482:role/github-actions-frontend-access
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-actions-frontend-access
           aws-region: ap-south-1
 
       - name: Build frontend and push on ECR
         run: |
           cd vue-frontend
           sh ./../deploy/generate-sitemap.sh https://dev-stack.canopas.com https://dev-stack-api.canopas.com && cd ..
-          sh ./deploy/deploy-ecr-image.sh dev 569704406482.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-ssr-app
+          sh ./deploy/deploy-ecr-image.sh dev ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-ssr-app
 
       - name: Deploy cloudformation stack with cloudfront
         id: canopas-website-dev-frontend-stack-ECS
