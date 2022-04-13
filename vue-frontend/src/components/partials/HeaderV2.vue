@@ -21,8 +21,20 @@
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin">
-              <a class="nav-link v2-title-3-text" target="_blank"
-                ><span class="underline-text">Ho</span>me</a
+              <a
+                class="nav-link v2-title-3-text"
+                href="/"
+                :style="[
+                  activeHomePath
+                    ? {
+                        textDecoration: `underline !important`,
+                        'text-underline-offset': '0.3rem',
+                      }
+                    : { textDecoration: `none` },
+                ]"
+                ><span :class="[activeHomePath ? '' : 'v2-underline-text']"
+                  >Ho</span
+                >me</a
               >
             </li>
             <li class="nav-item-margin v2-title-3-text">
@@ -34,19 +46,29 @@
             <li class="nav-item-margin v2-title-3-text">
               <a class="nav-link" target="_blank">Portfolio</a>
             </li>
-            <router-link :to="contactURL">
-              <li class="nav-item-margin v2-title-3-text v2-black-btn">
-                <a target="_blank">Let's Talk</a>
-              </li></router-link
-            >
-            <!-- <router-link :to="contactURL"> -->
-            <li class="nav-item-margin v2-title-3-text btn-link">
-              <a :href="contactURL" class="link-color" target="_blank"
+            <li>
+              <a
+                :href="contactURL"
+                class="nav-item-margin v2-title-3-text"
+                v-bind:class="activeContactPath ? 'v2-button' : 'v2-black-btn'"
+                >Let's Talk</a
+              >
+            </li>
+            <li>
+              <a
+                :href="contactURL"
+                class="nav-item-margin v2-title-3-text btn-link"
+                :style="[
+                  activeContactPath
+                    ? {
+                        textDecoration: `underline !important`,
+                        'text-underline-offset': '0.3rem',
+                      }
+                    : { textDecoration: `none` },
+                ]"
                 >Let's Talk
               </a>
             </li>
-            <!-- </router-link
-            > -->
           </ul>
         </div>
       </div>
@@ -67,8 +89,9 @@ export default {
       blogsURL: Config.BLOG_URL,
       navbarSticky: false,
       navbarAnimation: false,
-      navContainerHeight: 0,
+      navContainerHeight: 133,
       lastScrollY: 0,
+      activeHomePath: false,
       activeCareerPath: false,
       activeContactPath: false,
     };
@@ -76,6 +99,8 @@ export default {
   components: {},
   mounted() {
     let currentRoutePath = this.$router.currentRoute._value.path;
+
+    this.activeHomePath = currentRoutePath == "/";
 
     this.activeCareerPath = currentRoutePath == this.careerURL;
 
@@ -136,11 +161,12 @@ export default {
 }
 
 .btn-link {
-  color: #3d3d3d;
   text-decoration: none;
 }
-.link-color {
-  color: #3d3d3d;
+
+.v2-button {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  border: none;
 }
 
 .v2-black-btn {
@@ -195,8 +221,8 @@ export default {
     flex-direction: row;
   }
   .v2-black-btn {
-    padding: 10px 40px;
     display: block;
+    padding: 10px 30px;
   }
   .btn-link {
     display: none;
