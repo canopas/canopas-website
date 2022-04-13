@@ -241,13 +241,6 @@ a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   text-decoration: none;
 }
-.round-btn:hover > a {
-  color: black;
-}
-.round-btn:hover {
-  background-color: white;
-  color: black;
-}
 
 @media (hover: hover) and (pointer: fine) {
   .v2-button:hover {
@@ -258,6 +251,14 @@ a {
   .v2-button:hover > span,
   .v2-button:hover > .fa {
     color: #fff;
+  }
+
+  .round-btn:hover > a {
+    color: black;
+  }
+  .round-btn:hover {
+    background-color: white;
+    color: black;
   }
 }
 

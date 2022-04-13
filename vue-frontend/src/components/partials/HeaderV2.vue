@@ -64,7 +64,6 @@ export default {
       headerLogoImage: headerLogoImage,
       careerURL: "/jobs",
       contactURL: "/contact",
-      contactLink: "/contact",
       blogsURL: Config.BLOG_URL,
       navbarSticky: false,
       navbarAnimation: false,
