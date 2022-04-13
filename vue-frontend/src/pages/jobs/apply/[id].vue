@@ -163,7 +163,12 @@
               </div>
             </div>
             <div class="application-submit-btns mt-5">
-              <button class="gradient-btn" @click.prevent="validateForm()">
+              <img class="loader-image" :src="loaderImage" v-if="showLoader" />
+              <button
+                v-else
+                class="gradient-btn"
+                @click.prevent="validateForm()"
+              >
                 <font-awesome-icon
                   class="fa"
                   :icon="checkCircle"
@@ -176,111 +181,6 @@
               All fields marked with * are required.
             </div>
           </form>
-        </div>
-
-        <!-- Show applicant details review popup -->
-        <div v-if="showReviewFormPopup">
-          <transition name="modal">
-            <div class="modal-mask">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <div class="normal-text canopas-gradient-text text-left">
-                      Please review your details before submitting !
-                    </div>
-                    <button
-                      type="button"
-                      class="modal-close-btn"
-                      data-dismiss="modal"
-                      aria-label="Close"
-                    >
-                      <span aria-hidden="true" @click="closeReviewFormPopup"
-                        >&times;</span
-                      >
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="">
-                      <form>
-                        <div class="mb-3">
-                          <label for="fullname" class="col-form-label"
-                            >Full name:</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            v-model="fullName"
-                            disabled
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label for="phonenumber" class="col-form-label"
-                            >Phone:</label
-                          >
-                          <input
-                            type="tel"
-                            class="form-control"
-                            v-model="phoneNumber"
-                            disabled
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label for="email" class="col-form-label"
-                            >Email:</label
-                          >
-                          <input
-                            type="email"
-                            class="form-control"
-                            v-model="email"
-                            disabled
-                          />
-                        </div>
-                        <div class="mb-3" v-if="reference">
-                          <label
-                            for="howdidyoufindcanopas"
-                            class="col-form-label"
-                            >How did you find Canopas?</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            v-model="reference"
-                            disabled
-                          />
-                        </div>
-                        <div class="mb-3 referenceBy" v-if="referenceBy">
-                          <label for="referenceby" class="col-form-label"
-                            >Reference By:</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            v-model="referenceBy"
-                            disabled
-                          />
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="modal-footer">
-                    <img
-                      class="loader-image"
-                      :src="loaderImage"
-                      v-if="showLoader"
-                    />
-
-                    <button
-                      v-else
-                      class="gradient-btn"
-                      @click.prevent="submitApplication()"
-                    >
-                      <span> Submit </span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </transition>
         </div>
 
         <!-- Show Thank you message -->
@@ -436,7 +336,6 @@ export default {
       fileButtonName: "Upload",
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
-      showReviewFormPopup: false,
       disableInput: false,
       showLoader: false,
       loaderImage: loaderImage,
@@ -533,7 +432,7 @@ export default {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
       if (
-        this.name === "" ||
+        this.fullName === "" ||
         this.email === "" ||
         this.phoneNumber === "" ||
         this.fileButtonName == "Upload"
@@ -548,7 +447,7 @@ export default {
         this.showPhoneValidationError = false;
         this.showEmailValidationError = false;
         this.disableInput = true;
-        this.showReviewFormPopup = true;
+        this.submitApplication();
       }
     },
     submitApplication() {
@@ -556,7 +455,6 @@ export default {
       this.showLoader = true;
       this.disableInput = false;
       setTimeout(() => {
-        this.showReviewFormPopup = false;
         this.isLoad = true;
         const formData = new FormData();
         formData.append("job_title", this.job.title);
@@ -585,19 +483,15 @@ export default {
             this.showLoader = false;
             this.showSuccessMessagePopup = true;
             setTimeout(() => {
-              this.$router.push("/");
+              this.$router.push("/jobs");
             }, 2000);
           })
           .catch(() => {
             this.isLoad = false;
+            this.showLoader = false;
             this.showErrorMessagePopup = true;
           });
       }, 1000);
-    },
-    closeReviewFormPopup() {
-      this.showReviewFormPopup = false;
-      this.disableInput = false;
-      this.showLoader = false;
     },
   },
 };
