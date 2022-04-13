@@ -8,7 +8,7 @@
       }"
       ref="mainHeader"
     >
-      <div class="container col-md">
+      <div class="container col-flow">
         <router-link to="/" replace>
           <div class="navbar-brand">
             <img
@@ -21,8 +21,8 @@
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin">
-              <a class="nav-link v2-title-3-text bottom-border" target="_blank"
-                >Home</a
+              <a class="nav-link v2-title-3-text" target="_blank"
+                ><span class="underline-text">Ho</span>me</a
               >
             </li>
             <li class="nav-item-margin v2-title-3-text">
@@ -35,10 +35,18 @@
               <a class="nav-link" target="_blank">Portfolio</a>
             </li>
             <router-link :to="contactURL">
-              <li class="nav-item-margin round-btn v2-title-3-text">
-                <a class="anchor btn-border" target="_blank">Let's Talk</a>
+              <li class="nav-item-margin v2-title-3-text v2-black-btn">
+                <a target="_blank">Let's Talk</a>
               </li></router-link
             >
+            <!-- <router-link :to="contactURL"> -->
+            <li class="nav-item-margin v2-title-3-text btn-link">
+              <a :href="contactURL" class="link-color" target="_blank"
+                >Let's Talk
+              </a>
+            </li>
+            <!-- </router-link
+            > -->
           </ul>
         </div>
       </div>
@@ -123,20 +131,20 @@ export default {
   box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15);
 }
 
-a {
-  color: #000;
-}
-
 .navbar-animation {
   animation: menu_sticky 0.6s ease-in-out;
 }
 
-.bottom-border::after {
-  content: "";
-  display: block;
-  position: relative;
-  width: 50.4%;
-  border-top: 3px solid black;
+.btn-link {
+  color: #3d3d3d;
+  text-decoration: none;
+}
+.link-color {
+  color: #3d3d3d;
+}
+
+.v2-black-btn {
+  display: none;
 }
 
 @keyframes menu_sticky {
@@ -160,7 +168,7 @@ a {
 
 .navbar-nav .nav-item-margin .nav-link {
   margin: 0 20px 0 0;
-  color: rgb(0, 0, 0);
+  color: #3d3d3d;
 }
 
 .header-logo-image {
@@ -176,39 +184,22 @@ a {
   .navbar {
     padding: 20px 0;
   }
-  .col-md {
+  .col-flow {
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
-
 @include media-breakpoint-up(lg) {
-  .round-btn {
-    background-color: #000;
-    border-radius: 25px;
-    padding: 10px 25px;
-    color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .round-btn:hover > a {
-    color: black;
-  }
-  .round-btn:hover {
-    background-color: white;
-    color: black;
-  }
-  .anchor {
-    color: white;
-  }
-  .col-md {
+  .col-flow {
     flex-direction: row;
   }
-}
-@include media-breakpoint-up(xl) {
-  .round-btn {
+  .v2-black-btn {
     padding: 10px 40px;
+    display: block;
   }
-  .col-md {
-    flex-direction: row;
+  .btn-link {
+    display: none;
   }
 }
 </style>

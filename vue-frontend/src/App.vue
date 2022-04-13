@@ -207,7 +207,7 @@ a {
 }
 
 .underline-text {
-  text-decoration: underline solid rgba(61, 61, 61, 0.8) 2px;
+  text-decoration: underline solid #3d3d3d;
   text-underline-offset: 1rem;
 }
 
@@ -228,7 +228,7 @@ a {
   ) !important;
 }
 
-.v2-button {
+.v2-white-button {
   border-radius: 3rem;
   padding: 0.7rem 1.5rem;
   text-align: center;
@@ -240,6 +240,14 @@ a {
 .v2-button > span {
   margin-right: 6px;
 }
+.v2-black-btn {
+  background-color: #000;
+  border-radius: 25px;
+  padding: 10px 25px;
+  color: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-decoration: none;
+}
 
 @media (hover: hover) and (pointer: fine) {
   .v2-button:hover {
@@ -250,6 +258,25 @@ a {
   .v2-button:hover > span,
   .v2-button:hover > .fa {
     color: #fff;
+  }
+  .v2-black-btn:hover > a {
+    color: black;
+  }
+  .v2-black-btn:hover {
+    background-color: white;
+    color: black;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .col-flow {
+    flex-direction: row;
+  }
+  .v2-black-btn {
+    padding: 10px 40px;
+    display: block;
+  }
+  .btn-link {
+    display: none;
   }
 }
 
