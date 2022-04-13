@@ -200,7 +200,7 @@ a {
 }
 
 .underline-text {
-  text-decoration: underline solid rgba(61, 61, 61, 0.8) 2px;
+  text-decoration: underline solid #3d3d3d;
   text-underline-offset: 1rem;
 }
 

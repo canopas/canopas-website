@@ -8,7 +8,7 @@
       }"
       ref="mainHeader"
     >
-      <div class="container col-md">
+      <div class="container col-flow">
         <router-link to="/" replace>
           <div class="navbar-brand">
             <img
@@ -184,7 +184,7 @@ export default {
   .navbar {
     padding: 20px 0;
   }
-  .col-md {
+  .col-flow {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
@@ -192,7 +192,7 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-  .col-md {
+  .col-flow {
     flex-direction: row;
   }
   .round-btn {
@@ -209,7 +209,7 @@ export default {
     display: block;
     padding: 10px 40px;
   }
-  .col-md {
+  .col-flow {
     flex-direction: row;
   }
   .btn-link {
