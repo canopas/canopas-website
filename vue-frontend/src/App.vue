@@ -78,6 +78,13 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
+.v2-canopas-gradient-text {
+  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .abs-fit-parent {
   position: absolute;
   width: 100%;
