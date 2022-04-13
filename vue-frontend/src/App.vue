@@ -221,7 +221,7 @@ a {
   ) !important;
 }
 
-.v2-button {
+.v2-white-button {
   border-radius: 3rem;
   padding: 0.7rem 1.5rem;
   text-align: center;
@@ -233,7 +233,7 @@ a {
 .v2-button > span {
   margin-right: 6px;
 }
-.round-btn {
+.v2-black-btn {
   background-color: #000;
   border-radius: 25px;
   padding: 10px 25px;
@@ -252,13 +252,24 @@ a {
   .v2-button:hover > .fa {
     color: #fff;
   }
-
-  .round-btn:hover > a {
+  .v2-black-btn:hover > a {
     color: black;
   }
-  .round-btn:hover {
+  .v2-black-btn:hover {
     background-color: white;
     color: black;
+  }
+}
+@include media-breakpoint-up(lg) {
+  .col-flow {
+    flex-direction: row;
+  }
+  .v2-black-btn {
+    padding: 10px 40px;
+    display: block;
+  }
+  .btn-link {
+    display: none;
   }
 }
 

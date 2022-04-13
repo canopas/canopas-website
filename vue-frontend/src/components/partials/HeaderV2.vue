@@ -35,7 +35,7 @@
               <a class="nav-link" target="_blank">Portfolio</a>
             </li>
             <router-link :to="contactURL">
-              <li class="nav-item-margin v2-title-3-text round-btn">
+              <li class="nav-item-margin v2-title-3-text v2-black-btn">
                 <a target="_blank">Let's Talk</a>
               </li></router-link
             >
@@ -143,7 +143,7 @@ export default {
   color: #3d3d3d;
 }
 
-.round-btn {
+.v2-black-btn {
   display: none;
 }
 
@@ -190,27 +190,13 @@ export default {
     align-items: flex-start;
   }
 }
-
 @include media-breakpoint-up(lg) {
   .col-flow {
     flex-direction: row;
   }
-  .round-btn {
+  .v2-black-btn {
     padding: 10px 40px;
     display: block;
-  }
-  .btn-link {
-    display: none;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .round-btn {
-    display: block;
-    padding: 10px 40px;
-  }
-  .col-flow {
-    flex-direction: row;
   }
   .btn-link {
     display: none;
