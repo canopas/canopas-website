@@ -20,8 +20,10 @@
         </router-link>
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item-margin underline-text">
-              <a class="nav-link v2-title-3-text" target="_blank">Home</a>
+            <li class="nav-item-margin">
+              <a class="nav-link v2-title-3-text" target="_blank"
+                ><span class="underline-text">Ho</span>me</a
+              >
             </li>
             <li class="nav-item-margin v2-title-3-text">
               <a class="nav-link" :href="careerURL">Career</a>
@@ -135,11 +137,11 @@ export default {
 }
 
 .btn-link {
-  color: black;
+  color: #3d3d3d;
   text-decoration: none;
 }
 .link-color {
-  color: black;
+  color: #3d3d3d;
 }
 
 .round-btn {
@@ -167,7 +169,7 @@ export default {
 
 .navbar-nav .nav-item-margin .nav-link {
   margin: 0 20px 0 0;
-  color: rgb(0, 0, 0);
+  color: #3d3d3d;
 }
 
 .header-logo-image {
