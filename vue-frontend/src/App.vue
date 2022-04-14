@@ -78,6 +78,13 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
+.v2-canopas-gradient-text {
+  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .abs-fit-parent {
   position: absolute;
   width: 100%;
@@ -169,7 +176,7 @@ a {
   font-size: 1rem;
   line-height: 1.25rem;
   letter-spacing: 1px;
-  color: #3d3d3d;
+  color: #3d3d3d !important;
 }
 
 // 27px/43px - 22px/32px - 19px/30px
@@ -200,8 +207,13 @@ a {
 }
 
 .underline-text {
-  text-decoration: underline solid #3d3d3d;
+  text-decoration: underline solid rgba(61, 61, 61, 0.8) 2px;
   text-underline-offset: 1rem;
+}
+
+.v2-underline-text {
+  text-decoration: underline solid #3d3d3d;
+  text-underline-offset: 0.5rem;
 }
 
 .swiper-pagination-bullet {
@@ -221,7 +233,7 @@ a {
   ) !important;
 }
 
-.v2-white-button {
+.v2-button {
   border-radius: 3rem;
   padding: 0.7rem 1.5rem;
   text-align: center;
@@ -234,34 +246,39 @@ a {
   margin-right: 6px;
 }
 .v2-black-btn {
-  background-color: #000;
-  border-radius: 25px;
-  padding: 10px 25px;
-  color: #fff;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  text-decoration: none;
+  border-radius: 3rem;
+  padding: 1rem;
+  margin: 5px;
+  background-color: #3d3d3d;
+  color: #fff !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .v2-button:hover {
     background-color: #3d3d3d;
-    color: #fff;
+    color: #fff !important;
   }
 
   .v2-button:hover > span,
   .v2-button:hover > .fa {
     color: #fff;
   }
-  .v2-black-btn:hover > a {
-    color: black;
-  }
   .v2-black-btn:hover {
-    background-color: white;
-    color: black;
+    background-color: #fff;
+    color: #3d3d3d !important;
   }
 }
+<<<<<<< HEAD ======= @include media-breakpoint-up(lg) {
+  .col-flow {
+    flex-direction: row;
+  }
 
-.gradient-btn {
+  .btn-link {
+    display: none;
+  }
+}
+>>>>>>>8e12a5bc2786718e17037d0f5da525d57d119f2a .gradient-btn {
   border-radius: 0.6rem;
   padding: 1rem;
   margin: 1.25rem auto 0 auto;
@@ -310,7 +327,8 @@ a {
 
 .gradient-btn:active,
 .gradient-border-btn:active,
-.v2-button:active {
+.v2-button:active,
+.v2-black-btn:active {
   transform: scale(0.98);
 }
 
