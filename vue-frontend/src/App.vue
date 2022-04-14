@@ -260,18 +260,6 @@ a {
     color: black;
   }
 }
-@include media-breakpoint-up(lg) {
-  .col-flow {
-    flex-direction: row;
-  }
-  .v2-black-btn {
-    padding: 10px 40px;
-    display: block;
-  }
-  .btn-link {
-    display: none;
-  }
-}
 
 .gradient-btn {
   border-radius: 0.6rem;
