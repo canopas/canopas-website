@@ -353,8 +353,10 @@ export default {
   mounted() {
     if (this.job == null) {
       this.getCareerDetails();
+      this.setCareerDetails();
+    } else {
+      this.setCareerDetails();
     }
-    this.setCareerDetails();
     this.$gtag.event("view_page_job_apply");
     document.addEventListener("click", this.referenceList);
   },
@@ -382,7 +384,7 @@ export default {
         if (err && err.status == 404) {
           this.$router.push({
             name: "Error404Page",
-            params: { catchAll: "jobs/" + this.id },
+            params: { pathMatch: ["jobs", "apply", this.id] },
           });
         } else {
           this.showErrorMessagePopup = true;

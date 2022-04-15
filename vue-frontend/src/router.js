@@ -8,7 +8,7 @@ import Error404Page from "@/components/error404/index.vue";
 import routes from "~pages";
 
 routes.push({
-  path: "/:catchAll(.*)",
+  path: "/:pathMatch(.*)*",
   name: "Error404Page",
   component: Error404Page,
 });

@@ -44,10 +44,12 @@ export default {
       jobs[i].icon_name = icon;
     }
     state.jobs = jobs;
+    state.jobsError = null;
   },
   SET_JOB_BY_ID: (state, data) => {
     data.job.seoData = getSEOData(data);
     state.jobById = data.job;
+    state.jobsError = null;
   },
   SET_JOBS_ERROR: (state, jobsError) => {
     state.jobsError = jobsError;

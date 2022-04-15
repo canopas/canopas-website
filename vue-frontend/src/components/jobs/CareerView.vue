@@ -112,7 +112,6 @@ export default {
     await store.dispatch("getJobs");
   },
   mounted() {
-    console.log(this.careers.length);
     if (this.careers == null) {
       store.dispatch("getJobs");
     }
