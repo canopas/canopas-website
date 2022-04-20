@@ -8,7 +8,6 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
-	"strings"
 	"text/template"
 	"utils"
 
@@ -97,22 +96,6 @@ func (repository *CareerRepository) GetCareers() (careersList []Career, err erro
 	}
 
 	return
-}
-
-func (repository *CareerRepository) UpdateUniqueId(c *gin.Context) {
-
-	careerList, _ := repository.GetCareers()
-
-	var uniqueId string
-	for i := range careerList {
-		uniqueId = careerList[i].UniqueId
-		uTitle := strings.ReplaceAll(uniqueId, "--", "-")
-		if uniqueId != uTitle {
-			repository.Db.MustExec(`UPDATE jobs SET unique_id = ?`, uTitle)
-		}
-	}
-
-	c.JSON(http.StatusOK, careerList)
 }
 
 func (repository *CareerRepository) CareerById(c *gin.Context) {
