@@ -4,7 +4,8 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
-    <ScreenHeader />
+    <HeaderV2 v-if="!isNewHeader" />
+    <ScreenHeader v-else />
     <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
@@ -66,6 +67,7 @@
 
 <script>
 import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import HeaderV2 from "@/components/partials/HeaderV2.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -101,11 +103,13 @@ export default {
       checkCircle: faCheckCircle,
       isLoading: true,
       showErrorMessagePopup: false,
+      isNewHeader: config.IS_NEW_HEADER,
       jobLink: "",
     };
   },
   components: {
     ScreenHeader,
+    HeaderV2,
     ScreenFooter2,
     FontAwesomeIcon,
     ScreenLoader,

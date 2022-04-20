@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ScreenHeader />
+    <HeaderV2 />
     <Portfolio />
     <ClientReview />
     <UserReview />
@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import ScreenHeader from "@/components/partials/HeaderV2.vue";
+import HeaderV2 from "@/components/partials/HeaderV2.vue";
 import Portfolio from "@/components/home-new/PortfolioSection.vue";
 import ClientReview from "@/components/home-new/ClientReview.vue";
 import UserReview from "@/components/home-new/UserReview.vue";
 
 export default {
   components: {
-    ScreenHeader,
+    HeaderV2,
     Portfolio,
     ClientReview,
     UserReview,
