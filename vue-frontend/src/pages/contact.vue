@@ -45,7 +45,6 @@ export default {
   data() {
     return {
       isLoading: false,
-      isnewheader,
       isNewHeader: config.IS_NEW_HEADER,
     };
   },
