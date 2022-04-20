@@ -43,8 +43,6 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 
 	router.GET("/api/careers/:id", jobsRepo.CareerById)
 
-	router.GET("/api/update-uniqueid", jobsRepo.UpdateUniqueId)
-
 	router.POST("/api/send-career-mail", jobsRepo.SendCareerMail)
 
 	router.GET("/sitemap", sitemapRepo.GenerateSitemap)
