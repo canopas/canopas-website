@@ -269,7 +269,7 @@ a {
     color: #3d3d3d !important;
   }
 }
-<<<<<<< HEAD ======= @include media-breakpoint-up(lg) {
+@include media-breakpoint-up(lg) {
   .col-flow {
     flex-direction: row;
   }
@@ -278,7 +278,7 @@ a {
     display: none;
   }
 }
->>>>>>>8e12a5bc2786718e17037d0f5da525d57d119f2a .gradient-btn {
+.gradient-btn {
   border-radius: 0.6rem;
   padding: 1rem;
   margin: 1.25rem auto 0 auto;

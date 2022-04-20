@@ -14,6 +14,7 @@ export default {
   data() {
     return {
       isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
+      isNewHeader: config.IS_NEW_HEADER,
     };
   },
   components: {

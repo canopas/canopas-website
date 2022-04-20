@@ -343,6 +343,7 @@ export default {
   },
   components: {
     ScreenHeader,
+
     ScreenFooter2,
     FontAwesomeIcon,
     ScreenLoader,
