@@ -1,6 +1,6 @@
 # canopas-website
 
-Source code repository of [Canopas Software LLP Website](https://canopas.com).
+Source code repository of [Canopas Software Website](https://canopas.com).
 
 We intend to keep this open source. Plan is to keep the repository up to date with latest technologies and
 best practices.
