@@ -30,7 +30,7 @@
         >
           <div
             class="career-header normal-text text-left"
-            @click="expandListItem(career.id)"
+            @click="expandListItem(career.id, index)"
           >
             <div class="career-icon">
               <font-awesome-icon
@@ -46,8 +46,18 @@
           </div>
           <collapse-transition>
             <div
-              v-if="openList && career.id == currentIndex"
+              ref="careerDetails"
+              class="career-details"
               :key="career.summary"
+              :style="[
+                openList && career.id == currentIndex
+                  ? {
+                      maxHeight: `1000px`,
+                    }
+                  : {
+                      maxHeight: `0`,
+                    },
+              ]"
             >
               <div class="career-summary">
                 {{ career.summary }}
@@ -123,14 +133,14 @@ export default {
     }),
   },
   methods: {
-    expandListItem(index) {
-      if (this.previousIndex == index && this.openList) {
+    expandListItem(id, index) {
+      if (this.previousIndex == id && this.openList) {
         this.openList = false;
       } else {
         this.openList = true;
       }
 
-      this.currentIndex = index;
+      this.currentIndex = id;
       this.previousIndex = this.currentIndex;
     },
   },
@@ -138,6 +148,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.career-details {
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
 .container {
   margin: 100px auto;
 }
