@@ -11,7 +11,7 @@
     </div>
     <div class="btn-mg">
       <router-link to="">
-        <a class="v2-normal-3-text v2-black-btn btn-center"
+        <a class="v2-normal-3-text v2-button btn-center"
           >Let's talk
           <font-awesome-icon class="arrow fa" icon="arrow-right" id="leftArrow"
         /></a>
@@ -64,7 +64,7 @@ export default {
   padding: 20px 40px;
 }
 .btn-mg {
-  margin-top: 5%;
+  margin-top: 5rem;
 }
 .arrow {
   color: white;

@@ -50,7 +50,7 @@
               <a
                 :href="contactURL"
                 class="nav-item-margin v2-title-3-text"
-                v-bind:class="activeContactPath ? 'v2-button' : 'v2-black-btn'"
+                v-bind:class="activeContactPath ? 'v2-btn' : 'v2-button'"
                 >Let's Talk</a
               >
             </li>
@@ -164,12 +164,22 @@ export default {
   text-decoration: none;
 }
 
-.v2-button {
+.v2-btn {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   border: none;
 }
+.v2-button {
+  background-color: #3d3d3d;
+  color: #fff !important;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+}
+.v2-button:hover {
+  background-color: #fff;
+  color: #3d3d3d !important ;
+  border: 1px solid #3d3d3d;
+}
 
-.v2-black-btn {
+.v2-button {
   display: none;
 }
 
@@ -220,7 +230,7 @@ export default {
   .col-flow {
     flex-direction: row;
   }
-  .v2-black-btn {
+  .v2-button {
     display: block;
     padding: 10px 30px;
   }

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HomeIndex v-if="isShowNewHomePage" />
+    <HomeIndex v-if="!isShowNewHomePage" />
     <HomeNewIndex v-else />
   </div>
 </template>

@@ -158,7 +158,7 @@ a {
   font-size: 2.5rem;
   line-height: 3.4375rem;
   letter-spacing: 1px;
-  color: #3d3d3d;
+  color: #3d3d3d !important;
 }
 
 // 35px/68px - 30px/60px - 25px/45px
@@ -245,28 +245,16 @@ a {
 .v2-button > span {
   margin-right: 6px;
 }
-.v2-black-btn {
-  border-radius: 3rem;
-  padding: 1rem;
-  margin: 5px;
-  background-color: #3d3d3d;
-  color: #fff !important;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-}
 
 @media (hover: hover) and (pointer: fine) {
   .v2-button:hover {
     background-color: #3d3d3d;
-    color: #fff !important;
+    color: #fff;
   }
 
   .v2-button:hover > span,
   .v2-button:hover > .fa {
     color: #fff;
-  }
-  .v2-black-btn:hover {
-    background-color: #fff;
-    color: #3d3d3d !important;
   }
 }
 @include media-breakpoint-up(lg) {
