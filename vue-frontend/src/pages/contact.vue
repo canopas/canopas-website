@@ -1,6 +1,6 @@
 <template>
   <div ref="contactScreen">
-    <HeaderV2 v-if="!isNewHeader" />
+    <HeaderV2 v-if="isNewHeader" />
     <ScreenHeader v-else />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
     <div>

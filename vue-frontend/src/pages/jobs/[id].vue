@@ -4,7 +4,7 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
-    <HeaderV2 v-if="!isNewHeader" />
+    <HeaderV2 v-if="isNewHeader" />
     <ScreenHeader v-else />
     <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderV2 v-if="!isNewHeader" />
+    <HeaderV2 v-if="isNewHeader" />
     <ScreenHeader v-else />
     <ScreenLoader v-if="isLoading" />
     <div v-else>
