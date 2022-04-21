@@ -165,7 +165,6 @@ export default {
 }
 
 .v2-btn {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   border: none;
 }
 .v2-button {
