@@ -39,7 +39,7 @@
           {{ job.title }}
         </div>
         <hr class="title-hr mt-4" />
-        <div class="normal-text summary-text mt-5">
+        <div class="summary-text mt-5">
           {{ job.summary }}
         </div>
         <div class="mt-5">
@@ -126,8 +126,10 @@ export default {
   mounted() {
     if (this.job == null) {
       this.getCareerDetails();
+      this.setCareerDetails();
+    } else {
+      this.setCareerDetails();
     }
-    this.setCareerDetails();
     this.$gtag.event("view_page_job_detail");
   },
   methods: {
@@ -148,7 +150,7 @@ export default {
         if (err && err.status == 404) {
           this.$router.push({
             name: "Error404Page",
-            params: { catchAll: "jobs/" + this.id },
+            params: { pathMatch: ["jobs", this.id] },
           });
         } else {
           this.showErrorMessagePopup = true;
@@ -372,11 +374,11 @@ export default {
 
 .summary-text,
 :deep(div > span *),
-:deep(ul *),
-:deep(div) {
+:deep(ul *) {
   font-size: 1.1rem !important;
   line-height: 2rem;
   text-align: justify;
+  color: rgba(61, 61, 61, 0.8);
 }
 
 :deep(h2) {
@@ -467,8 +469,7 @@ export default {
 
   .summary-text,
   :deep(div > span *),
-  :deep(ul *),
-  :deep(div) {
+  :deep(ul *) {
     font-size: 1.125rem !important;
     line-height: 2.5rem !important;
   }
@@ -482,8 +483,7 @@ export default {
 @include media-breakpoint-up(lg) {
   .summary-text,
   :deep(div > span *),
-  :deep(ul *),
-  :deep(div) {
+  :deep(ul *) {
     font-size: 1.4rem !important;
   }
 }
