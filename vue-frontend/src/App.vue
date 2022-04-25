@@ -316,9 +316,7 @@ a {
 .gradient-btn:active,
 .gradient-border-btn:active,
 .v2-button:active,
-.v2-black-btn:active {
-  transform: scale(0.98);
-}
+
 
 .gradient-border-btn > span {
   margin: 0 6px;

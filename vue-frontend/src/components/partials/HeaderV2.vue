@@ -19,32 +19,31 @@
           </div>
         </router-link>
         <div class="navbar-collapse">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item-margin">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
+            <li class="nav-item-margin"
+            v-for="(item,index) in items" 
+            :key="item"
+            :active="index === activeIndex"
+            
+              >
               <a
                 class="nav-link v2-title-3-text"
                 href="/"
-                :style="[
-                  activeHomePath
-                    ? {
-                        textDecoration: `underline !important`,
-                        'text-underline-offset': '0.3rem',
-                      }
-                    : { textDecoration: `none` },
-                ]"
-                ><span :class="[activeHomePath ? '' : 'v2-underline-text']"
+                :style="{ textDecoration: item.activeHome }"
+                  ><span :class="[activeHomePath ? '' : 'v2-underline-text']"
                   >Ho</span
                 >me</a
               >
             </li>
             <li class="nav-item-margin v2-title-3-text">
-              <a class="nav-link" :href="careerURL">Career</a>
+              <a class="nav-link" :href="careerURL" :style="{ textDecoration: item.activeCareer }">Career</a>
+            </li>
+
+            <li class="nav-item-margin v2-title-3-text">
+              <a class="nav-link" :href="blogsURL" target="_blank" :style="{ textDecoration: item.activeBlog }">Blogs</a>
             </li>
             <li class="nav-item-margin v2-title-3-text">
-              <a class="nav-link" :href="blogsURL" target="_blank">Blogs</a>
-            </li>
-            <li class="nav-item-margin v2-title-3-text">
-              <a class="nav-link" target="_blank">Portfolio</a>
+              <a class="nav-link" target="_blank" :style="{ textDecoration: item.activePortfolio }">Portfolio</a>
             </li>
             <li>
               <a
@@ -58,14 +57,7 @@
               <a
                 :href="contactURL"
                 class="nav-item-margin v2-title-3-text btn-link"
-                :style="[
-                  activeContactPath
-                    ? {
-                        textDecoration: `underline !important`,
-                        'text-underline-offset': '0.3rem',
-                      }
-                    : { textDecoration: `none` },
-                ]"
+                
                 >Let's Talk
               </a>
             </li>
@@ -94,6 +86,16 @@ export default {
       activeHomePath: false,
       activeCareerPath: false,
       activeContactPath: false,
+       items: [
+        {
+          activeHome:"textDecoration: `underline !important`",
+                      
+          activeCareer:"textDecoration: `underline !important`",                      
+          activeContact:"textDecoration: `underline !important`",
+          activePortfolio:"textDecoration: `underline !important`",  
+          
+        }],
+        activeIndex: 0
     };
   },
   components: {},
