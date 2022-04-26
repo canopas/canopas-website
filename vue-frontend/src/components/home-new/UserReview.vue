@@ -165,7 +165,7 @@ export default {
 }
 
 .overlay {
-  padding-top: 10%;
+  padding: 10% 0 15%;
 }
 
 .background-image {
