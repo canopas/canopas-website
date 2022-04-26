@@ -19,46 +19,18 @@
           </div>
         </router-link>
         <div class="navbar-collapse">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >
-            <li class="nav-item-margin"
-            v-for="(item,index) in items" 
-            :key="item"
-            :active="index === activeIndex"
-            
-              >
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item-margin list-flow">
               <a
                 class="nav-link v2-title-3-text"
-                href="/"
-                :style="{ textDecoration: item.activeHome }"
-                  ><span :class="[activeHomePath ? '' : 'v2-underline-text']"
-                  >Ho</span
-                >me</a
+                v-for="item in items"
+                :key="item.id"
+                :class="[item.activeClass, item.btn]"
+                :href="item.url"
+                :style="{ textDecoration: item.underline }"
+                v-html="item.name"
+                :target="item.target ? '_blank' : ''"
               >
-            </li>
-            <li class="nav-item-margin v2-title-3-text">
-              <a class="nav-link" :href="careerURL" :style="{ textDecoration: item.activeCareer }">Career</a>
-            </li>
-
-            <li class="nav-item-margin v2-title-3-text">
-              <a class="nav-link" :href="blogsURL" target="_blank" :style="{ textDecoration: item.activeBlog }">Blogs</a>
-            </li>
-            <li class="nav-item-margin v2-title-3-text">
-              <a class="nav-link" target="_blank" :style="{ textDecoration: item.activePortfolio }">Portfolio</a>
-            </li>
-            <li>
-              <a
-                :href="contactURL"
-                class="nav-item-margin v2-title-3-text"
-                v-bind:class="activeContactPath ? 'v2-btn' : 'v2-button'"
-                >Let's Talk</a
-              >
-            </li>
-            <li>
-              <a
-                :href="contactURL"
-                class="nav-item-margin v2-title-3-text btn-link"
-                
-                >Let's Talk
               </a>
             </li>
           </ul>
@@ -76,37 +48,67 @@ export default {
   data() {
     return {
       headerLogoImage: headerLogoImage,
-      careerURL: "/jobs",
-      contactURL: "/contact",
-      blogsURL: Config.BLOG_URL,
       navbarSticky: false,
       navbarAnimation: false,
       navContainerHeight: 133,
       lastScrollY: 0,
-      activeHomePath: false,
-      activeCareerPath: false,
-      activeContactPath: false,
-       items: [
+
+      items: [
         {
-          activeHome:"textDecoration: `underline !important`",
-                      
-          activeCareer:"textDecoration: `underline !important`",                      
-          activeContact:"textDecoration: `underline !important`",
-          activePortfolio:"textDecoration: `underline !important`",  
-          
-        }],
-        activeIndex: 0
+          id: "item-1",
+          name: `<span class="v2-underline-text">Ho</span>me`,
+          url: "/",
+          activeClass: "active",
+          underline:
+            "activeClass  ?'textDecoration: `underline !important`' : ''",
+          btn: "",
+          target: false,
+        },
+        {
+          id: "item-2",
+          name: "Career",
+          url: "/jobs",
+          activeClass: "inactive",
+          underline:
+            "activeClass  ?'textDecoration: `underline !important`' : ''",
+          btn: "",
+          target: false,
+        },
+        {
+          id: "item-3",
+          name: "Blog",
+          url: Config.BLOG_URL,
+          activeClass: "inactive",
+          underline:
+            "activeClass  ?'textDecoration: `underline !important`' : ''",
+          btn: "",
+          target: true,
+        },
+        {
+          id: "item-4",
+          name: "PortFolio",
+          url: "",
+          activeClass: "inactive",
+          underline:
+            "activeClass  ?'textDecoration: `underline !important`' : ''",
+          btn: "",
+          target: false,
+        },
+        {
+          id: "item-5",
+          name: "Let's Talk",
+          url: "/contact",
+          activeClass: "active ? 'btn-link' : 'v2-button'",
+          underline: "textDecoration: `underline !important`' : '' ",
+          btn: "v2-button",
+          target: false,
+        },
+      ],
     };
   },
   components: {},
   mounted() {
     let currentRoutePath = this.$router.currentRoute._value.path;
-
-    this.activeHomePath = currentRoutePath == "/";
-
-    this.activeCareerPath = currentRoutePath == this.careerURL;
-
-    this.activeContactPath = currentRoutePath == this.contactURL;
 
     window.addEventListener("scroll", this.handleScroll);
     this.navContainerHeight = this.$refs.mainHeader.clientHeight + 30;
@@ -162,26 +164,18 @@ export default {
   animation: menu_sticky 0.6s ease-in-out;
 }
 
-.btn-link {
-  text-decoration: none;
-}
-
-.v2-btn {
-  border: none;
-}
 .v2-button {
-  background-color: #3d3d3d;
-  color: #fff !important;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  border: none;
+  color: #3d3d3d;
 }
 .v2-button:hover {
   background-color: #fff;
-  color: #3d3d3d !important ;
-  border: 1px solid #3d3d3d;
 }
-
-.v2-button {
-  display: none;
+@media (hover: none) {
+  .v2-button:hover {
+    background-color: #3d3d3d;
+  }
 }
 
 @keyframes menu_sticky {
@@ -225,6 +219,16 @@ export default {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+  }
+  .v2-button {
+    background-color: #3d3d3d;
+    color: #fff !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  }
+  .v2-button:hover {
+    background-color: #fff;
+    color: #3d3d3d !important ;
+    border: 1px solid #3d3d3d;
   }
 }
 @include media-breakpoint-up(lg) {

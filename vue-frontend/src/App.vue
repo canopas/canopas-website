@@ -316,8 +316,6 @@ a {
 .gradient-btn:active,
 .gradient-border-btn:active,
 .v2-button:active,
-
-
 .gradient-border-btn > span {
   margin: 0 6px;
   color: rgba(61, 61, 61, 1);
