@@ -234,10 +234,9 @@ a {
 }
 
 .v2-button {
+  padding: 10px 30px;
   border-radius: 3rem;
-  padding: 0.7rem 1.5rem;
   text-align: center;
-  border: 1px solid #3d3d3d;
   background-color: #fff;
   color: #3d3d3d !important;
 }

@@ -22,10 +22,19 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin list-flow">
               <a
+                style="padding: 10px 20px"
                 class="nav-link v2-title-3-text"
                 v-for="item in items"
                 :key="item.id"
-                :class="[item.active, item.btn, item.underline]"
+                :style="[
+                  currentRoutePath == item.url
+                    ? {
+                        textDecoration: `underline !important`,
+                        'text-underline-offset': '0.3rem',
+                      }
+                    : { textDecoration: `none` },
+                ]"
+                :class="[item.btn]"
                 :href="item.url"
                 v-html="item.name"
                 :target="item.target ? '_blank' : ''"
@@ -51,50 +60,36 @@ export default {
       navbarAnimation: false,
       navContainerHeight: 133,
       lastScrollY: 0,
-
+      currentRoutePath: this.$router.currentRoute._value.path,
+      contactPath: "/contact",
       items: [
         {
-          id: "item-1",
           name: `<span class="v2-underline-text">Ho</span>me`,
           url: "/",
-          active: true,
-          underline: "activeClass?'v2-underline-text ':''",
           btn: "",
           target: false,
         },
         {
-          id: "item-2",
           name: "Career",
           url: "/jobs",
-          active: false,
-          underline: "v2-underline-text",
           btn: "",
           target: false,
         },
         {
-          id: "item-3",
           name: "Blog",
           url: Config.BLOG_URL,
-          active: false,
-          underline: "v2-underline-text",
           btn: "",
           target: true,
         },
         {
-          id: "item-4",
           name: "PortFolio",
           url: "",
-          active: true,
-          underline: "active ? 'v2-underline-text' : '' ",
           btn: "",
           target: false,
         },
         {
-          id: "item-5",
           name: "Let's Talk",
           url: "/contact",
-          active: "active ? 'btn-link' : 'v2-button'",
-          underline: "v2-underline-text",
           btn: "v2-button",
           target: false,
         },
@@ -103,8 +98,6 @@ export default {
   },
   components: {},
   mounted() {
-    let currentRoutePath = this.$router.currentRoute._value.path;
-
     window.addEventListener("scroll", this.handleScroll);
     this.navContainerHeight = this.$refs.mainHeader.clientHeight + 30;
   },
@@ -132,6 +125,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.v2-btn {
+  border: none;
+}
+.nav-link {
+  margin: 0 3px 0 0;
+}
 .nav-container {
   background: #fff;
   position: relative;
@@ -159,17 +158,13 @@ export default {
   animation: menu_sticky 0.6s ease-in-out;
 }
 
-.v2-button {
-  text-decoration: none;
-  border: none;
-  color: #3d3d3d;
-}
 .v2-button:hover {
   background-color: #fff;
 }
 .list-flow {
   display: flex;
 }
+
 @keyframes menu_sticky {
   0% {
     top: -120px;
@@ -212,16 +207,6 @@ export default {
     justify-content: flex-start;
     align-items: flex-start;
   }
-  .v2-button {
-    background-color: #3d3d3d;
-    color: #fff !important;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  }
-  .v2-button:hover {
-    background-color: #fff;
-    color: #3d3d3d !important ;
-    border: 1px solid #3d3d3d;
-  }
 }
 @include media-breakpoint-up(lg) {
   .col-flow {
@@ -231,8 +216,17 @@ export default {
     display: block;
     padding: 10px 30px;
   }
-  .btn-link {
-    display: none;
+
+  .v2-button {
+    border: 1px solid transparent;
+    background-color: #3d3d3d;
+    color: #fff !important;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  }
+  .v2-button:hover {
+    background-color: #fff;
+    color: #3d3d3d !important ;
+    border: 1px solid #3d3d3d;
   }
 }
 </style>
