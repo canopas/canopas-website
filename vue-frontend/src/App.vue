@@ -257,6 +257,7 @@ a {
     color: #fff;
   }
 }
+
 @include media-breakpoint-up(lg) {
   .col-flow {
     flex-direction: row;

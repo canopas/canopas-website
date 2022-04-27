@@ -25,9 +25,8 @@
                 class="nav-link v2-title-3-text"
                 v-for="item in items"
                 :key="item.id"
-                :class="[item.activeClass, item.btn]"
+                :class="[item.active, item.btn, item.underline]"
                 :href="item.url"
-                :style="{ textDecoration: item.underline }"
                 v-html="item.name"
                 :target="item.target ? '_blank' : ''"
               >
@@ -58,9 +57,8 @@ export default {
           id: "item-1",
           name: `<span class="v2-underline-text">Ho</span>me`,
           url: "/",
-          activeClass: "active",
-          underline:
-            "activeClass  ?'textDecoration: `underline !important`' : ''",
+          active: true,
+          underline: "activeClass?'v2-underline-text ':''",
           btn: "",
           target: false,
         },
@@ -68,9 +66,8 @@ export default {
           id: "item-2",
           name: "Career",
           url: "/jobs",
-          activeClass: "inactive",
-          underline:
-            "activeClass  ?'textDecoration: `underline !important`' : ''",
+          active: false,
+          underline: "v2-underline-text",
           btn: "",
           target: false,
         },
@@ -78,9 +75,8 @@ export default {
           id: "item-3",
           name: "Blog",
           url: Config.BLOG_URL,
-          activeClass: "inactive",
-          underline:
-            "activeClass  ?'textDecoration: `underline !important`' : ''",
+          active: false,
+          underline: "v2-underline-text",
           btn: "",
           target: true,
         },
@@ -88,9 +84,8 @@ export default {
           id: "item-4",
           name: "PortFolio",
           url: "",
-          activeClass: "inactive",
-          underline:
-            "activeClass  ?'textDecoration: `underline !important`' : ''",
+          active: true,
+          underline: "active ? 'v2-underline-text' : '' ",
           btn: "",
           target: false,
         },
@@ -98,8 +93,8 @@ export default {
           id: "item-5",
           name: "Let's Talk",
           url: "/contact",
-          activeClass: "active ? 'btn-link' : 'v2-button'",
-          underline: "textDecoration: `underline !important`' : '' ",
+          active: "active ? 'btn-link' : 'v2-button'",
+          underline: "v2-underline-text",
           btn: "v2-button",
           target: false,
         },
@@ -172,12 +167,9 @@ export default {
 .v2-button:hover {
   background-color: #fff;
 }
-@media (hover: none) {
-  .v2-button:hover {
-    background-color: #3d3d3d;
-  }
+.list-flow {
+  display: flex;
 }
-
 @keyframes menu_sticky {
   0% {
     top: -120px;
