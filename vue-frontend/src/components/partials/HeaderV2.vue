@@ -34,7 +34,7 @@
                       }
                     : { textDecoration: `none` },
                 ]"
-                :class="[item.btn]"
+                :class="[currentRoutePath == contactPath ? 'v2-btn' : item.btn]"
                 :href="item.url"
                 v-html="item.name"
                 :target="item.target ? '_blank' : ''"
