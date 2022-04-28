@@ -163,6 +163,7 @@ export default {
 }
 .list-flow {
   display: flex;
+  flex-shrink: 0;
 }
 
 @keyframes menu_sticky {
@@ -177,28 +178,12 @@ export default {
   }
 }
 
-.navbar-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.navbar-nav .nav-item-margin .nav-link {
-  margin: 0 20px 0 0;
-  color: #3d3d3d;
-}
-
 .header-logo-image {
   width: 205px;
   height: 38.5px;
 }
 
 @include media-breakpoint-up(md) {
-  .navbar-nav .nav-item-margin .nav-link {
-    margin: 0 20px 0 0;
-  }
-
   .navbar {
     padding: 20px 0;
   }
