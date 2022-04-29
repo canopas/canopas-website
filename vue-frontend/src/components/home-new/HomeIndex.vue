@@ -6,7 +6,9 @@
     <ClientReview />
     <UserReview />
     <Blog />
+    <Contribute />
     <CTA />
+    <ScreenFooter2 />
   </div>
 </template>
 
@@ -18,6 +20,8 @@ import WithCanopas from "@/components/home-new/WithCanopas.vue";
 import UserReview from "@/components/home-new/UserReview.vue";
 import CTA from "@/components/home-new/CTASection.vue";
 import Blog from "@/components/home-new/BlogSection.vue";
+import Contribute from "@/components/home-new/ContributeSection.vue";
+import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 
 export default {
   components: {
@@ -28,6 +32,8 @@ export default {
     UserReview,
     CTA,
     Blog,
+    Contribute,
+    ScreenFooter2,
   },
 };
 </script>
