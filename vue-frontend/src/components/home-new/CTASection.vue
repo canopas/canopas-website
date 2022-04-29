@@ -1,5 +1,5 @@
 <template>
-  <div class="background mt-5">
+  <div class="background mt-5 mb-5">
     <img :src="backgroundImage" class="render-background" />
     <div class="container cta-section text-center">
       <div class="v2-header-3-text canopas-gradient-text">
