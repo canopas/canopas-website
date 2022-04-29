@@ -44,11 +44,6 @@
 }
 
 @include media-breakpoint-up(lg) {
-  .header-text {
-    font-size: 2.5rem;
-    line-height: 3rem;
-  }
-
   .desc-text {
     margin: 50px 0;
   }

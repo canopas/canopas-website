@@ -143,11 +143,11 @@ a {
   color: #3d3d3d;
 }
 
-// 65px/94px - 50px/80px - 35px/60px
+// 65px/94px - 50px/70px - 35px/50px
 .v2-header-3-text {
   font-weight: 600;
   font-size: 2.1875rem;
-  line-height: 3.75rem;
+  line-height: 3.125rem;
   letter-spacing: 1px;
   color: #3d3d3d;
 }
@@ -357,10 +357,10 @@ a {
     line-height: 5.875rem;
   }
 
-  // 65px/94px - 50px/80px - 35px/60px
+  // 65px/94px - 50px/70px - 35px/50px
   .v2-header-3-text {
     font-size: 3.125rem;
-    line-height: 5rem;
+    line-height: 4.375rem;
   }
 
   // 80px/95px - 60px/75px - 40px/55px
@@ -437,7 +437,7 @@ a {
     line-height: 6.6875rem;
   }
 
-  // 65px/94px - 50px/80px - 35px/60px
+  // 65px/94px - 50px/70px - 35px/50px
   .v2-header-3-text {
     font-size: 4.0625rem;
     line-height: 5.875rem;
