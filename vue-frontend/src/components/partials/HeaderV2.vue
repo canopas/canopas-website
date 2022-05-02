@@ -22,7 +22,6 @@
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item-margin list-flow">
               <a
-                style="padding: 10px 20px"
                 class="nav-link v2-title-3-text"
                 v-for="item in items"
                 :key="item.id"
@@ -33,8 +32,19 @@
                         'text-underline-offset': '0.3rem',
                       }
                     : { textDecoration: `none` },
+
+                  currentRoutePath == contactPath
+                    ? isRemoveActiveUnderline == true
+                    : isRemoveActiveUnderline == false
+                    ? {
+                        textDecoration: `none`,
+                      }
+                    : {
+                        textDecoration: `underline !important`,
+                        'text-underline-offset': '0.3rem',
+                      },
                 ]"
-                :class="[currentRoutePath == contactPath ? 'v2-btn' : item.btn]"
+                :class="[currentRoutePath == contactPath ? item.btn : item.btn]"
                 :href="item.url"
                 v-html="item.name"
                 :target="item.target ? '_blank' : ''"
@@ -62,6 +72,7 @@ export default {
       lastScrollY: 0,
       currentRoutePath: this.$router.currentRoute._value.path,
       contactPath: "/contact",
+      isRemoveActiveUnderline: false,
       items: [
         {
           name: `<span class="v2-underline-text">Ho</span>me`,
@@ -98,6 +109,10 @@ export default {
   },
   components: {},
   mounted() {
+    if (window.innerWidth >= 992 && currentRoutePath == "/contact") {
+      isRemoveActiveUnderline == true;
+    }
+
     window.addEventListener("scroll", this.handleScroll);
     this.navContainerHeight = this.$refs.mainHeader.clientHeight + 30;
   },
