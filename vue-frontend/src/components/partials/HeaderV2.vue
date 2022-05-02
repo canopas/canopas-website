@@ -27,22 +27,15 @@
                 :key="item.id"
                 :style="[
                   currentRoutePath == item.url
-                    ? {
-                        textDecoration: `underline !important`,
-                        'text-underline-offset': '0.3rem',
-                      }
+                    ? hello
+                      ? {
+                          textDecoration: `none`,
+                        }
+                      : {
+                          textDecoration: `underline !important`,
+                          'text-underline-offset': '0.3rem',
+                        }
                     : { textDecoration: `none` },
-
-                  currentRoutePath == contactPath
-                    ? isRemoveActiveUnderline == true
-                    : isRemoveActiveUnderline == false
-                    ? {
-                        textDecoration: `none`,
-                      }
-                    : {
-                        textDecoration: `underline !important`,
-                        'text-underline-offset': '0.3rem',
-                      },
                 ]"
                 :class="[currentRoutePath == contactPath ? item.btn : item.btn]"
                 :href="item.url"
@@ -72,7 +65,8 @@ export default {
       lastScrollY: 0,
       currentRoutePath: this.$router.currentRoute._value.path,
       contactPath: "/contact",
-      isRemoveActiveUnderline: false,
+      isRemoveActiveUnderline: true,
+      hello: false,
       items: [
         {
           name: `<span class="v2-underline-text">Ho</span>me`,
@@ -109,8 +103,10 @@ export default {
   },
   components: {},
   mounted() {
-    if (window.innerWidth >= 992 && currentRoutePath == "/contact") {
-      isRemoveActiveUnderline == true;
+    console.log(window.innerWidth);
+    console.log(this.currentRoutePath);
+    if (window.innerWidth >= 992 && this.currentRoutePath == "/contact") {
+      this.hello = true;
     }
 
     window.addEventListener("scroll", this.handleScroll);
