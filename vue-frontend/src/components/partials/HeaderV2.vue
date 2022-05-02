@@ -136,9 +136,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.v2-btn {
-  border: none;
-}
 .nav-link {
   margin: 0 3px 0 0;
 }
@@ -169,9 +166,12 @@ export default {
   animation: menu_sticky 0.6s ease-in-out;
 }
 
-.v2-button:hover {
-  background-color: #fff;
+@media (hover: hover) and (pointer: fine) {
+  .v2-button:hover {
+    background-color: #fff;
+  }
 }
+
 .list-flow {
   display: flex;
   flex-shrink: 0;
@@ -219,10 +219,12 @@ export default {
     color: #fff !important;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   }
-  .v2-button:hover {
-    background-color: #fff;
-    color: #3d3d3d !important ;
-    border: 1px solid #3d3d3d;
+  @media (hover: hover) and (pointer: fine) {
+    .v2-button:hover {
+      background-color: #fff;
+      color: #3d3d3d !important ;
+      border: 1px solid #3d3d3d;
+    }
   }
 }
 </style>
