@@ -13,6 +13,15 @@ import (
 	"github.com/aws/aws-sdk-go/service/ses"
 )
 
+type emailRepository struct{}
+type EmailRepository interface {
+	SendEmail(*ses.SendEmailInput, *ses.SendRawEmailInput) int
+}
+
+func NewEmail() *emailRepository {
+	return &emailRepository{}
+}
+
 func GetAWSIAMUserSession() (*session.Session, error) {
 	awsRegion := os.Getenv("REGION")
 	awsAccessKeyId := os.Getenv("ACCESS_KEY_ID")
@@ -32,7 +41,7 @@ func GetAWSIAMUserSession() (*session.Session, error) {
 
 }
 
-func SendEmail(emailTemplate *ses.SendEmailInput, jobsTemplate *ses.SendRawEmailInput) int {
+func (repo *emailRepository) SendEmail(emailTemplate *ses.SendEmailInput, jobsTemplate *ses.SendRawEmailInput) int {
 
 	sess, err := GetAWSIAMUserSession()
 

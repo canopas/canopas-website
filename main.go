@@ -8,6 +8,7 @@ import (
 	"log"
 	"os"
 	"sitemap"
+	"utils"
 
 	"github.com/apex/gateway"
 	"github.com/gin-contrib/cors"
@@ -33,8 +34,10 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 
 	router.Use(cors.New(corsConfig()))
 
-	contactRepo := contact.New(templateFS)
-	jobsRepo := jobs.New(sqlDb, templateFS)
+	emailRepo := utils.NewEmail()
+
+	contactRepo := contact.New(templateFS, emailRepo)
+	jobsRepo := jobs.New(sqlDb, templateFS, emailRepo)
 	sitemapRepo := sitemap.New(jobsRepo)
 
 	router.POST("/api/send-contact-mail", contactRepo.SendContactMail)
