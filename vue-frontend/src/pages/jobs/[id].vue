@@ -4,7 +4,8 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
-    <ScreenHeader />
+    <ScreenHeader v-if="!isShowNewHeader" />
+    <ScreenHeaderV2 v-else />
     <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
@@ -66,6 +67,7 @@
 
 <script>
 import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -102,10 +104,12 @@ export default {
       isLoading: true,
       showErrorMessagePopup: false,
       jobLink: "",
+      isShowNewHeader: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   components: {
     ScreenHeader,
+    ScreenHeaderV2,
     ScreenFooter2,
     FontAwesomeIcon,
     ScreenLoader,
@@ -370,7 +374,7 @@ export default {
 
 .summary-text,
 :deep(div > span *),
-:deep(ul *) {
+:deep(ul) {
   font-size: 1.1rem !important;
   line-height: 2rem;
   text-align: justify;
@@ -465,7 +469,7 @@ export default {
 
   .summary-text,
   :deep(div > span *),
-  :deep(ul *) {
+  :deep(ul) {
     font-size: 1.125rem !important;
     line-height: 2.5rem !important;
   }
@@ -479,7 +483,7 @@ export default {
 @include media-breakpoint-up(lg) {
   .summary-text,
   :deep(div > span *),
-  :deep(ul *) {
+  :deep(ul) {
     font-size: 1.4rem !important;
   }
 }
