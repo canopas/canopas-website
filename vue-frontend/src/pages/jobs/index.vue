@@ -1,6 +1,7 @@
 <template>
   <div>
-    <ScreenHeader />
+    <ScreenHeader v-if="!isShowNewHeader" />
+    <ScreenHeaderV2 v-else />
     <LandingView v-on:scroll-to-career="scrollToCareer" />
     <VirtuesView />
     <LifeAtCanopas />
@@ -18,6 +19,7 @@
 
 <script>
 import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
 import LandingView from "@/components/jobs/LandingView.vue";
 import VirtuesView from "@/components/jobs/VirtuesView.vue";
 import LifeAtCanopas from "@/components/jobs/LifeAtCanopas.vue";
@@ -53,8 +55,14 @@ export default {
       },
     });
   },
+  data() {
+    return {
+      isShowNewHeader: config.IS_SHOW_NEW_HOME_PAGE,
+    };
+  },
   components: {
     ScreenHeader,
+    ScreenHeaderV2,
     LandingView,
     VirtuesView,
     LifeAtCanopas,

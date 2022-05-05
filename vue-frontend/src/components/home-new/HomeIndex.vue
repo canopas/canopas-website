@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import ScreenHeader from "@/components/partials/ScreenHeaderV2.vue";
 import Portfolio from "@/components/home-new/PortfolioSection.vue";
 import ClientReview from "@/components/home-new/ClientReview.vue";
 import WithCanopas from "@/components/home-new/WithCanopas.vue";

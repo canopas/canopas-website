@@ -1,6 +1,7 @@
 <template>
   <div ref="contactScreen">
-    <ScreenHeader />
+    <ScreenHeader v-if="!isShowNewHeader" />
+    <ScreenHeaderV2 v-else />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
     <div>
       <ContactLanding />
@@ -12,6 +13,7 @@
 
 <script>
 import ScreenHeader from "@/components/partials/ScreenHeader.vue";
+import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import ContactLanding from "@/components/contact/ContactLanding.vue";
@@ -34,6 +36,7 @@ export default {
   },
   components: {
     ScreenHeader,
+    ScreenHeaderV2,
     ContactLanding,
     ScreenFooter2,
     ContactForm,
@@ -42,6 +45,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      isShowNewHeader: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   mounted() {
