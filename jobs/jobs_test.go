@@ -9,6 +9,7 @@ import (
 	"testing"
 	"utils"
 
+	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
 	"github.com/tj/assert"
@@ -28,6 +29,13 @@ const (
 	GET_JOBS_BY_ID_API_URL = "/api/careers/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d"
 	SEND_CAREER_MAIL       = "/api/send-career-mail"
 )
+
+//fakeMailRepo is a mock Mail Service Interface
+type fakeMailRepo struct{}
+
+func (faker *fakeMailRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
+	return 0
+}
 
 func Test_init(t *testing.T) {
 	repo, err = initializeRepo()
@@ -115,7 +123,9 @@ func initializeRepo() (*CareerRepository, error) {
 	utils.TruncateTables(testDB)
 	utils.PrepareTablesData(testDB)
 
-	repo = New(testDB, templateFS)
+	var fakeEmail fakeMailRepo
+
+	repo = New(testDB, templateFS, &fakeEmail)
 
 	return repo, err
 }

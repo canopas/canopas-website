@@ -34,12 +34,13 @@ type ContactDetails struct {
 
 type Template struct {
 	templates *template.Template
+	EmailRepo utils.EmailRepository
 }
 
-func New(templateFs embed.FS) *Template {
+func New(templateFs embed.FS, emailRepo utils.EmailRepository) *Template {
 	templates, _ := template.ParseFS(templateFs, "templates/contact-email-template.html")
 	return &Template{
-		templates: templates,
+		templates: templates, EmailRepo: emailRepo,
 	}
 }
 
@@ -55,7 +56,7 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 
 	emailTemplate := repository.getEmailTemplate(input)
 
-	statusCode := utils.SendEmail(emailTemplate, nil)
+	statusCode := repository.EmailRepo.SendEmail(emailTemplate, nil)
 
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)

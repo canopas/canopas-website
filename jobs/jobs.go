@@ -62,11 +62,12 @@ type CareerDetails struct {
 type CareerRepository struct {
 	Db        *sqlx.DB
 	templates *template.Template
+	EmailRepo utils.EmailRepository
 }
 
-func New(db *sqlx.DB, templateFs embed.FS) *CareerRepository {
+func New(db *sqlx.DB, templateFs embed.FS, emailRepo utils.EmailRepository) *CareerRepository {
 	templates, _ := template.ParseFS(templateFs, "templates/career-email-template.html")
-	return &CareerRepository{Db: db, templates: templates}
+	return &CareerRepository{Db: db, templates: templates, EmailRepo: emailRepo}
 }
 
 func (repository *CareerRepository) Careers(c *gin.Context) {
@@ -150,7 +151,7 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 
 	emailTemplate := GetEmailTemplate(htmlBody, title, attachmentBytes)
 
-	statusCode := utils.SendEmail(nil, emailTemplate)
+	statusCode := repository.EmailRepo.SendEmail(nil, emailTemplate)
 
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)

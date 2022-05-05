@@ -9,6 +9,7 @@ import (
 	"testing"
 	"utils"
 
+	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
 	"github.com/tj/assert"
 )
@@ -39,6 +40,13 @@ var contactDetailInput = ContactDetails{
 	Email:       "shruti@gmail.com",
 	Message:     "i'm very interested work with this company",
 	ContactType: "Chat or Email",
+}
+
+//fakeMailRepo is a mock Mail Service Interface
+type fakeMailRepo struct{}
+
+func (faker *fakeMailRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
+	return 0
 }
 
 func Test_init(t *testing.T) {
@@ -95,7 +103,9 @@ func TestAllAPIs(t *testing.T) {
 
 func initializeRepo() (*Template, error) {
 
-	repo = New(templateFS)
+	var fakeEmail fakeMailRepo
+
+	repo = New(templateFS, &fakeEmail)
 
 	return repo, err
 }

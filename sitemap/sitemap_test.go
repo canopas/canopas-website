@@ -95,7 +95,7 @@ func initializeRepo() (*SitemapRepository, error) {
 	utils.TruncateTables(testDB)
 	utils.PrepareTablesData(testDB)
 
-	careerRepo = jobs.New(testDB, templateFS)
+	careerRepo = jobs.New(testDB, templateFS, nil)
 	repo = New(careerRepo)
 
 	return repo, err
