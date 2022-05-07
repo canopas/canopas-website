@@ -1,6 +1,7 @@
 <template>
   <div>
     <ScreenHeader />
+    <LandingSection />
     <Portfolio />
     <WithCanopas />
     <ClientReview />
@@ -14,6 +15,7 @@
 
 <script>
 import ScreenHeader from "@/components/partials/ScreenHeaderV2.vue";
+import LandingSection from "@/components/home-new/LandingSection.vue";
 import Portfolio from "@/components/home-new/PortfolioSection.vue";
 import ClientReview from "@/components/home-new/ClientReview.vue";
 import WithCanopas from "@/components/home-new/WithCanopas.vue";
@@ -26,6 +28,7 @@ import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 export default {
   components: {
     ScreenHeader,
+    LandingSection,
     Portfolio,
     WithCanopas,
     ClientReview,
