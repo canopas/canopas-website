@@ -34,4 +34,8 @@ export default Object.freeze({
   GAP_ID_ROOT: "G-VXHMMMEJ5X",
   IS_PROD: true,
   IS_SHOW_NEW_HOME_PAGE: false,
+  LUXERADIO_URL: "https://open.luxeradio.ma/",
+  SMILEPLUS_URL: "https://www.udini.co/",
+  NOLONELY_URL: "https://nolonely.me/",
+  TOGNESS_URL: "https://togness.com/",
 });

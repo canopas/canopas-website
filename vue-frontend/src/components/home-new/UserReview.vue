@@ -6,7 +6,8 @@
       but
       <span class="v2-canopas-gradient-text"> user reviews </span>confirm it.
     </div>
-    <img :src="backgroundImage" class="background-image" />
+
+    <LottieAnimation :jsonData="backgroundImage" class="background-image" />
     <div>
       <div class="flex-div">
         <div
@@ -93,8 +94,9 @@
 </template>
 
 <script type="module">
-import backgroundImage from "@/assets/images/theme/globe.svg";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import backgroundImage from "@/assets/lottie/globe.json";
+import LottieAnimation from "@/components/utils/LottieAnimation.vue";
 
 export default {
   data() {
@@ -150,6 +152,7 @@ export default {
   },
   components: {
     FontAwesomeIcon,
+    LottieAnimation,
   },
   mounted() {
     if (window.innerWidth >= 768 && window.innerWidth <= 992) {
@@ -169,12 +172,7 @@ export default {
 }
 
 .background-image {
-  width: 100%;
-  position: absolute;
-  object-fit: cover;
-  z-index: -5;
-  margin-left: auto;
-  margin-right: auto;
+  display: none;
 }
 
 .v2-header-3-text {
@@ -192,9 +190,7 @@ export default {
 }
 
 .users-review {
-  background: -webkit-linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(to bottom, #ff9472, #f2709c) border-box;
-  border: 1px solid transparent !important;
+  border: 1.5px solid #fa7b78 !important;
   border-radius: 16px;
   padding: 20px;
   margin: 15px 15px 0;
@@ -220,6 +216,18 @@ export default {
 }
 
 @include media-breakpoint-up(md) {
+  .background-image {
+    display: block;
+    height: 70%;
+    width: 100%;
+    position: absolute;
+    object-fit: cover;
+    z-index: -5;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 40%;
+  }
+
   .flex-div {
     align-items: center;
 

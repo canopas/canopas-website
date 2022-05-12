@@ -12,14 +12,27 @@
               We develop amazing products to help
               <div class="typewriter">
                 <span class="wrapper">
-                  <p class="v2-canopas-gradient-text fw-bold">Entrepreneurs</p>
+                  <div
+                    v-for="animationWord in animationWords"
+                    :key="animationWord"
+                  >
+                    <p
+                      v-if="animationWord.isActive"
+                      class="v2-canopas-gradient-text fw-bold"
+                    >
+                      {{ animationWord.name }}
+                    </p>
+                  </div>
                 </span>
               </div>
               bring their ideas to life.
             </div>
             <div class="mt-5">
-              <a :href="contactURL" class="v2-normal-3-text v2-button">
-                Let's talk
+              <a
+                :href="contactURL"
+                class="v2-normal-3-text v2-button lets-button"
+              >
+                <span>Let's talk</span>
                 <font-awesome-icon
                   class="arrow fa"
                   icon="arrow-right"
@@ -34,7 +47,7 @@
   </div>
 </template>
 <script type="module">
-import landingbackgroundImage from "@/assets/images/Landing/landingbackground.webp";
+import landingbackgroundImage from "@/assets/images/Landing/landingbackground.png";
 import landingViewImage from "@/assets/images/Landing/landingImage.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
@@ -44,10 +57,36 @@ export default {
       landingbackgroundImage: landingbackgroundImage,
       landingViewImage: landingViewImage,
       contactURL: "/contact",
+      animationWords: [
+        { name: "Entrepreneurs ", isActive: true },
+        { name: "Startups ", isActive: false },
+        { name: "Businesses ", isActive: false },
+      ],
     };
   },
   components: {
     FontAwesomeIcon,
+  },
+  mounted() {
+    var animateText = document.querySelector(".wrapper");
+
+    animateText.addEventListener(
+      "animationiteration",
+      () => {
+        for (var i = 0; i < this.animationWords.length; i++) {
+          if (this.animationWords[i].isActive) {
+            this.animationWords[i].isActive = false;
+            if (i == this.animationWords.length - 1) {
+              this.animationWords[0].isActive = true;
+            } else {
+              this.animationWords[i + 1].isActive = true;
+            }
+            break;
+          }
+        }
+      },
+      false
+    );
   },
 };
 </script>
@@ -116,25 +155,20 @@ export default {
 .typewriter {
   display: flex;
   align-items: center;
+  width: fit-content;
 }
 
 .typewriter p {
   overflow: hidden;
-  border-right: 0.05em solid #ff9472;
+  border-right: 2px solid #ff9472;
   white-space: nowrap;
   margin-right: 10px;
+  margin-top: 10px;
   margin-bottom: 0;
 }
 
-.wrapper {
-  margin-top: 24px;
-  margin-bottom: -17px;
-  animation: slide-text 20s steps(1, end) infinite;
-}
-
 .wrapper p {
-  animation: typing-erase 8s steps(80, end) infinite,
-    blink-caret 0.5s step-end infinite;
+  animation: typing-erase 4s steps(40, end) infinite;
 }
 
 @keyframes typing-erase {
@@ -142,61 +176,39 @@ export default {
     width: 0;
   }
   50%,
-  70% {
+  60% {
     width: 100%;
   }
-  90%,
+  95%,
   100% {
     width: 0;
   }
 }
 
-@keyframes blink-caret {
-  from,
-  to {
-    border-color: transparent;
-  }
-  50% {
-    border-color: #ff9472;
-  }
-}
-
-@keyframes slide-text {
-  0%,
-  25% {
-    transform: translateY(-1rem);
-  }
-  25%,
-  50% {
-    transform: translateY(-1rem);
-  }
-  50%,
-  75% {
-    transform: translateY(-1rem);
-  }
-  75%,
-  100% {
-    transform: translateY(-1rem);
-  }
+.lets-button {
+  display: flex;
+  align-items: center;
+  width: fit-content;
 }
 
 .v2-button {
   background-color: #3d3d3d;
   color: #fff !important;
-  box-shadow: none;
-  padding: 20px 40px;
+  padding: 15px 40px;
 }
-.arrow {
-  color: white;
+
+.v2-button > span {
+  margin-right: 10px;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .v2-button:hover {
     background-color: #fff;
-    color: #3d3d3d !important;
-    border: 1px solid #3d3d3d;
+    color: #3d3d3d;
   }
-  .v2-button:hover > .arrow {
+
+  .v2-button:hover > span,
+  .v2-button:hover > .fa {
     color: #3d3d3d;
   }
 }

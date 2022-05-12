@@ -1,32 +1,39 @@
 <template>
   <div class="container-fluid mt-5">
     <div class="text-center v2-header-text">Portfolio</div>
-    <div class="portfolio-section mt-5">
+    <div class="portfolio-section">
       <div
         v-for="portfolio in portfolios"
         :key="portfolio"
         class="portfolio-details mt-4"
       >
-        <img
-          :src="portfolio.image"
-          class="portfolio-image"
-          loading="lazy"
-          :alt="portfolio.title + `-image`"
-        />
+        <div class="image-div">
+          <img
+            :src="portfolio.image"
+            class="portfolio-image"
+            loading="lazy"
+            :alt="portfolio.title + `-image`"
+          />
+        </div>
+
         <div class="description">
           <div class="v2-title-text">{{ portfolio.title }}</div>
           <div class="v2-normal-text mt-3">
             {{ portfolio.detail }}
           </div>
           <div class="mt-4">
-            <router-link class="v2-button v2-normal-2-text" to="">
+            <a
+              class="v2-normal-2-text v2-button"
+              :href="portfolio.link"
+              target="_blank"
+            >
               <span>VIEW</span>
               <font-awesome-icon
                 class="arrow fa"
                 icon="arrow-right"
                 id="leftArrow"
               />
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
@@ -40,6 +47,7 @@ import noLonely from "@/assets/images/portfolio/noLonely.png";
 import smilePlue from "@/assets/images/portfolio/smilePlus.png";
 import togness from "@/assets/images/portfolio/togness.png";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import config from "@/config.js";
 
 export default {
   data() {
@@ -50,30 +58,34 @@ export default {
         {
           image: luxeradio,
           title: "Luxeradio",
+          aspectRatio: "47%",
           detail:
             "Luxe Radio is a music streaming and podcast app similar to Spotify. The android app has 150K+ downloads and 5 STAR APP RATINGS.",
-          link: "",
+          link: config.LUXERADIO_URL,
         },
         {
           image: smilePlue,
           title: "Smile+",
+          aspectRatio: "47%",
           detail:
             "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
-          link: "",
+          link: config.SMILEPLUS_URL,
         },
         {
           image: noLonely,
           title: "NoLonely",
+          aspectRatio: "47%",
           detail:
             "NoLonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
-          link: "",
+          link: config.NOLONELY_URL,
         },
         {
           image: togness,
           title: "Togness",
+          aspectRatio: "55%",
           detail:
             "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
-          link: "",
+          link: config.TOGNESS_URL,
         },
       ],
     };
@@ -87,6 +99,14 @@ export default {
 <style lang="scss" scoped>
 .container-fluid {
   padding: 0;
+}
+
+.portfolio-section {
+  margin-top: 150px;
+}
+
+.image-div {
+  width: 100%;
 }
 
 .portfolio-image {
@@ -124,16 +144,14 @@ export default {
     padding: 0;
   }
 
-  .portfolio-image {
-    height: 50%;
+  .image-div {
     width: 50%;
   }
 }
 
 @include media-breakpoint-up(lg) {
-  .portfolio-image {
-    height: 40%;
-    width: 40%;
+  .image-div {
+    width: 45%;
   }
 }
 </style>
