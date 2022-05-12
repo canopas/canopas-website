@@ -104,7 +104,7 @@ export default {
     #ffffff 9.06%,
     rgba(255, 148, 114, 0.15) 90%
   );
-  margin-bottom: 7%;
+  margin-bottom: 200px;
 }
 
 .container {

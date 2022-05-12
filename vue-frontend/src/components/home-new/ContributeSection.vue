@@ -65,8 +65,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding-top: 10%;
-  padding-bottom: 2%;
+  padding: 100px 0 40px;
 }
 
 .border-text {

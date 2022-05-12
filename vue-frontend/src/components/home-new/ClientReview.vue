@@ -150,7 +150,7 @@ export default {
 }
 
 .overlay {
-  padding: 7% 0;
+  padding: 150px 0;
 }
 
 .render-background {

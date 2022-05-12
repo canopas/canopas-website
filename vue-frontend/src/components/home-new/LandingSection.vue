@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid overlay">
     <img :src="landingbackgroundImage" class="background" />
     <div class="container">
       <div class="flex-div">
@@ -54,8 +54,12 @@ export default {
 
 <style lang="scss" scoped>
 .container-fluid {
-  padding-top: 6%;
-  padding-bottom: 15%;
+  position: relative;
+  margin-top: 70px;
+}
+
+.overlay {
+  padding: 30px 0 250px;
 }
 
 .flex-div {
@@ -80,6 +84,8 @@ export default {
 
 .background {
   width: 100%;
+  height: 100%;
+  top: 0;
   object-fit: cover;
   position: absolute;
   left: 0;
