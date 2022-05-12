@@ -9,25 +9,25 @@
       <div class="communication">
         <div class="item px-4 py-3">
           <div class="v2-normal-3-text">I love talking.</div>
-          <button class="gradient-btn cta-button" @click="openContact">
+          <a class="gradient-btn cta-button" :href="contactURL">
             <font-awesome-icon
               class="fa v2-title-3-text"
               icon="phone"
               aria-hidden="true"
             />
             <span class="v2-normal-3-text">Schedule a call</span>
-          </button>
+          </a>
         </div>
         <div class="item px-4 py-3">
           <div class="v2-normal-3-text">I prefer mail.</div>
-          <button class="gradient-btn cta-button" @click="openContact">
+          <a class="gradient-btn cta-button" :href="contactURL">
             <font-awesome-icon
               class="fa v2-title-3-text"
               icon="paper-plane"
               aria-hidden="true"
             />
             <span class="v2-normal-3-text">Drop a mail</span>
-          </button>
+          </a>
         </div>
       </div>
       <div
@@ -75,15 +75,11 @@ export default {
   data() {
     return {
       backgroundImage: backgroundImage,
+      contactURL: "/contact",
     };
   },
   components: {
     FontAwesomeIcon,
-  },
-  methods: {
-    openContact() {
-      this.$router.push("/contact");
-    },
   },
 };
 </script>
@@ -141,11 +137,17 @@ export default {
   align-items: center;
 }
 
+.v2-title-3-text {
+  font-size: 1.35rem;
+  line-height: 1.5rem;
+}
+
 .gradient-btn {
   border-radius: 2rem;
 }
 
 .gradient-btn > span {
+  margin: 0 0 0 10px;
   font-weight: 400;
 }
 

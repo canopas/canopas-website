@@ -20,29 +20,26 @@
         </a>
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <div v-for="navbar in navbars" :key="navbar">
-              <li class="my-2 nav-item-margin">
-                <a
-                  class="v2-normal-3-text"
-                  :class="[
-                    navbar.className,
-                    showContactBtn && navbar.name == `Let's talk`
-                      ? currentRoutePath == `/contact`
-                        ? 'v2-button v2-button-active'
-                        : 'v2-button'
-                      : 'nav-link is-animation-tab',
-                    currentRoutePath == navbar.url
-                      ? showContactBtn && navbar.name == `Let's talk`
-                        ? ''
-                        : 'active-tab'
-                      : '',
-                  ]"
-                  :href="navbar.url"
-                  :target="navbar.target ? '_blank' : ''"
-                  >{{ navbar.name }}</a
-                >
-              </li>
-            </div>
+            <li
+              v-for="navbar in navbars"
+              :key="navbar"
+              class="my-2 nav-item-margin"
+            >
+              <a
+                class="v2-normal-3-text"
+                :class="[
+                  navbar.className,
+                  currentRoutePath == navbar.url
+                    ? navbar.showContactBtn
+                      ? 'v2-button v2-button-active'
+                      : 'active-tab'
+                    : '',
+                ]"
+                :href="navbar.url"
+                :target="navbar.target ? '_blank' : ''"
+                >{{ navbar.name }}</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -63,7 +60,6 @@ export default {
       navContainerHeight: 133,
       lastScrollY: 0,
       currentRoutePath: this.$router.currentRoute._value.path,
-      showContactBtn: false,
       navbars: [
         {
           name: "Home",
@@ -92,14 +88,20 @@ export default {
         {
           name: "Let's talk",
           url: "/contact",
-          className: "me-0",
+          className: "me-0 nav-link lets-button-link is-animation-tab",
           target: false,
+        },
+        {
+          name: "Let's talk",
+          url: "/contact",
+          className: "me-0 v2-button lets-button",
+          target: false,
+          showContactBtn: true,
         },
       ],
     };
   },
   mounted() {
-    this.showContactBtn = window.innerWidth > 992;
     window.addEventListener("scroll", this.handleScroll);
     this.navContainerHeight = this.$refs.mainHeader.clientHeight + 30;
   },
@@ -217,6 +219,7 @@ export default {
 }
 
 .v2-button {
+  padding: 0.4rem 1.5rem;
   background-color: #3d3d3d;
   color: #fff !important;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
@@ -237,9 +240,27 @@ export default {
   color: #fff !important;
 }
 
+.lets-button-link {
+  display: block;
+}
+
+.lets-button {
+  display: none;
+}
+
 @include media-breakpoint-up(md) {
   .navbar {
     padding: 20px 0;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .lets-button {
+    display: block;
+  }
+
+  .lets-button-link {
+    display: none;
   }
 }
 
