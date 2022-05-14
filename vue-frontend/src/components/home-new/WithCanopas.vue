@@ -2,8 +2,8 @@
   <div class="container-fluid">
     <div class="container">
       <div class="v2-header-3-text text-center">
-        With <span class="pink-text">canopas</span>, you will have everything
-        you need under one roof.
+        With <span class="v2-canopas-gradient-text">canopas</span>, you will
+        have everything you need under one roof.
       </div>
       <div class="phases-container">
         <div class="flex-container">
@@ -67,7 +67,7 @@ export default {
           jsonData: designing,
           title: "Design",
           description:
-            "Working passionately with you, our designers create aesthetically pleasing  and user friendly digital experiences. ",
+            "Working passionately with you, our designers create aesthetically pleasing  and user friendly digital experiences.",
         },
         {
           jsonData: development,
@@ -79,13 +79,13 @@ export default {
           jsonData: marketing,
           title: "Marketing",
           description:
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.",
+            "From organic growth to writing irresistible ads for your marketing campaign, we're here to help you. We'll help you build a brand and community of prospects who can give you a boost on your product launch.",
         },
         {
           jsonData: support,
           title: "Support",
           description:
-            "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ",
+            "From bug fixing to feature updates, you can count on us. For the last 7 years, our clients had a 99.87% uptime for their products.",
         },
       ],
     };
@@ -118,10 +118,6 @@ export default {
 .phases {
   padding: 1rem 0;
   text-align: center;
-}
-
-.pink-text {
-  color: #f2709c;
 }
 
 .v2-header-3-text {
