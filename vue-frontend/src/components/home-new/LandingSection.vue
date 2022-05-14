@@ -1,6 +1,19 @@
 <template>
   <div class="container-fluid overlay">
-    <img :src="landingbackgroundImage" class="background" />
+    <div class="background">
+      <p class="zoom-in-animation dot1"></p>
+      <p class="zoom-out-animation dot2"></p>
+      <p class="zoom-in-animation dot3"></p>
+      <p class="zoom-out-animation dot4"></p>
+      <p class="zoom-in-animation dot5"></p>
+      <p class="zoom-out-animation dot6"></p>
+      <p class="zoom-in-animation dot7"></p>
+      <p class="zoom-out-animation dot8"></p>
+      <p class="zoom-in-animation dot9"></p>
+      <p class="zoom-out-animation dot10"></p>
+      <p class="zoom-in-animation dot11"></p>
+    </div>
+
     <div class="container">
       <div class="flex-div">
         <div class="image">
@@ -27,19 +40,17 @@
               </div>
               bring their ideas to life.
             </div>
-            <div class="mt-5">
-              <a
-                :href="contactURL"
-                class="v2-normal-3-text v2-button lets-button"
-              >
-                <span>Let's talk</span>
-                <font-awesome-icon
-                  class="arrow fa"
-                  icon="arrow-right"
-                  id="leftArrow"
-                />
-              </a>
-            </div>
+            <a
+              :href="contactURL"
+              class="v2-normal-3-text v2-button lets-button"
+            >
+              <span>Let's talk</span>
+              <font-awesome-icon
+                class="arrow fa"
+                icon="arrow-right"
+                id="leftArrow"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -47,14 +58,12 @@
   </div>
 </template>
 <script type="module">
-import landingbackgroundImage from "@/assets/images/Landing/landingbackground.png";
 import landingViewImage from "@/assets/images/Landing/landingImage.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   data() {
     return {
-      landingbackgroundImage: landingbackgroundImage,
       landingViewImage: landingViewImage,
       contactURL: "/contact",
       animationWords: [
@@ -98,7 +107,7 @@ export default {
 }
 
 .overlay {
-  padding: 30px 0 250px;
+  padding: 30px 0 100px;
 }
 
 .flex-div {
@@ -114,21 +123,12 @@ export default {
 
 .image > img {
   vertical-align: top;
-  max-width: 100%;
-  max-height: 100%;
-}
-.flex-div > .flex-detail {
-  flex: 2 0 0%;
-}
-
-.background {
   width: 100%;
   height: 100%;
-  top: 0;
-  object-fit: cover;
-  position: absolute;
-  left: 0;
-  z-index: -5;
+}
+
+.flex-div > .flex-detail {
+  flex: 2 0 0%;
 }
 
 .v2-header-3-text {
@@ -213,6 +213,136 @@ export default {
   }
 }
 
+.background {
+  overflow: hidden;
+}
+
+.zoom-in-animation {
+  border-radius: 50%;
+  position: absolute;
+  animation: zoom-in 4s ease-in infinite;
+  z-index: -1;
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(0, 0);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0, 0);
+  }
+}
+
+.zoom-out-animation {
+  border-radius: 50%;
+  position: absolute;
+  animation: zoom-out 4s ease-in infinite;
+  z-index: -1;
+}
+
+@keyframes zoom-out {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(0, 0);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.dot1 {
+  width: 17px;
+  height: 17px;
+  top: 7%;
+  left: 20%;
+  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
+}
+
+.dot2 {
+  width: 25px;
+  height: 25px;
+  top: 20%;
+  left: 5%;
+  background: #3d3d3d;
+}
+
+.dot3 {
+  width: 15px;
+  height: 15px;
+  top: 45%;
+  left: 1%;
+  background: #ff9472;
+}
+
+.dot4 {
+  width: 10px;
+  height: 10px;
+  top: 38%;
+  left: 50%;
+  background: #f2709c;
+}
+
+.dot5 {
+  width: 15px;
+  height: 15px;
+  top: 80%;
+  left: 43%;
+  background: #3d3d3d;
+}
+
+.dot6 {
+  width: 25px;
+  height: 25px;
+  top: 0;
+  right: 18%;
+  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
+}
+
+.dot7 {
+  width: 15px;
+  height: 15px;
+  top: 8%;
+  right: 13%;
+  background: #3d3d3d;
+}
+
+.dot8 {
+  width: 10px;
+  height: 10px;
+  top: 18%;
+  right: 2%;
+  background: #ff9472;
+}
+
+.dot9 {
+  width: 30px;
+  height: 30px;
+  top: 0%;
+  right: 50%;
+  background: #ff9472;
+}
+
+.dot10 {
+  width: 20px;
+  height: 20px;
+  top: 60%;
+  right: 9%;
+  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
+}
+
+.dot11 {
+  width: 10px;
+  height: 10px;
+  bottom: 7%;
+  right: 15%;
+  background: #ff9472;
+}
+
 @include media-breakpoint-up(lg) {
   .flex-div {
     flex-direction: row-reverse;
@@ -226,6 +356,10 @@ export default {
   .v2-header-3-text {
     font-size: 3.125rem;
     line-height: 4.375rem;
+  }
+
+  .overlay {
+    padding: 30px 0 250px;
   }
 }
 
