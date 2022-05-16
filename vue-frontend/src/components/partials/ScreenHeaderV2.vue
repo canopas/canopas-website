@@ -79,12 +79,13 @@ export default {
           className: "nav-link is-animation-tab",
           target: true,
         },
-        {
-          name: "Portfolio",
-          url: "",
-          className: "nav-link is-animation-tab",
-          target: false,
-        },
+        // {
+        //   name: "Portfolio",
+        //   url: "",
+        //   className: "nav-link is-animation-tab",
+        //   target: false,
+        //   isActive: false,
+        // },
         {
           name: "Let's talk",
           url: "/contact",
