@@ -7,8 +7,10 @@
             <div class="title-div v2-header-3-text">
               Do we have a team with the right skills?
               <div class="v2-title-3-text mt-4">
-                Well, at least the community says Hell Yeah. Our blogs hosted on
-                medium have
+                Well, at least the community says Hell Yeah.
+              </div>
+              <div class="v2-title-3-text mt-2">
+                Our blogs hosted on medium have
                 <span class="v2-canopas-gradient-text">100k+</span> minutes
                 monthly reading time and it’s only rising.
               </div>

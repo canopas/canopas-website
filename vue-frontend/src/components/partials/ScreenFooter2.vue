@@ -44,6 +44,7 @@ import {
   faTwitter,
   faMediumM,
   faLinkedinIn,
+  faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
 import backgroundFooterImage from "@/assets/images/footer/Canopas-footer-img.svg";
@@ -78,6 +79,10 @@ export default {
         {
           url: Config.LINKEDIN_URL,
           icon: faLinkedinIn,
+        },
+        {
+          url: Config.YOUTUBE_URL,
+          icon: faYoutube,
         },
       ],
       isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,

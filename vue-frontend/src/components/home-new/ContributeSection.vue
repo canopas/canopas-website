@@ -5,9 +5,11 @@
       <div class="border-text v2-header-text">here to</div>
       <div class="v2-title-3-text">
         <span class="v2-header-text pe-2">contribute</span>
-        and that starts with the site itself, canopas is open ource! We also
-        have several projects that are widely recognized in the open source
-        community.
+        and that starts with the site itself,
+      </div>
+      <div class="v2-title-3-text mt-1">
+        Canopas is open source! We also have several projects that are widely
+        recognized in the open source community.
       </div>
     </div>
     <div class="flex-div">

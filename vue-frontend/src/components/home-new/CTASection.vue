@@ -58,8 +58,7 @@
         <li>
           <span class="bullet"></span>
           <div>
-            As you read above, we offer 100% Money-back guarantee. so, there’s
-            no risk to you.
+            We offer 100% Money-back guarantee. so, there’s no risk to you.
           </div>
         </li>
       </ul>

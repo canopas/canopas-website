@@ -5,6 +5,8 @@ export default Object.freeze({
   INSTAGRAM_URL: "https://www.instagram.com/canopassoftware/",
   LINKEDIN_URL: "https://www.linkedin.com/company/canopasinc",
   MEDIUM_URL: "https://medium.com/canopas",
+  YOUTUBE_URL:
+    "https://www.youtube.com/channel/UC77VyeTVJ45HiUS_o2GNcBA/videos",
   BLOG_URL: "https://blog.canopas.com",
   API_BASE: "https://prod-stack-api.canopas.com",
   BASE_URL: "https://canopas.com",
@@ -34,7 +36,7 @@ export default Object.freeze({
   GAP_ID_ROOT: "G-VXHMMMEJ5X",
   IS_PROD: true,
   IS_SHOW_NEW_HOME_PAGE: false,
-  LUXERADIO_URL: "https://open.luxeradio.ma/",
+  LUXERADIO_URL: "https://www.luxeradio.ma/download/",
   SMILEPLUS_URL: "https://www.udini.co/",
   NOLONELY_URL: "https://nolonely.me/",
   TOGNESS_URL: "https://togness.com/",
