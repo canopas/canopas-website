@@ -40,17 +40,19 @@
               </div>
               bring their ideas to life.
             </div>
-            <a
-              :href="contactURL"
-              class="v2-normal-3-text v2-button lets-button"
-            >
-              <span>Let's talk</span>
-              <font-awesome-icon
-                class="arrow fa"
-                icon="arrow-right"
-                id="leftArrow"
-              />
-            </a>
+            <div class="d-flex">
+              <a
+                :href="contactURL"
+                class="v2-normal-3-text v2-button lets-button"
+              >
+                <span>Let's talk</span>
+                <font-awesome-icon
+                  class="arrow fa"
+                  icon="arrow-right"
+                  id="leftArrow"
+                />
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -188,7 +190,6 @@ export default {
 .lets-button {
   display: flex;
   align-items: center;
-  width: fit-content;
 }
 
 .v2-button {

@@ -1,4 +1,10 @@
-import { faApple, faAndroid } from "@fortawesome/free-brands-svg-icons";
+import {
+  faApple,
+  faAndroid,
+  faNodeJs,
+  faGolang,
+  faVuejs,
+} from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import config from "@/config.js";
 
@@ -10,7 +16,18 @@ import {
   faF,
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faApple, faAndroid, faPenNib, faGlobe, faBullhorn, faUser, faF);
+library.add(
+  faApple,
+  faAndroid,
+  faPenNib,
+  faGlobe,
+  faBullhorn,
+  faUser,
+  faF,
+  faNodeJs,
+  faGolang,
+  faVuejs
+);
 
 function getSEOData(data) {
   var job = data.job;
