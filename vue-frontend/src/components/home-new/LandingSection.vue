@@ -40,11 +40,8 @@
               </div>
               bring their ideas to life.
             </div>
-            <div class="d-flex">
-              <a
-                :href="contactURL"
-                class="v2-normal-3-text v2-button lets-button"
-              >
+            <div class="mt-3">
+              <a :href="contactURL" class="v2-normal-3-text v2-button">
                 <span>Let's talk</span>
                 <font-awesome-icon
                   class="arrow fa"
@@ -187,15 +184,10 @@ export default {
   }
 }
 
-.lets-button {
-  display: flex;
-  align-items: center;
-}
-
 .v2-button {
   background-color: #3d3d3d;
   color: #fff !important;
-  padding: 15px 40px;
+  padding: 20px 40px;
 }
 
 .v2-button > span {
