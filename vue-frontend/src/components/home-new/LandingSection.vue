@@ -40,18 +40,18 @@
               </div>
               bring their ideas to life.
             </div>
+            <div class="flex-button">
+              <a class="v2-button v2-normal-3-text" :href="contactURL">
+                <span>Let's talk</span>
+                <font-awesome-icon
+                  class="arrow fa"
+                  icon="arrow-right"
+                  id="leftArrow"
+                />
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div>
-        <a :href="contactURL" class="v2-normal-3-text v2-button">
-          Let's talk
-          <font-awesome-icon
-            class="arrow fa v2-normal-3-text"
-            icon="arrow-right"
-            id="leftArrow"
-          />
-        </a>
       </div>
     </div>
   </div>
@@ -184,10 +184,14 @@ export default {
   }
 }
 
+.flex-button {
+  display: flex;
+}
+
 .v2-button {
   background-color: #3d3d3d;
   color: #fff !important;
-  padding: 20px 40px;
+  padding: 15px 40px;
 }
 
 .v2-button > .fa {
