@@ -47,7 +47,7 @@
               >
                 <span>Let's talk</span>
                 <font-awesome-icon
-                  class="arrow fa"
+                  class="arrow fa v2-normal-3-text"
                   icon="arrow-right"
                   id="leftArrow"
                 />
@@ -196,6 +196,10 @@ export default {
   background-color: #3d3d3d;
   color: #fff !important;
   padding: 15px 40px;
+}
+
+.v2-button > .fa {
+  color: #fff;
 }
 
 .v2-button > span {
