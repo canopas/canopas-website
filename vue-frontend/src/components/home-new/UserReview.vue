@@ -1,6 +1,6 @@
 <template>
   <div class="container overlay">
-    <div class="v2-header-3-text text-center">
+    <div class="v2-header-3-text text-center title-width">
       We say our products are
       <span class="v2-canopas-gradient-text">amazing</span>
       but
@@ -210,8 +210,8 @@ export default {
 }
 
 @include media-breakpoint-up(sm) {
-  .v2-header-3-text {
-    width: 80%;
+  .title-width {
+    width: 90%;
   }
 }
 
@@ -334,6 +334,10 @@ export default {
     .users-review:nth-of-type(2) {
       margin-top: -5%;
     }
+  }
+
+  .title-width {
+    width: 80%;
   }
 }
 
