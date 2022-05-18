@@ -168,7 +168,7 @@ export default {
 }
 
 .overlay {
-  padding: 150px 0 250px;
+  padding: 150px 0 100px;
 }
 
 .background-image {
@@ -283,6 +283,10 @@ export default {
     .users-review:nth-of-type(2) {
       margin-top: -5%;
     }
+  }
+
+  .overlay {
+    padding: 150px 0 250px;
   }
 }
 

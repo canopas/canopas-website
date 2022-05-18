@@ -150,7 +150,7 @@ export default {
 }
 
 .overlay {
-  padding: 150px 0;
+  padding: 100px 0;
 }
 
 .render-background {
@@ -222,6 +222,10 @@ export default {
   .title {
     padding: 35% 20% 25% 10%;
     text-align: start;
+  }
+
+  .overlay {
+    padding: 100px 0;
   }
 }
 
