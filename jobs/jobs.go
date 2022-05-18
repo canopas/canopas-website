@@ -1,17 +1,17 @@
 package jobs
 
 import (
-	"context"
 	"bytes"
+	"context"
 	"database/sql"
 	"embed"
+	"encoding/json"
 	"io"
 	"net/http"
 	"os"
 	"path/filepath"
 	"text/template"
 	"utils"
-	 "encoding/json"
 
 	log "github.com/sirupsen/logrus"
 
@@ -22,10 +22,10 @@ import (
 	"gopkg.in/gomail.v2"
 	"gopkg.in/guregu/null.v3"
 
-		"golang.org/x/oauth2"
-        "golang.org/x/oauth2/google"
-        "google.golang.org/api/option"
-        "google.golang.org/api/sheets/v4"
+	"golang.org/x/oauth2"
+	"golang.org/x/oauth2/google"
+	"google.golang.org/api/option"
+	"google.golang.org/api/sheets/v4"
 )
 
 const (
@@ -171,55 +171,53 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 // Saving data in googlesheet METHOD:1
 
 func SaveRecords() error {
-	const tokenConfig ="750125177663-047r53l5s0lo9c0ekm4co8jri0ibl0pc.apps.googleusercontent.com"
-	const credentials ="AIzaSyCNxUziG518QFj5f18GwEufNSebYIjQzEQ"; 
-    ctx := context.Background()
+	const tokenConfig = "750125177663-047r53l5s0lo9c0ekm4co8jri0ibl0pc.apps.googleusercontent.com"
+	const credentials = "AIzaSyCNxUziG518QFj5f18GwEufNSebYIjQzEQ"
+	ctx := context.Background()
 
-    config, err := google.ConfigFromJSON(credentials, "https://www.googleapis.com/auth/spreadsheets")
-    if err != nil {
-        return err
-    }
-    token := oauth2.Token{}
-    json.Unmarshal(tokenConfig, &token)
+	config, err := google.ConfigFromJSON(credentials, "https://www.googleapis.com/auth/spreadsheets")
+	if err != nil {
+		return err
+	}
+	token := oauth2.Token{}
+	json.Unmarshal(tokenConfig, &token)
 
-    client := config.Client(ctx, &token)
-    srv, err := sheets.NewService(ctx, option.WithHTTPClient(client))
-    if err != nil {
-        log.Print(err)
-	return err
+	client := config.Client(ctx, &token)
+	srv, err := sheets.NewService(ctx, option.WithHTTPClient(client))
+	if err != nil {
+		log.Print(err)
+		return err
+	}
+	sheetid := 0
+	spreadsheetId := "1-8elkIwUzidqg2XBGd4bPLMH3den4Qzk1gm-iTHj7I4"
+	records := [][]interface{}{{"a1", "b1", "c1"}} // This is a sample value.
+
+	// 1. Convert sheet ID to sheet name.
+	response1, err := srv.Spreadsheets.Get(spreadsheetId).Fields("sheets(properties(sheetId,title))").Do()
+	if err != nil || response1.HTTPStatusCode != 200 {
+		return err
+	}
+	sheetName := "Sheet1"
+	for _, v := range response1.Sheets {
+		prop := v.Properties
+		sheetID := prop.SheetId
+		if sheetID == int64(sheetid) {
+			sheetName = prop.Title
+			break
 		}
- sheetid := 0 
- spreadsheetId := "1-8elkIwUzidqg2XBGd4bPLMH3den4Qzk1gm-iTHj7I4" 
- records := [][]interface{}{{"a1", "b1", "c1"}} // This is a sample value.
-
-// 1. Convert sheet ID to sheet name.
-response1, err := srv.Spreadsheets.Get(spreadsheetId).Fields("sheets(properties(sheetId,title))").Do()
-if err != nil || response1.HTTPStatusCode != 200 {
-    return err
+	}
+	// 2. Append value to the sheet.
+	valueInputOption := "USER_ENTERED"
+	insertDataOption := "INSERT_ROWS"
+	rb := &sheets.ValueRange{
+		Values: records,
+	}
+	response2, err := srv.Spreadsheets.Values.Append(spreadsheetId, sheetName, rb).ValueInputOption(valueInputOption).InsertDataOption(insertDataOption).Context(ctx).Do()
+	if err != nil || response2.HTTPStatusCode != 200 {
+		return err
+	}
+	return err
 }
-sheetName := "Sheet1"
-for _, v := range response1.Sheets {
-    prop := v.Properties
-    sheetID := prop.SheetId
-    if sheetID == int64(sheetid) {
-        sheetName = prop.Title
-        break
-    }
-}
-
-// 2. Append value to the sheet.
-valueInputOption := "USER_ENTERED"
-insertDataOption := "INSERT_ROWS"
-rb := &sheets.ValueRange{
-    Values: records,
-}
-response2, err := srv.Spreadsheets.Values.Append(spreadsheetId, sheetName, rb).ValueInputOption(valueInputOption).InsertDataOption(insertDataOption).Context(ctx).Do()
-if err != nil || response2.HTTPStatusCode != 200 {
-    return err
-}
-return err
-}
-
 
 func getFileBytes(c *gin.Context) (*bytes.Buffer, error) {
 	fileHeader, err := c.FormFile("file")
