@@ -40,18 +40,18 @@
               </div>
               bring their ideas to life.
             </div>
-            <div class="mt-3">
-              <a :href="contactURL" class="v2-normal-3-text v2-button">
-                <span>Let's talk</span>
-                <font-awesome-icon
-                  class="arrow fa v2-normal-3-text"
-                  icon="arrow-right"
-                  id="leftArrow"
-                />
-              </a>
-            </div>
           </div>
         </div>
+      </div>
+      <div>
+        <a :href="contactURL" class="v2-normal-3-text v2-button">
+          Let's talk
+          <font-awesome-icon
+            class="arrow fa v2-normal-3-text"
+            icon="arrow-right"
+            id="leftArrow"
+          />
+        </a>
       </div>
     </div>
   </div>
@@ -198,10 +198,14 @@ export default {
   margin-right: 10px;
 }
 
+.arrow {
+  margin-left: 6px;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .v2-button:hover {
     background-color: #fff;
-    color: #3d3d3d;
+    color: #3d3d3d !important;
   }
 
   .v2-button:hover > span,
