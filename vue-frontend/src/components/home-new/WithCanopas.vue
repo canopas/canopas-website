@@ -104,7 +104,6 @@ export default {
     #ffffff 9.06%,
     rgba(255, 148, 114, 0.15) 90%
   );
-  margin-bottom: 200px;
 }
 
 .container {
@@ -200,6 +199,10 @@ export default {
 
   .details {
     padding: 1rem 1.5rem;
+  }
+
+  .container-fluid {
+    margin-bottom: 200px;
   }
 }
 </style>
