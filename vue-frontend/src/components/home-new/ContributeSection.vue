@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <div class="pb-5">
-      <div class="border-text v2-header-text">We are</div>
-      <div class="border-text v2-header-text">here to</div>
+    <div class="pb-5 px-2">
+      <div class="border-text v2-header-2-text">We are</div>
+      <div class="border-text v2-header-2-text">here to</div>
       <div class="v2-title-3-text">
-        <span class="v2-header-text pe-2">contribute</span>
+        <span class="v2-header-2-text pe-2">contribute</span>
         and that starts with the site itself,
       </div>
       <div class="v2-title-3-text mt-1">
@@ -67,7 +67,12 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding: 100px 0 40px;
+  padding-top: 100px;
+  padding-bottom: 40px;
+}
+
+.v2-header-2-text {
+  font-family: "FuturaLT-Bold";
 }
 
 .border-text {
@@ -78,6 +83,8 @@ export default {
 .flex-div {
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: auto;
 }
 
 .contribute-info {
@@ -131,6 +138,7 @@ export default {
 @include media-breakpoint-up(md) {
   .flex-div {
     flex-flow: row;
+    width: 95%;
   }
 }
 

@@ -126,7 +126,6 @@ a {
 
 // 120px/119px - 90px/107px - 65px/94px
 .v2-header-text {
-  font-family: "FuturaLT-Bold";
   font-weight: 700;
   font-size: 4.0625rem;
   line-height: 5.875rem;

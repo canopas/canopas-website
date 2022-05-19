@@ -11,13 +11,16 @@
       <p class="zoom-out-animation dot8"></p>
       <p class="zoom-in-animation dot9"></p>
       <p class="zoom-out-animation dot10"></p>
-      <p class="zoom-in-animation dot11"></p>
     </div>
 
     <div class="container">
       <div class="flex-div">
         <div class="image">
-          <img :src="landingViewImage" alt="landing-view-image" />
+          <img
+            class="landing-image"
+            :src="landingViewImage"
+            alt="landing-view-image"
+          />
         </div>
         <div class="flex-detail">
           <div class="description">
@@ -106,7 +109,7 @@ export default {
 }
 
 .overlay {
-  padding: 30px 0 100px;
+  padding-bottom: 20px;
 }
 
 .flex-div {
@@ -126,6 +129,10 @@ export default {
   height: 100%;
 }
 
+.landing-image {
+  display: none;
+}
+
 .flex-div > .flex-detail {
   flex: 2 0 0%;
 }
@@ -135,9 +142,7 @@ export default {
 }
 
 .description {
-  padding-top: 10%;
   width: 90%;
-  margin: auto;
 }
 
 .title-div {
@@ -189,9 +194,11 @@ export default {
 }
 
 .v2-button {
+  display: flex;
+  align-items: center;
   background-color: #3d3d3d;
   color: #fff !important;
-  padding: 15px 40px;
+  padding: 1rem 2rem;
 }
 
 .v2-button > .fa {
@@ -203,7 +210,8 @@ export default {
 }
 
 .arrow {
-  margin-left: 6px;
+  height: 18px;
+  width: 18px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -261,19 +269,11 @@ export default {
 }
 
 .dot1 {
-  width: 17px;
-  height: 17px;
+  width: 10px;
+  height: 10px;
   top: 7%;
   left: 20%;
   background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
-}
-
-.dot2 {
-  width: 25px;
-  height: 25px;
-  top: 20%;
-  left: 5%;
-  background: #3d3d3d;
 }
 
 .dot3 {
@@ -295,7 +295,7 @@ export default {
 .dot5 {
   width: 15px;
   height: 15px;
-  top: 80%;
+  top: 75%;
   left: 43%;
   background: #3d3d3d;
 }
@@ -340,14 +340,6 @@ export default {
   background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
 }
 
-.dot11 {
-  width: 10px;
-  height: 10px;
-  bottom: 7%;
-  right: 15%;
-  background: #ff9472;
-}
-
 @include media-breakpoint-up(lg) {
   .flex-div {
     flex-direction: row-reverse;
@@ -355,6 +347,7 @@ export default {
   }
 
   .description {
+    padding-top: 10%;
     margin: 0;
   }
 
@@ -364,7 +357,20 @@ export default {
   }
 
   .overlay {
-    padding: 30px 0 250px;
+    padding-top: 30px;
+    padding-bottom: 100px;
+  }
+
+  .landing-image {
+    display: block;
+  }
+
+  .dot2 {
+    width: 20px;
+    height: 20px;
+    top: 20%;
+    left: 5%;
+    background: #3d3d3d;
   }
 }
 
