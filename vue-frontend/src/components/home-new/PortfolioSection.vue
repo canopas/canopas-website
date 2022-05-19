@@ -21,7 +21,7 @@
           <div class="v2-normal-text mt-3">
             {{ portfolio.detail }}
           </div>
-          <div class="mt-4">
+          <div class="mt-4 d-flex">
             <a
               class="v2-normal-2-text v2-button"
               :href="portfolio.link"
@@ -101,8 +101,12 @@ export default {
   padding: 0;
 }
 
+.v2-header-text {
+  font-family: "FuturaLT-Bold";
+}
+
 .portfolio-section {
-  margin-top: 150px;
+  margin-top: 100px;
 }
 
 .image-div {
@@ -123,6 +127,15 @@ export default {
 
 .description {
   padding: 5% 20%;
+}
+
+.v2-button {
+  display: flex;
+  align-items: center;
+}
+
+.v2-button > span {
+  margin-right: 10px;
 }
 
 .arrow {
@@ -146,6 +159,10 @@ export default {
 
   .image-div {
     width: 50%;
+  }
+
+  .portfolio-section {
+    margin-top: 150px;
   }
 }
 

@@ -4,11 +4,11 @@
       We say our products are
       <span class="v2-canopas-gradient-text">amazing</span>
       but
-      <span class="v2-canopas-gradient-text"> user reviews </span>confirm it.
+      <span class="v2-canopas-gradient-text">user reviews </span>confirm it.
     </div>
 
     <LottieAnimation :jsonData="backgroundImage" class="background-image" />
-    <div>
+    <div class="pt-4">
       <div class="flex-div">
         <div
           v-for="userReview in usersReviews.slice(0, 3)"
@@ -168,7 +168,8 @@ export default {
 }
 
 .overlay {
-  padding: 150px 0 100px;
+  padding-top: 50px;
+  padding-bottom: 100px;
 }
 
 .background-image {
@@ -177,6 +178,10 @@ export default {
 
 .v2-header-3-text {
   margin: auto;
+}
+
+.title-width {
+  width: 80%;
 }
 
 .flex-div {
@@ -211,7 +216,7 @@ export default {
 
 @include media-breakpoint-up(sm) {
   .title-width {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -286,7 +291,8 @@ export default {
   }
 
   .overlay {
-    padding: 150px 0 250px;
+    padding-top: 100px;
+    padding-bottom: 150px;
   }
 }
 
@@ -338,6 +344,11 @@ export default {
 
   .title-width {
     width: 80%;
+  }
+
+  .overlay {
+    padding-top: 150px;
+    padding-bottom: 250px;
   }
 }
 

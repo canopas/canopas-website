@@ -107,7 +107,8 @@ export default {
 }
 
 .container {
-  padding: 5rem 0rem 8rem;
+  padding-bottom: 5rem;
+  padding-top: 3rem;
 }
 
 .phases-container {
@@ -202,7 +203,7 @@ export default {
   }
 
   .container-fluid {
-    margin-bottom: 200px;
+    margin-bottom: 100px;
   }
 }
 </style>
