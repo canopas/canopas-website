@@ -365,4 +365,9 @@ export default {
     width: 70%;
   }
 }
+@supports (-webkit-touch-callout: none) {
+  .v2-header-3-text {
+    letter-spacing: -2px;
+  }
+}
 </style>

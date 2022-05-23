@@ -380,9 +380,10 @@ export default {
     line-height: 5.875rem;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+
+@supports (-webkit-touch-callout: none) {
   .v2-header-3-text {
-    letter-spacing: 0.5px;
+    letter-spacing: -0px;
   }
 }
 </style>

@@ -238,4 +238,9 @@ export default {
     margin: 0 2rem 3rem;
   }
 }
+@supports (-webkit-touch-callout: none) {
+  .v2-header-3-text {
+    letter-spacing: -2px;
+  }
+}
 </style>
