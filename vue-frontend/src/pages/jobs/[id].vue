@@ -19,7 +19,6 @@
                   </div>
                   <div class="close-btn-div">
                     <button
-                      type="submit"
                       class="gradient-btn close-btn"
                       @click.prevent="closeErrorMessageModal()"
                     >

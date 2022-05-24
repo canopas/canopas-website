@@ -77,7 +77,7 @@ export default {
 
 .animated-down-arrow {
   height: 192px;
-  margin: 5% 0;
+  margin: 5% auto;
 }
 
 .description {
