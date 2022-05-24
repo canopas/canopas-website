@@ -3,6 +3,7 @@ import { createSSRApp } from "vue";
 import { createRouter } from "./router";
 import store from "./store";
 import { createMetaManager } from "vue-meta";
+import "@/assets/css/tailwind.css";
 
 export function createApp(isSSR) {
   const app = createSSRApp(App);

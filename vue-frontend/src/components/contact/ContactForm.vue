@@ -277,7 +277,6 @@
             </div>
             <div v-else>
               <button
-                type="submit"
                 v-if="contactType == 1"
                 class="gradient-btn chat-email-btn"
                 @click.prevent="submitApplication()"
@@ -290,7 +289,6 @@
                 <span>Submit</span>
               </button>
               <button
-                type="submit"
                 v-if="contactType == 0"
                 class="gradient-btn call-now-btn"
                 @click.prevent="submitApplication()"
@@ -373,7 +371,6 @@
                 </div>
                 <div class="close-btn-div">
                   <button
-                    type="submit"
                     class="gradient-btn close-btn"
                     @click.prevent="showErrorMessagePopup = false"
                   >
