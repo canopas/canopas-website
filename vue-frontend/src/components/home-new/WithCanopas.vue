@@ -8,8 +8,8 @@
       <div class="phases-container">
         <div class="flex-container">
           <div v-for="(phase, i) in phases.slice(0, 3)" :key="i" class="phases">
-            <aspect-ratio height="60%">
-              <LottieAnimation :jsonData="phase.jsonData" />
+            <aspect-ratio height="56.25%">
+              <img :src="phase.image" class="image" />
             </aspect-ratio>
             <div class="details">
               <div class="v2-title-2-text canopas-gradient-text">
@@ -23,11 +23,12 @@
         </div>
         <div class="flex-container">
           <div v-for="(phase, i) in phases.slice(3, 5)" :key="i" class="phases">
-            <aspect-ratio
-              height="60%"
-              :class="phase.title == 'Marketing' ? 'lottie-animation' : ''"
-            >
-              <LottieAnimation :jsonData="phase.jsonData" />
+            <aspect-ratio height="56.25%">
+              <img
+                :src="phase.image"
+                class="image"
+                :class="phase.title == 'Marketing' ? 'animation-height' : ''"
+              />
             </aspect-ratio>
             <div class="details">
               <div class="v2-title-2-text canopas-gradient-text">
@@ -45,44 +46,43 @@
 </template>
 
 <script type="module">
-import LottieAnimation from "@/components/utils/LottieAnimation.vue";
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import planning from "@/assets/lottie/phases/canopas_phases_planning.json";
-import designing from "@/assets/lottie/phases/canopas_phases_designing.json";
-import development from "@/assets/lottie/phases/canopas_phases_development.json";
-import marketing from "@/assets/lottie/phases/canopas_phases_marketing.json";
-import support from "@/assets/lottie/phases/canopas_phases_support.json";
+import planning from "@/assets/images/phases/canopas_phases_planning.gif";
+import designing from "@/assets/images/phases/canopas_phases_designing.gif";
+import development from "@/assets/images/phases/canopas_phases_development.gif";
+import marketing from "@/assets/images/phases/canopas_phases_marketing.gif";
+import support from "@/assets/images/phases/canopas_phases_support.gif";
 
 export default {
   data() {
     return {
       phases: [
         {
-          jsonData: planning,
+          image: planning,
           title: "Planning",
           description:
             "We research to understand the vision. The audience. The product. The goals. We collaborate, we re-examine, we ask and conclude.",
         },
         {
-          jsonData: designing,
+          image: designing,
           title: "Design",
           description:
             "Working passionately with you, our designers create aesthetically pleasing  and user friendly digital experiences.",
         },
         {
-          jsonData: development,
+          image: development,
           title: "Development",
           description:
             "Backend and Frontend. From the beginning, we have performance and maintainability in mind. Always insisting on best practices and keeping up with the latest trends.",
         },
         {
-          jsonData: marketing,
+          image: marketing,
           title: "Marketing",
           description:
             "From organic growth to writing irresistible ads for your marketing campaign, we're here to help you. We'll help you build a brand and community of prospects who can give you a boost on your product launch.",
         },
         {
-          jsonData: support,
+          image: support,
           title: "Support",
           description:
             "From bug fixing to feature updates, you can count on us. For the last 7 years, our clients had a 99.87% uptime for their products.",
@@ -91,7 +91,6 @@ export default {
     };
   },
   components: {
-    LottieAnimation,
     AspectRatio,
   },
 };
@@ -130,9 +129,14 @@ export default {
   margin: auto;
 }
 
-.lottie-animation {
-  width: 70%;
-  margin: auto;
+.animation-height {
+  height: 100% !important;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .details {
@@ -184,6 +188,10 @@ export default {
     .description {
       padding: 0.5rem;
     }
+  }
+
+  .animation-height {
+    height: 84% !important;
   }
 }
 
