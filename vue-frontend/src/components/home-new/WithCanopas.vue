@@ -206,4 +206,9 @@ export default {
     margin-bottom: 100px;
   }
 }
+@supports (-webkit-touch-callout: none) {
+  .v2-header-3-text {
+    letter-spacing: -2px;
+  }
+}
 </style>
