@@ -2,6 +2,7 @@
   "name": "vue-frontend",
   "private": true,
   "version": "0.1.0",
+  "type": "module",
   "scripts": {
     "build:css": "tailwindcss -i ./src/assets/css/tailwind.css -o ./src/assets/css/output.css",
     "serve": "cross-env NODE_ENV=production node server && npm run build:css",
