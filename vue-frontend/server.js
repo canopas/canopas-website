@@ -1,10 +1,11 @@
-// @ts-check
-const fs = require("fs");
-const path = require("path");
-const express = require("express");
-const vite = require("vite");
-const serveStatic = require("serve-static");
-const compression = require("compression");
+// @ts-nocheck
+import fs from "fs";
+import path from "path";
+import express from "express";
+import vite from "vite";
+import serveStatic from "serve-static";
+import compression from "compression";
+const __dirname = path.resolve();
 
 const isTest = process.env.NODE_ENV === "test" || !!process.env.VITE_TEST_BUILD;
 
@@ -99,3 +100,6 @@ if (!isTest) {
     })
   );
 }
+
+// for test use
+export default createServer;
