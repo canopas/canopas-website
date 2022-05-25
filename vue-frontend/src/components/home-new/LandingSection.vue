@@ -380,4 +380,10 @@ export default {
     line-height: 5.875rem;
   }
 }
+
+@supports (-webkit-touch-callout: none) {
+  .v2-header-3-text {
+    letter-spacing: -1px;
+  }
+}
 </style>
