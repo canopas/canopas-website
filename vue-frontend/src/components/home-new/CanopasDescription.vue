@@ -74,6 +74,11 @@ export default {
   position: relative;
   padding: 0;
   margin: 0;
+  background: linear-gradient(
+    174.39deg,
+    #ffffff 9.06%,
+    rgba(255, 148, 114, 0.15) 90%
+  );
 }
 
 .render-background {
@@ -87,7 +92,7 @@ export default {
 }
 
 .overlay {
-  padding: 7% 0;
+  padding: 60px 0;
 }
 
 .animated-down-arrow {
