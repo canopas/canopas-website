@@ -40,4 +40,5 @@ export default Object.freeze({
   SMILEPLUS_URL: "https://www.udini.co/",
   NOLONELY_URL: "https://nolonely.me/",
   TOGNESS_URL: "https://togness.com/",
+  WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
 });

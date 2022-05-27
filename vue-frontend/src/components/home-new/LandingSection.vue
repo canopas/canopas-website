@@ -44,14 +44,23 @@
               bring their ideas to life.
             </div>
             <div class="flex-button">
-              <a class="v2-button v2-normal-3-text" :href="contactURL">
-                <span>Let's talk</span>
-                <font-awesome-icon
-                  class="arrow fa"
-                  icon="arrow-right"
-                  id="leftArrow"
-                />
-              </a>
+              <div class="text-center">
+                <a
+                  class="v2-button v2-normal-3-text"
+                  :href="contactURL"
+                  target="_blank"
+                >
+                  <span>Let's talk</span>
+                  <font-awesome-icon
+                    class="arrow fa"
+                    icon="arrow-right"
+                    id="leftArrow"
+                  />
+                </a>
+                <div class="v2-canopas-gradient-text pt-1">
+                  100% MONEY BACK GUARANTEE
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -191,6 +200,8 @@ export default {
 
 .flex-button {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .v2-button {
@@ -198,7 +209,7 @@ export default {
   align-items: center;
   background-color: #3d3d3d;
   color: #fff !important;
-  padding: 1rem 2rem;
+  padding: 1rem 6rem;
 }
 
 .v2-button > .fa {

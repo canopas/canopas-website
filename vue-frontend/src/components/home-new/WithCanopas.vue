@@ -106,12 +106,12 @@ export default {
 }
 
 .container {
-  padding-bottom: 5rem;
-  padding-top: 3rem;
+  padding-bottom: 16px;
+  padding-top: 48px;
 }
 
 .phases-container {
-  margin-top: 5rem;
+  margin-top: 32px;
 }
 
 .phases {
@@ -155,7 +155,7 @@ export default {
 
 @include media-breakpoint-up(sm) {
   .v2-header-3-text {
-    width: 80%;
+    width: 85%;
   }
 
   .details {
@@ -164,8 +164,13 @@ export default {
 }
 
 @include media-breakpoint-up(md) {
+  .container {
+    padding-bottom: 48px;
+    padding-top: 64px;
+  }
+
   .phases-container {
-    margin-top: 10rem;
+    margin-top: 80px;
   }
 
   .phases {
@@ -196,6 +201,15 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
+  .container {
+    padding-bottom: 80px;
+    padding-top: 128px;
+  }
+
+  .phases-container {
+    margin-top: 160px;
+  }
+
   .flex-container:nth-of-type(even) {
     width: 70%;
   }

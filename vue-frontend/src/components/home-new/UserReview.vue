@@ -158,6 +158,9 @@ export default {
     if (window.innerWidth >= 768 && window.innerWidth <= 992) {
       this.slpitReview = true;
     }
+    if (window.innerWidth < 768) {
+      this.usersReviews = this.usersReviews.slice(0, 6);
+    }
   },
 };
 </script>
@@ -169,7 +172,7 @@ export default {
 
 .overlay {
   padding-top: 50px;
-  padding-bottom: 100px;
+  padding-bottom: 80px;
 }
 
 .background-image {
