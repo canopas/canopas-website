@@ -149,10 +149,6 @@ export default {
   position: relative;
 }
 
-.overlay {
-  padding-top: 50px;
-}
-
 .render-background {
   width: 100%;
   height: 100%;
@@ -225,6 +221,7 @@ export default {
   }
 
   .overlay {
+    padding-top: 50px;
     padding-bottom: 50px;
   }
 }

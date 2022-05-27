@@ -99,6 +99,7 @@ export default {
 <style lang="scss" scoped>
 .container-fluid {
   padding: 0;
+  margin-bottom: 30px;
 }
 
 .v2-header-text {

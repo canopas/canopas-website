@@ -8,8 +8,14 @@
         and that starts with the site itself,
       </div>
       <div class="v2-title-3-text mt-1">
-        Canopas is open source! We also have several projects that are widely
-        recognized in the open source community.
+        <a
+          class="v2-canopas-gradient-text gradient-underline"
+          :href="websiteOpenSourceUrl"
+          target="_blank"
+          >Canopas is open source!</a
+        >
+        We also have several projects that are widely recognized in the open
+        source community.
       </div>
     </div>
     <div class="flex-div">
@@ -38,6 +44,7 @@ import uiPilot from "@/assets/images/contribution/ui-pilot.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import Config from "@/config.js";
 
 library.add(faGithub);
 
@@ -45,6 +52,7 @@ export default {
   data() {
     return {
       icon: faGithub,
+      websiteOpenSourceUrl: Config.WEBSITE_OPEN_SOURCE_URL,
       contributions: [
         {
           image: introShowcase,
@@ -67,17 +75,33 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  padding-top: 100px;
-  padding-bottom: 40px;
+  padding-top: 50px;
 }
 
 .v2-header-2-text {
+  line-height: 4rem;
   font-family: "FuturaLT-Bold";
 }
 
 .border-text {
   -webkit-text-stroke: 1px #3d3d3d;
   color: #fff;
+}
+
+.gradient-underline {
+  padding-bottom: 1.5px;
+  position: relative;
+  text-decoration: none;
+}
+
+.gradient-underline::after {
+  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1.5px;
+  width: 100%;
 }
 
 .flex-div {
@@ -136,9 +160,17 @@ export default {
 }
 
 @include media-breakpoint-up(md) {
+  .container {
+    padding-top: 100px;
+  }
+
   .flex-div {
     flex-flow: row;
     width: 95%;
+  }
+
+  .v2-header-2-text {
+    line-height: 5.0875rem;
   }
 }
 
@@ -146,6 +178,10 @@ export default {
   .github {
     height: 40px;
     width: 40px;
+  }
+
+  .v2-header-2-text {
+    line-height: 6.6875rem;
   }
 }
 </style>
