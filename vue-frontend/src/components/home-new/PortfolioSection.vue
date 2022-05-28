@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mt-5">
+  <div class="container-fluid">
     <div class="text-center v2-header-text">Portfolio</div>
     <div class="portfolio-section">
       <div
@@ -101,6 +101,7 @@ export default {
 .container-fluid {
   padding: 0;
   margin-bottom: 30px;
+  margin-top: 50px;
 }
 
 .v2-header-text {
@@ -108,7 +109,7 @@ export default {
 }
 
 .portfolio-section {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .image-div {
@@ -145,6 +146,14 @@ export default {
 }
 
 @include media-breakpoint-up(md) {
+  .container-fluid {
+    margin-top: 90px;
+  }
+
+  .portfolio-section {
+    margin-top: 80px;
+  }
+
   .portfolio-details:nth-child(even) {
     flex-direction: row-reverse;
   }
@@ -162,13 +171,17 @@ export default {
   .image-div {
     width: 50%;
   }
+}
+
+@include media-breakpoint-up(lg) {
+  .container-fluid {
+    margin-top: 150px;
+  }
 
   .portfolio-section {
     margin-top: 150px;
   }
-}
 
-@include media-breakpoint-up(lg) {
   .image-div {
     width: 45%;
   }
