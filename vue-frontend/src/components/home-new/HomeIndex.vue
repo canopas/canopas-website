@@ -1,8 +1,10 @@
 <template>
   <div>
     <ScreenHeader />
-    <LandingSection />
-    <CanopasDescription />
+    <div class="landing-background">
+      <LandingSection />
+      <CanopasDescription />
+    </div>
     <Portfolio />
     <ProblemSolution />
     <WithCanopas />
@@ -47,4 +49,13 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.landing-background {
+  background: linear-gradient(
+    174.39deg,
+    #ffffff 9.06%,
+    rgba(255, 148, 114, 0.15) 90%
+  );
+  z-index: -5;
+}
+</style>

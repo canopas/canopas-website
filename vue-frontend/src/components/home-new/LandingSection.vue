@@ -57,9 +57,9 @@
                     id="leftArrow"
                   />
                 </a>
-                <div class="v2-canopas-gradient-text pt-1">
+                <small class="v2-canopas-gradient-text pt-1">
                   100% MONEY BACK GUARANTEE
-                </div>
+                </small>
               </div>
             </div>
           </div>
@@ -150,10 +150,6 @@ export default {
   font-weight: 400;
 }
 
-.description {
-  width: 90%;
-}
-
 .title-div {
   padding-bottom: 10%;
 }
@@ -201,7 +197,7 @@ export default {
 .flex-button {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .v2-button {
@@ -209,7 +205,7 @@ export default {
   align-items: center;
   background-color: #3d3d3d;
   color: #fff !important;
-  padding: 1rem 6rem;
+  padding: 1rem 5rem;
 }
 
 .v2-button > .fa {
@@ -245,7 +241,7 @@ export default {
   border-radius: 50%;
   position: absolute;
   animation: zoom-in 4s ease-in infinite;
-  z-index: -1;
+  z-index: 0;
 }
 
 @keyframes zoom-in {
@@ -264,7 +260,7 @@ export default {
   border-radius: 50%;
   position: absolute;
   animation: zoom-out 4s ease-in infinite;
-  z-index: -1;
+  z-index: 0;
 }
 
 @keyframes zoom-out {
@@ -282,7 +278,7 @@ export default {
 .dot1 {
   width: 10px;
   height: 10px;
-  top: 7%;
+  top: 12%;
   left: 20%;
   background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
 }
@@ -311,14 +307,6 @@ export default {
   background: #3d3d3d;
 }
 
-.dot6 {
-  width: 25px;
-  height: 25px;
-  top: 0;
-  right: 18%;
-  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
-}
-
 .dot7 {
   width: 15px;
   height: 15px;
@@ -336,10 +324,10 @@ export default {
 }
 
 .dot9 {
-  width: 30px;
-  height: 30px;
-  top: 0%;
-  right: 50%;
+  width: 15px;
+  height: 15px;
+  top: -7%;
+  right: 60%;
   background: #ff9472;
 }
 
@@ -349,6 +337,16 @@ export default {
   top: 60%;
   right: 9%;
   background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
+}
+
+small {
+  font-size: 90%;
+}
+
+@include media-breakpoint-up(sm) {
+  .description {
+    width: 90%;
+  }
 }
 
 @include media-breakpoint-up(lg) {
@@ -382,6 +380,18 @@ export default {
     top: 20%;
     left: 5%;
     background: #3d3d3d;
+  }
+
+  .dot6 {
+    width: 25px;
+    height: 25px;
+    top: 0;
+    right: 18%;
+    background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
+  }
+
+  .flex-button {
+    align-items: flex-start;
   }
 }
 

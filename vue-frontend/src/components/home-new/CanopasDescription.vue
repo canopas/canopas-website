@@ -74,11 +74,6 @@ export default {
   position: relative;
   padding: 0;
   margin: 0;
-  background: linear-gradient(
-    174.39deg,
-    #ffffff 9.06%,
-    rgba(255, 148, 114, 0.15) 90%
-  );
 }
 
 .render-background {
@@ -102,7 +97,7 @@ export default {
 
 .description {
   margin: auto;
-  width: 72%;
+  width: 74%;
 }
 
 .flex-button {
@@ -116,7 +111,7 @@ export default {
   align-items: center;
   background-color: #3d3d3d;
   color: #fff !important;
-  padding: 1rem 2rem;
+  padding: 1rem 1.1rem;
 }
 
 .v2-button > .fa {
