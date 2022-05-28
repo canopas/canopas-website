@@ -266,7 +266,10 @@ a {
   margin: 0 6px;
   font-weight: 700;
 }
-
+.border-text {
+  -webkit-text-stroke: 1px #3d3d3d;
+  color: #fff !important;
+}
 @media (hover: hover) and (pointer: fine) {
   .gradient-btn:hover {
     background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
