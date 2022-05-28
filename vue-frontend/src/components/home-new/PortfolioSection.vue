@@ -43,6 +43,7 @@
 
 <script type="module">
 import luxeradio from "@/assets/images/portfolio/luxeradio.png";
+import mobileLuxeradio from "@/assets/images/portfolio/mobile-luxeradio.png";
 import noLonely from "@/assets/images/portfolio/noLonely.png";
 import smilePlue from "@/assets/images/portfolio/smilePlus.png";
 import togness from "@/assets/images/portfolio/togness.png";
@@ -52,13 +53,10 @@ import config from "@/config.js";
 export default {
   data() {
     return {
-      luxeradio: luxeradio,
-      noLonely: noLonely,
       portfolios: [
         {
           image: luxeradio,
           title: "Luxeradio",
-          aspectRatio: "47%",
           detail:
             "Luxe Radio is a music streaming and podcast app similar to Spotify. The android app has 150K+ downloads and 5 STAR APP RATINGS.",
           link: config.LUXERADIO_URL,
@@ -66,7 +64,6 @@ export default {
         {
           image: smilePlue,
           title: "Smile+",
-          aspectRatio: "47%",
           detail:
             "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
           link: config.SMILEPLUS_URL,
@@ -74,7 +71,6 @@ export default {
         {
           image: noLonely,
           title: "NoLonely",
-          aspectRatio: "47%",
           detail:
             "NoLonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
           link: config.NOLONELY_URL,
@@ -92,6 +88,11 @@ export default {
   },
   components: {
     FontAwesomeIcon,
+  },
+  mounted() {
+    if (window.innerWidth < 768) {
+      this.portfolios[0].image = mobileLuxeradio;
+    }
   },
 };
 </script>
