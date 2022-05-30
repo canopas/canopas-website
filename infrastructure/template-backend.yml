@@ -136,8 +136,10 @@ Resources:
             Fn::Sub: ${EnvName}
           SENDER:
             Fn::Sub: ${Sender}
-          RECEIVER:
-            Fn::Sub: ${Receiver}
+          JOBS_RECEIVER:
+            Fn::Sub: ${JobsReceiver}
+          CONTACT_RECEIVER:
+            Fn::Sub: ${ContactReceiver}
           ACCESS_KEY_ID:
             Fn::Sub: ${AccessKeyId}
           SECRET_ACCESS_KEY:
