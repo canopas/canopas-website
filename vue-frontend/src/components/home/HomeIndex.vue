@@ -28,8 +28,6 @@ import CanopasDescription from "@/components/home/CanopasDescription.vue";
 import HomeConsultation from "@/components/home/HomeConsultation.vue";
 import HomeCTA from "@/components/home/HomeCTA.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
-import Config from "@/config.js";
-import { useMeta } from "vue-meta";
 import config from "@/config.js";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -54,18 +52,6 @@ library.add(
 );
 
 export default {
-  setup() {
-    var seoData = Config.SEO_META_DATA;
-    useMeta({
-      title: seoData.title,
-      description: seoData.description,
-      og: {
-        type: seoData.type,
-        title: seoData.title,
-        url: seoData.url,
-      },
-    });
-  },
   data() {
     return {
       isShowNewHeader: config.IS_SHOW_NEW_HOME_PAGE,
