@@ -189,7 +189,7 @@ func getFileBytes(c *gin.Context) (*bytes.Buffer, error) {
 func GetEmailTemplate(htmlBody string, title string, attachmentBytes *bytes.Buffer) (template *ses.SendRawEmailInput) {
 
 	SENDER := os.Getenv("SENDER")
-	RECEIVER := os.Getenv("RECEIVER")
+	RECEIVER := os.Getenv("JOBS_RECEIVER")
 
 	msg := gomail.NewMessage()
 	msg.SetHeader("From", SENDER)
