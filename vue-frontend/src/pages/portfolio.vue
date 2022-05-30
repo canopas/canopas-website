@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PortfolioHeader />
+    <ScreenHeader />
     <LandingSection />
     <VideoSection />
     <BrandingSection />
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import PortfolioHeader from "@/components/partials/PortfolioHeader.vue";
+import ScreenHeader from "@/components/partials/ScreenHeaderV2.vue";
 import LandingSection from "@/components/portfolio/LandingSection.vue";
 import VideoSection from "@/components/portfolio/VideoSection.vue";
 import BrandingSection from "@/components/portfolio/BrandingSection.vue";
@@ -21,7 +21,7 @@ import CTA from "@/components/home-new/CTASection.vue";
 
 export default {
   components: {
-    PortfolioHeader,
+    ScreenHeader,
     LandingSection,
     VideoSection,
     BrandingSection,

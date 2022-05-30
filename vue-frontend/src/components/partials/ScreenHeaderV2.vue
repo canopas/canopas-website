@@ -18,7 +18,8 @@
             />
           </div>
         </a>
-        <div class="navbar-collapse">
+
+        <div class="navbar-collapse show-header">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li
               v-for="navbar in navbars"
@@ -29,6 +30,7 @@
                 class="v2-normal-3-text"
                 :class="[
                   navbar.className,
+                  currentRoutePath == '/portfolio' ? 'show-links' : '',
                   currentRoutePath == navbar.url
                     ? navbar.showContactBtn
                       ? 'v2-button v2-button-active'
@@ -54,6 +56,7 @@ import Config from "@/config.js";
 export default {
   data() {
     return {
+      display: true,
       headerLogoImage: headerLogoImage,
       navbarSticky: false,
       navbarAnimation: false,
@@ -132,7 +135,9 @@ export default {
   background: #fff;
   position: relative;
 }
-
+.show-links {
+  visibility: hidden;
+}
 .navbar {
   padding: 10px 2%;
   width: 100%;
