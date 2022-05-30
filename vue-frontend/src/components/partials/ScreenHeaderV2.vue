@@ -56,7 +56,6 @@ import Config from "@/config.js";
 export default {
   data() {
     return {
-      display: true,
       headerLogoImage: headerLogoImage,
       navbarSticky: false,
       navbarAnimation: false,
