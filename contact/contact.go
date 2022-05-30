@@ -94,7 +94,7 @@ func (repository *Template) getHTMLBodyOfEmailTemplate(input ContactDetails) str
 func GetEmailTemplate(htmlBody string, data ContactDetails, title string) (template *ses.SendEmailInput) {
 
 	SENDER := os.Getenv("SENDER")
-	RECEIVER := os.Getenv("RECEIVER")
+	RECEIVER := os.Getenv("CONTACT_RECEIVER")
 
 	template = &ses.SendEmailInput{
 		Destination: &ses.Destination{

@@ -18,9 +18,12 @@ Parameters:
   Sender:
     Type: String
     Description: Email address of sender.
-  Receiver:
+  JobsReceiver:
     Type: String
-    Description: Email address of receiver.
+    Description: Email address of jobs receiver.
+  ContactReceiver:
+    Type: String
+    Description: Email address of conatct receiver.
   AccessKeyId:
     Type: String
     Description: access-key-id.
