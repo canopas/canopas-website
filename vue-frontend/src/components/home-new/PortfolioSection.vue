@@ -58,7 +58,7 @@ export default {
           image: luxeradio,
           title: "Luxeradio",
           detail:
-            "Luxe Radio is a music streaming and podcast app similar to Spotify. The android app has 150K+ downloads and 5 STAR APP RATINGS.",
+            "Luxe radio is a music streaming and podcast application. We developed Android and iOS apps, backend, admin panel, and desktop apps for this client. The android app has 5 STAR APP RATINGS.",
           link: config.LUXERADIO_URL,
         },
         {
