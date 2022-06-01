@@ -59,7 +59,9 @@ export default {
           title: "Luxeradio",
           detail:
             "Luxe radio is a music streaming and podcast application. We developed Android and iOS apps, backend, admin panel, and desktop apps for this client. The android app has 5 STAR APP RATINGS.",
-          link: config.LUXERADIO_URL,
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/luxeradio"
+            : config.LUXERADIO_URL,
         },
         {
           image: smilePlue,
