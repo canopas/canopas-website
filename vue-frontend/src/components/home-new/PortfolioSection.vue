@@ -58,7 +58,7 @@ export default {
           image: luxeradio,
           title: "Luxeradio",
           detail:
-            "Luxe radio is a music streaming and podcast application. We developed Android and iOS apps, backend, admin panel, and desktop apps for this client. The android app has 5 STAR APP RATINGS.",
+            "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
           link: config.IS_SHOW_PORTFOLIO_PAGES
             ? "portfolio/luxeradio"
             : config.LUXERADIO_URL,
