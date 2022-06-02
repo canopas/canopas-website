@@ -41,4 +41,5 @@ export default Object.freeze({
   NOLONELY_URL: "https://nolonely.me/",
   TOGNESS_URL: "https://togness.com/",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
+  IS_SHOW_PORTFOLIO_PAGES: true,
 });
