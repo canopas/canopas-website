@@ -85,6 +85,22 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
+.parallax {
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+
+.parallax::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+.parallax {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 .abs-fit-parent {
   position: absolute;
   width: 100%;
