@@ -70,6 +70,7 @@ import life8 from "@/assets/images/life/jobs_canopas_life_8.jpg";
 import life9 from "@/assets/images/life/jobs_canopas_life_9.jpg";
 import life10 from "@/assets/images/life/jobs_canopas_life_10.jpg";
 import life11 from "@/assets/images/life/jobs_canopas_life_11.jpg";
+import life12 from "@/assets/images/life/jobs_canopas_life_12.jpg";
 
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -79,46 +80,50 @@ export default {
       slides: [
         {
           id: 1,
-          image: life2,
+          image: life12,
         },
         {
           id: 2,
-          image: life1,
+          image: life2,
         },
         {
           id: 3,
-          image: life4,
+          image: life1,
         },
         {
           id: 4,
-          image: life10,
+          image: life4,
         },
         {
           id: 5,
-          image: life3,
+          image: life10,
         },
         {
           id: 6,
-          image: life6,
+          image: life3,
         },
         {
           id: 7,
-          image: life9,
+          image: life6,
         },
         {
           id: 8,
-          image: life7,
+          image: life9,
         },
         {
           id: 9,
-          image: life8,
+          image: life7,
         },
         {
           id: 10,
-          image: life5,
+          image: life8,
         },
         {
           id: 11,
+          image: life5,
+        },
+        {
+          id: 12,
           image: life11,
         },
       ],
