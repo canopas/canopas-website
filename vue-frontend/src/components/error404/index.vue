@@ -1,7 +1,6 @@
 <template>
   <div>
-    <ScreenHeader v-if="!isShowNewHeader" />
-    <ScreenHeaderV2 v-else />
+    <ScreenHeaderV2 />
     <div class="container">
       <div class="image-404">
         <img :src="firstErrorLetter" alt="404" />
@@ -25,7 +24,6 @@
 </template>
 
 <script>
-import ScreenHeader from "@/components/partials/ScreenHeader.vue";
 import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import firstErrorLetter from "@/assets/images/logo/404page_4_1.svg";
@@ -34,7 +32,6 @@ import lastErrorLetter from "@/assets/images/logo/404page_4_2.svg";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import Config from "@/config.js";
 import { useMeta } from "vue-meta";
-import config from "@/config.js";
 
 export default {
   setup() {
@@ -54,11 +51,9 @@ export default {
       firstErrorLetter: firstErrorLetter,
       middleErrorLetter: middleErrorLetter,
       lastErrorLetter: lastErrorLetter,
-      isShowNewHeader: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   components: {
-    ScreenHeader,
     ScreenHeaderV2,
     ScreenFooter2,
     FontAwesomeIcon,

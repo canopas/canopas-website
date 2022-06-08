@@ -35,7 +35,6 @@ export default Object.freeze({
   },
   GAP_ID_ROOT: "",
   IS_PROD: false,
-  IS_SHOW_NEW_HOME_PAGE: true,
   LUXERADIO_URL: "https://www.luxeradio.ma/download/",
   SMILEPLUS_URL: "https://www.udini.co/",
   NOLONELY_URL: "https://nolonely.me/",

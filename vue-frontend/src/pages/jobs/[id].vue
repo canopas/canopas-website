@@ -4,8 +4,7 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
-    <ScreenHeader v-if="!isShowNewHeader" />
-    <ScreenHeaderV2 v-else />
+    <ScreenHeaderV2 />
     <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
@@ -65,7 +64,6 @@
 </template>
 
 <script>
-import ScreenHeader from "@/components/partials/ScreenHeader.vue";
 import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
@@ -103,11 +101,9 @@ export default {
       isLoading: true,
       showErrorMessagePopup: false,
       jobLink: "",
-      isShowNewHeader: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   components: {
-    ScreenHeader,
     ScreenHeaderV2,
     ScreenFooter2,
     FontAwesomeIcon,

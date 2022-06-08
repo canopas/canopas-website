@@ -1,7 +1,6 @@
 <template>
   <div>
-    <ScreenHeader v-if="!isShowNewHeader" />
-    <ScreenHeaderV2 v-else />
+    <ScreenHeaderV2 />
     <LandingView />
     <ClientReview />
     <UserReviews />
@@ -16,7 +15,6 @@
 </template>
 
 <script>
-import ScreenHeader from "@/components/partials/ScreenHeader.vue";
 import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
 import LandingView from "@/components/home/LandingView.vue";
 import ClientReview from "@/components/home/ClientReview.vue";
@@ -28,7 +26,6 @@ import CanopasDescription from "@/components/home/CanopasDescription.vue";
 import HomeConsultation from "@/components/home/HomeConsultation.vue";
 import HomeCTA from "@/components/home/HomeCTA.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
-import config from "@/config.js";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -52,13 +49,7 @@ library.add(
 );
 
 export default {
-  data() {
-    return {
-      isShowNewHeader: config.IS_SHOW_NEW_HOME_PAGE,
-    };
-  },
   components: {
-    ScreenHeader,
     ScreenHeaderV2,
     LandingView,
     ClientReview,

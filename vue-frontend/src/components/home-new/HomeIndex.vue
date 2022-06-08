@@ -31,6 +31,11 @@ import Blog from "@/components/home-new/BlogSection.vue";
 import Contribute from "@/components/home-new/ContributeSection.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faPhone, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faPhone, faPaperPlane);
+
 export default {
   components: {
     ScreenHeader,
