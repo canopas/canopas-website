@@ -1,7 +1,6 @@
 <template>
   <div>
-    <ScreenHeader v-if="!isShowNewHeader" />
-    <ScreenHeaderV2 v-else />
+    <ScreenHeaderV2 />
     <ScreenLoader v-if="isLoading" />
     <div v-else>
       <div class="container form-container">
@@ -241,7 +240,6 @@
 </template>
 
 <script>
-import ScreenHeader from "@/components/partials/ScreenHeader.vue";
 import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
@@ -340,11 +338,9 @@ export default {
       disableInput: false,
       showLoader: false,
       loaderImage: loaderImage,
-      isShowNewHeader: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   components: {
-    ScreenHeader,
     ScreenHeaderV2,
     ScreenFooter2,
     FontAwesomeIcon,
