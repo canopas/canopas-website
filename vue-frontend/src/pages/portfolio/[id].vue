@@ -1,11 +1,13 @@
 <template>
   <div>
     <Header />
+    <VideoSection v-bind:response="details.video" />
   </div>
 </template>
 
 <script>
 import Header from "@/components/partials/ScreenHeaderV2.vue";
+import VideoSection from "@/components/portfolio/VideoSection.vue";
 import luxeradioResponse from "@/luxeradio-data.js";
 
 export default {
@@ -28,6 +30,7 @@ export default {
 
   components: {
     Header,
+    VideoSection,
   },
 };
 </script>
