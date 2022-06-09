@@ -1,14 +1,19 @@
-FROM node:17 AS ui-build
-WORKDIR /app
-COPY vue-frontend/ ./
-RUN npm install && npm run build
+# Start from a Debian image with the latest version of Go installed
+FROM golang:1.18 as builder
 
-FROM node:17 AS server-build
-WORKDIR /root/
-COPY --from=ui-build /app/dist ./dist
-COPY --from=ui-build /app/node_modules ./node_modules
-COPY --from=ui-build /app/server.js /app/package*.json ./
+ADD . /go-api-platform
 
-EXPOSE 3080
+WORKDIR "/go-api-platform"
 
-CMD ["npm", "run", "serve"]
+RUN CGO_ENABLED=0 go build -a -installsuffix cgo -ldflags '-s' -o go-api-platform
+
+FROM alpine
+
+RUN apk update && apk add ca-certificates
+
+COPY --from=builder /go-api-platform/go-api-platform /
+
+# Document that the service listens on port 8080.
+EXPOSE 8080
+
+ENTRYPOINT ["/go-api-platform"]
