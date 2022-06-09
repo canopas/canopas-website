@@ -5,7 +5,7 @@ on:
       - "master"
       
 jobs:
-  deploy:
+  deploy-dev:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
