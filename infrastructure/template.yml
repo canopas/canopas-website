@@ -1,0 +1,155 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: An ECS with launchType EC2 frontend stack
+
+Parameters:
+  EnvName:
+    Type: String
+    Description: Name of an environment. 'dev', 'staging', 'prod' and any name.
+    AllowedPattern: ^.*[^0-9]$
+    ConstraintDescription: Must end with non-numeric character.
+  Sender:
+    Type: String
+    Description: Email address of sender.
+  JobsReceiver:
+    Type: String
+    Description: Email address of jobs receiver.
+  ContactReceiver:
+    Type: String
+    Description: Email address of conatct receiver.
+  AccessKeyId:
+    Type: String
+    Description: access-key-id.
+  SecretAccessKey:
+    Type: String
+    Description: secret-access-key.
+  Region:
+    Type: String
+    Description: aws-region.
+  DbUsername:
+    Type: String
+    Description: Mysql database username.
+  DbPassword:
+    Type: String
+    Description: Mysql database password.
+  DbHost:
+    Type: String
+    Description: Mysql database host.
+  DbPort:
+    Type: String
+    Description: Mysql database port.
+  DbName:
+    Type: String
+    Description: Mysql database name.
+  ClusterName:
+    Type: String
+    Description: Name of ECS cluster
+  ImageTag:
+    Type: String
+    Description: Website Docker frontend image tag
+  BackendImageTag:
+    Type: String
+    Description: Website Docker backend image tag
+  NginxImageTag:
+    Type: String
+    Description: NGINX Docker image tag
+
+Resources:
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      Family: "canopas-website-${EnvName}-full-stack-task-definition"
+      ExecutionRoleArn: 
+        Fn::Sub: arn:aws:iam::${AWS::AccountId}:role/ecsTaskExecutionRole
+      NetworkMode: "bridge"
+      ContainerDefinitions:
+        - Name: "canopas-website-nginx"
+          Hostname: "canopas-website-nginx"
+          Memory: 128
+          Cpu: 128
+          Essential: true
+          Image: 
+            Fn::Sub: ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/canopas-website-nginx:${NginxImageTag}
+          PortMappings:
+            - ContainerPort: 80
+              HostPort: 80
+              Protocol: tcp
+          Links:
+            - canopas-website-frontend
+            - canopas-website-backend
+
+        - Name: "canopas-website-frontend"
+          Memory: 512
+          Cpu: 512
+          Essential: true
+          Image: 
+            Fn::Sub: ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/canopas-website-frontend:${ImageTag}
+          PortMappings:
+            - ContainerPort: 3080
+              HostPort: 3080
+              Protocol: tcp
+
+        - Name: "canopas-website-backend"
+          Memory: 256
+          Cpu: 256
+          Essential: true
+          Image: 
+            Fn::Sub: ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/canopas-website-backend:${BackendImageTag}
+          Environment:
+            - Name: ENV
+              Value: 
+                Fn::Sub: ${EnvName}
+            - Name: SENDER
+              Value: 
+                Fn::Sub: ${Sender}
+            - Name: JOBS_RECEIVER
+              Value: 
+                Fn::Sub: ${JobsReceiver}
+            - Name: CONTACT_RECEIVER
+              Value: 
+                Fn::Sub: ${ContactReceiver}
+            - Name: ACCESS_KEY_ID
+              Value: 
+                Fn::Sub: ${AccessKeyId}
+            - Name: SECRET_ACCESS_KEY
+              Value: 
+                Fn::Sub: ${SecretAccessKey}
+            - Name: REGION
+              Value: 
+                Fn::Sub: ${Region}
+            - Name: DB_USERNAME
+              Value: 
+                Fn::Sub: ${DbUsername}
+            - Name: DB_PASSWORD
+              Value: 
+                Fn::Sub: ${DbPassword}
+            - Name: DB_HOST
+              Value: 
+                Fn::Sub: ${DbHost}
+            - Name: DB_PORT
+              Value: 
+                Fn::Sub: ${DbPort}
+            - Name: DB_NAME
+              Value: 
+                Fn::Sub: ${DbName}
+            - Name: TZ
+              Value: UTC
+            - Name: GIN_MODE
+              value: release
+          PortMappings:
+            - ContainerPort: 8080
+              HostPort: 8080
+              Protocol: tcp
+
+  ECSService:
+    Type: AWS::ECS::Service
+    Properties:
+      ServiceName: "canopas-website-full-stack"
+      LaunchType: EC2
+      Cluster: 
+        Fn::Sub: ${ClusterName}
+      DesiredCount: 1
+      TaskDefinition:
+        Ref: "TaskDefinition"
+      DeploymentConfiguration:
+        MaximumPercent: 100
+        MinimumHealthyPercent: 0

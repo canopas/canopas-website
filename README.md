@@ -7,7 +7,7 @@ best practices.
 
 ## Requirements
 
-- Node17
+- Node18
 - Go 1.17
 
 ## To run front-end

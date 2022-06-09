@@ -1,10 +1,10 @@
-#! /bin/bash
+#!/bin/bash
 
 set -e
 
 IMAGE_TAG="$GITHUB_SHA"
-IMAGE_ARN=$2
 PLATFORM=$1
+IMAGE_ARN=$2
 
 aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 569704406482.dkr.ecr.ap-south-1.amazonaws.com
 
