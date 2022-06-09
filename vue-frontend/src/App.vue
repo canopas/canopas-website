@@ -221,6 +221,11 @@ a {
   color: #3d3d3d;
 }
 
+.border-text {
+  -webkit-text-stroke: 1px #3d3d3d;
+  color: #fff !important;
+}
+
 .underline-text {
   text-decoration: underline solid rgba(61, 61, 61, 0.8) 2px;
   text-underline-offset: 1rem;
