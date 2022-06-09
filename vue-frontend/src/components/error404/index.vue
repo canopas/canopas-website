@@ -11,7 +11,6 @@
         The page you’re looking for was moved, renamed or might never existed.
       </div>
       <a
-        type="button"
         class="back-btn gradient-border-btn"
         onclick="window.location.replace('/')"
       >
