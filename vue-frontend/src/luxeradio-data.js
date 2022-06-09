@@ -68,7 +68,7 @@ export default {
     },
     design: [
       {
-        title: "The design will not leave you cold",
+        title: `The <span class="border-text">design</span> will not leave you cold`,
         description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
         backgroundImage: design1,

@@ -1,40 +1,38 @@
 <template>
-  <div class="parallax">
-    <section class="container tw-bg-white tw-relative">
-      <div class="tw-relative">
-        <img :src="response.backgroundImage" class="background-image" />
-        <div class="flex-div">
-          <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>
-          <div class="description">
-            <div class="v2-normal-text tw-font-light">
-              {{ response.description }}
-            </div>
-            <div class="tw-pt-16">
-              <a
-                v-for="button in response.buttons"
-                :key="button"
-                class="tw-pr-10 is-animation-tab v2-normal-2-text hover:tw-text-black-900"
-                :href="button.link"
-              >
-                {{ button.name }}
-              </a>
-            </div>
+  <section class="container tw-bg-white tw-relative">
+    <div class="tw-relative">
+      <img :src="response.backgroundImage" class="background-image" />
+      <div class="flex-div">
+        <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>
+        <div class="description">
+          <div class="v2-normal-text tw-font-light">
+            {{ response.description }}
+          </div>
+          <div class="tw-pt-16">
+            <a
+              v-for="button in response.buttons"
+              :key="button"
+              class="tw-pr-10 is-animation-tab v2-normal-2-text hover:tw-text-black-900"
+              :href="button.link"
+            >
+              {{ button.name }}
+            </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="container video tw-relative">
-      <aspect-ratio height="56.25%" class="tw-overflow-hidden">
-        <video class="" preload="auto" loop muted autoplay playsinline>
-          <source
-            src="https://cdn.cuberto.com/cb/video/sleepiest/1.mp4?2"
-            type="video/mp4"
-          />
-        </video>
-      </aspect-ratio>
-    </section>
-  </div>
+  <section class="container video tw-relative">
+    <aspect-ratio height="56.25%" class="tw-overflow-hidden">
+      <video class="" preload="auto" loop muted autoplay playsinline>
+        <source
+          src="https://cdn.cuberto.com/cb/video/sleepiest/1.mp4?2"
+          type="video/mp4"
+        />
+      </video>
+    </aspect-ratio>
+  </section>
 </template>
 
 <script>
