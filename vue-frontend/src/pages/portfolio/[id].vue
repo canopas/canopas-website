@@ -39,3 +39,19 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.parallax {
+  height: 100vh;
+  overflow: hidden;
+  overflow-y: auto;
+  perspective: 2px;
+}
+.parallax::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+.parallax {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+</style>
