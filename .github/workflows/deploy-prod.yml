@@ -34,6 +34,7 @@ jobs:
       - name: Build frontend and push on ECR
         run: |
           cd vue-frontend
+          mv src/config.prod.js src/config.js
           sh ./../deploy/generate-sitemap.sh https://canopas.com https://prod-stack-api.canopas.com
           bash ./../deploy/deploy-ecr-image.sh prod-frontend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-frontend
   
