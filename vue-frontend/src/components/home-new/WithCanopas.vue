@@ -9,7 +9,7 @@
         <div class="flex-container">
           <div v-for="(phase, i) in phases.slice(0, 3)" :key="i" class="phases">
             <aspect-ratio height="56.25%">
-              <img :src="phase.image" class="image" />
+              <img :src="phase.image" class="image" loading="lazy" />
             </aspect-ratio>
             <div class="details">
               <div class="v2-title-2-text canopas-gradient-text">
@@ -28,6 +28,7 @@
                 :src="phase.image"
                 class="image"
                 :class="phase.title == 'Marketing' ? 'animation-height' : ''"
+                loading="lazy"
               />
             </aspect-ratio>
             <div class="details">
