@@ -1,7 +1,7 @@
 <template>
   <section class="tw-bg-white tw-relative">
-    <div class="tw-relative">
-      <div class="container">
+    <div class="tw-relative container">
+      <div>
         <div
           class="flex-div tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
         >
