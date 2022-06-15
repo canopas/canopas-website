@@ -65,7 +65,7 @@ async function createServer(
 
       var html = cache.get(url);
 
-      if (html == null) {
+      if (html == null || !isProd) {
         let template, render;
         if (!isProd) {
           // always read fresh template in dev
