@@ -11,10 +11,7 @@
   </section>
   <section class="background-image tw-relative">
     <aspect-ratio height="56.26%">
-      <img
-        :src="response.backgroundImage"
-        class="animate__animated animate__fadeIn"
-      />
+      <img :src="response.backgroundImage" />
     </aspect-ratio>
   </section>
 </template>
