@@ -2,6 +2,7 @@
   <div>
     <Header />
     <div class="parallax">
+      <LandingSection v-bind:response="details.landing" />
       <VideoSection v-bind:response="details.video" />
       <DesignSection v-bind:response="details.design" />
     </div>
@@ -10,6 +11,7 @@
 
 <script>
 import Header from "@/components/partials/ScreenHeaderV2.vue";
+import LandingSection from "@/components/portfolio/LandingSection.vue";
 import VideoSection from "@/components/portfolio/VideoSection.vue";
 import DesignSection from "@/components/portfolio/DesignSection.vue";
 import luxeradioResponse from "@/luxeradio-data.js";
@@ -34,6 +36,7 @@ export default {
 
   components: {
     Header,
+    LandingSection,
     VideoSection,
     DesignSection,
   },

@@ -1,6 +1,6 @@
 <template>
-  <section class="container tw-bg-white tw-relative">
-    <div class="tw-relative">
+  <section class="tw-bg-white tw-relative">
+    <div class="tw-relative container">
       <img :src="response.backgroundImage" class="background-image" />
       <div class="flex-div">
         <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>

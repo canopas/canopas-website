@@ -29,6 +29,7 @@
                 class="v2-normal-3-text"
                 :class="[
                   navbar.className,
+                  currentRoutePath == '/portfolio/' + id ? 'hide-links' : '',
                   currentRoutePath == navbar.url
                     ? navbar.showContactBtn
                       ? 'v2-button v2-button-active'
@@ -54,6 +55,7 @@ import Config from "@/config.js";
 export default {
   data() {
     return {
+      id: this.$route.params.id,
       headerLogoImage: headerLogoImage,
       navbarSticky: false,
       navbarAnimation: false,
@@ -86,6 +88,7 @@ export default {
         //   target: false,
         //   isActive: false,
         // },
+
         {
           name: "Let's talk",
           url: "/contact",
@@ -132,6 +135,10 @@ export default {
 .nav-container {
   background: #fff;
   position: relative;
+}
+
+.hide-links {
+  visibility: hidden;
 }
 
 .navbar {
