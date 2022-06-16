@@ -12,6 +12,7 @@ import (
 
 	"github.com/apex/gateway"
 	"github.com/gin-contrib/cors"
+	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
 )
@@ -33,6 +34,7 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 	router := gin.Default()
 
 	router.Use(cors.New(corsConfig()))
+	router.Use(gzip.Gzip(gzip.DefaultCompression))
 
 	emailRepo := utils.NewEmail()
 

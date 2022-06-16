@@ -5,7 +5,7 @@ import express from "express";
 import vite from "vite";
 import serveStatic from "serve-static";
 import compression from "compression";
-import Cache from "./utils/Cache.js";
+import Cache from "./utils/cache.js";
 
 const __dirname = path.resolve();
 

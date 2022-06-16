@@ -26,6 +26,7 @@ require (
 require (
 	github.com/aws/aws-lambda-go v1.17.0 // indirect
 	github.com/aws/aws-sdk-go v1.43.5 // indirect
+	github.com/gin-contrib/gzip v0.0.5 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.13.0 // indirect
 	github.com/go-playground/universal-translator v0.17.0 // indirect
