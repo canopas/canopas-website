@@ -1,301 +1,135 @@
 <template>
   <div class="container">
     <form>
-      <div class="required-field-msg">
-        All fields marked with * are required.
-      </div>
       <div class="information-detail">
         <div class="information-pd">
-          <div class="form-group form-inline">
-            <label for="username" class="contact-form-text required"
-              >Hi, Canopas team. My name is</label
-            >
+          <div class="tw-pt-5">
             <input
-              class="form-control custom custom-input-text"
+              class="custom-text-input v2-title-2-text"
               type="text"
               name="username"
               required
-              autocomplete="given-name"
+              autocomplete="given-username"
               v-model="name"
               :disabled="disableInput"
+              placeholder="Your name"
             />
-            <span v-if="showValidationError" class="error username-error"
+            <span v-if="showValidationError" class="error tw-text-red-600"
               >This field is required</span
             >
           </div>
-        </div>
-
-        <hr class="hr-margin" />
-
-        <div class="information-pd">
-          <div class="radio-buttons mb-3">
-            <label class="label1">
-              <input
-                type="radio"
-                name="designation"
-                value="0"
-                v-model.number="designationType"
-                :disabled="disableInput"
-              />
-              <div class="box">
-                <span class="contact-form-text"
-                  >I am individual entrepreneur running my own business.</span
-                >
-              </div>
-            </label>
-            <label class="label2">
-              <input
-                type="radio"
-                name="designation"
-                value="1"
-                v-model.number="designationType"
-                :disabled="disableInput"
-              />
-              <div class="box">
-                <span class="contact-form-text"
-                  >I work for the company and I am approaching on behalf of the
-                  company.</span
-                >
-              </div>
-            </label>
-          </div>
-
-          <div class="mb-4">
-            <div
-              v-if="designationType == 0"
-              class="apply-font-color label1-info"
-            >
-              <span class="contact-form-text">
-                I am an owner of the business and I run
-                <label>
-                  <input
-                    class="form-control input-dotted input-text-width"
-                    type="text"
-                    name="company"
-                    v-model="business"
-                    :disabled="disableInput"
-                  />
-                </label>
-                business. For more information, you can visit my website /
-                facebook page / Instagram etc. (Please attach relevant links
-                below.)
-              </span>
-            </div>
-            <div
-              v-if="designationType == 1"
-              class="apply-font-color label2-info"
-            >
-              <span class="contact-form-text"
-                >I am representing
-                <label>
-                  <input
-                    class="form-control input-dotted input-text-width"
-                    type="text"
-                    name="company"
-                    v-model="business"
-                    :disabled="disableInput"
-                  />
-                </label>
-                company. You can find more information about our business by
-                visiting our website that I mentioned below.(Please attach all
-                relevant links below.)</span
-              >
-            </div>
-          </div>
-
-          <div class="social-media">
-            <div
-              v-for="(website, i) in websites"
-              class="btn btn-social-media mb-3"
-              :key="website"
-              :class="{
-                'item-selected': i == currentWebsiteIndex || website.url != '',
-              }"
-              @click="onWebsiteClick(i)"
-            >
-              <span>
-                <font-awesome-icon
-                  :icon="website.url == '' ? plusIcon : website.icon"
-                  class="fas me-1"
-                  :class="{
-                    'facebook-twitter-icon':
-                      (i == 1 || i == 2) && website.url != '',
-                    'website-instagram-icon':
-                      (i == 0 || i == 3) && website.url != '',
-                  }"
-                />
-                <div class="contact-form-text">
-                  <div id="span-web-text" class="ellipsis-social-media-url">
-                    {{ website.url == "" ? website.title : website.url }}
-                  </div>
-                </div>
-                <font-awesome-icon
-                  v-if="website.url != ''"
-                  :icon="removeIcon"
-                  class="remove-icon ms-1"
-                  @click="onRemoveWebsiteClick(i)"
-                />
-              </span>
-            </div>
-          </div>
-
-          <div v-if="currentWebsiteIndex != -1" class="mb-3 add-url url-text">
+          <div class="tw-pt-5 lg:tw-pt-14">
             <input
-              class="form-control custom social-media-text url-width"
-              type="url"
-              name="contactURL"
-              :placeholder="websites[currentWebsiteIndex].hint"
-              v-model="currentWebsiteUrl"
-              :disabled="disableInput"
-            />
-            <font-awesome-icon
-              class="fas set-url-icon"
-              :icon="arrowRightIcon"
-              @click="onAddWebsiteClick"
-            />
-          </div>
-          <div class="url-validation-msg">Please enter valid URL</div>
-        </div>
-
-        <hr class="hr-margin" />
-
-        <div class="information-pd">
-          <div class="contact-form-text contact-text-black">
-            I am here because I need help with...
-          </div>
-          <br />
-          <div class="radio-buttons">
-            <label
-              v-for="(help, i) in helps"
-              :key="help"
-              class="reason-radio-div"
-            >
-              <input
-                type="radio"
-                name="idea"
-                :value="i"
-                v-model.number="helpType"
-                :disabled="disableInput"
-              />
-              <div class="box">
-                <span class="contact-form-text">{{ help.title }}</span>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <div v-if="helpType != -1" class="information-pd reason-info">
-          <div class="contact-form-text contact-text-black">
-            Please select reason...
-          </div>
-          <br />
-          <div class="radio-buttons reason-label for-reason-label-1">
-            <label v-for="item in helps[helpType].reasons" :key="item">
-              <input
-                type="radio"
-                name="reason"
-                :value="item"
-                v-model="reason"
-                :disabled="disableInput"
-              />
-              <div class="box">
-                <span class="contact-form-text">{{ item }}</span>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <hr class="hr-margin" />
-
-        <div class="information-pd">
-          <div>
-            <label class="contact-form-text required">
-              You can reach out to me at (email address)
-            </label>
-            <input
-              class="form-control custom custom-input-text"
+              class="custom-text-input v2-title-2-text"
               type="text"
               name="email"
               required
+              autocomplete="given-email"
               v-model="email"
               :disabled="disableInput"
+              placeholder="Your email"
             />
-            <span v-if="showValidationError" class="error email-error"
+            <span v-if="showValidationError" class="error tw-text-red-600"
               >This field is required</span
             >
           </div>
-          <br />
-          <div class="my-3">
+          <div class="tw-pt-5 lg:tw-pt-14">
             <textarea
-              class="input-textarea"
-              name="message"
-              rows="10"
-              :v-bind="message"
-              v-model="message"
-              placeholder="I have a message or information for Canopas team."
+              class="custom-text-input v2-title-2-text"
+              name="project"
+              rows="1"
+              autocomplete="given-project-info"
+              v-model="projectInfo"
               :disabled="disableInput"
+              placeholder="Tell us about your project"
             ></textarea>
           </div>
-          <div>
-            <div v-if="contactType < 2" class="radio-buttons mb-3">
-              <label class="contactLabel1">
-                <input
+          <div class="tw-pt-5 lg:tw-pt-10">
+            <input
+              class="custom-text-input v2-title-2-text"
+              type="text"
+              name="reference"
+              required
+              autocomplete="given-reference"
+              v-model="reference"
+              :disabled="disableInput"
+              placeholder="How did you find us?"
+            />
+            <span v-if="showValidationError" class="error tw-text-red-600"
+              >This field is required</span
+            >
+          </div>
+
+          <div class="tw-py-16">
+            <div class="tw-text-slate-400 v2-title-2-text">
+              What's your preferred mode of communication?
+            </div>
+            <div class="tw-flex tw-flex-col tw-w-fit sm:tw-flex-row tw-pt-6">
+              <label class="contactLabel1"
+                ><input
+                  class="tw-hidden"
                   type="radio"
                   name="contact_type"
-                  value="0"
+                  value="2"
                   v-model.number="contactType"
                   :disabled="disableInput"
                 />
-                <div class="box">
-                  <span class="contact-form-text"
-                    >If you love to talk, You can schedule a meeting with our
-                    team member according to your convenience from here.</span
-                  >
-                </div>
-              </label>
-              <label class="contactLabel2">
-                <input
+                <div class="contact-button tw-mb-6 sm:tw-mr-9 sm:tw-mb-0">
+                  <font-awesome-icon
+                    class="fa -tw-rotate-45 tw-w-6 tw-h-6 tw-text-black-900"
+                    :icon="phone"
+                    aria-hidden="true"
+                  />
+                  <span class="tw-ml-5 v2-normal-3-text">Call</span>
+                </div></label
+              >
+
+              <label class="contactLabel2"
+                ><input
+                  class="tw-hidden"
                   type="radio"
                   name="contact_type"
                   value="1"
                   v-model.number="contactType"
                   :disabled="disableInput"
                 />
-                <div class="box">
-                  <span class="contact-form-text"
-                    >If you prefer chat or email, please click here.</span
-                  >
-                </div>
-              </label>
+                <div class="v2-normal-3-text contact-button">
+                  <font-awesome-icon
+                    class="fa tw-w-6 tw-h-6 tw-text-black-900"
+                    :icon="mail"
+                    aria-hidden="true"
+                  />
+                  <span class="tw-ml-5">Mail</span>
+                </div></label
+              >
             </div>
+          </div>
 
-            <div
-              v-if="showLoader"
-              class="d-flex justify-content-center loader-div"
-            >
-              <img :src="loaderImage" />
-            </div>
-            <div v-else>
+          <div v-if="showLoader" class="tw-flex tw-py-5 lg:tw-py-16">
+            <img :src="loaderImage" />
+          </div>
+          <div v-else>
+            <div class="tw-py-5 lg:tw-py-16 v2-normal-3-text">
               <button
                 v-if="contactType == 1"
-                class="gradient-btn chat-email-btn"
+                class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
                 @click.prevent="submitApplication()"
               >
                 <font-awesome-icon
-                  class="fas"
+                  class="fa tw-w-6 tw-h-6"
                   :icon="planeIcon"
                   aria-hidden="true"
                 />
                 <span>Submit</span>
               </button>
               <button
-                v-if="contactType == 0"
-                class="gradient-btn call-now-btn"
+                v-if="contactType == 2"
+                class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
                 @click.prevent="submitApplication()"
               >
                 <font-awesome-icon
+                  class="fa tw-w-6 tw-h-6"
                   :icon="calendarIcon"
-                  class="fas"
                   aria-hidden="true"
                 />
                 <span>Schedule Meeting</span>
@@ -308,7 +142,7 @@
     <!-- Show Calendly Iframe -->
     <div v-if="openCalendlyIframeModal">
       <transition name="modal">
-        <div class="modal-mask">
+        <div class="modal-mask mask">
           <div
             class="modal-dialog login-modal modal-xl modal-dialog-centered"
             role="document"
@@ -336,7 +170,7 @@
     <!-- Show Thank you message -->
     <div v-if="showSuccessMessagePopup">
       <transition name="modal">
-        <div class="modal-mask">
+        <div class="modal-mask mask">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
@@ -359,10 +193,10 @@
     <!-- Show error message -->
     <div v-if="showErrorMessagePopup">
       <transition name="modal">
-        <div class="modal-mask">
+        <div class="modal-mask mask">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content calendly-iframe-modal-content">
-              <div class="modal-header justify-center">
+              <div class="modal-header tw-justify-center">
                 <div class="header-2-text canopas-gradient-text">Error</div>
               </div>
               <div class="modal-body">
@@ -371,7 +205,7 @@
                 </div>
                 <div class="close-btn-div">
                   <button
-                    class="gradient-btn close-btn"
+                    class="gradient-btn tw-float-right"
                     @click.prevent="showErrorMessagePopup = false"
                   >
                     <span>Close</span>
@@ -387,120 +221,39 @@
 </template>
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import {
-  faPlusCircle,
-  faArrowRight,
-  faGlobe,
-  faTimes,
-  faPaperPlane,
-  faCalendarAlt,
-} from "@fortawesome/free-solid-svg-icons";
-import {
-  faFacebook,
-  faTwitter,
-  faInstagram,
-} from "@fortawesome/free-brands-svg-icons";
 import axios from "axios";
 import CalendlyIframe from "./CalendlyIframe.vue";
 import config from "@/config.js";
 import loaderImage from "@/assets/images/theme/small-loader.svg";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import {
+  faPhoneVolume,
+  faEnvelope,
+  faCalendarAlt,
+  faPaperPlane,
+} from "@fortawesome/free-solid-svg-icons";
 
 const CONTACT_BY_CHAT_OR_MAIL = 1;
 
 export default {
   data() {
     return {
-      plusIcon: faPlusCircle,
-      removeIcon: faTimes,
-      arrowRightIcon: faArrowRight,
+      phone: faPhoneVolume,
+      mail: faEnvelope,
       planeIcon: faPaperPlane,
       calendarIcon: faCalendarAlt,
+      loaderImage: loaderImage,
       name: "",
-      designationType: 0,
-      websites: [
-        {
-          title: "website",
-          url: "",
-          hint: "Business website (e.g) - canopas.com",
-          icon: faGlobe,
-        },
-        {
-          title: "facebook",
-          url: "",
-          hint: "Facebook page of your business",
-          icon: faFacebook,
-        },
-        {
-          title: "twitter",
-          url: "",
-          hint: "Twitter page of your business",
-          icon: faTwitter,
-        },
-        {
-          title: "instagram",
-          url: "",
-          hint: "Instagram page of your business",
-          icon: faInstagram,
-        },
-        {
-          title: "other",
-          url: "",
-          hint: "Additional connection to your business",
-          icon: faGlobe,
-        },
-      ],
-      helps: [
-        {
-          title:
-            "I have an idea for my business that I want to implement with your help.",
-          reasons: [
-            "I have a rough design for the product I want to develop.",
-            "I have design or UI/UX ready in figma, sketch, photoshop, or illustrator.",
-            "I have a complete understanding of what I want. But, I don’t know anything about these tools.",
-          ],
-        },
-        {
-          title:
-            "My existing product is poor or I want to add new features or functionalities to it.",
-          reasons: [
-            "I want to fix bugs in my app reported by users.",
-            "My app is broken and I need someone who can make my app work again.",
-            "I want to add additional functionalities to the app.",
-          ],
-        },
-        {
-          title:
-            "I want to validate my IDEA and thus I need MVP(minimum viable product) or PoC(Proof of Concept) for the same.",
-          reasons: [
-            "I have a great idea that I want to test out by building MVP(Minimum viable product).",
-            "I want to develop a PoC(Proof of concept) app so that I can pitch investors my idea.",
-            "I have a unique idea and I want to develop a fully fledged product based on it.",
-          ],
-        },
-        {
-          title:
-            "I want to check the feasibility of my idea and need your consultation.",
-          reasons: [
-            "I have an idea. But, I’m not sure about the feasibility of my idea.",
-            "I’m not a techie and I need consultation and guidance from your team validating my idea.",
-          ],
-        },
-      ],
-      helpType: -1,
-      reason: "",
-      message: "",
-      currentWebsiteUrl: "",
-      currentWebsiteIndex: -1,
-      contactType: -1,
       email: "",
-      openCalendlyIframeModal: false,
+      projectInfo: "",
+      reference: "",
+      disableInput: false,
       showValidationError: false,
+      openCalendlyIframeModal: false,
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
-      disableInput: false,
       showLoader: false,
-      loaderImage: loaderImage,
+      contactType: 1,
     };
   },
   components: {
@@ -508,62 +261,18 @@ export default {
     CalendlyIframe,
   },
   methods: {
-    onWebsiteClick(i) {
-      if (this.currentWebsiteIndex == i) {
-        this.currentWebsiteIndex = -1;
-      } else {
-        this.currentWebsiteIndex = i;
-      }
-    },
-    onAddWebsiteClick() {
-      this.websites[this.currentWebsiteIndex].url = this.currentWebsiteUrl;
-      this.currentWebsiteIndex = -1;
-      this.currentWebsiteUrl = "";
-    },
-    onRemoveWebsiteClick(i) {
-      this.websites[i].url = "";
-      this.currentWebsiteIndex = i;
-    },
     submitApplication() {
-      let designationValue, designationInfo;
-
-      if (this.name === "" || this.email === "") {
+      if (this.name === "" || this.email === "" || this.reference === "") {
         this.showValidationError = true;
       } else {
-        this.$gtag.event("contact_submit");
-
         this.disableInput = true;
         this.showValidationError = false;
-        if (this.designationType == 0) {
-          designationValue =
-            "I am individual entrepreneur running my own business.";
-          designationInfo =
-            "I am an owner of the business and I run " +
-            this.business +
-            " business. For more information about my business, you can visit the following links.";
-        } else {
-          designationValue =
-            "I work for the company and I am approaching on behalf of the company.";
-          designationInfo =
-            "I am representing " +
-            this.business +
-            " company. You can find more information about our business by visiting the following links.";
-        }
-
-        var socialMediaUrls = {};
-        this.websites.forEach((website) => {
-          socialMediaUrls[website.title] = website.url ? website.url : "NA";
-        });
 
         let formData = {
           name: this.name,
-          designation: designationValue ? designationValue : "NA",
-          designation_info: designationInfo ? designationInfo : "NA",
-          social_media_links: socialMediaUrls,
-          idea: this.helpType != -1 ? this.helps[this.helpType].title : "NA",
-          reason: this.reason ? this.reason : "NA",
           email: this.email,
-          message: this.message ? this.message : "NA",
+          project_info: this.projectInfo ? this.projectInfo : "NA",
+          reference: this.reference,
           contact_type:
             this.contactType == CONTACT_BY_CHAT_OR_MAIL
               ? "Chat or Email"
@@ -613,237 +322,54 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="postcss" scoped>
 .container {
-  margin: 48px auto 150px;
-  padding: 0 5%;
+  @apply -tw-mt-16;
 }
 
 .information-detail {
-  border-radius: 10px;
-  border: 1px solid #e2e2e2;
-}
-
-.hr-margin {
-  margin: 0 !important;
+  @apply tw-rounded-3xl tw-border tw-border-slate-200 tw-bg-white tw-shadow-3xl;
 }
 
 .information-pd {
-  padding: 25px 15px;
+  @apply tw-py-5 tw-px-8 lg:tw-px-24;
 }
 
-.contact-form-text,
-.contact-form-text:hover {
-  color: rgba(61, 61, 61, 0.8);
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: normal;
+.custom-text-input {
+  @apply tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none;
 }
 
-.form-control.custom {
-  border: 1px solid #e2e2e2;
-  border-radius: 10px;
-  box-shadow: none;
-  padding: 10px 16px !important;
-  color: #3d3d3d;
+.custom-text-input:focus {
+  @apply tw-box-border  tw-border-b tw-border-slate-400 tw-outline-none;
 }
 
-.form-control.custom:focus {
-  border: 1px solid #e2e2e2;
-  outline: none;
+.custom-file-input {
+  @apply tw-w-0 tw-p-0 tw-opacity-0;
 }
 
-.custom-input-text {
-  margin-left: 0;
-  margin-top: 10px;
-  display: inline-block;
+.v2-title-2-text {
+  @apply tw-leading-9 lg:tw-leading-11;
 }
 
-.form-control.input-dotted {
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px dashed rgba(61, 61, 61, 0.5);
-  box-shadow: none;
-  padding: 8px 0 0 !important;
-  margin-left: 5px;
-  margin-right: 5px;
+.contact-button {
+  @apply tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2  hover:tw-bg-black-900;
 }
 
-.form-control.input-dotted:focus {
-  border-bottom: 1px dashed rgba(61, 61, 61, 0.5);
+.contact-button:hover > span,
+.contact-button:hover > .fa {
+  @apply tw-text-white;
 }
 
-.url-width {
-  width: 100%;
+.contact-button-active {
+  @apply tw-bg-black-900  hover:tw-bg-white;
 }
 
-.send-url-arrow {
-  margin-left: 10px;
+.contact-button:active {
+  transform: scale(0.98);
 }
 
-.info-block_container {
-  text-align: left;
-}
-
-.info {
-  display: inline-block;
-}
-
-.radio-buttons {
-  display: flex;
-  flex-direction: column;
-}
-
-.radio-buttons > label {
-  padding: 8px 0;
-  width: 100%;
-}
-
-.ellipsis-social-media-url {
-  max-width: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.facebook-twitter-icon {
-  color: #5da9dd;
-}
-
-.website-instagram-icon {
-  color: #f2709c;
-}
-
-input[type="radio"] {
-  display: none;
-}
-
-input[type="radio"]:checked ~ .box {
-  background: rgba(255, 148, 114, 0.05);
-  background: -webkit-linear-gradient(
-        rgba(255, 250, 248, 255),
-        rgba(255, 250, 248, 255)
-      )
-      padding-box,
-    linear-gradient(to bottom, #ff9472, #f2709c) border-box;
-  border: 2px solid transparent;
-  border-radius: 15px;
-}
-
-.box > span:before {
-  opacity: 1;
-}
-
-.box {
-  display: flex;
-  align-items: center;
-  text-align: left;
-  cursor: pointer;
-  position: relative;
-  width: 100%;
-  padding: 24px;
-  background: rgba(226, 226, 226, 0.5);
-  border-radius: 15px;
-}
-
-.box > span,
-.box > span :hover {
-  transition: all 300ms ease;
-  user-select: none;
-}
-
-.social-media {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.input-textarea {
-  width: 100%;
-  height: 150px !important;
-  box-sizing: border-box;
-  box-shadow: none;
-  color: #3d3d3d;
-  font-size: 1rem;
-  border-radius: 10px;
-  border: 1px solid #e2e2e2;
-  padding: 8px 16px !important;
-}
-
-.input-textarea:focus {
-  border: 1px solid #e2e2e2;
-  outline: none;
-}
-
-.btn-social-media > span {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.fas {
-  font-size: 1.1rem;
-}
-
-.remove-icon {
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.4);
-  margin-top: 2px;
-  transition: transform 0.2s;
-}
-
-.remove-icon:hover {
-  transform: scale(1.2);
-  color: rgba(0, 0, 0, 0.5);
-}
-
-.item-selected {
-  background: -webkit-linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(to bottom, #ff9472, #f2709c) border-box;
-  border: 1px solid transparent !important;
-}
-
-.call-now-btn,
-.chat-email-btn,
-.loader-div {
-  width: 100%;
-  margin-left: 0 !important;
-}
-
-.call-now-btn > i,
-.chat-email-btn > i {
-  margin-right: 8px;
-}
-
-.btn-social-media {
-  display: flex;
-  align-items: center;
-  margin-right: 12px;
-  border-radius: 20px;
-  color: rgba(0, 0, 0, 0.5) !important;
-  border: 1px solid #e2e2e2;
-  position: relative;
-  transition: 0.5s;
-}
-
-.input-text-width {
-  width: 160px;
-}
-
-.custom-fa-icon {
-  background: -moz-linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
-  background: -webkit-linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
-  background: linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.add-url {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+.gradient-btn {
+  @apply tw-w-56 tw-px-0;
 }
 
 input:-webkit-autofill,
@@ -853,193 +379,29 @@ input:-webkit-autofill:active {
   transition: background-color 5000s !important;
 }
 
-.contact-list {
-  list-style-type: disc;
-}
-
-.contact-list > li {
-  display: list-item !important;
-}
-
-.contact-btn {
-  width: auto !important;
-  padding: 8px 16px !important;
-  justify-content: center !important;
-  display: inline !important;
-  margin-left: 0 !important;
-}
-
-.set-url-icon {
-  margin-left: 10px;
-  font-size: 1rem;
-  color: rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
-
-.ml-10 {
-  margin-left: 10px;
-  margin-right: 0 !important;
-}
-
-.meeting-btn {
-  width: auto !important;
-  cursor: pointer;
-}
-
-.calendly-iframe {
-  width: 100% !important;
-  height: 80vh !important;
-}
-
-.swal-wide {
-  width: 80vw !important;
-  overflow: hidden;
-}
-
-.swal2-container {
-  z-index: 100000 !important;
-}
-
-.error {
-  margin-top: 8px;
-  display: table;
-  font-size: 1rem;
-}
-
-.required:after {
-  content: "*";
-}
-
-.required-field-msg {
-  margin-bottom: 16px;
-}
-
-.required-field-msg,
-.required:after,
-.error {
-  color: #ff0000;
-}
-
-.url-validation-msg {
-  color: #ff0000;
-  display: none;
-}
-
-.apply-navbar {
-  position: fixed;
-}
-
-.contact-container {
-  flex-wrap: initial !important;
-}
-
-// modals
-
 .modal-content {
-  border-radius: 25px !important;
-  padding: 10px;
+  @apply tw-p-2.5 tw-rounded-3xl;
 }
 
 .modal-close-btn {
-  border: none;
-  color: #f2709c;
-  font-size: 40px;
-  font-weight: lighter;
-  background-color: transparent;
-  position: absolute;
-  right: 10px;
-  bottom: 516px;
-  font-weight: 300;
-  font-size: 40px;
-  margin-right: -10px;
+  @apply tw-border-none tw-text-pink-300 tw-text-4xl tw-font-light tw-bg-transparent tw-absolute tw-right-2.5 tw-top-0;
 }
 
 .modal-close-btn:focus {
-  outline: none;
+  @apply tw-outline-none;
 }
 
 .modal-mask {
-  position: fixed;
+  @apply tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table;
+}
+
+.mask {
   z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
-  display: table;
   transition: opacity 0.3s ease;
 }
 
-.close-btn {
-  float: right;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-@include media-breakpoint-up(md) {
-  .information-pd {
-    padding: 25px 40px;
-  }
-
-  .call-now-btn,
-  .chat-email-btn,
-  .loader-div {
-    width: 40%;
-  }
-
-  .modal-close-btn {
-    bottom: 680px;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .fas {
-    font-size: 1.4rem;
-  }
-
-  .remove-icon {
-    font-size: 1.2rem;
-  }
-
-  .url-width {
-    width: 50%;
-  }
-
-  .radio-buttons {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-content: center;
-    flex-flow: wrap;
-  }
-
-  .radio-buttons > label {
-    padding: 9px 16px 8px 0;
-  }
-
-  .box {
-    height: 144px;
-    padding: 0 24px;
-  }
-
-  .contact-form-text,
-  .contact-form-text:hover {
-    line-height: 1.875rem;
-  }
-
-  .custom-input-text {
-    margin-left: 5px;
-    margin-top: 0;
-    max-width: 50%;
-  }
-
-  .username-error {
-    margin-left: 248px;
-  }
-
-  .email-error {
-    margin-left: 350px;
-  }
+::placeholder {
+  @apply tw-text-slate-400;
 }
 </style>

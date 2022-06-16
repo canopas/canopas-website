@@ -6,18 +6,23 @@
       <ContactLanding />
       <ContactForm v-on:isLoading="setLoader" />
     </div>
-    <ScreenFooter2 />
+    <CTASection />
   </div>
 </template>
 
 <script>
 import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
-import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+import CTASection from "@/components/home-new/CTASection.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import ContactLanding from "@/components/contact/ContactLanding.vue";
 import ContactForm from "@/components/contact/ContactForm.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faChevronRight);
 
 export default {
   setup() {
@@ -34,10 +39,10 @@ export default {
   },
   components: {
     ScreenHeaderV2,
-    ContactLanding,
-    ScreenFooter2,
-    ContactForm,
     ScreenLoader,
+    CTASection,
+    ContactLanding,
+    ContactForm,
   },
   data() {
     return {

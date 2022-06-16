@@ -26,19 +26,10 @@ const (
 )
 
 var contactDetailInput = ContactDetails{
-	Name:            "shruti",
-	Designation:     "I am individual entrepreneur running my own business.",
-	DesignationInfo: "I am an owner of the business and I run canopas business. For more information about my business, you can visit the following links.",
-	SocialMediaLinks: map[string]interface{}{
-		"website":   "https://canopas.com/",
-		"facebook":  "https://www.facebook.com/canopassoftware",
-		"twitter":   "https://twitter.com/canopassoftware",
-		"instagram": "https://www.instagram.com/canopassoftware/",
-	},
-	Idea:        "I have an idea for my business that I want to implement with your help.",
-	Reason:      "I have a rough design for the product I want to develop.",
+	Name:        "shruti",
 	Email:       "shruti@gmail.com",
-	Message:     "i'm very interested work with this company",
+	ProjectInfo: "Describe small inaformation about my project",
+	Reference:   "Canopas Employee",
 	ContactType: "Chat or Email",
 }
 
@@ -118,18 +109,9 @@ func setUpRouter(engine *gin.Engine) {
 func expectedContactData() map[string]interface{} {
 	contact := make(map[string]interface{})
 	contact["name"] = "shruti"
-	contact["designation"] = "I am individual entrepreneur running my own business."
-	contact["designation_info"] = "I am an owner of the business and I run canopas business. For more information about my business, you can visit the following links."
-	contact["social_media_links"] = map[string]interface{}{
-		"facebook":  "https://www.facebook.com/canopassoftware",
-		"instagram": "https://www.instagram.com/canopassoftware/",
-		"twitter":   "https://twitter.com/canopassoftware",
-		"website":   "https://canopas.com/",
-	}
-	contact["idea"] = "I have an idea for my business that I want to implement with your help."
-	contact["reason"] = "I have a rough design for the product I want to develop."
 	contact["email"] = "shruti@gmail.com"
-	contact["message"] = "i'm very interested work with this company"
+	contact["project_info"] = "Describe small inaformation about my project"
+	contact["reference"] = "Canopas Employee"
 	contact["contact_type"] = "Chat or Email"
 	return contact
 }

@@ -35,6 +35,19 @@ module.exports = {
         orange: {
           300: "#ff835b",
         },
+        slate: {
+          200: "rgb(226, 226, 226)",
+          400: "rgb(141, 138, 138)",
+        },
+      },
+      borderWidth: {
+        1: "1px",
+      },
+      boxShadow: {
+        "3xl": "0px 4px 45px rgba(0, 0, 0, 0.1)",
+      },
+      lineHeight: {
+        11: "2.75rem",
       },
     },
     plugins: [],

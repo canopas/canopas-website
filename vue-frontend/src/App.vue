@@ -166,7 +166,7 @@ a {
   font-size: 1.5625rem;
   line-height: 2.8125rem;
   letter-spacing: 1px;
-  color: #3d3d3d !important;
+  color: #3d3d3d;
 }
 
 // 24px/29px - 20px/24px - 16px/20px
