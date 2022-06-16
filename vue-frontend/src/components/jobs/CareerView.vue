@@ -239,8 +239,6 @@ export default {
 
 .gradient-border-btn,
 .gradient-btn {
-  display: flex;
-  align-items: center;
   padding: 11px;
 }
 
