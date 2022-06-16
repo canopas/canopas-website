@@ -5,7 +5,11 @@ import express from "express";
 import vite from "vite";
 import serveStatic from "serve-static";
 import compression from "compression";
+import Cache from "./utils/Cache.js";
+
 const __dirname = path.resolve();
+
+const cache = new Cache();
 
 const isTest = process.env.NODE_ENV === "test" || !!process.env.VITE_TEST_BUILD;
 
@@ -59,28 +63,34 @@ async function createServer(
     try {
       const url = req.originalUrl;
 
-      let template, render;
-      if (!isProd) {
-        // always read fresh template in dev
-        template = fs.readFileSync(resolve("index.html"), "utf-8");
-        template = await viteServer.transformIndexHtml(url, template);
-        render = (await viteServer.ssrLoadModule("/src/entry-server.js"))
-          .render;
-      } else {
-        template = indexProd;
-        render = (await import("./dist/server/entry-server.js")).render;
+      var html = cache.get(url);
+
+      if (html == null || !isProd) {
+        let template, render;
+        if (!isProd) {
+          // always read fresh template in dev
+          template = fs.readFileSync(resolve("index.html"), "utf-8");
+          template = await viteServer.transformIndexHtml(url, template);
+          render = (await viteServer.ssrLoadModule("/src/entry-server.js"))
+            .render;
+        } else {
+          template = indexProd;
+          render = (await import("./dist/server/entry-server.js")).render;
+        }
+
+        var [appHtml, preloadLinks, teleports, renderState] = await render(
+          url,
+          manifest
+        );
+
+        html = template
+          .replace(`<!--tele-ports-->`, teleports.head)
+          .replace(`<!--preload-links-->`, preloadLinks)
+          .replace(`<!--app-store-->`, renderState)
+          .replace(`<!--app-html-->`, appHtml);
+
+        cache.put(url, html);
       }
-
-      var [appHtml, preloadLinks, teleports, renderState] = await render(
-        url,
-        manifest
-      );
-
-      const html = template
-        .replace(`<!--tele-ports-->`, teleports.head)
-        .replace(`<!--preload-links-->`, preloadLinks)
-        .replace(`<!--app-store-->`, renderState)
-        .replace(`<!--app-html-->`, appHtml);
 
       res.status(200).set({ "Content-Type": "text/html" }).end(html);
     } catch (e) {
