@@ -45,10 +45,9 @@
             </div>
             <div class="flex-button">
               <div class="text-center">
-                <a
+                <router-link
                   class="v2-button v2-normal-3-text"
-                  :href="contactURL"
-                  target="_blank"
+                  :to="contactURL"
                 >
                   <span>Let's talk</span>
                   <font-awesome-icon
@@ -56,7 +55,7 @@
                     icon="arrow-right"
                     id="leftArrow"
                   />
-                </a>
+                </router-link>
                 <small class="v2-canopas-gradient-text pt-1">
                   100% MONEY BACK GUARANTEE
                 </small>

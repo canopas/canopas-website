@@ -9,25 +9,25 @@
       <div class="communication">
         <div class="item px-4 py-3">
           <div class="v2-normal-3-text">I love talking.</div>
-          <a class="gradient-btn cta-button" :href="contactURL">
+          <router-link class="gradient-btn cta-button" :to="contactURL">
             <font-awesome-icon
               class="fa v2-title-3-text"
               icon="phone"
               aria-hidden="true"
             />
             <span class="v2-normal-3-text">Schedule a call</span>
-          </a>
+          </router-link>
         </div>
         <div class="item px-4 py-3">
           <div class="v2-normal-3-text">I prefer mail.</div>
-          <a class="gradient-btn cta-button" :href="contactURL">
+          <router-link class="gradient-btn cta-button" :to="contactURL">
             <font-awesome-icon
               class="fa v2-title-3-text"
               icon="paper-plane"
               aria-hidden="true"
             />
             <span class="v2-normal-3-text">Drop a mail</span>
-          </a>
+          </router-link>
         </div>
       </div>
       <div

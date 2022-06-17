@@ -35,18 +35,14 @@
 
         <div class="flex-button pt-5">
           <div class="text-center">
-            <a
-              class="v2-button v2-normal-3-text"
-              :href="contactURL"
-              target="_blank"
-            >
+            <router-link class="v2-button v2-normal-3-text" :to="contactURL">
               <span>Start your free trial</span>
               <font-awesome-icon
                 class="arrow fa"
                 icon="arrow-right"
                 id="leftArrow"
               />
-            </a>
+            </router-link>
           </div>
         </div>
       </div>

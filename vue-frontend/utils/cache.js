@@ -1,7 +1,7 @@
 class Cache {
   constructor(config) {
     config = config || {};
-    config.ttl = config.ttl || 1 * 3600;
+    config.ttl = config.ttl || 10 * 60; // default 10 minutes
 
     var data = {};
     var self = this;
