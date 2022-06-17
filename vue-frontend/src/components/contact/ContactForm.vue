@@ -324,7 +324,7 @@ export default {
 
 <style lang="postcss" scoped>
 .container {
-  @apply -tw-mt-16;
+  @apply -tw-mt-16 tw-mb-24;
 }
 
 .information-detail {

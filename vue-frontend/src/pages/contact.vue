@@ -6,13 +6,13 @@
       <ContactLanding />
       <ContactForm v-on:isLoading="setLoader" />
     </div>
-    <CTASection />
+    <ScreenFooterV2 />
   </div>
 </template>
 
 <script>
 import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
-import CTASection from "@/components/home-new/CTASection.vue";
+import ScreenFooterV2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import ContactLanding from "@/components/contact/ContactLanding.vue";
 import ContactForm from "@/components/contact/ContactForm.vue";
@@ -40,7 +40,7 @@ export default {
   components: {
     ScreenHeaderV2,
     ScreenLoader,
-    CTASection,
+    ScreenFooterV2,
     ContactLanding,
     ContactForm,
   },
