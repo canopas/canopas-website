@@ -363,7 +363,7 @@ export default {
   methods: {
     async setJob() {
       if (this.job == null || this.job.id != this.id) {
-        await this.getCareerDetails(true);
+        await this.getCareerDetails();
       }
       this.setCareerDetails();
     },

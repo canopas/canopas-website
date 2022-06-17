@@ -116,7 +116,7 @@ export default {
     }),
   },
   async serverPrefetch() {
-    await this.getCareerDetails(false);
+    await this.getCareerDetails();
   },
   mounted() {
     this.setJob();
@@ -125,11 +125,11 @@ export default {
   methods: {
     async setJob() {
       if (this.job == null || this.job.id != this.id) {
-        await this.getCareerDetails(true);
+        await this.getCareerDetails();
       }
       this.setCareerDetails();
     },
-    async getCareerDetails(setDetails) {
+    async getCareerDetails() {
       var req = {
         jobId: this.id,
         href: this.$route.href,
@@ -140,10 +140,6 @@ export default {
         this.setMetaProperties();
       } catch (e) {
         // Already handled in store
-      }
-
-      if (setDetails) {
-        this.setCareerDetails();
       }
     },
     setCareerDetails() {

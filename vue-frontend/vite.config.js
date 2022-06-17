@@ -41,7 +41,11 @@ export default defineConfig({
   },
   plugins: [
     vuePlugin(),
-    Pages(),
+    Pages({
+      importMode() {
+        return "sync";
+      },
+    }),
     vueJsx(),
     {
       name: "fix-swipper-css",
