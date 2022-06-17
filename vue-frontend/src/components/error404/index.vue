@@ -10,13 +10,10 @@
       <div class="middle-text">
         The page you’re looking for was moved, renamed or might never existed.
       </div>
-      <a
-        class="back-btn gradient-border-btn"
-        onclick="window.location.replace('/')"
-      >
+      <router-link class="back-btn gradient-border-btn" to="/">
         <font-awesome-icon class="arrow" icon="arrow-left" id="leftArrow" />
         <span class="canopas-gradient-text">Back to Home page</span>
-      </a>
+      </router-link>
     </div>
     <ScreenFooter2 />
   </div>

@@ -350,12 +350,7 @@ export default {
     await this.getCareerDetails();
   },
   mounted() {
-    if (this.job == null) {
-      this.getCareerDetails();
-      this.setCareerDetails();
-    } else {
-      this.setCareerDetails();
-    }
+    this.setJob();
     this.$gtag.event("view_page_job_apply");
     document.addEventListener("click", this.referenceList);
   },
@@ -366,28 +361,38 @@ export default {
     }),
   },
   methods: {
+    async setJob() {
+      if (this.job == null || this.job.id != this.id) {
+        await this.getCareerDetails();
+      }
+      this.setCareerDetails();
+    },
     async getCareerDetails() {
       var req = {
         jobId: this.id,
         href: this.$route.href,
       };
-      await store.dispatch("getJobsById", req);
-      if (this.jobsError == null) {
+      try {
+        await store.dispatch("getJobsById", req);
         this.setMetaProperties();
+      } catch (e) {
+        // Already handled in store
       }
     },
     setCareerDetails() {
-      this.isLoading = false;
       if (this.jobsError != null) {
         var err = this.jobsError;
-        if (err && err.status == 404) {
+        if (err && err.response && err.response.status == 404) {
           this.$router.push({
             name: "Error404Page",
             params: { pathMatch: ["jobs", "apply", this.id] },
           });
         } else {
           this.showErrorMessagePopup = true;
+          this.isLoading = false;
         }
+      } else {
+        this.isLoading = false;
       }
     },
     setMetaProperties() {

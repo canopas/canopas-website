@@ -64,9 +64,9 @@
               </div>
 
               <div class="read-apply-btns">
-                <a
+                <router-link
                   class="gradient-border-btn"
-                  :href="'jobs/' + career.unique_id"
+                  :to="'/jobs/' + career.unique_id"
                 >
                   <font-awesome-icon
                     class="fa gradient-icon"
@@ -75,10 +75,11 @@
                     aria-hidden="true"
                   />
                   <span>Read More</span>
-                </a>
-                <a
+                </router-link>
+
+                <router-link
                   class="gradient-btn"
-                  :href="'jobs/apply/' + career.unique_id"
+                  :to="'/jobs/apply/' + career.unique_id"
                 >
                   <font-awesome-icon
                     class="fa"
@@ -86,7 +87,7 @@
                     aria-hidden="true"
                   />
                   <span>Apply Now</span>
-                </a>
+                </router-link>
               </div>
             </div>
           </collapse-transition>

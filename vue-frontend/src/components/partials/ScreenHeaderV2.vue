@@ -9,7 +9,7 @@
       ref="mainHeader"
     >
       <div class="container">
-        <a href="/" replace>
+        <router-link to="/" replace>
           <div class="navbar-brand">
             <img
               :src="headerLogoImage"
@@ -17,7 +17,8 @@
               alt="canopas-logo"
             />
           </div>
-        </a>
+        </router-link>
+
         <div class="navbar-collapse">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li
@@ -25,7 +26,24 @@
               :key="navbar"
               class="my-2 nav-item-margin"
             >
+              <router-link
+                v-if="!navbar.target"
+                class="v2-normal-3-text"
+                :class="[
+                  navbar.className,
+                  currentRoutePath == '/portfolio/' + id ? 'hide-links' : '',
+                  currentRoutePath == navbar.url
+                    ? navbar.showContactBtn
+                      ? 'v2-button v2-button-active'
+                      : 'active-tab'
+                    : '',
+                ]"
+                :to="navbar.url"
+                >{{ navbar.name }}</router-link
+              >
+
               <a
+                v-else
                 class="v2-normal-3-text"
                 :class="[
                   navbar.className,
@@ -37,7 +55,7 @@
                     : '',
                 ]"
                 :href="navbar.url"
-                :target="navbar.target ? '_blank' : ''"
+                target="_blank"
                 >{{ navbar.name }}</a
               >
             </li>
