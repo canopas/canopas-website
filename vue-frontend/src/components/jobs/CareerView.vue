@@ -102,8 +102,38 @@
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import loader from "@/assets/images/theme/loader.svg";
-import store from "@/store";
-import { mapGetters } from "vuex";
+import { useJobListStore } from "@/stores";
+import { mapState } from "pinia";
+import { mapActions } from "pinia";
+
+import {
+  faApple,
+  faAndroid,
+  faNodeJs,
+  faGolang,
+  faVuejs,
+} from "@fortawesome/free-brands-svg-icons";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faGlobe,
+  faBullhorn,
+  faPenNib,
+  faUser,
+  faF,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(
+  faApple,
+  faAndroid,
+  faPenNib,
+  faGlobe,
+  faBullhorn,
+  faUser,
+  faF,
+  faNodeJs,
+  faGolang,
+  faVuejs
+);
 
 export default {
   data() {
@@ -112,7 +142,6 @@ export default {
       openList: true,
       previousIndex: 0,
       loader: loader,
-      isLoading: true,
     };
   },
   components: {
@@ -120,20 +149,21 @@ export default {
     FontAwesomeIcon,
   },
   async serverPrefetch() {
-    await store.dispatch("getJobs");
+    await this.loadJobs();
   },
   mounted() {
     if (this.careers == null) {
-      store.dispatch("getJobs");
+      this.loadJobs();
     }
   },
   computed: {
-    ...mapGetters({
-      careers: "jobs",
-      jobsError: "jobsError",
+    ...mapState(useJobListStore, {
+      careers: "items",
+      jobsError: "error",
     }),
   },
   methods: {
+    ...mapActions(useJobListStore, ["loadJobs"]),
     expandListItem(id, index) {
       if (this.previousIndex == id && this.openList) {
         this.openList = false;
