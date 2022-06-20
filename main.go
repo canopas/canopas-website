@@ -50,7 +50,7 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 
 	router.POST("/api/send-career-mail", jobsRepo.SendCareerMail)
 
-	router.GET("/sitemap", sitemapRepo.GenerateSitemap)
+	router.GET("/api/sitemap", sitemapRepo.GenerateSitemap)
 
 	router.GET("/api/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{

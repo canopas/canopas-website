@@ -5,7 +5,7 @@ set -e
 BASE_URL=$1
 BASE_API_URL=$2
 
-API_URL="$BASE_API_URL/sitemap?baseUrl=$BASE_URL"
+API_URL="$BASE_API_URL/api/sitemap?baseUrl=$BASE_URL"
 
 xml=$(curl -X GET --header "Accept: */*" $API_URL)
 

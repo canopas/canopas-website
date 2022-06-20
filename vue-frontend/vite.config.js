@@ -41,11 +41,7 @@ export default defineConfig({
   },
   plugins: [
     vuePlugin(),
-    Pages({
-      importMode() {
-        return "sync";
-      },
-    }),
+    Pages(),
     vueJsx(),
     {
       name: "fix-swipper-css",
@@ -109,7 +105,6 @@ export default defineConfig({
     },
   ],
   build: {
-    minify: false,
     rollupOptions: {
       output: {
         format: "es", // Transpile to ESM instead of CJS
