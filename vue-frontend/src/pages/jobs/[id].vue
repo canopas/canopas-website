@@ -142,6 +142,7 @@ export default {
       } else {
         this.jobLink = "/jobs/apply/" + this.job.unique_id;
         this.setMetaProperties();
+        this.setBulletsAndIconsInDescription();
       }
     },
     setMetaProperties() {
@@ -298,23 +299,23 @@ export default {
         path: `/jobs`,
       });
     },
-  },
-  updated() {
-    let descriptionTitles = document.querySelectorAll("#description > h2");
-    descriptionTitles.forEach((descriptionTitle) => {
-      let bullet = document.createElement("span");
-      bullet.className = "bullet";
-      descriptionTitle.prepend(bullet);
-    });
-    let descriptionLists = document.querySelectorAll(
-      "#description > ul > li > div"
-    );
-    descriptionLists.forEach((descriptionList) => {
-      let fa = document.createElement("span");
-      fa.className = "fas fa-chevron-right";
-      fa.innerHTML = "&nbsp;";
-      descriptionList.prepend(fa);
-    });
+    setBulletsAndIconsInDescription() {
+      let descriptionTitles = document.querySelectorAll("#description > h2");
+      descriptionTitles.forEach((descriptionTitle) => {
+        let bullet = document.createElement("span");
+        bullet.className = "bullet";
+        descriptionTitle.prepend(bullet);
+      });
+      let descriptionLists = document.querySelectorAll(
+        "#description > ul > li > div"
+      );
+      descriptionLists.forEach((descriptionList) => {
+        let fa = document.createElement("span");
+        fa.className = "fas fa-chevron-right";
+        fa.innerHTML = "&nbsp;";
+        descriptionList.prepend(fa);
+      });
+    },
   },
 };
 </script>
