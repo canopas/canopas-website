@@ -1,6 +1,5 @@
 import { createApp } from "./main";
 import { renderToString } from "vue/server-renderer";
-import serialize from "serialize-javascript";
 import { renderMetaToString } from "vue-meta/ssr";
 
 export async function render(url, manifest) {

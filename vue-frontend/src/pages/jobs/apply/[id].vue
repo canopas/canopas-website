@@ -1,7 +1,7 @@
 <template>
   <div>
     <ScreenHeaderV2 />
-    <ScreenLoader v-if="isLoading || this.job == null" />
+    <ScreenLoader v-if="isLoading || job == null" />
     <div v-else>
       <div class="container form-container">
         <div class="job-application">
