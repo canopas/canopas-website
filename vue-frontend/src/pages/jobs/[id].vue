@@ -69,8 +69,9 @@ import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { mapGetters } from "vuex";
-import store from "@/store";
+import { useJobDetailStore } from "@/stores/jobs";
+import { mapState } from "pinia";
+import { mapActions } from "pinia";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import moment from "moment";
@@ -98,7 +99,6 @@ export default {
     return {
       id: this.$route.params.id,
       checkCircle: faCheckCircle,
-      isLoading: true,
       showErrorMessagePopup: false,
       jobLink: "",
     };
@@ -109,40 +109,26 @@ export default {
     FontAwesomeIcon,
     ScreenLoader,
   },
+  async serverPrefetch() {
+    await this.setCareerDetails();
+  },
   computed: {
-    ...mapGetters({
-      job: "jobById",
-      jobsError: "jobsError",
+    ...mapState(useJobDetailStore, {
+      job: "item",
+      jobsError: "error",
+      isLoading: "isLoading",
     }),
   },
-  async serverPrefetch() {
-    await this.getCareerDetails();
-  },
   mounted() {
-    this.setJob();
+    this.setCareerDetails();
     this.$gtag.event("view_page_job_detail");
   },
-  methods: {
-    async setJob() {
-      if (this.job == null || this.job.id != this.id) {
-        await this.getCareerDetails();
-      }
-      this.setCareerDetails();
-    },
-    async getCareerDetails() {
-      var req = {
-        jobId: this.id,
-        href: this.$route.href,
-      };
 
-      try {
-        await store.dispatch("getJobsById", req);
-        this.setMetaProperties();
-      } catch (e) {
-        // Already handled in store
-      }
-    },
-    setCareerDetails() {
+  methods: {
+    ...mapActions(useJobDetailStore, ["loadJob"]),
+    async setCareerDetails() {
+      await this.loadJob(this.id, this.$route.href);
+
       if (this.jobsError != null) {
         var err = this.jobsError;
         if (err && err.response && err.response.status == 404) {
@@ -152,24 +138,22 @@ export default {
           });
         } else {
           this.showErrorMessagePopup = true;
-          this.isLoading = false;
         }
       } else {
         this.jobLink = "/jobs/apply/" + this.job.unique_id;
-        this.isLoading = false;
+        this.setMetaProperties();
       }
     },
     setMetaProperties() {
-      var seoMeta = this.job.seoData;
-      this.meta.title = seoMeta.title;
-      this.meta.description = seoMeta.description;
-      this.meta.og.title = seoMeta.title;
+      this.meta.title = this.job.seo_title;
+      this.meta.description = this.job.seo_description;
+      this.meta.og.title = this.job.seo_title;
       this.meta.og.url = config.BASE_URL + this.$route.href;
-      this.meta.script[0].innerHTML = JSON.stringify(this.JSONLDSchema());
+      this.meta.script[0].innerHTML = JSON.stringify(this.getJsonLdSchema());
     },
-    JSONLDSchema() {
+    getJsonLdSchema() {
       var career = this.job;
-      var dates = this.setJobDates();
+      var dates = this.getJobDates();
       return {
         "@context": "http://schema.org",
         "@type": "JobPosting",
@@ -287,7 +271,7 @@ export default {
       }
       return escapedHTML;
     },
-    setJobDates() {
+    getJobDates() {
       var maxDays = 15;
 
       // current month day
