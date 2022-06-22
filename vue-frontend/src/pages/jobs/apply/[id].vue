@@ -1,7 +1,7 @@
 <template>
   <div>
     <ScreenHeaderV2 />
-    <ScreenLoader v-if="isLoading" />
+    <ScreenLoader v-if="isLoading || this.job == null" />
     <div v-else>
       <div class="container form-container">
         <div class="job-application">
@@ -245,8 +245,9 @@ import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import axios from "axios";
 import config from "@/config.js";
-import store from "@/store";
-import { mapGetters } from "vuex";
+import { useJobDetailStore } from "@/stores/jobs";
+import { mapState } from "pinia";
+import { mapActions } from "pinia";
 import { useMeta } from "vue-meta";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import loaderImage from "@/assets/images/theme/small-loader.svg";
@@ -326,7 +327,6 @@ export default {
       referenceBy: "",
       message: "",
       file: "",
-      isLoading: true,
       isLoad: false,
       isShowingReferenceInput: false,
       showValidationError: false,
@@ -347,39 +347,25 @@ export default {
     ScreenLoader,
   },
   async serverPrefetch() {
-    await this.getCareerDetails();
+    await this.setCareerDetails();
   },
   mounted() {
-    this.setJob();
+    this.setCareerDetails();
     this.$gtag.event("view_page_job_apply");
     document.addEventListener("click", this.referenceList);
   },
   computed: {
-    ...mapGetters({
-      job: "jobById",
-      jobsError: "jobsError",
+    ...mapState(useJobDetailStore, {
+      job: "item",
+      jobsError: "error",
+      isLoading: "isLoading",
     }),
   },
   methods: {
-    async setJob() {
-      if (this.job == null || this.job.id != this.id) {
-        await this.getCareerDetails();
-      }
-      this.setCareerDetails();
-    },
-    async getCareerDetails() {
-      var req = {
-        jobId: this.id,
-        href: this.$route.href,
-      };
-      try {
-        await store.dispatch("getJobsById", req);
-        this.setMetaProperties();
-      } catch (e) {
-        // Already handled in store
-      }
-    },
-    setCareerDetails() {
+    ...mapActions(useJobDetailStore, ["loadJob"]),
+    async setCareerDetails() {
+      await this.loadJob(this.id, this.$route.href);
+
       if (this.jobsError != null) {
         var err = this.jobsError;
         if (err && err.response && err.response.status == 404) {
@@ -389,17 +375,15 @@ export default {
           });
         } else {
           this.showErrorMessagePopup = true;
-          this.isLoading = false;
         }
       } else {
-        this.isLoading = false;
+        this.setMetaProperties();
       }
     },
     setMetaProperties() {
-      var seoMeta = this.job.seoData;
-      this.meta.title = seoMeta.title;
-      this.meta.description = seoMeta.description;
-      this.meta.og.title = seoMeta.title;
+      this.meta.title = this.job.apply_seo_title;
+      this.meta.description = this.job.apply_seo_description;
+      this.meta.og.title = this.job.apply_seo_title;
       this.meta.og.url = config.BASE_URL + this.$route.href;
     },
     referenceList(e) {
@@ -460,44 +444,42 @@ export default {
       this.$gtag.event("job_submit");
       this.showLoader = true;
       this.disableInput = false;
-      setTimeout(() => {
-        this.isLoad = true;
-        const formData = new FormData();
-        formData.append("job_title", this.job.title);
-        formData.append("name", this.fullName);
-        formData.append("email", this.email);
-        formData.append("phone", this.phoneNumber);
-        formData.append("place", this.city ? this.city : "NA");
-        formData.append(
-          "references",
-          this.reference &&
-            this.reference != "" &&
-            this.referenceBy &&
-            this.referenceBy != ""
-            ? this.reference + " - " + this.referenceBy
-            : this.reference && this.reference != ""
-            ? this.reference
-            : "NA"
-        );
-        formData.append("message", this.message ? this.message : "NA");
-        formData.append("file", this.file, this.file.name);
+      this.isLoad = true;
+      const formData = new FormData();
+      formData.append("job_title", this.job.title);
+      formData.append("name", this.fullName);
+      formData.append("email", this.email);
+      formData.append("phone", this.phoneNumber);
+      formData.append("place", this.city ? this.city : "NA");
+      formData.append(
+        "references",
+        this.reference &&
+          this.reference != "" &&
+          this.referenceBy &&
+          this.referenceBy != ""
+          ? this.reference + " - " + this.referenceBy
+          : this.reference && this.reference != ""
+          ? this.reference
+          : "NA"
+      );
+      formData.append("message", this.message ? this.message : "NA");
+      formData.append("file", this.file, this.file.name);
 
-        axios
-          .post(config.API_BASE + "/api/send-career-mail", formData)
-          .then(() => {
-            this.isLoad = false;
-            this.showLoader = false;
-            this.showSuccessMessagePopup = true;
-            setTimeout(() => {
-              this.$router.push("/jobs");
-            }, 2000);
-          })
-          .catch(() => {
-            this.isLoad = false;
-            this.showLoader = false;
-            this.showErrorMessagePopup = true;
-          });
-      }, 1000);
+      axios
+        .post(config.API_BASE + "/api/send-career-mail", formData)
+        .then(() => {
+          this.isLoad = false;
+          this.showLoader = false;
+          this.showSuccessMessagePopup = true;
+          setTimeout(() => {
+            this.$router.push("/jobs");
+          }, 2000);
+        })
+        .catch(() => {
+          this.isLoad = false;
+          this.showLoader = false;
+          this.showErrorMessagePopup = true;
+        });
     },
   },
 };

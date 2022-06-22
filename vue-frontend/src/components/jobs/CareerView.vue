@@ -102,7 +102,7 @@
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import loader from "@/assets/images/theme/loader.svg";
-import { useJobListStore } from "@/stores";
+import { useJobListStore } from "@/stores/jobs";
 import { mapState } from "pinia";
 import { mapActions } from "pinia";
 
@@ -152,9 +152,7 @@ export default {
     await this.loadJobs();
   },
   mounted() {
-    if (this.careers == null) {
-      this.loadJobs();
-    }
+    this.loadJobs();
   },
   computed: {
     ...mapState(useJobListStore, {
