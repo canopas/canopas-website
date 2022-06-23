@@ -3,65 +3,67 @@
     <form>
       <div class="information-detail">
         <div class="information-pd">
-          <div class="tw-pt-5">
-            <input
-              class="custom-text-input v2-title-2-text"
-              type="text"
-              name="username"
-              required
-              autocomplete="given-username"
-              v-model="name"
-              :disabled="disableInput"
-              placeholder="Your name"
-            />
-            <span v-if="showValidationError" class="error tw-text-red-600"
-              >This field is required</span
-            >
-          </div>
-          <div class="tw-pt-5 lg:tw-pt-14">
-            <input
-              class="custom-text-input v2-title-2-text"
-              type="text"
-              name="email"
-              required
-              autocomplete="given-email"
-              v-model="email"
-              :disabled="disableInput"
-              placeholder="Your email"
-            />
-            <span v-if="showValidationError" class="error tw-text-red-600"
-              >This field is required</span
-            >
-          </div>
-          <div class="tw-pt-5 lg:tw-pt-14">
-            <textarea
-              class="custom-text-input v2-title-2-text"
-              name="project"
-              rows="1"
-              autocomplete="given-project-info"
-              v-model="projectInfo"
-              :disabled="disableInput"
-              placeholder="Tell us about your project"
-            ></textarea>
-          </div>
-          <div class="tw-pt-5 lg:tw-pt-10">
-            <input
-              class="custom-text-input v2-title-2-text"
-              type="text"
-              name="reference"
-              required
-              autocomplete="given-reference"
-              v-model="reference"
-              :disabled="disableInput"
-              placeholder="How did you find us?"
-            />
-            <span v-if="showValidationError" class="error tw-text-red-600"
-              >This field is required</span
-            >
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 tw-pt-5">
+              <input
+                class="custom-text-input v2-normal-text"
+                type="text"
+                name="username"
+                required
+                autocomplete="given-username"
+                v-model="name"
+                :disabled="disableInput"
+                placeholder="Your name"
+              />
+              <span v-if="showValidationError" class="error tw-text-red-600"
+                >This field is required</span
+              >
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 tw-pt-5">
+              <input
+                class="custom-text-input v2-normal-text"
+                type="text"
+                name="email"
+                required
+                autocomplete="given-email"
+                v-model="email"
+                :disabled="disableInput"
+                placeholder="Your email"
+              />
+              <span v-if="showValidationError" class="error tw-text-red-600"
+                >This field is required</span
+              >
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 tw-pt-5 lg:tw-pt-14">
+              <textarea
+                class="custom-text-input v2-normal-text"
+                name="project"
+                rows="1"
+                autocomplete="given-project-info"
+                v-model="projectInfo"
+                :disabled="disableInput"
+                placeholder="Tell us about your project"
+              ></textarea>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 tw-pt-5 lg:tw-pt-10">
+              <input
+                class="custom-text-input v2-normal-text"
+                type="text"
+                name="reference"
+                required
+                autocomplete="given-reference"
+                v-model="reference"
+                :disabled="disableInput"
+                placeholder="How did you find us?"
+              />
+              <span v-if="showValidationError" class="error tw-text-red-600"
+                >This field is required</span
+              >
+            </div>
           </div>
 
-          <div class="tw-py-16">
-            <div class="tw-text-slate-400 v2-title-2-text">
+          <div class="tw-py-10 lg:tw-pt-16">
+            <div class="tw-text-slate-400 v2-normal-text">
               What's your preferred mode of communication?
             </div>
             <div class="tw-flex tw-flex-col tw-w-fit sm:tw-flex-row tw-pt-6">
@@ -109,7 +111,9 @@
             <img :src="loaderImage" />
           </div>
           <div v-else>
-            <div class="tw-py-5 lg:tw-py-16 v2-normal-3-text">
+            <div
+              class="tw-py-5 lg:tw-py-8 v2-normal-3-text tw-flex tw-justify-center"
+            >
               <button
                 v-if="contactType == 1"
                 class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
@@ -369,7 +373,7 @@ export default {
 }
 
 .gradient-btn {
-  @apply tw-w-56 tw-px-0;
+  @apply tw-w-80 tw-px-0;
 }
 
 input:-webkit-autofill,
