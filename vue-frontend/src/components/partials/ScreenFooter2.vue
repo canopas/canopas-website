@@ -1,10 +1,16 @@
 <template>
   <div class="container-fluid">
-    <img :src="backgroundFooterImage" class="background" />
+    <img
+      src="@/assets/images/footer/Canopas-footer-img.svg"
+      class="background"
+    />
     <div class="container text-center">
       <div class="container-flex" v-if="isJobsUrl">
         <a :href="glassdoorLink">
-          <img :src="glassdoorImage" class="glassdoor-img" />
+          <img
+            src="@/assets/images/footer/glassdoor.webp"
+            class="glassdoor-img"
+          />
         </a>
       </div>
       <div class="container-flex">
@@ -47,15 +53,11 @@ import {
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
 
-import backgroundFooterImage from "@/assets/images/footer/Canopas-footer-img.svg";
-import glassdoorImage from "@/assets/images/footer/glassdoor.webp";
 import Config from "@/config.js";
 
 export default {
   data() {
     return {
-      backgroundFooterImage: backgroundFooterImage,
-      glassdoorImage: glassdoorImage,
       glassdoorLink:
         "https://www.glassdoor.co.in/Overview/Working-at-Canopas-EI_IE3194462.11,18.htm",
       copyrightIcon: faCopyright,

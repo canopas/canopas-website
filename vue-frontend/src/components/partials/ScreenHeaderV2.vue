@@ -12,7 +12,7 @@
         <router-link to="/" replace>
           <div class="navbar-brand">
             <img
-              :src="headerLogoImage"
+              src="@/assets/images/logo/logo-header.svg"
               class="header-logo-image mt-1"
               alt="canopas-logo"
             />
@@ -67,14 +67,12 @@
 </template>
 
 <script type="module">
-import headerLogoImage from "@/assets/images/logo/logo-header.svg";
 import Config from "@/config.js";
 
 export default {
   data() {
     return {
       id: this.$route.params.id,
-      headerLogoImage: headerLogoImage,
       navbarSticky: false,
       navbarAnimation: false,
       navContainerHeight: 133,
@@ -99,14 +97,6 @@ export default {
           className: "nav-link is-animation-tab",
           target: true,
         },
-        // {
-        //   name: "Portfolio",
-        //   url: "",
-        //   className: "nav-link is-animation-tab",
-        //   target: false,
-        //   isActive: false,
-        // },
-
         {
           name: "Let's talk",
           url: "/contact",
