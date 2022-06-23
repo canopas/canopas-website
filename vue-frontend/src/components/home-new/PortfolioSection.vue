@@ -42,11 +42,10 @@
 </template>
 
 <script type="module">
-import luxeradio from "@/assets/images/portfolio/luxeradio.png";
-import mobileLuxeradio from "@/assets/images/portfolio/mobile-luxeradio.png";
-import noLonely from "@/assets/images/portfolio/noLonely.png";
-import smilePlue from "@/assets/images/portfolio/smilePlus.png";
-import togness from "@/assets/images/portfolio/togness.png";
+import luxeradio from "@/assets/images/portfolio/luxeradio.webp";
+import noLonely from "@/assets/images/portfolio/noLonely.webp";
+import smilePlue from "@/assets/images/portfolio/smilePlus.webp";
+import togness from "@/assets/images/portfolio/togness.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import config from "@/config.js";
 
