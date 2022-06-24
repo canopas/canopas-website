@@ -15,13 +15,19 @@
 
     <div class="container">
       <div class="flex-div">
-        <div class="image">
+        <picture class="image">
+          <source
+            srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+            media="(max-width: 992px)"
+          />
           <img
             class="landing-image"
-            :src="landingViewImage"
+            :src="landingImages[2]"
+            :srcset="`${landingImages[0]} 400w, ${landingImages[1]} 800w, ${landingImages[2]} 1200w`"
+            sizes="33vw"
             alt="landing-view-image"
           />
-        </div>
+        </picture>
         <div class="flex-detail">
           <div class="description">
             <div class="title-div v2-header-3-text">
@@ -68,13 +74,15 @@
   </div>
 </template>
 <script type="module">
-import landingViewImage from "@/assets/images/Landing/landingImage.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import landingImage1x from "@/assets/images/Landing/landing-image-400w.webp";
+import landingImage2x from "@/assets/images/Landing/landing-image-800w.webp";
+import landingImage3x from "@/assets/images/Landing/landing-image-1200w.webp";
 
 export default {
   data() {
     return {
-      landingViewImage: landingViewImage,
+      landingImages: [landingImage1x, landingImage2x, landingImage3x],
       contactURL: "/contact",
       animationWords: [
         { name: "Entrepreneurs ", isActive: true },
