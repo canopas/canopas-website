@@ -5,6 +5,7 @@
       <LandingSection v-bind:response="details.landing" />
       <VideoSection v-bind:response="details.video" />
       <DesignSection v-bind:response="details.design" />
+      <ElementSection v-bind:response="details.element" />
     </div>
   </div>
 </template>
@@ -14,6 +15,7 @@ import Header from "@/components/partials/ScreenHeaderV2.vue";
 import LandingSection from "@/components/portfolio/LandingSection.vue";
 import VideoSection from "@/components/portfolio/VideoSection.vue";
 import DesignSection from "@/components/portfolio/DesignSection.vue";
+import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/luxeradio-data.js";
 
 export default {
@@ -39,11 +41,12 @@ export default {
     LandingSection,
     VideoSection,
     DesignSection,
+    ElementSection,
   },
 };
 </script>
 
-<style scoped>
+<style lang="postcss" scoped>
 .parallax {
   height: 100vh;
   overflow: hidden;

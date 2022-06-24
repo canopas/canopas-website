@@ -11,6 +11,7 @@ import design2 from "@/assets/images/portfolio/luxeradio/design/luxeradio_design
 import element1 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_1.png";
 import element2 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_2.png";
 import element3 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_3.png";
+import elementVideo from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_video.mp4";
 import footerBackgroundImage from "@/assets/images/portfolio/luxeradio/footer_background.png";
 
 export default {
@@ -81,27 +82,37 @@ export default {
       },
     ],
     element: {
-      title: "Every element made with love",
-      detail: [
-        {
-          image: "",
-          title:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-        {
-          image: element1,
-          title: "",
-        },
-        {
-          image: element2,
-          title: "",
-        },
-        {
-          image: element3,
-          title:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-        },
-      ],
+      title: `Every <span class="border-text">element</span><br/> made with love`,
+      detail: {
+        firstDetail: [
+          {
+            background:
+              "linear-gradient(135.4deg, #101010 -0.02%, #B0DDFF 125.66%);",
+            aspectRatio: "100%",
+            video: elementVideo,
+            title:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          },
+          {
+            aspectRatio: "140%",
+            image: element1,
+            title: "",
+          },
+        ],
+        secondDetail: [
+          {
+            aspectRatio: "100%",
+            image: element3,
+            title: "",
+          },
+          {
+            aspectRatio: "140%",
+            image: element2,
+            title:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          },
+        ],
+      },
     },
 
     footer: { backgroundImage: footerBackgroundImage },
