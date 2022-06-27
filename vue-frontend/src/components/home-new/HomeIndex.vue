@@ -25,11 +25,16 @@ import Portfolio from "@/components/home-new/PortfolioSection.vue";
 import ProblemSolution from "@/components/home-new/ProblemSolution.vue";
 import ClientReview from "@/components/home-new/ClientReview.vue";
 import WithCanopas from "@/components/home-new/WithCanopas.vue";
-import UserReview from "@/components/home-new/UserReview.vue";
 import CTA from "@/components/home-new/CTASection.vue";
 import Blog from "@/components/home-new/BlogSection.vue";
 import Contribute from "@/components/home-new/ContributeSection.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+
+// Load User review async as it's a heavy component
+import { defineAsyncComponent } from "vue";
+const UserReview = defineAsyncComponent(() =>
+  import("@/components/home-new/UserReview.vue")
+);
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPhone, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
