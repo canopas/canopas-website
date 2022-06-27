@@ -34,7 +34,7 @@
       >
         <div class="v2-title-2-text tw-font-bold">{{ response[1].title }}</div>
         <div class="description tw-w-4/5">
-          <div class="v2-normal-2-text tw-font-light">
+          <div class="v2-normal-text tw-font-light">
             {{ response[1].description }}
           </div>
         </div>
