@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="isShowReferenceOption = false">
     <ScreenHeaderV2 />
     <ScreenLoader v-if="isLoading || job == null" />
     <div v-else>
@@ -78,7 +78,13 @@
 
               <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
                 <label class="">How did you find Canopas?</label>
-                <div class="reference-option-list" ref="referenceList">
+                <div
+                  class="reference-option-list"
+                  v-on:click.stop="
+                    isShowReferenceOption = !isShowReferenceOption
+                  "
+                  :class="isShowReferenceOption ? 'active' : ''"
+                >
                   <div>
                     <input
                       name="howdidyoufindcanopas"
@@ -338,6 +344,7 @@ export default {
       disableInput: false,
       showLoader: false,
       loaderImage: loaderImage,
+      isShowReferenceOption: false,
     };
   },
   components: {
@@ -352,7 +359,6 @@ export default {
   mounted() {
     this.setCareerDetails();
     this.$gtag.event("view_page_job_apply");
-    document.addEventListener("click", this.referenceList);
   },
   computed: {
     ...mapState(useJobDetailStore, {
@@ -385,14 +391,6 @@ export default {
       this.meta.description = this.job.apply_seo_description;
       this.meta.og.title = this.job.apply_seo_title;
       this.meta.og.url = config.BASE_URL + this.$route.href;
-    },
-    referenceList(e) {
-      var target = e.target;
-      if (target.id === "reference-option-text") {
-        this.$refs.referenceList.classList.toggle("active");
-      } else {
-        this.$refs.referenceList.classList.remove("active");
-      }
     },
     showOptions(reference) {
       this.reference = reference.option;
