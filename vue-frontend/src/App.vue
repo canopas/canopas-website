@@ -50,6 +50,7 @@ export default {
   font-family: "FuturaLT-Bold";
   font-style: bold;
   font-weight: 700;
+  font-display: swap;
   src: url(./assets/fonts/FuturaLT-Bold.woff2);
 }
 
