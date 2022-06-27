@@ -1,6 +1,6 @@
 <template>
   <div class="pb-32">
-    <div class="container normal-text text-center">
+    <div class="life-container normal-text text-center">
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Life a</span>t Canopas
       </div>
@@ -56,8 +56,6 @@
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper.css";
-import "swiper.css.pagination";
 
 import life1 from "@/assets/images/life/jobs_canopas_life_1.jpg";
 import life2 from "@/assets/images/life/jobs_canopas_life_2.jpg";
@@ -141,8 +139,11 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.container {
+<style lang="scss">
+@import "swiper/css";
+@import "swiper/css/pagination";
+
+.life-container {
   padding: 50px 20px 30px;
 }
 
@@ -169,7 +170,7 @@ export default {
 }
 
 @include media-breakpoint-up(md) {
-  .container {
+  .life-container {
     padding: 100px 50px 50px;
   }
   .description {
@@ -178,7 +179,7 @@ export default {
 }
 
 @include media-breakpoint-up(lg) {
-  .container {
+  .life-container {
     padding-top: 150px;
   }
 }
