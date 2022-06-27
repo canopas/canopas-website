@@ -75,14 +75,15 @@
 </template>
 <script type="module">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import landingImage1x from "@/assets/images/Landing/landing-image-400w.webp";
-import landingImage2x from "@/assets/images/Landing/landing-image-800w.webp";
-import landingImage3x from "@/assets/images/Landing/landing-image-1200w.webp";
+
+import landing400w from "@/assets/images/Landing/landing-image-400w.webp";
+import landing800w from "@/assets/images/Landing/landing-image-800w.webp";
+import landing1200w from "@/assets/images/Landing/landing-image-1200w.webp";
 
 export default {
   data() {
     return {
-      landingImages: [landingImage1x, landingImage2x, landingImage3x],
+      landingImages: [landing400w, landing800w, landing1200w],
       contactURL: "/contact",
       animationWords: [
         { name: "Entrepreneurs ", isActive: true },

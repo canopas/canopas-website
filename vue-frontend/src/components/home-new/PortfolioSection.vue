@@ -9,7 +9,9 @@
       >
         <div class="image-div">
           <img
-            :src="portfolio.image"
+            :src="portfolio.images[3]"
+            :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w, ${portfolio.images[2]} 1200w, ${portfolio.images[3]} 1600w`"
+            sizes="(min-width: 992px) 45vw, 100vw"
             class="portfolio-image"
             loading="lazy"
             :alt="portfolio.title + `-image`"
@@ -42,10 +44,26 @@
 </template>
 
 <script type="module">
-import luxeradio from "@/assets/images/portfolio/luxeradio.webp";
-import noLonely from "@/assets/images/portfolio/noLonely.webp";
-import smilePlue from "@/assets/images/portfolio/smilePlus.webp";
-import togness from "@/assets/images/portfolio/togness.webp";
+import luxeradio400w from "@/assets/images/portfolio/luxeradio-400w.webp";
+import luxeradio800w from "@/assets/images/portfolio/luxeradio-800w.webp";
+import luxeradio1200w from "@/assets/images/portfolio/luxeradio-1200w.webp";
+import luxeradio16000w from "@/assets/images/portfolio/luxeradio-1600w.webp";
+
+import smilep400w from "@/assets/images/portfolio/smilep-400w.webp";
+import smilep800w from "@/assets/images/portfolio/smilep-800w.webp";
+import smilep1200w from "@/assets/images/portfolio/smilep-1200w.webp";
+import smilep16000w from "@/assets/images/portfolio/smilep-1600w.webp";
+
+import nolonely400w from "@/assets/images/portfolio/nolonely-400w.webp";
+import nolonely800w from "@/assets/images/portfolio/nolonely-800w.webp";
+import nolonely1200w from "@/assets/images/portfolio/nolonely-1200w.webp";
+import nolonely16000w from "@/assets/images/portfolio/nolonely-1600w.webp";
+
+import togness400w from "@/assets/images/portfolio/togness-400w.webp";
+import togness800w from "@/assets/images/portfolio/togness-800w.webp";
+import togness1200w from "@/assets/images/portfolio/togness-1200w.webp";
+import togness16000w from "@/assets/images/portfolio/togness-1600w.webp";
+
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import config from "@/config.js";
 
@@ -54,7 +72,12 @@ export default {
     return {
       portfolios: [
         {
-          image: luxeradio,
+          images: [
+            luxeradio400w,
+            luxeradio800w,
+            luxeradio1200w,
+            luxeradio16000w,
+          ],
           title: "Luxeradio",
           detail:
             "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
@@ -63,21 +86,21 @@ export default {
             : config.LUXERADIO_URL,
         },
         {
-          image: smilePlue,
+          images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
           title: "Smile+",
           detail:
             "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
           link: config.SMILEPLUS_URL,
         },
         {
-          image: noLonely,
+          images: [nolonely400w, nolonely800w, nolonely1200w, nolonely16000w],
           title: "NoLonely",
           detail:
             "NoLonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
           link: config.NOLONELY_URL,
         },
         {
-          image: togness,
+          images: [togness400w, togness800w, togness1200w, togness16000w],
           title: "Togness",
           aspectRatio: "55%",
           detail:
