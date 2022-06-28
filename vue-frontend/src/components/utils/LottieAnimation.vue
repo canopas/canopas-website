@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import lottie from "lottie-web";
+import lottie from "lottie-web/build/player/lottie_light.js";
 
 export default {
   props: {
@@ -39,10 +39,7 @@ export default {
   data: () => ({
     name: "lottie-animation",
     rendererSettings: {
-      scaleMode: "centerCrop",
-      clearCanvas: true,
-      progressiveLoad: false,
-      hideOnTransparent: true,
+      progressiveLoad: true,
     },
     anim: null,
   }),

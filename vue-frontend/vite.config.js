@@ -35,7 +35,6 @@ export default defineConfig({
   },
   plugins: [vuePlugin(), Pages()],
   build: {
-    transpile: ["swiper"],
     rollupOptions: {
       output: {
         format: "es", // Transpile to ESM instead of CJS
