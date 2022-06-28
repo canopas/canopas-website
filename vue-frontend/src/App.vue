@@ -239,11 +239,11 @@ a {
   text-align: center;
   border: 1px solid #3d3d3d;
   background-color: #fff;
-  color: #3d3d3d !important;
+  color: #3d3d3d;
 }
 
 .v2-button > span {
-  margin-right: 6px;
+  margin-right: 10px;
 }
 
 @media (hover: hover) and (pointer: fine) {
