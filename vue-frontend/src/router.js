@@ -4,7 +4,7 @@ import {
   createWebHistory,
 } from "vue-router";
 
-import Error404Page from "@/components/error404/index.vue";
+const Error404Page = () => import("@/components/error404/index.vue");
 import routes from "~pages";
 
 routes.push({

@@ -39,10 +39,7 @@ export default {
   data: () => ({
     name: "lottie-animation",
     rendererSettings: {
-      scaleMode: "centerCrop",
-      clearCanvas: true,
-      progressiveLoad: false,
-      hideOnTransparent: true,
+      progressiveLoad: true,
     },
     anim: null,
   }),
