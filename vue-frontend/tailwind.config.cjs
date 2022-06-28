@@ -48,6 +48,30 @@ module.exports = {
       },
       lineHeight: {
         11: "2.75rem",
+        17: "4.25rem",
+        23: "5.75rem",
+      },
+      keyframes: {
+        zoomIn: {
+          "0%": { transform: "scale(0, 0);" },
+          "50%": { transform: "scale(1, 1);" },
+          "100%": { transform: "scale(0, 0);" },
+        },
+        zoomOut: {
+          "0%": { transform: "scale(1, 1);" },
+          "50%": { transform: "scale(0, 0);" },
+          "100%": { transform: "scale(1, 1);" },
+        },
+        typingErase: {
+          "0%": { width: "0;" },
+          "50%,60%": { width: "100%;" },
+          "95%,100%": { width: "0;" },
+        },
+      },
+      animation: {
+        zoomIn: "zoomIn 4s ease-in infinite",
+        zoomOut: "zoomOut 4s ease-in infinite",
+        typingErase: "typingErase 4s steps(40, end) infinite",
       },
     },
     plugins: [],
