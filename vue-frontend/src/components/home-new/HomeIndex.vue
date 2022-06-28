@@ -18,8 +18,6 @@
 </template>
 
 <script>
-import { defineAsyncComponent } from "vue";
-
 import ScreenHeader from "@/components/partials/ScreenHeaderV2.vue";
 import LandingSection from "@/components/home-new/LandingSection.vue";
 import CanopasDescription from "@/components/home-new/CanopasDescription.vue";
@@ -31,6 +29,7 @@ import CTA from "@/components/home-new/CTASection.vue";
 import Blog from "@/components/home-new/BlogSection.vue";
 import Contribute from "@/components/home-new/ContributeSection.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+import UserReview from "@/components/home-new/UserReview.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPhone, faPaperPlane } from "@fortawesome/free-solid-svg-icons";
@@ -46,9 +45,7 @@ export default {
     ProblemSolution,
     WithCanopas,
     ClientReview,
-    UserReview: defineAsyncComponent(() =>
-      import("@/components/home-new/UserReview.vue")
-    ),
+    UserReview,
     CTA,
     Blog,
     Contribute,

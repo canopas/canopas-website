@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import lottie from "lottie-web";
+import lottie from "lottie-web/build/player/lottie_light.js";
 
 export default {
   props: {

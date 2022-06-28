@@ -7,7 +7,10 @@
       <span class="v2-canopas-gradient-text">user reviews </span>confirm it.
     </div>
 
-    <LottieAnimation :jsonData="backgroundImage" class="background-image" />
+    <div v-if="backgroundImage !== null">
+      <LottieAnimation :jsonData="backgroundImage" class="background-image" />
+    </div>
+
     <div class="pt-4">
       <div class="flex-div">
         <div
@@ -95,13 +98,12 @@
 
 <script type="module">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import backgroundImage from "@/assets/lottie/globe.json";
-import LottieAnimation from "@/components/utils/LottieAnimation.vue";
+import { defineAsyncComponent } from "vue";
 
 export default {
   data() {
     return {
-      backgroundImage: backgroundImage,
+      backgroundImage: null,
       usersReviews: [
         {
           id: 1,
@@ -152,7 +154,9 @@ export default {
   },
   components: {
     FontAwesomeIcon,
-    LottieAnimation,
+    LottieAnimation: defineAsyncComponent(() =>
+      import("@/components/utils/LottieAnimation.vue")
+    ),
   },
   mounted() {
     if (window.innerWidth >= 768 && window.innerWidth <= 992) {
@@ -160,6 +164,10 @@ export default {
     }
     if (window.innerWidth < 768) {
       this.usersReviews = this.usersReviews.slice(0, 6);
+    } else {
+      import("@/assets/lottie/globe.json").then((data) => {
+        this.backgroundImage = data.default;
+      });
     }
   },
 };
