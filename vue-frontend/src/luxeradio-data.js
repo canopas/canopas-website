@@ -4,7 +4,7 @@ import brandingBackgroundImage from "@/assets/images/portfolio/luxeradio/brandin
 import branding1 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1.png";
 import branding2 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2.png";
 import branding3 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3.png";
-import branding4 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_4.png";
+import brandVideo from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_video.mp4";
 import branding5 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5.png";
 import design1 from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_1.png";
 import design2 from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_2.png";
@@ -34,38 +34,51 @@ export default {
       video: "",
     },
     branding: {
-      title: "Careful branding",
+      title: `<span class="border-text">Careful</span> <br/>branding`,
+
       backgroundImage: brandingBackgroundImage,
-      details: [
-        {
-          id: 1,
-          title:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          image: branding1,
-        },
-        {
-          id: 2,
-          title:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-          image: branding2,
-        },
-        {
-          id: 3,
-          title: "",
-          image: branding3,
-        },
-        {
-          id: 4,
-          title: "",
-          image: branding4,
-        },
-        {
-          id: 5,
-          title:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
-          image: branding5,
-        },
-      ],
+      details: {
+        firstDetail: [
+          {
+            id: 1,
+            title:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            aspectRatio: "90%",
+            image: branding1,
+          },
+          {
+            id: 2,
+            title: "",
+            aspectRatio: "90%",
+            image: branding3,
+          },
+          {
+            id: 3,
+            title: "",
+            aspectRatio: "90%",
+            image: branding5,
+          },
+        ],
+
+        secondDetail: [
+          {
+            id: 4,
+            title:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            aspectRatio: "135%",
+            image: branding2,
+          },
+          {
+            id: 5,
+            title:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+            aspectRatio: "80%",
+            background:
+              "linear-gradient(to top right, #afa8be 23%, #f0b4cc 100%)",
+            video: brandVideo,
+          },
+        ],
+      },
     },
     design: [
       {
