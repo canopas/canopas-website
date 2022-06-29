@@ -55,6 +55,8 @@ async function createServer(
     app.use(
       serveStatic(resolve("dist/client"), {
         index: false,
+        immutable: true,
+        maxAge: "365d",
       })
     );
   }
