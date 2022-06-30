@@ -57,18 +57,17 @@ import AspectRatio from "@/components/utils/AspectRatio.vue";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import life1 from "@/assets/images/life/jobs_canopas_life_1.jpg";
-import life2 from "@/assets/images/life/jobs_canopas_life_2.jpg";
-import life3 from "@/assets/images/life/jobs_canopas_life_3.jpg";
-import life4 from "@/assets/images/life/jobs_canopas_life_4.jpg";
-import life5 from "@/assets/images/life/jobs_canopas_life_5.jpg";
-import life6 from "@/assets/images/life/jobs_canopas_life_6.jpg";
-import life7 from "@/assets/images/life/jobs_canopas_life_7.jpg";
-import life8 from "@/assets/images/life/jobs_canopas_life_8.jpg";
-import life9 from "@/assets/images/life/jobs_canopas_life_9.jpg";
-import life10 from "@/assets/images/life/jobs_canopas_life_10.jpg";
-import life11 from "@/assets/images/life/jobs_canopas_life_11.jpg";
-import life12 from "@/assets/images/life/jobs_canopas_life_12.jpg";
+import life1 from "@/assets/images/life/jobs_canopas_life_1.webp";
+import life2 from "@/assets/images/life/jobs_canopas_life_2.webp";
+import life3 from "@/assets/images/life/jobs_canopas_life_3.webp";
+import life4 from "@/assets/images/life/jobs_canopas_life_4.webp";
+import life5 from "@/assets/images/life/jobs_canopas_life_5.webp";
+import life6 from "@/assets/images/life/jobs_canopas_life_6.webp";
+import life8 from "@/assets/images/life/jobs_canopas_life_8.webp";
+import life9 from "@/assets/images/life/jobs_canopas_life_9.webp";
+import life10 from "@/assets/images/life/jobs_canopas_life_10.webp";
+import life11 from "@/assets/images/life/jobs_canopas_life_11.webp";
+import life12 from "@/assets/images/life/jobs_canopas_life_12.webp";
 
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -78,11 +77,11 @@ export default {
       slides: [
         {
           id: 1,
-          image: life12,
+          image: life2,
         },
         {
           id: 2,
-          image: life2,
+          image: life12,
         },
         {
           id: 3,
@@ -101,16 +100,12 @@ export default {
           image: life3,
         },
         {
-          id: 7,
-          image: life6,
-        },
-        {
           id: 8,
           image: life9,
         },
         {
           id: 9,
-          image: life7,
+          image: life6,
         },
         {
           id: 10,
