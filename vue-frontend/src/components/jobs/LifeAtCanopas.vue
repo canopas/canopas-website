@@ -15,6 +15,8 @@
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
+        :preloadImages="false"
+        :lazy="true"
         :autoplay="{
           delay: 3000,
           disableOnInteraction: true,
@@ -63,6 +65,7 @@ import life3 from "@/assets/images/life/jobs_canopas_life_3.webp";
 import life4 from "@/assets/images/life/jobs_canopas_life_4.webp";
 import life5 from "@/assets/images/life/jobs_canopas_life_5.webp";
 import life6 from "@/assets/images/life/jobs_canopas_life_6.webp";
+import life7 from "@/assets/images/life/jobs_canopas_life_7.webp";
 import life8 from "@/assets/images/life/jobs_canopas_life_8.webp";
 import life9 from "@/assets/images/life/jobs_canopas_life_9.webp";
 import life10 from "@/assets/images/life/jobs_canopas_life_10.webp";
@@ -76,15 +79,19 @@ export default {
     return {
       slides: [
         {
-          id: 1,
+          id: 2,
           image: life2,
         },
         {
-          id: 2,
+          id: 12,
           image: life12,
         },
         {
-          id: 3,
+          id: 7,
+          image: life7,
+        },
+        {
+          id: 1,
           image: life1,
         },
         {
@@ -92,31 +99,31 @@ export default {
           image: life4,
         },
         {
-          id: 5,
+          id: 10,
           image: life10,
         },
         {
-          id: 6,
+          id: 3,
           image: life3,
         },
         {
-          id: 8,
+          id: 9,
           image: life9,
         },
         {
-          id: 9,
+          id: 6,
           image: life6,
         },
         {
-          id: 10,
+          id: 8,
           image: life8,
         },
         {
-          id: 11,
+          id: 5,
           image: life5,
         },
         {
-          id: 12,
+          id: 11,
           image: life11,
         },
       ],
