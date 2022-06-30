@@ -39,14 +39,14 @@
 <script type="module">
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 
-import perks1 from "@/assets/images/perks/jobs_canopas_perks_1.jpg";
-import perks2 from "@/assets/images/perks/jobs_canopas_perks_2.jpg";
-import perks3 from "@/assets/images/perks/jobs_canopas_perks_3.jpg";
-import perks4 from "@/assets/images/perks/jobs_canopas_perks_4.jpg";
-import perks5 from "@/assets/images/perks/jobs_canopas_perks_5.jpg";
-import perks6 from "@/assets/images/perks/jobs_canopas_perks_6.jpg";
-import perks7 from "@/assets/images/perks/jobs_canopas_perks_7.jpg";
-import perks8 from "@/assets/images/perks/jobs_canopas_perks_8.jpg";
+import perks1 from "@/assets/images/perks/jobs_canopas_perks_1.webp";
+import perks2 from "@/assets/images/perks/jobs_canopas_perks_2.webp";
+import perks3 from "@/assets/images/perks/jobs_canopas_perks_3.webp";
+import perks4 from "@/assets/images/perks/jobs_canopas_perks_4.webp";
+import perks5 from "@/assets/images/perks/jobs_canopas_perks_5.webp";
+import perks6 from "@/assets/images/perks/jobs_canopas_perks_6.webp";
+import perks7 from "@/assets/images/perks/jobs_canopas_perks_7.webp";
+import perks8 from "@/assets/images/perks/jobs_canopas_perks_8.webp";
 
 import learning from "@/assets/images/benifits/jobs_canopas_learning.svg";
 import health from "@/assets/images/benifits/jobs_canopas_health.svg";
