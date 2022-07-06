@@ -14,66 +14,70 @@
     </div>
   </section>
 
-  <section class="container tw-relative tw-flex tw-flex-col sm:tw-flex-row">
-    <div>
-      <div v-for="data in flex1" :key="data" class="tw-p-3">
-        <aspect-ratio
-          :height="data.aspectRatio"
-          :style="[data.background ? { background: data.background } : {}]"
-        >
-          <img
-            class="tw-h-full tw-w-full tw-object-cover"
-            :src="data.image"
-            v-if="data.image"
-          />
-          <video
-            class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"
-            preload="auto"
-            loop
-            muted
-            autoplay
-            playsinline
-            v-else
+  <section
+    class="tw-relative tw-flex tw-flex-col sm:tw-flex-row tw-bg-white tw-pb-8 sm:tw-pb-20 xl:tw-pb-28"
+  >
+    <div class="container tw-flex tw-flex-col sm:tw-flex-row">
+      <div>
+        <div v-for="data in flex1" :key="data" class="tw-p-3">
+          <aspect-ratio
+            :height="data.aspectRatio"
+            :style="[data.background ? { background: data.background } : {}]"
           >
-            <source :src="data.video" type="video/mp4" />
-          </video>
-        </aspect-ratio>
-        <div
-          v-if="data.title"
-          class="v2-normal-3-text tw-bg-white tw-relative tw-px-6 tw-pt-3 tw-pb-6 lg:tw-px-12 lg:tw-pt-6 lg:tw-pb-12 xl:tw-px-20 xl:tw-py-12"
-        >
-          {{ data.title }}
+            <img
+              class="tw-h-full tw-w-full tw-object-cover"
+              :src="data.image"
+              v-if="data.image"
+            />
+            <video
+              class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"
+              preload="auto"
+              loop
+              muted
+              autoplay
+              playsinline
+              v-else
+            >
+              <source :src="data.video" type="video/mp4" />
+            </video>
+          </aspect-ratio>
+          <div
+            v-if="data.title"
+            class="v2-normal-3-text tw-bg-white tw-relative tw-px-6 tw-pt-3 tw-pb-6 lg:tw-px-12 lg:tw-pt-6 lg:tw-pb-12 xl:tw-px-20 xl:tw-py-12"
+          >
+            {{ data.title }}
+          </div>
         </div>
       </div>
-    </div>
-    <div class="sm:tw-mt-36 lg:tw-mt-60">
-      <div v-for="data in flex2" :key="data" class="tw-p-3">
-        <aspect-ratio
-          :height="data.aspectRatio"
-          :style="[data.background ? { background: data.background } : {}]"
-        >
-          <img
-            class="tw-h-full tw-w-full tw-object-cover"
-            :src="data.image"
-            v-if="data.image"
-          />
-          <video
-            class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"
-            preload="auto"
-            loop
-            muted
-            autoplay
-            playsinline
-            v-else
+      <div class="sm:tw-mt-36 lg:tw-mt-60">
+        <div v-for="data in flex2" :key="data" class="tw-p-3">
+          <aspect-ratio
+            :height="data.aspectRatio"
+            :style="[data.background ? { background: data.background } : {}]"
           >
-            <source :src="data.video" type="video/mp4" />
-          </video>
-        </aspect-ratio>
-        <div
-          v-if="data.title"
-          class="v2-normal-3-text tw-px-6 tw-pt-3 tw-pb-6 lg:tw-px-12 lg:tw-pt-6 lg:tw-pb-12 xl:tw-px-20 xl:tw-py-12"
-        >
-          {{ data.title }}
+            <img
+              class="tw-h-full tw-w-full tw-object-cover"
+              :src="data.image"
+              v-if="data.image"
+            />
+            <video
+              class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"
+              preload="auto"
+              loop
+              muted
+              autoplay
+              playsinline
+              v-else
+            >
+              <source :src="data.video" type="video/mp4" />
+            </video>
+          </aspect-ratio>
+          <div
+            v-if="data.title"
+            class="v2-normal-3-text tw-px-6 tw-pt-3 tw-pb-6 lg:tw-px-12 lg:tw-pt-6 lg:tw-pb-12 xl:tw-px-20 xl:tw-py-12"
+          >
+            {{ data.title }}
+          </div>
         </div>
       </div>
     </div>

@@ -1,78 +1,100 @@
 <template>
-  <div class="background mt-5 mb-5">
-    <img :src="backgroundImage" class="render-background" />
-    <div class="container cta-section text-center">
-      <div class="v2-header-3-text canopas-gradient-text">
-        How do you know we’re a good fit for you?
-      </div>
-      <div class="v2-title-3-text mt-4">Let’s have a short chat.</div>
-      <div class="communication">
-        <div class="item px-4 py-3">
-          <div class="v2-normal-3-text">I love talking.</div>
-          <router-link class="gradient-btn cta-button" :to="contactURL">
-            <font-awesome-icon
-              class="fa v2-title-3-text"
-              icon="phone"
-              aria-hidden="true"
-            />
-            <span class="v2-normal-3-text">Schedule a call</span>
-          </router-link>
+  <div class="tw-bg-white mt-5 mb-5">
+    <div class="background">
+      <img :src="backgroundImage" class="render-background" />
+      <div class="container cta-section text-center">
+        <div class="v2-header-3-text canopas-gradient-text">
+          How do you know we’re a good fit for you?
         </div>
-        <div class="item px-4 py-3">
-          <div class="v2-normal-3-text">I prefer mail.</div>
-          <router-link class="gradient-btn cta-button" :to="contactURL">
-            <font-awesome-icon
-              class="fa v2-title-3-text"
-              icon="paper-plane"
-              aria-hidden="true"
-            />
-            <span class="v2-normal-3-text">Drop a mail</span>
-          </router-link>
+        <div class="v2-title-3-text mt-4">Let’s have a short chat.</div>
+        <div class="communication">
+          <div class="item px-4 py-3">
+            <div class="v2-normal-3-text">I love talking.</div>
+            <router-link class="gradient-btn cta-button" :to="contactURL">
+              <font-awesome-icon
+                class="fa v2-title-3-text"
+                icon="phone"
+                aria-hidden="true"
+              />
+              <span class="v2-normal-3-text">Schedule a call</span>
+            </router-link>
+          </div>
+          <div class="item px-4 py-3">
+            <div class="v2-normal-3-text">I prefer mail.</div>
+            <router-link class="gradient-btn cta-button" :to="contactURL">
+              <font-awesome-icon
+                class="fa v2-title-3-text"
+                icon="paper-plane"
+                aria-hidden="true"
+              />
+              <span class="v2-normal-3-text">Drop a mail</span>
+            </router-link>
+          </div>
         </div>
+        <div
+          class="v2-title-3-text text-left v2-canopas-gradient-text reason-text mt-5"
+        >
+          Four reasons why do we do this call?
+        </div>
+        <ul class="v2-normal-2-text chat-list text-left mt-4">
+          <li>
+            <span class="bullet"></span>
+            <div>It gives an opportunity to learn more about each other.</div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div>
+              We want to give you a chance to put your idea into action. You
+              might have faced this situation before where you wish you had
+              someone to help you.
+            </div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div>
+              Sometimes, you want to check the feasibility of your idea. We will
+              give you honest feedback based on our industry experience.
+            </div>
+          </li>
+          <li>
+            <span class="bullet"></span>
+            <div>
+              We offer 100% Money-back guarantee. so, there’s no risk to you.
+            </div>
+          </li>
+        </ul>
       </div>
       <div
-        class="v2-title-3-text text-left v2-canopas-gradient-text reason-text mt-5"
+        class="tw-text-center ..."
+        :class="[
+          currentRoutePath == '/portfolio/' + id
+            ? 'tw-pt-16 tw-pb-32 sm:tw-pb-12 xl:tw-pb-1'
+            : 'tw-hidden',
+        ]"
       >
-        Four reasons why do we do this call?
+        <span class="v2-normal-3-text">
+          <font-awesome-icon :icon="copyrightIcon" /> &nbsp;{{
+            new Date().getFullYear()
+          }}
+          Canopas Software LLP. All rights reserved.
+        </span>
       </div>
-      <ul class="v2-normal-2-text chat-list text-left mt-4">
-        <li>
-          <span class="bullet"></span>
-          <div>It gives an opportunity to learn more about each other.</div>
-        </li>
-        <li>
-          <span class="bullet"></span>
-          <div>
-            We want to give you a chance to put your idea into action. You might
-            have faced this situation before where you wish you had someone to
-            help you.
-          </div>
-        </li>
-        <li>
-          <span class="bullet"></span>
-          <div>
-            Sometimes, you want to check the feasibility of your idea. We will
-            give you honest feedback based on our industry experience.
-          </div>
-        </li>
-        <li>
-          <span class="bullet"></span>
-          <div>
-            We offer 100% Money-back guarantee. so, there’s no risk to you.
-          </div>
-        </li>
-      </ul>
     </div>
   </div>
 </template>
 
 <script type="module">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
+import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import backgroundImage from "@/assets/images/theme/cta-background.webp";
 
 export default {
   data() {
     return {
+      copyrightIcon: faCopyright,
+      id: this.$route.params.id,
+      currentRoutePath: this.$router.currentRoute._value.path,
       backgroundImage: backgroundImage,
       contactURL: "/contact",
     };
@@ -100,6 +122,14 @@ export default {
   left: 0;
   position: absolute;
   object-fit: cover;
+  z-index: -1;
+}
+.hide-copyright-text {
+  display: none;
+}
+
+div.background-image {
+  transform: translateZ(-1px) scale(1.5);
   z-index: -1;
 }
 
@@ -221,6 +251,7 @@ export default {
     width: 70%;
   }
 }
+
 @supports (-webkit-touch-callout: none) {
   .v2-header-3-text {
     letter-spacing: -2px;

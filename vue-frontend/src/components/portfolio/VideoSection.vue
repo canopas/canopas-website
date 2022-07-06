@@ -26,10 +26,7 @@
   <section class="container video tw-relative">
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <video class="" preload="auto" loop muted autoplay playsinline>
-        <source
-          src="https://cdn.cuberto.com/cb/video/sleepiest/1.mp4?2"
-          type="video/mp4"
-        />
+        <source :src="response.video" type="video/mp4" />
       </video>
     </aspect-ratio>
   </section>
