@@ -60,12 +60,12 @@
 
                 <video
                   v-else
-                  id="video-preview"
-                  controls
-                  playsinline
+                  preload="auto"
                   loop
                   muted
                   autoplay
+                  playsinline
+                  id="video-preview"
                   :class="[
                     data.video
                       ? 'tw-rounded-b-[90px] tw-border-b-8 tw-border-x-8 tw-border-solid tw-border-white tw-px-8 tw-pb-8'

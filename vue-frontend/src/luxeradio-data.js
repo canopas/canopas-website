@@ -1,5 +1,6 @@
 import landingBackgroundImage from "@/assets/images/portfolio/luxeradio/landing_background.png";
 import videoBackgroundImage from "@/assets/images/portfolio/luxeradio/video_background.png";
+import videoSectionVideo from "@/assets/images/portfolio/luxeradio/luxeradio_videosection_video.mp4";
 import brandingBackgroundImage from "@/assets/images/portfolio/luxeradio/branding/background.png";
 import branding1 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1.png";
 import branding2 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2.png";
@@ -31,7 +32,7 @@ export default {
         { name: "App Store", link: "" },
       ],
       backgroundImage: videoBackgroundImage,
-      video: "",
+      video: videoSectionVideo,
     },
     branding: {
       title: `<span class="border-text">Careful</span> <br/>branding`,
@@ -128,6 +129,6 @@ export default {
       },
     },
 
-    footer: { backgroundImage: footerBackgroundImage },
+    footer: { backgroundImage: footerBackgroundImage, title: "Smile+" },
   },
 };

@@ -7,6 +7,8 @@
       <BrandingSection v-bind:response="details.branding" />
       <DesignSection v-bind:response="details.design" />
       <ElementSection v-bind:response="details.element" />
+      <FooterSection v-bind:response="details.footer" />
+      <CTASection class="tw-mt-40" />
     </div>
   </div>
 </template>
@@ -17,6 +19,8 @@ import LandingSection from "@/components/portfolio/LandingSection.vue";
 import VideoSection from "@/components/portfolio/VideoSection.vue";
 import BrandingSection from "@/components/portfolio/BrandingSection.vue";
 import DesignSection from "@/components/portfolio/DesignSection.vue";
+import FooterSection from "@/components/portfolio/FooterSection.vue";
+import CTASection from "@/components/home-new/CTASection.vue";
 import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/luxeradio-data.js";
 
@@ -44,6 +48,8 @@ export default {
     VideoSection,
     BrandingSection,
     DesignSection,
+    FooterSection,
+    CTASection,
     ElementSection,
   },
 };
