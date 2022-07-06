@@ -8,7 +8,7 @@
     </div>
 
     <div v-if="backgroundImage !== null">
-      <LottieAnimation :jsonData="backgroundImage" class="background-image" />
+      <LazyLottieAnimation :jsonData="backgroundImage" class="background-image" />
     </div>
 
     <div class="pt-4">
@@ -98,7 +98,6 @@
 
 <script type="module">
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { defineAsyncComponent } from "vue";
 
 export default {
   data() {
@@ -154,9 +153,6 @@ export default {
   },
   components: {
     FontAwesomeIcon,
-    LottieAnimation: defineAsyncComponent(() =>
-      import("@/components/LottieAnimation.vue")
-    ),
   },
   mounted() {
     if (window.innerWidth >= 768 && window.innerWidth <= 992) {
