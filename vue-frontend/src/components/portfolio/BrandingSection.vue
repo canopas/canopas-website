@@ -6,9 +6,18 @@
       <div class="v2-header-3-text" v-html="response.title"></div>
     </div>
   </section>
-  <section class="background-image tw-relative">
+  <section class="background-image tw-relative tw-z-[-1]">
     <aspect-ratio height="56.26%">
       <img
+        v-if="response.responsiveImages"
+        :src="response.backgroundImage[3]"
+        :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
+        sizes="(min-width: 992px) 45vw, 100vw"
+        class="tw-w-full tw-h-full tw-object-cover"
+      />
+
+      <img
+        v-else
         :src="response.backgroundImage"
         class="tw-w-full tw-h-full tw-object-cover"
       />
@@ -20,11 +29,42 @@
     >
       <div class="tw-basis-1/2">
         <div v-for="data in flex1" :key="data">
-          <div>
-            <img
-              :src="data.image"
-              class="tw-w-full tw-h-full tw-object-cover"
-            />
+          <div class="tw-relative">
+            <aspect-ratio
+              :height="data.aspectRatio"
+              :style="[data.background ? { background: data.background } : {}]"
+            >
+              <div
+                :class="[
+                  data.video
+                    ? 'tw-px-4 tw-pb-4 md:tw-px-2 lg:tw-px-8 lg:tw-pb-8'
+                    : '',
+                ]"
+              >
+                <img
+                  v-if="data.image"
+                  :src="data.image"
+                  class="tw-w-full tw-h-full tw-object-cover"
+                />
+
+                <video
+                  v-else
+                  id="video-preview"
+                  controls
+                  playsinline
+                  loop
+                  muted
+                  autoplay
+                  :class="[
+                    data.video
+                      ? 'tw-rounded-b-[90px] tw-border-b-8 tw-border-x-8 tw-border-solid tw-border-white tw-px-8 tw-pb-8'
+                      : '',
+                  ]"
+                >
+                  <source :src="data.video" type="video/mp4" />
+                </video>
+              </div>
+            </aspect-ratio>
           </div>
           <div
             class="v2-normal-text tw-bg-white tw-font-light ..."
@@ -38,13 +78,13 @@
           </div>
         </div>
       </div>
-      <div class="tw-basis-1/2 md:tw-mt-40">
+      <div class="tw-basis-1/2 md:tw-mt-36 lg:tw-mt-64">
         <div v-for="data in flex2" :key="data">
-          <div
-            class="tw-relative"
-            :style="[data.background ? { background: data.background } : '']"
-          >
-            <aspect-ratio :height="data.aspectRatio">
+          <div class="tw-relative">
+            <aspect-ratio
+              :height="data.aspectRatio"
+              :style="[data.background ? { background: data.background } : {}]"
+            >
               <div
                 :class="[
                   data.video
@@ -53,8 +93,8 @@
                 ]"
               >
                 <img
-                  :src="data.image"
                   v-if="data.image"
+                  :src="data.image"
                   class="tw-w-full tw-h-full tw-object-cover"
                 />
 
@@ -110,6 +150,5 @@ export default {
 <style lang="postcss" scoped>
 section.background-image {
   transform: translateZ(-1px) scale(1.5);
-  z-index: -1;
 }
 </style>

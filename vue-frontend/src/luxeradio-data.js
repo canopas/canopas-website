@@ -21,6 +21,7 @@ export default {
     landing: {
       title: "Luxeradio",
       subTitle: "Lorem Ipsum is simply dummy text of the printing.",
+      responsiveImages: false,
       backgroundImage: landingBackgroundImage,
     },
     video: {
@@ -36,7 +37,7 @@ export default {
     },
     branding: {
       title: `<span class="border-text">Careful</span> <br/>branding`,
-
+      responsiveImages: false,
       backgroundImage: brandingBackgroundImage,
       details: {
         firstDetail: [
@@ -44,19 +45,19 @@ export default {
             id: 1,
             title:
               "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            aspectRatio: "90%",
+            aspectRatio: "134%",
             image: branding1,
           },
           {
             id: 2,
             title: "",
-            aspectRatio: "90%",
+            aspectRatio: "135%",
             image: branding3,
           },
           {
             id: 3,
             title: "",
-            aspectRatio: "90%",
+            aspectRatio: "130%",
             image: branding5,
           },
         ],
@@ -86,6 +87,8 @@ export default {
         title: `The <span class="border-text">design</span> will not leave you cold`,
         description:
           "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+
+        responsiveImages: false,
         backgroundImage: design1,
       },
       {
@@ -129,6 +132,10 @@ export default {
       },
     },
 
-    footer: { backgroundImage: footerBackgroundImage, title: "Smile+" },
+    footer: {
+      responsiveImages: false,
+      backgroundImage: footerBackgroundImage,
+      title: "Smile+",
+    },
   },
 };

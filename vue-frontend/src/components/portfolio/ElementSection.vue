@@ -15,7 +15,8 @@
   </section>
 
   <section
-    class="tw-relative tw-flex tw-flex-col sm:tw-flex-row tw-bg-white tw-pb-8 sm:tw-pb-20 xl:tw-pb-28"
+    v-if="response.detail"
+    class="tw-relative tw-bg-white tw-pb-8 sm:tw-pb-20 xl:tw-pb-28"
   >
     <div class="container tw-flex tw-flex-col sm:tw-flex-row">
       <div>
@@ -25,25 +26,25 @@
             :style="[data.background ? { background: data.background } : {}]"
           >
             <img
+              v-if="data.image"
               class="tw-h-full tw-w-full tw-object-cover"
               :src="data.image"
-              v-if="data.image"
             />
             <video
+              v-else
               class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"
               preload="auto"
               loop
               muted
               autoplay
               playsinline
-              v-else
             >
               <source :src="data.video" type="video/mp4" />
             </video>
           </aspect-ratio>
           <div
             v-if="data.title"
-            class="v2-normal-3-text tw-bg-white tw-relative tw-px-6 tw-pt-3 tw-pb-6 lg:tw-px-12 lg:tw-pt-6 lg:tw-pb-12 xl:tw-px-20 xl:tw-py-12"
+            class="v2-normal-3-text tw-bg-white tw-relative tw-px-6 tw-py-6 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
           >
             {{ data.title }}
           </div>
@@ -56,25 +57,25 @@
             :style="[data.background ? { background: data.background } : {}]"
           >
             <img
+              v-if="data.image"
               class="tw-h-full tw-w-full tw-object-cover"
               :src="data.image"
-              v-if="data.image"
             />
             <video
+              v-else
               class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"
               preload="auto"
               loop
               muted
               autoplay
               playsinline
-              v-else
             >
               <source :src="data.video" type="video/mp4" />
             </video>
           </aspect-ratio>
           <div
             v-if="data.title"
-            class="v2-normal-3-text tw-px-6 tw-pt-3 tw-pb-6 lg:tw-px-12 lg:tw-pt-6 lg:tw-pb-12 xl:tw-px-20 xl:tw-py-12"
+            class="v2-normal-3-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
           >
             {{ data.title }}
           </div>

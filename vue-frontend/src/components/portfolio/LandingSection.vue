@@ -1,6 +1,6 @@
 <template>
   <section class="tw-bg-white">
-    <div class="container flex-div">
+    <div class="container tw-py-20 sm:tw-pb-40 lg:tw-pb-80 lg:tw-pt-60">
       <div class="v2-normal-2-text animate__animated animate__fadeInUp">
         {{ response.title }}
       </div>
@@ -9,9 +9,20 @@
       </div>
     </div>
   </section>
-  <section class="background-image tw-relative">
+  <section class="background-image tw-relative tw-z-[-1]">
     <aspect-ratio height="56.26%">
-      <img :src="response.backgroundImage" />
+      <img
+        v-if="response.responsiveImages"
+        :src="response.backgroundImage[3]"
+        :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
+        sizes="(min-width: 992px) 45vw, 100vw"
+        class="tw-w-full tw-h-full tw-object-cover"
+      />
+      <img
+        v-else
+        :src="response.backgroundImage"
+        class="tw-w-full tw-h-full tw-object-cover"
+      />
     </aspect-ratio>
   </section>
 </template>
@@ -26,14 +37,7 @@ export default {
 };
 </script>
 <style lang="postcss" scoped>
-.flex-div {
-  @apply tw-py-20  sm:tw-pb-40 lg:tw-pb-80 lg:tw-pt-60;
-}
 section.background-image {
   transform: translateZ(-1px) scale(1.5);
-  z-index: -1;
-}
-img {
-  @apply tw-w-full tw-h-full tw-object-cover;
 }
 </style>

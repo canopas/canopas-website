@@ -73,6 +73,9 @@ module.exports = {
         zoomOut: "zoomOut 4s ease-in infinite",
         typingErase: "typingErase 4s steps(40, end) infinite",
       },
+      zIndex: {
+        "-1": "-1",
+      },
     },
     plugins: [],
   },

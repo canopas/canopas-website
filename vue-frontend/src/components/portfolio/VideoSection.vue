@@ -1,10 +1,16 @@
 <template>
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative container">
-      <img :src="response.backgroundImage" class="background-image" />
-      <div class="flex-div">
+      <img
+        :src="response.backgroundImage"
+        class="tw-hidden tw-absolute tw-object-cover tw-py-40 lg:tw-block"
+        v-if="response.backgroundImage"
+      />
+      <div
+        class="tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
+      >
         <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>
-        <div class="description">
+        <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
           <div class="v2-normal-text tw-font-light">
             {{ response.description }}
           </div>
@@ -12,7 +18,7 @@
             <a
               v-for="button in response.buttons"
               :key="button"
-              class="tw-pr-10 is-animation-tab v2-normal-2-text hover:tw-text-black-900"
+              class="tw-pr-10 is-animation-tab tw-inline-block tw-relative v2-normal-2-text hover:tw-text-black-900 after:tw-absolute after:tw-w-1/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
               :href="button.link"
             >
               {{ button.name }}
@@ -23,57 +29,127 @@
     </div>
   </section>
 
-  <section class="container video tw-relative">
+  <section v-if="response.video" class="container video tw-relative tw-z-[-1]">
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
-      <video class="" preload="auto" loop muted autoplay playsinline>
+      <video
+        class="tw-w-full tw-h-full tw-object-cover"
+        preload="auto"
+        loop
+        muted
+        autoplay
+        playsinline
+      >
         <source :src="response.video" type="video/mp4" />
       </video>
+    </aspect-ratio>
+  </section>
+
+  <section v-else class="tw-relative">
+    <div
+      class="background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
+      :style="{ background: backgroundColor }"
+    ></div>
+    <div
+      class="swiper-content tw-absolute tw-flex tw-items-center tw-w-full tw-h-full tw-z-0"
+    >
+      <swiper
+        ref="swiper"
+        :slidesPerView="2.5"
+        :centeredSlides="true"
+        :autoplay="{
+          delay: 1500,
+          disableOnInteraction: true,
+        }"
+        :loop="true"
+        :loopedSlides="50"
+        :spaceBetween="50"
+        :breakpoints="{
+          '768': {
+            slidesPerView: 3,
+          },
+          '1024': {
+            slidesPerView: 3,
+          },
+          '1800': {
+            slidesPerView: 3,
+          },
+        }"
+        @slideChange="onSlideChange"
+        class="swiper-container"
+      >
+        <swiper-slide v-for="(sider, index) in response.slider" :key="index">
+          <aspect-ratio
+            height="85%"
+            class="tw-border-solid tw-border-1 tw-border-transparent"
+          >
+            <img :src="sider.image" class="swiper-slide" loading="lazy" />
+          </aspect-ratio>
+        </swiper-slide>
+      </swiper>
+    </div>
+    <aspect-ratio
+      height="54%"
+      class="mobile-image tw-mx-auto tw-h-full tw-w-1/4 tw-z-[-1]"
+    >
+      <img
+        :src="response.videoBackgroundImage"
+        class="tw-w-full tw-h-full tw-object-cover"
+      />
     </aspect-ratio>
   </section>
 </template>
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/vue";
+
+SwiperCore.use([Pagination, Autoplay]);
 
 export default {
   props: ["response"],
+  data() {
+    return {
+      backgroundColor: "",
+    };
+  },
   components: {
+    Swiper,
+    SwiperSlide,
     AspectRatio,
+  },
+  methods: {
+    onSlideChange(swiper) {
+      this.backgroundColor =
+        this.response.slider[swiper.realIndex].backgroundColor;
+    },
   },
 };
 </script>
 
-<style lang="postcss" scoped>
-.background-image {
-  @apply tw-hidden tw-absolute tw-object-cover tw-py-40 lg:tw-block;
-}
-
-.flex-div {
-  @apply tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80;
-}
-
-.description {
-  @apply tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0;
-}
-
-.is-animation-tab {
-  @apply tw-inline-block tw-relative;
-}
+<style lang="postcss">
+@import "swiper/css";
+@import "swiper/css/pagination";
 
 .is-animation-tab:after {
   content: "";
 }
 
-.is-animation-tab:after {
-  @apply tw-absolute tw-w-1/4 tw-scale-x-0 tw-h-0.5 tw-bottom-0 tw-left-0 tw-bg-black-900 tw-origin-bottom-left tw-duration-300;
-}
-
-.is-animation-tab:hover:after {
-  @apply tw-scale-x-100 tw-origin-bottom-left;
-}
-
 section.video {
   transform: translateZ(-1px) scale(1.5);
-  z-index: -1;
+}
+
+.background-video {
+  margin: 8% 30%;
+}
+
+.swiper-slide-active {
+  transform: scale(1) !important;
+  transition: 0.4s;
+}
+
+.swiper-slide-prev,
+.swiper-slide-next {
+  transform: scale(0.5) !important;
 }
 </style>
