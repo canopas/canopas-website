@@ -9,8 +9,11 @@
   <section class="background-image tw-relative">
     <aspect-ratio height="56.26%">
       <img
-        :src="response.backgroundImage"
         class="tw-w-full tw-h-full tw-object-cover"
+        :src="response.backgroundImage[3]"
+        :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
+        sizes="(min-width: 992px) 45vw, 100vw"
+        loading="lazy"
       />
     </aspect-ratio>
   </section>
@@ -22,8 +25,11 @@
         <div v-for="data in flex1" :key="data">
           <div>
             <img
-              :src="data.image"
               class="tw-w-full tw-h-full tw-object-cover"
+              :src="data.image[3]"
+              :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
+              sizes="(min-width: 992px) 45vw, 100vw"
+              loading="lazy"
             />
           </div>
           <div
@@ -53,9 +59,12 @@
                 ]"
               >
                 <img
-                  :src="data.image"
                   v-if="data.image"
                   class="tw-w-full tw-h-full tw-object-cover"
+                  :src="data.image[3]"
+                  :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
+                  sizes="(min-width: 992px) 45vw, 100vw"
+                  loading="lazy"
                 />
 
                 <video

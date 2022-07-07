@@ -25,9 +25,12 @@
             :style="[data.background ? { background: data.background } : {}]"
           >
             <img
-              class="tw-h-full tw-w-full tw-object-cover"
-              :src="data.image"
               v-if="data.image"
+              class="tw-w-full tw-h-full tw-object-cover"
+              :src="data.image[3]"
+              :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
+              sizes="(min-width: 992px) 45vw, 100vw"
+              loading="lazy"
             />
             <video
               class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"
@@ -56,9 +59,12 @@
             :style="[data.background ? { background: data.background } : {}]"
           >
             <img
-              class="tw-h-full tw-w-full tw-object-cover"
-              :src="data.image"
               v-if="data.image"
+              class="tw-w-full tw-h-full tw-object-cover"
+              :src="data.image[3]"
+              :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
+              sizes="(min-width: 992px) 45vw, 100vw"
+              loading="lazy"
             />
             <video
               class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"

@@ -124,14 +124,6 @@ export default {
   object-fit: cover;
   z-index: -1;
 }
-.hide-copyright-text {
-  display: none;
-}
-
-div.background-image {
-  transform: translateZ(-1px) scale(1.5);
-  z-index: -1;
-}
 
 .container {
   padding: 0 25px;
