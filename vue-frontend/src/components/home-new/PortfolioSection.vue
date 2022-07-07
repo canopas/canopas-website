@@ -107,7 +107,9 @@ export default {
           aspectRatio: "55%",
           detail:
             "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
-          link: config.TOGNESS_URL,
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/togness"
+            : config.TOGNESS_URL,
         },
       ],
     };

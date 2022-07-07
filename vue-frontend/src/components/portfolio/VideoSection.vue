@@ -97,6 +97,21 @@
       />
     </aspect-ratio>
   </section>
+
+  <section v-if="response.solution" class="tw-bg-white tw-relative">
+    <div class="container">
+      <div
+        class="tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
+      >
+        <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>
+        <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
+          <div class="v2-normal-text tw-font-light">
+            {{ response.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
