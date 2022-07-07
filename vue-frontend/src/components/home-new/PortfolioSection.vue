@@ -97,7 +97,9 @@ export default {
           title: "NoLonely",
           detail:
             "NoLonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
-          link: config.NOLONELY_URL,
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/noLonely"
+            : config.NOLONELY_URL,
         },
         {
           images: [togness400w, togness800w, togness1200w, togness16000w],

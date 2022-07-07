@@ -23,6 +23,7 @@ import FooterSection from "@/components/portfolio/FooterSection.vue";
 import CTASection from "@/components/home-new/CTASection.vue";
 import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/luxeradio-data.js";
+import nolonelyResponse from "@/nolonely-data.js";
 
 export default {
   data() {
@@ -36,8 +37,14 @@ export default {
   },
   methods: {
     getData() {
-      if (this.id == luxeradioResponse.name) {
-        this.details = luxeradioResponse.detail;
+      switch (this.id) {
+        case luxeradioResponse.name:
+          this.details = luxeradioResponse.detail;
+          break;
+
+        case nolonelyResponse.name:
+          this.details = nolonelyResponse.detail;
+          break;
       }
     },
   },
