@@ -63,10 +63,10 @@ import element3_1600w from "@/assets/images/portfolio/luxeradio/element/luxeradi
 
 import elementVideo from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_video.mp4";
 
-import footerBackgroundImage_400w from "@/assets/images/portfolio/luxeradio/footer_background-400w.webp";
-import footerBackgroundImage_800w from "@/assets/images/portfolio/luxeradio/footer_background-800w.webp";
-import footerBackgroundImage_1200w from "@/assets/images/portfolio/luxeradio/footer_background-1200w.webp";
-import footerBackgroundImage_1600w from "@/assets/images/portfolio/luxeradio/footer_background-1600w.webp";
+import footerBackgroundImage400w from "@/assets/images/portfolio/luxeradio/footer_background-400w.webp";
+import footerBackgroundImage800w from "@/assets/images/portfolio/luxeradio/footer_background-800w.webp";
+import footerBackgroundImage1200w from "@/assets/images/portfolio/luxeradio/footer_background-1200w.webp";
+import footerBackgroundImage1600w from "@/assets/images/portfolio/luxeradio/footer_background-1600w.webp";
 
 export default {
   name: "luxeradio",

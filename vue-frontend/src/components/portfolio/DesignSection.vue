@@ -24,10 +24,9 @@
   <section class="image tw-relative">
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <img
-        :src="response.backgroundImage[3]"
+        :src="response.backgroundImage"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
         sizes="(min-width: 992px) 45vw, 100vw"
-        loading="lazy"
       />
     </aspect-ratio>
   </section>
