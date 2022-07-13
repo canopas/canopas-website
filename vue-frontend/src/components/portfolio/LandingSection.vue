@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-bg-white">
+  <section class="tw-bg-white container-xxl">
     <div class="container tw-py-20 sm:tw-pb-40 lg:tw-pb-80 lg:tw-pt-60">
       <div class="v2-normal-2-text animate__animated animate__fadeInUp">
         {{ response.title }}
@@ -9,7 +9,8 @@
       </div>
     </div>
   </section>
-  <section class="background-image tw-relative tw-z-[-1]">
+
+  <section class="background-image tw-relative tw-z-[-1] container-xxl">
     <aspect-ratio height="56.26%">
       <img
         v-if="response.responsiveImages"

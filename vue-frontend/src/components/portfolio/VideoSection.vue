@@ -44,7 +44,7 @@
     </aspect-ratio>
   </section>
 
-  <section v-else class="tw-relative">
+  <section v-else class="tw-relative container-xxl">
     <div
       class="background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
       :style="{ background: backgroundColor }"
@@ -79,7 +79,7 @@
       >
         <swiper-slide v-for="(sider, index) in response.slider" :key="index">
           <aspect-ratio
-            height="85%"
+            height="95%"
             class="tw-border-solid tw-border-1 tw-border-transparent"
           >
             <img :src="sider.image" class="swiper-slide" loading="lazy" />
@@ -140,7 +140,7 @@ section.video {
 }
 
 .background-video {
-  margin: 8% 30%;
+  margin: 9% 31%;
 }
 
 .swiper-slide-active {
@@ -151,5 +151,10 @@ section.video {
 .swiper-slide-prev,
 .swiper-slide-next {
   transform: scale(0.5) !important;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
 }
 </style>

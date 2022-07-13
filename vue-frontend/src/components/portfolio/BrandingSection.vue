@@ -1,12 +1,11 @@
 <template>
   <section class="tw-bg-white">
-    <div
-      class="container tw-pt-28 tw-pb-32 sm:tw-pb-24 sm:tw-pt-44 md:tw-pb-36 2xl:tw-pt-56 tw-relative"
-    >
+    <div class="container tw-py-32 sm:tw-py-44 lg:tw-py-56 tw-relative">
       <div class="v2-header-3-text" v-html="response.title"></div>
     </div>
   </section>
-  <section class="background-image tw-relative tw-z-[-1]">
+
+  <section class="background-image tw-relative tw-z-[-1] container-xxl">
     <aspect-ratio height="56.26%">
       <img
         v-if="response.responsiveImages"
@@ -23,6 +22,7 @@
       />
     </aspect-ratio>
   </section>
+
   <section class="tw-bg-white">
     <div
       class="container tw-pt-24 md:tw-pt-28 xl:tw-pt-52 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
