@@ -1,7 +1,11 @@
 <template>
   <div class="tw-bg-white mt-5 mb-5">
     <div class="background">
-      <img :src="backgroundImage" class="render-background" />
+      <img
+        :src="backgroundImage"
+        class="render-background"
+        alt="social-media-background"
+      />
       <div class="container cta-section text-center">
         <div class="v2-header-3-text canopas-gradient-text">
           How do you know we’re a good fit for you?

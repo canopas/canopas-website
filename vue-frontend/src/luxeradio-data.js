@@ -19,46 +19,62 @@ export default {
   name: "luxeradio",
   detail: {
     landing: {
-      title: "Luxeradio",
-      subTitle: "Lorem Ipsum is simply dummy text of the printing.",
+      title: "Luxe Radio",
+      subTitle:
+        "A radio, music streaming, and podcast platform for Moroccan people.",
       responsiveImages: false,
       backgroundImage: landingBackgroundImage,
+      alt: "luxeradio-app-and-desktop-images",
     },
     video: {
-      title: "The Challenge",
+      title: "The Problem",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the i ndustry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "Luxe Radio - A broadcast media company was looking to develop mobile apps for their company. We discussed requirements with the client and understood what they were up to, how they saw the new way of broadcasting their content, and the new concepts they had for their product. From app architecture to deployment, they were looking for our help to bring their idea to life. Though, they had an excellent designer who designed the UI and UX of the product.",
       buttons: [
-        { name: "Launch Project", link: "" },
-        { name: "App Store", link: "" },
+        {
+          name: "Play Store",
+          link: "https://play.google.com/store/apps/details?id=app.luxeradio.ma",
+        },
+        {
+          name: "App Store",
+          link: "https://apps.apple.com/ma/app/luxe-radio/id1073120504",
+        },
       ],
       backgroundImage: videoBackgroundImage,
       video: videoSectionVideo,
     },
     branding: {
-      title: `<span class="border-text">Careful</span> <br/>branding`,
+      title: "",
+      solution: {
+        title: "The Solution",
+        description:
+          "Our team added a feature to stream their content live and on-demand. We included a feature that allows users to create playlists to access the content offline. Users can also interact and post their reactions on live debates. The client wanted to handle advertising personally instead of integrating advertisement APIs. For this, We contributed to building the features that allow them to incorporate ads. <br/>We developed mobile apps for iOS, Android, and Huawei's App Gallery and web apps for Mac and Windows. Plus, the app is also available for CarPlay and Android Auto.",
+      },
       responsiveImages: false,
       backgroundImage: brandingBackgroundImage,
+      alt: "luxeradio-branding-screen",
       details: {
         firstDetail: [
           {
             id: 1,
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            title: "A music player playing the on-demand content.",
             aspectRatio: "134%",
             image: branding1,
+            alt: "luxeradio-player-screen",
           },
           {
             id: 2,
             title: "",
             aspectRatio: "135%",
             image: branding3,
+            alt: "luxeradio-app-logo",
           },
           {
             id: 3,
             title: "",
             aspectRatio: "130%",
             image: branding5,
+            alt: "luxeradio-mood-playlist-image",
           },
         ],
 
@@ -66,40 +82,43 @@ export default {
           {
             id: 4,
             title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+              "A playlist users can listen to, follow, and share with others.",
             aspectRatio: "135%",
             image: branding2,
+            alt: "luxeradio-cover-playlist-screen",
           },
           {
             id: 5,
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+            title: "Luxeradio has playlists that match your every mood.",
             aspectRatio: "80%",
             background:
               "linear-gradient(to top right, #afa8be 23%, #f0b4cc 100%)",
             video: brandVideo,
+            alt: "luxeradio-genres-playlist-screen",
           },
         ],
       },
     },
     design: [
       {
-        title: `The <span class="border-text">design</span> will not leave you cold`,
+        title: `What's so <span class="border-text">special</span> about Luxe Radio?`,
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-
+          "We developed Luxe Radio by focusing on the user experience. From app design to development, you will see that we paid attention to every micro detail in the project that makes the user's life easy.",
         responsiveImages: false,
         backgroundImage: design1,
+        alt: "luxeradio-features-screen",
       },
       {
-        title: "Extra attention to detail development",
+        title: "What's the Outcome of the project?",
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Canopas has exceeded our expectations. They've understood our ideas and how big our thoughts and our expectations are — they get our vision. I can proudly say that no broadcast media application looks like ours. The Play Store is the hardest app store to get good reviews on, and we've just reached a five-star rating, which has been one of our biggest achievements, partly thanks to Canopas' work.",
         backgroundImage: design2,
+        alt: "luxeradio-desktop-app-cover-screen",
       },
     ],
     element: {
-      title: `Every <span class="border-text">element</span><br/> made with love`,
+      title: `Canopas' applied design is pixel-perfect; they respect the spacing
+and everything to the smallest detail.`,
       detail: {
         firstDetail: [
           {
@@ -107,34 +126,35 @@ export default {
               "linear-gradient(135.4deg, #101010 -0.02%, #B0DDFF 125.66%);",
             aspectRatio: "100%",
             video: elementVideo,
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            title: "App intro: an animation to show essential app features.",
           },
           {
             aspectRatio: "140%",
             image: element1,
-            title: "",
+            alt: "luxeradio-cover-playlist",
+            title: "luxeradio-element-image",
           },
         ],
         secondDetail: [
           {
             aspectRatio: "100%",
             image: element3,
+            alt: "luxeradio-element-image",
             title: "",
           },
           {
             aspectRatio: "140%",
             image: element2,
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            alt: "luxeradio-element-image",
+            title: "",
           },
         ],
       },
     },
-
     footer: {
       responsiveImages: false,
       backgroundImage: footerBackgroundImage,
+      alt: "luxeradio-covers-and-library-screens",
       title: "Smile+",
     },
   },
