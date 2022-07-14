@@ -5,6 +5,7 @@
         :src="response.backgroundImage"
         class="tw-hidden tw-absolute tw-object-cover tw-py-40 lg:tw-block"
         v-if="response.backgroundImage"
+        alt="luxeradio-music-background"
       />
       <div
         class="tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
@@ -20,6 +21,7 @@
               :key="button"
               class="tw-pr-10 is-animation-tab tw-inline-block tw-relative v2-normal-2-text hover:tw-text-black-900 after:tw-absolute after:tw-w-1/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
               :href="button.link"
+              target="_blank"
             >
               {{ button.name }}
             </a>
@@ -82,7 +84,12 @@
             height="85%"
             class="tw-border-solid tw-border-1 tw-border-transparent"
           >
-            <img :src="sider.image" class="swiper-slide" loading="lazy" />
+            <img
+              :src="sider.image"
+              class="swiper-slide"
+              loading="lazy"
+              :alt="sider.alt ? sider.alt : ''"
+            />
           </aspect-ratio>
         </swiper-slide>
       </swiper>
@@ -94,6 +101,7 @@
       <img
         :src="response.videoBackgroundImage"
         class="tw-w-full tw-h-full tw-object-cover"
+        :alt="response.alt"
       />
     </aspect-ratio>
   </section>
