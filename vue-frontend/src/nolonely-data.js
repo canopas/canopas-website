@@ -31,7 +31,7 @@ export default {
   detail: {
     landing: {
       title: "NoLonely",
-      subTitle: "Lorem Ipsum is simply dummy text of the printing.",
+      subTitle: "Overcome loneliness and depression by building healthy habits",
       responsiveImages: true,
       backgroundImage: [
         landingBackground400w,
@@ -39,26 +39,59 @@ export default {
         landingBackground1200w,
         landingBackground1600w,
       ],
+      alt: "nolonely-background-image",
     },
     video: {
-      title: "The Challenge",
+      title: "The Problem",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the i ndustry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+        "NoLonely - A startup to help people improve their daily life by creating new habits. Habits are the core of any change people want to make in their lives. Inspired by the atomic habits book, the startup wanted to create a product that helps people focus on progress instead of goals and talents. The project is in the development mode and the habit module is live on both app stores.",
       buttons: [
-        { name: "Launch Project", link: "" },
-        { name: "App Store", link: "" },
+        {
+          name: "Play Store",
+          link: "https://play.google.com/store/apps/details?id=com.canopas.nolonely",
+        },
+        {
+          name: "App Store",
+          link: "https://apps.apple.com/us/app/nolonely/id1570951174",
+        },
       ],
       videoBackgroundImage: videoBackgroundImage,
+      alt: "nolonely-background-image",
       slider: [
-        { id: 1, image: cooking, backgroundColor: "#FD6429" },
-        { id: 2, image: meditation, backgroundColor: "#5C3C8C" },
-        { id: 3, image: painting, backgroundColor: "#7A8494" },
-        { id: 4, image: pet, backgroundColor: "#F9626B" },
-        { id: 5, image: singing, backgroundColor: "#D7EFFF" },
+        {
+          id: 1,
+          image: cooking,
+          backgroundColor: "#FD6429",
+          alt: "nolonely-cooking-activity",
+        },
+        {
+          id: 2,
+          image: meditation,
+          backgroundColor: "#5C3C8C",
+          alt: "nolonely-meditation-activity",
+        },
+        {
+          id: 3,
+          image: painting,
+          backgroundColor: "#96BC9F",
+          alt: "nolonely-painting-activity",
+        },
+        {
+          id: 4,
+          image: pet,
+          backgroundColor: "#F9626B",
+          alt: "nolonely-spend-time-with-pet-activity",
+        },
+        {
+          id: 5,
+          image: singing,
+          backgroundColor: "#A1AEC3",
+          alt: "nolonely-singing-activity",
+        },
       ],
     },
     branding: {
-      title: `<span class="border-text">Careful</span> <br/>branding`,
+      title: `<span class="border-text">Nolonely</span> <br/>branding`,
       responsiveImages: true,
       backgroundImage: [
         brandingBackground400w,
@@ -66,21 +99,23 @@ export default {
         brandingBackground1200w,
         brandingBackground1600w,
       ],
+      alt: "nolonely-branding-screen",
       details: {
         firstDetail: [
           {
             id: 1,
-            aspectRatio: "132%",
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            aspectRatio: "134%",
+            title: "",
             image: branding1,
+            alt: "nolonely-app-logo-image",
           },
           {
             id: 2,
             aspectRatio: "90%",
             title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+              "25+ habits from 5 unique domains to help you create the system you want for your identity.",
             image: branding2,
+            alt: "nolonely-habits-activity-image",
           },
         ],
         secondDetail: [
@@ -89,32 +124,34 @@ export default {
             background:
               "linear-gradient(152.55deg, #F9779F -5.7%, rgba(249, 119, 159, 0) 26.47%)",
             aspectRatio: "94%",
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
+            title: "",
             image: branding3,
+            alt: "nolonely-branding-image",
           },
           {
             id: 4,
-            aspectRatio: "132%",
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            aspectRatio: "134%",
+            title: "Learn how the activity helps you improve yourself.",
             image: branding4,
+            alt: "nolonely-maditation-activity-screen",
           },
         ],
       },
     },
     design: [
       {
-        title: `The <span class="border-text">design</span> will not leave you cold`,
+        title: `<span class="border-text">WHY</span> habits are so important?`,
         description:
-          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard. Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+          "Because it's the portion of your life you can influence to achieve your goals or desired outcome. It helps you build a system that increases the likelihood of your success or achieving goals.",
         responsiveImages: true,
         backgroundImage: [design400w, design800w, design1200w, design1600w],
+        alt: "nolonely-activities-screens",
         gif: cyclingAnimation,
       },
     ],
     element: {
-      title: `Every <span class="border-text">element</span><br/> made with love`,
+      class: "v2-header-2-text tw-font-bold lg:tw-w-4/5",
+      title: `Much more than just a <span class="border-text">habit tracker...</span>`,
       detail: "",
     },
 
@@ -125,6 +162,7 @@ export default {
         footerBackground1200w,
         footerBackground1600w,
       ],
+      alt: "nolonely-habit-tracker-screens",
       responsiveImages: true,
       title: "Togness",
     },
