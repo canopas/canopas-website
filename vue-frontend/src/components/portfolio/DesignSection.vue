@@ -21,7 +21,7 @@
     </div>
   </section>
 
-  <section class="image tw-relative tw-z-[-1] container-xxl">
+  <section class="image tw-relative tw-z-[-1]">
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <img
         v-if="response[0].responsiveImages"
@@ -38,11 +38,11 @@
         :alt="response.alt"
       />
     </aspect-ratio>
-    <img v-if="response[0].gif" :src="response[0].gif" <<<<<<< HEAD
-    class="tw-absolute tw-inset-0 tw-left-auto tw-h-2/4 tw-w-2/6 tw-object-cover
-    -tw-scale-x-100" ======= class="tw-absolute tw-inset-0 tw-left-auto tw-h-2/4
-    tw-w-2/6 tw-object-cover cycling-animation" alt="cycling-animation" >>>>>>>
-    master />
+    <img
+      v-if="response[0].gif"
+      :src="response[0].gif"
+      class="tw-absolute tw-inset-0 tw-left-auto tw-h-2/4 tw-w-2/6 tw-object-cover -tw-scale-x-100"
+    />
   </section>
 
   <section class="tw-bg-white tw-relative" v-if="response[1]">
@@ -61,7 +61,7 @@
   </section>
 
   <section
-    class="image tw-relative tw-px-4 lg:tw-px-12 tw-z-[-1] container-xxl"
+    class="image tw-relative tw-px-4 lg:tw-px-12 tw-z-[-1]"
     v-if="response[1]"
   >
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">

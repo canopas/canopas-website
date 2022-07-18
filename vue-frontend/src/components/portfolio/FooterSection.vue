@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="background-image tw-relative tw-z-[-1] tw-bg-white container-xxl"
-  >
+  <section class="background-image tw-relative tw-z-[-1] tw-bg-white">
     <aspect-ratio height="66.26% ">
       <img
         v-if="response.responsiveImages"

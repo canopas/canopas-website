@@ -15,7 +15,7 @@
           <div class="v2-normal-text tw-font-light">
             {{ response.description }}
           </div>
-          <div class="tw-pt-16">
+          <div v-if="response.buttons" class="tw-pt-16">
             <a
               v-for="button in response.buttons"
               :key="button"
@@ -46,7 +46,7 @@
     </aspect-ratio>
   </section>
 
-  <section v-else class="tw-relative container-xxl">
+  <section v-else class="tw-relative">
     <div
       class="background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
       :style="{ background: backgroundColor }"
@@ -81,7 +81,7 @@
       >
         <swiper-slide v-for="(sider, index) in response.slider" :key="index">
           <aspect-ratio
-            height="95%"
+            height="62%"
             class="tw-border-solid tw-border-1 tw-border-transparent"
           >
             <img
@@ -95,8 +95,8 @@
       </swiper>
     </div>
     <aspect-ratio
-      height="54%"
-      class="mobile-image tw-mx-auto tw-h-full tw-w-1/4 tw-z-[-1]"
+      height="40%"
+      class="mobile-image tw-mx-auto tw-h-full tw-z-[-1]"
     >
       <img
         :src="response.videoBackgroundImage"
@@ -148,7 +148,7 @@ section.video {
 }
 
 .background-video {
-  margin: 9% 31%;
+  margin: 6% 35%;
 }
 
 .swiper-slide-active {
@@ -164,5 +164,9 @@ section.video {
 .swiper-wrapper {
   display: flex;
   align-items: center;
+}
+
+.mobile-image {
+  width: 18.5%;
 }
 </style>
