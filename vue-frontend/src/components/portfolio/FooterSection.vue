@@ -18,7 +18,7 @@
     </aspect-ratio>
   </section>
 
-  <div
+  <section
     class="v2-header-2-text tw-font-bold tw-text-center ... tw-bg-white tw-py-32 sm:tw-py-40 md:tw-py-44 2xl:tw-py-60"
   >
     <a
@@ -27,7 +27,7 @@
     >
       {{ response.title }}
     </a>
-  </div>
+  </section>
 </template>
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";

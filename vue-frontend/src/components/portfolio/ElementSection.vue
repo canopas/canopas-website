@@ -47,7 +47,7 @@
           </aspect-ratio>
           <div
             v-if="data.title"
-            class="v2-normal-3-text tw-px-6 tw-py-6 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            class="v2-normal-text tw-px-6 tw-py-6 lg:tw-px-12 lg:tw-py-12 xl:tw-p-20"
           >
             {{ data.title }}
           </div>
@@ -79,7 +79,7 @@
           </aspect-ratio>
           <div
             v-if="data.title"
-            class="v2-normal-3-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            class="v2-normal-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
           >
             {{ data.title }}
           </div>

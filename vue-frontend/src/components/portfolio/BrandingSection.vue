@@ -1,8 +1,6 @@
 <template>
   <section class="tw-bg-white">
-    <div
-      class="container tw-pt-28 tw-pb-32 sm:tw-pb-24 sm:tw-pt-44 md:tw-pb-36 2xl:tw-pt-56 tw-relative"
-    >
+    <div class="container tw-py-20 sm:tw-py-40 lg:tw-py-80 tw-relative">
       <div
         v-if="response.solution"
         class="tw-flex tw-flex-col tw-justify-between lg:tw-flex-row"
@@ -11,8 +9,20 @@
           {{ response.solution.title }}
         </div>
         <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
-          <div class="v2-normal-text tw-font-light">
-            {{ response.solution.description }}
+          <div
+            class="v2-normal-text tw-font-light"
+            v-html="response.solution.description"
+          ></div>
+          <div class="tw-pt-16">
+            <a
+              v-for="button in response.solution.buttons"
+              :key="button"
+              class="tw-pr-10 is-animation-tab tw-inline-block tw-relative v2-normal-2-text hover:tw-text-black-900 after:tw-absolute after:tw-w-1/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
+              :href="button.link"
+              target="_blank"
+            >
+              {{ button.name }}
+            </a>
           </div>
         </div>
       </div>

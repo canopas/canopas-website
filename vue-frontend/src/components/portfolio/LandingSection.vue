@@ -9,6 +9,7 @@
       </div>
     </div>
   </section>
+
   <section class="background-image tw-relative tw-z-[-1]">
     <aspect-ratio height="56.26%">
       <img

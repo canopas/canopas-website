@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-bg-white mt-5 mb-5">
+  <div class="tw-bg-white">
     <div class="background">
       <img
         :src="backgroundImage"

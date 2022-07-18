@@ -41,8 +41,7 @@
     <img
       v-if="response[0].gif"
       :src="response[0].gif"
-      class="tw-absolute tw-inset-0 tw-left-auto tw-h-2/4 tw-w-2/6 tw-object-cover cycling-animation"
-      alt="cycling-animation"
+      class="tw-absolute tw-inset-0 tw-left-auto tw-h-2/4 tw-w-2/6 tw-object-cover -tw-scale-x-100"
     />
   </section>
 
@@ -89,9 +88,5 @@ export default {
 <style lang="postcss" scoped>
 section.image {
   transform: translateZ(-1px) scale(1.5);
-}
-
-.cycling-animation {
-  transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 </style>

@@ -1,14 +1,14 @@
 <template>
   <div>
     <Header />
-    <div class="parallax">
+    <div class="parallax tw-p-0">
       <LandingSection v-bind:response="details.landing" />
       <VideoSection v-bind:response="details.video" />
       <BrandingSection v-bind:response="details.branding" />
       <DesignSection v-bind:response="details.design" />
       <ElementSection v-bind:response="details.element" />
       <FooterSection v-bind:response="details.footer" />
-      <CTASection class="tw-mt-40" />
+      <CTASection />
     </div>
   </div>
 </template>
