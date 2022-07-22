@@ -3,10 +3,7 @@ import landingBackground800w from "@/assets/images/portfolio/nolonely/landing/ba
 import landingBackground1200w from "@/assets/images/portfolio/nolonely/landing/background-1200w.webp";
 import landingBackground1600w from "@/assets/images/portfolio/nolonely/landing/background-1600w.webp";
 import videoSectionVideo from "@/assets/images/portfolio/luxeradio/luxeradio_videosection_video.mp4";
-import branding1 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_1.webp";
-import branding2 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_2.webp";
-import branding3 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_3.webp";
-import branding4 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_4.webp";
+import brandingBackgroundImage from "@/assets/images/portfolio/togness/branding/background.png";
 import design400w from "@/assets/images/portfolio/nolonely/design/design-400w.webp";
 import design800w from "@/assets/images/portfolio/nolonely/design/design-800w.webp";
 import design1200w from "@/assets/images/portfolio/nolonely/design/design-1200w.webp";
@@ -15,10 +12,10 @@ import element1 from "@/assets/images/portfolio/luxeradio/element/luxeradio_elem
 import element2 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_2.png";
 import element3 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_3.png";
 import elementVideo from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_video.mp4";
-import footerBackground400w from "@/assets/images/portfolio/nolonely/footer/background-400w.webp";
-import footerBackground800w from "@/assets/images/portfolio/nolonely/footer/background-800w.webp";
-import footerBackground1200w from "@/assets/images/portfolio/nolonely/footer/background-1200w.webp";
-import footerBackground1600w from "@/assets/images/portfolio/nolonely/footer/background-1600w.webp";
+import footerBackground400w from "@/assets/images/portfolio/togness/footer/background-400w.png";
+import footerBackground800w from "@/assets/images/portfolio/togness/footer/background-800w.png";
+import footerBackground1200w from "@/assets/images/portfolio/togness/footer/background-1200w.png";
+import footerBackground1600w from "@/assets/images/portfolio/togness/footer/background-1600w.png";
 
 export default {
   name: "togness",
@@ -49,50 +46,23 @@ export default {
       },
     },
     branding: {
-      title: "",
-      backgroundImage: "",
+      title: `<span class="border-text">B</span>randing`,
+      backgroundImage: brandingBackgroundImage,
+      solution: {
+        title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo netus accumsan volutpat interdum ac.Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      },
       details: {
-        firstDetail: [
-          {
-            id: 1,
-            aspectRatio: "132%",
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            image: branding1,
-          },
-          {
-            id: 2,
-            aspectRatio: "90%",
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
-            image: branding2,
-          },
-        ],
-        secondDetail: [
-          {
-            id: 3,
-            background:
-              "linear-gradient(152.55deg, #F9779F -5.7%, rgba(249, 119, 159, 0) 26.47%)",
-            aspectRatio: "94%",
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.",
-            image: branding3,
-          },
-          {
-            id: 4,
-            aspectRatio: "132%",
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            image: branding4,
-          },
-        ],
+        firstDetail: [],
+
+        secondDetail: [],
       },
     },
     design: [
       {
-        title: "Branding",
+        title: `<span class="border-text">M</span>ain Features`,
         description: "",
-        responsiveImages: true,
         backgroundImage: [design400w, design800w, design1200w, design1600w],
         subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         description:
@@ -160,7 +130,7 @@ export default {
         footerBackground1600w,
       ],
       responsiveImages: true,
-      title: "Luxe Radio",
+      title: "Next portfolio",
     },
   },
 };

@@ -3,7 +3,7 @@
     <div class="tw-relative container">
       <div>
         <div
-          class="tw-py-20 sm:tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
+          class="tw-py-20 sm:tw-py-40 tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
         >
           <div
             class="v2-header-2-text tw-font-bold"

@@ -1,7 +1,10 @@
 <template>
   <section class="tw-bg-white">
     <div
-      class="container tw-pt-28 tw-pb-32 sm:tw-pb-24 sm:tw-pt-44 md:tw-pb-36 2xl:tw-pt-56 tw-relative"
+      class="container tw-pb-32 sm:tw-pb-24 md:tw-pb-36 tw-relative"
+      :class="[
+        id == 'togness' ? 'tw--mt-px' : 'tw-pt-28 sm:tw-pt-44 2xl:tw-pt-56',
+      ]"
     >
       <div class="v2-header-3-text" v-html="response.title"></div>
     </div>
@@ -15,7 +18,6 @@
         sizes="(min-width: 992px) 45vw, 100vw"
         class="tw-w-full tw-h-full tw-object-cover"
       />
-
       <img
         v-else
         :src="response.backgroundImage"
@@ -23,6 +25,22 @@
       />
     </aspect-ratio>
   </section>
+
+  <section v-if="response.solution" class="tw-bg-white">
+    <div
+      class="container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row"
+    >
+      <div class="v2-normal-text tw-font-bold">
+        {{ response.solution.title }}
+      </div>
+      <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
+        <div class="v2-normal-text tw-font-light">
+          {{ response.solution.description }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- 
   <section class="tw-bg-white">
     <div
       class="container tw-pt-24 md:tw-pt-28 xl:tw-pt-52 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
@@ -130,7 +148,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 </template>
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
@@ -138,6 +156,7 @@ export default {
   props: ["response"],
   data() {
     return {
+      id: this.$route.params.id,
       flex1: this.response.details.firstDetail,
       flex2: this.response.details.secondDetail,
     };

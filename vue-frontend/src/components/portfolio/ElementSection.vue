@@ -83,6 +83,20 @@
       </div>
     </div>
   </section>
+  <section v-if="response.solution" class="tw-bg-white">
+    <div
+      class="container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row"
+    >
+      <div class="v2-normal-text tw-font-bold">
+        {{ response.subTitle }}
+      </div>
+      <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
+        <div class="v2-normal-text tw-font-light">
+          {{ response.description }}
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -92,6 +106,7 @@ export default {
   props: ["response"],
   data() {
     return {
+      id: this.$route.params.id,
       flex1: this.response.detail.firstDetail,
       flex2: this.response.detail.secondDetail,
     };
