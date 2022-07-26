@@ -16,14 +16,13 @@
           </div>
         </div>
       </div>
-      <div v-else class="v2-header-3-text" v-html="response.title"></div>
+      <div class="v2-header-3-text tw-pt-20" v-html="response.title"></div>
     </div>
   </section>
 
   <section class="background-image tw-relative tw-z-[-1]">
     <aspect-ratio height="56.26%">
       <img
-        v-if="response.responsiveImages"
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400, ${response.backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
@@ -108,11 +107,13 @@
                   :src="data.image"
                   :alt="response.alt"
                 />
+
                 <LottieAnimation
                   v-else-if="data.animation"
                   :jsonData="data.animation"
                   class="tw-mt-14 lg:tw-mt-20"
                 />
+
                 <video
                   v-else
                   preload="auto"

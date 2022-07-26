@@ -2,11 +2,12 @@
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative container">
       <img
-        :src="response.backgroundImage"
-        class="tw-hidden tw-absolute tw-object-cover tw-py-40 lg:tw-block"
-        v-if="response.backgroundImage"
+        :src="response.backgroundImage[3]"
+        :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
+        class="tw-hidden tw-absolute tw-object-cover tw-w-full tw-py-40 lg:tw-block"
         alt="luxeradio-music-background"
       />
+
       <div
         class="tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
       >
