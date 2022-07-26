@@ -29,8 +29,9 @@
           >
             <img
               v-if="data.image"
-              class="tw-h-full tw-w-full tw-object-cover"
-              :src="data.image"
+              class="tw-w-full tw-h-full tw-object-cover"
+              :src="data.image[3]"
+              :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
               :alt="response.alt"
             />
             <video
@@ -61,8 +62,9 @@
           >
             <img
               v-if="data.image"
-              class="tw-h-full tw-w-full tw-object-cover"
-              :src="data.image"
+              class="tw-w-full tw-h-full tw-object-cover"
+              :src="data.image[3]"
+              :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
               :alt="response.alt"
             />
             <video
