@@ -1,7 +1,7 @@
 import landingBackground400w from "@/assets/images/portfolio/nolonely/landing/background-400w.webp";
 import landingBackground800w from "@/assets/images/portfolio/nolonely/landing/background-800w.webp";
-import landingBackground1200w from "@/assets/images/portfolio/nolonely/landing/background-1200w.webp";
-import landingBackground1600w from "@/assets/images/portfolio/nolonely/landing/background-1600w.webp";
+import landingBackground1400w from "@/assets/images/portfolio/nolonely/landing/background-1400w.webp";
+import landingBackground2400w from "@/assets/images/portfolio/nolonely/landing/background-2400w.webp";
 import videoBackgroundImage from "@/assets/images/portfolio/nolonely/swiper/mobile.webp";
 import cooking from "@/assets/images/portfolio/nolonely/swiper/cooking.svg";
 import meditation from "@/assets/images/portfolio/nolonely/swiper/meditation.svg";
@@ -10,21 +10,21 @@ import pet from "@/assets/images/portfolio/nolonely/swiper/pet.svg";
 import singing from "@/assets/images/portfolio/nolonely/swiper/singing.svg";
 import brandingBackground400w from "@/assets/images/portfolio/nolonely/branding/background-400w.webp";
 import brandingBackground800w from "@/assets/images/portfolio/nolonely/branding/background-800w.webp";
-import brandingBackground1200w from "@/assets/images/portfolio/nolonely/branding/background-1200w.webp";
-import brandingBackground1600w from "@/assets/images/portfolio/nolonely/branding/background-1600w.webp";
+import brandingBackground1400w from "@/assets/images/portfolio/nolonely/branding/background-1400w.webp";
+import brandingBackground2400w from "@/assets/images/portfolio/nolonely/branding/background-2400w.webp";
 import branding1 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_1.webp";
 import branding2 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_2.webp";
-import branding3 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_3.webp";
+import brandingAnimation from "@/assets/lottie/brandingAnimation.json";
 import branding4 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_4.webp";
 import design400w from "@/assets/images/portfolio/nolonely/design/design-400w.webp";
 import design800w from "@/assets/images/portfolio/nolonely/design/design-800w.webp";
-import design1200w from "@/assets/images/portfolio/nolonely/design/design-1200w.webp";
-import design1600w from "@/assets/images/portfolio/nolonely/design/design-1600w.webp";
-import cyclingAnimation from "@/assets/images/portfolio/nolonely/design/cycling.gif";
+import design1400w from "@/assets/images/portfolio/nolonely/design/design-1400w.webp";
+import design2400w from "@/assets/images/portfolio/nolonely/design/design-2400w.webp";
+import cyclingAnimation from "@/assets/lottie/cyclingAnimation.json";
 import footerBackground400w from "@/assets/images/portfolio/nolonely/footer/background-400w.webp";
 import footerBackground800w from "@/assets/images/portfolio/nolonely/footer/background-800w.webp";
-import footerBackground1200w from "@/assets/images/portfolio/nolonely/footer/background-1200w.webp";
-import footerBackground1600w from "@/assets/images/portfolio/nolonely/footer/background-1600w.webp";
+import footerBackground1400w from "@/assets/images/portfolio/nolonely/footer/background-1400w.webp";
+import footerBackground2400w from "@/assets/images/portfolio/nolonely/footer/background-2400w.webp";
 
 export default {
   name: "noLonely",
@@ -36,8 +36,8 @@ export default {
       backgroundImage: [
         landingBackground400w,
         landingBackground800w,
-        landingBackground1200w,
-        landingBackground1600w,
+        landingBackground1400w,
+        landingBackground2400w,
       ],
       alt: "nolonely-background-image",
     },
@@ -96,8 +96,8 @@ export default {
       backgroundImage: [
         brandingBackground400w,
         brandingBackground800w,
-        brandingBackground1200w,
-        brandingBackground1600w,
+        brandingBackground1400w,
+        brandingBackground2400w,
       ],
       alt: "nolonely-branding-screen",
       details: {
@@ -122,10 +122,10 @@ export default {
           {
             id: 3,
             background:
-              "linear-gradient(152.55deg, #F9779F -5.7%, rgba(249, 119, 159, 0) 26.47%)",
+              "linear-gradient(140deg,hsl(240deg 53% 81%) 0%,hsl(270deg 43% 82%) 4%,hsl(305deg 34% 83%) 11%,hsl(330deg 45% 88%) 22%,hsl(347deg 45% 92%) 39%,hsl(0deg 20% 95%) 57%,hsl(357deg 76% 92%) 71%,hsl(354deg 92% 87%) 82%,hsl(350deg 96% 83%) 90%,hsl(346deg 95% 78%) 96%,hsl(342deg 92% 72%) 100%)",
             aspectRatio: "94%",
             title: "",
-            image: branding3,
+            animation: brandingAnimation,
             alt: "nolonely-branding-image",
           },
           {
@@ -144,9 +144,9 @@ export default {
         description:
           "Because it's the portion of your life you can influence to achieve your goals or desired outcome. It helps you build a system that increases the likelihood of your success or achieving goals.",
         responsiveImages: true,
-        backgroundImage: [design400w, design800w, design1200w, design1600w],
+        backgroundImage: [design400w, design800w, design1400w, design2400w],
         alt: "nolonely-activities-screens",
-        gif: cyclingAnimation,
+        animation: cyclingAnimation,
       },
     ],
     element: {
@@ -159,8 +159,8 @@ export default {
       backgroundImage: [
         footerBackground400w,
         footerBackground800w,
-        footerBackground1200w,
-        footerBackground1600w,
+        footerBackground1400w,
+        footerBackground2400w,
       ],
       alt: "nolonely-habit-tracker-screens",
       responsiveImages: true,
