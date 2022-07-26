@@ -1,13 +1,16 @@
 import landingBackground400w from "@/assets/images/portfolio/nolonely/landing/background-400w.webp";
 import landingBackground800w from "@/assets/images/portfolio/nolonely/landing/background-800w.webp";
-import landingBackground1200w from "@/assets/images/portfolio/nolonely/landing/background-1200w.webp";
-import landingBackground1600w from "@/assets/images/portfolio/nolonely/landing/background-1600w.webp";
+import landingBackground1400w from "@/assets/images/portfolio/nolonely/landing/background-1400w.webp";
+import landingBackground2400w from "@/assets/images/portfolio/nolonely/landing/background-2400w.webp";
 import videoSectionVideo from "@/assets/images/portfolio/luxeradio/luxeradio_videosection_video.mp4";
-import brandingBackgroundImage from "@/assets/images/portfolio/togness/branding/background.png";
+import brandingBackground400w from "@/assets/images/portfolio/togness/branding/background-400w.webp";
+import brandingBackground800w from "@/assets/images/portfolio/togness/branding/background-800w.webp";
+import brandingBackground1400w from "@/assets/images/portfolio/togness/branding/background-1400w.webp";
+import brandingBackground2400w from "@/assets/images/portfolio/togness/branding/background-2400w.webp";
 import design400w from "@/assets/images/portfolio/nolonely/design/design-400w.webp";
 import design800w from "@/assets/images/portfolio/nolonely/design/design-800w.webp";
-import design1200w from "@/assets/images/portfolio/nolonely/design/design-1200w.webp";
-import design1600w from "@/assets/images/portfolio/nolonely/design/design-1600w.webp";
+import design1400w from "@/assets/images/portfolio/nolonely/design/design-1400w.webp";
+import design2400w from "@/assets/images/portfolio/nolonely/design/design-2400w.webp";
 import element1 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_1.png";
 import element2 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_2.png";
 import element3 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_3.png";
@@ -24,12 +27,11 @@ export default {
       title: "Togness",
       subTitle:
         "Slideshow maker, video editing, photos, video collage with music and quotes!",
-      responsiveImages: true,
       backgroundImage: [
         landingBackground400w,
         landingBackground800w,
-        landingBackground1200w,
-        landingBackground1600w,
+        landingBackground1400w,
+        landingBackground2400w,
       ],
     },
     video: {
@@ -47,7 +49,12 @@ export default {
     },
     branding: {
       title: `<span class="border-text">B</span>randing`,
-      backgroundImage: brandingBackgroundImage,
+      backgroundImage: [
+        brandingBackground400w,
+        brandingBackground800w,
+        brandingBackground1400w,
+        brandingBackground2400w,
+      ],
       solution: {
         title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         description:
@@ -62,8 +69,7 @@ export default {
     design: [
       {
         title: `<span class="border-text">M</span>ain Features`,
-        description: "",
-        backgroundImage: [design400w, design800w, design1200w, design1600w],
+        backgroundImage: [design400w, design800w, design1400w, design2400w],
         subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         description:
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo netus accumsan volutpat interdum ac.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo netus accumsan volutpat interdum ac.Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",

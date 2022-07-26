@@ -30,16 +30,15 @@
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <img
         :src="response[0].backgroundImage[3]"
-        :srcset="`${response[0].backgroundImage[0]} 400w, ${response[0].backgroundImage[1]} 800w,${response[0].backgroundImage[2]} 1400w,${response[0].backgroundImage[3]} 2400w`"
-        :alt="response.alt"
+        :srcset="`${response[0].backgroundImage[0]} 400w, ${response[0].backgroundImage[1]} 800w, ${response[0].backgroundImage[2]} 1400w, ${response[0].backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
+        :alt="response.alt"
       />
     </aspect-ratio>
-    <img
-      v-if="response[0].gif"
-      :src="response[0].gif"
+    <LottieAnimation
+      v-if="response[0].animation"
+      :jsonData="response[0].animation"
       class="tw-absolute tw-inset-0 tw-left-auto tw-h-2/4 tw-w-2/6 tw-object-cover cycling-animation"
-      alt="cycling-animation"
     />
   </section>
 
@@ -105,7 +104,7 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-
+import LottieAnimation from "@/components/utils/LottieAnimation.vue";
 export default {
   props: ["response"],
   data() {
@@ -115,6 +114,7 @@ export default {
   },
   components: {
     AspectRatio,
+    LottieAnimation,
   },
 };
 </script>

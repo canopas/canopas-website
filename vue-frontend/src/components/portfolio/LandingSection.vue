@@ -13,8 +13,8 @@
     <aspect-ratio height="56.25%">
       <img
         :src="response.backgroundImage[3]"
-        :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 1600w`"
         :alt="response.alt"
+        :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
       />
     </aspect-ratio>
