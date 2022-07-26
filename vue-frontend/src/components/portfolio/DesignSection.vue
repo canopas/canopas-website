@@ -47,7 +47,9 @@
     :class="[id == 'togness' ? '' : 'tw-hidden']"
   >
     <div class="tw-relative container">
-      <div class="tw-pt-40 tw-pt-20 tw-flex tw-flex-col tw-justify-between">
+      <div
+        class="tw-pt-40 tw-pt-20 tw-flex tw-flex-col tw-justify-between sm:tw-flex-row"
+      >
         <div class="v2-title-2-text xl:tw-w-1/3">
           {{ response[0].technology.title }}
         </div>
