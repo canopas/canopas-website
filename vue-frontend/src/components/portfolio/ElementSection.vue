@@ -1,5 +1,8 @@
 <template>
-  <section class="tw-bg-white tw-relative">
+  <section
+    class="tw-bg-white tw-relative"
+    :class="[id == 'togness' ? 'tw-hidden' : '']"
+  >
     <div class="tw-relative container">
       <div>
         <div
@@ -19,6 +22,7 @@
   <section
     v-if="response.detail"
     class="tw-relative tw-bg-white tw-pb-8 sm:tw-pb-20 xl:tw-pb-28"
+    :class="[id == 'togness' ? 'tw-pt-40' : '']"
   >
     <div class="container tw-flex tw-flex-col sm:tw-flex-row tw-relative">
       <div class="tw-basis-1/2">
@@ -55,6 +59,13 @@
       </div>
       <div class="sm:tw-mt-36 lg:tw-mt-60 tw-basis-1/2">
         <div v-for="data in flex2" :key="data" class="tw-p-3">
+          <div
+            v-if="data.title"
+            class="v2-normal-3-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            :class="[id == 'togness' ? '' : 'tw-hidden']"
+          >
+            {{ data.title }}
+          </div>
           <aspect-ratio
             :height="data.aspectRatio"
             :style="[data.background ? { background: data.background } : {}]"
@@ -80,9 +91,24 @@
           <div
             v-if="data.title"
             class="v2-normal-3-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            :class="[id == 'togness' ? 'tw-hidden' : '']"
           >
             {{ data.title }}
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section :class="[id == 'togness' ? '' : 'tw-hidden']" class="tw-bg-white">
+    <div
+      class="container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row"
+    >
+      <div class="v2-normal-text tw-font-bold">
+        {{ response.subTitle }}
+      </div>
+      <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
+        <div class="v2-normal-text tw-font-light">
+          {{ response.description }}
         </div>
       </div>
     </div>
@@ -96,6 +122,7 @@ export default {
   props: ["response"],
   data() {
     return {
+      id: this.$route.params.id,
       flex1: this.response.detail.firstDetail,
       flex2: this.response.detail.secondDetail,
     };

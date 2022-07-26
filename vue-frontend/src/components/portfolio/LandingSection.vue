@@ -10,13 +10,12 @@
     </div>
   </section>
   <section class="background-image tw-relative tw-z-[-1]">
-    <aspect-ratio height="56.26%">
+    <aspect-ratio height="56.25%">
       <img
-        v-if="response.responsiveImages"
         :src="response.backgroundImage[3]"
+        :alt="response.alt"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
-        :alt="response.alt"
       />
     </aspect-ratio>
   </section>
@@ -24,6 +23,7 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
+
 export default {
   props: ["response"],
   components: {

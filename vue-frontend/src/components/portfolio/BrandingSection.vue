@@ -1,38 +1,40 @@
 <template>
   <section class="tw-bg-white">
     <div
-      class="container tw-pt-28 tw-pb-32 sm:tw-pb-24 sm:tw-pt-44 md:tw-pb-36 2xl:tw-pt-56 tw-relative"
+      class="container tw-pb-32 sm:tw-pb-24 md:tw-pb-36 tw-relative"
+      :class="[
+        id == 'togness' ? 'tw--mt-px' : 'tw-pt-28 sm:tw-pt-44 2xl:tw-pt-56',
+      ]"
     >
-      <div
-        v-if="response.solution"
-        class="tw-flex tw-flex-col tw-justify-between lg:tw-flex-row"
-      >
-        <div class="v2-normal-text tw-font-bold">
-          {{ response.solution.title }}
-        </div>
-        <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
-          <div class="v2-normal-text tw-font-light">
-            {{ response.solution.description }}
-          </div>
-        </div>
-      </div>
-      <div v-else class="v2-header-3-text" v-html="response.title"></div>
+      <div class="v2-header-3-text" v-html="response.title"></div>
     </div>
   </section>
-
   <section class="background-image tw-relative tw-z-[-1]">
     <aspect-ratio height="56.26%">
       <img
-        v-if="response.responsiveImages"
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400, ${response.backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
-        :alt="response.alt"
       />
     </aspect-ratio>
   </section>
 
-  <section class="tw-bg-white">
+  <section v-if="response.solution" class="tw-bg-white">
+    <div
+      class="container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row"
+    >
+      <div class="v2-normal-text tw-font-bold">
+        {{ response.solution.title }}
+      </div>
+      <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
+        <div class="v2-normal-text tw-font-light">
+          {{ response.solution.description }}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tw-bg-white" :class="[id == 'togness' ? 'tw-hidden' : '']">
     <div
       class="container tw-pt-24 md:tw-pt-28 xl:tw-pt-52 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
     >
@@ -54,7 +56,6 @@
                   v-if="data.image"
                   :src="data.image"
                   class="tw-w-full tw-h-full tw-object-cover"
-                  :alt="response.alt"
                 />
 
                 <video
@@ -137,7 +138,7 @@
             :class="[
               data.title
                 ? 'tw-py-8  sm:tw-px-32 sm:tw-py-8 md:tw-px-14 xl:tw-p-16  2xl:tw-px-32 tw-bg-white tw-text-center'
-                : 'tw-mt-12',
+                : '',
             ]"
           >
             {{ data.title }}
@@ -155,6 +156,7 @@ export default {
   props: ["response"],
   data() {
     return {
+      id: this.$route.params.id,
       flex1: this.response.details.firstDetail,
       flex2: this.response.details.secondDetail,
     };
