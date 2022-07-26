@@ -15,7 +15,6 @@
         v-if="response.responsiveImages"
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
-        sizes="(min-width: 992px) 45vw, 100vw"
         class="tw-w-full tw-h-full tw-object-cover"
       />
       <img
@@ -40,8 +39,8 @@
       </div>
     </div>
   </section>
-  <!-- 
-  <section class="tw-bg-white">
+
+  <section class="tw-bg-white" :class="[id == 'togness' ? 'tw-hidden' : '']">
     <div
       class="container tw-pt-24 md:tw-pt-28 xl:tw-pt-52 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
     >
@@ -148,7 +147,7 @@
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 </template>
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";

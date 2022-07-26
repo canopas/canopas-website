@@ -87,7 +87,7 @@ export default {
       },
     ],
     element: {
-      title: "Main Features",
+      title: "",
       detail: {
         firstDetail: [
           {
@@ -95,26 +95,26 @@ export default {
               "linear-gradient(135.4deg, #101010 -0.02%, #B0DDFF 125.66%);",
             aspectRatio: "100%",
             video: elementVideo,
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            title: "",
           },
           {
             aspectRatio: "140%",
             image: element1,
-            title: "",
+            title:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
           },
         ],
         secondDetail: [
           {
             aspectRatio: "100%",
             image: element3,
-            title: "",
+            title:
+              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
           },
           {
             aspectRatio: "140%",
             image: element2,
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            title: "",
           },
         ],
       },
@@ -129,7 +129,6 @@ export default {
         footerBackground1200w,
         footerBackground1600w,
       ],
-      responsiveImages: true,
       title: "Next portfolio",
     },
   },

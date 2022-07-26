@@ -1,12 +1,17 @@
 <template>
-  <section class="tw-bg-white tw-relative">
+  <section
+    class="tw-bg-white tw-relative"
+    :class="[id == 'togness' ? 'tw-hidden' : '']"
+  >
     <div class="tw-relative container">
       <div>
         <div
           class="tw-pt-20 tw-pb-14 sm:tw-pt-40 sm:tw-pb-24 lg:tw-pt-80 lg:tw-pb-44"
         >
           <div
-            class="v2-header-2-text tw-font-bold"
+            :class="
+              response.class ? response.class : 'v2-title-2-text tw-font-bold'
+            "
             v-html="response.title"
           ></div>
         </div>
@@ -17,9 +22,10 @@
   <section
     v-if="response.detail"
     class="tw-relative tw-bg-white tw-pb-8 sm:tw-pb-20 xl:tw-pb-28"
+    :class="[id == 'togness' ? 'tw-pt-40' : '']"
   >
-    <div class="container tw-flex tw-flex-col sm:tw-flex-row">
-      <div>
+    <div class="container tw-flex tw-flex-col sm:tw-flex-row tw-relative">
+      <div class="tw-basis-1/2">
         <div v-for="data in flex1" :key="data" class="tw-p-3">
           <aspect-ratio
             :height="data.aspectRatio"
@@ -29,6 +35,7 @@
               v-if="data.image"
               class="tw-h-full tw-w-full tw-object-cover"
               :src="data.image"
+              :alt="response.alt"
             />
             <video
               v-else
@@ -44,14 +51,21 @@
           </aspect-ratio>
           <div
             v-if="data.title"
-            class="v2-normal-3-text tw-bg-white tw-relative tw-px-6 tw-py-6 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            class="v2-normal-3-text tw-px-6 tw-py-6 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
           >
             {{ data.title }}
           </div>
         </div>
       </div>
-      <div class="sm:tw-mt-36 lg:tw-mt-60">
+      <div class="sm:tw-mt-36 lg:tw-mt-60 tw-basis-1/2">
         <div v-for="data in flex2" :key="data" class="tw-p-3">
+          <div
+            v-if="data.title"
+            class="v2-normal-3-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            :class="[id == 'togness' ? '' : 'tw-hidden']"
+          >
+            {{ data.title }}
+          </div>
           <aspect-ratio
             :height="data.aspectRatio"
             :style="[data.background ? { background: data.background } : {}]"
@@ -60,6 +74,7 @@
               v-if="data.image"
               class="tw-h-full tw-w-full tw-object-cover"
               :src="data.image"
+              :alt="response.alt"
             />
             <video
               v-else
@@ -76,6 +91,7 @@
           <div
             v-if="data.title"
             class="v2-normal-3-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            :class="[id == 'togness' ? 'tw-hidden' : '']"
           >
             {{ data.title }}
           </div>
@@ -83,7 +99,7 @@
       </div>
     </div>
   </section>
-  <section v-if="response.solution" class="tw-bg-white">
+  <section :class="[id == 'togness' ? '' : 'tw-hidden']" class="tw-bg-white">
     <div
       class="container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row"
     >

@@ -24,11 +24,7 @@
             {{ portfolio.detail }}
           </div>
           <div class="mt-4 d-flex">
-            <a
-              class="v2-normal-2-text v2-button"
-              :href="portfolio.link"
-              target="_blank"
-            >
+            <a class="v2-normal-2-text v2-button" :href="portfolio.link">
               <span>VIEW</span>
               <font-awesome-icon
                 class="arrow fa"
