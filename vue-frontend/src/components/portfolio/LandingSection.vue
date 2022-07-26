@@ -14,14 +14,7 @@
       <img
         v-if="response.responsiveImages"
         :src="response.backgroundImage[3]"
-        :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
-        sizes="(min-width: 992px) 45vw, 100vw"
-        class="tw-w-full tw-h-full tw-object-cover"
-        :alt="response.alt"
-      />
-      <img
-        v-else
-        :src="response.backgroundImage"
+        :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
         :alt="response.alt"
       />
