@@ -55,6 +55,7 @@ export default {
           link: "https://apps.apple.com/us/app/nolonely/id1570951174",
         },
       ],
+      backgroundImage: "",
       videoBackgroundImage: videoBackgroundImage,
       alt: "nolonely-background-image",
       slider: [
