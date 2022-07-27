@@ -2,6 +2,7 @@
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative container">
       <img
+        v-if="response.backgroundImage[3]"
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
         class="tw-hidden tw-absolute tw-object-cover tw-w-full tw-py-40 lg:tw-block"
