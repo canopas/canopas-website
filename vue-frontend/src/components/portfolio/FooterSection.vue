@@ -2,7 +2,6 @@
   <section class="background-image tw-relative tw-z-[-1] tw-bg-white">
     <aspect-ratio height="66.26% ">
       <img
-        v-if="response.responsiveImages"
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
@@ -12,7 +11,7 @@
   </section>
 
   <div
-    class="v2-header-2-text tw-font-bold tw-text-center ... tw-bg-white tw-py-32 sm:tw-py-40 md:tw-py-44 2xl:tw-py-60"
+    class="v2-header-2-text tw-font-bold tw-text-center ... tw-bg-white tw-py-24 sm:tw-py-32 lg:tw-py-40"
   >
     <a
       href="/"

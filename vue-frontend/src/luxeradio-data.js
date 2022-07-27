@@ -1,19 +1,58 @@
-import landingBackgroundImage from "@/assets/images/portfolio/luxeradio/landing_background.png";
-import videoBackgroundImage from "@/assets/images/portfolio/luxeradio/video_background.png";
-import videoSectionVideo from "@/assets/images/portfolio/luxeradio/luxeradio_videosection_video.mp4";
-import brandingBackgroundImage from "@/assets/images/portfolio/luxeradio/branding/background.png";
-import branding1 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1.png";
-import branding2 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2.png";
-import branding3 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3.png";
+import landingBackgroundImage400w from "@/assets/images/portfolio/luxeradio/landing/background-400w.webp";
+import landingBackgroundImage800w from "@/assets/images/portfolio/luxeradio/landing/background-800w.webp";
+import landingBackgroundImage1400w from "@/assets/images/portfolio/luxeradio/landing/background-1400w.webp";
+import landingBackgroundImage2400w from "@/assets/images/portfolio/luxeradio/landing/background-2400w.webp";
+
+import videoBackgroundImage400w from "@/assets/images/portfolio/luxeradio/video/background-400w.webp";
+import videoBackgroundImage800w from "@/assets/images/portfolio/luxeradio/video/background-800w.webp";
+import videoBackgroundImage1200w from "@/assets/images/portfolio/luxeradio/video/background-1200w.webp";
+import videoBackgroundImage1600w from "@/assets/images/portfolio/luxeradio/video/background-1600w.webp";
+
+import videoSectionVideo from "@/assets/images/portfolio/luxeradio/video/videosection_video.mp4";
+
+import brandingBackgroundImage400w from "@/assets/images/portfolio/luxeradio/branding/background-400w.webp";
+import brandingBackgroundImage800w from "@/assets/images/portfolio/luxeradio/branding/background-800w.webp";
+import brandingBackgroundImage1400w from "@/assets/images/portfolio/luxeradio/branding/background-1400w.webp";
+import brandingBackgroundImage2400w from "@/assets/images/portfolio/luxeradio/branding/background-2400w.webp";
+
+import branding1 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1.webp";
+import branding2 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2.webp";
+import branding3 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3.webp";
+import branding5 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5.webp";
+
 import brandVideo from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_video.mp4";
-import branding5 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5.png";
-import design1 from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_1.png";
-import design2 from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_2.png";
-import element1 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_1.png";
-import element2 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_2.png";
-import element3 from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_3.png";
+
+import design1_400w from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_1-400w.webp";
+import design1_800w from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_1-800w.webp";
+import design1_1400w from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_1-1400w.webp";
+import design1_2400w from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_1-2400w.webp";
+
+import design2_400w from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_2-400w.webp";
+import design2_800w from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_2-800w.webp";
+import design2_1400w from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_2-1400w.webp";
+import design2_2400w from "@/assets/images/portfolio/luxeradio/design/luxeradio_design_2-2400w.webp";
+
+import element1_400w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_1-400w.webp";
+import element1_800w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_1-800w.webp";
+import element1_1200w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_1-1200w.webp";
+import element1_1600w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_1-1600w.webp";
+
+import element2_400w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_2-400w.webp";
+import element2_800w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_2-800w.webp";
+import element2_1200w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_2-1200w.webp";
+import element2_1600w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_2-1600w.webp";
+
+import element3_400w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_3-400w.webp";
+import element3_800w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_3-800w.webp";
+import element3_1200w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_3-1200w.webp";
+import element3_1600w from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_3-1600w.webp";
+
 import elementVideo from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_video.mp4";
-import footerBackgroundImage from "@/assets/images/portfolio/luxeradio/footer_background.png";
+
+import footerBackgroundImage400w from "@/assets/images/portfolio/luxeradio/footer/background-400w.webp";
+import footerBackgroundImage800w from "@/assets/images/portfolio/luxeradio/footer/background-800w.webp";
+import footerBackgroundImage1400w from "@/assets/images/portfolio/luxeradio/footer/background-1400w.webp";
+import footerBackgroundImage2400w from "@/assets/images/portfolio/luxeradio/footer/background-2400w.webp";
 
 export default {
   name: "luxeradio",
@@ -22,8 +61,12 @@ export default {
       title: "Luxe Radio",
       subTitle:
         "A radio, music streaming, and podcast platform for Moroccan people.",
-      responsiveImages: false,
-      backgroundImage: landingBackgroundImage,
+      backgroundImage: [
+        landingBackgroundImage400w,
+        landingBackgroundImage800w,
+        landingBackgroundImage1400w,
+        landingBackgroundImage2400w,
+      ],
       alt: "luxeradio-app-and-desktop-images",
     },
     video: {
@@ -40,7 +83,13 @@ export default {
           link: "https://apps.apple.com/ma/app/luxe-radio/id1073120504",
         },
       ],
-      backgroundImage: videoBackgroundImage,
+
+      backgroundImage: [
+        videoBackgroundImage400w,
+        videoBackgroundImage800w,
+        videoBackgroundImage1200w,
+        videoBackgroundImage1600w,
+      ],
       video: videoSectionVideo,
     },
     branding: {
@@ -50,8 +99,13 @@ export default {
         description:
           "Our team added a feature to stream their content live and on-demand. We included a feature that allows users to create playlists to access the content offline. Users can also interact and post their reactions on live debates. The client wanted to handle advertising personally instead of integrating advertisement APIs. For this, We contributed to building the features that allow them to incorporate ads. <br/>We developed mobile apps for iOS, Android, and Huawei's App Gallery and web apps for Mac and Windows. Plus, the app is also available for CarPlay and Android Auto.",
       },
-      responsiveImages: false,
-      backgroundImage: brandingBackgroundImage,
+
+      backgroundImage: [
+        brandingBackgroundImage400w,
+        brandingBackgroundImage800w,
+        brandingBackgroundImage1400w,
+        brandingBackgroundImage2400w,
+      ],
       alt: "luxeradio-branding-screen",
       details: {
         firstDetail: [
@@ -105,14 +159,24 @@ export default {
         description:
           "We developed Luxe Radio by focusing on the user experience. From app design to development, you will see that we paid attention to every micro detail in the project that makes the user's life easy.",
         responsiveImages: false,
-        backgroundImage: design1,
+        backgroundImage: [
+          design1_400w,
+          design1_800w,
+          design1_1400w,
+          design1_2400w,
+        ],
         alt: "luxeradio-features-screen",
       },
       {
         title: "What's the Outcome of the project?",
         description:
           "Canopas has exceeded our expectations. They've understood our ideas and how big our thoughts and our expectations are — they get our vision. I can proudly say that no broadcast media application looks like ours. The Play Store is the hardest app store to get good reviews on, and we've just reached a five-star rating, which has been one of our biggest achievements, partly thanks to Canopas' work.",
-        backgroundImage: design2,
+        backgroundImage: [
+          design2_400w,
+          design2_800w,
+          design2_1400w,
+          design2_2400w,
+        ],
         alt: "luxeradio-desktop-app-cover-screen",
       },
     ],
@@ -130,30 +194,49 @@ and everything to the smallest detail.`,
           },
           {
             aspectRatio: "140%",
-            image: element1,
+            image: [
+              element1_400w,
+              element1_800w,
+              element1_1200w,
+              element1_1600w,
+            ],
             alt: "luxeradio-cover-playlist",
-            title: "luxeradio-element-image",
+            title: "",
           },
         ],
         secondDetail: [
           {
             aspectRatio: "100%",
-            image: element3,
+            image: [
+              element3_400w,
+              element3_800w,
+              element3_1200w,
+              element3_1600w,
+            ],
             alt: "luxeradio-element-image",
             title: "",
           },
           {
             aspectRatio: "140%",
-            image: element2,
-            alt: "luxeradio-element-image",
+            image: [
+              element2_400w,
+              element2_800w,
+              element2_1200w,
+              element2_1600w,
+            ],
             title: "",
+            alt: "luxeradio-element-image",
           },
         ],
       },
     },
     footer: {
-      responsiveImages: false,
-      backgroundImage: footerBackgroundImage,
+      backgroundImage: [
+        footerBackgroundImage400w,
+        footerBackgroundImage800w,
+        footerBackgroundImage1400w,
+        footerBackgroundImage2400w,
+      ],
       alt: "luxeradio-covers-and-library-screens",
       title: "Smile+",
     },
