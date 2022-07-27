@@ -24,7 +24,6 @@
   <section class="image tw-relative tw-z-[-1]">
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <img
-        v-if="response[0].responsiveImages"
         :src="response[0].backgroundImage[3]"
         :srcset="`${response[0].backgroundImage[0]} 400w, ${response[0].backgroundImage[1]} 800w, ${response[0].backgroundImage[2]} 1400w, ${response[0].backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
@@ -59,7 +58,8 @@
   >
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <img
-        :src="response[1].backgroundImage"
+        :src="response[1].backgroundImage[3]"
+        :srcset="`${response[1].backgroundImage[0]} 400w, ${response[1].backgroundImage[1]} 800w,${response[1].backgroundImage[2]} 1400w,${response[1].backgroundImage[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
         :alt="response.alt"
       />
