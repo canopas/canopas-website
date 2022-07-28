@@ -227,30 +227,21 @@ export default {
       // append p and li tags to desc
       descContent.forEach(function (element, i) {
         if (i == 0) {
-          descContent[i] = element.replace(
-            element,
-            "<p>" + element + "</p></br><ul>"
-          );
+          descContent[i] = element.replace(element, "<p>" + element + "</p>");
         } else if (
           element.includes("Responsibilities and Duties") ||
           element.includes("Benefits") ||
           element.includes("Qualifications") ||
           element.includes("Venue")
         ) {
-          descContent[i] = element.replace(
-            element,
-            "</ul></br><p>" + element + "</p></br><ul>"
-          );
+          descContent[i] = element.replace(element, "<p>" + element + "</p>");
         } else if (element.length != 0) {
-          descContent[i] = element.replace(
-            element,
-            "<li>" + element + "</li></br>"
-          );
+          descContent[i] = element.replace(element, element);
         }
         if (i == descContent.length - 1) {
           descContent[i] = element.replace(
             element,
-            "<li>" + element + "</li></br></ul>"
+            "<ul><li>" + element + "</li></ul>"
           );
         }
       });
