@@ -291,21 +291,32 @@ export default {
       });
     },
     setBulletsAndIconsInDescription() {
-      let descriptionTitles = document.querySelectorAll("#description > h2");
-      descriptionTitles.forEach((descriptionTitle) => {
-        let bullet = document.createElement("span");
-        bullet.className = "bullet";
-        descriptionTitle.prepend(bullet);
-      });
-      let descriptionLists = document.querySelectorAll(
-        "#description > ul > li > div"
-      );
-      descriptionLists.forEach((descriptionList) => {
-        let fa = document.createElement("span");
-        fa.className = "fas fa-chevron-right";
-        fa.innerHTML = "&nbsp;";
-        descriptionList.prepend(fa);
-      });
+      let descriptionTitles = this.job.description.match(/<h2>(.*?)<\/h2>/g);
+
+      for (let i = 0; i < descriptionTitles.length; i++) {
+        if (descriptionTitles[i]) {
+          let title = descriptionTitles[i].match(/<strong>(.*?)<\/strong>/g)[0];
+          this.job.description = this.job.description.replace(
+            descriptionTitles[i],
+            '<h2><span class="bullet"></span>' + title + "</h2>"
+          );
+        }
+      }
+
+      let descriptionLists =
+        this.job.description.match(/<li>([\s\S]*?)<\/li>/g);
+
+      for (let i = 0; i < descriptionLists.length; i++) {
+        if (descriptionLists[i]) {
+          let list = descriptionLists[i].match(/<div>([\s\S]*?)<\/div>/g)[0];
+          this.job.description = this.job.description.replace(
+            descriptionLists[i],
+            '<li><span class="fas fa-chevron-right"></span>&nbsp;' +
+              list +
+              "</li>"
+          );
+        }
+      }
     },
   },
 };
@@ -355,6 +366,11 @@ export default {
   line-height: 2rem;
   text-align: justify;
   color: rgba(61, 61, 61, 0.8);
+}
+
+:deep(ul > li) {
+  display: flex;
+  align-items: baseline;
 }
 
 :deep(h2) {
