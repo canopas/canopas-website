@@ -161,9 +161,9 @@ export default {
         title: career.title,
         hiringOrganization: {
           "@type": "Organization",
-          name: "Canopas Software LLP",
+          name: "Canopas",
           sameAs: "https://www.canopas.com/",
-          logo: "https://canopas.com/images/logo/canopas-logo.png",
+          logo: "https://canopas.com/favicon.svg",
         },
         employmentType: (career.employment_type
           ? career.employment_type
@@ -182,7 +182,7 @@ export default {
           },
         },
         datePosted: dates.jobPosted,
-        description: this.setDescriptionForGoogleSchema(),
+        description: this.getDescriptionForGoogleSchema(),
         educationRequirements: {
           "@type": "EducationalOccupationalCredential",
           credentialCategory: "bachelor degree",
@@ -211,7 +211,7 @@ export default {
         validThrough: dates.validThrough,
       };
     },
-    setDescriptionForGoogleSchema() {
+    getDescriptionForGoogleSchema() {
       var html = this.unescapeHTML(this.job.description);
 
       //convert string to array
