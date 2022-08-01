@@ -24,6 +24,7 @@ import CTASection from "@/components/home-new/CTASection.vue";
 import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/luxeradio-data.js";
 import nolonelyResponse from "@/nolonely-data.js";
+import tognessResponse from "@/togness-data.js";
 
 export default {
   data() {
@@ -44,6 +45,10 @@ export default {
 
         case nolonelyResponse.name:
           this.details = nolonelyResponse.detail;
+          break;
+
+        case tognessResponse.name:
+          this.details = tognessResponse.detail;
           break;
       }
     },

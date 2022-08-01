@@ -48,7 +48,24 @@
     </aspect-ratio>
   </section>
 
-  <section v-else class="tw-relative">
+  <section v-if="response.videoBackground" class="video tw-relative tw-z-[-1]">
+    <aspect-ratio height="56.25%" class="tw-overflow-hidden">
+      <img
+        :src="response.videoBackground[3]"
+        :srcset="`${response.videoBackground[0]} 400w, ${response.videoBackground[1]} 800w, ${response.videoBackground[2]} 1400w, ${response.videoBackground[3]} 2400w`"
+        class="tw-w-full tw-h-full tw-object-cover"
+        :alt="response.alt"
+      />
+      <img
+        v-if="response.animation"
+        :src="response.animation"
+        class="tw-absolute tw-inset-0 tw-m-auto tw-h-5/5 tw-w-1/4 tw-rounded-lg"
+        :alt="response.alt"
+      />
+    </aspect-ratio>
+  </section>
+
+  <section v-if="response.slider" class="tw-relative">
     <div
       class="background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
       :style="{ background: backgroundColor }"
@@ -106,6 +123,23 @@
         :alt="response.alt"
       />
     </aspect-ratio>
+  </section>
+
+  <section v-if="response.solution" class="tw-bg-white tw-relative">
+    <div class="container">
+      <div
+        class="tw-flex tw-flex-col tw-justify-between tw-pt-20 sm:tw-pt-40 lg:tw-flex-row lg:tw-pt-80"
+      >
+        <div class="v2-normal-text tw-font-bold">
+          {{ response.title }}
+        </div>
+        <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
+          <div class="v2-normal-text tw-font-light">
+            {{ response.description }}
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 </template>
 

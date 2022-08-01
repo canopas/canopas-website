@@ -1,12 +1,10 @@
 <template>
   <section class="tw-bg-white">
     <div
+      v-if="response.solution"
       class="container tw-pt-28 tw-pb-32 sm:tw-pb-24 sm:tw-pt-44 md:tw-pb-36 2xl:tw-pt-56 tw-relative"
     >
-      <div
-        v-if="response.solution"
-        class="tw-flex tw-flex-col tw-justify-between lg:tw-flex-row"
-      >
+      <div class="tw-flex tw-flex-col tw-justify-between lg:tw-flex-row">
         <div class="v2-normal-text tw-font-bold">
           {{ response.solution.title }}
         </div>
@@ -16,11 +14,19 @@
           </div>
         </div>
       </div>
+    </div>
+    <div
+      v-if="response.title"
+      class="container tw-pt-28 tw-pb-32 sm:tw-pb-24 sm:tw-pt-44 md:tw-pb-36 2xl:tw-pt-56 tw-relative"
+    >
       <div class="v2-header-3-text tw-pt-20" v-html="response.title"></div>
     </div>
   </section>
 
-  <section class="background-image tw-relative tw-z-[-1]">
+  <section
+    v-if="response.backgroundImage[3]"
+    class="background-image tw-relative tw-z-[-1]"
+  >
     <aspect-ratio height="56.26%">
       <img
         :src="response.backgroundImage[3]"
@@ -53,7 +59,7 @@
                   v-if="data.image"
                   :src="data.image"
                   class="tw-w-full tw-h-full tw-object-cover"
-                  :alt="response.alt"
+                  :alt="data.alt"
                 />
 
                 <video
@@ -105,7 +111,7 @@
                   v-if="data.image"
                   class="tw-w-full tw-h-full tw-object-cover"
                   :src="data.image"
-                  :alt="response.alt"
+                  :alt="data.alt"
                 />
 
                 <LottieAnimation
