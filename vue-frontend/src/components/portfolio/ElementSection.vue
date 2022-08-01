@@ -32,7 +32,13 @@
               class="tw-w-full tw-h-full tw-object-cover"
               :src="data.image[3]"
               :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
-              :alt="response.alt"
+              :alt="data.alt"
+            />
+            <img
+              v-if="data.animation"
+              :src="data.animation"
+              class="tw-absolute tw-inset-0 tw-m-auto tw-object-cover"
+              :alt="data.alt"
             />
             <video
               v-else
@@ -65,7 +71,13 @@
               class="tw-w-full tw-h-full tw-object-cover"
               :src="data.image[3]"
               :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
-              :alt="response.alt"
+              :alt="data.alt"
+            />
+            <img
+              v-if="data.animation"
+              :src="data.animation"
+              class="tw-absolute tw-inset-0 tw-m-auto tw-object-cover tw-rounded-3xl tw-h-6/6"
+              :alt="data.alt"
             />
             <video
               v-else
@@ -85,6 +97,21 @@
           >
             {{ data.title }}
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section v-if="response.subTitle" class="tw-bg-white">
+    <div
+      class="container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row"
+    >
+      <div class="v2-normal-text tw-font-bold">
+        {{ response.subTitle }}
+      </div>
+      <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
+        <div class="v2-normal-text tw-font-light">
+          {{ response.description }}
         </div>
       </div>
     </div>

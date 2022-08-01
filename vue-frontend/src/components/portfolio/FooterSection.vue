@@ -1,6 +1,6 @@
 <template>
   <section class="background-image tw-relative tw-z-[-1] tw-bg-white">
-    <aspect-ratio height="66.26% ">
+    <aspect-ratio height="56.26% ">
       <img
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 2400w`"
