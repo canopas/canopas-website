@@ -86,7 +86,9 @@ export default {
           title: "Smile+",
           detail:
             "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
-          link: config.SMILEPLUS_URL,
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/smileplus"
+            : config.SMILEPLUS_URL,
         },
         {
           images: [nolonely400w, nolonely800w, nolonely1200w, nolonely16000w],

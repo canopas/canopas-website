@@ -25,6 +25,7 @@ import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/luxeradio-data.js";
 import nolonelyResponse from "@/nolonely-data.js";
 import tognessResponse from "@/togness-data.js";
+import smileplusResponse from "@/smileplus-data.js";
 
 export default {
   data() {
@@ -49,6 +50,10 @@ export default {
 
         case tognessResponse.name:
           this.details = tognessResponse.detail;
+          break;
+
+        case smileplusResponse.name:
+          this.details = smileplusResponse.detail;
           break;
       }
     },
