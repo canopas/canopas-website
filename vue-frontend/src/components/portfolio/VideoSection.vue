@@ -10,8 +10,11 @@
       />
 
       <div
-        class="tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
-        :class="[id == 'smileplus' ? '' : '']"
+        :class="[
+          id == 'smileplus'
+            ? 'tw-flex tw-flex-col tw-justify-between  tw-pt-20 sm:tw-pt-40 lg:tw-flex-row lg:tw-pt-80'
+            : 'tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80',
+        ]"
       >
         <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>
         <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
