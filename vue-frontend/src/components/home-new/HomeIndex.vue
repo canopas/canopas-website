@@ -12,7 +12,7 @@
     <UserReview />
     <Blog />
     <Contribute />
-    <CTA />
+    <CTA class="mt-5 mb-5" />
     <ScreenFooter2 />
   </div>
 </template>

@@ -73,17 +73,7 @@ export default {
       title: "The Problem",
       description:
         "Luxe Radio - A broadcast media company was looking to develop mobile apps for their company. We discussed requirements with the client and understood what they were up to, how they saw the new way of broadcasting their content, and the new concepts they had for their product. From app architecture to deployment, they were looking for our help to bring their idea to life. Though, they had an excellent designer who designed the UI and UX of the product.",
-      buttons: [
-        {
-          name: "Play Store",
-          link: "https://play.google.com/store/apps/details?id=app.luxeradio.ma",
-        },
-        {
-          name: "App Store",
-          link: "https://apps.apple.com/ma/app/luxe-radio/id1073120504",
-        },
-      ],
-
+      buttons: "",
       backgroundImage: [
         videoBackgroundImage400w,
         videoBackgroundImage800w,
@@ -96,8 +86,18 @@ export default {
       title: "",
       solution: {
         title: "The Solution",
-        description:
-          "Our team added a feature to stream their content live and on-demand. We included a feature that allows users to create playlists to access the content offline. Users can also interact and post their reactions on live debates. The client wanted to handle advertising personally instead of integrating advertisement APIs. For this, We contributed to building the features that allow them to incorporate ads. <br/>We developed mobile apps for iOS, Android, and Huawei's App Gallery and web apps for Mac and Windows. Plus, the app is also available for CarPlay and Android Auto.",
+        description: `Our team added a feature to stream their content live and on-demand. We included a feature that allows users to create playlists to access the content offline. Users can also interact and post their reactions on live debates. The client wanted to handle advertising personally instead of integrating advertisement APIs. For this, We contributed to building the features that allow them to incorporate ads. 
+        <br/><br/>We developed mobile apps for iOS, Android, and Huawei's App Gallery and web apps for Mac and Windows. Plus, the app is also available for CarPlay and Android Auto.`,
+        buttons: [
+          {
+            name: "Play Store",
+            link: "https://play.google.com/store/apps/details?id=app.luxeradio.ma",
+          },
+          {
+            name: "App Store",
+            link: "https://apps.apple.com/ma/app/luxe-radio/id1073120504",
+          },
+        ],
       },
 
       backgroundImage: [

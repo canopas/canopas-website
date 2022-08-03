@@ -2,9 +2,7 @@
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative container">
       <div>
-        <div
-          class="tw-pt-20 tw-pb-14 sm:tw-pt-40 sm:tw-pb-24 lg:tw-pt-80 lg:tw-pb-44"
-        >
+        <div class="tw-py-20 sm:tw-py-40 lg:tw-py-80">
           <div
             :class="
               response.class ? response.class : 'v2-title-2-text tw-font-bold'
@@ -54,7 +52,7 @@
           </aspect-ratio>
           <div
             v-if="data.title"
-            class="v2-normal-3-text tw-px-6 tw-py-6 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            class="v2-normal-text tw-px-6 tw-py-6 lg:tw-px-12 lg:tw-py-12 xl:tw-p-20"
           >
             {{ data.title }}
           </div>
@@ -93,7 +91,7 @@
           </aspect-ratio>
           <div
             v-if="data.title"
-            class="v2-normal-3-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            class="v2-normal-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
           >
             {{ data.title }}
           </div>

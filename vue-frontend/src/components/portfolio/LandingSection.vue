@@ -9,6 +9,7 @@
       </div>
     </div>
   </section>
+
   <section class="background-image tw-relative tw-z-[-1]">
     <aspect-ratio height="56.25%">
       <img
@@ -31,8 +32,14 @@ export default {
   },
 };
 </script>
-<style lang="postcss" scoped>
+<style lang="scss" scoped>
 section.background-image {
   transform: translateZ(-1px) scale(1.5);
+}
+
+@media (min-width: 3840px) {
+  section.background-image {
+    transform: translateZ(-1px) scale(1.3);
+  }
 }
 </style>
