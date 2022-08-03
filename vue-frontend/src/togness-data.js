@@ -64,7 +64,16 @@ export default {
       title: "The Challenge",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit morbi turpis lectus. Mi adipiscing sit orci, risus, fringilla ac. In consectetur mollis amet purus nisl mauris convallis. Dolor integer purus etiam turpis placerat facilisis tincidunt sed egestas. Sit volutpat lectus duis faucibus lobortis. In lectus suspendisse ultrices sagittis rhoncus arcu pellentesque ultricies vestibulum. Quis amet vel elit erat.",
-      buttons: "",
+      buttons: [
+        {
+          name: "Play Store",
+          link: "https://play.google.com/store/apps/details?id=com.togness.story",
+        },
+        {
+          name: "App Store",
+          link: "https://apps.apple.com/au/app/togness-slide-show-maker/id1528833797",
+        },
+      ],
       backgroundImage: "",
       animation: videoSectionVideo,
       videoBackground: [

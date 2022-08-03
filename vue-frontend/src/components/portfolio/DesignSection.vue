@@ -34,7 +34,7 @@
     <LottieAnimation
       v-if="response[0].animation"
       :jsonData="response[0].animation"
-      class="tw-absolute tw-inset-0 tw-left-auto tw-h-2/4 tw-w-2/6 tw-object-cover cycling-animation"
+      class="tw-absolute tw-inset-0 tw-left-auto tw-h-2/4 tw-w-2/6 tw-object-cover -tw-scale-x-100"
     />
   </section>
 
@@ -95,10 +95,7 @@
     </div>
   </section>
 
-  <section
-    class="image tw-relative tw-px-4 lg:tw-px-12 tw-z-[-1]"
-    v-if="response[1]"
-  >
+  <section class="image tw-relative tw-z-[-1]" v-if="response[1]">
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <img
         :src="response[1].backgroundImage[3]"
@@ -122,12 +119,14 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="scss" scoped>
 section.image {
   transform: translateZ(-1px) scale(1.5);
 }
 
-.cycling-animation {
-  transform: matrix(-1, 0, 0, 1, 0, 0);
+@media (min-width: 3840px) {
+  section.image {
+    transform: translateZ(-1px) scale(1.3);
+  }
 }
 </style>

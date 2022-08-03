@@ -10,7 +10,7 @@
     </aspect-ratio>
   </section>
 
-  <div
+  <section
     class="v2-header-2-text tw-font-bold tw-text-center ... tw-bg-white tw-py-24 sm:tw-py-32 lg:tw-py-40"
   >
     <a
@@ -19,8 +19,9 @@
     >
       {{ response.title }}
     </a>
-  </div>
+  </section>
 </template>
+
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 export default {
@@ -30,12 +31,19 @@ export default {
   },
 };
 </script>
-<style lang="postcss" scoped>
+
+<style lang="scss" scoped>
 section.background-image {
   transform: translateZ(-1px) scale(1.5);
 }
 
 .animation-underline:after {
   content: "";
+}
+
+@media (min-width: 3840px) {
+  section.background-image {
+    transform: translateZ(-1px) scale(1.3);
+  }
 }
 </style>

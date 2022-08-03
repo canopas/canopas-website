@@ -1,14 +1,14 @@
 <template>
   <div>
     <Header />
-    <div class="parallax">
+    <div class="parallax container-fluid tw-p-0">
       <LandingSection v-bind:response="details.landing" />
       <VideoSection v-bind:response="details.video" />
       <BrandingSection v-bind:response="details.branding" />
       <DesignSection v-bind:response="details.design" />
       <ElementSection v-bind:response="details.element" />
       <FooterSection v-bind:response="details.footer" />
-      <CTASection class="tw-mt-40" />
+      <CTASection />
     </div>
   </div>
 </template>
@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style lang="scss" scoped>
 .parallax {
   height: 100vh;
   overflow: hidden;
@@ -85,5 +85,11 @@ export default {
 .parallax {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+@media (min-width: 5000px) {
+  .container-fluid {
+    width: 2300px;
+  }
 }
 </style>

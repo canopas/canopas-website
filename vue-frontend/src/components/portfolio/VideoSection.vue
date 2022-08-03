@@ -21,7 +21,7 @@
           <div class="v2-normal-text tw-font-light">
             {{ response.description }}
           </div>
-          <div class="tw-pt-16">
+          <div v-if="response.buttons" class="tw-pt-16">
             <a
               v-for="button in response.buttons"
               :key="button"
@@ -104,7 +104,7 @@
       >
         <swiper-slide v-for="(sider, index) in response.slider" :key="index">
           <aspect-ratio
-            height="85%"
+            height="62%"
             class="tw-border-solid tw-border-1 tw-border-transparent"
           >
             <img
@@ -118,8 +118,8 @@
       </swiper>
     </div>
     <aspect-ratio
-      height="54%"
-      class="mobile-image tw-mx-auto tw-h-full tw-w-1/4 tw-z-[-1]"
+      height="40%"
+      class="mobile-image tw-mx-auto tw-h-full tw-z-[-1]"
     >
       <img
         :src="response.videoBackgroundImage"
@@ -176,7 +176,7 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="scss">
 @import "swiper/css";
 @import "swiper/css/pagination";
 
@@ -189,7 +189,7 @@ section.video {
 }
 
 .background-video {
-  margin: 8% 30%;
+  margin: 6% 35%;
 }
 
 .swiper-slide-active {
@@ -200,5 +200,20 @@ section.video {
 .swiper-slide-prev,
 .swiper-slide-next {
   transform: scale(0.5) !important;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-image {
+  width: 18.5%;
+}
+
+@media (min-width: 3840px) {
+  section.video {
+    transform: translateZ(-1px) scale(1.3);
+  }
 }
 </style>
