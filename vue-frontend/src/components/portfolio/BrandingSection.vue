@@ -51,7 +51,7 @@
 
   <section class="tw-bg-white">
     <div
-      class="container tw-pt-24 md:tw-pt-28 xl:tw-pt-52 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
+      class="container tw-pt-24 md:tw-pt-48 xl:tw-pt-80 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
     >
       <div class="tw-basis-1/2">
         <div v-for="data in flex1" :key="data">

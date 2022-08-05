@@ -53,25 +53,26 @@
   </section>
 
   <section v-if="response.videoBackground" class="video tw-relative tw-z-[-1]">
-    <aspect-ratio height="56.25%" class="tw-overflow-hidden">
+    <aspect-ratio height="59.25%" class="tw-overflow-hidden">
       <img
         :src="response.videoBackground[3]"
         :srcset="`${response.videoBackground[0]} 400w, ${response.videoBackground[1]} 800w, ${response.videoBackground[2]} 1400w, ${response.videoBackground[3]} 2400w`"
         class="tw-w-full tw-h-full tw-object-cover"
         :alt="response.alt"
       />
-      <img
-        v-if="response.animation"
-        :src="response.animation"
-        class="tw-absolute tw-inset-0 tw-m-auto tw-h-5/5 tw-w-1/4 tw-rounded-lg"
-        :alt="response.alt"
-      />
     </aspect-ratio>
+    <img
+      v-if="response.animation"
+      :src="response.animation"
+      class="tw-absolute tw-inset-0 tw-m-auto tw-w-1/4 tw-object-cover tw-rounded-lg video-animation"
+      :alt="response.alt"
+    />
   </section>
 
-  <section v-if="response.slider" class="tw-relative">
+  <!-- mobile screen slider -->
+  <section v-if="response.slider && isShowSliderInMobile" class="tw-relative">
     <div
-      class="background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
+      class="mobile-background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
       :style="{ background: backgroundColor }"
     ></div>
     <div
@@ -79,7 +80,7 @@
     >
       <swiper
         ref="swiper"
-        :slidesPerView="2.5"
+        :slidesPerView="1"
         :centeredSlides="true"
         :autoplay="{
           delay: 1500,
@@ -90,9 +91,60 @@
         :spaceBetween="50"
         :breakpoints="{
           '768': {
-            slidesPerView: 3,
+            slidesPerView: 1,
           },
-          '1024': {
+        }"
+        @slideChange="onSlideChange"
+        class="swiper-container"
+      >
+        <swiper-slide v-for="(sider, index) in response.slider" :key="index">
+          <aspect-ratio
+            height="43%"
+            class="tw-border-solid tw-border-1 tw-border-transparent"
+          >
+            <img
+              :src="sider.image"
+              class="swiper-slide"
+              loading="lazy"
+              :alt="sider.alt ? sider.alt : ''"
+            />
+          </aspect-ratio>
+        </swiper-slide>
+      </swiper>
+    </div>
+    <aspect-ratio
+      height="92%"
+      class="mobile-images tw-mx-auto tw-h-full tw-w-5/12 tw-z-[-1]"
+    >
+      <img
+        :src="response.videoBackgroundImage"
+        class="tw-w-full tw-h-full tw-object-cover"
+        :alt="response.alt"
+      />
+    </aspect-ratio>
+  </section>
+
+  <!-- large screen slider -->
+  <section v-else-if="response.slider" class="tw-relative">
+    <div
+      class="background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
+      :style="{ background: backgroundColor }"
+    ></div>
+    <div
+      class="swiper-content tw-absolute tw-flex tw-items-center tw-w-full tw-h-full tw-z-0"
+    >
+      <swiper
+        ref="swiper"
+        :centeredSlides="true"
+        :autoplay="{
+          delay: 1500,
+          disableOnInteraction: true,
+        }"
+        :loop="true"
+        :loopedSlides="50"
+        :spaceBetween="50"
+        :breakpoints="{
+          '993': {
             slidesPerView: 3,
           },
           '1800': {
@@ -160,12 +212,18 @@ export default {
     return {
       id: this.$route.params.id,
       backgroundColor: "",
+      isShowSliderInMobile: false,
     };
   },
   components: {
     Swiper,
     SwiperSlide,
     AspectRatio,
+  },
+  mounted() {
+    if (window.innerWidth <= 992) {
+      this.isShowSliderInMobile = true;
+    }
   },
   methods: {
     onSlideChange(swiper) {
@@ -190,6 +248,15 @@ section.video {
 
 .background-video {
   margin: 6% 35%;
+}
+
+.mobile-background-video {
+  margin: 9% 11%;
+}
+
+.video-animation {
+  width: 23.5%;
+  border-radius: 28px;
 }
 
 .swiper-slide-active {
