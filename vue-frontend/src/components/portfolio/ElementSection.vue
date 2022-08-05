@@ -16,7 +16,7 @@
 
   <section
     v-if="response.detail"
-    class="tw-relative tw-bg-white tw-pb-8 sm:tw-pb-20 xl:tw-pb-28"
+    class="tw-relative tw-bg-white tw-pb-20 sm:tw-pb-40 lg:tw-pb-80"
   >
     <div class="container tw-flex tw-flex-col sm:tw-flex-row tw-relative">
       <div class="tw-basis-1/2">
