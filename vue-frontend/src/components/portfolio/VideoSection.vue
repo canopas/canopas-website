@@ -53,7 +53,7 @@
   </section>
 
   <section v-if="response.videoBackground" class="video tw-relative tw-z-[-1]">
-    <aspect-ratio height="59.25%" class="tw-overflow-hidden">
+    <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <img
         :src="response.videoBackground[3]"
         :srcset="`${response.videoBackground[0]} 400w, ${response.videoBackground[1]} 800w, ${response.videoBackground[2]} 1400w, ${response.videoBackground[3]} 2400w`"
@@ -64,7 +64,7 @@
     <img
       v-if="response.animation"
       :src="response.animation"
-      class="tw-absolute tw-inset-0 tw-m-auto tw-w-1/4 tw-object-cover tw-rounded-lg video-animation"
+      class="tw-absolute tw-inset-0 md:tw-top-7 tw-m-auto tw-h-3/3 tw-w-1/5 tw-rounded-md md:tw-rounded-xl lg:tw-rounded-3xl"
       :alt="response.alt"
     />
   </section>
@@ -187,11 +187,22 @@
         class="tw-flex tw-flex-col tw-justify-between tw-pt-20 sm:tw-pt-40 lg:tw-flex-row lg:tw-pt-80"
       >
         <div class="v2-normal-text tw-font-bold">
-          {{ response.title }}
+          {{ response.solution.title }}
         </div>
         <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
           <div class="v2-normal-text tw-font-light">
-            {{ response.description }}
+            {{ response.solution.description }}
+          </div>
+          <div class="tw-pt-16">
+            <a
+              v-for="button in response.solution.buttons"
+              :key="button"
+              class="tw-pr-10 is-animation-tab tw-inline-block tw-relative v2-normal-2-text hover:tw-text-black-900 after:tw-absolute after:tw-w-1/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
+              :href="button.link"
+              target="_blank"
+            >
+              {{ button.name }}
+            </a>
           </div>
         </div>
       </div>
@@ -255,8 +266,7 @@ section.video {
 }
 
 .video-animation {
-  width: 23.5%;
-  border-radius: 28px;
+  width: 18%;
 }
 
 .swiper-slide-active {

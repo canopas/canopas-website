@@ -8,10 +8,25 @@ import videoBackgroundImage800w from "@/assets/images/portfolio/luxeradio/video/
 import videoBackgroundImage1200w from "@/assets/images/portfolio/luxeradio/video/background-1200w.webp";
 import videoBackgroundImage1600w from "@/assets/images/portfolio/luxeradio/video/background-1600w.webp";
 
-import branding1 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1.webp";
-import branding2 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2.webp";
-import branding3 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3.webp";
-import branding5 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5.webp";
+import branding1Image400w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1-400w.webp";
+import branding1Image800w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1-800w.webp";
+import branding1Image1200w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1-1200w.webp";
+import branding1Image1600w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1-1600w.webp";
+
+import branding2Image400w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2-400w.webp";
+import branding2Image800w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2-800w.webp";
+import branding2Image1200w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2-1200w.webp";
+import branding2Image1600w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2-1600w.webp";
+
+import branding3Image400w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3-400w.webp";
+import branding3Image800w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3-800w.webp";
+import branding3Image1200w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3-1200w.webp";
+import branding3Image1600w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3-1600w.webp";
+
+import branding5Image400w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5-400w.webp";
+import branding5Image800w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5-800w.webp";
+import branding5Image1200w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5-1200w.webp";
+import branding5Image1600w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5-1600w.webp";
 
 import brandVideo from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_video.mp4";
 
@@ -90,23 +105,38 @@ export default {
         firstDetail: [
           {
             id: 1,
-            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+            title: "A music player playing the on-demand content.",
             aspectRatio: "134%",
-            image: branding1,
+            image: [
+              branding1Image400w,
+              branding1Image800w,
+              branding1Image1200w,
+              branding1Image1600w,
+            ],
             alt: "luxeradio-player-screen",
           },
           {
             id: 2,
             title: "",
             aspectRatio: "135%",
-            image: branding3,
+            image: [
+              branding3Image400w,
+              branding3Image800w,
+              branding3Image1200w,
+              branding3Image1600w,
+            ],
             alt: "luxeradio-app-logo",
           },
           {
             id: 3,
             title: "",
             aspectRatio: "130%",
-            image: branding5,
+            image: [
+              branding5Image400w,
+              branding5Image800w,
+              branding5Image1200w,
+              branding5Image1600w,
+            ],
             alt: "luxeradio-mood-playlist-image",
           },
         ],
@@ -114,14 +144,20 @@ export default {
         secondDetail: [
           {
             id: 4,
-            title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+            title:
+              "A playlist users can listen to, follow, and share with others.",
             aspectRatio: "135%",
-            image: branding2,
+            image: [
+              branding2Image400w,
+              branding2Image800w,
+              branding2Image1200w,
+              branding2Image1600w,
+            ],
             alt: "luxeradio-cover-playlist-screen",
           },
           {
             id: 5,
-            title: "Lorem ipsum dolor sit amet",
+            title: "Luxeradio has playlists that match your every mood.",
             aspectRatio: "80%",
             background:
               "linear-gradient(to top right, #afa8be 23%, #f0b4cc 100%)",
@@ -160,7 +196,7 @@ export default {
     ],
     element: {
       class: "v2-header-2-text tw-font-bold lg:tw-w-4/5",
-      title: ` Every <span class="border-text">element</span> made with love`,
+      title: `Every <span class="border-text">element</span> made with love`,
       detail: {
         firstDetail: [
           {
@@ -202,8 +238,7 @@ export default {
               element2_1200w,
               element2_1600w,
             ],
-            title:
-              "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+            title: "",
             alt: "luxeradio-element-image",
           },
         ],

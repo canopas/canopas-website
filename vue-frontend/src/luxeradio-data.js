@@ -15,10 +15,25 @@ import brandingBackgroundImage800w from "@/assets/images/portfolio/luxeradio/bra
 import brandingBackgroundImage1400w from "@/assets/images/portfolio/luxeradio/branding/background-1400w.webp";
 import brandingBackgroundImage2400w from "@/assets/images/portfolio/luxeradio/branding/background-2400w.webp";
 
-import branding1 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1.webp";
-import branding2 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2.webp";
-import branding3 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3.webp";
-import branding5 from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5.webp";
+import branding1Image400w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1-400w.webp";
+import branding1Image800w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1-800w.webp";
+import branding1Image1200w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1-1200w.webp";
+import branding1Image1600w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_1-1600w.webp";
+
+import branding2Image400w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2-400w.webp";
+import branding2Image800w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2-800w.webp";
+import branding2Image1200w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2-1200w.webp";
+import branding2Image1600w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_2-1600w.webp";
+
+import branding3Image400w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3-400w.webp";
+import branding3Image800w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3-800w.webp";
+import branding3Image1200w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3-1200w.webp";
+import branding3Image1600w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_3-1600w.webp";
+
+import branding5Image400w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5-400w.webp";
+import branding5Image800w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5-800w.webp";
+import branding5Image1200w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5-1200w.webp";
+import branding5Image1600w from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_5-1600w.webp";
 
 import brandVideo from "@/assets/images/portfolio/luxeradio/branding/luxeradio_branding_video.mp4";
 
@@ -113,21 +128,36 @@ export default {
             id: 1,
             title: "A music player playing the on-demand content.",
             aspectRatio: "134%",
-            image: branding1,
+            image: [
+              branding1Image400w,
+              branding1Image800w,
+              branding1Image1200w,
+              branding1Image1600w,
+            ],
             alt: "luxeradio-player-screen",
           },
           {
             id: 2,
             title: "",
             aspectRatio: "135%",
-            image: branding3,
+            image: [
+              branding3Image400w,
+              branding3Image800w,
+              branding3Image1200w,
+              branding3Image1600w,
+            ],
             alt: "luxeradio-app-logo",
           },
           {
             id: 3,
             title: "",
             aspectRatio: "130%",
-            image: branding5,
+            image: [
+              branding5Image400w,
+              branding5Image800w,
+              branding5Image1200w,
+              branding5Image1600w,
+            ],
             alt: "luxeradio-mood-playlist-image",
           },
         ],
@@ -138,7 +168,12 @@ export default {
             title:
               "A playlist users can listen to, follow, and share with others.",
             aspectRatio: "135%",
-            image: branding2,
+            image: [
+              branding2Image400w,
+              branding2Image800w,
+              branding2Image1200w,
+              branding2Image1600w,
+            ],
             alt: "luxeradio-cover-playlist-screen",
           },
           {

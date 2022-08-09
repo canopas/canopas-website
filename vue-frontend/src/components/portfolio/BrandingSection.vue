@@ -69,13 +69,19 @@
               >
                 <img
                   v-if="data.image"
-                  :src="data.image"
+                  :src="data.image[3]"
+                  :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
                   class="tw-w-full tw-h-full tw-object-cover"
                   :alt="data.alt"
                 />
-
+                <img
+                  v-if="data.gif"
+                  :src="data.gif"
+                  class="tw-absolute tw-inset-0 tw-m-auto tw-rounded-3xl tw-object-cover tw-h-3/3"
+                  :alt="data.alt"
+                />
                 <video
-                  v-else
+                  v-if="data.video"
                   id="video-preview"
                   controls
                   playsinline
@@ -122,18 +128,23 @@
                 <img
                   v-if="data.image"
                   class="tw-w-full tw-h-full tw-object-cover"
-                  :src="data.image"
+                  :src="data.image[3]"
+                  :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
                   :alt="data.alt"
                 />
-
+                <img
+                  v-if="data.gif"
+                  :src="data.gif"
+                  class="tw-absolute tw-inset-0 tw-m-auto tw-rounded-3xl tw-object-cover tw-h-3/3"
+                  :alt="data.alt"
+                />
                 <LottieAnimation
                   v-else-if="data.animation"
                   :jsonData="data.animation"
                   class="tw-mt-14 lg:tw-mt-20"
                 />
-
                 <video
-                  v-else
+                  v-if="data.video"
                   preload="auto"
                   loop
                   muted

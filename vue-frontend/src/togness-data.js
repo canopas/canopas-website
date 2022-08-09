@@ -9,10 +9,25 @@ import videoBackground800w from "@/assets/images/portfolio/togness/video/backgro
 import videoBackground1600w from "@/assets/images/portfolio/togness/video/background-1600w.webp";
 import videoBackground2400w from "@/assets/images/portfolio/togness/video/background-2400w.webp";
 
-import branding1 from "@/assets/images/portfolio/togness/branding/togness_branding_1.webp";
-import branding2 from "@/assets/images/portfolio/togness/branding/togness_branding_2.webp";
-import branding3 from "@/assets/images/portfolio/togness/branding/togness_branding_3.webp";
-import branding4 from "@/assets/images/portfolio/togness/branding/togness_branding_4.webp";
+import branding1Image400w from "@/assets/images/portfolio/togness/branding/togness_branding_1-400w.webp";
+import branding1Image800w from "@/assets/images/portfolio/togness/branding/togness_branding_1-800w.webp";
+import branding1Image1200w from "@/assets/images/portfolio/togness/branding/togness_branding_1-1200w.webp";
+import branding1Image1600w from "@/assets/images/portfolio/togness/branding/togness_branding_1-1600w.webp";
+
+import branding3Image400w from "@/assets/images/portfolio/togness/branding/togness_branding_2-400w.webp";
+import branding3Image800w from "@/assets/images/portfolio/togness/branding/togness_branding_2-800w.webp";
+import branding3Image1200w from "@/assets/images/portfolio/togness/branding/togness_branding_2-1200w.webp";
+import branding3Image1600w from "@/assets/images/portfolio/togness/branding/togness_branding_2-1600w.webp";
+
+import branding2Image400w from "@/assets/images/portfolio/togness/branding/togness_branding_3-400w.webp";
+import branding2Image800w from "@/assets/images/portfolio/togness/branding/togness_branding_3-800w.webp";
+import branding2Image1200w from "@/assets/images/portfolio/togness/branding/togness_branding_3-1200w.webp";
+import branding2Image1600w from "@/assets/images/portfolio/togness/branding/togness_branding_3-1600w.webp";
+
+import branding4Image400w from "@/assets/images/portfolio/togness/branding/togness_branding_4-400w.webp";
+import branding4Image800w from "@/assets/images/portfolio/togness/branding/togness_branding_4-800w.webp";
+import branding4Image1200w from "@/assets/images/portfolio/togness/branding/togness_branding_4-1200w.webp";
+import branding4Image1600w from "@/assets/images/portfolio/togness/branding/togness_branding_4-1600w.webp";
 
 import design400w from "@/assets/images/portfolio/togness/design/background-400w.webp";
 import design800w from "@/assets/images/portfolio/togness/design/background-800w.webp";
@@ -51,7 +66,7 @@ export default {
     landing: {
       title: "Togness",
       subTitle:
-        "Slideshow maker, video editing, photos, video collage with music and quotes!",
+        "The best photo editor and slideshow maker app for your life's occasions.",
       backgroundImage: [
         landingBackground400w,
         landingBackground800w,
@@ -61,19 +76,10 @@ export default {
       alt: "togness-screen-images",
     },
     video: {
-      title: "The Challenge",
+      title: "The Problem",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit morbi turpis lectus. Mi adipiscing sit orci, risus, fringilla ac. In consectetur mollis amet purus nisl mauris convallis. Dolor integer purus etiam turpis placerat facilisis tincidunt sed egestas. Sit volutpat lectus duis faucibus lobortis. In lectus suspendisse ultrices sagittis rhoncus arcu pellentesque ultricies vestibulum. Quis amet vel elit erat.",
-      buttons: [
-        {
-          name: "Play Store",
-          link: "https://play.google.com/store/apps/details?id=com.togness.story",
-        },
-        {
-          name: "App Store",
-          link: "https://apps.apple.com/au/app/togness-slide-show-maker/id1528833797",
-        },
-      ],
+        "Togness - A client was on a mission to salvage their idea. They hired another team that said there were challenges and that they didn't have the development skills to complete the app as initially agreed upon. We started with an initial project to build the complex video aspect for the android app. The client wanted to develop apps for both Android and iOS platforms.",
+      buttons: "",
       backgroundImage: "",
       animation: videoSectionVideo,
       videoBackground: [
@@ -84,9 +90,19 @@ export default {
       ],
       alt: "togness-update-quote-and-select-quote-video-image",
       solution: {
-        title: "The Solutions",
+        title: "The Solution",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sit morbi turpis lectus. Mi adipiscing sit orci, risus, fringilla ac. In consectetur mollis amet purus nisl mauris convallis. Dolor integer purus etiam turpis placerat facilisis tincidunt sed egestas. Sit volutpat lectus duis faucibus lobortis. In lectus suspendisse ultrices sagittis rhoncus arcu pellentesque ultricies vestibulum. Quis amet vel elit erat.",
+          "We started with the complex issue that the previous team was unable to achieve. Once the android development was well underway, we started iOS. As a team, we also helped a client with REST API, admin panel, and DevOps services. Some of the main features of the app are: use a photo gallery to add media files, merge images and videos, add quotes, add music, merge audio of video and music, apply filters, apply transitions effect, export in different aspect ratios, customize photo slide durations, etc. ",
+        buttons: [
+          {
+            name: "Play Store",
+            link: "https://play.google.com/store/apps/details?id=com.togness.story",
+          },
+          {
+            name: "App Store",
+            link: "https://apps.apple.com/au/app/togness-slide-show-maker/id1528833797",
+          },
+        ],
       },
     },
     branding: {
@@ -95,73 +111,8 @@ export default {
       details: {
         firstDetail: [
           {
-            id: 1,
-            title: "",
-            aspectRatio: "164%",
-            image: branding1,
-            alt: "togness-video-edit-screen",
-          },
-          {
-            id: 2,
-            title: "",
-            aspectRatio: "118%",
-            image: branding2,
-            alt: "togness-select-moods-screen",
-          },
-        ],
-
-        secondDetail: [
-          {
-            id: 3,
-            title: "",
-            aspectRatio: "118%",
-            image: branding3,
-            alt: "togness-update-to-premium-popup-screen",
-          },
-          {
-            id: 4,
-            title: "",
-            aspectRatio: "164%",
-            image: branding4,
-            alt: "togness-selection-story-screen",
-          },
-        ],
-      },
-    },
-    design: [
-      {
-        title: `<span class="border-text">B</span>randing`,
-        backgroundImage: [design400w, design800w, design1400w, design2400w],
-        alt: "togness-branding-screens",
-        subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        subDescription:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo netus accumsan volutpat interdum ac.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo netus accumsan volutpat interdum ac.Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-        technology: {
-          title: "The technology we use to support Togness",
-          details: [
-            {
-              title: "SWIFT",
-            },
-            {
-              title: "ANDROID",
-            },
-            {
-              title: "VUE",
-            },
-            {
-              title: "RUBY",
-            },
-          ],
-        },
-      },
-    ],
-    element: {
-      title: `<div class="v2-header-3-text tw-pt-20" v-html="response.title"><span class="border-text">Main</span><br/> Features</div>`,
-      detail: {
-        firstDetail: [
-          {
             background: "",
-            aspectRatio: "140%",
+            aspectRatio: "164%",
             image: [
               element1_400w,
               element1_800w,
@@ -169,11 +120,10 @@ export default {
               element1_1600w,
             ],
             alt: "togness-music-selection-screen",
-            title:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit,adipiscing elit.consectetur adipiscing elit,adipiscing elit.",
+            title: "Music tracks in four different lengths to match the story.",
           },
           {
-            aspectRatio: "140%",
+            aspectRatio: "118%",
             image: [
               element2_400w,
               element2_800w,
@@ -186,7 +136,7 @@ export default {
         ],
         secondDetail: [
           {
-            aspectRatio: "122%",
+            aspectRatio: "118%",
             image: [
               element3_400w,
               element3_800w,
@@ -194,11 +144,10 @@ export default {
               element3_1600w,
             ],
             alt: "togness-all-screens-images",
-            title:
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit,adipiscing elit.adipiscing elit,adipiscing elit.",
+            title: "Overview of the app that shows multiple features.",
           },
           {
-            aspectRatio: "140%",
+            aspectRatio: "164%",
             image: [
               element4_400w,
               element4_800w,
@@ -207,13 +156,78 @@ export default {
             ],
             alt: "togness-apply-filters-slide-video-screen",
             title: "",
-            animation: draftStroyVideo,
+            gif: draftStroyVideo,
           },
         ],
       },
-      subTitle: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo netus accumsan volutpat interdum ac.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Justo netus accumsan volutpat interdum ac.Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    },
+    design: [
+      {
+        title: `Togness : One app for all your life's occasions`,
+        backgroundImage: [design400w, design800w, design1400w, design2400w],
+        alt: "togness-branding-screens",
+        subTitle: "What's the outcome of the project?",
+        subDescription: `We have only just launched, so unable to provide metrics but it works and works really well. Any issues are rectified quickly.<br/><br/>
+        What I found most impressive or unique about Canopas is that there was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they understood the first time. This proved they knew exactly what they were doing. Very reassuring!`,
+      },
+    ],
+    element: {
+      title: ``,
+      detail: {
+        firstDetail: [
+          {
+            id: 1,
+            title: "",
+            aspectRatio: "164%",
+            image: [
+              branding1Image400w,
+              branding1Image800w,
+              branding1Image1200w,
+              branding1Image1600w,
+            ],
+            alt: "togness-video-edit-screen",
+          },
+          {
+            id: 2,
+            title: "",
+            aspectRatio: "118%",
+            image: [
+              branding2Image400w,
+              branding2Image800w,
+              branding2Image1200w,
+              branding2Image1600w,
+            ],
+            alt: "togness-select-moods-screen",
+          },
+        ],
+
+        secondDetail: [
+          {
+            id: 3,
+            title: "",
+            aspectRatio: "118%",
+            image: [
+              branding3Image400w,
+              branding3Image800w,
+              branding3Image1200w,
+              branding3Image1600w,
+            ],
+            alt: "togness-update-to-premium-popup-screen",
+          },
+          {
+            id: 4,
+            title: "",
+            aspectRatio: "164%",
+            image: [
+              branding4Image400w,
+              branding4Image800w,
+              branding4Image1200w,
+              branding4Image1600w,
+            ],
+            alt: "togness-selection-story-screen",
+          },
+        ],
+      },
     },
     footer: {
       backgroundImage: [
