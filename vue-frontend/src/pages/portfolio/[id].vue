@@ -73,18 +73,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.parallax {
-  height: 100vh;
-  overflow: hidden;
-  overflow-y: auto;
-  perspective: 2px;
-}
-.parallax::-webkit-scrollbar {
-  display: none; /* Chrome, Safari and Opera */
-}
-.parallax {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+@include media-breakpoint-up(lg) {
+  .parallax {
+    height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+    perspective: 2px;
+  }
+  .parallax::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  .parallax {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
 
 @media (min-width: 5000px) {

@@ -12,8 +12,8 @@
       <div
         :class="[
           id == 'smileplus'
-            ? 'tw-flex tw-flex-col tw-justify-between  tw-pt-20 sm:tw-pt-40 lg:tw-flex-row lg:tw-pt-80'
-            : 'tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80',
+            ? 'tw-flex tw-flex-col tw-justify-between tw-pt-40 lg:tw-flex-row lg:tw-pt-80'
+            : 'tw-flex tw-flex-col tw-justify-between tw-py-40 lg:tw-flex-row lg:tw-py-80',
         ]"
       >
         <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>
@@ -184,7 +184,7 @@
   <section v-if="response.solution" class="tw-bg-white tw-relative">
     <div class="container">
       <div
-        class="tw-flex tw-flex-col tw-justify-between tw-pt-20 sm:tw-pt-40 lg:tw-flex-row lg:tw-pt-80"
+        class="tw-flex tw-flex-col tw-justify-between tw-pt-40 lg:tw-flex-row lg:tw-pt-80"
       >
         <div class="v2-normal-text tw-font-bold">
           {{ response.solution.title }}
@@ -253,10 +253,6 @@ export default {
   content: "";
 }
 
-section.video {
-  transform: translateZ(-1px) scale(1.5);
-}
-
 .background-video {
   margin: 6% 35%;
 }
@@ -286,6 +282,12 @@ section.video {
 
 .mobile-image {
   width: 18.5%;
+}
+
+@include media-breakpoint-up(lg) {
+  section.video {
+    transform: translateZ(-1px) scale(1.5);
+  }
 }
 
 @media (min-width: 3840px) {

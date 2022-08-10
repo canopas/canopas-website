@@ -197,6 +197,7 @@ export default {
       alt: "nolonely-habit-tracker-screens",
       responsiveImages: true,
       title: "Togness",
+      url: "togness",
     },
   },
 };
