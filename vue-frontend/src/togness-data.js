@@ -112,7 +112,7 @@ export default {
         firstDetail: [
           {
             background: "",
-            aspectRatio: "164%",
+            aspectRatio: "145%",
             image: [
               element1_400w,
               element1_800w,
@@ -123,7 +123,7 @@ export default {
             title: "Music tracks in four different lengths to match the story.",
           },
           {
-            aspectRatio: "118%",
+            aspectRatio: "145%",
             image: [
               element2_400w,
               element2_800w,
@@ -136,7 +136,7 @@ export default {
         ],
         secondDetail: [
           {
-            aspectRatio: "118%",
+            aspectRatio: "122%",
             image: [
               element3_400w,
               element3_800w,
@@ -238,6 +238,7 @@ export default {
       ],
       alt: "togness-dark-mode-screens",
       title: "Luxe Radio",
+      url: "luxeradio",
     },
   },
 };

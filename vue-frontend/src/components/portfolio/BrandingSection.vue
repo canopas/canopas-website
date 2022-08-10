@@ -2,7 +2,7 @@
   <section class="tw-bg-white">
     <div
       v-if="response.solution"
-      class="container tw-py-20 sm:tw-py-40 lg:tw-py-80 tw-relative"
+      class="container tw-py-40 lg:tw-py-80 tw-relative"
     >
       <div class="tw-flex tw-flex-col tw-justify-between lg:tw-flex-row">
         <div class="v2-normal-text tw-font-bold">
@@ -29,7 +29,7 @@
     </div>
     <div
       v-if="response.title"
-      class="container tw-py-20 sm:tw-py-40 lg:tw-py-80 tw-relative"
+      class="container tw-py-40 lg:tw-py-80 tw-relative"
     >
       <div class="v2-header-3-text tw-pt-20" v-html="response.title"></div>
     </div>
@@ -39,7 +39,7 @@
     v-if="response.backgroundImage[3]"
     class="background-image tw-relative tw-z-[-1]"
   >
-    <aspect-ratio height="56.26%">
+    <aspect-ratio :height="isMobile ? '100%' : '56.26%'">
       <img
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400, ${response.backgroundImage[3]} 2400w`"
@@ -51,7 +51,7 @@
 
   <section class="tw-bg-white">
     <div
-      class="container tw-pt-24 md:tw-pt-48 xl:tw-pt-80 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
+      class="container tw-pt-48 md:tw-pt-48 xl:tw-pt-80 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
     >
       <div class="tw-basis-1/2">
         <div v-for="data in flex1" :key="data">
@@ -77,7 +77,7 @@
                 <img
                   v-if="data.gif"
                   :src="data.gif"
-                  class="tw-absolute tw-inset-0 tw-m-auto tw-rounded-3xl tw-object-cover tw-h-3/3"
+                  class="tw-absolute tw-inset-0 tw-m-auto lg:tw-rounded-xl tw-rounded-3xl tw-object-cover tw-h-3/3"
                   :alt="data.alt"
                 />
                 <video
@@ -103,7 +103,7 @@
             class="v2-normal-text tw-bg-white tw-font-light ..."
             :class="[
               data.title
-                ? 'tw-py-8  sm:tw-px-32 sm:tw-py-8 md:tw-px-14 xl:tw-p-16  2xl:tw-px-32 tw-bg-white tw-text-center'
+                ? 'tw-px-6 tw-py-12 sm:tw-px-8 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-20 tw-text-center'
                 : 'tw-mt-12',
             ]"
           >
@@ -135,7 +135,7 @@
                 <img
                   v-if="data.gif"
                   :src="data.gif"
-                  class="tw-absolute tw-inset-0 tw-m-auto tw-rounded-3xl tw-object-cover tw-h-3/3"
+                  class="tw-absolute tw-inset-0 tw-m-auto tw-rounded-2xl md:tw-rounded-xl xl:tw-rounded-3xl tw-object-cover tw-h-3/3"
                   :alt="data.alt"
                 />
                 <LottieAnimation
@@ -166,7 +166,7 @@
             class="v2-normal-text tw-bg-white tw-font-light ..."
             :class="[
               data.title
-                ? 'tw-py-8  sm:tw-px-32 sm:tw-py-8 md:tw-px-14 xl:tw-p-16  2xl:tw-px-32 tw-bg-white tw-text-center'
+                ? 'tw-px-6 tw-py-12 sm:tw-px-8 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-20 tw-text-center'
                 : 'tw-mt-12',
             ]"
           >
@@ -187,17 +187,25 @@ export default {
     return {
       flex1: this.response.details.firstDetail,
       flex2: this.response.details.secondDetail,
+      isMobile: false,
     };
   },
   components: {
     AspectRatio,
     LottieAnimation,
   },
+  mounted() {
+    if (window.innerWidth < 768) {
+      this.isMobile = true;
+    }
+  },
 };
 </script>
 <style lang="scss" scoped>
-section.background-image {
-  transform: translateZ(-1px) scale(1.5);
+@include media-breakpoint-up(lg) {
+  section.background-image {
+    transform: translateZ(-1px) scale(1.5);
+  }
 }
 
 @media (min-width: 3840px) {

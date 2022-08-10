@@ -1,6 +1,8 @@
 <template>
   <section class="tw-bg-white">
-    <div class="container tw-py-20 sm:tw-pb-40 lg:tw-pb-80 lg:tw-pt-60">
+    <div
+      class="container tw-pt-20 tw-pb-40 sm:tw-pt-32 lg:tw-pb-80 lg:tw-pt-60"
+    >
       <div class="v2-normal-2-text animate__animated animate__fadeInUp">
         {{ response.title }}
       </div>
@@ -11,7 +13,7 @@
   </section>
 
   <section class="background-image tw-relative tw-z-[-1]">
-    <aspect-ratio height="56.25%">
+    <aspect-ratio :height="isMobile ? '100%' : '56.26%'">
       <img
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 2400w`"
@@ -27,16 +29,27 @@ import AspectRatio from "@/components/utils/AspectRatio.vue";
 
 export default {
   props: ["response"],
+  data() {
+    return {
+      isMobile: false,
+    };
+  },
   components: {
     AspectRatio,
+  },
+  mounted() {
+    if (window.innerWidth < 768) {
+      this.isMobile = true;
+    }
   },
 };
 </script>
 <style lang="scss" scoped>
-section.background-image {
-  transform: translateZ(-1px) scale(1.5);
+@include media-breakpoint-up(lg) {
+  section.background-image {
+    transform: translateZ(-1px) scale(1.5);
+  }
 }
-
 @media (min-width: 3840px) {
   section.background-image {
     transform: translateZ(-1px) scale(1.3);

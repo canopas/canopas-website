@@ -274,6 +274,7 @@ and everything to the smallest detail.`,
       ],
       alt: "luxeradio-covers-and-library-screens",
       title: "Smile+",
+      url: "smileplus",
     },
   },
 };

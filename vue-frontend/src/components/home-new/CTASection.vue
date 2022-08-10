@@ -72,7 +72,7 @@
         class="tw-text-center ..."
         :class="[
           currentRoutePath == '/portfolio/' + id
-            ? 'tw-pt-16 tw-pb-32 sm:tw-pb-12 xl:tw-pb-1'
+            ? 'tw-pt-16 xl:tw-pb-1'
             : 'tw-hidden',
         ]"
       >

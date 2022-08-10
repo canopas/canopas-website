@@ -3,7 +3,7 @@
     <div class="tw-relative container">
       <div>
         <div
-          class="tw-py-20 sm:tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
+          class="tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
         >
           <div
             class="v2-title-text tw-font-bold"
@@ -23,7 +23,10 @@
   </section>
 
   <section class="image tw-relative tw-z-[-1]">
-    <aspect-ratio height="56.25%" class="tw-overflow-hidden">
+    <aspect-ratio
+      :height="isMobile ? '100%' : '56.26%'"
+      class="tw-overflow-hidden"
+    >
       <img
         :src="response[0].backgroundImage[3]"
         :srcset="`${response[0].backgroundImage[0]} 400w, ${response[0].backgroundImage[1]} 800w, ${response[0].backgroundImage[2]} 1400w, ${response[0].backgroundImage[3]} 2400w`"
@@ -57,7 +60,7 @@
   <section class="tw-bg-white tw-relative" v-if="response[1]">
     <div class="tw-relative">
       <div
-        class="container tw-py-20 sm:tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-flex-row"
+        class="container tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-flex-row"
       >
         <div class="v2-title-2-text tw-font-bold">{{ response[1].title }}</div>
         <div class="description lg:tw-w-11/12 xl:tw-pl-16">
@@ -70,7 +73,10 @@
   </section>
 
   <section class="image tw-relative tw-z-[-1]" v-if="response[1]">
-    <aspect-ratio height="56.25%" class="tw-overflow-hidden">
+    <aspect-ratio
+      :height="isMobile ? '96.26%' : '56.26%'"
+      class="tw-overflow-hidden"
+    >
       <img
         :src="response[1].backgroundImage[3]"
         :srcset="`${response[1].backgroundImage[0]} 400w, ${response[1].backgroundImage[1]} 800w,${response[1].backgroundImage[2]} 1400w,${response[1].backgroundImage[3]} 2400w`"
@@ -86,18 +92,29 @@ import AspectRatio from "@/components/utils/AspectRatio.vue";
 import LottieAnimation from "@/components/utils/LottieAnimation.vue";
 export default {
   props: ["response"],
+  data() {
+    return {
+      isMobile: false,
+    };
+  },
   components: {
     AspectRatio,
     LottieAnimation,
+  },
+  mounted() {
+    if (window.innerWidth < 768) {
+      this.isMobile = true;
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
-section.image {
-  transform: translateZ(-1px) scale(1.5);
+@include media-breakpoint-up(lg) {
+  section.image {
+    transform: translateZ(-1px) scale(1.5);
+  }
 }
-
 @media (min-width: 3840px) {
   section.image {
     transform: translateZ(-1px) scale(1.3);

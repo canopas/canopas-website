@@ -2,7 +2,7 @@
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative container">
       <div v-if="response.title">
-        <div class="tw-py-20 sm:tw-py-40 lg:tw-py-80">
+        <div class="tw-py-40 lg:tw-py-80">
           <div
             :class="
               response.class
@@ -18,11 +18,11 @@
 
   <section
     v-if="response.detail"
-    class="tw-relative tw-bg-white tw-pb-20 sm:tw-pb-40 lg:tw-pb-80"
+    class="tw-relative tw-bg-white tw-pb-40 lg:tw-pb-80"
   >
     <div class="container tw-flex tw-flex-col sm:tw-flex-row tw-relative">
       <div class="tw-basis-1/2">
-        <div v-for="data in flex1" :key="data" class="tw-p-3">
+        <div v-for="data in flex1" :key="data" class="tw-px-3">
           <aspect-ratio
             :height="data.aspectRatio"
             :style="[data.background ? { background: data.background } : {}]"
@@ -53,15 +53,18 @@
             </video>
           </aspect-ratio>
           <div
-            v-if="data.title"
-            class="v2-normal-text tw-px-6 tw-py-6 lg:tw-px-12 lg:tw-py-12 xl:tw-p-20"
+            :class="[
+              data.title
+                ? 'v2-normal-text tw-px-6 tw-py-12 lg:tw-px-12 lg:tw-py-12 xl:tw-p-20 tw-text-center'
+                : 'tw-pt-6',
+            ]"
           >
             {{ data.title }}
           </div>
         </div>
       </div>
       <div class="sm:tw-mt-36 lg:tw-mt-60 tw-basis-1/2">
-        <div v-for="data in flex2" :key="data" class="tw-p-3">
+        <div v-for="data in flex2" :key="data" class="tw-px-3">
           <aspect-ratio
             :height="data.aspectRatio"
             :style="[data.background ? { background: data.background } : {}]"
@@ -92,8 +95,11 @@
             </video>
           </aspect-ratio>
           <div
-            v-if="data.title"
-            class="v2-normal-text tw-px-10 tw-py-6 sm:tw-px-7 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-12"
+            :class="[
+              data.title
+                ? 'v2-normal-text tw-px-6 tw-py-12 lg:tw-px-12 lg:tw-py-12 xl:tw-p-20 tw-text-center'
+                : 'tw-pt-6',
+            ]"
           >
             {{ data.title }}
           </div>
