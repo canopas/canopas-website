@@ -1,11 +1,13 @@
 <template>
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative container">
-      <div>
+      <div v-if="response.title">
         <div class="tw-py-20 sm:tw-py-40 lg:tw-py-80">
           <div
             :class="
-              response.class ? response.class : 'v2-title-2-text tw-font-bold'
+              response.class
+                ? response.class
+                : 'v2-header-3-text tw-font-medium'
             "
             v-html="response.title"
           ></div>
@@ -40,7 +42,7 @@
             />
             <video
               v-else
-              class="tw-h-full tw-w-full tw-object-cover tw-px-20 tw-pt-16 sm:tw-px-8 sm:tw-pt-10 lg:tw-pt-20 lg:tw-px-24"
+              class="tw-h-full tw-w-2/3 tw-object-cover tw-m-auto tw-rounded-t-lg tw-pt-16 sm:tw-pt-10 lg:tw-pt-20"
               preload="auto"
               loop
               muted
@@ -95,21 +97,6 @@
           >
             {{ data.title }}
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section v-if="response.subTitle" class="tw-bg-white">
-    <div
-      class="container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row"
-    >
-      <div class="v2-normal-text tw-font-bold">
-        {{ response.subTitle }}
-      </div>
-      <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
-        <div class="v2-normal-text tw-font-light">
-          {{ response.description }}
         </div>
       </div>
     </div>

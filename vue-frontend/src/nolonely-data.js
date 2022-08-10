@@ -2,25 +2,41 @@ import landingBackground400w from "@/assets/images/portfolio/nolonely/landing/ba
 import landingBackground800w from "@/assets/images/portfolio/nolonely/landing/background-800w.webp";
 import landingBackground1400w from "@/assets/images/portfolio/nolonely/landing/background-1400w.webp";
 import landingBackground2400w from "@/assets/images/portfolio/nolonely/landing/background-2400w.webp";
+
 import videoBackgroundImage from "@/assets/images/portfolio/nolonely/swiper/mobile.webp";
 import cooking from "@/assets/images/portfolio/nolonely/swiper/cooking.svg";
 import meditation from "@/assets/images/portfolio/nolonely/swiper/meditation.svg";
 import painting from "@/assets/images/portfolio/nolonely/swiper/painting.svg";
 import pet from "@/assets/images/portfolio/nolonely/swiper/pet.svg";
 import singing from "@/assets/images/portfolio/nolonely/swiper/singing.svg";
+
 import brandingBackground400w from "@/assets/images/portfolio/nolonely/branding/background-400w.webp";
 import brandingBackground800w from "@/assets/images/portfolio/nolonely/branding/background-800w.webp";
 import brandingBackground1400w from "@/assets/images/portfolio/nolonely/branding/background-1400w.webp";
 import brandingBackground2400w from "@/assets/images/portfolio/nolonely/branding/background-2400w.webp";
-import branding1 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_1.webp";
-import branding2 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_2.webp";
+
+import branding1Image400w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_1-400w.webp";
+import branding1Image800w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_1-800w.webp";
+import branding1Image1200w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_1-1200w.webp";
+import branding1Image1600w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_1-1600w.webp";
+
+import branding2Image400w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_2-400w.webp";
+import branding2Image800w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_2-800w.webp";
+import branding2Image1200w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_2-1200w.webp";
+import branding2Image1600w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_2-1600w.webp";
+
+import branding4Image400w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_4-400w.webp";
+import branding4Image800w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_4-800w.webp";
+import branding4Image1200w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_4-1200w.webp";
+import branding4Image1600w from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_4-1600w.webp";
 import brandingAnimation from "@/assets/lottie/brandingAnimation.json";
-import branding4 from "@/assets/images/portfolio/nolonely/branding/nolonely_branding_4.webp";
+
 import design400w from "@/assets/images/portfolio/nolonely/design/design-400w.webp";
 import design800w from "@/assets/images/portfolio/nolonely/design/design-800w.webp";
 import design1400w from "@/assets/images/portfolio/nolonely/design/design-1400w.webp";
 import design2400w from "@/assets/images/portfolio/nolonely/design/design-2400w.webp";
 import cyclingAnimation from "@/assets/lottie/cyclingAnimation.json";
+
 import footerBackground400w from "@/assets/images/portfolio/nolonely/footer/background-400w.webp";
 import footerBackground800w from "@/assets/images/portfolio/nolonely/footer/background-800w.webp";
 import footerBackground1400w from "@/assets/images/portfolio/nolonely/footer/background-1400w.webp";
@@ -107,7 +123,12 @@ export default {
             id: 1,
             aspectRatio: "134%",
             title: "",
-            image: branding1,
+            image: [
+              branding1Image400w,
+              branding1Image800w,
+              branding1Image1200w,
+              branding1Image1600w,
+            ],
             alt: "nolonely-app-logo-image",
           },
           {
@@ -115,7 +136,12 @@ export default {
             aspectRatio: "90%",
             title:
               "25+ habits from 5 unique domains to help you create the system you want for your identity.",
-            image: branding2,
+            image: [
+              branding2Image400w,
+              branding2Image800w,
+              branding2Image1200w,
+              branding2Image1600w,
+            ],
             alt: "nolonely-habits-activity-image",
           },
         ],
@@ -131,9 +157,14 @@ export default {
           },
           {
             id: 4,
-            aspectRatio: "134%",
+            aspectRatio: "140%",
             title: "Learn how the activity helps you improve yourself.",
-            image: branding4,
+            image: [
+              branding4Image400w,
+              branding4Image800w,
+              branding4Image1200w,
+              branding4Image1600w,
+            ],
             alt: "nolonely-maditation-activity-screen",
           },
         ],

@@ -11,7 +11,7 @@
   </section>
 
   <section
-    class="v2-header-2-text tw-font-bold tw-text-center ... tw-bg-white tw-py-24 sm:tw-py-32 lg:tw-py-40"
+    class="v2-header-2-text tw-font-bold tw-text-center ... tw-bg-white tw-py-20 sm:tw-py-40 lg:tw-py-80"
   >
     <a
       href="/"
