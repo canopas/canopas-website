@@ -1,5 +1,10 @@
 <template>
   <div>
+    <metainfo>
+      <template v-slot:title="{ content }">
+        {{ content }}
+      </template>
+    </metainfo>
     <HomeNewIndex />
   </div>
 </template>

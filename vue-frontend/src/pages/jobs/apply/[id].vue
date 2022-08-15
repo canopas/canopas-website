@@ -1,5 +1,10 @@
 <template>
   <div @click="isShowReferenceOption = false">
+    <metainfo>
+      <template v-slot:title="{ content }">
+        {{ content }}
+      </template>
+    </metainfo>
     <ScreenHeaderV2 />
     <ScreenLoader v-if="isLoading || job == null" />
     <div v-else>

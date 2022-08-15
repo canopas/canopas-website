@@ -1,5 +1,10 @@
 <template>
   <div>
+    <metainfo>
+      <template v-slot:title="{ content }">
+        {{ content }}
+      </template>
+    </metainfo>
     <Header />
     <div class="parallax container-fluid tw-p-0">
       <LandingSection v-bind:response="details.landing" />

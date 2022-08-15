@@ -1,5 +1,10 @@
 <template>
   <div>
+    <metainfo>
+      <template v-slot:title="{ content }">
+        {{ content }}
+      </template>
+    </metainfo>
     <ScreenHeaderV2 />
     <LandingView v-on:scroll-to-career="scrollToCareer" />
     <VirtuesView />
