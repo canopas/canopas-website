@@ -1,5 +1,10 @@
 <template>
   <div ref="contactScreen">
+    <metainfo>
+      <template v-slot:title="{ content }">
+        {{ content }}
+      </template>
+    </metainfo>
     <ScreenHeaderV2 />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
     <div>

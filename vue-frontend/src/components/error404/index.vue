@@ -1,5 +1,10 @@
 <template>
   <div>
+    <metainfo>
+      <template v-slot:title="{ content }">
+        {{ content }}
+      </template>
+    </metainfo>
     <ScreenHeaderV2 />
     <div class="container">
       <div class="image-404">
