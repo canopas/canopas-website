@@ -32,7 +32,7 @@
           :src="reason.image"
           alt="why-canopas-image"
           loading="lazy"
-          class="reason-image"
+          class="reason-image tw-w-auto tw-h-auto"
         />
       </div>
     </div>

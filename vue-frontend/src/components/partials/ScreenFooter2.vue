@@ -3,19 +3,21 @@
     <img
       src="@/assets/images/footer/Canopas-footer-img.svg"
       class="background"
+      alt="footer-background-image"
     />
     <div class="container text-center">
       <div class="container-flex" v-if="isJobsUrl">
         <a :href="glassdoorLink">
           <img
             src="@/assets/images/footer/glassdoor.webp"
-            class="glassdoor-img"
+            class="glassdoor-img tw-h-full"
+            alt="glassdoor-image"
           />
         </a>
       </div>
       <div class="container-flex">
         <div class="normal-text mb-24">Follow us on</div>
-        <div class="social-media-icons">
+        <ul class="social-media-icons">
           <li
             v-for="socialMedia in socialMediaIcons"
             :key="socialMedia"
@@ -25,7 +27,7 @@
               <font-awesome-icon class="fab" :icon="socialMedia.icon" />
             </a>
           </li>
-        </div>
+        </ul>
       </div>
       <div class="container-flex">
         <p class="normal-2-text">
