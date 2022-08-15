@@ -23,7 +23,7 @@
         <aspect-ratio v-else :style="{ backgroundColor: perk.bgColor }">
           <div class="details">
             <div class="normal-2-text title">
-              <img :src="perk.icon" loading="lazy" />
+              <img :src="perk.icon" loading="lazy" :alt="perk.alt" />
               <span>{{ perk.title }}</span>
             </div>
             <div class="normal-2-text text-center">
@@ -72,6 +72,7 @@ export default {
           id: 2,
           title: "Learning & Development",
           icon: learning,
+          alt: "learning-icon",
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description:
@@ -89,6 +90,7 @@ export default {
           id: 4,
           title: "Health & Wellbeing",
           icon: health,
+          alt: "health-icon",
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
@@ -106,6 +108,7 @@ export default {
           id: 6,
           title: "Equipment And Tools",
           icon: laptop,
+          alt: "laptop-icon",
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
@@ -123,6 +126,7 @@ export default {
           id: 8,
           title: "Celebrations",
           icon: celebration,
+          alt: "celebration-icon",
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description:
@@ -140,6 +144,7 @@ export default {
           id: 10,
           title: "Lunch and learn sessions",
           icon: cooking,
+          alt: "cooking-icon",
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
@@ -157,6 +162,7 @@ export default {
           id: 12,
           title: "Flexible working",
           icon: clock,
+          alt: "clock-icon",
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
@@ -174,6 +180,7 @@ export default {
           id: 14,
           title: "We are hiring",
           icon: hiring,
+          alt: "hiring-icon",
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description: `Want to become part of a Canopas team? Check out our openings and <div class="career-link" style="color: #fe88a2; font-weight:700; cursor:pointer"> apply today.</div>`,
