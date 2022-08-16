@@ -21,10 +21,16 @@
           <li
             v-for="socialMedia in socialMediaIcons"
             :key="socialMedia"
-            class="gradient-btn"
+            :class="socialMedia.image ? 'design-rush-icon' : 'gradient-btn'"
           >
             <a :href="socialMedia.url" target="_blank">
-              <font-awesome-icon class="fab" :icon="socialMedia.icon" />
+              <img
+                v-if="socialMedia.image"
+                :src="hover ? designRushHover : designRush"
+                @mouseover="hover = true"
+                @mouseleave="hover = false"
+              />
+              <font-awesome-icon v-else class="fab" :icon="socialMedia.icon" />
             </a>
           </li>
         </ul>
@@ -45,6 +51,8 @@
 <script type="module">
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import designRush from "@/assets/images/footer/design-rush.svg";
+import designRushHover from "@/assets/images/footer/design-rush-hover.svg";
 
 import {
   faFacebookF,
@@ -63,6 +71,9 @@ export default {
       glassdoorLink:
         "https://www.glassdoor.co.in/Overview/Working-at-Canopas-EI_IE3194462.11,18.htm",
       copyrightIcon: faCopyright,
+      designRush: designRush,
+      designRushHover: designRushHover,
+      hover: false,
       socialMediaIcons: [
         {
           url: Config.FACEBOOK_URL,
@@ -87,6 +98,10 @@ export default {
         {
           url: Config.YOUTUBE_URL,
           icon: faYoutube,
+        },
+        {
+          url: Config.DESIGNRUSH_URL,
+          image: true,
         },
       ],
       isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,
@@ -134,6 +149,13 @@ export default {
   list-style-type: none;
   display: flex;
   justify-content: space-between;
+
+  .design-rush-icon {
+    margin: 0 0.25rem;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
 
   .gradient-btn {
     padding: 0.7rem;

@@ -7,6 +7,8 @@ export default Object.freeze({
   MEDIUM_URL: "https://medium.com/canopas",
   YOUTUBE_URL:
     "https://www.youtube.com/channel/UC77VyeTVJ45HiUS_o2GNcBA/videos",
+  DESIGNRUSH_URL:
+    "https://www.designrush.com/agency/website-design-development/in",
   BLOG_URL: "https://blog.canopas.com",
   API_BASE: "https://prod-stack-api.canopas.com",
   BASE_URL: "https://canopas.com",
