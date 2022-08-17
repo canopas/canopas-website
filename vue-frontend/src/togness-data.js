@@ -78,7 +78,7 @@ export default {
     video: {
       title: "The Problem",
       description:
-        "Togness - A client was on a mission to salvage their idea. They hired another team that said there were challenges and that they didn't have the development skills to complete the app as initially agreed upon. We started with an initial project to build the complex video aspect for the android app. The client wanted to develop apps for both Android and iOS platforms.",
+        "Togness - A client was on a mission to salvage their idea. Initially, they hired a team and all went well, at least for a while! When faced with challenges, the team that said they didn't had the development skills to complete the app as initially agreed upon. That's when we came into the picture. We started with client to fix a few issues to demonstrate our capability. Later, once the client was satisfied, full project was handed over to us. The client wanted to develop apps for both Android and iOS platforms.",
       buttons: "",
       backgroundImage: "",
       animation: videoSectionVideo,
@@ -92,7 +92,7 @@ export default {
       solution: {
         title: "The Solution",
         description:
-          "We started with the complex issue that the previous team was unable to achieve. Once the android development was well underway, we started iOS. As a team, we also helped a client with REST API, admin panel, and DevOps services. Some of the main features of the app are: use a photo gallery to add media files, merge images and videos, add quotes, add music, merge audio of video and music, apply filters, apply transitions effect, export in different aspect ratios, customize photo slide durations, etc. ",
+          "We started with the complex issue that the previous team was unable to achieve. Once the android development was well underway, we started iOS. As a team, we also helped the client with REST API, admin panel, and DevOps services. Some of the main features of the app are: use a photo gallery to add media files, merge images and videos, add quotes, add music, merge audio of video and music, apply filters, apply transitions effect, export in different aspect ratios, customize photo slide durations, etc. ",
         buttons: [
           {
             name: "Play Store",
