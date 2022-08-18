@@ -26,7 +26,13 @@ export async function render(url, manifest) {
   // which we can then use to determine what files need to be preloaded for this
   // request.
   const preloadLinks = renderPreloadLinks(ctx.modules, manifest);
-  return [html, preloadLinks, ctx.teleports, renderState];
+  return [
+    html,
+    preloadLinks,
+    ctx.teleports,
+    renderState,
+    router.currentRoute._value.name,
+  ];
 }
 
 function renderPreloadLinks(modules, manifest) {

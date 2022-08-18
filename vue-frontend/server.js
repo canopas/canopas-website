@@ -66,6 +66,7 @@ async function createServer(
       const url = req.originalUrl;
 
       var html = cache.get(url);
+      var statusCode = 200;
 
       if (html == null || !isProd) {
         let template, render;
@@ -80,10 +81,8 @@ async function createServer(
           render = (await import("./dist/server/entry-server.js")).render;
         }
 
-        var [appHtml, preloadLinks, teleports, renderState] = await render(
-          url,
-          manifest
-        );
+        var [appHtml, preloadLinks, teleports, renderState, currentRouteName] =
+          await render(url, manifest);
 
         html = template
           .replace(`<!--tele-ports-->`, teleports.head)
@@ -91,10 +90,11 @@ async function createServer(
           .replace(`<!--app-store-->`, renderState)
           .replace(`<!--app-html-->`, appHtml);
 
+        statusCode = currentRouteName.includes("404") ? 404 : statusCode;
         cache.put(url, html);
       }
 
-      res.status(200).set({ "Content-Type": "text/html" }).end(html);
+      res.status(statusCode).set({ "Content-Type": "text/html" }).end(html);
     } catch (e) {
       viteServer && viteServer.ssrFixStacktrace(e);
       console.log(e.stack);
