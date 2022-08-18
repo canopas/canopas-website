@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="response">
     <metainfo>
       <template v-slot:title="{ content }">
         {{ content }}
@@ -27,40 +27,61 @@ import DesignSection from "@/components/portfolio/DesignSection.vue";
 import FooterSection from "@/components/portfolio/FooterSection.vue";
 import CTASection from "@/components/home-new/CTASection.vue";
 import ElementSection from "@/components/portfolio/ElementSection.vue";
-import luxeradioResponse from "@/luxeradio-data.js";
-import nolonelyResponse from "@/nolonely-data.js";
-import tognessResponse from "@/togness-data.js";
-import smileplusResponse from "@/smileplus-data.js";
+import luxeradioResponse from "@/portfolio-json/luxeradio-data.js";
+import nolonelyResponse from "@/portfolio-json/nolonely-data.js";
+import tognessResponse from "@/portfolio-json/togness-data.js";
+import smileplusResponse from "@/portfolio-json/smileplus-data.js";
+import { useMeta } from "vue-meta";
 
 export default {
+  setup() {
+    const { meta } = useMeta({
+      og: {
+        type: "Website",
+      },
+    });
+    return {
+      meta,
+    };
+  },
   data() {
     return {
       id: this.$route.params.id,
       details: "",
+      response: null,
     };
   },
   created() {
     this.getData();
   },
+  mounted() {
+    this.$gtag.event("view_page_portfolio");
+  },
   methods: {
     getData() {
       switch (this.id) {
         case luxeradioResponse.name:
-          this.details = luxeradioResponse.detail;
+          this.response = luxeradioResponse;
           break;
 
         case nolonelyResponse.name:
-          this.details = nolonelyResponse.detail;
+          this.response = nolonelyResponse;
           break;
 
         case tognessResponse.name:
-          this.details = tognessResponse.detail;
+          this.response = tognessResponse;
           break;
 
         case smileplusResponse.name:
-          this.details = smileplusResponse.detail;
+          this.response = smileplusResponse;
           break;
       }
+
+      this.details = this.response.detail;
+      this.meta.title = this.response.seoData.title;
+      this.meta.description = this.response.seoData.description;
+      this.meta.og.title = this.response.seoData.title;
+      this.meta.og.url = this.response.seoData.url;
     },
   },
 

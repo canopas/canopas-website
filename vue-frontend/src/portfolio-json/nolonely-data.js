@@ -42,8 +42,17 @@ import footerBackground800w from "@/assets/images/portfolio/nolonely/footer/back
 import footerBackground1400w from "@/assets/images/portfolio/nolonely/footer/background-1400w.webp";
 import footerBackground2400w from "@/assets/images/portfolio/nolonely/footer/background-2400w.webp";
 
+import config from "@/config.js";
+
 export default {
   name: "noLonely",
+  seoData: {
+    title: "Canopas Portfolio - Nolonely - Build Healthy Habits.",
+    description:
+      "Nolonely is a startup to help people improve their daily life by creating healthy habits. Our team developed mobile apps for android, iOS, and the admin panel for management.",
+    type: "Website",
+    url: config.BASE_URL + "/portfolio/noLonely",
+  },
   detail: {
     landing: {
       title: "NoLonely",

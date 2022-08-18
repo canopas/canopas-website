@@ -62,8 +62,18 @@ import footerBackgroundImage800w from "@/assets/images/portfolio/luxeradio/foote
 import footerBackgroundImage1400w from "@/assets/images/portfolio/luxeradio/footer/background-1400w.webp";
 import footerBackgroundImage2400w from "@/assets/images/portfolio/luxeradio/footer/background-2400w.webp";
 
+import config from "@/config.js";
+
 export default {
   name: "smileplus",
+  seoData: {
+    title:
+      "Canopas Portfolio - Smile Plus - Beautiful smile with beautiful teeth.",
+    description:
+      "The only smile design that integrates in your everyday practice. Get your patient the best smile simulation in a minute, automated with AI.",
+    type: "Website",
+    url: config.BASE_URL + "/portfolio/smileplus",
+  },
   detail: {
     landing: {
       title: "Smile Plus",
