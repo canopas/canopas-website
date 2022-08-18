@@ -69,8 +69,18 @@ import footerBackgroundImage800w from "@/assets/images/portfolio/luxeradio/foote
 import footerBackgroundImage1400w from "@/assets/images/portfolio/luxeradio/footer/background-1400w.webp";
 import footerBackgroundImage2400w from "@/assets/images/portfolio/luxeradio/footer/background-2400w.webp";
 
+import config from "@/config.js";
+
 export default {
   name: "luxeradio",
+  seoData: {
+    title:
+      "Canopas Portfolio - Luxe Radio - A Radio, Music Streaming, and Podcast Platform.",
+    description:
+      "Luxe Radio is a radio, music streaming, and podcast platform for Moroccan people. We developed mobile apps for iOS, Android, and desktop apps for Mac and Windows.",
+    type: "Website",
+    url: config.BASE_URL + "/portfolio/luxeradio",
+  },
   detail: {
     landing: {
       title: "Luxe Radio",
@@ -273,8 +283,8 @@ and everything to the smallest detail.`,
         footerBackgroundImage2400w,
       ],
       alt: "luxeradio-covers-and-library-screens",
-      title: "Smile+",
-      url: "smileplus",
+      title: "NoLonely",
+      url: "noLonely",
     },
   },
 };

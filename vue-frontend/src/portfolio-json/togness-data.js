@@ -60,8 +60,18 @@ import footerBackground800w from "@/assets/images/portfolio/togness/footer/backg
 import footerBackground1600w from "@/assets/images/portfolio/togness/footer/background-1600w.webp";
 import footerBackground2400w from "@/assets/images/portfolio/togness/footer/background-2400w.webp";
 
+import config from "@/config.js";
+
 export default {
   name: "togness",
+  seoData: {
+    title:
+      "Canopas Portfolio - Togness - One app for all your life's occasions.",
+    description:
+      "Togness is a photo editing and slideshow maker app for all your life's occasions. We developed android and iOS apps with an admin panel for content management and analytics.",
+    type: "Website",
+    url: config.BASE_URL + "/portfolio/togness",
+  },
   detail: {
     landing: {
       title: "Togness",
