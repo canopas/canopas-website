@@ -111,16 +111,12 @@ export default {
         ? "portfolio/noLonely"
         : config.NOLONELY_URL,
     };
-    if (this.isProd) {
-      this.portfolios.push(luxeRadioData, tognessData, nolonelyData);
-    } else {
-      this.portfolios.push(
-        luxeRadioData,
-        smilePlusdata,
-        nolonelyData,
-        tognessData
-      );
-    }
+    this.portfolios.push(
+      luxeRadioData,
+      smilePlusdata,
+      nolonelyData,
+      tognessData
+    );
   },
   mounted() {
     if (window.innerWidth < 768) {
