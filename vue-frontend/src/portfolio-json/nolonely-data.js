@@ -45,17 +45,17 @@ import footerBackground2400w from "@/assets/images/portfolio/nolonely/footer/bac
 import config from "@/config.js";
 
 export default {
-  name: "noLonely",
+  name: "nolonely",
   seoData: {
     title: "Canopas Portfolio - Nolonely - Build Healthy Habits.",
     description:
       "Nolonely is a startup to help people improve their daily life by creating healthy habits. Our team developed mobile apps for android, iOS, and the admin panel for management.",
     type: "Website",
-    url: config.BASE_URL + "/portfolio/noLonely",
+    url: config.BASE_URL + "/portfolio/nolonely",
   },
   detail: {
     landing: {
-      title: "NoLonely",
+      title: "Nolonely",
       subTitle: "Overcome loneliness and depression by building healthy habits",
       responsiveImages: true,
       backgroundImage: [
@@ -69,7 +69,7 @@ export default {
     video: {
       title: "The Problem",
       description:
-        "NoLonely - A startup to help people improve their daily life by creating new habits. Habits are the core of any change people want to make in their lives. Inspired by the atomic habits book, the startup wanted to create a product that helps people focus on progress instead of goals and talents. The project is in the development mode and the habit module is live on both app stores.",
+        "Nolonely - A startup to help people improve their daily life by creating new habits. Habits are the core of any change people want to make in their lives. Inspired by the atomic habits book, the startup wanted to create a product that helps people focus on progress instead of goals and talents. The project is in the development mode and the habit module is live on both app stores.",
       buttons: [
         {
           name: "Play Store",

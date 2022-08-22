@@ -24,7 +24,11 @@
             {{ portfolio.detail }}
           </div>
           <div class="mt-4 d-flex">
-            <a class="v2-normal-2-text v2-button" :href="portfolio.link">
+            <a
+              class="v2-normal-2-text v2-button"
+              :href="portfolio.link"
+              :target="target ? '_blank' : ''"
+            >
               <span>VIEW</span>
               <font-awesome-icon
                 class="arrow fa"
@@ -66,57 +70,55 @@ import config from "@/config.js";
 export default {
   data() {
     return {
-      isProd: config.IS_PROD,
-      portfolios: [],
+      portfolios: [
+        {
+          images: [
+            luxeradio400w,
+            luxeradio800w,
+            luxeradio1200w,
+            luxeradio16000w,
+          ],
+          title: "Luxeradio",
+          detail:
+            "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/luxeradio"
+            : config.LUXERADIO_URL,
+        },
+        {
+          images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
+          title: "Smile+",
+          detail:
+            "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/smileplus"
+            : config.SMILEPLUS_URL,
+          target: config.IS_SHOW_PORTFOLIO_PAGES ? false : true,
+        },
+        {
+          images: [nolonely400w, nolonely800w, nolonely1200w, nolonely16000w],
+          title: "Nolonely",
+          detail:
+            "Nolonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/nolonely"
+            : config.NOLONELY_URL,
+        },
+        {
+          images: [togness400w, togness800w, togness1200w, togness16000w],
+          title: "Togness",
+          aspectRatio: "55%",
+          detail:
+            "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/togness"
+            : config.TOGNESS_URL,
+        },
+      ],
     };
   },
   components: {
     FontAwesomeIcon,
-  },
-  created() {
-    let smilePlusdata = {
-      images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
-      title: "Smile+",
-      detail:
-        "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
-      link: config.IS_SHOW_PORTFOLIO_PAGES
-        ? "portfolio/smileplus"
-        : config.SMILEPLUS_URL,
-    };
-    let luxeRadioData = {
-      images: [luxeradio400w, luxeradio800w, luxeradio1200w, luxeradio16000w],
-      title: "Luxeradio",
-      detail:
-        "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
-      link: config.IS_SHOW_PORTFOLIO_PAGES
-        ? "portfolio/luxeradio"
-        : config.LUXERADIO_URL,
-    };
-    let tognessData = {
-      images: [togness400w, togness800w, togness1200w, togness16000w],
-      title: "Togness",
-      aspectRatio: "55%",
-      detail:
-        "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
-      link: config.IS_SHOW_PORTFOLIO_PAGES
-        ? "portfolio/togness"
-        : config.TOGNESS_URL,
-    };
-    let nolonelyData = {
-      images: [nolonely400w, nolonely800w, nolonely1200w, nolonely16000w],
-      title: "NoLonely",
-      detail:
-        "NoLonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
-      link: config.IS_SHOW_PORTFOLIO_PAGES
-        ? "portfolio/noLonely"
-        : config.NOLONELY_URL,
-    };
-    this.portfolios.push(
-      luxeRadioData,
-      smilePlusdata,
-      nolonelyData,
-      tognessData
-    );
   },
   mounted() {
     if (window.innerWidth < 768) {
