@@ -262,8 +262,8 @@ export default {
         footerBackgroundImage2400w,
       ],
       alt: "luxeradio-covers-and-library-screens",
-      title: "NoLonely",
-      url: "noLonely",
+      title: "Nolonely",
+      url: "nolonely",
     },
   },
 };
