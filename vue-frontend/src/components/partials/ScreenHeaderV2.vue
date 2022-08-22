@@ -31,7 +31,10 @@
                 class="v2-normal-3-text"
                 :class="[
                   navbar.className,
-                  currentRoutePath == navbar.url
+                  currentRoutePath == navbar.url ||
+                  (navbar.name == 'Portfolio' &&
+                    currentRoutePath.includes('portfolio')) ||
+                  (navbar.name == 'Career' && currentRoutePath.includes('jobs'))
                     ? navbar.showContactBtn
                       ? 'v2-button v2-button-active'
                       : 'active-tab'
@@ -46,7 +49,10 @@
                 class="v2-normal-3-text"
                 :class="[
                   navbar.className,
-                  currentRoutePath == navbar.url
+                  currentRoutePath == navbar.url ||
+                  (navbar.name == 'Portfolio' &&
+                    currentRoutePath.includes('portfolio')) ||
+                  (navbar.name == 'Career' && currentRoutePath.includes('jobs'))
                     ? navbar.showContactBtn
                       ? 'v2-button v2-button-active'
                       : 'active-tab'
@@ -94,6 +100,12 @@ export default {
           url: Config.BLOG_URL,
           className: "nav-link is-animation-tab",
           target: true,
+        },
+        {
+          name: "Portfolio",
+          url: "/portfolio",
+          className: "nav-link is-animation-tab",
+          target: false,
         },
         {
           name: "Let's talk",

@@ -35,6 +35,13 @@ export default Object.freeze({
     type: "Website",
     url: "https://dev-stack.canopas.com/contact",
   },
+  PORTFOLIO_SEO_META_DATA: {
+    title: "Canopas portfolios",
+    description:
+      "Let's grow together. At Canopas, We develop amazing products to help entrepreneurs, startups, and businesses bring their ideas to life.",
+    type: "Website",
+    url: "https://dev-stack.canopas.com/portfolio",
+  },
   GAP_ID_ROOT: "",
   IS_PROD: false,
   LUXERADIO_URL: "https://www.luxeradio.ma/download/",
