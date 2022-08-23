@@ -16,7 +16,6 @@
       <CTASection />
     </div>
   </div>
-  <div v-else><ErrorPage /></div>
 </template>
 
 <script>
@@ -32,9 +31,7 @@ import luxeradioResponse from "@/portfolio-json/luxeradio-data.js";
 import nolonelyResponse from "@/portfolio-json/nolonely-data.js";
 import tognessResponse from "@/portfolio-json/togness-data.js";
 import smileplusResponse from "@/portfolio-json/smileplus-data.js";
-import ErrorPage from "@/components/error404/index.vue";
 import { useMeta } from "vue-meta";
-import config from "@/config.js";
 
 export default {
   setup() {
@@ -76,7 +73,7 @@ export default {
           break;
 
         case smileplusResponse.name:
-          this.response = config.IS_PROD ? this.response : smileplusResponse;
+          this.response = smileplusResponse;
           break;
       }
 
@@ -99,7 +96,6 @@ export default {
     FooterSection,
     CTASection,
     ElementSection,
-    ErrorPage,
   },
 };
 </script>

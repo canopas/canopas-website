@@ -27,7 +27,7 @@
             <a
               class="v2-normal-2-text v2-button"
               :href="portfolio.link"
-              :target="target ? '_blank' : ''"
+              :target="portfolio.target"
             >
               <span>VIEW</span>
               <font-awesome-icon
@@ -81,9 +81,9 @@ export default {
           title: "Luxeradio",
           detail:
             "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
-          link: config.IS_SHOW_PORTFOLIO_PAGES
-            ? "portfolio/luxeradio"
-            : config.LUXERADIO_URL,
+          link: "portfolio/luxeradio",
+
+          target: "",
         },
         {
           images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
@@ -93,16 +93,16 @@ export default {
           link: config.IS_SHOW_PORTFOLIO_PAGES
             ? "portfolio/smileplus"
             : config.SMILEPLUS_URL,
-          target: config.IS_SHOW_PORTFOLIO_PAGES ? false : true,
+          target: config.IS_SHOW_PORTFOLIO_PAGES ? "" : "_blank",
         },
         {
           images: [nolonely400w, nolonely800w, nolonely1200w, nolonely16000w],
           title: "Nolonely",
           detail:
             "Nolonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
-          link: config.IS_SHOW_PORTFOLIO_PAGES
-            ? "portfolio/nolonely"
-            : config.NOLONELY_URL,
+          link: "portfolio/nolonely",
+
+          target: "",
         },
         {
           images: [togness400w, togness800w, togness1200w, togness16000w],
@@ -110,9 +110,9 @@ export default {
           aspectRatio: "55%",
           detail:
             "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
-          link: config.IS_SHOW_PORTFOLIO_PAGES
-            ? "portfolio/togness"
-            : config.TOGNESS_URL,
+          link: "portfolio/togness",
+
+          target: "",
         },
       ],
     };
