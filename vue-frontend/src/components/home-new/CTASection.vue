@@ -71,7 +71,7 @@
       <div
         class="tw-text-center ..."
         :class="[
-          currentRoutePath == '/portfolio/' + id
+          currentRoutePath.includes('portfolio')
             ? 'tw-pt-16 xl:tw-pb-1'
             : 'tw-hidden',
         ]"

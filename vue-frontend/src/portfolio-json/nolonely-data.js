@@ -205,8 +205,8 @@ export default {
       ],
       alt: "nolonely-habit-tracker-screens",
       responsiveImages: true,
-      title: "Togness",
-      url: "togness",
+      title: config.IS_SHOW_PORTFOLIO_PAGES ? "Smile+" : "Luxe Radio",
+      url: config.IS_SHOW_PORTFOLIO_PAGES ? "smileplus" : "luxeradio",
     },
   },
 };

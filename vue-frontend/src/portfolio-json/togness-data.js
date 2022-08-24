@@ -247,8 +247,8 @@ export default {
         footerBackground2400w,
       ],
       alt: "togness-dark-mode-screens",
-      title: "Luxe Radio",
-      url: "luxeradio",
+      title: "Nolonely",
+      url: "nolonely",
     },
   },
 };
