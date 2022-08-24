@@ -86,14 +86,14 @@ export default {
           target: "",
         },
         {
-          images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
-          title: "Smile+",
+          images: [togness400w, togness800w, togness1200w, togness16000w],
+          title: "Togness",
+          aspectRatio: "55%",
           detail:
-            "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
-          link: config.IS_SHOW_PORTFOLIO_PAGES
-            ? "portfolio/smileplus"
-            : config.SMILEPLUS_URL,
-          target: config.IS_SHOW_PORTFOLIO_PAGES ? "" : "_blank",
+            "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
+          link: "portfolio/togness",
+
+          target: "",
         },
         {
           images: [nolonely400w, nolonely800w, nolonely1200w, nolonely16000w],
@@ -105,14 +105,14 @@ export default {
           target: "",
         },
         {
-          images: [togness400w, togness800w, togness1200w, togness16000w],
-          title: "Togness",
-          aspectRatio: "55%",
+          images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
+          title: "Smile+",
           detail:
-            "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
-          link: "portfolio/togness",
-
-          target: "",
+            "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
+          link: config.IS_SHOW_PORTFOLIO_PAGES
+            ? "portfolio/smileplus"
+            : config.SMILEPLUS_URL,
+          target: config.IS_SHOW_PORTFOLIO_PAGES ? "" : "_blank",
         },
       ],
     };
@@ -140,7 +140,7 @@ export default {
 }
 
 .portfolio-section {
-  margin-top: 50px;
+  margin: 50px 0;
 }
 
 .image-div {
@@ -182,7 +182,7 @@ export default {
   }
 
   .portfolio-section {
-    margin-top: 80px;
+    margin: 80px 0;
   }
 
   .portfolio-details:nth-child(even) {
@@ -210,7 +210,7 @@ export default {
   }
 
   .portfolio-section {
-    margin-top: 150px;
+    margin: 150px 0;
   }
 
   .image-div {

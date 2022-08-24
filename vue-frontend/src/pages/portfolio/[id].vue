@@ -16,6 +16,7 @@
       <CTASection />
     </div>
   </div>
+  <div v-else><ErrorPage /></div>
 </template>
 
 <script>
@@ -31,6 +32,7 @@ import luxeradioResponse from "@/portfolio-json/luxeradio-data.js";
 import nolonelyResponse from "@/portfolio-json/nolonely-data.js";
 import tognessResponse from "@/portfolio-json/togness-data.js";
 import smileplusResponse from "@/portfolio-json/smileplus-data.js";
+import ErrorPage from "@/components/error404/index.vue";
 import { useMeta } from "vue-meta";
 
 export default {
@@ -96,6 +98,7 @@ export default {
     FooterSection,
     CTASection,
     ElementSection,
+    ErrorPage,
   },
 };
 </script>
