@@ -14,7 +14,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
-	"github.com/tj/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 //go:embed templates/career-email-template.html
@@ -108,9 +108,9 @@ func setUpRouter(engine *gin.Engine) {
 func expectedSitemapData() URLset {
 	sitemap := URLset{}
 
-	sitemap.XMLName.Space = "http://www.sitemaps.org/schemas/sitemap/0.9"
+	sitemap.XMLName.Space = XMLNS
 	sitemap.XMLName.Local = "urlset"
-	sitemap.XMLNS = "http://www.sitemaps.org/schemas/sitemap/0.9"
+	sitemap.XMLNS = XMLNS
 	sitemap.URL = append(sitemap.URL, expectedURLData()...)
 
 	return sitemap
@@ -124,18 +124,23 @@ func expectedURLData() []URL {
 	t := time.Now()
 	dateFormat := "2006-01-02"
 	date := BeginningOfMonthDate(t).Format(dateFormat) + "T00:00:00.000Z"
+	baseUrl := "http://localhost:8080"
 
 	sitemapUrls := []URL{
-		{Loc: "http://localhost:8080", Priority: `1`},
-		{Loc: "http://localhost:8080/jobs", Priority: `1`},
-		{Loc: "http://localhost:8080/contact", Priority: `0.9`},
-		{Loc: "https://blog.canopas.com", Priority: `0.8`},
-		{Loc: "http://localhost:8080/jobs/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", Priority: `0.9`},
-		{Loc: "http://localhost:8080/jobs/apply/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", Priority: `0.9`},
+		{Loc: baseUrl, Priority: `1`},
+		{Loc: baseUrl + "/contact", Priority: `0.9`},
+		{Loc: BLOG_URL, Priority: `0.8`},
+		{Loc: baseUrl + "/portfolio", Priority: `0.9`},
+		{Loc: baseUrl + "/portfolio/luxeradio", Priority: `0.9`},
+		{Loc: baseUrl + "/portfolio/togness", Priority: `0.9`},
+		{Loc: baseUrl + "/portfolio/nolonely", Priority: `0.9`},
+		{Loc: baseUrl + "/jobs", Priority: `1`},
+		{Loc: baseUrl + "/jobs/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", Priority: `0.9`},
+		{Loc: baseUrl + "/jobs/apply/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", Priority: `0.9`},
 	}
 
 	for i := range sitemapUrls {
-		sitemapUrls[i].XMLName.Space = "http://www.sitemaps.org/schemas/sitemap/0.9"
+		sitemapUrls[i].XMLName.Space = XMLNS
 		sitemapUrls[i].XMLName.Local = "url"
 		sitemapUrls[i].ChangeFreq = "monthly"
 		sitemapUrls[i].LastMod = date

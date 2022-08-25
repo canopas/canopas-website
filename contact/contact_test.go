@@ -11,7 +11,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
-	"github.com/tj/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 //go:embed templates/contact-email-template.html

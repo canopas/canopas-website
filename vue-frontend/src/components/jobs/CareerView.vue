@@ -22,7 +22,10 @@
       <img :src="loader" />
     </div>
     <div v-else class="career-container normal-text mt-5">
-      <div class="career-list-container">
+      <div v-if="careers.length == 0" class="text-center py-14 normal-text">
+        No matching jobs found
+      </div>
+      <div v-else class="career-list-container">
         <div
           v-for="(career, index) in careers"
           :key="career"
@@ -285,6 +288,10 @@ export default {
 
 .icon {
   font-size: 1.575rem;
+}
+
+.py-14 {
+  padding: 14px 0;
 }
 
 @include media-breakpoint-up(sm) {

@@ -12,7 +12,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
-	"github.com/tj/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 //go:embed templates/career-email-template.html
@@ -133,7 +133,7 @@ func initializeRepo() (*CareerRepository, error) {
 // configure api you want to test
 func setUpRouter(engine *gin.Engine) {
 	engine.GET(GET_ALL_JOBS_API_URL, repo.Careers)
-	engine.GET("/api/careers/:id", repo.CareerById)
+	engine.GET("/api/careers/:unique_id", repo.CareerById)
 	engine.POST(SEND_CAREER_MAIL, repo.SendCareerMail)
 }
 
@@ -158,6 +158,7 @@ func expectedJobsData() map[string]interface{} {
 	jobs["seo_description"] = "Find iOS developer job in surat. If we hire you as an iOS developer, you will be responsible for designing and coding the base application, ensuring the quality, fixing bugs, maintaining the code, and implementing app updates."
 	jobs["apply_seo_title"] = "Apply for iOS developer job in surat or mobile developer jobs in surat at canopas software"
 	jobs["apply_seo_description"] = "Apply for iOS developer job at Canopas and be part of a dynamic and versatile iOS app development team."
+	jobs["index"] = 0.0
 	return jobs
 }
 func expectedMailData() map[string]interface{} {

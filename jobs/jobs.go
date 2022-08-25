@@ -47,6 +47,7 @@ type Career struct {
 	SEODescription      null.String `json:"seo_description"`
 	ApplySEOTitle       null.String `json:"apply_seo_title"`
 	ApplySEODescription null.String `json:"apply_seo_description"`
+	Index               int         `json:"index"`
 }
 
 type CareerDetails struct {
@@ -75,6 +76,7 @@ func (repository *CareerRepository) Careers(c *gin.Context) {
 	careerList, err := repository.GetCareers()
 
 	if err != nil {
+		log.Error(err)
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
@@ -83,36 +85,33 @@ func (repository *CareerRepository) Careers(c *gin.Context) {
 
 }
 
-func (repository *CareerRepository) GetCareers() (careersList []Career, err error) {
+func (repository *CareerRepository) GetCareers() ([]Career, error) {
 
-	err = repository.Db.Select(&careersList, `SELECT id, title, summary, description, button_name, qualification, employment_type, 
-	 										   base_salary, experience, is_active, skills, total_openings, 
-											   responsibilities, icon_name, unique_id, seo_title, seo_description,
-											   apply_seo_title, apply_seo_description
-											   FROM jobs WHERE is_active = 1 `)
+	careers := []Career{}
 
-	if err != nil {
-		log.Error(err)
-		return
-	}
+	err := repository.Db.Select(&careers, "SELECT id, title, summary, description, button_name, qualification, employment_type,"+
+		"base_salary, experience, is_active, skills, total_openings,"+
+		"responsibilities, icon_name, unique_id, seo_title, seo_description,"+
+		"apply_seo_title, apply_seo_description, `index` "+
+		"FROM jobs WHERE is_active = 1 ORDER BY `index`")
 
-	return
+	return careers, err
 }
 
 func (repository *CareerRepository) CareerById(c *gin.Context) {
 
 	career := Career{}
 
-	id := c.Param("id")
+	id := c.Param("unique_id")
 
-	err := repository.Db.Get(&career, `SELECT id, title, summary, description, button_name, qualification, 
-							   		   employment_type, base_salary, experience, is_active, skills, 
-									   total_openings, responsibilities, icon_name, 
-									   unique_id, seo_title, seo_description,
-									   apply_seo_title, apply_seo_description
-									   FROM jobs
-									   WHERE unique_id = ?
-									   AND is_active = 1`, id)
+	err := repository.Db.Get(&career, "SELECT id, title, summary, description, button_name, qualification, "+
+		"employment_type, base_salary, experience, is_active, skills, "+
+		"total_openings, responsibilities, icon_name, "+
+		"unique_id, seo_title, seo_description, "+
+		"apply_seo_title, apply_seo_description, `index` "+
+		"FROM jobs "+
+		"WHERE unique_id = ? AND is_active = 1 "+
+		"ORDER BY `index`", id)
 
 	if err != nil {
 		log.Error(err)
@@ -133,8 +132,7 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 	err := c.Bind(&input)
 
 	if err != nil {
-		c.Abort()
-		c.JSON(http.StatusBadRequest, gin.H{"message": "Invalid data"})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "Invalid data"})
 		return
 	}
 
@@ -144,8 +142,7 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 
 	attachmentBytes, err := getFileBytes(c)
 	if err != nil {
-		c.Abort()
-		c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 		return
 	}
 

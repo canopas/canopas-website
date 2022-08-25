@@ -46,6 +46,7 @@
         muted
         autoplay
         playsinline
+        :poster="response.videoThumb"
       >
         <source :src="response.video" type="video/mp4" />
       </video>
