@@ -104,14 +104,14 @@ func (repository *CareerRepository) CareerById(c *gin.Context) {
 
 	id := c.Param("unique_id")
 
-	err := repository.Db.Get(&career, `SELECT id, title, summary, description, button_name, qualification, 
-							   		   employment_type, base_salary, experience, is_active, skills, 
-									   total_openings, responsibilities, icon_name, 
-									   unique_id, seo_title, seo_description,
-									   apply_seo_title, apply_seo_description
-									   FROM jobs
-									   WHERE unique_id = ?
-									   AND is_active = 1`, id)
+	err := repository.Db.Get(&career, "SELECT id, title, summary, description, button_name, qualification, "+
+		"employment_type, base_salary, experience, is_active, skills, "+
+		"total_openings, responsibilities, icon_name, "+
+		"unique_id, seo_title, seo_description, "+
+		"apply_seo_title, apply_seo_description, `index` "+
+		"FROM jobs "+
+		"WHERE unique_id = ? AND is_active = 1 "+
+		"ORDER BY `index`", id)
 
 	if err != nil {
 		log.Error(err)

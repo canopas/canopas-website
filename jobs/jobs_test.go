@@ -158,6 +158,7 @@ func expectedJobsData() map[string]interface{} {
 	jobs["seo_description"] = "Find iOS developer job in surat. If we hire you as an iOS developer, you will be responsible for designing and coding the base application, ensuring the quality, fixing bugs, maintaining the code, and implementing app updates."
 	jobs["apply_seo_title"] = "Apply for iOS developer job in surat or mobile developer jobs in surat at canopas software"
 	jobs["apply_seo_description"] = "Apply for iOS developer job at Canopas and be part of a dynamic and versatile iOS app development team."
+	jobs["index"] = 0.0
 	return jobs
 }
 func expectedMailData() map[string]interface{} {
