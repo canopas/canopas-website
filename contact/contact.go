@@ -45,8 +45,7 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 
 	err := c.ShouldBindWith(&input, binding.JSON)
 	if err != nil {
-		c.Abort()
-		c.JSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 		return
 	}
 

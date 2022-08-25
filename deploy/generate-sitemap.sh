@@ -9,4 +9,5 @@ API_URL="$BASE_API_URL/api/sitemap?baseUrl=$BASE_URL"
 
 xml=$(curl -X GET --header "Accept: */*" $API_URL)
 
+> public/sitemap.xml #truncate file#
 echo $xml >> public/sitemap.xml

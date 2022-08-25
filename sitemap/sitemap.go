@@ -6,7 +6,15 @@ import (
 	"net/http"
 	"time"
 
+	log "github.com/sirupsen/logrus"
+
 	"github.com/gin-gonic/gin"
+)
+
+const (
+	XMLNS       = "http://www.sitemaps.org/schemas/sitemap/0.9"
+	XMLNS_VIDEO = "http://www.google.com/schemas/sitemap-video/1.1"
+	BLOG_URL    = "https://blog.canopas.com"
 )
 
 type SitemapRepository struct {
@@ -23,36 +31,45 @@ type URL struct {
 	ChangeFreq string   `xml:"changefreq"`
 	LastMod    string   `xml:"lastmod"`
 	Priority   string   `xml:"priority"`
+	Video      []Video  `xml:"video:video;omitempty"`
+}
+
+type Video struct {
+	XMLName      xml.Name `xml:"video:video"`
+	Title        string   `xml:"video:title"`
+	ContentLoc   string   `xml:"video:content_loc"`
+	ThumbnailLoc string   `xml:"video:thumbnail_loc"`
+}
+
+type Portfolio struct {
+	Name   string
+	Videos []Video
 }
 
 type URLset struct {
-	XMLName xml.Name `xml:"urlset"`
-	XMLNS   string   `xml:"xmlns,attr"`
-	URL     []URL    `xml:"url"`
+	XMLName    xml.Name `xml:"urlset"`
+	XMLNS      string   `xml:"xmlns,attr"`
+	XMLNSVideo string   `xml:"xmlns:video,attr"`
+	URL        []URL    `xml:"url"`
 }
 
 func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	baseUrl := c.Query("baseUrl")
-	jobsUrl := baseUrl + "/jobs"
-	blogsUrl := "https://blog.canopas.com"
 
 	sitemapUrls := []URL{
 		{Loc: baseUrl, Priority: `1`},
-		{Loc: jobsUrl, Priority: `1`},
 		{Loc: baseUrl + `/contact`, Priority: `0.9`},
-		{Loc: blogsUrl, Priority: `0.8`},
+		{Loc: BLOG_URL, Priority: `0.8`},
 	}
 
-	careers, err := repository.careerRepo.GetCareers()
+	sitemapUrls = addPortfolios(baseUrl, sitemapUrls)
+
+	sitemapUrls, err := repository.addJobs(baseUrl, sitemapUrls)
 
 	if err != nil {
+		log.Error(err)
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
-	}
-
-	for i := range careers {
-		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
-		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
 	}
 
 	//get first day of current month
@@ -64,9 +81,61 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 		sitemapUrls[i].LastMod = lastmod
 	}
 
-	urlset := URLset{URL: sitemapUrls, XMLNS: "http://www.sitemaps.org/schemas/sitemap/0.9"}
+	urlset := URLset{
+		URL:        sitemapUrls,
+		XMLNS:      XMLNS,
+		XMLNSVideo: XMLNS_VIDEO,
+	}
 
 	c.Header("Content-Type", "application/xml")
 
 	c.XML(http.StatusOK, urlset)
+}
+
+func (repository *SitemapRepository) addJobs(baseUrl string, sitemapUrls []URL) ([]URL, error) {
+	jobsUrl := baseUrl + "/jobs"
+	sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl, Priority: `1`})
+
+	careers, err := repository.careerRepo.GetCareers()
+	if err != nil {
+		return sitemapUrls, err
+	}
+
+	for i := range careers {
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
+	}
+
+	return sitemapUrls, nil
+}
+
+func addPortfolios(baseUrl string, sitemapUrls []URL) []URL {
+	portfolioUrl := baseUrl + "/portfolio"
+
+	portfolios := []Portfolio{
+		{
+			Name: "luxeradio",
+			Videos: []Video{
+				{
+					Title:        "luxeradio video",
+					ContentLoc:   baseUrl + "/videos/luxeradio_video.mp4",
+					ThumbnailLoc: baseUrl + "/videos/luxeradio_video_thumbnail.webp",
+				},
+			},
+		},
+		{
+			Name: "togness",
+		},
+		{
+			Name: "nolonely",
+		},
+	}
+
+	sitemapUrls = append(sitemapUrls, URL{Loc: portfolioUrl, Priority: `0.9`})
+
+	for i := range portfolios {
+		sitemapUrls = append(sitemapUrls, URL{Loc: portfolioUrl + `/` + portfolios[i].Name, Priority: `0.9`, Video: portfolios[i].Videos})
+	}
+
+	return sitemapUrls
 }

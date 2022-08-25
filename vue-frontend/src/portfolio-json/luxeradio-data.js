@@ -8,7 +8,8 @@ import videoBackgroundImage800w from "@/assets/images/portfolio/luxeradio/video/
 import videoBackgroundImage1200w from "@/assets/images/portfolio/luxeradio/video/background-1200w.webp";
 import videoBackgroundImage1600w from "@/assets/images/portfolio/luxeradio/video/background-1600w.webp";
 
-import videoSectionVideo from "@/assets/images/portfolio/luxeradio/video/videosection_video.mp4";
+import videoSectionVideo from "./../../public/videos/luxeradio_video.mp4";
+import videoThumb from "./../../public/videos/luxeradio_video_thumbnail.webp";
 
 import brandingBackgroundImage400w from "@/assets/images/portfolio/luxeradio/branding/background-400w.webp";
 import brandingBackgroundImage800w from "@/assets/images/portfolio/luxeradio/branding/background-800w.webp";
@@ -106,6 +107,7 @@ export default {
         videoBackgroundImage1600w,
       ],
       video: videoSectionVideo,
+      videoThumb: videoThumb,
     },
     branding: {
       title: "",

@@ -42,6 +42,10 @@ func NewSql() *sqlx.DB {
 
 	name := os.Getenv("DB_NAME")
 
+	if name == "" {
+		name = "website_admin"
+	}
+
 	db = sqlx.MustConnect("mysql", username+":"+password+"@("+host+":"+port+")/"+name)
 
 	db.Mapper = reflectx.NewMapperFunc("json", strings.ToLower)

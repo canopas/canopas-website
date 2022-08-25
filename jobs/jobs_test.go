@@ -12,7 +12,7 @@ import (
 	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
 	"github.com/jmoiron/sqlx"
-	"github.com/tj/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 //go:embed templates/career-email-template.html
@@ -133,7 +133,7 @@ func initializeRepo() (*CareerRepository, error) {
 // configure api you want to test
 func setUpRouter(engine *gin.Engine) {
 	engine.GET(GET_ALL_JOBS_API_URL, repo.Careers)
-	engine.GET("/api/careers/:id", repo.CareerById)
+	engine.GET("/api/careers/:unique_id", repo.CareerById)
 	engine.POST(SEND_CAREER_MAIL, repo.SendCareerMail)
 }
 
