@@ -1,7 +1,5 @@
 name: DeployDev
 
-# on: push
-
 on:
   push:
     branches:
@@ -74,6 +72,6 @@ jobs:
             DbPort=${{ secrets.DB_PORT }},
             DbName=${{ secrets.DB_NAME }},
             ClusterName=canopas-website-dev,
-            ImageTag=${{ github.sha }}-dev-frontend,
-            BackendImageTag=${{ github.sha }}-dev-backend,
-            NginxImageTag=${{ github.sha }}-dev-nginx
+            ImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-frontend,
+            BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-backend,
+            NginxImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-nginx

@@ -72,6 +72,6 @@ jobs:
             DbPort=${{ secrets.DB_PORT }},
             DbName=${{ secrets.DB_NAME }},
             ClusterName=canopas-website-prod,
-            ImageTag=${{ github.sha }}-prod-frontend,
-            BackendImageTag=${{ github.sha }}-prod-backend,
-            NginxImageTag=${{ github.sha }}-prod-nginx
+            ImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-frontend,
+            BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-backend,
+            NginxImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-nginx
