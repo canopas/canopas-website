@@ -1,17 +1,19 @@
 <template>
-  <div class="pb-32">
-    <div class="life-container normal-text text-center">
+  <div>
+    <div
+      class="normal-text tw-px-[20px] tw-pt-[50px] tw-pb-[30px] md:tw-px-[50px] md:tw-pt-[100px] md:tw-pb-[50px] lg:tw-pt-[150px] tw-text-center"
+    >
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Life a</span>t Canopas
       </div>
-      <div class="description">
+      <div class="description tw-mx-auto tw-my-[30px] md:tw-my-[50px]">
         We wanted to create an environment that helps you get out of bed in the
         morning and an office that creates excellent work and encourages fun. As
         we play the infinite game, it is not about winning or losing, it's about
         striving to be better at whatever we do.
       </div>
     </div>
-    <div class="swiper-content">
+    <div class="swiper-content tw-flex">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
@@ -39,12 +41,15 @@
         class="swiper-container"
       >
         <swiper-slide v-for="(sider, index) in slides" :key="index">
-          <aspect-ratio height="66%" class="image-container">
+          <aspect-ratio
+            height="66%"
+            class="tw-mb-[80px] tw-border-solid tw-border-transparent tw-border-[1px]"
+          >
             <img
               :src="sider.image[3]"
               :srcset="`${sider.image[0]} 400w, ${sider.image[1]} 800w, ${sider.image[2]} 1600w, ${sider.image[3]} 2400w`"
               alt="Life at canopas"
-              class="swiper-slide"
+              class="swiper-slide tw-object-cover"
               loading="lazy"
             />
           </aspect-ratio>
@@ -189,48 +194,11 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="postcss">
 @import "swiper/css";
 @import "swiper/css/pagination";
 
-.life-container {
-  padding: 50px 20px 30px;
-}
-
-.description {
-  margin: 30px auto;
-  color: rgba(61, 61, 61, 0.8);
-}
-
-.swiper-content {
-  display: flex;
-}
-
 .swiper {
-  z-index: 0;
-}
-
-.image-container {
-  margin-bottom: 80px;
-  border: 1px solid transparent;
-
-  img {
-    object-fit: cover;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .life-container {
-    padding: 100px 50px 50px;
-  }
-  .description {
-    margin: 50px auto;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .life-container {
-    padding-top: 150px;
-  }
+  @apply tw-z-0;
 }
 </style>
