@@ -1,32 +1,54 @@
 <template>
-  <div class="container">
-    <div class="text-center">
+  <div
+    class="tw-container tw-my-[100px] tw-mx-auto tw-py-0 tw-px-[10%] only:md:tw-max-w-[760px] md:tw-p-0"
+  >
+    <div class="tw-text-center">
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Perks</span> and Benefits
       </div>
-      <div class="description normal-text">
+      <div
+        class="description tw-my-[30px] tw-mx-[10px] md:tw-my-[50px] md:tw-mx-[80px] normal-text"
+      >
         Whether it's about your learning, well being, or competitive
         compensation, we've got you covered. Check out all perks and benefits
         offered at Canopas! Many more to come as we grow!
       </div>
     </div>
-    <div class="flex-div">
-      <div v-for="perk in perks" :key="perk.id" class="flex-elements">
-        <aspect-ratio height="120%" v-if="perk.image">
+    <div
+      class="flex-div tw-flex tw-flex-col md:tw-flex-row md:tw-flex-wrap md:tw-items-center"
+    >
+      <div
+        v-for="perk in perks"
+        :key="perk.id"
+        class="flex-elements tw-p-[20px] xs:even:tw-py-[10px] xs:even:tw-px-[40px] md:tw-flex-[30%] md:tw-p-[10px] md:even:tw-py-[10px] md:even:tw-px-[10px] lg:tw-p-[20px] lg:even:tw-p-[20px]"
+      >
+        <aspect-ratio
+          height="120%"
+          v-if="perk.image"
+          class="tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px]"
+        >
           <img
-            class="image"
+            class="image tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-w-full tw-h-full tw-object-cover tw-ease-in-out tw-duration-300 hover:tw-scale-110"
             :src="perk.image"
             loading="lazy"
             alt="perks-and-benefits-image"
           />
         </aspect-ratio>
-        <aspect-ratio v-else :style="{ backgroundColor: perk.bgColor }">
-          <div class="details">
-            <div class="normal-2-text title">
+        <aspect-ratio
+          v-else
+          :height="isMobile ? '120%' : '100%'"
+          :style="{ backgroundColor: perk.bgColor }"
+        >
+          <div
+            class="details tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-p-[16px] xs:tw-p-[40px] md:tw-p-[16px] lg:tw-p-[30px] xl:tw-p-[40px]"
+          >
+            <div
+              class="normal-2-text tw-flex-none title tw-inline-flex tw-items-center tw-text-black-900 tw-font-bold"
+            >
               <img :src="perk.icon" loading="lazy" :alt="perk.alt" />
-              <span>{{ perk.title }}</span>
+              <span class="tw-ml-[10px]">{{ perk.title }}</span>
             </div>
-            <div class="normal-2-text text-center">
+            <div class="normal-2-text text-center tw-flex-none tw-mt-[10px]">
               <div v-html="perk.description" @click="scrollToCareer"></div>
             </div>
           </div>
@@ -194,10 +216,16 @@ export default {
           description: "",
         },
       ],
+      isMobile: false,
     };
   },
   components: {
     AspectRatio,
+  },
+  mounted() {
+    if (window.innerWidth >= 768 && window.innerWidth <= 992) {
+      this.isMobile = true;
+    }
   },
   methods: {
     scrollToCareer(e) {
@@ -208,154 +236,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.container {
-  margin: 100px auto;
-  padding: 0 10%;
-}
-
-.description {
-  margin: 30px 10px;
-  color: rgba(61, 61, 61, 0.8);
-}
-
-.flex-div {
-  display: flex;
-  flex-direction: column;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .flex-div div > img {
-    transition: 0.3s ease-in-out;
-  }
-  .flex-div div:hover > img {
-    transform: scale(1.1);
-  }
-}
-.flex-elements > div,
-.image {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-}
-
-.flex-elements {
-  padding: 20px;
-}
-
-.flex-elements:nth-child(even) {
-  .vue-aspect-ratio {
-    padding-top: 120% !important;
-  }
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.details {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  padding: 16px;
-
-  div {
-    flex: none !important;
-  }
-
-  .text-center {
-    margin-top: 10px;
-  }
-}
-
-.title {
-  display: inline-flex;
-  align-items: center;
-  color: #3d3d3d;
-  font-weight: 700;
-
-  span {
-    margin-left: 10px;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-@media (min-width: 440px) {
-  .flex-elements:nth-child(even) {
-    padding: 10px 40px;
-  }
-
-  .details {
-    padding: 40px;
-  }
-
-  .flex-elements:nth-child(even) {
-    .vue-aspect-ratio {
-      padding-top: 100% !important;
-    }
-  }
-}
-
-@include media-breakpoint-only(md) {
-  .container {
-    max-width: 760px;
-  }
-
-  .flex-elements:nth-child(even) {
-    .vue-aspect-ratio {
-      padding-top: 120% !important;
-    }
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .container {
-    padding: 0;
-  }
-
-  .description {
-    margin: 50px 80px;
-  }
-
-  .flex-div {
-    display: flex;
-    flex-flow: wrap;
-    align-items: center;
-
-    div {
-      flex: 30%;
-    }
-  }
-
-  .flex-elements,
-  .flex-elements:nth-child(even) {
-    padding: 10px;
-  }
-
-  .details {
-    padding: 16px;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .flex-elements,
-  .flex-elements:nth-child(even) {
-    padding: 20px;
-  }
-
-  .details {
-    padding: 30px;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .details {
-    padding: 40px;
-  }
-}
-</style>

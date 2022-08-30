@@ -1,24 +1,18 @@
+const plugin = require("tailwindcss/plugin");
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   prefix: "tw-",
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: "1rem",
-          sm: "2rem",
-          lg: "4rem",
-          xl: "5rem",
-          "2xl": "6rem",
-        },
-      },
       screens: {
+        xs: "440px",
         sm: "576px",
-        md: "764px",
+        md: "768px",
         lg: "992px",
         xl: "1200px",
         "2xl": "1400px",
+        ...defaultTheme.screens,
       },
       flex: {
         1: "1 0 0%",
@@ -83,7 +77,64 @@ module.exports = {
       inset: {
         "1/6": "15%",
       },
+      bgGradientDeg: {
+        247: "247.22deg",
+      },
     },
-    plugins: [],
   },
+  corePlugins: {
+    container: false,
+  },
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          "bg-gradient": (angle) => ({
+            "background-image": `linear-gradient(${angle}, var(--tw-gradient-stops))`,
+          }),
+        },
+        {
+          values: Object.assign(theme("bgGradientDeg", {}), {
+            10: "10deg",
+            15: "15deg",
+            20: "20deg",
+            25: "25deg",
+            30: "30deg",
+            45: "45deg",
+            60: "60deg",
+            90: "90deg",
+            120: "120deg",
+            135: "135deg",
+          }),
+        }
+      );
+    }),
+    function ({ addComponents }) {
+      addComponents({
+        ".container": {
+          margin: "auto",
+          padding: "0 0.75rem",
+          maxWidth: "100%",
+          "@screen xs": {
+            maxWidth: "440px",
+          },
+          "@screen sm": {
+            maxWidth: "540px",
+          },
+          "@screen md": {
+            maxWidth: "720px",
+          },
+          "@screen lg": {
+            maxWidth: "960px",
+          },
+          "@screen xl": {
+            maxWidth: "1140px",
+          },
+          "@screen 2xl": {
+            maxWidth: "1320px",
+          },
+        },
+      });
+    },
+  ],
 };

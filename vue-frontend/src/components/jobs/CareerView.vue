@@ -1,14 +1,16 @@
 <template>
-  <div class="container">
-    <div class="text-center">
+  <div class="tw-container tw-my-[100px] tw-mx-auto">
+    <div class="tw-text-center">
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Find t</span>he career of your dreams
       </div>
-      <div class="description normal-text">
-        <div class="text-weight">
+      <div
+        class="tw-my-[30px] tw-mx-[2%] md:tw-my-[50px] md:tw-mx-[80px] normal-text"
+      >
+        <div class="tw-font-bold">
           When was the last time you did something for the first time?
         </div>
-        <div class="mt-5">
+        <div class="tw-mt-12">
           At Canopas, we frequently do new things that help you leave your
           comfort zone. And when you leave your comfort zone, you will know what
           you are capable of and you will never be the same again. If you
@@ -18,39 +20,47 @@
       </div>
     </div>
 
-    <div v-if="careers == null" class="loader-div">
+    <div v-if="careers == null" class="tw-flex tw-justify-center">
       <img :src="loader" />
     </div>
-    <div v-else class="career-container normal-text mt-5">
-      <div v-if="careers.length == 0" class="text-center py-14 normal-text">
+    <div
+      v-else
+      class="tw-rounded-[14px] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-my-0 tw-mx-[2%] tw-mt-12 md:tw-mx-[6%] normal-text"
+    >
+      <div
+        v-if="careers.length == 0"
+        class="tw-text-center tw-py-[14px] tw-px-0 normal-text"
+      >
         No matching jobs found
       </div>
-      <div v-else class="career-list-container">
+      <div v-else class="tw-flex tw-flex-col">
         <div
           v-for="(career, index) in careers"
           :key="career"
-          class="career-list"
+          class="tw-flex tw-flex-col"
         >
           <div
-            class="career-header normal-text text-left"
+            class="tw-flex tw-flex-row tw-w-full tw-items-center tw-p-[30px] tw-cursor-pointer md:tw-py-[32px] md:tw-px-[48px] lg:tw-py-[40px] lg:tw-px-[48px] normal-text"
             @click="expandListItem(career.id, index)"
           >
-            <div class="career-icon">
+            <div class="career-icon tw-w-[50px] sm:tw-w-[60px]">
               <font-awesome-icon
-                class="gradient-icon icon"
+                class="tw-text-pink-300 icon tw-text-[1.575rem] sm:tw-text-[1.875rem]"
                 :icon="[career.icon_name.prefix, career.icon_name.icon]"
               />
             </div>
-            <div class="career-title">{{ career.title }}</div>
+            <div class="tw-not-italic tw-font-bold tw-text-black-900">
+              {{ career.title }}
+            </div>
             <font-awesome-icon
-              class="career-plus-icon"
+              class="career-plus-icon tw-ml-auto tw-order-2 tw-text-[#3d3d3dcc]"
               :icon="openList && career.id == currentIndex ? 'minus' : 'plus'"
             />
           </div>
           <collapse-transition>
             <div
               ref="careerDetails"
-              class="career-details"
+              class="tw-overflow-hidden tw-ease-out tw-duration-300"
               :key="career.summary"
               :style="[
                 openList && career.id == currentIndex
@@ -62,26 +72,33 @@
                     },
               ]"
             >
-              <div class="career-summary">
+              <div
+                class="tw-p-[30px] tw-text-[#3d3d3dcc] md:tw-py-[32px] md:tw-px-[48px] lg:tw-py-[40px] lg:tw-px-[48px] lg:tw-leading-8"
+              >
                 {{ career.summary }}
               </div>
 
-              <div class="read-apply-btns">
+              <div
+                class="tw-flex tw-flex-row tw-justify-center tw-pt-0 tw-pr-0 tw-pb-[30px] tw-pl-0 sm:tw-justify-end sm:tw-pt-0 sm:tw-pr-[20px] sm:tw-pb-[30px] sm:tw-pl-[20px]"
+              >
                 <router-link
-                  class="gradient-border-btn"
+                  class="gradient-border-btn tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/' + career.unique_id"
                 >
                   <font-awesome-icon
-                    class="fa gradient-icon"
+                    class="fa tw-text-pink-300"
                     icon="align-left"
                     flip="vertical"
                     aria-hidden="true"
                   />
-                  <span>Read More</span>
+                  <span
+                    class="tw-text-[.9rem] tw-leading-[1.364rem] tw-font-bold tw-tracking-[0.06rem] md:tw-text-[1rem] lg:tw-text-[1.125rem]"
+                    >Read More</span
+                  >
                 </router-link>
 
                 <router-link
-                  class="gradient-btn"
+                  class="gradient-btn tw-m-[5px] tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/apply/' + career.unique_id"
                 >
                   <font-awesome-icon
@@ -89,12 +106,18 @@
                     icon="check-circle"
                     aria-hidden="true"
                   />
-                  <span>Apply Now</span>
+                  <span
+                    class="tw-text-[.9rem] tw-leading-[1.364rem] tw-font-bold tw-tracking-[0.06rem] md:tw-text-[1rem] lg:tw-text-[1.125rem]"
+                    >Apply Now</span
+                  >
                 </router-link>
               </div>
             </div>
           </collapse-transition>
-          <div class="career-divider" v-if="index <= careers.length"></div>
+          <div
+            class="tw-bg-[#e2e2e2] tw-h-px"
+            v-if="index <= careers.length"
+          ></div>
         </div>
       </div>
     </div>
@@ -178,178 +201,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.career-details {
-  overflow: hidden;
-  transition: max-height 0.3s ease-out;
-}
-
-.container {
-  margin: 100px auto;
-}
-
-.description {
-  margin: 30px 2%;
-}
-
-.text-weight {
-  font-weight: 700;
-}
-
-.career-container {
-  border-radius: 14px;
-  border: 1px solid #e2e2e2;
-  overflow: hidden;
-  margin: 0 2%;
-}
-
-.career-list-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.career-list {
-  display: flex;
-  flex-direction: column;
-}
-
-.career-divider {
-  background: #e2e2e2;
-  height: 1px;
-}
-
-.career-header {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  align-items: center;
-  padding: 30px;
-  cursor: pointer;
-}
-
-.career-icon {
-  width: 50px;
-}
-
-.career-summary {
-  padding: 30px;
-  color: rgba(61, 61, 61, 0.8);
-}
-
-.career-title {
-  font-style: normal;
-  font-weight: 700;
-  color: #3d3d3d;
-}
-
-.career-plus-icon {
-  margin-left: auto;
-  order: 2;
-  color: rgba(61, 61, 61, 0.8);
-}
-
-.read-apply-btns {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding: 0 0 30px;
-}
-
-.gradient-btn {
-  margin: 5px;
-}
-
-.gradient-btn > span {
-  font-size: 1.125rem;
-  line-height: 1.364rem;
-}
-
-.gradient-icon {
-  color: #f2709c;
-}
-
-.gradient-border-btn,
-.gradient-btn {
-  padding: 11px;
-}
-
-.gradient-border-btn > span,
-.gradient-btn > span {
-  font-size: 0.9rem;
-  font-weight: 700;
-  letter-spacing: 0.06rem;
-}
-
-.loader-div {
-  display: flex;
-  justify-content: center;
-}
-
-.icon {
-  font-size: 1.575rem;
-}
-
-.py-14 {
-  padding: 14px 0;
-}
-
-@include media-breakpoint-up(sm) {
-  .read-apply-btns {
-    justify-content: flex-end;
-    padding: 0 20px 30px;
-  }
-
-  .icon {
-    font-size: 1.875rem;
-  }
-
-  .gradient-border-btn,
-  .gradient-btn {
-    padding: 16px;
-  }
-
-  .career-icon {
-    width: 60px;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .career-header {
-    padding: 32px 48px;
-  }
-
-  .career-summary {
-    padding: 32px 48px;
-  }
-
-  .description {
-    margin: 50px 80px;
-  }
-
-  .career-container {
-    margin: 0 6%;
-  }
-
-  .gradient-border-btn > span,
-  .gradient-btn > span {
-    font-size: 1rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .career-header {
-    padding: 40px 48px;
-  }
-
-  .career-summary {
-    padding: 40px 48px;
-    line-height: 2rem;
-  }
-
-  .gradient-border-btn > span,
-  .gradient-btn > span {
-    font-size: 1.125rem;
-  }
-}
-</style>

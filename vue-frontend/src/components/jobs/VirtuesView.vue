@@ -1,110 +1,182 @@
 <template>
-  <div class="background">
-    <div class="normal-text title">Canopas is built on the 10 virtues</div>
-    <div class="text-center container">
-      <div class="flex-div">
+  <div
+    class="tw-from-[#ffad9326] tw-to-[#f2709c26] tw-bg-gradient-247 tw-px-0 tw-py-[100px] tw-overflow-hidden tw-text-center tw-rounded-tr-none tw-rounded-bl-none tw-rounded-tl-[100px] tw-rounded-br-[100px] sm:tw-rounded-tl-[150px] sm:tw-rounded-br-[150px] md:tw-rounded-tl-[200px] md:tw-rounded-br-[200px] lg:tw-rounded-tl-[300px] lg:tw-rounded-br-[300px]"
+  >
+    <div class="normal-text tw-text-black-900 tw-font-bold">
+      Canopas is built on the 10 virtues
+    </div>
+    <div class="tw-text-center tw-container tw-mt-20 sm:tw-p-0">
+      <div class="flex-div tw-flex tw-flex-wrap tw-m-auto lg:tw-w-[85%]">
         <div
+          class="tw-relative tw-flex-[100%] md:tw-flex-[33%]"
           v-for="virtue in virtues.slice(0, 3)"
           :key="virtue.id"
           @touchstart="activeIndex = virtue.id"
         >
-          <div class="details">
-            <div class="image">
-              <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
+          <div
+            class="tw-flex tw-flex-col tw-items-center tw-my-[5%] tw-mx-auto tw-py-0 tw-px-[10%] sm:tw-my-[2%] sm:tw-px-0 md:tw-my-[10%]"
+          >
+            <div
+              class="image tw-rounded-[50%] tw-bg-white tw-relative tw-h-0 tw-w-1/2 tw-pb-[50%] tw-mb-[5%] sm:tw-w-[30%] sm:tw-pb-[30%] md:tw-w-1/2 md:tw-pb-[50%]"
+            >
+              <img
+                class="tw-absolute tw-w-[95%] tw-h-[95%] tw-left-0"
+                :src="virtue.image"
+                :alt="virtue.title"
+                loading="lazy"
+              />
             </div>
-            <div class="virtue-text red-text normal-text">
+            <div
+              class="tw-w-3/5 tw-mb-[5%] tw-text-[#e8505b] normal-text lg:tw-text-[1.3125rem] lg:tw-leading-[1.5918rem]"
+            >
               {{ virtue.title }}
             </div>
           </div>
           <div
-            class="description"
-            :class="activeIndex == virtue.id ? 'active' : ''"
+            class="descriptions tw-absolute tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
-            <div class="red-text normal-text">
+            <div
+              class="tw-text-[#e8505b] tw-mb-[3%] tw-w-full normal-text md:tw-mb-0 lg:tw-text-[1.3125rem] lg:tw-leading-[1.5918rem] 2xl:tw-mb-[2%]"
+            >
               {{ virtue.title }}
             </div>
-            <div class="normal-2-text">
+            <div
+              class="normal-2-text tw-mt-2.5 tw-mb-[3%] tw-w-full md:tw-mb-0 2xl:tw-mb-[2%]"
+            >
               {{ virtue.description }}
             </div>
           </div>
         </div>
       </div>
-      <div class="flex-div">
+      <div
+        class="flex-div tw-flex tw-flex-wrap tw-m-auto md:tw-w-[70%] lg:tw-w-[60%]"
+      >
         <div
+          class="tw-relative tw-flex-[100%] md:tw-flex-[33%]"
           v-for="virtue in virtues.slice(3, 5)"
           :key="virtue.id"
           @touchstart="activeIndex = virtue.id"
         >
-          <div class="details">
-            <div class="image">
-              <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
+          <div
+            class="tw-flex tw-flex-col tw-items-center tw-my-[5%] tw-mx-auto tw-py-0 tw-px-[10%] sm:tw-my-[2%] sm:tw-px-0 md:tw-my-[10%]"
+          >
+            <div
+              class="image tw-rounded-[50%] tw-bg-white tw-relative tw-h-0 tw-w-1/2 tw-pb-[50%] tw-mb-[5%] sm:tw-w-[30%] sm:tw-pb-[30%] md:tw-w-1/2 md:tw-pb-[50%]"
+            >
+              <img
+                class="tw-absolute tw-w-[95%] tw-h-[95%] tw-left-0"
+                :src="virtue.image"
+                :alt="virtue.title"
+                loading="lazy"
+              />
             </div>
-            <div class="virtue-text red-text normal-text">
+            <div
+              class="tw-w-3/5 tw-mb-[5%] tw-text-[#e8505b] normal-text lg:tw-text-[1.3125rem] lg:tw-leading-[1.5918rem]"
+            >
               {{ virtue.title }}
             </div>
           </div>
           <div
-            class="description"
-            :class="activeIndex == virtue.id ? 'active' : ''"
+            class="descriptions tw-absolute tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
-            <div class="red-text normal-text">
+            <div
+              class="tw-text-[#e8505b] tw-mb-[3%] tw-w-full normal-text md:tw-mb-0 lg:tw-text-[1.3125rem] lg:tw-leading-[1.5918rem] 2xl:tw-mb-[2%]"
+            >
               {{ virtue.title }}
             </div>
-            <div class="normal-2-text">
+            <div
+              class="normal-2-text tw-mt-2.5 tw-mb-[3%] tw-w-full md:tw-mb-0 2xl:tw-mb-[2%]"
+            >
               {{ virtue.description }}
             </div>
           </div>
         </div>
       </div>
-      <div class="flex-div">
+      <div class="flex-div tw-flex tw-flex-wrap tw-m-auto lg:tw-w-[85%]">
         <div
+          class="tw-relative tw-flex-[100%] md:tw-flex-[33%]"
           v-for="virtue in virtues.slice(5, 8)"
           :key="virtue.id"
           @touchstart="activeIndex = virtue.id"
         >
-          <div class="details">
-            <div class="image">
-              <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
+          <div
+            class="tw-flex tw-flex-col tw-items-center tw-my-[5%] tw-mx-auto tw-py-0 tw-px-[10%] sm:tw-my-[2%] sm:tw-px-0 md:tw-my-[10%]"
+          >
+            <div
+              class="image tw-rounded-[50%] tw-bg-white tw-relative tw-h-0 tw-w-1/2 tw-pb-[50%] tw-mb-[5%] sm:tw-w-[30%] sm:tw-pb-[30%] md:tw-w-1/2 md:tw-pb-[50%]"
+            >
+              <img
+                class="tw-absolute tw-w-[95%] tw-h-[95%] tw-left-0"
+                :src="virtue.image"
+                :alt="virtue.title"
+                loading="lazy"
+              />
             </div>
-            <div class="virtue-text red-text normal-text">
+            <div
+              class="tw-w-3/5 tw-mb-[5%] tw-text-[#e8505b] normal-text lg:tw-text-[1.3125rem] lg:tw-leading-[1.5918rem]"
+            >
               {{ virtue.title }}
             </div>
           </div>
           <div
-            class="description"
-            :class="activeIndex == virtue.id ? 'active' : ''"
+            class="descriptions tw-absolute tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
-            <div class="red-text normal-text">
+            <div
+              class="tw-text-[#e8505b] tw-mb-[3%] tw-w-full normal-text md:tw-mb-0 lg:tw-text-[1.3125rem] lg:tw-leading-[1.5918rem] 2xl:tw-mb-[2%]"
+            >
               {{ virtue.title }}
             </div>
-            <div class="normal-2-text">
+            <div
+              class="normal-2-text tw-mt-2.5 tw-mb-[3%] tw-w-full md:tw-mb-0 2xl:tw-mb-[2%]"
+            >
               {{ virtue.description }}
             </div>
           </div>
         </div>
       </div>
-      <div class="flex-div">
+      <div
+        class="flex-div tw-flex tw-flex-wrap tw-m-auto md:tw-w-[70%] lg:tw-w-[60%]"
+      >
         <div
+          class="tw-relative tw-flex-[100%] md:tw-flex-[33%]"
           v-for="virtue in virtues.slice(8, 10)"
           :key="virtue.id"
           @touchstart="activeIndex = virtue.id"
         >
-          <div class="details">
-            <div class="image">
-              <img :src="virtue.image" :alt="virtue.title" loading="lazy" />
+          <div
+            class="tw-flex tw-flex-col tw-items-center tw-my-[5%] tw-mx-auto tw-py-0 tw-px-[10%] sm:tw-my-[2%] sm:tw-px-0 md:tw-my-[10%]"
+          >
+            <div
+              class="image tw-rounded-[50%] tw-bg-white tw-relative tw-h-0 tw-w-1/2 tw-pb-[50%] tw-mb-[5%] sm:tw-w-[30%] sm:tw-pb-[30%] md:tw-w-1/2 md:tw-pb-[50%]"
+            >
+              <img
+                class="tw-absolute tw-w-[95%] tw-h-[95%] tw-left-0"
+                :src="virtue.image"
+                :alt="virtue.title"
+                loading="lazy"
+              />
             </div>
-            <div class="virtue-text red-text normal-text">
+            <div
+              class="tw-w-3/5 tw-mb-[5%] tw-text-[#e8505b] normal-text lg:tw-text-[1.3125rem] lg:tw-leading-[1.5918rem]"
+            >
               {{ virtue.title }}
             </div>
           </div>
           <div
-            class="description"
-            :class="activeIndex == virtue.id ? 'active' : ''"
+            class="descriptions tw-absolute tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
-            <div class="red-text normal-text">
+            <div
+              class="tw-text-[#e8505b] tw-mb-[3%] tw-w-full normal-text md:tw-mb-0 lg:tw-text-[1.3125rem] lg:tw-leading-[1.5918rem] 2xl:tw-mb-[2%]"
+            >
               {{ virtue.title }}
             </div>
-            <div class="normal-2-text">
+            <div
+              class="normal-2-text tw-mt-2.5 tw-mb-[3%] tw-w-full md:tw-mb-0 2xl:tw-mb-[2%]"
+            >
               {{ virtue.description }}
             </div>
           </div>
@@ -205,197 +277,15 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-.background {
-  background: linear-gradient(
-    247.22deg,
-    rgba(255, 173, 147, 0.15) 11.18%,
-    rgba(242, 112, 156, 0.15) 80.3%
-  );
-  padding: 100px 0;
-  overflow: hidden;
-  text-align: center;
-  border-radius: 100px 0;
-}
-
-.container {
-  margin-top: 80px;
-}
-
-.red-text {
-  color: #e8505b;
-}
-
-.title {
-  color: #3d3d3d;
-  font-weight: 700;
-}
-
-.flex-div {
-  display: flex;
-  flex-flow: wrap;
-  margin: auto;
-}
-
-.flex-div > div {
-  position: relative;
-  flex: 100%;
-}
-
-.details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5% auto;
-  padding: 0 10%;
-
-  div {
-    margin-bottom: 5%;
-  }
-
-  .virtue-text {
-    width: 60%;
-  }
-}
-
-.description {
-  position: absolute;
-  height: auto;
-  width: 290px;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  opacity: 0;
-  background: white;
-  padding: 2%;
-  margin: auto;
-  border-radius: 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-
+<style lang="scss" scoped>
+.descriptions {
   transform: translateX(-50%);
   -webkit-transition: all 0.4s ease-in-out 0s;
   -moz-transition: all 0.4s ease-in-out 0s;
   transition: all 0.4s ease-in-out 0s;
-
-  div {
-    margin-bottom: 3%;
-    width: 100%;
-  }
 }
 
-.active {
+.flex-div > div:hover .descriptions {
   opacity: 1;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .flex-div > div:hover .description {
-    opacity: 1;
-  }
-}
-
-.image {
-  border-radius: 50%;
-  background: white;
-  position: relative;
-  height: 0;
-  width: 50%;
-  padding-bottom: 50%;
-
-  img {
-    position: absolute;
-    width: 95%;
-    height: 95%;
-    left: 0;
-  }
-}
-
-@include media-breakpoint-up(sm) {
-  .container {
-    padding: 0%;
-  }
-
-  .background {
-    border-radius: 150px 0;
-  }
-
-  .description {
-    width: 50%;
-  }
-
-  .details {
-    margin: 2% 0;
-    padding: 0;
-  }
-
-  .image {
-    width: 30%;
-    padding-bottom: 30%;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .background {
-    border-radius: 200px 0;
-  }
-
-  .flex-div:nth-of-type(even) {
-    width: 70%;
-  }
-
-  .flex-div > div {
-    flex: 33%;
-  }
-
-  .description {
-    width: 90%;
-
-    div {
-      margin-bottom: 0;
-    }
-  }
-
-  .details {
-    margin: 10% 0;
-  }
-
-  .image {
-    width: 50%;
-    padding-bottom: 50%;
-  }
-
-  .normal-2-text {
-    margin-top: 10px;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .background {
-    border-radius: 300px 0;
-  }
-
-  .flex-div {
-    width: 85%;
-  }
-
-  .flex-div:nth-of-type(even) {
-    width: 60%;
-  }
-
-  .red-text {
-    font-size: 1.3125rem;
-    line-height: 1.5918rem;
-  }
-}
-
-@include media-breakpoint-up(xxl) {
-  .description {
-    padding: 3%;
-
-    div {
-      margin-bottom: 2%;
-    }
-  }
 }
 </style>

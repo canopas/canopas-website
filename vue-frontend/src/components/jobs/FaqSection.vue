@@ -1,12 +1,20 @@
 <template>
-  <div class="container">
-    <div class="row">
+  <div class="tw-container tw-mb-[10rem]">
+    <div
+      class="row tw-my-0 tw-mx-[2%] md:tw-my-0 md:tw-mx-[6%] md:-tw-ml-[32px]"
+    >
       <div
-        class="text-center header-text canopas-gradient-text title-mobile mb-5"
+        class="tw-text-center header-text canopas-gradient-text title-mobile tw-block md:tw-hidden tw-mb-12"
       >
-        <span class="underline-text">Freq</span>uently Asked Questions
+        <span
+          class="underline-text tw-underline-offset-[0.5rem] sm:tw-underline-offset-[1rem]"
+          >Freq</span
+        >uently Asked Questions
       </div>
-      <div class="col-md-4 image animate__animated" ref="faqImage">
+      <div
+        class="col-md-4 image tw-py-0 tw-px-[20%] md:tw-py-0 md:tw-px-0 md:tw-translate-y-60 lg:tw-translate-y-80 xl:tw-translate-y-40 animate__animated"
+        ref="faqImage"
+      >
         <img
           :src="faqImage"
           loading="lazy"
@@ -14,23 +22,30 @@
         />
       </div>
       <div class="col-md-8">
-        <div class="faq-content">
-          <div class="header-text canopas-gradient-text title-desktop">
-            <span class="underline-text">Freq</span>uently Asked Questions
+        <div class="faq-content tw-pl-[60px]">
+          <div
+            class="header-text canopas-gradient-text title-desktop tw-hidden md:tw-block"
+          >
+            <span
+              class="underline-text tw-underline-offset-[0.5rem] sm:tw-underline-offset-[1rem]"
+              >Freq</span
+            >uently Asked Questions
           </div>
           <transition-group tag="div" :name="'faq-' + faqTransitionName">
-            <div class="mt-5 faq-section">
+            <div
+              class="tw-mt-12 faq-section tw-min-h-[28rem] tw-h-auto sm:tw-min-h-[33rem]"
+            >
               <div
-                class="mt-4"
+                class="tw-mt-6"
                 v-for="faq in faqs.slice(sliceFrom, sliceTo)"
                 :key="faq"
               >
                 <div
-                  class="faq-container normal-text"
+                  class="faq-container tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-bg-[#3d3d3d08] tw-shadow-[0px_1px_6px_1px_rgba(0,0,0,0.25)] tw-rounded-[15px] tw-p-[15px] tw-cursor-pointer sm:tw-p-[25px] normal-text"
                   @click="expandListItem(faq.id)"
                 >
-                  <div class="faq-header">
-                    <div class="faq-icon gradient-icon">
+                  <div class="faq-header tw-flex tw-flex-row tw-items-center">
+                    <div class="faq-icon tw-w-[10%] tw-text-pink-300">
                       <font-awesome-icon
                         class="plus-icon"
                         :icon="
@@ -38,17 +53,21 @@
                         "
                       />
                     </div>
-                    <div class="faq-question">{{ faq.question }}</div>
+                    <div
+                      class="faq-question tw-text-black-900 tw-font-bold tw-w-[90%]"
+                    >
+                      {{ faq.question }}
+                    </div>
                   </div>
                   <collapse-transition>
                     <div
-                      class="faq-header"
+                      class="faq-header tw-flex tw-flex-row tw-items-center"
                       v-if="openList && faq.id == currentIndex"
                       :key="faq.answer"
                     >
-                      <div class="faq-icon"></div>
+                      <div class="faq-icon tw-w-[10%]"></div>
                       <div
-                        class="normal-2-text faq-answer mt-3"
+                        class="normal-2-text faq-answer tw-w-[90%] tw-mt-[1rem]"
                         v-html="faq.answer"
                       ></div>
                     </div>
@@ -58,15 +77,16 @@
               </div>
             </div>
           </transition-group>
-          <div class="mt-4 text-center">
+          <div class="tw-mt-6 tw-text-center">
             <button
               type="button"
               :disabled="!isActivePrev"
-              class="clients-indicators"
+              :class="!isActivePrev ? 'tw-opacity-20' : ''"
+              class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
               @click="slide(-1)"
             >
               <font-awesome-icon
-                class="arrow"
+                class="arrow tw-border-[1px] tw-border-solid tw-border-[#3d3d3d26] tw-rounded-[15px] tw-h-[25px] tw-w-[25px] tw-p-[10px] tw-text-[#fff] tw-bg-black-900"
                 icon="arrow-left"
                 id="leftArrow"
               />
@@ -74,11 +94,12 @@
             <button
               type="button"
               :disabled="!isActiveNext"
-              class="clients-indicators"
+              :class="!isActiveNext ? 'tw-opacity-20' : ''"
+              class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
               @click="slide(1)"
             >
               <font-awesome-icon
-                class="arrow"
+                class="arrow tw-border-[1px] tw-border-solid tw-border-[#3d3d3d26] tw-rounded-[15px] tw-h-[25px] tw-w-[25px] tw-p-[10px] tw-text-[#fff] tw-bg-black-900"
                 icon="arrow-right"
                 id="rightArrow"
               />
@@ -230,171 +251,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.container {
-  margin-bottom: 10rem;
-}
-.row {
-  margin: 0 2%;
-
-  * {
-    padding: 0;
-  }
-}
-
-.image {
-  padding: 0 20%;
-}
-
-.underline-text {
-  text-underline-offset: 0.5rem;
-}
-
-.faq-container {
-  border: 1px solid #e2e2e2;
-  overflow: hidden;
-  background: rgba(61, 61, 61, 0.03);
-  box-shadow: 0px 1px 6px 1px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-  padding: 15px;
-  cursor: pointer;
-}
-
-.faq-header {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
-.faq-icon {
-  width: 10%;
-}
-
-.gradient-icon {
-  color: #f2709c;
-}
-
-.faq-question {
-  color: #3d3d3d;
-  font-weight: 700;
-  width: 90%;
-}
-
-.faq-answer {
-  width: 90%;
-}
-
-.clients-indicators {
-  background: none;
-  border: none;
-  margin: 0 8px;
-  cursor: pointer;
-}
-
-button:disabled,
-button[disabled] {
-  opacity: 0.2;
-}
-
-.faq-section {
-  min-height: 28rem;
-  height: auto;
-}
-
-.arrow {
-  border: 1px solid rgba(61, 61, 61, 0.15);
-  border-radius: 15px;
-  height: 25px;
-  width: 25px;
-  padding: 10px;
-  color: #fff;
-  background: #3d3d3d;
-}
-
-.title-mobile {
-  display: block;
-}
-.title-desktop {
-  display: none;
-}
-
-/* NEXT QUESTION */
-.faq-next-enter-active,
-.faq-next-leave-active {
-  transition: transform 0.5s ease-in-out;
-}
-.faq-next-enter-active {
-  transform: translate(150%);
-}
-.faq-next-enter-to {
-  transform: translate(0%);
-}
-.faq-next-leave-to {
-  transform: translate(-150%);
-}
-
-/* PREVIOUS QUESTION */
-.faq-prev-enter-active,
-.faq-prev-leave-active {
-  transition: transform 0.5s ease-in-out;
-}
-.faq-prev-enter-active {
-  transform: translate(-150%);
-}
-.faq-prev-enter-to {
-  transform: translate(0%);
-}
-.faq-prev-leave-to {
-  transform: translate(150%);
-}
-
-@include media-breakpoint-up(sm) {
-  .faq-container {
-    padding: 25px;
-  }
-
-  .faq-section {
-    min-height: 33rem;
-  }
-
-  .underline-text {
-    text-underline-offset: 1rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .row {
-    margin: 0 6%;
-    margin-left: -32px;
-  }
-
-  .faq-content {
-    padding-left: 60px;
-  }
-
-  .image {
-    transform: translateY(15rem);
-    padding: 0;
-  }
-
-  .title-mobile {
-    display: none;
-  }
-  .title-desktop {
-    display: block;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .image {
-    transform: translateY(20rem);
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .image {
-    transform: translateY(10rem);
-  }
-}
-</style>
