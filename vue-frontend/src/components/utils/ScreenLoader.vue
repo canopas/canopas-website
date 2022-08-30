@@ -1,6 +1,16 @@
 <template>
-  <div :class="loader ? 'loader-div' : ''" v-if="isLoad">
-    <img class="loader-image" :src="loaderImage" />
+  <div
+    :class="
+      loader
+        ? 'tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080]'
+        : ''
+    "
+    v-if="isLoad"
+  >
+    <img
+      class="tw-fixed tw-left-[50%] tw-top-[50%] tw-z-[100] -tw-translate-x-1/2 -tw-translate-y-1/2"
+      :src="loaderImage"
+    />
   </div>
 </template>
 
@@ -20,25 +30,3 @@ export default {
   },
 };
 </script>
-
-<style scoped lang="scss">
-.loader-div {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
-}
-
-.loader-image {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-}
-</style>

@@ -1,6 +1,6 @@
 <template>
-  <div class="vue-aspect-ratio" :style="outerStyle">
-    <div class="vue-aspect-ratio-content">
+  <div class="vue-aspect-ratio tw-relative" :style="outerStyle">
+    <div class="tw-absolute tw-inset-0">
       <slot />
     </div>
   </div>
@@ -18,17 +18,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.vue-aspect-ratio {
-  position: relative;
-}
-
-.vue-aspect-ratio-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-}
-</style>
