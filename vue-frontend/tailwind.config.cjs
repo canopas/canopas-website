@@ -22,13 +22,15 @@ module.exports = {
         black: {
           900: "#3d3d3d",
         },
-        white: "#ffffff ",
+
+        white: "#ffffff",
         pink: {
           300: "#f2709c",
         },
         orange: {
           300: "#ff835b",
         },
+
         slate: {
           200: "rgb(226, 226, 226)",
           400: "rgb(141, 138, 138)",
@@ -44,6 +46,13 @@ module.exports = {
         11: "2.75rem",
         17: "4.25rem",
         23: "5.75rem",
+      },
+      fontFamily: {
+        "product-sans": ["Product Sans"],
+        "futura-bold": ["FuturaLT-Bold"],
+      },
+      letterSpacing: {
+        "extra-wider": "0.0625em",
       },
       keyframes: {
         zoomIn: {
@@ -61,11 +70,16 @@ module.exports = {
           "50%,60%": { width: "100%;" },
           "95%,100%": { width: "0;" },
         },
+        menuSticky: {
+          "0%": { top: "-120px", opacity: "0" },
+          "100%": { top: " 0", opacity: "1" },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",
         zoomOut: "zoomOut 4s ease-in infinite",
         typingErase: "typingErase 4s steps(40, end) infinite",
+        menuSticky: "0.6s ease-in-out",
       },
       zIndex: {
         "-1": "-1",

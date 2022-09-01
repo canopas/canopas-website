@@ -1,23 +1,23 @@
 <template>
-  <div class="container-fluid overlay">
-    <div class="container text-center">
-      <div class="description" ref="description">
+  <div class="tw-relative tw-p-0 tw-m-0 tw-py-[60px] tw-px-0">
+    <div class="tw-container tw-text-center">
+      <div class="tw-m-auto tw-w-[74%] sm:tw-w-6/12" ref="description">
         <div
           ref="firstHeaderText"
-          class="header-text canopas-gradient-text pb-3"
+          class="header-text canopas-gradient-text tw-pb-3"
         >
           Do you have a massive ad budget for your business?
         </div>
 
-        <div ref="secondHeaderText" class="mt-5 normal-text">
+        <div ref="secondHeaderText" class="tw-mt-12 normal-text">
           Unless you’re a Multimillion or a Billion-dollar company, you probably
           don’t have a multimillion-dollar ad budget or professional Spinners.
           <br /><br /><br />
           Your product needs to stand out on its own merits like App Quality,
           Performance, UI design, and User Experience.
         </div>
-        <div ref="arrowImage" class="text-center down-arrow">
-          <img class="animated-down-arrow" :src="arrowImage" alt="" />
+        <div ref="arrowImage" class="tw-text-center down-arrow">
+          <img class="tw-h-48 tw-my-[5%] tw-mx-auto" :src="arrowImage" alt="" />
         </div>
         <div ref="thirdHeaderText" class="normal-text second-div">
           Most companies don't care about you, your product, and your vision or
@@ -33,12 +33,15 @@
           work. No questions asked.
         </div>
 
-        <div class="flex-button pt-5">
-          <div class="text-center">
-            <router-link class="v2-button v2-normal-3-text" :to="contactURL">
-              <span>Start your free trial</span>
+        <div class="tw-flex tw-flex-col tw-items-center tw-pt-12">
+          <div class="tw-text-center">
+            <router-link
+              class="v2-normal-3-text tw-flex tw-items-center tw-py-4 tw-px-[1.1rem] active:tw-scale-[0.98] tw-bg-black-900 tw-text-white hover:tw-bg-transparent hover:tw-text-black-900 tw-rounded-[3rem] tw-text-center tw-border-[1px] tw-border-solid tw-border-[#3d3d3d] tw-bg-white tw-text-black"
+              :to="contactURL"
+            >
+              <span class="tw-mr-2.5">Start your free trial</span>
               <font-awesome-icon
-                class="arrow fa"
+                class="arrow fa tw-h-4 tw-w-4"
                 icon="arrow-right"
                 id="leftArrow"
               />
@@ -64,80 +67,3 @@ export default {
   components: { FontAwesomeIcon },
 };
 </script>
-
-<style lang="scss" scoped>
-.container-fluid {
-  position: relative;
-  padding: 0;
-  margin: 0;
-}
-
-.render-background {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  object-fit: cover;
-  z-index: -5;
-}
-
-.overlay {
-  padding: 60px 0;
-}
-
-.animated-down-arrow {
-  height: 192px;
-  margin: 5% auto;
-}
-
-.description {
-  margin: auto;
-  width: 74%;
-}
-
-.flex-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.v2-button {
-  display: flex;
-  align-items: center;
-  background-color: #3d3d3d;
-  color: #fff !important;
-  padding: 1rem 1.1rem;
-}
-
-.v2-button > .fa {
-  color: #fff;
-}
-
-.v2-button > span {
-  margin-right: 10px;
-}
-
-.arrow {
-  height: 18px;
-  width: 18px;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .v2-button:hover {
-    background-color: #fff;
-    color: #3d3d3d !important;
-  }
-
-  .v2-button:hover > span,
-  .v2-button:hover > .fa {
-    color: #3d3d3d;
-  }
-}
-
-@include media-breakpoint-up(sm) {
-  .description {
-    width: 50%;
-  }
-}
-</style>

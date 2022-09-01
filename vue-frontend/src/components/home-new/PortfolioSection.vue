@@ -1,37 +1,39 @@
 <template>
-  <div class="container-fluid">
-    <div class="text-center v2-header-text">Portfolio</div>
-    <div class="portfolio-section">
+  <div
+    class="tw-p-0 tw-mb-[30px] tw-mt-[50px] md:tw-mt-[90px] lg:tw-mt-[150px]"
+  >
+    <div class="tw-text-center v2-header-text tw-font-futura-bold">
+      Portfolio
+    </div>
+    <div class="tw-mt-[50px] md:tw-mt-[80px] lg:tw-mt-[150px]">
       <div
         v-for="portfolio in portfolios"
         :key="portfolio"
-        class="portfolio-details mt-4"
+        class="tw-flex tw-flex-col tw-items-center md:odd:tw-flex-row md:even:tw-flex-row-reverse tw-mt-6"
       >
-        <div class="image-div">
+        <div class="tw-w-full md:tw-w-6/12 lg:tw-w-[45%]">
           <img
             :src="portfolio.images[3]"
             :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w, ${portfolio.images[2]} 1200w, ${portfolio.images[3]} 1600w`"
             sizes="(min-width: 992px) 45vw, 100vw"
-            class="portfolio-image"
+            class="tw-w-full tw-h-full tw-object-cover"
             loading="lazy"
             :alt="portfolio.title + `-image`"
           />
         </div>
 
-        <div class="description">
+        <div
+          class="tw-py-[5%] tw-px-[20%] md:tw-m-auto md:tw-p-0 md:tw-w-[35%]"
+        >
           <div class="v2-title-text">{{ portfolio.title }}</div>
-          <div class="v2-normal-text mt-3">
+          <div class="v2-normal-text tw-mt-4">
             {{ portfolio.detail }}
           </div>
-          <div class="mt-4 d-flex">
-            <a
-              class="v2-normal-2-text v2-button"
-              :href="portfolio.link"
-              :target="portfolio.target"
-            >
-              <span>VIEW</span>
+          <div class="tw-mt-10">
+            <a class="v2-button v2-normal-2-text" :href="portfolio.link">
+              <span class="tw-mr-2.5">VIEW</span>
               <font-awesome-icon
-                class="arrow fa"
+                class="tw-text-black-900 fa"
                 icon="arrow-right"
                 id="leftArrow"
               />
@@ -82,7 +84,6 @@ export default {
           detail:
             "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
           link: "portfolio/luxeradio",
-
           target: "",
         },
         {
@@ -92,7 +93,6 @@ export default {
           detail:
             "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
           link: "portfolio/togness",
-
           target: "",
         },
         {
@@ -101,7 +101,6 @@ export default {
           detail:
             "Nolonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
           link: "portfolio/nolonely",
-
           target: "",
         },
         {
@@ -127,94 +126,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.container-fluid {
-  padding: 0;
-  margin-bottom: 30px;
-  margin-top: 50px;
-}
-
-.v2-header-text {
-  font-family: "FuturaLT-Bold";
-}
-
-.portfolio-section {
-  margin: 50px 0;
-}
-
-.image-div {
-  width: 100%;
-}
-
-.portfolio-image {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
-.portfolio-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.description {
-  padding: 5% 20%;
-}
-
-.v2-button {
-  display: flex;
-  align-items: center;
-}
-
-.v2-button > span {
-  margin-right: 10px;
-}
-
-.arrow {
-  color: #3d3d3d;
-}
-
-@include media-breakpoint-up(md) {
-  .container-fluid {
-    margin-top: 90px;
-  }
-
-  .portfolio-section {
-    margin: 80px 0;
-  }
-
-  .portfolio-details:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  .portfolio-details:nth-child(odd) {
-    flex-direction: row;
-  }
-
-  .description {
-    width: 35%;
-    margin: auto;
-    padding: 0;
-  }
-
-  .image-div {
-    width: 50%;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .container-fluid {
-    margin-top: 150px;
-  }
-
-  .portfolio-section {
-    margin: 150px 0;
-  }
-
-  .image-div {
-    width: 45%;
-  }
-}
-</style>
