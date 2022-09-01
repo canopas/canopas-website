@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid tw-relative tw-pt-8 lg:tw-mt-16 lg:tw-pb-24">
-    <div class="tw-overflow-hidden background">
+  <div class="tw-relative tw-pt-8 lg:tw-mt-16 lg:tw-pb-24">
+    <div class="tw-overflow-hidden tw--z-[1]">
       <p
         class="tw-rounded-full tw-absolute tw-z-0 tw-w-2.5 tw-h-2.5 tw-top-4 tw-left-1/4 tw-bg-orange-300 tw-animate-zoomOut"
       ></p>
@@ -30,7 +30,7 @@
       ></p>
     </div>
 
-    <div class="container tw-mx-auto tw-z-10">
+    <div class="tw-container tw-mx-auto tw-z-10">
       <div
         class="tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start"
       >
@@ -50,7 +50,7 @@
         <div class="tw-flex-2">
           <div class="description">
             <div
-              class="tw-pb-10 tw-w-11/12 v2-header-3-text tw-font-normal lg:tw-pb-16 lg:tw-pt-16 xl:tw-pb-20"
+              class="tw-pb-10 tw-w-11/12 v2-header-3-text lg:tw-text-5xl-1 lg:tw-text-7xl-1 lg:tw-leading-18 xl:tw-leading-22 tw-font-normal lg:tw-pb-16 lg:tw-pt-16 xl:tw-pb-20"
             >
               We develop amazing products to help
               <div class="typewriter tw-flex tw-items-center tw-w-fit">
@@ -73,12 +73,12 @@
             <div class="tw-flex tw-flex-col tw-items-center lg:tw-items-start">
               <div class="tw-text-center">
                 <router-link
-                  class="group v2-button tw-flex tw-items-center tw-py-4 tw-px-20 tw-bg-black-900 tw-text-white hover:tw-bg-white v2-normal-3-text"
+                  class="active:tw-scale-[0.98] hover:tw-text-black-900 tw-rounded-[3rem] tw-text-center tw-border-[1px] tw-border-solid tw-border-[#3d3d3d] tw-bg-white tw-text-black tw-flex tw-items-center tw-bg-black-900 tw-text-white hover:tw-bg-white v2-normal-3-text tw-py-4 tw-px-20"
                   :to="contactURL"
                 >
-                  <span class="group-hover:tw-text-black-900">Let's talk</span>
+                  <span class="tw-mr-2.5">Let's talk</span>
                   <font-awesome-icon
-                    class="arrow fa tw-h-4 tw-w-4 group-hover:tw-text-black-900"
+                    class="arrow fa tw-h-4 tw-w-4"
                     icon="arrow-right"
                     id="leftArrow"
                   />
@@ -139,34 +139,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.v2-button:hover > span,
-.v2-button:hover > .fa {
-  color: #3d3d3d;
-}
-
-.background {
-  z-index: -1;
-}
-
-@include media-breakpoint-up(lg) {
-  .v2-header-3-text {
-    font-size: 3.125rem;
-    line-height: 4.375rem;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .v2-header-3-text {
-    font-size: 4.0625rem;
-    line-height: 5.875rem;
-  }
-}
-
-@supports (-webkit-touch-callout: none) {
-  .v2-header-3-text {
-    letter-spacing: -1px;
-  }
-}
-</style>

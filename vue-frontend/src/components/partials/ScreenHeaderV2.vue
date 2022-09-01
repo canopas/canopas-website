@@ -1,30 +1,40 @@
 <template>
-  <div class="nav-container" :style="{ height: navContainerHeight + 'px' }">
+  <div
+    class="tw-relative tw-sticky tw-top-0 tw-z-[1]"
+    :style="{ height: navContainerHeight + 'px' }"
+  >
     <nav
-      class="navbar navbar-expand-md navbar-light main-header"
+      class="tw-py-2.5 tw-px-[2%] tw-w-full tw-bg-white tw-absolute tw-left-0 tw-bottom-0 tw-z-[1] tw-transition-all tw-ease-in-out tw-duration-600 md:tw-py-5 md:tw-px-0"
       :class="{
-        'navbar-sticky': navbarSticky,
-        'navbar-animation': navbarAnimation,
+        'tw-fixed tw-left-[unset] tw-bottom-[unset] tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]':
+          navbarSticky,
+        'tw-animated-menuSticky': navbarAnimation,
       }"
       ref="mainHeader"
     >
-      <div class="container">
+      <div
+        class="tw-container tw-flex tw-flex-col md:tw-flex-row tw-flex-wrap md:tw-flex-nowrap tw-justify-start"
+      >
         <router-link to="/" replace>
-          <div class="navbar-brand">
+          <div
+            class="tw-py-[0.3125rem] tw-mr-4 tw-text-[1.25rem] tw-whitespace-nowrap tw-no-underline tw-text-black"
+          >
             <img
               src="@/assets/images/logo/logo-header.svg"
-              class="header-logo-image mt-1"
+              class="tw-w-[205px] tw-h-[38.5px] tw-mt-1"
               alt="canopas-logo"
             />
           </div>
         </router-link>
 
-        <div class="navbar-collapse">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <div class="tw-flex tw-basis-[auto] tw-grow tw-items-center">
+          <ul
+            class="tw-flex tw-flex-row tw-flex-wrap tw-items-center tw-justify-start tw-mb-[10px] tw-my-0 tw-text-black-900/80 tw-p-0 md:tw-ml-auto"
+          >
             <li
               v-for="navbar in navbars"
               :key="navbar"
-              class="my-2 nav-item-margin"
+              class="tw-my-2 sm:tw-my-0 tw-mr-[15px] tw-ml-0 tw-text-black-900/80 tw-p-0"
             >
               <router-link
                 v-if="!navbar.target"
@@ -36,8 +46,8 @@
                     currentRoutePath.includes('portfolio')) ||
                   (navbar.name == 'Career' && currentRoutePath.includes('jobs'))
                     ? navbar.showContactBtn
-                      ? 'v2-button v2-button-active'
-                      : 'active-tab'
+                      ? 'v2-button'
+                      : 'tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-scale-x-0 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-scale-x-100'
                     : '',
                 ]"
                 :to="navbar.url"
@@ -54,8 +64,8 @@
                     currentRoutePath.includes('portfolio')) ||
                   (navbar.name == 'Career' && currentRoutePath.includes('jobs'))
                     ? navbar.showContactBtn
-                      ? 'v2-button v2-button-active'
-                      : 'active-tab'
+                      ? 'v2-button '
+                      : 'tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-scale-x-0 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-scale-x-100'
                     : '',
                 ]"
                 :href="navbar.url"
@@ -72,7 +82,6 @@
 
 <script type="module">
 import Config from "@/config.js";
-
 export default {
   data() {
     return {
@@ -86,37 +95,43 @@ export default {
         {
           name: "Home",
           url: "/",
-          className: "nav-link is-animation-tab",
+          className:
+            " tw-mt-0 tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 xl:tw-mr-[20px]  tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left",
           target: false,
         },
         {
           name: "Career",
           url: "/jobs",
-          className: "nav-link is-animation-tab",
+          className:
+            "tw-mt-0  tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 xl:tw-mr-[20px]  tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left",
           target: false,
         },
         {
           name: "Blog",
           url: Config.BLOG_URL,
-          className: "nav-link is-animation-tab",
+          className:
+            "tw-mt-0  tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 xl:tw-mr-[20px]  tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left ",
           target: true,
         },
         {
           name: "Portfolio",
           url: "/portfolio",
-          className: "nav-link is-animation-tab",
+          className:
+            " tw-mt-0  tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 xl:tw-mr-[20px]  tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left",
           target: false,
         },
         {
           name: "Let's talk",
           url: "/contact",
-          className: "me-0 nav-link lets-button-link is-animation-tab",
+          className:
+            " lg:tw-mr-0 tw-block lg:tw-hidden tw-mt-0 tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 xl:tw-mr-[20px] tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left",
           target: false,
         },
         {
           name: "Let's talk",
           url: "/contact",
-          className: "me-0 v2-button lets-button",
+          className:
+            "tw-mr-0 tw-hidden lg:tw-block  tw-border tw-border-black-900 v2-button tw-py-[0.4rem] tw-px-6 tw-bg-black-900 tw-rounded-full tw-text-white tw-shadow-[0_4px_4px_rgba(0,0,0,0.5)] hover:tw-bg-[#fff] hover:tw-text-[#3d3d3d]",
           target: false,
           showContactBtn: true,
         },
@@ -134,7 +149,6 @@ export default {
     handleScroll() {
       let wasSticky = this.navbarSticky;
       this.navbarSticky = window.scrollY > 30;
-
       // If scroll diff is large, we show navbar with animation
       let diff = window.scrollY - this.lastScrollY;
       if (this.navbarSticky != wasSticky && diff > 15) {
@@ -148,147 +162,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.nav-container {
-  background: #fff;
-  position: relative;
-}
-
-.navbar {
-  padding: 10px 2%;
-  width: 100%;
-  background: #fff;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 1;
-  transition: all 0.6s ease-in-out;
-}
-
-.navbar-sticky {
-  position: fixed;
-  left: unset;
-  bottom: unset;
-  box-shadow: 0 13px 35px -12px rgba(35, 35, 35, 0.15);
-}
-
-.navbar-animation {
-  animation: menu_sticky 0.6s ease-in-out;
-}
-
-@keyframes menu_sticky {
-  0% {
-    top: -120px;
-    opacity: 0;
-  }
-
-  100% {
-    top: 0;
-    opacity: 1;
-  }
-}
-
-.navbar-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-}
-
-.navbar-nav .nav-item-margin .nav-link {
-  margin: 0 30px 0 0;
-  color: rgba(61, 61, 61, 0.8);
-  padding: 0;
-}
-
-.header-logo-image {
-  width: 205px;
-  height: 38.5px;
-}
-
-.is-animation-tab,
-.active-tab {
-  display: inline-block;
-  position: relative;
-}
-
-.active-tab:after,
-.is-animation-tab:after {
-  content: "";
-  position: absolute;
-  width: 50%;
-  transform: scaleX(0);
-  height: 2px;
-  bottom: 0;
-  left: 0;
-  background-color: #3d3d3d;
-}
-
-.active-tab:after {
-  transform: scaleX(1);
-}
-
-.is-animation-tab:after {
-  transform-origin: bottom left;
-  transition: transform 0.2s ease-out;
-}
-
-.is-animation-tab:hover:after {
-  transform: scaleX(1);
-  transform-origin: bottom left;
-}
-
-.v2-button {
-  padding: 0.4rem 1.5rem;
-  background-color: #3d3d3d;
-  color: #fff !important;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-}
-
-.v2-button:hover {
-  background-color: #fff;
-  color: #3d3d3d !important;
-}
-
-.v2-button-active {
-  background-color: #fff;
-  color: #3d3d3d !important;
-}
-
-.v2-button-active:hover {
-  background-color: #3d3d3d;
-  color: #fff !important;
-}
-
-.lets-button-link {
-  display: block;
-}
-
-.lets-button {
-  display: none;
-}
-
-@include media-breakpoint-up(md) {
-  .navbar {
-    padding: 20px 0;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .lets-button {
-    display: block;
-  }
-
-  .lets-button-link {
-    display: none;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .navbar-nav .nav-item-margin .nav-link {
-    margin: 0 40px 0 0;
-  }
-}
-</style>

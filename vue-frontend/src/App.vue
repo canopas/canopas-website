@@ -252,7 +252,6 @@ a {
     color: #fff;
   }
 
-  .v2-button:hover > span,
   .v2-button:hover > .fa {
     color: #fff;
   }

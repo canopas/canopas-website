@@ -1,41 +1,71 @@
 <template>
-  <div class="container-fluid">
-    <div class="container">
-      <div class="v2-header-3-text text-center">
-        With <span class="v2-canopas-gradient-text">canopas</span>, you will
-        have everything you need under one roof.
+  <div
+    class="tw-bg-gradient-to-t tw-from-orange-300/[0.15] tw-to-white lg:tw-mb-[100px]"
+  >
+    <div
+      class="tw-container tw-pb-4 tw-pt-12 md:tw-pb-12 md:tw-pt-16 lg:tw-pb-20 lg:tw-pt-32"
+    >
+      <div class="v2-header-3-text tw-m-auto sm:tw-w-[90%] tw-text-center">
+        With <span class="canopas-gradient-text">canopas</span>, you will have
+        everything you need under one roof.
       </div>
-      <div class="phases-container">
-        <div class="flex-container">
-          <div v-for="(phase, i) in phases.slice(0, 3)" :key="i" class="phases">
+      <div class="tw-mt-8 md:tw-mt-20 lg:tw-mt-40">
+        <div
+          class="tw-flex tw-flex-wrap tw-m-auto md:tw-mt-20 md:tw-mx-auto md:tw-mb-auto lg:even:tw-w-[70%]"
+        >
+          <div
+            v-for="(phase, i) in phases.slice(0, 3)"
+            :key="i"
+            class="tw-text-center tw-py-4 tw-px-0 md:tw-flex-[1_1_30%] md:tw-flex md:tw-flex-col md:tw-p-0 md:tw-text-left last-of-type:md:tw-py-0 last-of-type:md:tw-px-40 last-of-type:lg:tw-p-0"
+          >
             <aspect-ratio height="56.25%">
-              <img :src="phase.image" class="image" loading="lazy" />
+              <img
+                :src="phase.image"
+                class="tw-w-full tw-h-full tw-object-cover"
+                loading="lazy"
+              />
             </aspect-ratio>
-            <div class="details">
-              <div class="v2-title-2-text canopas-gradient-text">
+            <div
+              class="tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
+            >
+              <div
+                class="tw-p-2 canopas-gradient-text v2-title-2-text tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-bg-clip-text tw-text-transparent"
+              >
                 {{ phase.title }}
               </div>
-              <div class="v2-normal-2-text description">
+              <div class="v2-normal-2-text md:tw-p-2">
                 {{ phase.description }}
               </div>
             </div>
           </div>
         </div>
-        <div class="flex-container">
-          <div v-for="(phase, i) in phases.slice(3, 5)" :key="i" class="phases">
+        <div
+          class="tw-flex tw-flex-wrap tw-m-auto md:tw-mt-20 md:tw-mx-auto md:tw-mb-auto lg:even:tw-w-[70%]"
+        >
+          <div
+            v-for="(phase, i) in phases.slice(3, 5)"
+            :key="i"
+            class="tw-text-center tw-py-4 tw-px-0 md:tw-flex-[1_1_30%] md:tw-flex md:tw-flex-col md:tw-p-0 md:tw-text-left"
+          >
             <aspect-ratio height="56.25%">
               <img
                 :src="phase.image"
-                class="image"
-                :class="phase.title == 'Marketing' ? 'animation-height' : ''"
+                class="tw-w-full tw-h-full tw-object-cover"
+                :class="
+                  phase.title == 'Marketing' ? 'tw-h-full md:tw-h-[84%]' : ''
+                "
                 loading="lazy"
               />
             </aspect-ratio>
-            <div class="details">
-              <div class="v2-title-2-text canopas-gradient-text">
+            <div
+              class="tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
+            >
+              <div
+                class="tw-p-2 canopas-gradient-text v2-title-2-text tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-bg-clip-text tw-text-transparent"
+              >
                 {{ phase.title }}
               </div>
-              <div class="v2-normal-2-text description">
+              <div class="v2-normal-2-text md:tw-p-2">
                 {{ phase.description }}
               </div>
             </div>
@@ -96,142 +126,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.container-fluid {
-  background: linear-gradient(
-    174.39deg,
-    #ffffff 9.06%,
-    rgba(255, 148, 114, 0.15) 90%
-  );
-}
-
-.container {
-  padding-bottom: 16px;
-  padding-top: 48px;
-}
-
-.phases-container {
-  margin-top: 32px;
-}
-
-.phases {
-  padding: 1rem 0;
-  text-align: center;
-}
-
-.v2-header-3-text {
-  margin: auto;
-}
-
-.flex-container {
-  display: flex;
-  flex-flow: wrap;
-  margin: auto;
-}
-
-.animation-height {
-  height: 100% !important;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.details {
-  padding: 1rem;
-
-  div {
-    padding: 0.5rem;
-  }
-}
-
-@media (min-width: 440px) {
-  .details > .description {
-    padding: 0 3rem;
-  }
-}
-
-@include media-breakpoint-up(sm) {
-  .v2-header-3-text {
-    width: 85%;
-  }
-
-  .details {
-    padding: 1rem 3rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .container {
-    padding-bottom: 48px;
-    padding-top: 64px;
-  }
-
-  .phases-container {
-    margin-top: 80px;
-  }
-
-  .phases {
-    flex: 33%;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    text-align: left;
-  }
-
-  .flex-container {
-    margin: 5rem auto auto;
-    :nth-child(3) {
-      padding: 0 10rem;
-    }
-  }
-
-  .details {
-    padding: 1rem 3rem 1rem 1.5rem;
-    .description {
-      padding: 0.5rem;
-    }
-  }
-
-  .animation-height {
-    height: 84% !important;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .container {
-    padding-bottom: 80px;
-    padding-top: 128px;
-  }
-
-  .phases-container {
-    margin-top: 160px;
-  }
-
-  .flex-container:nth-of-type(even) {
-    width: 70%;
-  }
-
-  .flex-container {
-    :nth-child(3) {
-      padding: 0;
-    }
-  }
-
-  .details {
-    padding: 1rem 1.5rem;
-  }
-
-  .container-fluid {
-    margin-bottom: 100px;
-  }
-}
-@supports (-webkit-touch-callout: none) {
-  .v2-header-3-text {
-    letter-spacing: -2px;
-  }
-}
-</style>
