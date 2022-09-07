@@ -119,7 +119,7 @@ export default {
       title: ``,
       backgroundImage: "",
       details: {
-        firstDetail: [
+        gridData1: [
           {
             background: "",
             aspectRatio: "145%",
@@ -144,7 +144,7 @@ export default {
             title: "",
           },
         ],
-        secondDetail: [
+        gridData2: [
           {
             aspectRatio: "122%",
             image: [
@@ -184,7 +184,7 @@ export default {
     element: {
       title: ``,
       detail: {
-        firstDetail: [
+        gridData1: [
           {
             id: 1,
             title: "",
@@ -211,7 +211,7 @@ export default {
           },
         ],
 
-        secondDetail: [
+        gridData2: [
           {
             id: 3,
             title: "",

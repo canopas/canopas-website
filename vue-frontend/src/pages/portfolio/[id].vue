@@ -6,13 +6,13 @@
       </template>
     </metainfo>
     <Header />
-    <div class="parallax container-fluid tw-p-0">
-      <LandingSection v-bind:response="details.landing" />
-      <VideoSection v-bind:response="details.video" />
-      <BrandingSection v-bind:response="details.branding" />
-      <DesignSection v-bind:response="details.design" />
-      <ElementSection v-bind:response="details.element" />
-      <FooterSection v-bind:response="details.footer" />
+    <div class="parallax container-fluid tw-p-0" ref="response">
+      <LandingSection v-bind:json="details.landing" />
+      <VideoSection v-bind:json="details.video" />
+      <BrandingSection v-bind:json="details.branding" />
+      <DesignSection v-bind:json="details.design" />
+      <ElementSection v-bind:json="details.element" />
+      <FooterSection v-bind:json="details.footer" />
       <CTASection />
     </div>
   </div>
@@ -48,20 +48,31 @@ export default {
   },
   data() {
     return {
-      id: this.$route.params.id,
       details: "",
       response: null,
     };
   },
+  watch: {
+    "$route.params.id": {
+      handler: function () {
+        this.getData(this.$route.params.id);
+      },
+      deep: true,
+      immediate: true,
+    },
+  },
   created() {
-    this.getData();
+    this.getData(this.$route.params.id);
   },
   mounted() {
     this.$gtag.event("view_page_portfolio");
   },
+  updated() {
+    this.scrollToTop();
+  },
   methods: {
-    getData() {
-      switch (this.id) {
+    getData(id) {
+      switch (id) {
         case luxeradioResponse.name:
           this.response = luxeradioResponse;
           break;
@@ -87,8 +98,14 @@ export default {
         this.meta.og.url = this.response.seoData.url;
       }
     },
+    scrollToTop() {
+      var portfolioDiv = this.$refs.response;
+      portfolioDiv.scrollTo({
+        top: portfolioDiv.offsetTop,
+        behavior: "instant",
+      });
+    },
   },
-
   components: {
     Header,
     LandingSection,

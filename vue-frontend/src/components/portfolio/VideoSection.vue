@@ -219,13 +219,19 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 SwiperCore.use([Pagination, Autoplay]);
 
 export default {
-  props: ["response"],
+  props: ["json"],
   data() {
     return {
       id: this.$route.params.id,
       backgroundColor: "",
       isShowSliderInMobile: false,
+      response: this.json,
     };
+  },
+  watch: {
+    json: function (newVal, oldVal) {
+      this.response = newVal;
+    },
   },
   components: {
     Swiper,

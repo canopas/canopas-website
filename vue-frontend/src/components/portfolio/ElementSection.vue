@@ -21,8 +21,8 @@
     class="tw-relative tw-bg-white tw-pb-40 lg:tw-pb-80"
   >
     <div class="container tw-flex tw-flex-col sm:tw-flex-row tw-relative">
-      <div class="tw-basis-1/2">
-        <div v-for="data in flex1" :key="data" class="tw-px-3">
+      <div v-if="gridData1" class="tw-basis-1/2">
+        <div v-for="data in gridData1" :key="data" class="tw-px-3">
           <aspect-ratio
             :height="data.aspectRatio"
             :style="[data.background ? { background: data.background } : {}]"
@@ -63,8 +63,8 @@
           </div>
         </div>
       </div>
-      <div class="sm:tw-mt-36 lg:tw-mt-60 tw-basis-1/2">
-        <div v-for="data in flex2" :key="data" class="tw-px-3">
+      <div v-if="gridData2" class="sm:tw-mt-36 lg:tw-mt-60 tw-basis-1/2">
+        <div v-for="data in gridData2" :key="data" class="tw-px-3">
           <aspect-ratio
             :height="data.aspectRatio"
             :style="[data.background ? { background: data.background } : {}]"
@@ -113,12 +113,20 @@
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 
 export default {
-  props: ["response"],
+  props: ["json"],
   data() {
     return {
-      flex1: this.response.detail.firstDetail,
-      flex2: this.response.detail.secondDetail,
+      response: this.json,
+      gridData1: this.json.detail.gridData1,
+      gridData2: this.json.detail.gridData2,
     };
+  },
+  watch: {
+    json: function (newVal, oldVal) {
+      this.response = newVal;
+      this.gridData1 = this.response.detail.gridData1;
+      this.gridData2 = this.response.detail.gridData2;
+    },
   },
   components: {
     AspectRatio,

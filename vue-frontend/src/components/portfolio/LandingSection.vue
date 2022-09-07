@@ -28,11 +28,17 @@
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 
 export default {
-  props: ["response"],
+  props: ["json"],
   data() {
     return {
       isMobile: false,
+      response: this.json,
     };
+  },
+  watch: {
+    json: function (newVal, oldVal) {
+      this.response = newVal;
+    },
   },
   components: {
     AspectRatio,
