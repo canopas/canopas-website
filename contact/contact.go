@@ -26,17 +26,18 @@ type ContactDetails struct {
 	ProjectInfo string `json:"project_info"`
 	Reference   string `json:"reference"`
 	ContactType string `json:"contact_type"`
+	Token       string `json:"token"`
 }
 
 type Template struct {
 	templates *template.Template
-	EmailRepo utils.EmailRepository
+	UtilsRepo utils.UtilsRepository
 }
 
-func New(templateFs embed.FS, emailRepo utils.EmailRepository) *Template {
+func New(templateFs embed.FS, utilsRepo utils.UtilsRepository) *Template {
 	templates, _ := template.ParseFS(templateFs, "templates/contact-email-template.html")
 	return &Template{
-		templates: templates, EmailRepo: emailRepo,
+		templates: templates, UtilsRepo: utilsRepo,
 	}
 }
 
@@ -49,16 +50,28 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 		return
 	}
 
+	if input.Token == "" {
+		c.AbortWithStatus(http.StatusUnauthorized)
+		return
+	}
+
+	success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
+
+	if err != nil || !success {
+		c.AbortWithStatus(http.StatusUnauthorized)
+		return
+	}
+
 	emailTemplate := repository.getEmailTemplate(input)
 
-	statusCode := repository.EmailRepo.SendEmail(emailTemplate, nil)
+	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
 
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)
 		return
 	}
 
-	c.JSON(http.StatusOK, input)
+	c.JSON(http.StatusOK, "Contact mail sent successfully")
 }
 
 func (repository *Template) getEmailTemplate(input ContactDetails) (template *ses.SendEmailInput) {

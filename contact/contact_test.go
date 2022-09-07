@@ -31,13 +31,18 @@ var contactDetailInput = ContactDetails{
 	ProjectInfo: "Describe small inaformation about my project",
 	Reference:   "Canopas Employee",
 	ContactType: "Chat or Email",
+	Token:       "xyz123",
 }
 
-//fakeMailRepo is a mock Mail Service Interface
-type fakeMailRepo struct{}
+//stubUtilsRepo is a mock Utils Service Interface
+type stubUtilsRepo struct{}
 
-func (faker *fakeMailRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
+func (faker *stubUtilsRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
 	return 0
+}
+
+func (faker *stubUtilsRepo) VerifyRecaptcha(token string) (bool, error) {
+	return true, nil
 }
 
 func Test_init(t *testing.T) {
@@ -51,7 +56,7 @@ func Test_init(t *testing.T) {
 			Body:              contactDetailInput,
 			ResponseCode:      http.StatusOK,
 			ResponseTypeArray: false,
-			ExpectedData:      expectedContactData(),
+			ExpectedData:      "Contact mail sent successfully",
 		},
 	}
 }
@@ -94,9 +99,9 @@ func TestAllAPIs(t *testing.T) {
 
 func initializeRepo() (*Template, error) {
 
-	var fakeEmail fakeMailRepo
+	var utilsRepo stubUtilsRepo
 
-	repo = New(templateFS, &fakeEmail)
+	repo = New(templateFS, &utilsRepo)
 
 	return repo, err
 }
@@ -104,14 +109,4 @@ func initializeRepo() (*Template, error) {
 // configure api you want to test
 func setUpRouter(engine *gin.Engine) {
 	engine.POST(SEND_CONTACT_MAIL, repo.SendContactMail)
-}
-
-func expectedContactData() map[string]interface{} {
-	contact := make(map[string]interface{})
-	contact["name"] = "shruti"
-	contact["email"] = "shruti@gmail.com"
-	contact["project_info"] = "Describe small inaformation about my project"
-	contact["reference"] = "Canopas Employee"
-	contact["contact_type"] = "Chat or Email"
-	return contact
 }

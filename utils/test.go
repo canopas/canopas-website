@@ -128,6 +128,7 @@ func PrepareTextFileFormData() (string, *bytes.Buffer) {
 	writer.WriteField("place", "surat")
 	writer.WriteField("references", "From canopas")
 	writer.WriteField("message", "I'm a very good programer")
+	writer.WriteField("token", "xyz123")
 	writer.Close()
 
 	return contentType, body

@@ -1,25 +1,33 @@
 package utils
 
 import (
+	"context"
+	"fmt"
 	"net/http"
 	"os"
 
 	log "github.com/sirupsen/logrus"
 
+	b64 "encoding/base64"
+
+	recaptcha "cloud.google.com/go/recaptchaenterprise/v2/apiv1"
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ses"
+	"google.golang.org/api/option"
+	recaptchapb "google.golang.org/genproto/googleapis/cloud/recaptchaenterprise/v1"
 )
 
-type emailRepository struct{}
-type EmailRepository interface {
+type utilsRepository struct{}
+type UtilsRepository interface {
 	SendEmail(*ses.SendEmailInput, *ses.SendRawEmailInput) int
+	VerifyRecaptcha(string) (bool, error)
 }
 
-func NewEmail() *emailRepository {
-	return &emailRepository{}
+func NewEmail() *utilsRepository {
+	return &utilsRepository{}
 }
 
 func GetAWSIAMUserSession() (*session.Session, error) {
@@ -38,10 +46,9 @@ func GetAWSIAMUserSession() (*session.Session, error) {
 	}
 
 	return sess, err
-
 }
 
-func (repo *emailRepository) SendEmail(emailTemplate *ses.SendEmailInput, jobsTemplate *ses.SendRawEmailInput) int {
+func (repo *utilsRepository) SendEmail(emailTemplate *ses.SendEmailInput, jobsTemplate *ses.SendRawEmailInput) int {
 
 	sess, err := GetAWSIAMUserSession()
 
@@ -71,4 +78,48 @@ func (repo *emailRepository) SendEmail(emailTemplate *ses.SendEmailInput, jobsTe
 	}
 
 	return 0
+}
+
+func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
+
+	//create recaptcha assessment and verify token
+	ctx := context.Background()
+
+	credBytes, err := b64.StdEncoding.DecodeString(os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
+	if err != nil {
+		log.Error(err)
+		return false, err
+	}
+
+	client, err := recaptcha.NewClient(ctx, option.WithCredentialsJSON(credBytes))
+	if err != nil {
+		log.Error(err)
+		return false, err
+	}
+	defer client.Close()
+
+	// Build the assessment request
+	request := &recaptchapb.CreateAssessmentRequest{
+		Assessment: &recaptchapb.Assessment{
+			Event: &recaptchapb.Event{
+				Token:   token,
+				SiteKey: os.Getenv("RECAPTCHA_SITE_KEY"),
+			},
+		},
+		Parent: fmt.Sprintf("projects/%s", os.Getenv("RECAPTCHA_PROJECT_ID")),
+	}
+
+	response, err := client.CreateAssessment(ctx, request)
+
+	if err != nil {
+		log.Error(err)
+		return false, err
+	}
+
+	// Interpret and verify assessment response
+	if response.TokenProperties.Action == "verify" && response.TokenProperties.Valid && response.RiskAnalysis.Score >= 0.9 {
+		return true, nil
+	}
+
+	return false, nil
 }

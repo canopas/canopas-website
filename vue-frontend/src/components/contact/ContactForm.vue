@@ -121,9 +121,11 @@
               class="tw-py-5 lg:tw-py-8 v2-normal-3-text tw-flex tw-justify-center"
             >
               <button
+                id="submit"
                 v-if="contactType == 1"
-                class="gradient-btn tw-w-80 tw-px-0 tw-py-4 tw-m-0"
-                @click.prevent="submitApplication()"
+                ref="recaptcha"
+                class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
+                @click.prevent="submitForm()"
               >
                 <font-awesome-icon
                   class="fa tw-w-6 tw-h-6"
@@ -134,8 +136,8 @@
               </button>
               <button
                 v-if="contactType == 2"
-                class="gradient-btn tw-w-80 tw-px-0 tw-py-4 tw-m-0"
-                @click.prevent="submitApplication()"
+                class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
+                @click.prevent="submitForm()"
               >
                 <font-awesome-icon
                   class="fa tw-w-6 tw-h-6"
@@ -221,11 +223,11 @@
               </div>
               <div class="modal-body">
                 <div class="normal-text text-center">
-                  Something went wrong on our side
+                  {{ errorMessage }}
                 </div>
                 <div class="close-btn-div">
                   <button
-                    class="gradient-btn tw-w-80 tw-px-0 tw-float-right"
+                    class="gradient-btn tw-w-40 tw-px-0 tw-float-right"
                     @click.prevent="showErrorMessagePopup = false"
                   >
                     <span>Close</span>
@@ -272,6 +274,7 @@ export default {
       openCalendlyIframeModal: false,
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
+      errorMessage: "Something went wrong on our side",
       showLoader: false,
       contactType: 1,
     };
@@ -281,7 +284,7 @@ export default {
     CalendlyIframe,
   },
   methods: {
-    submitApplication() {
+    submitForm() {
       if (this.name === "" || this.email === "" || this.reference === "") {
         this.showValidationError = true;
       } else {
@@ -299,29 +302,46 @@ export default {
               : "Call",
         };
 
-        axios
-          .post(config.API_BASE + "/api/send-contact-mail", formData)
-          .then(() => {
-            this.showLoader = true;
-            if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
-              setTimeout(() => {
-                this.showSuccessMessage();
-                if (this.showSuccessMessagePopup) {
-                  this.showLoader = false;
-                }
-              }, 1000);
-            } else {
-              setTimeout(() => {
-                this.openCalendlyIframe();
-                if (this.openCalendlyIframeModal) {
-                  this.showLoader = false;
-                }
-              }, 1000);
-            }
-          })
-          .catch(() => {
-            this.showErrorMessagePopup = true;
-          });
+        // verify recaptcha
+        grecaptcha.enterprise.ready(() => {
+          grecaptcha.enterprise
+            .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
+              action: "verify",
+            })
+            .then((token) => {
+              formData.token = token;
+              axios
+                .post(config.API_BASE + "/api/send-contact-mail", formData)
+                .then(() => {
+                  this.showLoader = true;
+                  if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
+                    setTimeout(() => {
+                      this.showSuccessMessage();
+                      if (this.showSuccessMessagePopup) {
+                        this.showLoader = false;
+                      }
+                    }, 1000);
+                  } else {
+                    setTimeout(() => {
+                      this.openCalendlyIframe();
+                      if (this.openCalendlyIframeModal) {
+                        this.showLoader = false;
+                      }
+                    }, 1000);
+                  }
+                })
+                .catch((err) => {
+                  if (err.response.status == 401) {
+                    this.errorMessage = "Invalid recaptcha score";
+                  }
+                  this.showErrorMessagePopup = true;
+                });
+            })
+            .catch(() => {
+              this.errorMessage = "Invalid recaptcha score";
+              this.showErrorMessagePopup = true;
+            });
+        });
       }
     },
     openCalendlyIframe() {

@@ -30,11 +30,15 @@ const (
 	SEND_CAREER_MAIL       = "/api/send-career-mail"
 )
 
-//fakeMailRepo is a mock Mail Service Interface
-type fakeMailRepo struct{}
+//stubUtilsRepo is a mock Utils Service Interface
+type stubUtilsRepo struct{}
 
-func (faker *fakeMailRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
+func (faker *stubUtilsRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
 	return 0
+}
+
+func (faker *stubUtilsRepo) VerifyRecaptcha(token string) (bool, error) {
+	return true, nil
 }
 
 func Test_init(t *testing.T) {
@@ -66,7 +70,7 @@ func Test_init(t *testing.T) {
 			Body:              prepareRequestBody(),
 			ResponseCode:      http.StatusOK,
 			ResponseTypeArray: false,
-			ExpectedData:      expectedMailData(),
+			ExpectedData:      "Job application received successfully",
 		},
 	}
 }
@@ -123,9 +127,9 @@ func initializeRepo() (*CareerRepository, error) {
 	utils.TruncateTables(testDB)
 	utils.PrepareTablesData(testDB)
 
-	var fakeEmail fakeMailRepo
+	var utilsRepo stubUtilsRepo
 
-	repo = New(testDB, templateFS, &fakeEmail)
+	repo = New(testDB, templateFS, &utilsRepo)
 
 	return repo, err
 }
@@ -160,18 +164,6 @@ func expectedJobsData() map[string]interface{} {
 	jobs["apply_seo_description"] = "Apply for iOS developer job at Canopas and be part of a dynamic and versatile iOS app development team."
 	jobs["index"] = 0.0
 	return jobs
-}
-func expectedMailData() map[string]interface{} {
-	career := make(map[string]interface{})
-
-	career["job_title"] = "Web Developer from testing"
-	career["name"] = "New Web Developer"
-	career["email"] = "developer@gmail.com"
-	career["phone"] = "1234567890"
-	career["place"] = "surat"
-	career["references"] = "From canopas"
-	career["message"] = "I'm a very good programer"
-	return career
 }
 
 func prepareRequestBody() *bytes.Buffer {

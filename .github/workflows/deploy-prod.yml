@@ -34,6 +34,7 @@ jobs:
       - name: Build frontend and push on ECR
         run: |
           cd vue-frontend
+          echo VITE_RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }} >> .env
           mv src/config.prod.js src/config.js
           sh ./../deploy/generate-sitemap.sh https://canopas.com https://prod-stack-api.canopas.com
           bash ./../deploy/deploy-ecr-image.sh prod-frontend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-frontend
@@ -71,6 +72,9 @@ jobs:
             DbHost=${{ secrets.DB_HOST }},
             DbPort=${{ secrets.DB_PORT }},
             DbName=${{ secrets.DB_NAME }},
+            RecaptchaConfigJSONBase64=${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }},
+            RecaptchaSiteKey=${{ secrets.RECAPTCHA_SITE_KEY }},
+            RecaptchaProjectId=${{ secrets.RECAPTCHA_PROJECT_ID }},
             ClusterName=canopas-website-prod,
             ImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-frontend,
             BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-backend,
