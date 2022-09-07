@@ -2,13 +2,15 @@
 
 Source code repository of [Canopas Software Website](https://canopas.com).
 
-We intend to keep this open source. Plan is to keep the repository up to date with latest technologies and
-best practices.
+We intend to keep this open source. Plan is to keep the repository up to date with latest technologies and best practices.
 
 ## Requirements
 
 - Node18
 - Go 1.17
+
+### Note : 
+- We have used SSR(Server Side Rendering) in website to improve performance. Server will render UI in `<!--app-html-->` part of `vue-frontend/index.html`. Due to this,  reformating of `index.html` can cause UI breaking. 
 
 ## To run front-end
 
@@ -111,8 +113,7 @@ You can access the page by pointing a web browser at http://localhost:8080.
   ```
 
   [Here](https://github.com/canopas/canopas-website/blob/master/api-doc.md) is APIs reference used in the website.
-
-
+ 
 ## To enable pre-commit hook
 
 ```

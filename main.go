@@ -36,10 +36,10 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 	router.Use(cors.New(corsConfig()))
 	router.Use(gzip.Gzip(gzip.DefaultCompression))
 
-	emailRepo := utils.NewEmail()
+	utilsRepo := utils.NewEmail()
 
-	contactRepo := contact.New(templateFS, emailRepo)
-	jobsRepo := jobs.New(sqlDb, templateFS, emailRepo)
+	contactRepo := contact.New(templateFS, utilsRepo)
+	jobsRepo := jobs.New(sqlDb, templateFS, utilsRepo)
 	sitemapRepo := sitemap.New(jobsRepo)
 
 	router.POST("/api/send-contact-mail", contactRepo.SendContactMail)

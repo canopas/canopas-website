@@ -40,6 +40,15 @@ Parameters:
   DbName:
     Type: String
     Description: Mysql database name.
+  RecaptchaConfigJSONBase64:
+    Type: String
+    Description: Recpatca enterprise credentials in base64 format
+  RecaptchaSiteKey:
+    Type: String
+    Description: Use to verify recpatcha token.
+  RecaptchaProjectId:
+    Type: String
+    Description: Recaptcha project ID.
   ClusterName:
     Type: String
     Description: Name of ECS cluster
@@ -132,6 +141,15 @@ Resources:
             - Name: DB_NAME
               Value: 
                 Fn::Sub: ${DbName}
+            - Name: RECAPTCHA_CONFIG_JSON_BASE64
+              Value: 
+                Fn::Sub: ${RecaptchaConfigJSONBase64}
+            - Name: RECAPTCHA_SITE_KEY
+              Value: 
+                Fn::Sub: ${RecaptchaSiteKey}
+            - Name: RECAPTCHA_PROJECT_ID
+              Value: 
+                Fn::Sub: ${RecaptchaProjectId}
             - Name: TZ
               Value: UTC
             - Name: GIN_MODE

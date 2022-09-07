@@ -58,17 +58,18 @@ type CareerDetails struct {
 	Place      string `json:"place" form:"place"`
 	References string `json:"references" form:"references"`
 	Message    string `json:"message" form:"message"`
+	Token      string `json:"token" form:"token"`
 }
 
 type CareerRepository struct {
 	Db        *sqlx.DB
 	templates *template.Template
-	EmailRepo utils.EmailRepository
+	UtilsRepo utils.UtilsRepository
 }
 
-func New(db *sqlx.DB, templateFs embed.FS, emailRepo utils.EmailRepository) *CareerRepository {
+func New(db *sqlx.DB, templateFs embed.FS, utilsRepo utils.UtilsRepository) *CareerRepository {
 	templates, _ := template.ParseFS(templateFs, "templates/career-email-template.html")
-	return &CareerRepository{Db: db, templates: templates, EmailRepo: emailRepo}
+	return &CareerRepository{Db: db, templates: templates, UtilsRepo: utilsRepo}
 }
 
 func (repository *CareerRepository) Careers(c *gin.Context) {
@@ -136,6 +137,18 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 		return
 	}
 
+	if input.Token == "" {
+		c.AbortWithStatus(http.StatusUnauthorized)
+		return
+	}
+
+	success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
+
+	if err != nil || !success {
+		c.AbortWithStatus(http.StatusUnauthorized)
+		return
+	}
+
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)
 
 	title := input.JobTitle + " job application - Canopas Website"
@@ -148,14 +161,14 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 
 	emailTemplate := GetEmailTemplate(htmlBody, title, attachmentBytes)
 
-	statusCode := repository.EmailRepo.SendEmail(nil, emailTemplate)
+	statusCode := repository.UtilsRepo.SendEmail(nil, emailTemplate)
 
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)
 		return
 	}
 
-	c.JSON(http.StatusOK, input)
+	c.JSON(http.StatusOK, "Job application received successfully")
 }
 
 func getFileBytes(c *gin.Context) (*bytes.Buffer, error) {

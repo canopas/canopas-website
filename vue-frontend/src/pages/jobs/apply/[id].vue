@@ -228,7 +228,7 @@
                   </div>
                   <div class="modal-body">
                     <div class="normal-text text-center">
-                      Something went wrong on our side
+                      {{ errorMessage }}
                     </div>
                     <div class="close-btn-div">
                       <button
@@ -346,6 +346,7 @@ export default {
       fileButtonName: "Upload",
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
+      errorMessage: "Something went wrong on our side",
       disableInput: false,
       showLoader: false,
       loaderImage: loaderImage,
@@ -362,6 +363,15 @@ export default {
     await this.setCareerDetails();
   },
   mounted() {
+    let recaptchaScript = document.createElement("script");
+    recaptchaScript.setAttribute(
+      "src",
+      "https://www.google.com/recaptcha/enterprise.js?render=" +
+        import.meta.env.VITE_RECAPTCHA_SITE_KEY
+    );
+    recaptchaScript.setAttribute("async", "true");
+    recaptchaScript.setAttribute("defer", "true");
+    document.head.appendChild(recaptchaScript);
     this.setCareerDetails();
     this.$gtag.event("view_page_job_apply");
   },
@@ -448,6 +458,8 @@ export default {
       this.showLoader = true;
       this.disableInput = false;
       this.isLoad = true;
+
+      //prepare form data
       const formData = new FormData();
       formData.append("job_title", this.job.title);
       formData.append("name", this.fullName);
@@ -468,21 +480,40 @@ export default {
       formData.append("message", this.message ? this.message : "NA");
       formData.append("file", this.file, this.file.name);
 
-      axios
-        .post(config.API_BASE + "/api/send-career-mail", formData)
-        .then(() => {
-          this.isLoad = false;
-          this.showLoader = false;
-          this.showSuccessMessagePopup = true;
-          setTimeout(() => {
-            this.$router.push("/jobs");
-          }, 2000);
-        })
-        .catch(() => {
-          this.isLoad = false;
-          this.showLoader = false;
-          this.showErrorMessagePopup = true;
-        });
+      //verify recpatcha
+      grecaptcha.enterprise.ready(() => {
+        grecaptcha.enterprise
+          .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
+            action: "verify",
+          })
+          .then(function (token) {
+            formData.append("token", token);
+            axios
+              .post(config.API_BASE + "/api/send-career-mail", formData)
+              .then(() => {
+                this.isLoad = false;
+                this.showLoader = false;
+                this.showSuccessMessagePopup = true;
+                setTimeout(() => {
+                  this.$router.push("/jobs");
+                }, 2000);
+              })
+              .catch((err) => {
+                this.isLoad = false;
+                this.showLoader = false;
+                if (err.response.status == 401) {
+                  this.errorMessage = "Invalid recaptcha score";
+                }
+                this.showErrorMessagePopup = true;
+              });
+          })
+          .catch(() => {
+            this.errorMessage = "Invalid recaptcha score";
+            this.isLoad = false;
+            this.showLoader = false;
+            this.showErrorMessagePopup = true;
+          });
+      });
     },
   },
 };

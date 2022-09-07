@@ -55,6 +55,15 @@ export default {
     };
   },
   mounted() {
+    let recaptchaScript = document.createElement("script");
+    recaptchaScript.setAttribute(
+      "src",
+      "https://www.google.com/recaptcha/enterprise.js?render=" +
+        import.meta.env.VITE_RECAPTCHA_SITE_KEY
+    );
+    recaptchaScript.setAttribute("async", "true");
+    recaptchaScript.setAttribute("defer", "true");
+    document.head.appendChild(recaptchaScript);
     this.$gtag.event("view_page_contact");
   },
   methods: {
