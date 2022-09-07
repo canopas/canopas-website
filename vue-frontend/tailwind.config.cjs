@@ -93,6 +93,7 @@ module.exports = {
       },
       bgGradientDeg: {
         247: "247.22deg",
+        270: "270.11deg",
       },
     },
   },

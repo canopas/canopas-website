@@ -1,12 +1,14 @@
 <template>
-  <div class="container">
+  <div class="tw-container -tw-mt-16 tw-mb-24">
     <form>
-      <div class="information-detail">
-        <div class="information-pd">
+      <div
+        class="tw-rounded-3xl tw-border tw-border-slate-200 tw-bg-white tw-shadow-3xl"
+      >
+        <div class="tw-py-5 tw-px-8 lg:tw-px-24">
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 tw-pt-5">
               <input
-                class="custom-text-input v2-normal-text"
+                class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 type="text"
                 name="username"
                 required
@@ -21,7 +23,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 tw-pt-5">
               <input
-                class="custom-text-input v2-normal-text"
+                class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 type="text"
                 name="email"
                 required
@@ -36,7 +38,7 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 tw-pt-5 lg:tw-pt-14">
               <textarea
-                class="custom-text-input v2-normal-text"
+                class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 name="project"
                 rows="1"
                 autocomplete="given-project-info"
@@ -47,7 +49,7 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 tw-pt-5 lg:tw-pt-10">
               <input
-                class="custom-text-input v2-normal-text"
+                class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 type="text"
                 name="reference"
                 required
@@ -76,13 +78,15 @@
                   v-model.number="contactType"
                   :disabled="disableInput"
                 />
-                <div class="contact-button tw-mb-6 sm:tw-mr-9 sm:tw-mb-0">
+                <div
+                  class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
+                >
                   <font-awesome-icon
-                    class="fa -tw-rotate-45 tw-w-6 tw-h-6 tw-text-black-900"
+                    class="-tw-rotate-45 tw-w-6 tw-h-6"
                     :icon="phone"
                     aria-hidden="true"
                   />
-                  <span class="tw-ml-5 v2-normal-3-text">Call</span>
+                  <span class="tw-ml-5">Call</span>
                 </div></label
               >
 
@@ -95,9 +99,11 @@
                   v-model.number="contactType"
                   :disabled="disableInput"
                 />
-                <div class="v2-normal-3-text contact-button">
+                <div
+                  class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 hover:tw-bg-black-900 active:tw-scale-[0.98]"
+                >
                   <font-awesome-icon
-                    class="fa tw-w-6 tw-h-6 tw-text-black-900"
+                    class="fa tw-w-6 tw-h-6"
                     :icon="mail"
                     aria-hidden="true"
                   />
@@ -116,7 +122,7 @@
             >
               <button
                 v-if="contactType == 1"
-                class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
+                class="gradient-btn tw-w-80 tw-px-0 tw-py-4 tw-m-0"
                 @click.prevent="submitApplication()"
               >
                 <font-awesome-icon
@@ -128,7 +134,7 @@
               </button>
               <button
                 v-if="contactType == 2"
-                class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
+                class="gradient-btn tw-w-80 tw-px-0 tw-py-4 tw-m-0"
                 @click.prevent="submitApplication()"
               >
                 <font-awesome-icon
@@ -146,18 +152,22 @@
     <!-- Show Calendly Iframe -->
     <div v-if="openCalendlyIframeModal">
       <transition name="modal">
-        <div class="modal-mask mask">
+        <div
+          class="modal-mask tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table mask tw-z-[1] tw-bg-[#00000080]"
+        >
           <div
             class="modal-dialog login-modal modal-xl modal-dialog-centered"
             role="document"
           >
-            <div class="modal-content calendly-iframe-modal-content">
+            <div
+              class="modal-content tw-p-2.5 tw-rounded-3xl calendly-iframe-modal-content"
+            >
               <div class="modal-body">
                 <CalendlyIframe />
 
                 <button
                   type="button"
-                  class="close modal-close-btn"
+                  class="close modal-close-btn tw-border-none tw-text-pink-300 tw-text-4xl tw-font-light tw-bg-transparent tw-absolute tw-right-2.5 tw-top-0 focus:tw-outline-none"
                   data-dismiss="modal"
                   aria-label="Close"
                 >
@@ -174,9 +184,11 @@
     <!-- Show Thank you message -->
     <div v-if="showSuccessMessagePopup">
       <transition name="modal">
-        <div class="modal-mask mask">
+        <div
+          class="modal-mask tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table mask tw-z-[1] tw-bg-[#00000080]"
+        >
           <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
+            <div class="modal-content tw-p-2.5 tw-rounded-3xl">
               <div class="modal-header">
                 <div class="normal-text canopas-gradient-text text-center">
                   Thank you for choosing us to make a difference in your
@@ -197,9 +209,13 @@
     <!-- Show error message -->
     <div v-if="showErrorMessagePopup">
       <transition name="modal">
-        <div class="modal-mask mask">
+        <div
+          class="modal-mask tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table mask tw-z-[1] tw-bg-[#00000080]"
+        >
           <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content calendly-iframe-modal-content">
+            <div
+              class="modal-content tw-p-2.5 tw-rounded-3xl calendly-iframe-modal-content"
+            >
               <div class="modal-header tw-justify-center">
                 <div class="header-2-text canopas-gradient-text">Error</div>
               </div>
@@ -209,7 +225,7 @@
                 </div>
                 <div class="close-btn-div">
                   <button
-                    class="gradient-btn tw-float-right"
+                    class="gradient-btn tw-w-80 tw-px-0 tw-float-right"
                     @click.prevent="showErrorMessagePopup = false"
                   >
                     <span>Close</span>
@@ -325,87 +341,3 @@ export default {
   },
 };
 </script>
-
-<style lang="postcss" scoped>
-.container {
-  @apply -tw-mt-16 tw-mb-24;
-}
-
-.information-detail {
-  @apply tw-rounded-3xl tw-border tw-border-slate-200 tw-bg-white tw-shadow-3xl;
-}
-
-.information-pd {
-  @apply tw-py-5 tw-px-8 lg:tw-px-24;
-}
-
-.custom-text-input {
-  @apply tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none;
-}
-
-.custom-text-input:focus {
-  @apply tw-box-border  tw-border-b tw-border-slate-400 tw-outline-none;
-}
-
-.custom-file-input {
-  @apply tw-w-0 tw-p-0 tw-opacity-0;
-}
-
-.v2-title-2-text {
-  @apply tw-leading-9 lg:tw-leading-11;
-}
-
-.contact-button {
-  @apply tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2  hover:tw-bg-black-900;
-}
-
-.contact-button:hover > span,
-.contact-button:hover > .fa {
-  @apply tw-text-white;
-}
-
-.contact-button-active {
-  @apply tw-bg-black-900  hover:tw-bg-white;
-}
-
-.contact-button:active {
-  transform: scale(0.98);
-}
-
-.gradient-btn {
-  @apply tw-w-80 tw-px-0;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s !important;
-}
-
-.modal-content {
-  @apply tw-p-2.5 tw-rounded-3xl;
-}
-
-.modal-close-btn {
-  @apply tw-border-none tw-text-pink-300 tw-text-4xl tw-font-light tw-bg-transparent tw-absolute tw-right-2.5 tw-top-0;
-}
-
-.modal-close-btn:focus {
-  @apply tw-outline-none;
-}
-
-.modal-mask {
-  @apply tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table;
-}
-
-.mask {
-  z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: opacity 0.3s ease;
-}
-
-::placeholder {
-  @apply tw-text-slate-400;
-}
-</style>

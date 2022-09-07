@@ -1,5 +1,7 @@
 <template>
-  <div class="background">
+  <div
+    class="background tw-from-[#f983860d] tw-to-[#f983860d] tw-bg-gradient-270 tw-shadow-[0px_4px_2px_1px_rgba(0,0,0,5%)] tw-z--1"
+  >
     <div class="container tw-pb-24 tw-pt-10 sm:tw-pt-20">
       <div class="tw-flex tw-items-center">
         <div
@@ -61,15 +63,3 @@ export default {
   },
 };
 </script>
-
-<style lang="postcss" scoped>
-.background {
-  background: linear-gradient(
-    270.11deg,
-    rgba(249, 131, 134, 0.05) -24.42%,
-    rgba(249, 131, 134, 0.05) 101.76%
-  );
-  box-shadow: 0px 4px 2px 1px rgba(0, 0, 0, 5%);
-  z-index: -1;
-}
-</style>

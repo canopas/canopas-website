@@ -19,3 +19,10 @@
   font-display: swap;
   src: url(./../fonts/FuturaLT-Bold.woff2);
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s !important;
+}

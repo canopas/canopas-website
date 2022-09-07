@@ -6,18 +6,30 @@
       </template>
     </metainfo>
     <ScreenHeaderV2 />
-    <div class="container">
-      <div class="image-404">
+    <div
+      class="tw-container tw-flex tw-items-center tw-justify-center tw-flex-col tw-my-0 tw-mx-auto tw-py-[150px] tw-px-[5%] tw-min-h-[50vh]"
+    >
+      <div class="tw-flex tw-flex-row tw-my-0 tw-mx-auto tw-text-center">
         <img :src="firstErrorLetter" alt="404" />
-        <img :src="middleErrorLetter" class="middle-logo" alt="404" />
+        <img :src="middleErrorLetter" class="tw-m-4 tw-w-[6.5rem]" alt="404" />
         <img :src="lastErrorLetter" alt="404" />
       </div>
-      <div class="middle-text">
+      <div class="tw-mt-[2rem] tw-text-center tw-text-[1.4rem] tw-leading-8">
         The page you’re looking for was moved, renamed or might never existed.
       </div>
-      <router-link class="back-btn gradient-border-btn" to="/">
-        <font-awesome-icon class="arrow" icon="arrow-left" id="leftArrow" />
-        <span class="canopas-gradient-text">Back to Home page</span>
+      <router-link
+        class="tw-w-auto tw-py-[1rem] tw-px-[1.5rem] tw-my-[7%] tw-mx-auto tw-border-[1rem] tw-border-solid tw-border-transparent tw-rounded-[10px] tw-flex tw-justify-around tw-items-center gradient-border-btn"
+        to="/"
+      >
+        <font-awesome-icon
+          class="fa tw-text-[#f2709c] tw-text-[1.5rem] tw-mr-[16px]"
+          icon="arrow-left"
+          id="leftArrow"
+        />
+        <span
+          class="canopas-gradient-text tw-text-center tw-font-bold tw-text-[1.1rem]"
+          >Back to Home page</span
+        >
       </router-link>
     </div>
     <ScreenFooter2 />
@@ -64,68 +76,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin: 0 auto;
-  padding: 150px 5%;
-  min-height: 50vh;
-}
-
-.image-404 {
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
-}
-
-.middle-text {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 1.4rem !important;
-  line-height: 2rem !important;
-}
-
-.middle-logo {
-  margin: 1rem;
-  width: 6.5rem;
-}
-
-.back-btn,
-.back-btn:hover,
-.back-btn:focus {
-  width: auto;
-  padding: 1rem 1.5rem !important;
-  margin: 7% auto;
-  border: 1px solid transparent;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-around !important;
-  align-items: center;
-  text-decoration: none;
-}
-
-.back-btn > span {
-  text-align: center !important;
-  font-weight: 700;
-  font-size: 1.1rem !important;
-}
-
-.black {
-  color: rgba(61, 61, 61, 1);
-}
-
-.back-btn > i {
-  margin-right: 1rem;
-}
-
-.arrow {
-  color: #f2709c;
-  font-size: 1.5rem;
-  margin-right: 16px;
-}
-</style>

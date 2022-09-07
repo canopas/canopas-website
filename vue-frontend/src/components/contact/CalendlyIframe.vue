@@ -1,10 +1,13 @@
 <template>
-  <div class="calendly-iframe-div">
+  <div class="tw-w-full tw-h-[550px] tw-border-0 tw-pt-[20px] md:tw-h-[700px]">
     <div v-if="isLoading" class="iframe-loader">
-      <img :src="loader" class="loader-div" />
+      <img
+        :src="loader"
+        class="tw-fixed tw-left-[50%] tw-top-[50%] -tw-translate-y-1/2 -tw-translate-x-1/2 tw-z-[100]"
+      />
     </div>
     <iframe
-      class="calendly-iframe"
+      class="tw-h-full tw-w-full"
       :src="calendlyUrl"
       title="calendly"
       v-on:load="isLoading = false"
@@ -27,41 +30,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.calendly-iframe-div {
-  width: 100%;
-  height: 550px;
-  border: none;
-  padding-top: 20px;
-}
-
-.loader-div {
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-}
-
-.iframe-div {
-  height: 100%;
-  width: 100%;
-  border: none !important;
-}
-
-.calendly-iframe {
-  height: 100%;
-  width: 100%;
-}
-
-.calendly-iframe::-webkit-scrollbar {
-  display: none;
-}
-
-@include media-breakpoint-up(md) {
-  .calendly-iframe-div {
-    height: 700px;
-  }
-}
-</style>
