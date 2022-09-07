@@ -486,7 +486,7 @@ export default {
           .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
             action: "verify",
           })
-          .then(function (token) {
+          .then((token) => {
             formData.append("token", token);
             axios
               .post(config.API_BASE + "/api/send-career-mail", formData)
