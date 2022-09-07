@@ -112,7 +112,7 @@ export default {
       backgroundImage: "",
       alt: "luxeradio-branding-screen",
       details: {
-        firstDetail: [
+        gridData1: [
           {
             id: 1,
             title: "A music player playing the on-demand content.",
@@ -151,7 +151,7 @@ export default {
           },
         ],
 
-        secondDetail: [
+        gridData2: [
           {
             id: 4,
             title:
@@ -208,7 +208,7 @@ export default {
       class: "v2-header-2-text tw-font-bold lg:tw-w-4/5",
       title: `Every <span class="border-text">element</span> made with love`,
       detail: {
-        firstDetail: [
+        gridData1: [
           {
             background:
               "linear-gradient(135.4deg, #101010 -0.02%, #B0DDFF 125.66%)",
@@ -228,7 +228,7 @@ export default {
             title: "",
           },
         ],
-        secondDetail: [
+        gridData2: [
           {
             aspectRatio: "100%",
             image: [

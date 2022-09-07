@@ -30,7 +30,24 @@
             {{ portfolio.detail }}
           </div>
           <div class="tw-mt-10">
-            <a class="v2-button v2-normal-2-text" :href="portfolio.link">
+            <router-link
+              v-if="!portfolio.target"
+              :to="portfolio.link"
+              class="v2-normal-2-text v2-button tw-flex tw-items-center tw-w-fit"
+            >
+              <span class="tw-mr-2.5">VIEW</span>
+              <font-awesome-icon
+                class="tw-text-black-900 fa"
+                icon="arrow-right"
+                id="leftArrow"
+            /></router-link>
+
+            <a
+              v-else
+              class="v2-normal-2-text v2-button tw-flex tw-items-center tw-w-fit"
+              :href="portfolio.link"
+              target="_blank"
+            >
               <span class="tw-mr-2.5">VIEW</span>
               <font-awesome-icon
                 class="tw-text-black-900 fa"
@@ -83,8 +100,8 @@ export default {
           title: "Luxeradio",
           detail:
             "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
-          link: "portfolio/luxeradio",
-          target: "",
+          link: "/portfolio/luxeradio",
+          target: false,
         },
         {
           images: [togness400w, togness800w, togness1200w, togness16000w],
@@ -92,16 +109,16 @@ export default {
           aspectRatio: "55%",
           detail:
             "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
-          link: "portfolio/togness",
-          target: "",
+          link: "/portfolio/togness",
+          target: false,
         },
         {
           images: [nolonely400w, nolonely800w, nolonely1200w, nolonely16000w],
           title: "Nolonely",
           detail:
             "Nolonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
-          link: "portfolio/nolonely",
-          target: "",
+          link: "/portfolio/nolonely",
+          target: false,
         },
         {
           images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
@@ -109,9 +126,9 @@ export default {
           detail:
             "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
           link: config.IS_SHOW_PORTFOLIO_PAGES
-            ? "portfolio/smileplus"
+            ? "/portfolio/smileplus"
             : config.SMILEPLUS_URL,
-          target: config.IS_SHOW_PORTFOLIO_PAGES ? "" : "_blank",
+          target: config.IS_SHOW_PORTFOLIO_PAGES ? false : true,
         },
       ],
     };

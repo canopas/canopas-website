@@ -53,8 +53,8 @@
     <div
       class="container tw-pt-48 md:tw-pt-48 xl:tw-pt-80 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
     >
-      <div class="tw-basis-1/2">
-        <div v-for="data in flex1" :key="data">
+      <div v-if="gridData1" class="tw-basis-1/2">
+        <div v-for="data in gridData1" :key="data">
           <div class="tw-relative">
             <aspect-ratio
               :height="data.aspectRatio"
@@ -111,8 +111,8 @@
           </div>
         </div>
       </div>
-      <div class="tw-basis-1/2 md:tw-mt-36 lg:tw-mt-64">
-        <div v-for="data in flex2" :key="data">
+      <div v-if="gridData2" class="tw-basis-1/2 md:tw-mt-36 lg:tw-mt-64">
+        <div v-for="data in gridData2" :key="data">
           <div class="tw-relative">
             <aspect-ratio
               :height="data.aspectRatio"
@@ -182,13 +182,21 @@ import AspectRatio from "@/components/utils/AspectRatio.vue";
 import LottieAnimation from "@/components/utils/LottieAnimation.vue";
 
 export default {
-  props: ["response"],
+  props: ["json"],
   data() {
     return {
-      flex1: this.response.details.firstDetail,
-      flex2: this.response.details.secondDetail,
       isMobile: false,
+      response: this.json,
+      gridData1: this.json.details.gridData1,
+      gridData2: this.json.details.gridData2,
     };
+  },
+  watch: {
+    json: function (newVal, oldVal) {
+      this.response = newVal;
+      this.gridData1 = this.response.details.gridData1;
+      this.gridData2 = this.response.details.gridData2;
+    },
   },
   components: {
     AspectRatio,

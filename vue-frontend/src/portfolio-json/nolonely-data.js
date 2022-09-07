@@ -127,7 +127,7 @@ export default {
       ],
       alt: "nolonely-branding-screen",
       details: {
-        firstDetail: [
+        gridData1: [
           {
             id: 1,
             aspectRatio: "134%",
@@ -154,7 +154,7 @@ export default {
             alt: "nolonely-habits-activity-image",
           },
         ],
-        secondDetail: [
+        gridData2: [
           {
             id: 3,
             background:

@@ -11,25 +11,30 @@
   </section>
 
   <section
-    class="v2-header-2-text tw-font-bold tw-text-center ... tw-bg-white tw-py-20 sm:tw-py-40 lg:tw-py-80"
+    class="v2-header-2-text tw-font-bold tw-text-center tw-bg-white tw-py-20 sm:tw-py-40 lg:tw-py-80"
   >
-    <a
-      :href="response.url"
+    <router-link
       class="animation-underline tw-inline-block tw-relative hover:tw-text-[#3d3d3d] after:tw-absolute after:tw-w-full after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
+      :to="response.url"
+      >{{ response.title }}</router-link
     >
-      {{ response.title }}
-    </a>
   </section>
 </template>
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 export default {
-  props: ["response"],
+  props: ["json"],
   data() {
     return {
       isMobile: false,
+      response: this.json,
     };
+  },
+  watch: {
+    json: function (newVal, oldVal) {
+      this.response = newVal;
+    },
   },
   components: {
     AspectRatio,

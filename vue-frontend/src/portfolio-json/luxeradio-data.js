@@ -135,7 +135,7 @@ export default {
       ],
       alt: "luxeradio-branding-screen",
       details: {
-        firstDetail: [
+        gridData1: [
           {
             id: 1,
             title: "A music player playing the on-demand content.",
@@ -174,7 +174,7 @@ export default {
           },
         ],
 
-        secondDetail: [
+        gridData2: [
           {
             id: 4,
             title:
@@ -231,10 +231,10 @@ export default {
       title: `Canopas' applied design is pixel-perfect; they respect the spacing
 and everything to the smallest detail.`,
       detail: {
-        firstDetail: [
+        gridData1: [
           {
             background:
-              "linear-gradient(135.4deg, #101010 -0.02%, #B0DDFF 125.66%);",
+              "linear-gradient(135.4deg, #101010 -0.02%, #B0DDFF 125.66%)",
             aspectRatio: "100%",
             video: elementVideo,
             title: "App intro: an animation to show essential app features.",
@@ -251,7 +251,7 @@ and everything to the smallest detail.`,
             title: "",
           },
         ],
-        secondDetail: [
+        gridData2: [
           {
             aspectRatio: "100%",
             image: [
