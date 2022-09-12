@@ -10,9 +10,12 @@
     <VirtuesView />
     <LifeAtCanopas />
     <PerksAndBenifits v-on:scroll-to-career="scrollToCareer" />
-    <WhyCanopas class="why-canopas-desktop" v-on:add-animation="handleScroll" />
+    <WhyCanopas
+      class="tw-hidden md:tw-block"
+      v-on:add-animation="handleScroll"
+    />
     <WhyCanopasMobile
-      class="why-canopas-mobile"
+      class="tw-block md:tw-hidden"
       v-on:add-animation="handleScroll"
     />
     <Career id="career" />
@@ -98,21 +101,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.why-canopas-mobile {
-  display: block;
-}
-.why-canopas-desktop {
-  display: none;
-}
-
-@include media-breakpoint-up(md) {
-  .why-canopas-mobile {
-    display: none;
-  }
-  .why-canopas-desktop {
-    display: block;
-  }
-}
-</style>

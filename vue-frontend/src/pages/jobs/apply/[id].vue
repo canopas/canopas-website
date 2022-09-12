@@ -8,17 +8,28 @@
     <ScreenHeaderV2 />
     <ScreenLoader v-if="isLoading || job == null" />
     <div v-else>
-      <div class="container form-container">
-        <div class="job-application">
-          <div class="header-2-text text-center canopas-gradient-text pb-3">
+      <div
+        class="tw-container tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
+      >
+        <div
+          class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[15px] tw-py-[32px] tw-px-[24px] md:tw-pt-[48px] md:tw-px-[48px] md:tw-pb-0"
+        >
+          <div
+            class="header-2-text tw-text-center canopas-gradient-text tw-pb-4"
+          >
             Applying For {{ job.title }}
           </div>
-          <form class="contact-form-text pt-5 pb-5">
-            <div class="row">
-              <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
-                <label class="required">Full Name</label>
+
+          <form
+            class="tw-text-[#3d3d3dcc] tw-text-[1rem] md:tw-text-[1.125rem] tw-pt-12 tw-pb-12"
+          >
+            <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
+              <div class="tw-mb-8">
+                <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
+                  >Full Name</label
+                >
                 <input
-                  class="form-control custom"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="fullname"
                   required
@@ -26,15 +37,19 @@
                   v-model="fullName"
                   :disabled="disableInput"
                 />
-                <span v-if="showValidationError" class="error"
+                <span
+                  v-if="showValidationError"
+                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
                   >This field is required</span
                 >
               </div>
 
-              <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
-                <label class="required">Email</label>
+              <div class="tw-mb-8">
+                <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
+                  >Email</label
+                >
                 <input
-                  class="form-control custom"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="email"
                   name="email"
                   required
@@ -42,18 +57,24 @@
                   v-model="email"
                   :disabled="disableInput"
                 />
-                <span v-if="showValidationError" class="error"
+                <span
+                  v-if="showValidationError"
+                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
                   >This field is required</span
                 >
-                <span v-if="showEmailValidationError" class="error"
+                <span
+                  v-if="showEmailValidationError"
+                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
                   >Please enter valid email address</span
                 >
               </div>
 
-              <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
-                <label class="required">Phone Number</label>
+              <div class="tw-mb-8">
+                <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
+                  >Phone Number</label
+                >
                 <input
-                  class="form-control custom"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="tel"
                   name="phonenumber"
                   autocomplete="tel"
@@ -61,18 +82,22 @@
                   :disabled="disableInput"
                 />
                 <span id="phoneError"></span>
-                <span v-if="showValidationError" class="error"
+                <span
+                  v-if="showValidationError"
+                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
                   >This field is required</span
                 >
-                <span v-if="showPhoneValidationError" class="error"
+                <span
+                  v-if="showPhoneValidationError"
+                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
                   >Please enter valid phone number</span
                 >
               </div>
 
-              <div class="col-lg-6 col-md-6 col-sm-12 mb-5">
+              <div class="tw-mb-8">
                 <label class="">City</label>
                 <input
-                  class="form-control custom"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="city"
                   autocomplete="address-level2"
@@ -81,10 +106,10 @@
                 />
               </div>
 
-              <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+              <div class="md:tw-col-span-2 tw-mb-8">
                 <label class="">How did you find Canopas?</label>
                 <div
-                  class="reference-option-list"
+                  class="tw-relative tw-mt-[15px] tw-w-full tw-h-[50px] tw-outline-hidden tw-outline-0 before:tw-content-[''] before:tw-absolute before:tw-top-[20px] before:tw-right-[20px] before:tw-z-[1] before:tw-w-[8px] before:tw-h-[8px] before:tw-border-2 before:tw-border-solid before:tw-border-[#00000080] before:tw-border-t-2 before:tw-border-t-[#fff] before:tw-border-r-2 before:tw-border-r-[#fff] before:tw-rotate-[-45deg] before:tw-duration-[0.5s] before:tw-pointer-events-none"
                   v-on:click.stop="
                     isShowReferenceOption = !isShowReferenceOption
                   "
@@ -92,6 +117,7 @@
                 >
                   <div>
                     <input
+                      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-cursor-pointer tw-bg-[#fff] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-outline-hidden tw-outline-0 tw-py-[12px] tw-px-[16px] tw-rounded-[10px]"
                       name="howdidyoufindcanopas"
                       type="text"
                       placeholder="Choose anyone"
@@ -101,9 +127,14 @@
                       :disabled="disableInput"
                     />
                   </div>
-                  <div class="options">
+                  <div
+                    :style="{
+                      display: isShowReferenceOption ? 'block' : 'none',
+                    }"
+                    class="tw-absolute tw-top-[50px] tw-w-full tw-bg-[#fff] tw-overflow-hidden tw-hidden tw-shadow-[0_5px_20px_rgba(0,0,0,0.1)] tw-rounded-[10px] tw-border-[1px] tw-border-solid tw-border-[#0000000d]"
+                  >
                     <div
-                      class="option"
+                      class="tw-py-[12px] tw-px-[12px] tw-cursor-pointer hover:tw-bg-[#e2e2e280]"
                       v-for="reference in references"
                       :key="reference"
                       @click="showOptions(reference)"
@@ -116,10 +147,10 @@
 
               <div
                 v-if="isShowingReferenceInput"
-                class="col-lg-12 col-md-12 col-sm-12 mb-5 reference-input"
+                class="tw-mb-8 reference-input"
               >
                 <input
-                  class="form-control custom reference-by-input"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input tw-pl-0"
                   type="text"
                   name="referenceby"
                   autocomplete="given-reference-name"
@@ -129,10 +160,10 @@
                 />
               </div>
 
-              <div class="col-lg-12 col-md-12 col-sm-12 mb-5">
+              <div class="md:tw-col-span-2 tw-mb-8">
                 <label class="">Message</label>
                 <textarea
-                  class="form-control custom"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   name="message"
                   rows="1"
                   v-model="message"
@@ -140,19 +171,21 @@
                 ></textarea>
               </div>
 
-              <div class="col-lg-5 col-md-5 col-sm-12">
-                <label class="required">Resume </label>
+              <div class="">
+                <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
+                  >Resume
+                </label>
                 <br />
                 <label>
                   <i>Supported formats:</i
-                  ><span class="black pdf-text">PDF and Docs </span>
+                  ><span class="black tw-pl-[8px]">PDF and Docs </span>
                   <i>only</i>
                 </label>
               </div>
-              <div class="col-lg-7 col-md-7 col-sm-12 resume-upload-div">
+              <div class="tw-flex">
                 <button
                   type="button"
-                  class="btn resume-upload-btn"
+                  class="resume-upload-btns tw-bg-[#fff] tw-text-[#3d3d3d] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-shadow-none tw-outline-hidden tw-outline-0 tw-py-[10px] tw-px-[48px] tw-rounded-[10px] tw-h-[50px] focus:tw-outline-hidden focus:tw-outline-0"
                   @click="chooseFiles()"
                 >
                   {{ fileButtonName }}
@@ -160,7 +193,7 @@
                 <input
                   id="fileUpload"
                   type="file"
-                  class="form-control custom-file-input"
+                  class="tw-block tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed custom-file-input tw-w-0 tw-opacity-0 tw-p-0"
                   name="resume"
                   accept="application/pdf,.doc,.docx"
                   @change="previewFiles"
@@ -168,16 +201,22 @@
                   :disabled="disableInput"
                 />
 
-                <span v-if="showValidationError" class="error"
+                <span
+                  v-if="showValidationError"
+                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
                   >This field is required</span
                 >
               </div>
             </div>
-            <div class="application-submit-btns mt-5">
-              <img class="loader-image" :src="loaderImage" v-if="showLoader" />
+            <div class="tw-flex tw-justify-center tw-mt-12">
+              <img
+                class="tw-mt-[1.25rem] tw-mx-auto tw-mb-0 tw-py-0 tw-px-[64px] md:tw-px-[80px] lg:tw-mt-[1.25rem] lg:tw-mx-[0.5rem] lg:tw-mb-0"
+                :src="loaderImage"
+                v-if="showLoader"
+              />
               <button
                 v-else
-                class="gradient-btn"
+                class="gradient-btn tw-py-[16px] tw-px-[64px] md:tw-py-[16px] md:tw-px-[80px]"
                 @click.prevent="validateForm()"
               >
                 <font-awesome-icon
@@ -188,7 +227,7 @@
                 <span>Apply Now</span>
               </button>
             </div>
-            <div class="required-field-msg">
+            <div class="tw-mt-[48px] tw-text-[#ff0000]">
               All fields marked with * are required.
             </div>
           </form>
@@ -197,9 +236,11 @@
         <!-- Show Thank you message -->
         <div v-if="showSuccessMessagePopup">
           <transition name="modal">
-            <div class="modal-mask">
+            <div
+              class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
+            >
               <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
+                <div class="modal-content tw-p-[10px] tw-rounded-[25px]">
                   <div class="modal-header">
                     <div class="normal-text canopas-gradient-text text-center">
                       Congratulations !!
@@ -220,10 +261,12 @@
         <!-- Show error message -->
         <div v-if="showErrorMessagePopup">
           <transition name="modal">
-            <div class="modal-mask">
+            <div
+              class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
+            >
               <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header justify-center">
+                <div class="modal-content tw-p-[10px] tw-rounded-[25px]">
+                  <div class="modal-header tw-justify-center">
                     <div class="header-2-text canopas-gradient-text">Error</div>
                   </div>
                   <div class="modal-body">
@@ -232,7 +275,7 @@
                     </div>
                     <div class="close-btn-div">
                       <button
-                        class="gradient-btn close-btn"
+                        class="gradient-btn tw-float-right tw-py-[8px] tw-px-[16px]"
                         @click.prevent="showErrorMessagePopup = false"
                       >
                         <span>Close</span>
@@ -519,255 +562,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.gradient-btn {
-  padding: 16px 64px;
-}
-
-.loader-image {
-  margin: 1.25rem auto 0 auto;
-  padding: 0 64px;
-}
-
-.form-container {
-  margin: 80px auto 150px;
-}
-
-.job-application {
-  border: 1px solid #e2e2e2;
-  border-radius: 15px;
-  padding: 32px 24px;
-}
-
-.form-control.custom {
-  border: 1px solid #e2e2e2;
-  border-radius: 10px;
-  box-shadow: none;
-  color: #3d3d3d;
-  font-size: 1.125rem;
-  margin-top: 15px;
-  padding: 10px 16px !important;
-}
-
-.form-control.custom:focus {
-  border: 1px solid #e2e2e2;
-  outline: none;
-}
-
-.form-control:disabled {
-  opacity: 0.8;
-  cursor: not-allowed;
-}
-
-.contact-form-text,
-.contact-form-text:hover {
-  color: rgba(61, 61, 61, 0.8);
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: normal;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s !important;
-}
-
-.error {
-  margin-top: 8px;
-  display: table;
-  font-size: 1rem;
-  color: #ff0000;
-}
-
-.required:after {
-  content: "*";
-  color: #ff0000;
-}
-
-.required-field-msg {
-  margin-top: 48px;
-  color: #ff0000;
-}
-
-.resume-upload-div {
-  display: flex;
-}
-
-.custom-file-input {
-  width: 0;
-  opacity: 0;
-  padding: 0;
-}
-
-.pdf-text {
-  padding-left: 8px;
-}
-
-.resume-upload-btn,
-.resume-upload-btn:focus,
-.resume-upload-btn:hover {
-  background: #fff;
-  color: #3d3d3d;
-  border: 1px solid #e2e2e2;
-  box-shadow: none !important;
-  outline: 0 !important;
-  padding: 10px 48px;
-  border-radius: 10px;
-  height: 50px;
-}
-
-.application-submit-btns {
-  display: flex;
-  justify-content: center;
-}
-
-/* for dropdown list */
-
-.reference-option-list {
-  position: relative;
-  margin-top: 15px;
-  width: 100%;
-  height: 50px;
-  outline: 0 !important;
-}
-
-.reference-option-list::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 1;
-  width: 8px;
-  height: 8px;
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  border-top: 2px solid #fff;
-  border-right: 2px solid #fff;
-  transform: rotate(-45deg);
-  transition: 0.5s;
-  pointer-events: none;
-}
-
-.reference-option-list.active::before {
-  top: 22px;
-  transform: rotate(-225deg);
-}
-
-.reference-option-list input {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  background: #fff;
-  border: 1px solid #e2e2e2;
-  outline: none;
-  padding: 12px 16px;
-  border-radius: 10px;
-  box-shadow: none;
-}
-
-.reference-option-list .options {
-  position: absolute;
-  top: 50px;
-  width: 100%;
-  background: #fff;
-  overflow: hidden;
-  display: none;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  border: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.reference-option-list.active .options {
-  display: block;
-}
-
-.reference-option-list .options div {
-  padding: 12px 12px;
-  cursor: pointer;
-}
-
-.reference-option-list .options div:hover {
-  background: rgba(226, 226, 226, 0.5);
-}
-
-.reference-by-input {
-  padding-left: 0 !important;
-}
-
-.modal-close-btn {
-  border: none !important;
-  color: #f2709c;
-  font-size: 40px;
-  font-weight: lighter;
-  background-color: transparent;
-  position: absolute;
-  right: 20px;
-  top: -5px;
-  font-weight: 300;
-  font-size: 40px;
-  margin-right: -10px;
-}
-
-.modal-close-btn:focus {
-  outline: none !important;
-}
-
-.modal-mask {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
-}
-
-.modal-content {
-  padding: 10px;
-  border-radius: 25px;
-}
-
-.close-btn {
-  float: right;
-  padding: 8px 16px !important;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-@include media-breakpoint-up(md) {
-  .gradient-btn {
-    padding: 16px 80px;
-  }
-
-  .loader-image {
-    padding: 0 80px;
-  }
-
-  .contact-form-text,
-  .contact-form-text:hover {
-    font-size: 1.125rem;
-  }
-
-  .job-application {
-    padding: 48px 48px 0;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .form-container {
-    padding: 0 160px;
-  }
-
-  .loader-image {
-    margin: 1.25rem 0.5rem 0 0.5rem;
-  }
+<style lang="postcss" scoped>
+.active::before {
+  @apply tw-top-[22px] -tw-rotate-[225deg];
 }
 </style>

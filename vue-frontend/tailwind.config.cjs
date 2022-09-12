@@ -12,7 +12,6 @@ module.exports = {
         lg: "992px",
         xl: "1200px",
         "2xl": "1400px",
-        ...defaultTheme.screens,
       },
       flex: {
         1: "1 0 0%",
@@ -94,6 +93,7 @@ module.exports = {
       bgGradientDeg: {
         247: "247.22deg",
         270: "270.11deg",
+        180: "180deg",
       },
     },
   },

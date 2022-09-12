@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div>
     <metainfo>
       <template v-slot:title="{ content }">
         {{ content }}
@@ -13,20 +13,24 @@
     <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
-        <div class="modal-mask">
+        <div
+          class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
+        >
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content calendly-iframe-modal-content">
               <div class="modal-body">
-                <div class="error-message-div">
-                  <div class="error-message-text text-center">
+                <div class="tw-p-[20px]">
+                  <div
+                    class="tw-leading-[2rem] tw-text-[1.5rem] tw-mb-[30px] tw-text-center"
+                  >
                     Something went wrong on our side
                   </div>
-                  <div class="close-btn-div">
+                  <div class="tw-w-full">
                     <button
-                      class="gradient-btn close-btn"
+                      class="gradient-btn tw-py-[16px] tw-px-[64px] tw-flex tw-items-center md:tw-py-[16px] md:tw-px-[80px] tw-float-right"
                       @click.prevent="closeErrorMessageModal()"
                     >
-                      <span>Close</span>
+                      <span class="tw-tracking-[0.06rem]">Close</span>
                     </button>
                   </div>
                 </div>
@@ -37,30 +41,43 @@
       </transition>
     </div>
     <div v-else>
-      <div class="container">
-        <div class="canopas-gradient-text text-center">
-          {{ job.title }}
-        </div>
-        <hr class="title-hr mt-4" />
-        <div class="summary-text mt-5">
-          {{ job.summary }}
-        </div>
-        <div class="mt-5">
+      <div class="tw-py-0 tw-px-[0.75rem]">
+        <div
+          class="tw-container tw-py-[48px] tw-px-[16px] tw-max-w-full sm:tw-max-w-[540px] md:tw-max-w-[720px] lg:tw-max-w-[960px] xl:tw-max-w-[1140px] 2xl:tw-max-w-[1320px] md:tw-pt-[96px] md:tw-px-[96px] md:tw-pb-[150px]"
+        >
           <div
-            id="description"
-            class="normal-text"
-            v-html="job.description"
-          ></div>
-        </div>
-        <div class="application-submit-btns mt-5">
-          <router-link class="gradient-btn" :to="jobLink">
-            <font-awesome-icon
-              class="fa icon"
-              :icon="checkCircle"
-              aria-hidden="true"
-            />
-            <span>Apply Now</span>
-          </router-link>
+            class="canopas-gradient-text tw-font-bold tw-text-[1.75rem] tw-leading-8 tw-tracking-[0.1rem] md:tw-text-[2.25rem] md:tw-leading-[2.729rem] tw-text-center"
+          >
+            {{ job.title }}
+          </div>
+          <hr
+            class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-m-0 tw-mt-6"
+          />
+          <div class="summary-text tw-mt-12">
+            {{ job.summary }}
+          </div>
+          <div class="tw-mt-12">
+            <div
+              id="description"
+              class="normal-text"
+              v-html="job.description"
+            ></div>
+          </div>
+          <div
+            class="tw-flex tw-justify-center tw-text-[1rem] md:tw-text-[1.125rem] tw-mt-12"
+          >
+            <router-link
+              class="gradient-btn tw-py-[16px] tw-px-[64px] tw-flex tw-items-center md:tw-py-[16px] md:tw-px-[80px]"
+              :to="jobLink"
+            >
+              <font-awesome-icon
+                class="fa tw-text-[1.1rem] sm:tw-text-[1.3rem]"
+                :icon="checkCircle"
+                aria-hidden="true"
+              />
+              <span class="tw-tracking-[0.06rem]">Apply Now</span>
+            </router-link>
+          </div>
         </div>
       </div>
       <ScreenFooter2 />
@@ -327,161 +344,30 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.container {
-  padding: 48px 16px;
-}
-
-.title-hr {
-  border: 1px solid #e2e2e2;
-  margin: 0;
-}
-
-.canopas-gradient-text {
-  font-weight: 700;
-  font-size: 1.75rem !important;
-  line-height: 2rem !important;
-  letter-spacing: 0.1rem;
-}
-
-.application-submit-btns {
-  display: flex;
-  justify-content: center;
-  font-size: 1rem;
-}
-
-.gradient-btn {
-  padding: 16px 64px;
-  display: flex;
-  align-items: center;
-}
-
-.gradient-btn > span {
-  letter-spacing: 0.06rem;
-}
-
-.icon {
-  font-size: 1.1rem;
-}
-
+<style lang="postcss" scoped>
 .summary-text,
 :deep(div > span *),
 :deep(ul) {
-  font-size: 1.1rem !important;
-  line-height: 2rem;
-  text-align: justify;
-  color: rgba(61, 61, 61, 0.8);
+  @apply tw-text-[1.1rem] tw-leading-[2rem] tw-text-justify tw-text-[#3d3d3dcc] md:tw-text-[1.125rem] md:tw-leading-[2.5rem] lg:tw-text-[1.4rem];
 }
 
 :deep(ul > li) {
-  display: flex;
-  align-items: baseline;
+  @apply tw-flex tw-items-baseline;
 }
 
 :deep(h2) {
-  display: flex;
-  flex-direction: row;
-  margin: 48px 0 16px;
+  @apply tw-flex tw-flex-row tw-mt-[48px] tw-mx-0 tw-mb-[16px];
 }
 
 :deep(h2 *) {
-  font-weight: bolder;
-  font-size: 1.5rem !important;
-  line-height: 2rem !important;
-  letter-spacing: 0.05rem;
-  padding: 12px 0;
-  color: #3d3d3d;
+  @apply tw-text-[1.5rem] tw-leading-[2rem] tw-tracking-[0.05rem] tw-py-[12px] tw-px-0 tw-text-[#3d3d3d] md:tw-text-[2rem] md:tw-leading-[2.5rem];
 }
 
 :deep(h2 > .bullet) {
-  content: "";
-  background: linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
-  display: inline-block;
-  line-height: 1;
-  margin: 5px 20px 5px 0;
-  height: auto;
-  width: 8px;
-  border-radius: 0;
+  @apply tw-content-[''] tw-from-[#f2709c] tw-to-[#ff9472] tw-bg-gradient-180 tw-inline-block tw-leading-none tw-mt-[5px] tw-mr-[20px] tw-mb-[5px] tw-ml-0 tw-h-auto tw-w-[8px] tw-rounded-none;
 }
 
 :deep(ul) {
-  list-style-type: none !important;
-  padding-left: 0 !important;
-}
-
-// error message
-.modal-mask {
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: table;
-  transition: opacity 0.3s ease;
-}
-
-.error-message-div {
-  padding: 20px;
-}
-
-.error-message-text {
-  line-height: 2rem;
-  font-size: 1.5rem;
-  margin-bottom: 30px;
-}
-
-.close-btn-div {
-  width: 100%;
-}
-
-.close-btn {
-  float: right;
-}
-
-@include media-breakpoint-up(sm) {
-  .icon {
-    font-size: 1.3rem;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .container {
-    padding: 96px 96px 150px;
-  }
-
-  .canopas-gradient-text {
-    font-size: 2.25rem !important;
-    line-height: 2.729rem !important;
-  }
-
-  .gradient-btn {
-    padding: 16px 80px;
-  }
-
-  .application-submit-btns {
-    font-size: 1.125rem;
-  }
-
-  .summary-text,
-  :deep(div > span *),
-  :deep(ul) {
-    font-size: 1.125rem !important;
-    line-height: 2.5rem !important;
-  }
-
-  :deep(h2 *) {
-    font-size: 2rem !important;
-    line-height: 2.5rem !important;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .summary-text,
-  :deep(div > span *),
-  :deep(ul) {
-    font-size: 1.4rem !important;
-  }
+  @apply tw-list-none tw-pl-0;
 }
 </style>
