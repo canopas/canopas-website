@@ -1,15 +1,26 @@
 <template>
-  <div class="container">
-    <div class="pb-5 px-2">
-      <div class="border-text v2-header-2-text">We are</div>
-      <div class="border-text v2-header-2-text">here to</div>
+  <div class="tw-container tw-pt-[50px] md:tw-pt-[100px]">
+    <div class="tw-pb-12 tw-px-2">
+      <div
+        class="border-text v2-header-2-text tw-leading-[4rem] tw-font-futura-bold md:tw-leading-[5.0875rem] lg:tw-leading-[6.6875rem]"
+      >
+        We are
+      </div>
+      <div
+        class="border-text v2-header-2-text tw-leading-[4rem] tw-font-futura-bold md:tw-leading-[5.0875rem] lg:tw-leading-[6.6875rem]"
+      >
+        here to
+      </div>
       <div class="v2-title-3-text">
-        <span class="v2-header-2-text pe-2">contribute</span>
+        <span
+          class="tw-leading-[4rem] v2-header-2-text tw-font-futura-bold md:tw-leading-[5.0875rem] lg:tw-leading-[6.6875rem] tw-pr-2"
+          >contribute</span
+        >
         and that starts with the site itself,
       </div>
-      <div class="v2-title-3-text mt-1">
+      <div class="v2-title-3-text tw-mt-1">
         <a
-          class="v2-canopas-gradient-text gradient-underline"
+          class="v2-canopas-gradient-text tw-font-semibold gradient-underline tw-pb-[1.5px] tw-relative tw-no-underline after:tw-bg-gradient-to-r tw-from-orange-300 tw-to-pink-300 after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[1.5px]"
           :href="websiteOpenSourceUrl"
           target="_blank"
           >Canopas is open source!</a
@@ -18,19 +29,36 @@
         source community.
       </div>
     </div>
-    <div class="flex-div">
+    <div
+      class="tw-flex tw-flex-col tw-w-full tw-m-auto md:tw-flex-row md:tw-w-[95%]"
+    >
       <div
         v-for="contribution in contributions"
         :key="contribution"
-        class="contribute-info"
+        class="tw-rounded-[10px] tw-m-5 tw-flex tw-flex-col tw-justify-center tw-cursor-pointer tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
         :style="{ background: contribution.bgColor }"
       >
-        <img :src="contribution.image" class="image" loading="lazy" />
+        <img
+          :src="contribution.image"
+          class="tw-w-full tw-h-full tw-object-cover tw-rounded-[10px]"
+          loading="lazy"
+        />
 
-        <div class="details">
-          <a class="github-info" :href="contribution.link" target="_blank">
-            <font-awesome-icon class="github" :icon="icon" />
-            <div class="v2-title-3-text v2-canopas-gradient-text">GitHub</div>
+        <div class="tw-w-full tw-p-[20px]">
+          <a
+            class="tw-float-right tw-flex tw-items-end tw-duration-300 tw-ease-in-out hover:tw-scale-[1.1] tw-hover-hover"
+            :href="contribution.link"
+            target="_blank"
+          >
+            <font-awesome-icon
+              class="tw-h-[30px] tw-width-[30px] tw-text-pink-300 tw-mr-2.5 lg:tw-h-10 lg:tw-w-10"
+              :icon="icon"
+            />
+            <div
+              class="v2-title-3-text v2-canopas-gradient-text tw-font-semibold"
+            >
+              GitHub
+            </div>
           </a>
         </div>
       </div>
@@ -72,116 +100,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.container {
-  padding-top: 50px;
-}
-
-.v2-header-2-text {
-  line-height: 4rem;
-  font-family: "FuturaLT-Bold";
-}
-
-.border-text {
-  -webkit-text-stroke: 1px #3d3d3d;
-  color: #fff;
-}
-
-.gradient-underline {
-  padding-bottom: 1.5px;
-  position: relative;
-  text-decoration: none;
-}
-
-.gradient-underline::after {
-  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 1.5px;
-  width: 100%;
-}
-
-.flex-div {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin: auto;
-}
-
-.contribute-info {
-  border-radius: 10px;
-  margin: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px 10px 0 0;
-}
-
-.details {
-  width: 100%;
-  padding: 20px;
-}
-
-.github-info {
-  float: right;
-  display: flex;
-  align-items: flex-end;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .github-info {
-    transition: 0.3s ease-in-out;
-  }
-  .github-info:hover {
-    transform: scale(1.1);
-  }
-}
-
-.github {
-  height: 30px;
-  width: 30px;
-  color: #f2709c;
-  margin-right: 10px;
-}
-
-.v2-canopas-gradient-text {
-  font-weight: 600;
-}
-
-@include media-breakpoint-up(md) {
-  .container {
-    padding-top: 100px;
-  }
-
-  .flex-div {
-    flex-flow: row;
-    width: 95%;
-  }
-
-  .v2-header-2-text {
-    line-height: 5.0875rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .github {
-    height: 40px;
-    width: 40px;
-  }
-
-  .v2-header-2-text {
-    line-height: 6.6875rem;
-  }
-}
-</style>

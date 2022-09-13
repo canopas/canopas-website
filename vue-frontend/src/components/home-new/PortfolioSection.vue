@@ -67,25 +67,20 @@ import luxeradio400w from "@/assets/images/portfolio/luxeradio-400w.webp";
 import luxeradio800w from "@/assets/images/portfolio/luxeradio-800w.webp";
 import luxeradio1200w from "@/assets/images/portfolio/luxeradio-1200w.webp";
 import luxeradio16000w from "@/assets/images/portfolio/luxeradio-1600w.webp";
-
 import smilep400w from "@/assets/images/portfolio/smilep-400w.webp";
 import smilep800w from "@/assets/images/portfolio/smilep-800w.webp";
 import smilep1200w from "@/assets/images/portfolio/smilep-1200w.webp";
 import smilep16000w from "@/assets/images/portfolio/smilep-1600w.webp";
-
 import justly400w from "@/assets/images/portfolio/justly-400w.webp";
 import justly800w from "@/assets/images/portfolio/justly-800w.webp";
 import justly1200w from "@/assets/images/portfolio/justly-1200w.webp";
 import justly16000w from "@/assets/images/portfolio/justly-1600w.webp";
-
 import togness400w from "@/assets/images/portfolio/togness-400w.webp";
 import togness800w from "@/assets/images/portfolio/togness-800w.webp";
 import togness1200w from "@/assets/images/portfolio/togness-1200w.webp";
 import togness16000w from "@/assets/images/portfolio/togness-1600w.webp";
-
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import config from "@/config.js";
-
 export default {
   data() {
     return {

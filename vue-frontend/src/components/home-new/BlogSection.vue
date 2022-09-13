@@ -1,15 +1,19 @@
 <template>
-  <div class="blogs-div">
-    <div class="background">
-      <div class="container">
-        <div class="row">
-          <div class="flex-div">
-            <div class="title-div v2-header-3-text">
+  <div>
+    <div
+      class="tw-bg-gradient-to-t tw-from-orange-300/10 tw-via-pink-300/10 tw-to-white tw-rounded-[35px] tw-relative tw--z-[1]"
+    >
+      <div class="tw-container">
+        <div class="tw-pb-80 md:tw--mr-[30px] md:tw-pb-[150px]">
+          <div class="tw-flex tw-flex-col tw-justify-between md:tw-flex-row">
+            <div
+              class="md:tw-w-[70%] lg:tw-w-[60%] v2-header-3-text tw-text-center md:tw-text-start"
+            >
               Do we have a team with the right skills?
-              <div class="v2-title-3-text mt-4">
+              <div class="v2-title-3-text tw-mt-6">
                 Well, at least the community says Hell Yeah.
               </div>
-              <div class="v2-title-3-text mt-2">
+              <div class="v2-title-3-text tw-mt-2">
                 Our blogs hosted on medium have
                 <span class="v2-canopas-gradient-text">100k+</span> minutes
                 monthly reading time and it’s only rising.
@@ -17,43 +21,58 @@
             </div>
             <img
               :src="backgroundImage"
-              class="background-image pt-5"
+              class="tw-hidden md:tw-block tw-pt-12"
               loading="lazy"
             />
           </div>
         </div>
       </div>
     </div>
-    <div class="container blog-container">
-      <div class="blog-div">
+    <div
+      class="tw-container tw--mt-[281px] tw-z-[1] lg:tw--mt-[201px] xl:tw--mt-[281px]"
+    >
+      <div class="tw-flex tw-flex-col lg:tw-flex-row">
         <a
-          class="blog-list"
+          class="tw-flex tw-flex-col tw-m-2.5 sm:tw-m-5 tw-flex-[1_1_0%] active:tw-scale-[0.98]"
           v-for="blog in blogs"
           :key="blog"
           :href="blog.link"
           target="_blank"
         >
-          <aspect-ratio height="50%" class="blog-image">
-            <img :src="blog.thumbnail" class="image" loading="lazy" />
+          <aspect-ratio
+            height="50%"
+            class="tw-drop-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-t-x-lg tw-border-[1px] tw-border-solid tw-border-transparent tw-bg-gradient-to-t tw-from-orange-300 tw-to-pink-300"
+          >
+            <img
+              :src="blog.thumbnail"
+              class="tw-w-full tw-h-full tw-object-cover tw-rounded-t-x-lg"
+              loading="lazy"
+            />
           </aspect-ratio>
-          <div class="blog-details">
-            <div class="v2-title-3-text title-color">{{ blog.title }}</div>
-            <div class="blog-info mt-4">
-              <div class="v2-normal-3-text title-color blog-date">
+          <div
+            class="tw-flex tw-flex-col tw-justify-between tw-flex-1 tw-px-2.5 tw-py-5 sm:tw-p-5 tw-shadow-[0_4px_4px_rgba(0,0,0,0.5)] tw-bg-black-900 tw-rounded-b-x-lg"
+          >
+            <div class="v2-title-3-text tw-text-white">{{ blog.title }}</div>
+            <div class="tw-w-full tw-overflow-hidden tw-mt-6">
+              <div class="v2-normal-3-text tw-text-white tw-float-left">
                 {{ blog.pubDate }}
               </div>
-              <div class="v2-normal-3-text title-color blog-author">
+              <div class="v2-normal-3-text tw-text-white tw-float-right">
                 {{ blog.author }}
               </div>
             </div>
           </div>
         </a>
       </div>
-      <div class="view-button">
-        <a class="v2-button v2-normal-2-text" :href="blogsURL" target="_blank">
+      <div class="tw-flex tw-justify-end tw-m-5">
+        <a
+          class="v2-button tw-flex tw-item-center v2-normal-2-text"
+          :href="blogsURL"
+          target="_blank"
+        >
           <span>VIEW ALL</span>
           <font-awesome-icon
-            class="arrow fa"
+            class="arrow fa md:tw-mt-1"
             icon="arrow-right"
             id="leftArrow"
           />
@@ -112,167 +131,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.background {
-  background: linear-gradient(
-    357.22deg,
-    rgb(255, 131, 91, 0.1) -40.56%,
-    rgb(242, 112, 156, 0.1) 62.45%,
-    rgb(255, 255, 255, 0.1) 98.58%
-  );
-  border-radius: 0px 0px 35px 35px;
-  position: relative;
-  z-index: -1;
-}
-
-.row {
-  padding-bottom: 320px;
-}
-
-.flex-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.blog-container {
-  margin-top: -281px;
-  z-index: 1;
-}
-
-.v2-header-3-text {
-  text-align: center;
-}
-
-.background-image {
-  display: none;
-}
-
-.blog-div {
-  display: flex;
-  flex-direction: column;
-}
-
-.blog-list {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-  flex: 1 0 0%;
-}
-
-.blog-list:active {
-  transform: scale(0.98);
-}
-
-.blog-image {
-  background: -webkit-linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(to bottom, #ff9472, #f2709c) border-box;
-  border: 1px solid transparent !important;
-  border-radius: 20px 20px 0 0;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px 20px 0 0;
-}
-
-.blog-details {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex: 1;
-  padding: 20px 10px;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-  background: #3d3d3d;
-  border-radius: 0 0 20px 20px;
-}
-
-.blog-info {
-  width: 100%;
-  overflow: hidden;
-}
-
-.blog-date {
-  float: left;
-}
-
-.blog-author {
-  float: right;
-}
-
-.title-color {
-  color: #ffffff;
-}
-
-.view-button {
-  display: flex;
-  justify-content: flex-end;
-  margin: 20px;
-}
-
-.v2-button {
-  display: flex;
-  align-items: center;
-}
-
-@include media-breakpoint-up(sm) {
-  .blog-list {
-    margin: 20px;
-  }
-
-  .blog-details {
-    padding: 20px;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .flex-div {
-    flex-direction: row;
-  }
-
-  .title-div {
-    width: 70%;
-  }
-
-  .v2-header-3-text {
-    text-align: start;
-  }
-
-  .background-image {
-    display: block;
-  }
-
-  .row {
-    margin-right: -30px;
-    padding-bottom: 150px;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .title-div {
-    width: 60%;
-  }
-
-  .blog-div {
-    flex-flow: row;
-  }
-  .blog-container {
-    margin-top: -201px;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .blog-container {
-    margin-top: -281px;
-  }
-}
-@supports (-webkit-touch-callout: none) {
-  .v2-header-3-text {
-    letter-spacing: -2px;
-  }
-}
-</style>
