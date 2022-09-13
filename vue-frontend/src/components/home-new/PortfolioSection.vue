@@ -73,10 +73,10 @@ import smilep800w from "@/assets/images/portfolio/smilep-800w.webp";
 import smilep1200w from "@/assets/images/portfolio/smilep-1200w.webp";
 import smilep16000w from "@/assets/images/portfolio/smilep-1600w.webp";
 
-import nolonely400w from "@/assets/images/portfolio/nolonely-400w.webp";
-import nolonely800w from "@/assets/images/portfolio/nolonely-800w.webp";
-import nolonely1200w from "@/assets/images/portfolio/nolonely-1200w.webp";
-import nolonely16000w from "@/assets/images/portfolio/nolonely-1600w.webp";
+import justly400w from "@/assets/images/portfolio/justly-400w.webp";
+import justly800w from "@/assets/images/portfolio/justly-800w.webp";
+import justly1200w from "@/assets/images/portfolio/justly-1200w.webp";
+import justly16000w from "@/assets/images/portfolio/justly-1600w.webp";
 
 import togness400w from "@/assets/images/portfolio/togness-400w.webp";
 import togness800w from "@/assets/images/portfolio/togness-800w.webp";
@@ -113,11 +113,11 @@ export default {
           target: false,
         },
         {
-          images: [nolonely400w, nolonely800w, nolonely1200w, nolonely16000w],
-          title: "Nolonely",
+          images: [justly400w, justly800w, justly1200w, justly16000w],
+          title: "Justly",
           detail:
-            "Nolonely is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
-          link: "/portfolio/nolonely",
+            "Justly is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
+          link: "/portfolio/justly",
           target: false,
         },
         {
