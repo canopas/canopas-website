@@ -29,7 +29,7 @@ import FooterSection from "@/components/portfolio/FooterSection.vue";
 import CTASection from "@/components/home-new/CTASection.vue";
 import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/portfolio-json/luxeradio-data.js";
-import nolonelyResponse from "@/portfolio-json/nolonely-data.js";
+import justlyResponse from "@/portfolio-json/justly-data.js";
 import tognessResponse from "@/portfolio-json/togness-data.js";
 import smileplusResponse from "@/portfolio-json/smileplus-data.js";
 import ErrorPage from "@/components/error404/index.vue";
@@ -77,8 +77,8 @@ export default {
           this.response = luxeradioResponse;
           break;
 
-        case nolonelyResponse.name:
-          this.response = nolonelyResponse;
+        case justlyResponse.name:
+          this.response = justlyResponse;
           break;
 
         case tognessResponse.name:

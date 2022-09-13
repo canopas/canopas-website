@@ -37,7 +37,7 @@
     <LottieAnimation
       v-if="response[0].animation"
       :jsonData="response[0].animation"
-      class="tw-absolute tw-inset-0 tw-left-auto -tw-top-1/6 tw-m-auto tw-h-2/4 tw-w-2/6 tw-object-cover -tw-scale-x-100"
+      class="tw-absolute tw-inset-0 tw-left-auto -tw-top-1/6 tw-m-auto tw-h-2/4 tw-w-[31.333333%] tw-object-cover -tw-scale-x-100"
     />
   </section>
 

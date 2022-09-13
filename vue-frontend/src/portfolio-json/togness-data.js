@@ -247,8 +247,8 @@ export default {
         footerBackground2400w,
       ],
       alt: "togness-dark-mode-screens",
-      title: "Nolonely",
-      url: "nolonely",
+      title: "Justly",
+      url: "justly",
     },
   },
 };

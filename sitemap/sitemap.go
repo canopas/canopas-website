@@ -127,7 +127,7 @@ func addPortfolios(baseUrl string, sitemapUrls []URL) []URL {
 			Name: "togness",
 		},
 		{
-			Name: "nolonely",
+			Name: "justly",
 		},
 	}
 
