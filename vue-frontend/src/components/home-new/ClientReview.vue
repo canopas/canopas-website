@@ -1,27 +1,33 @@
 <template>
-  <div class="container-fluid overlay">
-    <img :src="backgroundImage" class="render-background" loading="lazy" />
-    <div class="container">
+  <div class="tw-relative lg:tw-py-[50px]">
+    <img
+      :src="backgroundImage"
+      class="tw-w-full tw-h-full tw-top-0 tw-left-0 tw-absolute tw-object-cover -tw-z-[5]"
+      loading="lazy"
+    />
+    <div class="tw-container">
       <div>
-        <div class="flex-div">
-          <div>
-            <div class="v2-header-3-text title">
-              Success <span class="border-text">stories</span> of people like
-              you.
+        <div class="tw-flex tw-flex-col md:tw-flex-row lg:tw-flex-wrap">
+          <div class="lg:tw-flex-[35%]">
+            <div
+              class="v2-header-3-text tw-text-center tw-p-[10%] lg:tw-text-start lg:tw-pt-[35%] lg:tw-pr-[20%] lg:tw-pb-[25%] lg:tw-pl-[10%] xl:tw-py-[20%] xl:tw-pr-[25%] xl:tw-pl-[8%]"
+            >
+              Success
+              <span class="tw-text-white border-text">stories</span>
+              of people like you.
             </div>
             <div
               v-for="client in clients.slice(0, 2)"
               :key="client"
-              class="client-details"
-              :style="{ background: client.bgColor }"
+              class="tw-border-transparent tw-p-[30px] tw-mt-0 tw-mx-4 tw-mb-12 tw-rounded-[3rem] tw-shadow-[0_4px_4px_rgba(0,0,0,0.5)] md:tw-p-[35px] md:tw-mt-0 md:tw-mx-4 md:tw-mb-12 xl:tw-mt-0 xl:tw-mx-[2rem] xl:tw-mb-12"
+              :class="[client.bgColor]"
             >
-              <div
-                class="v2-normal-3-text"
-                :style="{ color: client.fontColor }"
-              >
+              <div class="v2-normal-3-text" :class="[client.fontColor]">
                 {{ client.review }}
               </div>
-              <div class="client-image-div mt-4">
+              <div
+                class="tw-flex tw-flex-wrap tw-items-center tw-flex-col sm:tw-flex-row tw-mt-6"
+              >
                 <img :src="client.image" alt="client" loading="lazy" />
                 <div class="v2-title-3-text canopas-gradient-text">
                   {{ client.name }}
@@ -29,21 +35,21 @@
               </div>
             </div>
           </div>
-          <div>
+          <div class="lg:tw-flex-[35%]">
             <div
               v-for="client in clients.slice(2, 5)"
               :key="client"
-              class="client-details"
-              :style="{ background: client.bgColor }"
+              class="tw-border-transparent tw-p-[30px] tw-mt-0 tw-mx-4 tw-mb-12 tw-rounded-[3rem] tw-shadow-[0_4px_4px_rgba(0,0,0,0.5)] md:tw-p-[35px] md:tw-mt-0 md:tw-mx-4 md:tw-mb-12 xl:tw-mt-0 xl:tw-mx-[2rem] xl:tw-mb-12"
+              :class="[client.bgColor]"
             >
-              <div
-                class="v2-normal-3-text"
-                :style="{ color: client.fontColor }"
-              >
+              <div class="v2-normal-3-text" :class="[client.fontColor]">
                 {{ client.review }}
               </div>
-              <div class="client-image-div mt-4">
+              <div
+                class="tw-flex tw-flex-wrap tw-items-center tw-flex-col sm:tw-flex-row tw-mt-6"
+              >
                 <img :src="client.image" alt="client" loading="lazy" />
+
                 <div class="v2-title-3-text canopas-gradient-text">
                   {{ client.name }}
                 </div>
@@ -73,8 +79,8 @@ export default {
           id: "client-1",
           image: marcus,
           name: "Marcus L.",
-          fontColor: "#FFFFFF",
-          bgColor: "#3D3D3D",
+          fontColor: "tw-text-white",
+          bgColor: "tw-bg-black-900",
           review:
             "Canopas has been nothing but wonderful on this project. His\
               communication and ability to advise on the best solutions\
@@ -86,8 +92,8 @@ export default {
           id: "client-2",
           image: jake,
           name: "Jake N.",
-          fontColor: "#FFFFFF",
-          bgColor: "#3D3D3D",
+          fontColor: "tw-text-white",
+          bgColor: "tw-bg-black-900",
           review:
             "Canopas team was also incredibly kind and always willing\
               tosolve any problem through research something that we highly\
@@ -100,9 +106,9 @@ export default {
           id: "client-3",
           image: lisa,
           name: "Lisa W.",
-          fontColor: "#3D3D3D",
+          fontColor: "tw-text-black-900",
           bgColor:
-            "linear-gradient(270.11deg, rgba(249, 131, 134, 0.1) -39.34%, rgba(249, 131, 134, 0.1) 49.77%);",
+            "tw-from-[#f98386]/10 tw-to-[#f98386]/10 tw-bg-gradient-247 ",
           review:
             "There is not enough space to say all the wonderful things I\
               would want to share about Canopas. They are incredibly helpful,\
@@ -116,8 +122,8 @@ export default {
           id: "client-4",
           image: maor,
           name: "Maor T.",
-          fontColor: "#FFFFFF",
-          bgColor: "#3D3D3D",
+          fontColor: "tw-text-white",
+          bgColor: "tw-bg-black-900",
           review:
             "This is our favorite expert for all mobile and web developing\
               areas. Darpan has a great team who get the job done above our\
@@ -129,8 +135,8 @@ export default {
           id: "client-5",
           image: ramasis,
           name: "Ramsis A.",
-          fontColor: "#FFFFFF",
-          bgColor: "#3D3D3D",
+          fontColor: "tw-text-white",
+          bgColor: "tw-bg-black-900",
           review:
             "Canopas has been great to work with. From day 1, they made\
               sure they understood exactly what I wanted and advised and\
@@ -143,101 +149,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.container-fluid {
-  position: relative;
-}
-
-.render-background {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  object-fit: cover;
-  z-index: -5;
-}
-
-.border-text {
-  -webkit-text-stroke: 1px #3d3d3d;
-  color: #fff !important;
-}
-
-.flex-div {
-  display: flex;
-  flex-direction: column;
-}
-
-.title {
-  padding: 10%;
-  text-align: center;
-}
-
-.client-details {
-  border: transparent;
-  padding: 30px;
-  margin: 0 1rem 3rem;
-  border-radius: 3rem;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
-}
-
-.client-image-div {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-direction: column;
-}
-
-@include media-breakpoint-up(sm) {
-  .client-image-div {
-    flex-direction: row;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .flex-div {
-    flex-direction: row wrap;
-  }
-
-  .client-details {
-    padding: 35px;
-    margin: 0 1rem 3rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .flex-div {
-    flex-flow: wrap;
-
-    div {
-      flex: 35%;
-    }
-  }
-
-  .title {
-    padding: 35% 20% 25% 10%;
-    text-align: start;
-  }
-
-  .overlay {
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-}
-
-@include media-breakpoint-up(xl) {
-  .title {
-    padding: 20% 25% 20% 8%;
-  }
-
-  .client-details {
-    margin: 0 2rem 3rem;
-  }
-}
-@supports (-webkit-touch-callout: none) {
-  .v2-header-3-text {
-    letter-spacing: -2px;
-  }
-}
-</style>

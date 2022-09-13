@@ -12,6 +12,7 @@ module.exports = {
         lg: "992px",
         xl: "1200px",
         "2xl": "1400px",
+        "hover-hover": { raw: "(hover: hover) and (pointer: fine)" },
       },
       flex: {
         1: "1 0 0%",
@@ -21,7 +22,6 @@ module.exports = {
         black: {
           900: "#3d3d3d",
         },
-
         white: "#ffffff",
         pink: {
           300: "#f2709c",
@@ -29,22 +29,28 @@ module.exports = {
         orange: {
           300: "#ff835b",
         },
-
         slate: {
           200: "rgb(226, 226, 226)",
           400: "rgb(141, 138, 138)",
         },
+      },
+      borderRadius: {
+        "x-lg": "20px",
       },
       borderWidth: {
         1: "1px",
       },
       boxShadow: {
         "3xl": "0px 4px 45px rgba(0, 0, 0, 0.1)",
+        "4xl": "2px 1000px 1px #3d3d3d inset",
       },
       lineHeight: {
         11: "2.75rem",
         17: "4.25rem",
         23: "5.75rem",
+      },
+      letterSpacing: {
+        "extra-wider": "0.0625em",
       },
       fontFamily: {
         "product-sans": ["Product Sans"],

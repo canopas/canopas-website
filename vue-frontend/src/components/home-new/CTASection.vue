@@ -1,68 +1,106 @@
 <template>
   <div class="tw-bg-white">
-    <div class="background">
+    <div
+      class="tw-bg-black-900 tw-py-[100px] tw-px-0 tw-overflow-hidden tw-rounded-tl-lg tw-rounded-br-lg tw-relative tw-z-0 tw-rounded-tl-[100px] tw-rounded-br-[100px] sm:tw-rounded-tl-[150px] sm:tw-rounded-br-[150px] md:tw-rounded-tl-[200px] md:tw-rounded-br-[200px] lg:tw-rounded-tl-[250px] lg:tw-rounded-br-[250px]"
+    >
       <img
         :src="backgroundImage"
-        class="render-background"
+        class="tw-w-full tw-h-full tw-top-0 tw-left-0 tw-absolute tw-object-cover tw--z-[1]"
         alt="social-media-background"
       />
-      <div class="container cta-section text-center">
-        <div class="v2-header-3-text canopas-gradient-text">
+      <div
+        class="sm:tw-w-4/5 lg:tw-w-[70%] tw-text-center tw-p-y-0 tw-px-[25px] tw-m-auto tw-container"
+      >
+        <div
+          class="v2-header-3-text tw-m-auto lg:tw-w-4/5 canopas-gradient-text"
+        >
           How do you know we’re a good fit for you?
         </div>
-        <div class="v2-title-3-text mt-4">Let’s have a short chat.</div>
-        <div class="communication">
-          <div class="item px-4 py-3">
-            <div class="v2-normal-3-text">I love talking.</div>
-            <router-link class="gradient-btn cta-button" :to="contactURL">
+        <div class="v2-title-3-text tw-text-white tw-mt-6">
+          Let’s have a short chat.
+        </div>
+        <div class="tw-flex tw-flex-wrap tw-justify-center tw-m-auto">
+          <div
+            class="tw-m-5 tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-text-center tw-px-6 tw-py-5 tw-rounded-[15px]"
+          >
+            <div class="v2-normal-3-text tw-text-white">I love talking.</div>
+            <router-link
+              class="gradient-btn tw-rounded-[2rem] tw-flex tw-items-center hover:tw-shadow-4xl"
+              :to="contactURL"
+            >
               <font-awesome-icon
-                class="fa v2-title-3-text"
+                class="fa v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white"
                 icon="phone"
                 aria-hidden="true"
               />
-              <span class="v2-normal-3-text">Schedule a call</span>
+              <span
+                class="v2-normal-3-text tw-text-white tw-my-0 tw-mr-0 tw-ml-[10px] tw-my-0 tw-mx-[6px] !tw-font-light"
+                >Schedule a call</span
+              >
             </router-link>
           </div>
-          <div class="item px-4 py-3">
-            <div class="v2-normal-3-text">I prefer mail.</div>
-            <router-link class="gradient-btn cta-button" :to="contactURL">
+          <div
+            class="tw-m-5 tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-text-center tw-px-6 tw-py-5 tw-rounded-[15px]"
+          >
+            <div class="v2-normal-3-text tw-text-white tw-font-light">
+              I prefer mail.
+            </div>
+            <router-link
+              class="gradient-btn tw-rounded-[2rem] tw-flex tw-items-center hover:tw-shadow-4xl"
+              :to="contactURL"
+            >
               <font-awesome-icon
-                class="fa v2-title-3-text"
+                class="fa v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white"
                 icon="paper-plane"
                 aria-hidden="true"
               />
-              <span class="v2-normal-3-text">Drop a mail</span>
+              <span
+                class="v2-normal-3-text tw-text-white tw-my-0 tw-mr-0 tw-ml-[10px] !tw-font-light"
+                >Drop a mail</span
+              >
             </router-link>
           </div>
         </div>
         <div
-          class="v2-title-3-text text-left v2-canopas-gradient-text reason-text mt-5"
+          class="v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white tw-text-left v2-canopas-gradient-text tw-m-auto lg:tw-w-4/5 tw-mt-12"
         >
           Four reasons why do we do this call?
         </div>
-        <ul class="v2-normal-2-text chat-list text-left mt-4">
-          <li>
-            <span class="bullet"></span>
-            <div>It gives an opportunity to learn more about each other.</div>
+        <ul
+          class="v2-normal-2-text tw-text-white tw-list-none tw-m-auto tw-p-0 lg:tw-w-4/5 tw-text-left tw-mt-6"
+        >
+          <li class="tw-py-2.5 tw-px-0 tw-flex">
+            <span
+              class="tw-content-none tw-bg-gradient-to-b tw-from-pink-300 tw-to-orange-300 tw-w-[16px] tw-h-[16px] tw-rounded-[30%] tw-inline-block tw-mt-[5px] tw-mr-[24px] tw-mb-0 tw-ml-0"
+            ></span>
+            <div class="tw-w-[90%]">
+              It gives an opportunity to learn more about each other.
+            </div>
           </li>
-          <li>
-            <span class="bullet"></span>
-            <div>
+          <li class="tw-py-2.5 tw-px-0 tw-flex">
+            <span
+              class="tw-content-none tw-bg-gradient-to-b tw-from-pink-300 tw-to-orange-300 tw-w-[16px] tw-h-[16px] tw-rounded-[30%] tw-inline-block tw-mt-[5px] tw-mr-[24px] tw-mb-0 tw-ml-0"
+            ></span>
+            <div class="tw-w-[90%]">
               We want to give you a chance to put your idea into action. You
               might have faced this situation before where you wish you had
               someone to help you.
             </div>
           </li>
-          <li>
-            <span class="bullet"></span>
-            <div>
+          <li class="tw-py-2.5 tw-px-0 tw-flex">
+            <span
+              class="tw-content-none tw-bg-gradient-to-b tw-from-pink-300 tw-to-orange-300 tw-w-[16px] tw-h-[16px] tw-rounded-[30%] tw-inline-block tw-mt-[5px] tw-mr-[24px] tw-mb-0 tw-ml-0"
+            ></span>
+            <div class="tw-w-[90%]">
               Sometimes, you want to check the feasibility of your idea. We will
               give you honest feedback based on our industry experience.
             </div>
           </li>
-          <li>
-            <span class="bullet"></span>
-            <div>
+          <li class="tw-py-2.5 tw-px-0 tw-flex">
+            <span
+              class="tw-content-none tw-bg-gradient-to-b tw-from-pink-300 tw-to-orange-300 tw-w-[16px] tw-h-[16px] tw-rounded-[30%] tw-inline-block tw-mt-[5px] tw-mr-[24px] tw-mb-0 tw-ml-0"
+            ></span>
+            <div class="tw-w-[90%]">
               We offer 100% Money-back guarantee. so, there’s no risk to you.
             </div>
           </li>
@@ -76,7 +114,7 @@
             : 'tw-hidden',
         ]"
       >
-        <span class="v2-normal-3-text">
+        <span class="v2-normal-3-text tw-text-white">
           <font-awesome-icon :icon="copyrightIcon" /> &nbsp;{{
             new Date().getFullYear()
           }}
@@ -108,148 +146,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.background {
-  background: #3d3d3d;
-  padding: 100px 0;
-  overflow: hidden;
-  border-radius: 100px 0;
-  position: relative;
-  z-index: 0;
-}
-
-.render-background {
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: absolute;
-  object-fit: cover;
-  z-index: -1;
-}
-.container {
-  padding: 0 25px;
-}
-
-.v2-header-3-text {
-  margin: auto;
-}
-
-.v2-title-3-text,
-.v2-normal-3-text,
-.v2-normal-2-text {
-  color: #ffffff;
-}
-
-.communication {
-  display: flex;
-  flex-flow: wrap;
-  justify-content: center;
-  margin: auto;
-}
-
-.item {
-  margin: 20px;
-  border: 1px solid #e2e2e2;
-  border-radius: 15px;
-  text-align: -webkit-center;
-}
-
-.cta-button {
-  display: flex;
-  align-items: center;
-}
-
-.v2-title-3-text {
-  font-size: 1.35rem;
-  line-height: 1.5rem;
-}
-
-.gradient-btn {
-  border-radius: 2rem;
-}
-
-.gradient-btn > span {
-  margin: 0 0 0 10px;
-  font-weight: 400;
-}
-
-@media (hover: hover) and (pointer: fine) {
-  .gradient-btn:hover {
-    box-shadow: 2px 1000px 1px #3d3d3d inset;
-  }
-}
-
-.text-left {
-  text-align: left;
-}
-
-.reason-text {
-  margin: auto;
-}
-
-.bullet {
-  content: "";
-  background: linear-gradient(180deg, #f2709c 0%, #ff9472 100%);
-  width: 16px;
-  height: 16px;
-  border-radius: 30%;
-  display: inline-block;
-  line-height: 1;
-  margin: 5px 24px 0 0;
-}
-
-.chat-list {
-  list-style-type: none;
-  margin: auto;
-  padding: 0;
-}
-
-.chat-list > li {
-  padding: 10px 0;
-  display: flex;
-}
-
-.chat-list > li > div {
-  width: 90%;
-}
-
-@include media-breakpoint-up(sm) {
-  .background {
-    border-radius: 150px 0;
-  }
-
-  .cta-section {
-    width: 80%;
-  }
-}
-
-@include media-breakpoint-up(md) {
-  .background {
-    border-radius: 200px 0;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .background {
-    border-radius: 250px 0;
-  }
-
-  .chat-list,
-  .reason-text,
-  .v2-header-3-text {
-    width: 80%;
-  }
-
-  .cta-section {
-    width: 70%;
-  }
-}
-
-@supports (-webkit-touch-callout: none) {
-  .v2-header-3-text {
-    letter-spacing: -2px;
-  }
-}
-</style>
