@@ -1,6 +1,6 @@
 <template>
   <section class="tw-bg-white tw-relative">
-    <div class="tw-relative container">
+    <div class="tw-relative tw-container">
       <div>
         <div
           class="tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
@@ -43,7 +43,7 @@
 
   <section v-if="response[0].subTitle" class="tw-bg-white">
     <div
-      class="container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
+      class="tw-container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
     >
       <div class="v2-normal-text tw-font-bold">
         {{ response[0].subTitle }}
@@ -60,7 +60,7 @@
   <section class="tw-bg-white tw-relative" v-if="response[1]">
     <div class="tw-relative">
       <div
-        class="container tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-flex-row"
+        class="tw-container tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-flex-row"
       >
         <div class="v2-title-2-text tw-font-bold">{{ response[1].title }}</div>
         <div class="description lg:tw-w-11/12 xl:tw-pl-16">
@@ -115,13 +115,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@include media-breakpoint-up(lg) {
+<style lang="postcss" scoped>
+@screen lg {
   section.image {
     transform: translateZ(-1px) scale(1.5);
   }
 }
-@media (min-width: 3840px) {
+@screen 3xl {
   section.image {
     transform: translateZ(-1px) scale(1.3);
   }

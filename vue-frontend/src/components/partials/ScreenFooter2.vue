@@ -41,6 +41,7 @@
           >
             <a :href="socialMedia.url" target="_blank">
               <img
+                class="active:tw-scale-[0.98] tw-h-full tw-w-full"
                 v-if="socialMedia.image"
                 :src="hover ? designRushHover : designRush"
                 @mouseover="hover = true"

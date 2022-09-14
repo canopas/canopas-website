@@ -17,7 +17,11 @@
           Performance, UI design, and User Experience.
         </div>
         <div ref="arrowImage" class="tw-text-center down-arrow">
-          <img class="tw-h-48 tw-my-[5%] tw-mx-auto" :src="arrowImage" alt="" />
+          <img
+            class="tw-h-48 tw-w-full tw-my-[5%] tw-mx-auto"
+            :src="arrowImage"
+            alt=""
+          />
         </div>
         <div ref="thirdHeaderText" class="normal-text second-div">
           Most companies don't care about you, your product, and your vision or

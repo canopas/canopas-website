@@ -33,181 +33,95 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "bootstrap/dist/css/bootstrap.min.css";
-
-@font-face {
-  font-family: "Product Sans";
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: local("Open Sans"), local("OpenSans"),
-    url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
-      format("woff2");
-}
-
-@font-face {
-  font-family: "FuturaLT-Bold";
-  font-style: bold;
-  font-weight: 700;
-  font-display: swap;
-  src: url(./assets/fonts/FuturaLT-Bold.woff2);
-}
-
+<style lang="postcss">
 body {
-  font-family: "Product Sans" !important;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -o-user-select: none;
-  user-select: none;
+  @apply tw-font-product-sans tw-select-none;
 }
 
-body::-webkit-scrollbar {
-  display: none;
+body::-webkit-scrollbar,
+.parallax::-webkit-scrollbar {
+  @apply tw-hidden;
 }
 
 a {
-  text-decoration: none !important;
+  @apply tw-no-underline;
 }
 
 .canopas-gradient-text {
-  background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @apply tw-bg-clip-text tw-text-transparent tw-from-[#f2709c] tw-to-[#ff9472] tw-bg-gradient-[89.88deg];
 }
 
 .v2-canopas-gradient-text {
-  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  @apply tw-bg-clip-text tw-text-transparent tw-from-[#ff9472] tw-to-[#f2709c] tw-bg-gradient-[270.11deg];
 }
 
 .abs-fit-parent {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
+  @apply tw-absolute tw-w-full tw-h-full tw-top-0 tw-left-0;
 }
 
 .normal-text {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.15rem;
-  line-height: 1.5rem;
-  color: rgba(61, 61, 61, 0.8);
-  letter-spacing: 0.3px;
+  @apply tw-not-italic tw-font-normal tw-text-[1.15rem] tw-leading-[1.5rem] tw-text-[#3d3d3dcc] tw-tracking-[0.3px] md:tw-text-[1.2rem] md:tw-leading-[1.375rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8rem];
 }
 
 .normal-2-text {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1.1rem;
-  line-height: 1.3rem;
-  color: rgba(61, 61, 61, 0.8);
+  @apply tw-not-italic tw-font-normal tw-text-[1.1rem] tw-leading-[1.3rem] tw-text-[#3d3d3dcc] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4rem];
 }
 
 .header-text {
-  font-weight: 700;
-  font-size: 1.5rem;
-  line-height: 1.813rem;
+  @apply tw-font-bold tw-text-[1.5rem] tw-leading-[1.813rem] md:tw-text-[1.875rem] md:tw-leading-[2rem] lg:tw-text-[3rem] lg:tw-leading-[3.6rem];
 }
 
 .header-2-text {
-  color: #3d3d3d;
-  font-weight: bold;
-  font-size: 1.25rem;
-  line-height: 1.6rem;
-  letter-spacing: 0.5px;
+  @apply tw-text-[#3d3d3d] tw-font-bold tw-text-[1.25rem] tw-leading-[1.6rem] tw-tracking-[0.5px] md:tw-text-[1.75rem] md:tw-leading-[2rem] lg:tw-text-[2.25rem] lg:tw-leading-[2.729rem];
 }
 
 .grecaptcha-badge {
-  visibility: hidden;
+  @apply tw-invisible;
 }
 
-// 120px/119px - 90px/107px - 65px/94px
+/* 120px/119px - 90px/107px - 65px/94px */
 .v2-header-text {
-  font-weight: 700;
-  font-size: 4.0625rem;
-  line-height: 5.875rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-bold tw-text-[4.0625rem] tw-leading-[5.875rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[5.625rem] md:tw-leading-[6.6875rem] lg:tw-text-[7.5rem] lg:tw-leading-[7.4375rem];
 }
 
-// 90px/107px - 65px/94px - 50px/80px
+/* 90px/107px - 65px/94px - 50px/80px */
 .v2-header-2-text {
-  font-weight: 600;
-  font-size: 3.125rem;
-  line-height: 5rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-semibold tw-text-[3.125rem] tw-leading-[5rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[4.0625rem] md:tw-leading-[5.875rem] lg:tw-text-[5.625rem] lg:tw-leading-[6.6875rem];
 }
 
-// 65px/94px - 50px/70px - 35px/50px
+/* 65px/94px - 50px/70px - 35px/50px */
 .v2-header-3-text {
-  font-weight: 600;
-  font-size: 2.1875rem;
-  line-height: 3.125rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-semibold tw-text-[2.1875rem] tw-leading-[3.125rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[3.125rem] md:tw-leading-[4.375rem] lg:tw-text-[4.0625rem] lg:tw-leading-[5.875rem];
 }
 
-// 80px/95px - 60px/75px - 40px/55px
+/* 80px/95px - 60px/75px - 40px/55px */
 .v2-title-text {
-  font-weight: 500;
-  font-size: 2.5rem;
-  line-height: 3.4375rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-medium tw-text-[2.5rem] tw-leading-[3.4375rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[3.75rem] md:tw-leading-[4.6875rem] lg:tw-text-[5rem] lg:tw-leading-[5.9375rem];
 }
 
-// 35px/68px - 30px/60px - 25px/45px
+/* 35px/68px - 30px/60px - 25px/45px */
 .v2-title-2-text {
-  font-weight: 500;
-  font-size: 1.5625rem;
-  line-height: 2.8125rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-medium tw-text-[1.5625rem] tw-leading-[2.8125rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.875rem] md:tw-leading-[3.75rem] lg:tw-text-[2.1875rem] lg:tw-leading-[4.25rem];
 }
 
-// 24px/29px - 20px/24px - 16px/20px
+/* 24px/29px - 20px/24px - 16px/20px */
 .v2-title-3-text {
-  font-weight: 500;
-  font-size: 1rem;
-  line-height: 1.25rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-medium tw-text-[1rem] tw-leading-[1.25rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.25rem] md:tw-leading-[1.5rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8125rem];
 }
 
-// 27px/43px - 22px/32px - 19px/30px
+/* 27px/43px - 22px/32px - 19px/30px */
 .v2-normal-text {
-  font-weight: 400;
-  font-size: 1.1875rem;
-  line-height: 1.875rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-normal tw-text-[1.1875rem] tw-leading-[1.875rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.375rem] md:tw-leading-[2rem] lg:tw-text-[1.6875rem] lg:tw-leading-[2.6875rem];
 }
 
-// 22px/32px - 19px/30px - 17px/19px
+/* 22px/32px - 19px/30px - 17px/19px */
 .v2-normal-2-text {
-  font-weight: 400;
-  font-size: 1.0625rem;
-  line-height: 1.1875rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-normal tw-text-[1.0625rem] tw-leading-[1.1875rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.1875rem] md:tw-leading-[1.875rem] lg:tw-text-[1.375rem] lg:tw-leading-[2rem];
 }
 
-// 18px/30px - 17px/24px - 16px/18px
+/* 18px/30px - 17px/24px - 16px/18px */
 .v2-normal-3-text {
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.125rem;
-  letter-spacing: 1px;
-  color: #3d3d3d;
+  @apply tw-font-normal tw-text-[1rem] tw-leading-[1.125rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.125rem] lg:tw-leading-[1.875rem];
 }
 
 .border-text {
@@ -216,280 +130,62 @@ a {
 }
 
 .underline-text {
-  text-decoration: underline solid rgba(61, 61, 61, 0.8) 2px;
-  text-underline-offset: 1rem;
+  @apply tw-underline tw-decoration-solid tw-decoration-[#3d3d3dcc] tw-decoration-2 tw-underline-offset-[1rem] md:tw-decoration-[3px];
 }
 
 .swiper-pagination-bullet {
-  width: 15px !important;
-  height: 15px !important;
-  border-radius: 3px !important;
-  background: transparent !important;
-  border: 1px solid !important;
+  @apply !tw-w-[15px] !tw-h-[15px] !tw-rounded-[3px] !tw-bg-transparent !tw-border-[1px] !tw-border-solid !tw-border-[#3d3d3d];
 }
 
 .swiper-pagination-bullet-active {
-  border: none !important;
-  background: linear-gradient(
-    45deg,
-    rgb(246, 146, 89),
-    rgb(241, 105, 117)
-  ) !important;
+  @apply !tw-border-none !tw-from-[#F69259] !tw-to-[#F16975] !tw-bg-gradient-[45deg];
 }
 
 .v2-button {
-  border-radius: 3rem;
-  padding: 0.7rem 1.5rem;
-  text-align: center;
-  border: 1px solid #3d3d3d;
-  background-color: #fff;
-  color: #3d3d3d;
+  @apply tw-rounded-[3rem] tw-py-[0.7rem] tw-px-[1.5rem] tw-text-center tw-border-[1px] tw-border-solid tw-border-[#3d3d3d] tw-bg-white tw-text-[#3d3d3d] hover:tw-bg-[#3d3d3d] hover:tw-text-[#fff] active:tw-scale-[0.98];
 }
 
 .v2-button > span {
-  margin-right: 10px;
+  @apply tw-mr-[10px];
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .v2-button:hover {
-    background-color: #3d3d3d;
-    color: #fff;
-  }
-
-  .v2-button:hover > .fa {
-    color: #fff;
-  }
+.v2-button:hover > .fa {
+  @apply tw-text-[#fff];
 }
 
 .gradient-btn {
-  border-radius: 0.6rem;
-  padding: 1rem;
-  margin: 1.25rem auto 0 auto;
-  text-align: center;
-  color: white !important;
-  background: linear-gradient(270.11deg, #ff835b -24.42%, #f2709c 101.76%);
-  border: 1px solid transparent;
+  @apply tw-rounded-[0.6rem] tw-p-[1rem] tw-mt-[1.25rem] tw-mr-auto tw-mb-0 tw-ml-auto tw-text-center tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-border-[1px] tw-border-solid tw-border-transparent lg:tw-py-[1rem] lg:tw-px-[1rem] lg:tw-mt-[1.25rem] lg:tw-mr-[0.5rem] lg:tw-mb-0 lg:tw-ml-[0.5rem] active:tw-scale-[0.98] hover:tw-from-[#ff9472] hover:tw-via-[#ff909c] hover:tw-to-[#f2709c] hover:tw-bg-gradient-to-r hover:tw-shadow-[inset_2px_1000px_1px_#fff];
 }
 
 .gradient-btn > span {
-  margin: 0 6px;
-  font-weight: 700;
+  @apply tw-my-0 tw-mx-[6px] tw-font-bold;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .gradient-btn:hover {
-    background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
-      linear-gradient(to top, #ff9472, #f2709c);
-    box-shadow: 2px 1000px 1px #fff inset;
-  }
+.gradient-btn:hover > span {
+  @apply tw-bg-clip-text tw-text-transparent tw-from-[#f2709c] tw-to-[#ff9472] tw-bg-gradient-[89.88deg];
+}
 
-  .gradient-btn:hover * {
-    background: linear-gradient(89.88deg, #f2709c -1.25%, #ff9472 108.15%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .gradient-btn:hover > .fa,
-  .gradient-btn:hover > .fas,
-  .gradient-btn:hover > a > .fab {
-    color: #f2709c;
-  }
+.gradient-btn:hover > .fa,
+.gradient-btn:hover > .fas,
+.gradient-btn:hover > a > .fab {
+  @apply tw-text-[#f2709c];
 }
 
 .gradient-border-btn {
-  border-radius: 0.6rem;
-  padding: 1rem;
-  margin: 5px;
-  text-align: center;
-  border: 1px solid transparent !important;
-  background: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)),
-    linear-gradient(to top, #ff9472, #f2709c);
-  box-shadow: 2px 1000px 1px #fff inset;
-}
-
-.gradient-btn:active,
-.gradient-border-btn:active,
-.v2-button:active {
-  transform: scale(0.98);
+  @apply tw-rounded-[0.6rem] tw-p-[1rem] tw-m-[5px] tw-text-center tw-border-[1px] tw-border-solid tw-border-transparent tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-bg-gradient-to-r tw-shadow-[inset_2px_1000px_1px_#fff] active:tw-scale-[0.98] hover:tw-from-[#f2709c] hover:tw-to-[#ff9472] hover:tw-bg-gradient-[91.53deg] hover:tw-border-[1px] hover:tw-border-solid hover:tw-border-transparent hover:tw-shadow-none;
 }
 
 .gradient-border-btn > span {
-  margin: 0 6px;
-  color: rgba(61, 61, 61, 1);
+  @apply tw-my-0 tw-mx-[6px] tw-text-[#3d3d3d];
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .gradient-border-btn:hover {
-    background: linear-gradient(91.53deg, #f2709c 3.91%, #ff9472 100%);
-    border: 2px solid transparent;
-    box-shadow: none;
-  }
-
-  .gradient-border-btn:hover > span,
-  .gradient-border-btn:hover > span > span {
-    -webkit-text-fill-color: white;
-  }
-
-  .gradient-border-btn:hover > .fa,
-  .gradient-border-btn:hover > .arrow {
-    color: white;
-  }
+.gradient-border-btn:hover > span,
+.gradient-border-btn:hover > span > span {
+  @apply tw-text-[#fff];
 }
 
-@include media-breakpoint-up(md) {
-  .header-text {
-    line-height: 2rem;
-    font-size: 1.875rem;
-  }
-
-  .header-2-text {
-    font-size: 1.75rem;
-    line-height: 2rem;
-  }
-
-  .normal-text {
-    font-size: 1.2rem;
-    line-height: 1.375rem;
-  }
-
-  // 120px/119px - 90px/107px - 65px/94px
-  .v2-header-text {
-    font-size: 5.625rem;
-    line-height: 6.6875rem;
-  }
-
-  // 90px/107px - 65px/94px - 50px/80px
-  .v2-header-2-text {
-    font-size: 4.0625rem;
-    line-height: 5.875rem;
-  }
-
-  // 65px/94px - 50px/70px - 35px/50px
-  .v2-header-3-text {
-    font-size: 3.125rem;
-    line-height: 4.375rem;
-  }
-
-  // 80px/95px - 60px/75px - 40px/55px
-  .v2-title-text {
-    font-size: 3.75rem;
-    line-height: 4.6875rem;
-  }
-
-  // 35px/68px - 30px/60px - 25px/45px
-  .v2-title-2-text {
-    font-size: 1.875rem;
-    line-height: 3.75rem;
-  }
-
-  // 24px/29px - 20px/24px - 16px/20px
-  .v2-title-3-text {
-    font-size: 1.25rem;
-    line-height: 1.5rem;
-  }
-
-  // 27px/43px - 22px/32px - 19px/30px
-  .v2-normal-text {
-    font-size: 1.375rem;
-    line-height: 2rem;
-  }
-
-  // 22px/32px - 19px/30px - 17px/19px
-  .v2-normal-2-text {
-    font-size: 1.1875rem;
-    line-height: 1.875rem;
-  }
-
-  // 18px/30px - 17px/24px - 16px/18px
-  .v2-normal-3-text {
-    font-size: 1.0625rem;
-    line-height: 1.5rem;
-  }
-
-  .underline-text {
-    text-decoration: underline solid rgba(61, 61, 61, 0.8) 3px;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .header-text {
-    font-size: 3rem;
-    line-height: 3.6rem;
-  }
-
-  .header-2-text {
-    font-size: 2.25rem;
-    line-height: 2.729rem;
-  }
-
-  .normal-text {
-    font-size: 1.5rem;
-    line-height: 1.8rem;
-  }
-
-  .normal-2-text {
-    font-size: 1.1875rem;
-    line-height: 1.4rem;
-  }
-
-  // 120px/119px - 90px/107px - 65px/94px
-  .v2-header-text {
-    font-size: 7.5rem;
-    line-height: 7.4375rem;
-  }
-
-  // 90px/107px - 65px/94px - 50px/80px
-  .v2-header-2-text {
-    font-size: 5.625rem;
-    line-height: 6.6875rem;
-  }
-
-  // 65px/94px - 50px/70px - 35px/50px
-  .v2-header-3-text {
-    font-size: 4.0625rem;
-    line-height: 5.875rem;
-  }
-
-  // 80px/95px - 60px/75px - 40px/55px
-  .v2-title-text {
-    font-size: 5rem;
-    line-height: 5.9375rem;
-  }
-
-  // 35px/68px - 30px/60px - 25px/45px
-  .v2-title-2-text {
-    font-size: 2.1875rem;
-    line-height: 4.25rem;
-  }
-
-  // 24px/29px - 20px/24px - 16px/20px
-  .v2-title-3-text {
-    font-size: 1.5rem;
-    line-height: 1.8125rem;
-  }
-
-  // 27px/43px - 22px/32px - 19px/30px
-  .v2-normal-text {
-    font-size: 1.6875rem;
-    line-height: 2.6875rem;
-  }
-
-  // 22px/32px - 19px/30px - 17px/19px
-  .v2-normal-2-text {
-    font-size: 1.375rem;
-    line-height: 2rem;
-  }
-
-  // 18px/30px - 17px/24px - 16px/18px
-  .v2-normal-3-text {
-    font-size: 1.125rem;
-    line-height: 1.875rem;
-  }
-
-  .gradient-btn {
-    padding: 1rem 1rem;
-    margin: 1.25rem 0.5rem 0 0.5rem;
-  }
+.gradient-border-btn:hover > .fa,
+.gradient-border-btn:hover > .arrow {
+  @apply tw-text-white;
 }
 </style>

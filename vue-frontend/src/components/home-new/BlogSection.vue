@@ -21,8 +21,9 @@
             </div>
             <img
               :src="backgroundImage"
-              class="tw-hidden md:tw-block tw-pt-12"
+              class="tw-hidden md:tw-block tw-pt-12 tw-h-full tw-w-[260px]"
               loading="lazy"
+              alt="blog-background"
             />
           </div>
         </div>
