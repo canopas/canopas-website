@@ -147,7 +147,7 @@ export default {
           id: 4,
           question: "How can I know my application status?",
           answer:
-            "You will receive status about your application within 24 hours.",
+            "We do our best to give you a reply to your application as soon as possible.",
         },
         {
           id: 5,
@@ -163,7 +163,8 @@ export default {
         {
           id: 7,
           question: "How much time will the interview take?",
-          answer: "Max 1 hour.",
+          answer:
+            "We won't take too much time from your busy schedule. Your Interview might take an hour or two at max.",
         },
         {
           id: 8,
