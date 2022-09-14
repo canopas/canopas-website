@@ -98,7 +98,7 @@ export default {
     video: {
       title: "The Problem",
       description:
-        "Luxe Radio - A broadcast media company was looking to develop mobile apps to reresent them on Internet. We discussed requirements with the client and understood what they were up to, how they saw the new way of broadcasting their content, and the new concepts they had for their product. From app architecture to deployment, they were looking for our help to bring their idea to life. Though, they had an excellent designer who designed the UI and UX of the product.",
+        "Luxe Radio - A broadcast media company was looking to develop mobile apps to represent them on Internet. We discussed requirements with the client and understood what they were up to, how they saw the new way of broadcasting their content, and the new concepts they had for their product. From app architecture to deployment, they were looking for our help to bring their idea to life. Though, they had an excellent designer who designed the UI and UX of the product.",
       buttons: "",
       backgroundImage: [
         videoBackgroundImage400w,
