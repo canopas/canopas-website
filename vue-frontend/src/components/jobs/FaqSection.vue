@@ -1,7 +1,7 @@
 <template>
   <div class="tw-container tw-mb-[10rem]">
     <div
-      class="row tw-my-0 tw-mx-[2%] md:tw-my-0 md:tw-mx-[6%] md:-tw-ml-[32px]"
+      class="row tw-flex tw-flex-col md:tw-flex-row tw-gap-4 tw-my-0 tw-mx-[2%] md:tw-my-0 md:tw-mx-[6%] md:-tw-ml-[32px]"
     >
       <div
         class="tw-text-center header-text canopas-gradient-text title-mobile tw-block md:tw-hidden tw-mb-12"
@@ -12,7 +12,7 @@
         >uently Asked Questions
       </div>
       <div
-        class="col-md-4 image tw-py-0 tw-px-[20%] md:tw-py-0 md:tw-px-0 md:tw-translate-y-60 lg:tw-translate-y-80 xl:tw-translate-y-40 animate__animated"
+        class="tw-flex-[33%] image tw-py-0 tw-px-[20%] md:tw-py-0 md:tw-px-0 md:tw-translate-y-60 lg:tw-translate-y-80 xl:tw-translate-y-40 animate__animated"
         ref="faqImage"
       >
         <img
@@ -21,7 +21,7 @@
           alt="frequently-asked-questions-image"
         />
       </div>
-      <div class="col-md-8">
+      <div class="tw-flex-[67%]">
         <div class="faq-content tw-pl-[60px]">
           <div
             class="header-text canopas-gradient-text title-desktop tw-hidden md:tw-block"

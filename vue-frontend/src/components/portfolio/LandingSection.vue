@@ -1,7 +1,7 @@
 <template>
   <section class="tw-bg-white">
     <div
-      class="container tw-pt-20 tw-pb-40 sm:tw-pt-32 lg:tw-pb-80 lg:tw-pt-60"
+      class="tw-container tw-pt-20 tw-pb-40 sm:tw-pt-32 lg:tw-pb-80 lg:tw-pt-60"
     >
       <div class="v2-normal-2-text animate__animated animate__fadeInUp">
         {{ response.title }}
@@ -50,13 +50,13 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-@include media-breakpoint-up(lg) {
+<style lang="postcss" scoped>
+@screen lg {
   section.background-image {
     transform: translateZ(-1px) scale(1.5);
   }
 }
-@media (min-width: 3840px) {
+@screen 3xl {
   section.background-image {
     transform: translateZ(-1px) scale(1.3);
   }

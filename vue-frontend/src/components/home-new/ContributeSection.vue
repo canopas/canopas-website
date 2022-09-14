@@ -44,7 +44,7 @@
           loading="lazy"
         />
 
-        <div class="tw-w-full tw-p-[20px]">
+        <div class="tw-w-full tw-p-[20px] v2-title-3-text">
           <a
             class="tw-float-right tw-flex tw-items-end tw-duration-300 tw-ease-in-out hover:tw-scale-[1.1] tw-hover-hover"
             :href="contribution.link"
@@ -54,11 +54,7 @@
               class="tw-h-[30px] tw-width-[30px] tw-text-pink-300 tw-mr-2.5 lg:tw-h-10 lg:tw-w-10"
               :icon="icon"
             />
-            <div
-              class="v2-title-3-text v2-canopas-gradient-text tw-font-semibold"
-            >
-              GitHub
-            </div>
+            <div class="v2-canopas-gradient-text tw-font-semibold">GitHub</div>
           </a>
         </div>
       </div>

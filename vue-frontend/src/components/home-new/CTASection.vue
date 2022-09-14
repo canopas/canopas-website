@@ -9,11 +9,9 @@
         alt="social-media-background"
       />
       <div
-        class="sm:tw-w-4/5 lg:tw-w-[70%] tw-text-center tw-p-y-0 tw-px-[25px] tw-m-auto tw-container"
+        class="tw-container sm:tw-w-4/5 lg:tw-w-[70%] tw-text-center tw-p-y-0 tw-px-[25px] tw-m-auto v2-header-3-text"
       >
-        <div
-          class="v2-header-3-text tw-m-auto lg:tw-w-4/5 canopas-gradient-text"
-        >
+        <div class="tw-m-auto lg:tw-w-4/5 canopas-gradient-text">
           How do you know we’re a good fit for you?
         </div>
         <div class="v2-title-3-text tw-text-white tw-mt-6">
@@ -62,9 +60,11 @@
           </div>
         </div>
         <div
-          class="v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white tw-text-left v2-canopas-gradient-text tw-m-auto lg:tw-w-4/5 tw-mt-12"
+          class="v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white tw-text-left tw-m-auto lg:tw-w-4/5 tw-mt-12"
         >
-          Four reasons why do we do this call?
+          <div class="v2-canopas-gradient-text">
+            Four reasons why do we do this call?
+          </div>
         </div>
         <ul
           class="v2-normal-2-text tw-text-white tw-list-none tw-m-auto tw-p-0 lg:tw-w-4/5 tw-text-left tw-mt-6"

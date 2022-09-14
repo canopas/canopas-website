@@ -2,7 +2,7 @@
   <section class="tw-bg-white">
     <div
       v-if="response.solution"
-      class="container tw-py-40 lg:tw-py-80 tw-relative"
+      class="tw-container tw-py-40 lg:tw-py-80 tw-relative"
     >
       <div class="tw-flex tw-flex-col tw-justify-between lg:tw-flex-row">
         <div class="v2-normal-text tw-font-bold">
@@ -29,7 +29,7 @@
     </div>
     <div
       v-if="response.title"
-      class="container tw-py-40 lg:tw-py-80 tw-relative"
+      class="tw-container tw-py-40 lg:tw-py-80 tw-relative"
     >
       <div class="v2-header-3-text tw-pt-20" v-html="response.title"></div>
     </div>
@@ -51,7 +51,7 @@
 
   <section class="tw-bg-white">
     <div
-      class="container tw-pt-48 md:tw-pt-48 xl:tw-pt-80 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
+      class="tw-container tw-pt-48 md:tw-pt-48 xl:tw-pt-80 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
     >
       <div v-if="gridData1" class="tw-basis-1/2">
         <div v-for="data in gridData1" :key="data">
@@ -209,14 +209,14 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-@include media-breakpoint-up(lg) {
+<style lang="postcss" scoped>
+@screen lg {
   section.background-image {
     transform: translateZ(-1px) scale(1.5);
   }
 }
 
-@media (min-width: 3840px) {
+@screen 3xl {
   section.background-image {
     transform: translateZ(-1px) scale(1.3);
   }

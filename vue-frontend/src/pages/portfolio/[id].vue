@@ -6,7 +6,10 @@
       </template>
     </metainfo>
     <Header />
-    <div class="parallax container-fluid tw-p-0" ref="response">
+    <div
+      class="parallax tw-w-full tw-p-0 tw-m-auto 4xl:tw-w-[2300px]"
+      ref="response"
+    >
       <LandingSection v-bind:json="details.landing" />
       <VideoSection v-bind:json="details.video" />
       <BrandingSection v-bind:json="details.branding" />
@@ -120,26 +123,12 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@include media-breakpoint-up(lg) {
+<style lang="postcss" scoped>
+@screen lg {
   .parallax {
-    height: 100vh;
-    overflow: hidden;
-    overflow-y: auto;
     perspective: 2px;
-  }
-  .parallax::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
-  }
-  .parallax {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-  }
-}
 
-@media (min-width: 5000px) {
-  .container-fluid {
-    width: 2300px;
+    @apply tw-h-screen tw-overflow-hidden tw-overflow-y-auto;
   }
 }
 </style>

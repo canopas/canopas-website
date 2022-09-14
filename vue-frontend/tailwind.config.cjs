@@ -12,6 +12,8 @@ module.exports = {
         lg: "992px",
         xl: "1200px",
         "2xl": "1400px",
+        "3xl": "3840px",
+        "4xl": "5000px",
         "hover-hover": { raw: "(hover: hover) and (pointer: fine)" },
       },
       flex: {
@@ -48,9 +50,6 @@ module.exports = {
         11: "2.75rem",
         17: "4.25rem",
         23: "5.75rem",
-      },
-      letterSpacing: {
-        "extra-wider": "0.0625em",
       },
       fontFamily: {
         "product-sans": ["Product Sans"],

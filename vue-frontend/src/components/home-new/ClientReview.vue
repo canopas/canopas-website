@@ -1,13 +1,16 @@
 <template>
-  <div class="tw-relative lg:tw-py-[50px]">
+  <div
+    class="tw-relative tw-w-full tw-mx-auto tw-py-0 tw-px-[0.75rem] lg:tw-py-[50px]"
+  >
     <img
       :src="backgroundImage"
       class="tw-w-full tw-h-full tw-top-0 tw-left-0 tw-absolute tw-object-cover -tw-z-[5]"
       loading="lazy"
+      alt="double-quote-mark"
     />
     <div class="tw-container">
       <div>
-        <div class="tw-flex tw-flex-col md:tw-flex-row lg:tw-flex-wrap">
+        <div class="tw-flex tw-flex-col lg:tw-flex-row">
           <div class="lg:tw-flex-[35%]">
             <div
               class="v2-header-3-text tw-text-center tw-p-[10%] lg:tw-text-start lg:tw-pt-[35%] lg:tw-pr-[20%] lg:tw-pb-[25%] lg:tw-pl-[10%] xl:tw-py-[20%] xl:tw-pr-[25%] xl:tw-pl-[8%]"
@@ -26,10 +29,10 @@
                 {{ client.review }}
               </div>
               <div
-                class="tw-flex tw-flex-wrap tw-items-center tw-flex-col sm:tw-flex-row tw-mt-6"
+                class="tw-flex tw-flex-wrap tw-items-center tw-flex-col sm:tw-flex-row tw-mt-6 v2-title-3-text"
               >
                 <img :src="client.image" alt="client" loading="lazy" />
-                <div class="v2-title-3-text canopas-gradient-text">
+                <div class="canopas-gradient-text">
                   {{ client.name }}
                 </div>
               </div>
@@ -46,11 +49,11 @@
                 {{ client.review }}
               </div>
               <div
-                class="tw-flex tw-flex-wrap tw-items-center tw-flex-col sm:tw-flex-row tw-mt-6"
+                class="tw-flex tw-flex-wrap tw-items-center tw-flex-col sm:tw-flex-row tw-mt-6 v2-title-3-text"
               >
                 <img :src="client.image" alt="client" loading="lazy" />
 
-                <div class="v2-title-3-text canopas-gradient-text">
+                <div class="canopas-gradient-text">
                   {{ client.name }}
                 </div>
               </div>

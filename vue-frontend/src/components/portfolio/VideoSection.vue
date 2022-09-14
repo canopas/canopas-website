@@ -1,6 +1,6 @@
 <template>
   <section class="tw-bg-white tw-relative">
-    <div class="tw-relative container">
+    <div class="tw-relative tw-container">
       <img
         v-if="response.backgroundImage[3]"
         :src="response.backgroundImage[3]"
@@ -37,7 +37,10 @@
     </div>
   </section>
 
-  <section v-if="response.video" class="container video tw-relative tw-z-[-1]">
+  <section
+    v-if="response.video"
+    class="tw-container video tw-relative tw-z-[-1]"
+  >
     <aspect-ratio height="56.25%" class="tw-overflow-hidden">
       <video
         class="tw-w-full tw-h-full tw-object-cover"
@@ -183,7 +186,7 @@
   </section>
 
   <section v-if="response.solution" class="tw-bg-white tw-relative">
-    <div class="container">
+    <div class="tw-container">
       <div
         class="tw-flex tw-flex-col tw-justify-between tw-pt-40 lg:tw-flex-row lg:tw-pt-80"
       >
@@ -252,7 +255,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="postcss">
 @import "swiper/css";
 @import "swiper/css/pagination";
 
@@ -291,13 +294,13 @@ export default {
   width: 18.5%;
 }
 
-@include media-breakpoint-up(lg) {
+@screen lg {
   section.video {
     transform: translateZ(-1px) scale(1.5);
   }
 }
 
-@media (min-width: 3840px) {
+@screen 3xl {
   section.video {
     transform: translateZ(-1px) scale(1.3);
   }

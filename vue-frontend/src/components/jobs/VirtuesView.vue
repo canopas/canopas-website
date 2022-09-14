@@ -33,7 +33,7 @@
             </div>
           </div>
           <div
-            class="descriptions tw-absolute tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            class="descriptions tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
             :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
             <div
@@ -78,7 +78,7 @@
             </div>
           </div>
           <div
-            class="descriptions tw-absolute tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            class="descriptions tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
             :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
             <div
@@ -121,7 +121,7 @@
             </div>
           </div>
           <div
-            class="descriptions tw-absolute tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            class="descriptions tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
             :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
             <div
@@ -166,7 +166,7 @@
             </div>
           </div>
           <div
-            class="descriptions tw-absolute tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            class="descriptions tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
             :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
             <div
@@ -277,15 +277,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.descriptions {
-  transform: translateX(-50%);
-  -webkit-transition: all 0.4s ease-in-out 0s;
-  -moz-transition: all 0.4s ease-in-out 0s;
-  transition: all 0.4s ease-in-out 0s;
-}
-
+<style lang="postcss" scoped>
 .flex-div > div:hover .descriptions {
-  opacity: 1;
+  @apply tw-opacity-100;
 }
 </style>

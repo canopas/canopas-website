@@ -5,8 +5,8 @@
         class="tw-rounded-3xl tw-border tw-border-slate-200 tw-bg-white tw-shadow-3xl"
       >
         <div class="tw-py-5 tw-px-8 lg:tw-px-24">
-          <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 tw-pt-5">
+          <div class="row tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
+            <div class="tw-pt-4">
               <input
                 class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 type="text"
@@ -21,7 +21,7 @@
                 >This field is required</span
               >
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 tw-pt-5">
+            <div class="tw-pt-4">
               <input
                 class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 type="text"
@@ -36,7 +36,7 @@
                 >This field is required</span
               >
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 tw-pt-5 lg:tw-pt-14">
+            <div class="md:tw-col-span-2 tw-pt-1 lg:tw-pt-8">
               <textarea
                 class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 name="project"
@@ -47,7 +47,7 @@
                 placeholder="Tell us about your project"
               ></textarea>
             </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 tw-pt-5 lg:tw-pt-10">
+            <div class="md:tw-col-span-2 tw-pt-1 lg:tw-pt-8">
               <input
                 class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 type="text"
@@ -192,7 +192,7 @@
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content tw-p-2.5 tw-rounded-3xl">
               <div class="modal-header">
-                <div class="normal-text canopas-gradient-text text-center">
+                <div class="canopas-gradient-text normal-text text-center">
                   Thank you for choosing us to make a difference in your
                   business.
                 </div>
@@ -218,8 +218,8 @@
             <div
               class="modal-content tw-p-2.5 tw-rounded-3xl calendly-iframe-modal-content"
             >
-              <div class="modal-header tw-justify-center">
-                <div class="header-2-text canopas-gradient-text">Error</div>
+              <div class="modal-header tw-justify-center header-2-text">
+                <div class="canopas-gradient-text">Error</div>
               </div>
               <div class="modal-body">
                 <div class="normal-text text-center">
