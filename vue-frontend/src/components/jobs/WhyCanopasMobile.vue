@@ -41,7 +41,7 @@
           :src="reason.image"
           alt="why-canopas-image"
           loading="lazy"
-          class="reason-image tw-w-auto tw-h-auto"
+          class="reason-image tw-w-[126px] tw-h-full"
         />
       </div>
     </div>
