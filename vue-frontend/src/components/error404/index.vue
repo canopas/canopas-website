@@ -17,17 +17,13 @@
       <div class="tw-mt-[2rem] tw-text-center tw-text-[1.4rem] tw-leading-8">
         The page you’re looking for was moved, renamed or might never existed.
       </div>
-      <router-link
-        class="tw-w-auto tw-py-[1rem] tw-px-[1.5rem] tw-my-[7%] tw-mx-auto tw-border-[1rem] tw-border-solid tw-border-transparent tw-rounded-[10px] tw-flex tw-justify-around tw-items-center gradient-border-btn"
-        to="/"
-      >
+      <router-link class="tw-my-16 gradient-border-btn" to="/">
         <font-awesome-icon
           class="fa tw-text-[#f2709c] tw-text-[1.5rem] tw-mr-[16px]"
           icon="arrow-left"
           id="leftArrow"
         />
-        <span
-          class="canopas-gradient-text tw-text-center tw-font-bold tw-text-[1.1rem]"
+        <span class="tw-text-center tw-font-bold tw-text-[1.1rem]"
           >Back to Home page</span
         >
       </router-link>
