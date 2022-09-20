@@ -34,7 +34,7 @@
       <div
         class="tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start"
       >
-        <picture class="tw-flex-1 tw-text-right tw-pb-8">
+        <picture class="tw-flex-1 lg:tw-mt-5">
           <source
             srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
             media="(max-width: 992px)"
@@ -50,7 +50,7 @@
         <div class="tw-flex-2">
           <div class="description">
             <div
-              class="tw-pb-10 tw-w-11/12 v2-header-3-text lg:tw-text-5xl-1 lg:tw-text-7xl-1 lg:tw-leading-18 xl:tw-leading-22 tw-font-normal lg:tw-pb-16 lg:tw-pt-16 xl:tw-pb-20"
+              class="tw-pb-10 tw-w-11/12 v2-header-3-text lg:tw-text-5xl-1 lg:tw-text-7xl-1 lg:tw-leading-18 lg:tw-text-[3.0625rem] lg:tw-leading-[4.375rem] xl:tw-text-[4.0625rem] xl:tw-leading-[5.875rem] tw-font-normal lg:tw-pb-16 xl:tw-pb-20"
             >
               We develop amazing products to help
               <div class="typewriter tw-flex tw-items-center tw-w-fit">
