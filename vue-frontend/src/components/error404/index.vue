@@ -17,9 +17,12 @@
       <div class="tw-mt-[2rem] tw-text-center tw-text-[1.4rem] tw-leading-8">
         The page you’re looking for was moved, renamed or might never existed.
       </div>
-      <router-link class="tw-my-16 gradient-border-btn" to="/">
+      <router-link
+        class="tw-my-16 gradient-border-btn tw-flex tw-flex-row tw-items-center"
+        to="/"
+      >
         <font-awesome-icon
-          class="fa tw-text-[#f2709c] tw-text-[1.5rem] tw-mr-[16px]"
+          class="arrow tw-w-6 tw-h-6 fa tw-text-[#f2709c] tw-text-[2.1rem] tw-mr-[5px]"
           icon="arrow-left"
           id="leftArrow"
         />
