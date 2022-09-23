@@ -45,6 +45,10 @@ func (faker *stubUtilsRepo) VerifyRecaptcha(token string) (bool, error) {
 	return true, nil
 }
 
+func (faker *stubUtilsRepo) SaveJobsToSpreadSheet(input [][]interface{}) {
+	/** this is stub method for adding jobs details in google spreadsheet */
+}
+
 func Test_init(t *testing.T) {
 	repo, err = initializeRepo()
 	assert.Nil(t, err)

@@ -9,6 +9,7 @@ import (
 	"os"
 	"path/filepath"
 	"text/template"
+	"time"
 	"utils"
 
 	log "github.com/sirupsen/logrus"
@@ -51,14 +52,15 @@ type Career struct {
 }
 
 type CareerDetails struct {
-	JobTitle   string `json:"job_title" form:"job_title"`
-	Name       string `json:"name" form:"name"`
-	Email      string `json:"email" form:"email"`
-	Phone      string `json:"phone" form:"phone"`
-	Place      string `json:"place" form:"place"`
-	References string `json:"references" form:"references"`
-	Message    string `json:"message" form:"message"`
-	Token      string `json:"token" form:"token"`
+	JobTitle                string `json:"job_title" form:"job_title"`
+	Name                    string `json:"name" form:"name"`
+	Email                   string `json:"email" form:"email"`
+	Phone                   string `json:"phone" form:"phone"`
+	Place                   string `json:"place" form:"place"`
+	References              string `json:"references" form:"references"`
+	Message                 string `json:"message" form:"message"`
+	Token                   string `json:"token" form:"token"`
+	SaveRecordToSpreadsheet bool   `json:"save_record_to_spreadsheet" form:"save_record_to_spreadsheet"`
 }
 
 type CareerRepository struct {
@@ -147,6 +149,11 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 	if err != nil || !success {
 		c.AbortWithStatus(http.StatusUnauthorized)
 		return
+	}
+
+	if input.SaveRecordToSpreadsheet {
+		records := [][]interface{}{{input.Name, input.Email, input.Phone, time.Now().Format("2 Jan 2006 03:04PM"), input.JobTitle, "", input.References}}
+		repository.UtilsRepo.SaveJobsToSpreadSheet(records)
 	}
 
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)
