@@ -522,6 +522,7 @@ export default {
       );
       formData.append("message", this.message ? this.message : "NA");
       formData.append("file", this.file, this.file.name);
+      formData.append("save_record_to_spreadsheet", config.IS_PROD);
 
       //verify recpatcha
       grecaptcha.enterprise.ready(() => {

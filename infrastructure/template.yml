@@ -49,6 +49,12 @@ Parameters:
   RecaptchaProjectId:
     Type: String
     Description: Recaptcha project ID.
+  JobsSpreadsheetId:
+    Type: String
+    Description: Spread sheet ID.
+  JobsSheetId:
+    Type: String
+    Description: Spreadsheet's GID.
   ClusterName:
     Type: String
     Description: Name of ECS cluster
@@ -150,6 +156,12 @@ Resources:
             - Name: RECAPTCHA_PROJECT_ID
               Value: 
                 Fn::Sub: ${RecaptchaProjectId}
+            - Name: JOBS_SPREADSHEET_ID
+              Value: 
+                Fn::Sub: ${JobsSpreadsheetId}
+            - Name: JOBS_SHEET_ID
+              Value: 
+                Fn::Sub: ${JobsSheetId}
             - Name: TZ
               Value: UTC
             - Name: GIN_MODE

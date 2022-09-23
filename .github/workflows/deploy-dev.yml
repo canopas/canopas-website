@@ -75,6 +75,8 @@ jobs:
             RecaptchaConfigJSONBase64=${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }},
             RecaptchaSiteKey=${{ secrets.RECAPTCHA_SITE_KEY }},
             RecaptchaProjectId=${{ secrets.RECAPTCHA_PROJECT_ID }},
+            JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
+            JobsSheetId=${{ secrets.JOBS_SHEET_ID }},
             ClusterName=canopas-website-dev,
             ImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-frontend,
             BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-backend,
