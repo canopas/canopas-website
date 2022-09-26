@@ -158,13 +158,13 @@
           class="modal-mask tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table mask tw-z-[1] tw-bg-[#00000080]"
         >
           <div
-            class="modal-dialog login-modal modal-xl modal-dialog-centered"
+            class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full login-modal modal-xl tw-flex tw-items-center"
             role="document"
           >
             <div
-              class="modal-content tw-p-2.5 tw-rounded-3xl calendly-iframe-modal-content"
+              class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid tw-p-2.5 tw-rounded-3xl"
             >
-              <div class="modal-body">
+              <div class="tw-relative tw-p-4 tw-flex-auto">
                 <CalendlyIframe />
 
                 <button
@@ -189,15 +189,22 @@
         <div
           class="modal-mask tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table mask tw-z-[1] tw-bg-[#00000080]"
         >
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content tw-p-2.5 tw-rounded-3xl">
-              <div class="modal-header">
+          <div
+            class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full tw-flex tw-items-center"
+            role="document"
+          >
+            <div
+              class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid tw-p-2.5 tw-rounded-3xl"
+            >
+              <div
+                class="tw-flex tw-items-start tw-justify-between tw-p-4 tw-rounded-t-md tw-border-b tw-border-solid tw-border-slate-300"
+              >
                 <div class="canopas-gradient-text normal-text text-center">
                   Thank you for choosing us to make a difference in your
                   business.
                 </div>
               </div>
-              <div class="modal-body">
+              <div class="tw-relative tw-p-4 tw-flex-auto">
                 <div class="normal-2-text">
                   If you prefer to chat or email, sit back and relax our team
                   will get back to you within 24 hours.
@@ -214,14 +221,19 @@
         <div
           class="modal-mask tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table mask tw-z-[1] tw-bg-[#00000080]"
         >
-          <div class="modal-dialog modal-dialog-centered" role="document">
+          <div
+            class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full tw-flex tw-items-center"
+            role="document"
+          >
             <div
-              class="modal-content tw-p-2.5 tw-rounded-3xl calendly-iframe-modal-content"
+              class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid tw-p-2.5 tw-rounded-3xl"
             >
-              <div class="modal-header tw-justify-center header-2-text">
+              <div
+                class="tw-flex tw-items-start tw-justify-between tw-p-4 tw-rounded-t-md tw-border-b tw-border-solid tw-border-slate-300 header-2-text"
+              >
                 <div class="canopas-gradient-text">Error</div>
               </div>
-              <div class="modal-body">
+              <div class="tw-relative tw-p-4 tw-flex-auto">
                 <div class="normal-text text-center">
                   {{ errorMessage }}
                 </div>

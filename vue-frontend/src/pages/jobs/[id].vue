@@ -16,9 +16,14 @@
         <div
           class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
         >
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content calendly-iframe-modal-content">
-              <div class="modal-body">
+          <div
+            class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full tw-flex tw-items-center"
+            role="document"
+          >
+            <div
+              class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid"
+            >
+              <div class="tw-relative tw-p-4 tw-flex-auto">
                 <div class="tw-p-[20px]">
                   <div
                     class="tw-leading-[2rem] tw-text-[1.5rem] tw-mb-[30px] tw-text-center"
