@@ -42,6 +42,9 @@ module.exports = {
       borderWidth: {
         1: "1px",
       },
+      borderColor: {
+        gray: "rgba(0, 0, 0, 0.2)",
+      },
       boxShadow: {
         "3xl": "0px 4px 45px rgba(0, 0, 0, 0.1)",
         "4xl": "2px 1000px 1px #3d3d3d inset",

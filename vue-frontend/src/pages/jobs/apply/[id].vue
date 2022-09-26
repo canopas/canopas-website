@@ -239,14 +239,21 @@
             <div
               class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
             >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content tw-p-[10px] tw-rounded-[25px]">
-                  <div class="modal-header">
+              <div
+                class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full tw-flex tw-items-center"
+                role="document"
+              >
+                <div
+                  class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid tw-p-[10px] tw-rounded-[25px]"
+                >
+                  <div
+                    class="tw-flex tw-items-start tw-justify-between tw-p-4 tw-rounded-t-md tw-border-b tw-border-solid tw-border-slate-300"
+                  >
                     <div class="normal-text canopas-gradient-text text-center">
                       Congratulations !!
                     </div>
                   </div>
-                  <div class="modal-body">
+                  <div class="tw-relative tw-p-4 tw-flex-auto">
                     <div class="normal-2-text">
                       We have received your job application, sit back and relax!
                       Our team will contact you within 24 hours.
@@ -264,12 +271,19 @@
             <div
               class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
             >
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content tw-p-[10px] tw-rounded-[25px]">
-                  <div class="modal-header tw-justify-center">
+              <div
+                class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full tw-flex tw-items-center"
+                role="document"
+              >
+                <div
+                  class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid tw-p-[10px] tw-rounded-[25px]"
+                >
+                  <div
+                    class="tw-flex tw-items-start tw-justify-between tw-p-4 tw-rounded-t-md tw-border-b tw-border-solid tw-border-slate-300"
+                  >
                     <div class="header-2-text canopas-gradient-text">Error</div>
                   </div>
-                  <div class="modal-body">
+                  <div class="tw-relative tw-p-4 tw-flex-auto">
                     <div class="normal-text text-center">
                       {{ errorMessage }}
                     </div>
