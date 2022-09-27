@@ -13,7 +13,7 @@
       </div>
       <div class="v2-normal-text tw-pt-6">
         This form requires
-        <span class="canopas-gradient-text">less then 60 seconds</span>
+        <span class="canopas-gradient-text">less than 60 seconds</span>
         to fill up. Here's what you will get by filling out this form.
       </div>
       <div>
