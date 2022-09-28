@@ -38,7 +38,6 @@
     "express": "^4.17.3",
     "gsap": "^3.9.1",
     "lottie-web": "^5.9.1",
-    "moment": "^2.29.1",
     "postcss": "^8.4.14",
     "postcss-nesting": "^10.1.7",
     "prettier": "^2.5.1",
