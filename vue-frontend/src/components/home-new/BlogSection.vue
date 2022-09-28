@@ -89,7 +89,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import Config from "@/config.js";
 import axios from "axios";
-import moment from "moment";
 
 export default {
   data() {
@@ -120,8 +119,15 @@ export default {
           });
 
           for (let i = 0; i < blogs.length; i++) {
-            let date = moment(String(blogs[i].pubDate)).format("MMM DD, YYYY");
-            blogs[i].pubDate = date;
+            /** date in MMM DD, YYYY format */
+            blogs[i].pubDate = new Date(blogs[i].pubDate).toLocaleDateString(
+              "en-US",
+              {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              }
+            );
           }
 
           blogs = blogs.slice(0, 3);

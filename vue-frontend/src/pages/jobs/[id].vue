@@ -101,7 +101,6 @@ import { mapState } from "pinia";
 import { mapActions } from "pinia";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
-import moment from "moment";
 
 import {
   faCheckCircle,
@@ -208,7 +207,7 @@ export default {
             unitText: "MONTH",
           },
         },
-        datePosted: dates.jobPosted,
+        datePosted: dates.datePosted,
         description: this.getDescriptionForGoogleSchema(),
         educationRequirements: {
           "@type": "EducationalOccupationalCredential",
@@ -294,23 +293,40 @@ export default {
       var maxDays = 15;
 
       // current month day
-      var currentDay = moment().format("DD");
+      const currentDay = new Date().getDate();
 
-      // start date of current month
-      var startDateOfMonth = moment().startOf("month").add(-2, "days");
+      // get start day of month and subtract two days
+      const cDate = new Date();
+      const startDateOfMonth = new Date(
+        cDate.getFullYear(),
+        cDate.getMonth(),
+        1
+      );
+      startDateOfMonth.setDate(startDateOfMonth.getDate() - 2);
 
-      var postedDate =
+      // if today date is <= 15 then jobPosted is startDateOfMonth, otherwise it's 15
+      var jobPosted =
         currentDay <= maxDays
           ? startDateOfMonth
-          : startDateOfMonth.add(maxDays, "days");
+          : new Date(
+              startDateOfMonth.setDate(startDateOfMonth.getDate() + maxDays)
+            );
 
-      var jobPosted = postedDate.format("YYYY-MM-DD");
+      const datePosted = jobPosted.toISOString().split("T")[0];
 
-      var validThrough = postedDate
-        .add(maxDays + 5, "days")
-        .format("YYYY-MM-DDT00:00");
+      // YYYY-MM-DDT00:00
+      const validThrough =
+        new Date(jobPosted.setDate(jobPosted.getDate() + maxDays + 5))
+          .toISOString()
+          .split("T")[0] + "T00:00";
 
-      return { jobPosted, validThrough };
+      return { datePosted, validThrough };
+    },
+    formatDate(date) {
+      // YYYY-MM-DD
+      return (
+        date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+      );
     },
     closeErrorMessageModal() {
       this.$router.push({

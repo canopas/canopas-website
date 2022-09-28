@@ -148,10 +148,6 @@ Following are dependencies used by the project
 
 - [GSAP](https://greensock.com/docs/) provides animation plugins in large quantity. We have used it for Bongo-Cat animation.
 
-#### [Moment](https://github.com/moment/moment)
-
-- It is used for time and date functionality.
-
 #### [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 
 - Used for icons.
