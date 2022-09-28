@@ -322,12 +322,6 @@ export default {
 
       return { datePosted, validThrough };
     },
-    formatDate(date) {
-      // YYYY-MM-DD
-      return (
-        date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
-      );
-    },
     closeErrorMessageModal() {
       this.$router.push({
         path: `/jobs`,
