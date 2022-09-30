@@ -41,11 +41,15 @@
                 class="tw-w-full tw-py-3 tw-px-0 tw-my-2 tw-mx-0 tw-box-border tw-border-b tw-border-slate-400 tw-rounded-none focus:tw-box-border focus:tw-border-b focus:tw-border-slate-400 focus:tw-outline-none placeholder:tw-text-slate-400 v2-normal-text"
                 name="project"
                 rows="1"
+                required
                 autocomplete="given-project-info"
                 v-model="projectInfo"
                 :disabled="disableInput"
                 placeholder="Tell us about your project"
               ></textarea>
+              <span v-if="showValidationError" class="error tw-text-red-600"
+                >This field is required</span
+              >
             </div>
             <div class="md:tw-col-span-2 tw-pt-1 lg:tw-pt-8">
               <input
@@ -79,7 +83,12 @@
                   :disabled="disableInput"
                 />
                 <div
-                  class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
+                  :class="
+                    contactType == 2
+                      ? 'hover:tw-text-black-900 tw-bg-black-900 tw-text-white hover:tw-bg-white'
+                      : 'hover:tw-text-white  hover:tw-bg-black-900 '
+                  "
+                  class="v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
                 >
                   <font-awesome-icon
                     class="-tw-rotate-45 tw-w-6 tw-h-6"
@@ -100,7 +109,12 @@
                   :disabled="disableInput"
                 />
                 <div
-                  class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 hover:tw-bg-black-900 active:tw-scale-[0.98]"
+                  :class="
+                    contactType == 1
+                      ? 'hover:tw-text-black-900 tw-bg-black-900 tw-text-white hover:tw-bg-white'
+                      : 'hover:tw-text-white  hover:tw-bg-black-900 '
+                  "
+                  class="v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 active:tw-scale-[0.98]"
                 >
                   <font-awesome-icon
                     class="fa tw-w-6 tw-h-6"
@@ -112,40 +126,41 @@
               >
             </div>
           </div>
-
-          <div v-if="showLoader" class="tw-flex tw-py-5 lg:tw-py-16">
-            <img :src="loaderImage" />
-          </div>
-          <div v-else>
-            <div
-              class="tw-py-5 lg:tw-py-8 v2-normal-3-text tw-flex tw-justify-center"
-            >
-              <button
-                id="submit"
-                v-if="contactType == 1"
-                ref="recaptcha"
-                class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
-                @click.prevent="submitForm()"
-              >
-                <font-awesome-icon
-                  class="fa tw-w-6 tw-h-6"
-                  :icon="planeIcon"
-                  aria-hidden="true"
-                />
-                <span>Submit</span>
-              </button>
-              <button
-                v-if="contactType == 2"
-                class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
-                @click.prevent="submitForm()"
-              >
-                <font-awesome-icon
-                  class="fa tw-w-6 tw-h-6"
-                  :icon="calendarIcon"
-                  aria-hidden="true"
-                />
-                <span>Schedule Meeting</span>
-              </button>
+          <div class="tw-py-5 lg:tw-py-8 tw-flex tw-justify-center">
+            <img
+              v-if="showLoader"
+              :src="loaderImage"
+              class="tw-w-[64px] tw-h-[64px]"
+            />
+            <div v-else>
+              <div class="v2-normal-3-text">
+                <button
+                  id="submit"
+                  v-if="contactType == 1"
+                  ref="recaptcha"
+                  class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
+                  @click.prevent="submitForm()"
+                >
+                  <font-awesome-icon
+                    class="fa tw-w-6 tw-h-6"
+                    :icon="planeIcon"
+                    aria-hidden="true"
+                  />
+                  <span>Submit</span>
+                </button>
+                <button
+                  v-if="contactType == 2"
+                  class="gradient-btn tw-py-4 tw-px-8 tw-m-0"
+                  @click.prevent="submitForm()"
+                >
+                  <font-awesome-icon
+                    class="fa tw-w-6 tw-h-6"
+                    :icon="calendarIcon"
+                    aria-hidden="true"
+                  />
+                  <span>Schedule Meeting</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -297,7 +312,12 @@ export default {
   },
   methods: {
     submitForm() {
-      if (this.name === "" || this.email === "" || this.reference === "") {
+      if (
+        this.name === "" ||
+        this.email === "" ||
+        this.projectInfo === "" ||
+        this.reference === ""
+      ) {
         this.showValidationError = true;
       } else {
         this.disableInput = true;
@@ -368,7 +388,7 @@ export default {
       this.showSuccessMessagePopup = true;
       setTimeout(() => {
         this.$router.push("/");
-      }, 2000);
+      }, 3500);
     },
   },
 };
