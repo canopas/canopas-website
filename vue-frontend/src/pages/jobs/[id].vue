@@ -369,6 +369,9 @@ export default {
 :deep(ul > li) {
   @apply tw-flex tw-items-baseline;
 }
+:deep(ul > li > a > svg) {
+  @apply tw-flex tw-items-center;
+}
 
 :deep(h2) {
   @apply tw-flex tw-flex-row tw-mt-[48px] tw-mx-0 tw-mb-[16px];
