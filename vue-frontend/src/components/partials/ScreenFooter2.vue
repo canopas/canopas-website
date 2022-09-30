@@ -27,29 +27,16 @@
         </div>
 
         <ul
-          class="tw-my-0 tw-mx-1 tw-w-full tw-h-full tw-cursor-pointer tw-list-none tw-flex tw-flex-wrap sm:tw-flex-nowrap"
+          class="tw-my-0 tw-mx-1 tw-cursor-pointer tw-list-none tw-flex tw-flex-wrap sm:tw-flex-nowrap"
         >
           <li
-            class="sm:tw-w-[50px] sm:tw-h-[50px] sm:tw-mb-0"
+            class="sm:tw-w-[50px] sm:tw-h-[50px] sm:tw-mb-0 tw-w-[50px] tw-h-[50px] sm:tw-mb-0 gradient-btn sm:tw-my-0 tw-mx-1 tw-cursor-pointer tw-rounded-[50%] tw-pt-2"
             v-for="socialMedia in socialMediaIcons"
             :key="socialMedia"
-            :class="
-              socialMedia.image
-                ? ' tw-mt-[20px] sm:tw-my-0 tw-mx-1 tw-w-[50px] tw-h-[50px] tw-cursor-pointer'
-                : ' gradient-btn sm:tw-my-0  tw-mx-1 tw-w-[50px] tw-h-[50px] tw-cursor-pointer tw-rounded-[50%] tw-p-[0.7rem] '
-            "
           >
             <a :href="socialMedia.url" target="_blank">
-              <img
-                class="active:tw-scale-[0.98] tw-h-full tw-w-full"
-                v-if="socialMedia.image"
-                :src="hover ? designRushHover : designRush"
-                @mouseover="hover = true"
-                @mouseleave="hover = false"
-              />
               <font-awesome-icon
-                v-else
-                class="fab tw-h-full tw-w-full"
+                class="fab tw-w-[23px] tw-h-[25px] tw--ml-1 tw-mt-1"
                 :icon="socialMedia.icon"
               />
             </a>
@@ -72,8 +59,6 @@
 <script type="module">
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import designRush from "@/assets/images/footer/design-rush.svg";
-import designRushHover from "@/assets/images/footer/design-rush-hover.svg";
 
 import {
   faFacebookF,
@@ -92,8 +77,7 @@ export default {
       glassdoorLink:
         "https://www.glassdoor.co.in/Overview/Working-at-Canopas-EI_IE3194462.11,18.htm",
       copyrightIcon: faCopyright,
-      designRush: designRush,
-      designRushHover: designRushHover,
+
       hover: false,
       socialMediaIcons: [
         {
@@ -119,10 +103,6 @@ export default {
         {
           url: Config.YOUTUBE_URL,
           icon: faYoutube,
-        },
-        {
-          url: Config.DESIGNRUSH_URL,
-          image: true,
         },
       ],
       isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,
