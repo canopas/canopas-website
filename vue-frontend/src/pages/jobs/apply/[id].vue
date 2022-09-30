@@ -554,7 +554,7 @@ export default {
                 this.showSuccessMessagePopup = true;
                 setTimeout(() => {
                   this.$router.push("/jobs");
-                }, 2000);
+                }, 3500);
               })
               .catch((err) => {
                 this.isLoad = false;
