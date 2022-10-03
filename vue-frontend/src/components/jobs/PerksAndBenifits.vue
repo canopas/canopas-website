@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-container tw-my-[100px] tw-mx-auto tw-py-0 tw-px-[10%] only:md:tw-max-w-[760px] md:tw-p-0"
+    class="tw-container tw-my-[100px] tw-mx-auto tw-py-0 tw-px-[5%] sm:tw-px-[10%] only:md:tw-max-w-[760px] md:tw-p-0"
   >
     <div class="tw-text-center">
       <div class="header-text canopas-gradient-text">
@@ -20,7 +20,8 @@
       <div
         v-for="perk in perks"
         :key="perk.id"
-        class="flex-elements tw-p-[20px] xs:even:tw-py-[10px] xs:even:tw-px-[40px] md:tw-flex-[30%] md:tw-p-[10px] md:even:tw-py-[10px] md:even:tw-px-[10px] lg:tw-p-[20px] lg:even:tw-p-[20px]"
+        class="flex-elements tw-p-[20px] even:tw-px-[30px] sm:even:tw-px-[40px] md:tw-flex-[30%] md:tw-p-[10px] md:even:tw-py-[10px] md:even:tw-px-[10px] lg:tw-p-[20px] lg:even:tw-p-[20px]"
+        :class="isMobile ? 'even:tw-py-[10px] even:tw-px-[40px]' : ''"
       >
         <aspect-ratio
           height="120%"
@@ -38,9 +39,11 @@
           v-else
           :height="isMobile ? '120%' : '100%'"
           :style="{ backgroundColor: perk.bgColor }"
+          class="tw-rounded-[10px]"
         >
           <div
-            class="details tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-p-[16px] xs:tw-p-[40px] md:tw-p-[16px] lg:tw-p-[30px] xl:tw-p-[40px]"
+            class="details tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-p-[16px] sm:tw-p-[30px] md:tw-p-[16px] lg:tw-p-[30px] xl:tw-p-[40px]"
+            :class="isMobile ? 'tw-p-[40px]' : ''"
           >
             <div
               class="normal-2-text tw-flex-none title tw-inline-flex tw-items-center tw-text-black-900 tw-font-bold"
@@ -223,7 +226,7 @@ export default {
     AspectRatio,
   },
   mounted() {
-    if (window.innerWidth >= 768 && window.innerWidth <= 992) {
+    if (window.innerWidth >= 768 && window.innerWidth < 992) {
       this.isMobile = true;
     }
   },
