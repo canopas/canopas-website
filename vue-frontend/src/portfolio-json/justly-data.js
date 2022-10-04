@@ -71,7 +71,7 @@ export default {
       alt: "justly-background-image",
     },
     video: {
-      title: "The Problem",
+      title: "About",
       description:
         "Justly - A startup to help people improve their daily life by creating new habits. Habits are the core of any change people want to make in their lives. Inspired by the atomic habits book, the startup wanted to create a product that helps people focus on progress instead of goals and talents. The project is in the development mode and the habit module is live on both app stores.",
       buttons: [
@@ -212,8 +212,8 @@ export default {
       ],
       alt: "justly-habit-tracker-screens",
       responsiveImages: true,
-      title: config.IS_SHOW_PORTFOLIO_PAGES ? "Smile+" : "Luxe Radio",
-      url: config.IS_SHOW_PORTFOLIO_PAGES ? "smileplus" : "luxeradio",
+      title: config.SHOW_SMILEPLUS_PORTFOLIO ? "Smile+" : "Luxe Radio",
+      url: config.SHOW_SMILEPLUS_PORTFOLIO ? "smileplus" : "luxeradio",
     },
   },
 };
