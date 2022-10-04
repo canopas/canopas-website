@@ -13,16 +13,15 @@
             class="v2-normal-text tw-font-light"
             v-html="response.solution.description"
           ></div>
-          <div class="tw-pt-16">
-            <a
+
+          <div class="tw-flex tw-w-fit sm:tw-flex-row tw-pt-16">
+            <div
               v-for="button in response.solution.buttons"
               :key="button"
-              class="tw-pr-10 is-animation-tab tw-inline-block tw-relative v2-normal-2-text hover:tw-text-black-900 after:tw-absolute after:tw-w-1/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
-              :href="button.link"
-              target="_blank"
+              class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-4 md:tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98] tw-mr-8"
             >
-              {{ button.name }}
-            </a>
+              <a target="_blank" :href="button.link">{{ button.name }}</a>
+            </div>
           </div>
         </div>
       </div>

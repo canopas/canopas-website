@@ -93,11 +93,11 @@ export default {
       buttons: [
         {
           name: "Play Store",
-          link: "https://play.google.com/store/apps/details?id=app.luxeradio.ma",
+          link: "https://play.google.com/store/apps/details?id=co.udini.smileplus",
         },
         {
           name: "App Store",
-          link: "https://apps.apple.com/ma/app/luxe-radio/id1073120504",
+          link: "https://apps.apple.com",
         },
       ],
 
