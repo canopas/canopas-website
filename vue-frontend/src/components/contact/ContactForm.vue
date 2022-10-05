@@ -85,10 +85,10 @@
                 <div
                   :class="
                     contactType == 2
-                      ? 'hover:tw-text-black-900 tw-bg-black-900 tw-text-white hover:tw-bg-white'
-                      : 'hover:tw-text-white  hover:tw-bg-black-900 '
+                      ? 'tw-bg-black-900 tw-text-white'
+                      : 'hover:tw-text-white hover:tw-bg-black-900 tw-bg-white tw-text-black-900'
                   "
-                  class="v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
+                  class="tw-cursor-pointer v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
                 >
                   <font-awesome-icon
                     class="-tw-rotate-45 tw-w-6 tw-h-6"
@@ -111,10 +111,10 @@
                 <div
                   :class="
                     contactType == 1
-                      ? 'hover:tw-text-black-900 tw-bg-black-900 tw-text-white hover:tw-bg-white'
-                      : 'hover:tw-text-white  hover:tw-bg-black-900 '
+                      ? 'tw-bg-black-900 tw-text-white'
+                      : 'hover:tw-text-white hover:tw-bg-black-900 tw-text-black-900 tw-bg-white'
                   "
-                  class="v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 active:tw-scale-[0.98]"
+                  class="tw-cursor-pointer v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 active:tw-scale-[0.98]"
                 >
                   <font-awesome-icon
                     class="fa tw-w-6 tw-h-6"
