@@ -6,7 +6,9 @@
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Life a</span>t Canopas
       </div>
-      <div class="description tw-mx-auto tw-my-[30px] md:tw-my-[50px]">
+      <div
+        class="description tw-my-[30px] tw-mx-[10px] md:tw-my-[50px] md:tw-mx-[80px] normal-text 2xxl:tw-mx-56"
+      >
         We wanted to create an environment that helps you get out of bed in the
         morning and an office that creates excellent work and encourages fun. As
         we play the infinite game, it is not about winning or losing, it's about

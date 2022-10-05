@@ -150,7 +150,7 @@
                 class="tw-mb-8 reference-input"
               >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input tw-pl-0"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] sm:tw-text-[1.125rem] tw-text-[1rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] tw-pl-4 focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
                   type="text"
                   name="referenceby"
                   autocomplete="given-reference-name"

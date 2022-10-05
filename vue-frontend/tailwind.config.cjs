@@ -12,6 +12,7 @@ module.exports = {
         lg: "992px",
         xl: "1200px",
         "2xl": "1400px",
+        "2xxl": "1600px",
         "3xl": "3840px",
         "4xl": "5000px",
         "hover-hover": { raw: "(hover: hover) and (pointer: fine)" },
