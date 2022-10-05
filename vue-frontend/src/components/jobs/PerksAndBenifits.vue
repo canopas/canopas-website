@@ -51,7 +51,7 @@
               <img :src="perk.icon" loading="lazy" :alt="perk.alt" />
               <span class="tw-ml-[10px]">{{ perk.title }}</span>
             </div>
-            <div class="normal-2-text text-center tw-flex-none tw-mt-[10px]">
+            <div class="normal-2-text tw-text-center tw-flex-none tw-mt-[10px]">
               <div v-html="perk.description" @click="scrollToCareer"></div>
             </div>
           </div>
