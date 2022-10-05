@@ -88,7 +88,7 @@ You can access the page by pointing a web browser at http://localhost:8080.
   go mod tidy
   ```
 
-### For writing unit tests :
+### For writing unit tests in golang :
 
 - cd to package for which, you want to write test.
 
@@ -132,9 +132,9 @@ Following are dependencies used by the project
 
 - It is frontend build tool that significantly improves the frontend development experience. We have used it for server side rendering. 
 
-#### [Bootstrap](https://github.com/twbs/bootstrap)
+#### [Tailwind CSS](https://tailwindcss.com/)
 
-- As it provides extra feature of css, it is easy for us to create enhance UI for better user experience.
+- A utility-first CSS framework packed with classes like flex, pt-4, my-4 and text-center that can be composed to build any design, directly in your markup.
 
 #### [Swiper](https://github.com/nolimits4web/swiper)
 
