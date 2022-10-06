@@ -11,6 +11,7 @@
       </div>
       <div class="tw-mt-8 md:tw-mt-20 lg:tw-mt-40">
         <div
+          ref="service1"
           class="tw-flex tw-flex-wrap tw-m-auto md:tw-mt-20 md:tw-mx-auto md:tw-mb-auto lg:even:tw-w-[70%]"
         >
           <div
@@ -41,6 +42,7 @@
           </div>
         </div>
         <div
+          ref="service2"
           class="tw-flex tw-flex-wrap tw-m-auto md:tw-mt-20 md:tw-mx-auto md:tw-mb-auto lg:even:tw-w-[70%]"
         >
           <div
@@ -85,6 +87,7 @@ import designing from "@/assets/images/phases/canopas_phases_designing.gif";
 import development from "@/assets/images/phases/canopas_phases_development.gif";
 import marketing from "@/assets/images/phases/canopas_phases_marketing.gif";
 import support from "@/assets/images/phases/canopas_phases_support.gif";
+import { analyticsEvent } from "@/utils.js";
 
 export default {
   data() {
@@ -126,10 +129,26 @@ export default {
             "From bug fixing to feature updates, you can count on us. For the last 7 years, our clients had a 99.87% uptime for their products.",
         },
       ],
+      event: "",
     };
   },
   components: {
     AspectRatio,
+  },
+  mounted() {
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
   },
 };
 </script>

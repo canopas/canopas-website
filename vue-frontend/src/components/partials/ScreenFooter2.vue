@@ -11,7 +11,10 @@
       class="tw-container tw-text-center tw-flex tw-flex-col tw-items-center"
     >
       <div class="tw-mb-16 xl:tw-mb-24" v-if="isJobsUrl">
-        <a :href="glassdoorLink">
+        <a
+          :href="glassdoorLink"
+          @click.native="$gtag.event('tap_glassdoor_review')"
+        >
           <img
             src="@/assets/images/footer/glassdoor.webp"
             class="tw-w-4/5 sm:tw-w-4/5 tw-h-full"
@@ -34,7 +37,11 @@
             v-for="socialMedia in socialMediaIcons"
             :key="socialMedia"
           >
-            <a :href="socialMedia.url" target="_blank">
+            <a
+              :href="socialMedia.url"
+              target="_blank"
+              @click.native="$gtag.event(socialMedia.event)"
+            >
               <font-awesome-icon
                 class="fab tw-w-[23px] tw-h-[25px] tw--ml-1 tw-mt-1"
                 :icon="socialMedia.icon"
@@ -83,26 +90,32 @@ export default {
         {
           url: Config.FACEBOOK_URL,
           icon: faFacebookF,
+          event: this.isJobsUrl ? "tap_jobs_facebook" : "tap_home_facebook",
         },
         {
           url: Config.INSTAGRAM_URL,
           icon: faInstagram,
+          event: this.isJobsUrl ? "tap_jobs_instagram" : "tap_home_instagram",
         },
         {
           url: Config.TWITTER_URL,
           icon: faTwitter,
+          event: this.isJobsUrl ? "tap_jobs_twitter" : "tap_home_twitter",
         },
         {
           url: Config.BLOG_URL,
           icon: faMediumM,
+          event: this.isJobsUrl ? "tap_jobs_medium" : "tap_home_medium",
         },
         {
           url: Config.LINKEDIN_URL,
           icon: faLinkedinIn,
+          event: this.isJobsUrl ? "tap_jobs_linkedin" : "tap_home_linkedin",
         },
         {
           url: Config.YOUTUBE_URL,
           icon: faYoutube,
+          event: this.isJobsUrl ? "tap_jobs_youtube" : "tap_home_youtube",
         },
       ],
       isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,

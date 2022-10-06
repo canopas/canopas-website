@@ -25,6 +25,7 @@
             <router-link
               class="gradient-btn tw-rounded-[2rem] tw-flex tw-items-center hover:tw-shadow-4xl"
               :to="contactURL"
+              @click.native="$gtag.event('tap_home_page_end_cta_call')"
             >
               <font-awesome-icon
                 class="fa v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white"
@@ -46,6 +47,7 @@
             <router-link
               class="gradient-btn tw-rounded-[2rem] tw-flex tw-items-center hover:tw-shadow-4xl"
               :to="contactURL"
+              @click.native="$gtag.event('tap_home_page_end_cta_mail')"
             >
               <font-awesome-icon
                 class="fa v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white"

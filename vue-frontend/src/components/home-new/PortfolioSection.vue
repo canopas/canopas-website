@@ -9,6 +9,7 @@
       <div
         v-for="portfolio in portfolios"
         :key="portfolio"
+        ref="portfolios"
         class="tw-flex tw-flex-col tw-items-center md:odd:tw-flex-row md:even:tw-flex-row-reverse tw-mt-6"
       >
         <div class="tw-w-full md:tw-w-6/12 lg:tw-w-[45%]">
@@ -34,6 +35,7 @@
               v-if="!portfolio.target"
               :to="portfolio.link"
               class="v2-normal-2-text v2-button tw-flex tw-items-center tw-w-fit"
+              @click.native="$gtag.event(portfolio.event)"
             >
               <span class="tw-mr-2.5">VIEW</span>
               <font-awesome-icon
@@ -47,6 +49,7 @@
               class="v2-normal-2-text v2-button tw-flex tw-items-center tw-w-fit"
               :href="portfolio.link"
               target="_blank"
+              @click.native="$gtag.event(portfolio.event)"
             >
               <span class="tw-mr-2.5">VIEW</span>
               <font-awesome-icon
@@ -81,6 +84,8 @@ import togness1200w from "@/assets/images/portfolio/togness-1200w.webp";
 import togness16000w from "@/assets/images/portfolio/togness-1600w.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import config from "@/config.js";
+import { analyticsEvent } from "@/utils.js";
+
 export default {
   data() {
     return {
@@ -97,6 +102,7 @@ export default {
             "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
           link: "/portfolio/luxeradio",
           target: false,
+          event: "tap_home_luxe_radio_portfolio",
         },
         {
           images: [togness400w, togness800w, togness1200w, togness16000w],
@@ -106,6 +112,7 @@ export default {
             "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
           link: "/portfolio/togness",
           target: false,
+          event: "tap_home_togness_portfolio",
         },
         {
           images: [justly400w, justly800w, justly1200w, justly16000w],
@@ -114,6 +121,7 @@ export default {
             "Justly is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
           link: "/portfolio/justly",
           target: false,
+          event: "tap_home_justly_portfolio",
         },
         {
           images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
@@ -124,17 +132,32 @@ export default {
             ? "/portfolio/smileplus"
             : config.SMILEPLUS_URL,
           target: config.SHOW_SMILEPLUS_PORTFOLIO ? false : true,
+          event: "tap_home_smile_portfolio",
         },
       ],
+      event: "",
     };
   },
   components: {
     FontAwesomeIcon,
   },
   mounted() {
+    window.addEventListener("scroll", this.sendEvent);
     if (window.innerWidth < 768) {
       this.portfolios[0].image = mobileLuxeradio;
     }
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
   },
 };
 </script>
