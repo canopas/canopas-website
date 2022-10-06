@@ -42,6 +42,7 @@
             <router-link
               class="v2-normal-3-text active:tw-scale-[0.98] tw-flex tw-items-center tw-py-4 tw-px-[1.1rem] tw-bg-black-900 tw-text-white hover:tw-bg-transparent hover:tw-text-black-900 tw-rounded-[3rem] tw-text-center tw-border-[1px] tw-border-solid tw-border-[#3d3d3d]"
               :to="contactURL"
+              @click.native="$gtag.event('tap_ad_budget_cta')"
             >
               <span class="tw-mr-2.5">Start your free trial</span>
               <font-awesome-icon
