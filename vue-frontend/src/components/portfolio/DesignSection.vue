@@ -1,7 +1,7 @@
 <template>
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative tw-container">
-      <div>
+      <div :ref="response[0].designref ? response[0].designref : ''">
         <div
           class="tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
         >
@@ -22,7 +22,10 @@
     </div>
   </section>
 
-  <section class="image tw-relative tw-z-[-1]">
+  <section
+    class="image tw-relative tw-z-[-1]"
+    :ref="response[0].designref1 ? response[0].designref1 : ''"
+  >
     <aspect-ratio
       :height="isMobile ? '100%' : '56.26%'"
       class="tw-overflow-hidden"
@@ -43,7 +46,8 @@
 
   <section v-if="response[0].subTitle" class="tw-bg-white">
     <div
-      class="tw-container tw-flex tw-flex-col tw-justify-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
+      class="tw-container tw-flex tw-flex-col tw-justifys-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
+      :ref="response[0].subTitle ? response[0].designref2 : ''"
     >
       <div class="v2-normal-text tw-font-bold">
         {{ response[0].subTitle }}
@@ -58,7 +62,7 @@
   </section>
 
   <section class="tw-bg-white tw-relative" v-if="response[1]">
-    <div class="tw-relative">
+    <div class="tw-relative" :ref="response[1].designref">
       <div
         class="tw-container tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-flex-row"
       >
@@ -90,12 +94,14 @@
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import LottieAnimation from "@/components/utils/LottieAnimation.vue";
+import { analyticsEvent } from "@/utils.js";
 export default {
   props: ["json"],
   data() {
     return {
       isMobile: false,
       response: this.json,
+      event: "",
     };
   },
   watch: {
@@ -111,6 +117,19 @@ export default {
     if (window.innerWidth < 768) {
       this.isMobile = true;
     }
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
   },
 };
 </script>

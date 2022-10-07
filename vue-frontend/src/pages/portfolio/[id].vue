@@ -16,7 +16,7 @@
       <DesignSection v-bind:json="details.design" />
       <ElementSection v-bind:json="details.element" />
       <FooterSection v-bind:json="details.footer" />
-      <CTASection />
+      <CTASection :ref="ctaRef" />
     </div>
   </div>
   <div v-else><ErrorPage /></div>
@@ -34,9 +34,9 @@ import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/portfolio-json/luxeradio-data.js";
 import justlyResponse from "@/portfolio-json/justly-data.js";
 import tognessResponse from "@/portfolio-json/togness-data.js";
-import smileplusResponse from "@/portfolio-json/smileplus-data.js";
 import ErrorPage from "@/components/error404/index.vue";
 import { useMeta } from "vue-meta";
+import { analyticsEvent } from "@/utils.js";
 
 export default {
   setup() {
@@ -53,6 +53,8 @@ export default {
     return {
       details: "",
       response: null,
+      event: "",
+      ctaRef: null,
     };
   },
   watch: {
@@ -69,6 +71,10 @@ export default {
   },
   mounted() {
     this.$gtag.event("view_page_portfolio");
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
   },
   updated() {
     this.scrollToTop();
@@ -78,18 +84,17 @@ export default {
       switch (id) {
         case luxeradioResponse.name:
           this.response = luxeradioResponse;
+          this.ctaRef = "luxepagecta";
           break;
 
         case justlyResponse.name:
           this.response = justlyResponse;
+          this.ctaRef = "tognesspagecta";
           break;
 
         case tognessResponse.name:
           this.response = tognessResponse;
-          break;
-
-        case smileplusResponse.name:
-          this.response = smileplusResponse;
+          this.ctaRef = "justlypagecta";
           break;
       }
 
@@ -99,6 +104,13 @@ export default {
         this.meta.description = this.response.seoData.description;
         this.meta.og.title = this.response.seoData.title;
         this.meta.og.url = this.response.seoData.url;
+      }
+    },
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
       }
     },
     scrollToTop() {

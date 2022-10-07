@@ -90,32 +90,32 @@ export default {
         {
           url: Config.FACEBOOK_URL,
           icon: faFacebookF,
-          event: this.isJobsUrl ? "tap_jobs_facebook" : "tap_home_facebook",
+          event: "tap_facebook",
         },
         {
           url: Config.INSTAGRAM_URL,
           icon: faInstagram,
-          event: this.isJobsUrl ? "tap_jobs_instagram" : "tap_home_instagram",
+          event: "tap_instagram",
         },
         {
           url: Config.TWITTER_URL,
           icon: faTwitter,
-          event: this.isJobsUrl ? "tap_jobs_twitter" : "tap_home_twitter",
+          event: "tap_twitter",
         },
         {
           url: Config.BLOG_URL,
           icon: faMediumM,
-          event: this.isJobsUrl ? "tap_jobs_medium" : "tap_home_medium",
+          event: "tap_medium",
         },
         {
           url: Config.LINKEDIN_URL,
           icon: faLinkedinIn,
-          event: this.isJobsUrl ? "tap_jobs_linkedin" : "tap_home_linkedin",
+          event: "tap_linkedin",
         },
         {
           url: Config.YOUTUBE_URL,
           icon: faYoutube,
-          event: this.isJobsUrl ? "tap_jobs_youtube" : "tap_home_youtube",
+          event: "tap_youtube",
         },
       ],
       isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,

@@ -59,6 +59,7 @@ export default {
   },
   detail: {
     landing: {
+      landingref1: "justlylanding",
       title: "Justly",
       subTitle: "Overcome loneliness and depression by building healthy habits",
       responsiveImages: true,
@@ -68,9 +69,11 @@ export default {
         landingBackground1400w,
         landingBackground2400w,
       ],
+      landingref2: "justlybanner",
       alt: "justly-background-image",
     },
     video: {
+      ref: "justlyvideo",
       title: "About",
       description:
         "Justly - A startup to help people improve their daily life by creating new habits. Habits are the core of any change people want to make in their lives. Inspired by the atomic habits book, the startup wanted to create a product that helps people focus on progress instead of goals and talents. The project is in the development mode and the habit module is live on both app stores.",
@@ -78,10 +81,12 @@ export default {
         {
           name: "Play Store",
           link: "https://play.google.com/store/apps/details?id=com.canopas.nolonely",
+          event: "tap_justly_play_store",
         },
         {
           name: "App Store",
           link: "https://apps.apple.com/us/app/nolonely/id1570951174",
+          event: "tap_justly_app_store",
         },
       ],
       backgroundImage: "",
@@ -129,8 +134,10 @@ export default {
         brandingBackground1400w,
         brandingBackground2400w,
       ],
+      brandingref: "justlyparallax1",
       alt: "justly-branding-screen",
       details: {
+        ref: "justlyui1",
         gridData1: [
           {
             id: 1,
@@ -188,6 +195,7 @@ export default {
     },
     design: [
       {
+        designref: "justlyfeedback1",
         title: `<span class="border-text">WHY</span> habits are so important?`,
         description:
           "Because it's the portion of your life you can influence to achieve your goals or desired outcome. It helps you build a system that increases the likelihood of your success or achieving goals.",
@@ -204,6 +212,7 @@ export default {
     },
 
     footer: {
+      ref: "justlyparallax2",
       backgroundImage: [
         footerBackground400w,
         footerBackground800w,
@@ -212,8 +221,9 @@ export default {
       ],
       alt: "justly-habit-tracker-screens",
       responsiveImages: true,
-      title: config.SHOW_SMILEPLUS_PORTFOLIO ? "Smile+" : "Luxe Radio",
-      url: config.SHOW_SMILEPLUS_PORTFOLIO ? "smileplus" : "luxeradio",
+      title: "Luxe Radio",
+      url: "luxeradio",
+      event: "tap_next_project_luxe",
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-bg-white tw-relative">
+  <section class="tw-bg-white tw-relative" :ref="response.ref">
     <div class="tw-relative tw-container">
       <img
         v-if="response.backgroundImage[3]"
@@ -31,7 +31,12 @@
               :key="button"
               class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
             >
-              <a target="_blank" :href="button.link">{{ button.name }}</a>
+              <a
+                target="_blank"
+                :href="button.link"
+                @click.native="$gtag.event(button.event)"
+                >{{ button.name }}</a
+              >
             </div>
           </div>
         </div>
@@ -187,7 +192,7 @@
   </section>
 
   <section v-if="response.solution" class="tw-bg-white tw-relative">
-    <div class="tw-container">
+    <div class="tw-container" :ref="response.solution.ref">
       <div
         class="tw-flex tw-flex-col tw-justify-between tw-pt-40 lg:tw-flex-row lg:tw-pt-80"
       >
@@ -208,7 +213,12 @@
               :key="button"
               class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
             >
-              <a target="_blank" :href="button.link">{{ button.name }}</a>
+              <a
+                target="_blank"
+                :href="button.link"
+                @click.native="$gtag.event(button.event)"
+                >{{ button.name }}</a
+              >
             </div>
           </div>
         </div>
@@ -221,6 +231,7 @@
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { analyticsEvent } from "@/utils.js";
 
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -232,6 +243,7 @@ export default {
       backgroundColor: "",
       isShowSliderInMobile: false,
       response: this.json,
+      event: "",
     };
   },
   watch: {
@@ -248,11 +260,22 @@ export default {
     if (window.innerWidth <= 992) {
       this.isShowSliderInMobile = true;
     }
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
   },
   methods: {
     onSlideChange(swiper) {
       this.backgroundColor =
         this.response.slider[swiper.realIndex].backgroundColor;
+    },
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
     },
   },
 };

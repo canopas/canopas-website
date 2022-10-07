@@ -25,7 +25,7 @@
             <router-link
               class="gradient-btn tw-rounded-[2rem] tw-flex tw-items-center hover:tw-shadow-4xl"
               :to="contactURL"
-              @click.native="$gtag.event('tap_home_page_end_cta_call')"
+              @click.native="$gtag.event(callEvent)"
             >
               <font-awesome-icon
                 class="fa v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white"
@@ -47,7 +47,7 @@
             <router-link
               class="gradient-btn tw-rounded-[2rem] tw-flex tw-items-center hover:tw-shadow-4xl"
               :to="contactURL"
-              @click.native="$gtag.event('tap_home_page_end_cta_mail')"
+              @click.native="$gtag.event(mailEvent)"
             >
               <font-awesome-icon
                 class="fa v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white"
@@ -132,6 +132,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import backgroundImage from "@/assets/images/theme/cta-background.webp";
+import { throwStatement } from "@babel/types";
 
 export default {
   data() {
@@ -141,10 +142,30 @@ export default {
       currentRoutePath: this.$router.currentRoute._value.path,
       backgroundImage: backgroundImage,
       contactURL: "/contact",
+      currentPath: this.$router.currentRoute._value.path,
+      callEvent: "tap_home_page_end_cta_call",
+      mailEvent: "tap_portfolio_page_end_cta_mail",
     };
   },
   components: {
     FontAwesomeIcon,
+  },
+  mounted() {
+    this.setEvent();
+  },
+  methods: {
+    setEvent() {
+      if (this.currentPath == "/") {
+        this.callEvent = "tap_home_page_end_cta_call";
+        this.mailEvent = "tap_home_page_end_cta_mail";
+      } else if (this.currentPath == "/portfolio") {
+        this.callEvent = "tap_portfolio_page_end_cta_call";
+        this.mailEvent = "tap_portfolio_page_end_cta_mail";
+      } else {
+        this.callEvent = "tap_" + this.$route.params.id + "_page_end_cta_call";
+        this.mailEvent = "tap_" + this.$route.params.id + "_page_end_cta_mail";
+      }
+    },
   },
 };
 </script>

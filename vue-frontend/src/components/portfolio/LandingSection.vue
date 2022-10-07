@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-bg-white">
+  <section class="tw-bg-white" :ref="response.landingref1">
     <div
       class="tw-container tw-pt-20 tw-pb-40 sm:tw-pt-32 lg:tw-pb-80 lg:tw-pt-60"
     >
@@ -12,7 +12,10 @@
     </div>
   </section>
 
-  <section class="background-image tw-relative tw-z-[-1]">
+  <section
+    class="background-image tw-relative tw-z-[-1]"
+    :ref="response.landingref2"
+  >
     <aspect-ratio :height="isMobile ? '100%' : '56.26%'">
       <img
         :src="response.backgroundImage[3]"
@@ -26,6 +29,7 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
+import { analyticsEvent } from "@/utils.js";
 
 export default {
   props: ["json"],
@@ -33,6 +37,7 @@ export default {
     return {
       isMobile: false,
       response: this.json,
+      event: "",
     };
   },
   watch: {
@@ -47,6 +52,19 @@ export default {
     if (window.innerWidth < 768) {
       this.isMobile = true;
     }
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
   },
 };
 </script>
