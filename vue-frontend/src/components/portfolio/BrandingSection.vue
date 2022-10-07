@@ -3,6 +3,7 @@
     <div
       v-if="response.solution"
       class="tw-container tw-py-40 lg:tw-py-80 tw-relative"
+      :ref="response.solution.ref"
     >
       <div class="tw-flex tw-flex-col tw-justify-between lg:tw-flex-row">
         <div class="v2-normal-text tw-font-bold">
@@ -20,7 +21,12 @@
               :key="button"
               class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-4 md:tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98] tw-mr-8"
             >
-              <a target="_blank" :href="button.link">{{ button.name }}</a>
+              <a
+                target="_blank"
+                :href="button.link"
+                @click.native="$gtag.event(button.event)"
+                >{{ button.name }}</a
+              >
             </div>
           </div>
         </div>
@@ -37,6 +43,7 @@
   <section
     v-if="response.backgroundImage[3]"
     class="background-image tw-relative tw-z-[-1]"
+    :ref="response.brandingref ? response.brandingref : ''"
   >
     <aspect-ratio :height="isMobile ? '100%' : '56.26%'">
       <img
@@ -48,7 +55,10 @@
     </aspect-ratio>
   </section>
 
-  <section class="tw-bg-white">
+  <section
+    class="tw-bg-white"
+    :ref="response.details ? response.details.ref : ''"
+  >
     <div
       class="tw-container tw-pt-48 md:tw-pt-48 xl:tw-pt-80 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
     >
@@ -179,6 +189,7 @@
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import LottieAnimation from "@/components/utils/LottieAnimation.vue";
+import { analyticsEvent } from "@/utils.js";
 
 export default {
   props: ["json"],
@@ -188,6 +199,7 @@ export default {
       response: this.json,
       gridData1: this.json.details.gridData1,
       gridData2: this.json.details.gridData2,
+      event: "",
     };
   },
   watch: {
@@ -205,6 +217,19 @@ export default {
     if (window.innerWidth < 768) {
       this.isMobile = true;
     }
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
   },
 };
 </script>

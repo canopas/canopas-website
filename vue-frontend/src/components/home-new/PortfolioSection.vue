@@ -9,7 +9,7 @@
       <div
         v-for="portfolio in portfolios"
         :key="portfolio"
-        ref="portfolios"
+        :ref="currentPath == '/portfolio' ? 'portfoliolist' : 'portfolios'"
         class="tw-flex tw-flex-col tw-items-center md:odd:tw-flex-row md:even:tw-flex-row-reverse tw-mt-6"
       >
         <div class="tw-w-full md:tw-w-6/12 lg:tw-w-[45%]">
@@ -89,6 +89,7 @@ import { analyticsEvent } from "@/utils.js";
 export default {
   data() {
     return {
+      currentPath: this.$router.currentRoute._value.path,
       portfolios: [
         {
           images: [
@@ -102,7 +103,10 @@ export default {
             "Luxe Radio, the radio of taste, elegance, and refinement, intends to be the showcase of excellence and the best of Moroccan and international creation.",
           link: "/portfolio/luxeradio",
           target: false,
-          event: "tap_home_luxe_radio_portfolio",
+          event:
+            this.$router.currentRoute._value.path == "/portfolio"
+              ? "tap_portfolio_luxe_radio"
+              : "tap_home_luxe_radio_portfolio",
         },
         {
           images: [togness400w, togness800w, togness1200w, togness16000w],
@@ -112,7 +116,10 @@ export default {
             "Togness is a photo editor and slideshow maker app for your life's most memorable events like weddings, pets, friends & family, and memorials, etc.",
           link: "/portfolio/togness",
           target: false,
-          event: "tap_home_togness_portfolio",
+          event:
+            this.$router.currentRoute._value.path == "/portfolio"
+              ? "tap_portfolio_togness"
+              : "tap_home_togness_portfolio",
         },
         {
           images: [justly400w, justly800w, justly1200w, justly16000w],
@@ -121,18 +128,22 @@ export default {
             "Justly is a start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
           link: "/portfolio/justly",
           target: false,
-          event: "tap_home_justly_portfolio",
+          event:
+            this.$router.currentRoute._value.path == "/portfolio"
+              ? "tap_portfolio_justly"
+              : "tap_home_justly_portfolio",
         },
         {
           images: [smilep400w, smilep800w, smilep1200w, smilep16000w],
           title: "Smile+",
           detail:
             "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
-          link: config.SHOW_SMILEPLUS_PORTFOLIO
-            ? "/portfolio/smileplus"
-            : config.SMILEPLUS_URL,
-          target: config.SHOW_SMILEPLUS_PORTFOLIO ? false : true,
-          event: "tap_home_smile_portfolio",
+          link: config.SMILEPLUS_URL,
+          target: true,
+          event:
+            this.$router.currentRoute._value.path == "/portfolio"
+              ? "tap_portfolio_smile+"
+              : "tap_home_smile_portfolio",
         },
       ],
       event: "",

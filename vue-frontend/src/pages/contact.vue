@@ -64,7 +64,7 @@ export default {
     recaptchaScript.setAttribute("async", "true");
     recaptchaScript.setAttribute("defer", "true");
     document.head.appendChild(recaptchaScript);
-    this.$gtag.event("view_page_contact");
+    this.$gtag.event("view_contact_page");
   },
   methods: {
     setLoader(loading) {

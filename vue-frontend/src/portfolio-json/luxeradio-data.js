@@ -84,6 +84,7 @@ export default {
   },
   detail: {
     landing: {
+      landingref1: "luxelanding",
       title: "Luxe Radio",
       subTitle:
         "A radio, music streaming, and podcast platform for Moroccan people.",
@@ -93,9 +94,11 @@ export default {
         landingBackgroundImage1400w,
         landingBackgroundImage2400w,
       ],
+      landingref2: "luxebanner",
       alt: "luxeradio-app-and-desktop-images",
     },
     video: {
+      ref: "luxevideo",
       title: "The Problem",
       description:
         "Luxe Radio - A broadcast media company was looking to develop mobile apps to represent them on Internet. We discussed requirements with the client and understood what they were up to, how they saw the new way of broadcasting their content, and the new concepts they had for their product. From app architecture to deployment, they were looking for our help to bring their idea to life. Though, they had an excellent designer who designed the UI and UX of the product.",
@@ -112,6 +115,7 @@ export default {
     branding: {
       title: "",
       solution: {
+        ref: "luxesolution",
         title: "The Solution",
         description: `Our team added a feature to stream their content live and on-demand. With music, every millisecond matters and we knew it as users want music as soon as they tap. We made the app very responsive to allow users to listen to anything almost instantly. Also, Users can interact and post their reactions on live debates. The client wanted to handle advertising personally instead of integrating advertisement APIs. For this, We contributed to building the features that allow them to incorporate ads. 
         <br/><br/>We developed mobile apps for iOS, Android, and Huawei's App Gallery and web apps for Mac and Windows. Plus, the app is also available on CarPlay and Android Auto platforms.`,
@@ -119,22 +123,25 @@ export default {
           {
             name: "Play Store",
             link: "https://play.google.com/store/apps/details?id=app.luxeradio.ma",
+            event: "tap_luxe_play_store",
           },
           {
             name: "App Store",
             link: "https://apps.apple.com/ma/app/luxe-radio/id1073120504",
+            event: "tap_luxe_app_store",
           },
         ],
       },
-
       backgroundImage: [
         brandingBackgroundImage400w,
         brandingBackgroundImage800w,
         brandingBackgroundImage1400w,
         brandingBackgroundImage2400w,
       ],
+      brandingref: "luxeparallax1",
       alt: "luxeradio-branding-screen",
       details: {
+        ref: "luxeui1",
         gridData1: [
           {
             id: 1,
@@ -215,6 +222,7 @@ export default {
         alt: "luxeradio-features-screen",
       },
       {
+        designref: "luxefeedback1",
         title: "What's the Outcome of the project?",
         description:
           "Canopas has exceeded our expectations. They've understood our ideas and how big our thoughts and our expectations are — they get our vision. I can proudly say that no broadcast media application looks like ours. The Play Store is the hardest app store to get good reviews on, and we've just reached a five-star rating, which has been one of our biggest achievements, partly thanks to Canopas' work.",
@@ -278,6 +286,7 @@ and everything to the smallest detail.`,
       },
     },
     footer: {
+      ref: "luxeparallax2",
       backgroundImage: [
         footerBackgroundImage400w,
         footerBackgroundImage800w,
@@ -287,6 +296,7 @@ and everything to the smallest detail.`,
       alt: "luxeradio-covers-and-library-screens",
       title: "Togness",
       url: "togness",
+      event: "tap_next_project_togness",
     },
   },
 };

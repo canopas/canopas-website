@@ -1,5 +1,8 @@
 <template>
-  <section class="background-image tw-relative tw-z-[-1] tw-bg-white">
+  <section
+    class="background-image tw-relative tw-z-[-1] tw-bg-white"
+    :ref="response.ref"
+  >
     <aspect-ratio :height="isMobile ? '100%' : '56.26%'">
       <img
         :src="response.backgroundImage[3]"
@@ -16,6 +19,7 @@
     <router-link
       class="animation-underline tw-inline-block tw-relative hover:tw-text-[#3d3d3d] after:tw-content-[''] after:tw-absolute after:tw-w-full after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
       :to="response.url"
+      @click.native="$gtag.event(button.event)"
       >{{ response.title }}</router-link
     >
   </section>
@@ -23,12 +27,14 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
+import { analyticsEvent } from "@/utils.js";
 export default {
   props: ["json"],
   data() {
     return {
       isMobile: false,
       response: this.json,
+      event: "",
     };
   },
   watch: {
@@ -43,6 +49,19 @@ export default {
     if (window.innerWidth < 768) {
       this.isMobile = true;
     }
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
   },
 };
 </script>
