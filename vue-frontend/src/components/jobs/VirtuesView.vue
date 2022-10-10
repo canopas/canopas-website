@@ -34,7 +34,7 @@
             </div>
           </div>
           <div
-            class="descriptions tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            class="hover:tw-opacity-100 tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
             :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
             <div
@@ -80,7 +80,7 @@
             </div>
           </div>
           <div
-            class="descriptions tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            class="hover:tw-opacity-100 tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
             :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
             <div
@@ -124,7 +124,7 @@
             </div>
           </div>
           <div
-            class="descriptions tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            class="hover:tw-opacity-100 tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
             :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
             <div
@@ -170,7 +170,7 @@
             </div>
           </div>
           <div
-            class="descriptions tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
+            class="hover:tw-opacity-100 tw-absolute tw-translate-x-[-50%] tw-transition tw-duration-[0.4s] tw-ease-in-out tw-h-auto tw-w-[290px] tw-left-[50%] tw-top-0 tw-bottom-0 tw-opacity-0 tw-bg-white tw-p-[2%] tw-m-auto tw-rounded-[15px] tw-flex tw-flex-col tw-justify-center sm:tw-w-1/2 md:tw-w-[90%] 2xl:tw-p-[3%]"
             :class="activeIndex == virtue.id ? 'tw-opacity-100' : ''"
           >
             <div
@@ -281,8 +281,3 @@ export default {
   },
 };
 </script>
-<style lang="postcss" scoped>
-.flex-div > div:hover .descriptions {
-  @apply tw-opacity-100;
-}
-</style>
