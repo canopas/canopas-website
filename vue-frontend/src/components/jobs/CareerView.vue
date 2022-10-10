@@ -82,6 +82,7 @@
                 class="tw-flex tw-flex-row tw-justify-center tw-pt-0 tw-pr-0 tw-pb-[30px] tw-pl-0 sm:tw-justify-end sm:tw-pt-0 sm:tw-pr-[20px] sm:tw-pb-[30px] sm:tw-pl-[20px]"
               >
                 <router-link
+                  @click.native="$gtag.event('tap_read_more_job')"
                   class="gradient-border-btn tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/' + career.unique_id"
                 >
@@ -98,6 +99,7 @@
                 </router-link>
 
                 <router-link
+                  @click.native="$gtag.event('tap_apply_job')"
                   class="gradient-btn tw-m-[5px] tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/apply/' + career.unique_id"
                 >
@@ -177,9 +179,11 @@ export default {
   async serverPrefetch() {
     await this.loadJobs();
   },
+
   mounted() {
     this.loadJobs();
   },
+
   computed: {
     ...mapState(useJobListStore, {
       careers: "items",
@@ -191,8 +195,10 @@ export default {
     expandListItem(id, index) {
       if (this.previousIndex == id && this.openList) {
         this.openList = false;
+        this.$gtag.event("tap_job_collapse");
       } else {
         this.openList = true;
+        this.$gtag.event("tap_job_expand");
       }
 
       this.currentIndex = id;

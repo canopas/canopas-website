@@ -100,6 +100,7 @@ export default {
           className:
             " tw-mt-0 tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 tw-mr-[20px] sm:tw-mr-[40px] tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left",
           target: false,
+          event: this.isJobsUrl ? "tap_jobs_header_home" : " ",
         },
         {
           name: "Career",
@@ -107,7 +108,7 @@ export default {
           className:
             "tw-mt-0  tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 tw-mr-[20px] sm:tw-mr-[40px] tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left",
           target: false,
-          event: "tap_header_view_career_page",
+          event: this.isJobsUrl ? " " : "tap_header_view_career_page",
         },
         {
           name: "Blog",
@@ -115,7 +116,9 @@ export default {
           className:
             "tw-mt-0  tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 tw-mr-[20px] sm:tw-mr-[40px] tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left ",
           target: true,
-          event: "tap_header_blog_page",
+          event: this.isJobsUrl
+            ? "tap_jobs_header_blog"
+            : "tap_header_blog_page",
         },
         {
           name: "Portfolio",
@@ -123,7 +126,9 @@ export default {
           className:
             " tw-mt-0  tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 tw-mr-[20px] sm:tw-mr-[40px] tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left",
           target: false,
-          event: "tap_header_portfolio_page",
+          event: this.isJobsUrl
+            ? "tap_jobs_header_portfolio"
+            : "tap_header_portfolio_page",
         },
         {
           name: "Let's talk",
@@ -131,7 +136,9 @@ export default {
           className:
             " lg:tw-mr-0 tw-block lg:tw-hidden tw-mt-0 tw-mb-0 tw-ml-0 tw-p-0 tw-text-black-900/80 hover:tw-text-black-900/80 tw-inline-block tw-relative after:tw-absolute after:tw-w-2/4 after:tw-scale-x-0 after:tw-h-0.5 after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left",
           target: false,
-          event: "tap_header_contact_cta",
+          event: this.isJobsUrl
+            ? "tap_jobs_header_contact_cta"
+            : "tap_header_contact_cta",
         },
         {
           name: "Let's talk",
@@ -140,9 +147,12 @@ export default {
             "tw-mr-0 tw-hidden lg:tw-block tw-border tw-border-black-900 v2-button tw-py-[0.4rem] tw-px-6 tw-bg-black-900 tw-rounded-full tw-text-white tw-shadow-[0_4px_4px_rgba(0,0,0,0.5)] hover:tw-bg-[#fff] hover:tw-text-[#3d3d3d]",
           target: false,
           showContactBtn: true,
-          event: "tap_header_contact_cta",
+          event: this.isJobsUrl
+            ? "tap_jobs_header_contact_cta"
+            : "tap_header_contact_cta",
         },
       ],
+      isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,
     };
   },
   mounted() {
@@ -167,7 +177,7 @@ export default {
       this.lastScrollY = window.scrollY;
     },
     sendEvent(event) {
-      if (event) {
+      if (event && event != " ") {
         this.$gtag.event(event);
       }
     },

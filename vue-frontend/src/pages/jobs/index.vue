@@ -6,19 +6,21 @@
       </template>
     </metainfo>
     <ScreenHeaderV2 />
-    <LandingView v-on:scroll-to-career="scrollToCareer" />
-    <VirtuesView />
+    <LandingView v-on:scroll-to-career="scrollToCareer" ref="landingview" />
+    <VirtuesView ref="virtue" />
     <LifeAtCanopas />
-    <PerksAndBenifits v-on:scroll-to-career="scrollToCareer" />
+    <PerksAndBenifits v-on:scroll-to-career="scrollToCareer" ref="perks" />
     <WhyCanopas
       class="tw-hidden md:tw-block"
       v-on:add-animation="handleScroll"
+      ref="whycanopas"
     />
     <WhyCanopasMobile
       class="tw-block md:tw-hidden"
       v-on:add-animation="handleScroll"
+      ref="whycanopas"
     />
-    <Career id="career" />
+    <Career id="career" ref="joblist" />
     <FaqSection v-on:add-animation="handleScroll" />
     <ScreenFooter2 />
   </div>
@@ -38,6 +40,7 @@ import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useMeta } from "vue-meta";
+import { analyticsEvent } from "@/utils.js";
 
 import {
   faAlignLeft,
@@ -73,6 +76,26 @@ export default {
     FaqSection,
     ScreenFooter2,
   },
+  data() {
+    return {
+      event: "",
+    };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
+  },
   methods: {
     scrollToCareer() {
       var careerDiv = document.getElementById("career");
@@ -95,9 +118,6 @@ export default {
         }
       }
     },
-  },
-  mounted() {
-    this.$gtag.event("view_page_jobs");
   },
 };
 </script>

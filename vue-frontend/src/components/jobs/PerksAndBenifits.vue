@@ -52,7 +52,11 @@
               <span class="tw-ml-[10px]">{{ perk.title }}</span>
             </div>
             <div class="normal-2-text tw-text-center tw-flex-none tw-mt-[10px]">
-              <div v-html="perk.description" @click="scrollToCareer"></div>
+              <div
+                v-html="perk.description"
+                @click="scrollToCareer"
+                @click.native="$gtag.event('tap_perks_hiring')"
+              ></div>
             </div>
           </div>
         </aspect-ratio>
@@ -225,11 +229,13 @@ export default {
   components: {
     AspectRatio,
   },
+
   mounted() {
     if (window.innerWidth >= 768 && window.innerWidth < 992) {
       this.isMobile = true;
     }
   },
+
   methods: {
     scrollToCareer(e) {
       if (e.target.matches(".career-link")) {

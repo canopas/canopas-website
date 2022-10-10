@@ -7,7 +7,7 @@
     </metainfo>
     <ScreenHeaderV2 />
     <ScreenLoader v-if="isLoading || job == null" />
-    <div v-else>
+    <div v-else ref="applyjob">
       <div
         class="tw-container tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
       >
@@ -234,7 +234,7 @@
         </div>
 
         <!-- Show Thank you message -->
-        <div v-if="showSuccessMessagePopup">
+        <div v-if="showSuccessMessagePopup" ref="jobsuccess">
           <transition name="modal">
             <div
               class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
@@ -266,7 +266,7 @@
         </div>
 
         <!-- Show error message -->
-        <div v-if="showErrorMessagePopup">
+        <div v-if="showErrorMessagePopup" ref="jobfailed">
           <transition name="modal">
             <div
               class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
@@ -322,6 +322,8 @@ import loaderImage from "@/assets/images/theme/small-loader.svg";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { analyticsEvent } from "@/utils.js";
+
 library.add(faCheckCircle);
 
 export default {
@@ -337,6 +339,7 @@ export default {
   },
   data() {
     return {
+      event: "",
       id: this.$route.params.id,
       references: [
         {
@@ -420,6 +423,7 @@ export default {
     await this.setCareerDetails();
   },
   mounted() {
+    window.addEventListener("scroll", this.sendEvent);
     let recaptchaScript = document.createElement("script");
     recaptchaScript.setAttribute(
       "src",
@@ -432,6 +436,9 @@ export default {
     this.setCareerDetails();
     this.$gtag.event("view_page_job_apply");
   },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
   computed: {
     ...mapState(useJobDetailStore, {
       job: "item",
@@ -440,6 +447,14 @@ export default {
     }),
   },
   methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
+
     ...mapActions(useJobDetailStore, ["loadJob"]),
     async setCareerDetails() {
       await this.loadJob(this.id, this.$route.href);
