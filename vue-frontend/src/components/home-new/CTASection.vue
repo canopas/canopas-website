@@ -132,7 +132,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import backgroundImage from "@/assets/images/theme/cta-background.webp";
-import { throwStatement } from "@babel/types";
 
 export default {
   data() {

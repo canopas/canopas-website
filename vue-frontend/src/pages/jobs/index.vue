@@ -9,7 +9,7 @@
     <LandingView v-on:scroll-to-career="scrollToCareer" ref="landingview" />
     <VirtuesView ref="virtue" />
     <LifeAtCanopas />
-    <PerksAndBenifits v-on:scroll-to-career="scrollToCareer" ref="perks" />
+    <PerksAndBenefits v-on:scroll-to-career="scrollToCareer" ref="perks" />
     <WhyCanopas
       class="tw-hidden md:tw-block"
       v-on:add-animation="handleScroll"
@@ -32,7 +32,7 @@ import LandingView from "@/components/jobs/LandingView.vue";
 import VirtuesView from "@/components/jobs/VirtuesView.vue";
 import LifeAtCanopas from "@/components/jobs/LifeAtCanopas.vue";
 import Career from "@/components/jobs/CareerView.vue";
-import PerksAndBenifits from "@/components/jobs/PerksAndBenifits.vue";
+import PerksAndBenefits from "@/components/jobs/PerksAndBenefits.vue";
 import WhyCanopas from "@/components/jobs/WhyCanopas.vue";
 import WhyCanopasMobile from "@/components/jobs/WhyCanopasMobile.vue";
 import FaqSection from "@/components/jobs/FaqSection.vue";
@@ -70,7 +70,7 @@ export default {
     VirtuesView,
     LifeAtCanopas,
     Career,
-    PerksAndBenifits,
+    PerksAndBenefits,
     WhyCanopas,
     WhyCanopasMobile,
     FaqSection,

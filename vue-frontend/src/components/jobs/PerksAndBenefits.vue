@@ -42,14 +42,16 @@
           class="tw-rounded-[10px]"
         >
           <div
-            class="details tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-p-[16px] sm:tw-p-[30px] md:tw-p-[16px] lg:tw-p-[30px] xl:tw-p-[40px]"
+            class="details tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-p-[16px] sm:tw-p-[30px] md:tw-p-[2px] lg:tw-p-[30px] xl:tw-p-[40px]"
             :class="isMobile ? 'tw-p-[40px]' : ''"
           >
             <div
               class="normal-2-text tw-flex-none title tw-inline-flex tw-items-center tw-text-black-900 tw-font-bold"
             >
               <img :src="perk.icon" loading="lazy" :alt="perk.alt" />
-              <span class="tw-ml-[10px]">{{ perk.title }}</span>
+              <span class="tw-ml-[10px] tw-text-[1.3rem] lg:tw-text-[1.5rem]">{{
+                perk.title
+              }}</span>
             </div>
             <div class="normal-2-text tw-text-center tw-flex-none tw-mt-[10px]">
               <div
@@ -77,13 +79,13 @@ import perks6 from "@/assets/images/perks/jobs_canopas_perks_6.webp";
 import perks7 from "@/assets/images/perks/jobs_canopas_perks_7.webp";
 import perks8 from "@/assets/images/perks/jobs_canopas_perks_8.webp";
 
-import learning from "@/assets/images/benifits/jobs_canopas_learning.svg";
-import health from "@/assets/images/benifits/jobs_canopas_health.svg";
-import clock from "@/assets/images/benifits/jobs_canopas_clock.svg";
-import cooking from "@/assets/images/benifits/jobs_canopas_cooking.svg";
-import hiring from "@/assets/images/benifits/jobs_canopas_hiring.svg";
-import laptop from "@/assets/images/benifits/jobs_canopas_laptop.svg";
-import celebration from "@/assets/images/benifits/jobs_canopas_celebration.svg";
+import learning from "@/assets/images/benefits/jobs_canopas_learning.svg";
+import health from "@/assets/images/benefits/jobs_canopas_health.svg";
+import clock from "@/assets/images/benefits/jobs_canopas_clock.svg";
+import cooking from "@/assets/images/benefits/jobs_canopas_cooking.svg";
+import working from "@/assets/images/benefits/jobs_canopas_working.svg";
+import laptop from "@/assets/images/benefits/jobs_canopas_laptop.svg";
+import celebration from "@/assets/images/benefits/jobs_canopas_celebration.svg";
 
 export default {
   data() {
@@ -99,13 +101,12 @@ export default {
         },
         {
           id: 2,
-          title: "Learning & Development",
-          icon: learning,
-          alt: "learning-icon",
+          title: "5 Days Work Week",
+          icon: working,
+          alt: "working-icon",
           bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
-          description:
-            "You will get exposure to new challenges, weekly internal knowledge sharing sessions, book library for career and personal growth.",
+          description: `At Canopas, you will experience a truly 5 days work-week. No extra time daily. No shortened lunch break.`,
         },
         {
           id: 3,
@@ -117,13 +118,13 @@ export default {
         },
         {
           id: 4,
-          title: "Health & Wellbeing",
-          icon: health,
-          alt: "health-icon",
+          title: "Lunch and learn sessions",
+          icon: cooking,
+          alt: "cooking-icon",
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
-            "We organize weekly cardio sessions and daily meditation in the office. We also organize yoga events or similar activities monthly.",
+            "We organize bi-weekly or monthly lunch and learn sessions where one of our team members shares knowledge about the tech and non-tech topics like AI, blockchain, ML, etc.",
         },
         {
           id: 5,
@@ -135,13 +136,13 @@ export default {
         },
         {
           id: 6,
-          title: "Equipment And Tools",
-          icon: laptop,
-          alt: "laptop-icon",
+          title: "Flexible working",
+          icon: clock,
+          alt: "clock-icon",
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
-            "Sitting desks to standing desks, up-to-date desktop or laptop, MacBooks, and other tools and accessories based on your requirements.",
+            "We offer flexible working hours ranging from 7 AM to 9 PM for early birds and night owls. We also don't put unnecessary restrictions in the workplace. We want everyone to enjoy their work by being themselves. ",
         },
         {
           id: 7,
@@ -171,13 +172,13 @@ export default {
         },
         {
           id: 10,
-          title: "Lunch and learn sessions",
-          icon: cooking,
-          alt: "cooking-icon",
-          bgColor: "rgba(61, 61, 61, 0.08)",
+          title: "Learning & Development",
+          icon: learning,
+          alt: "learning-icon",
+          bgColor: "rgba(249, 129, 136, 0.08)",
           image: "",
           description:
-            "We organize bi-weekly or monthly lunch and learn sessions where one of our team members shares knowledge about the tech and non-tech topics like AI, blockchain, ML, etc.",
+            "You will get exposure to new challenges, weekly internal knowledge sharing sessions, book library for career and personal growth.",
         },
         {
           id: 11,
@@ -189,13 +190,13 @@ export default {
         },
         {
           id: 12,
-          title: "Flexible working",
-          icon: clock,
-          alt: "clock-icon",
+          title: "Equipment And Tools",
+          icon: laptop,
+          alt: "laptop-icon",
           bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
           description:
-            "We offer flexible working hours ranging from 7 AM to 9 PM for early birds and night owls. We also don't put unnecessary restrictions in the workplace. We want everyone to enjoy their work by being themselves. ",
+            "Sitting desks to standing desks, up-to-date desktop or laptop, MacBooks, and other tools and accessories based on your requirements.",
         },
         {
           id: 13,
@@ -207,12 +208,13 @@ export default {
         },
         {
           id: 14,
-          title: "We are hiring",
-          icon: hiring,
-          alt: "hiring-icon",
-          bgColor: "rgba(249, 129, 136, 0.08)",
+          title: "Health & Wellbeing",
+          icon: health,
+          alt: "health-icon",
+          bgColor: "rgba(61, 61, 61, 0.08)",
           image: "",
-          description: `Want to become part of a Canopas team? Check out our openings and <div class="career-link" style="color: #fe88a2; font-weight:700; cursor:pointer"> apply today.</div>`,
+          description:
+            "We organize weekly cardio sessions and daily meditation in the office. We also organize yoga events or similar activities monthly.",
         },
         {
           id: 15,
