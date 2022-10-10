@@ -96,7 +96,6 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
   },
-
   methods: {
     handleScroll() {
       for (var i = 0; i < 3; i++) {

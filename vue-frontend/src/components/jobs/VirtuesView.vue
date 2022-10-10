@@ -12,6 +12,7 @@
           v-for="virtue in virtues.slice(0, 3)"
           :key="virtue.id"
           @touchstart="activeIndex = virtue.id"
+          @hover.native="$gtag.event('hover_virtue')"
         >
           <div
             class="tw-flex tw-flex-col tw-items-center tw-my-[5%] tw-mx-auto tw-py-0 tw-px-[10%] sm:tw-my-[2%] sm:tw-px-0 md:tw-my-[10%]"
@@ -57,6 +58,7 @@
           v-for="virtue in virtues.slice(3, 5)"
           :key="virtue.id"
           @touchstart="activeIndex = virtue.id"
+          @hover.native="$gtag.event('hover_virtue')"
         >
           <div
             class="tw-flex tw-flex-col tw-items-center tw-my-[5%] tw-mx-auto tw-py-0 tw-px-[10%] sm:tw-my-[2%] sm:tw-px-0 md:tw-my-[10%]"
@@ -100,6 +102,7 @@
           v-for="virtue in virtues.slice(5, 8)"
           :key="virtue.id"
           @touchstart="activeIndex = virtue.id"
+          @hover.native="$gtag.event('hover_virtue')"
         >
           <div
             class="tw-flex tw-flex-col tw-items-center tw-my-[5%] tw-mx-auto tw-py-0 tw-px-[10%] sm:tw-my-[2%] sm:tw-px-0 md:tw-my-[10%]"
@@ -145,6 +148,7 @@
           v-for="virtue in virtues.slice(8, 10)"
           :key="virtue.id"
           @touchstart="activeIndex = virtue.id"
+          @hover.native="$gtag.event('hover_virtue')"
         >
           <div
             class="tw-flex tw-flex-col tw-items-center tw-my-[5%] tw-mx-auto tw-py-0 tw-px-[10%] sm:tw-my-[2%] sm:tw-px-0 md:tw-my-[10%]"
@@ -197,6 +201,7 @@ import virtue7 from "@/assets/images/virtues/jobs_canopas_virtue_7.svg";
 import virtue8 from "@/assets/images/virtues/jobs_canopas_virtue_8.svg";
 import virtue9 from "@/assets/images/virtues/jobs_canopas_virtue_9.svg";
 import virtue10 from "@/assets/images/virtues/jobs_canopas_virtue_10.svg";
+
 export default {
   data() {
     return {
@@ -276,7 +281,6 @@ export default {
   },
 };
 </script>
-
 <style lang="postcss" scoped>
 .flex-div > div:hover .descriptions {
   @apply tw-opacity-100;

@@ -31,9 +31,6 @@ export default {
   components: {
     HomeNewIndex,
   },
-  mounted() {
-    this.$gtag.event("view_page_home");
-  },
 };
 </script>
 
