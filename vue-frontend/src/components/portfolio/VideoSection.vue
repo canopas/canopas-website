@@ -80,7 +80,10 @@
   </section>
 
   <!-- mobile screen slider -->
-  <section v-if="response.slider && isShowSliderInMobile" class="tw-relative">
+  <section
+    v-if="response.slider && isShowSliderInMobile"
+    class="tw-relative tw-mt-20"
+  >
     <div
       class="mobile-background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
       :style="{ background: backgroundColor }"
@@ -135,7 +138,7 @@
   </section>
 
   <!-- large screen slider -->
-  <section v-else-if="response.slider" class="tw-relative">
+  <section v-else-if="response.slider" class="tw-relative tw-mt-20 lg:tw-mt-0">
     <div
       class="background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
       :style="{ background: backgroundColor }"

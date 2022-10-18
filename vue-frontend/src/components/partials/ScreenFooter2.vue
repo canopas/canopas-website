@@ -17,7 +17,7 @@
         >
           <img
             src="@/assets/images/footer/glassdoor.webp"
-            class="tw-w-4/5 sm:tw-w-4/5 tw-h-full"
+            class="tw-w-full tw-h-full"
             alt="glassdoor-image"
           />
         </a>
