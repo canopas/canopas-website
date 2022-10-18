@@ -2,7 +2,7 @@
   <section class="tw-bg-white">
     <div
       v-if="response.solution"
-      class="tw-container tw-py-40 lg:tw-py-80 tw-relative"
+      class="tw-container tw-py-20 lg:tw-py-80 tw-relative"
       :ref="response.solution.ref"
     >
       <div class="tw-flex tw-flex-col tw-justify-between lg:tw-flex-row">
@@ -34,7 +34,7 @@
     </div>
     <div
       v-if="response.title"
-      class="tw-container tw-py-40 lg:tw-py-80 tw-relative"
+      class="tw-container tw-py-20 lg:tw-py-80 tw-relative"
     >
       <div class="v2-header-3-text tw-pt-20" v-html="response.title"></div>
     </div>

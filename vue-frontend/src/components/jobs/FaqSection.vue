@@ -22,7 +22,7 @@
         />
       </div>
       <div class="tw-flex-[67%]">
-        <div class="faq-content tw-pl-[60px]">
+        <div class="faq-content md:tw-pl-[60px]">
           <div
             class="header-text canopas-gradient-text title-desktop tw-hidden md:tw-block"
           >
