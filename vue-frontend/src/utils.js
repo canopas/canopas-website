@@ -30,7 +30,7 @@ const events = {
   portfoliolist: {
     0: "view_portfolio_page_luxe_radio",
     1: "view_portfolio_page_togness",
-    2: "view_portfolio_page_togness",
+    2: "view_portfolio_page_justly",
     3: "view_portfolio_page_smile",
   },
   portfoliocta: "view_portfolio_page_end_cta",

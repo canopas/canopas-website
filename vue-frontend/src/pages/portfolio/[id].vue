@@ -89,12 +89,12 @@ export default {
 
         case justlyResponse.name:
           this.response = justlyResponse;
-          this.ctaRef = "tognesspagecta";
+          this.ctaRef = "justlypagecta";
           break;
 
         case tognessResponse.name:
           this.response = tognessResponse;
-          this.ctaRef = "justlypagecta";
+          this.ctaRef = "tognesspagecta";
           break;
       }
 
