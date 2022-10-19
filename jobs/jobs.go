@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"strings"
 	"text/template"
 	"time"
 	"utils"
@@ -139,6 +140,8 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 		return
 	}
 
+	input.Phone = strings.ReplaceAll(input.Phone, " ", "")
+
 	if input.Token == "" {
 		c.AbortWithStatus(http.StatusUnauthorized)
 		return
@@ -152,8 +155,8 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 	}
 
 	if input.SaveRecordToSpreadsheet {
-		records := [][]interface{}{{input.Name, input.Email, input.Phone, time.Now().Format("2 Jan 2006 03:04PM"), input.JobTitle, "", input.References}}
-		repository.UtilsRepo.SaveJobsToSpreadSheet(records)
+		records := []string{input.Name, input.Email, input.Phone, time.Now().Format("2 Jan 2006 03:04PM"), input.JobTitle, "", input.References}
+		go repository.UtilsRepo.SaveJobsToSpreadSheet(records)
 	}
 
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)

@@ -45,7 +45,7 @@ func (faker *stubUtilsRepo) VerifyRecaptcha(token string) (bool, error) {
 	return true, nil
 }
 
-func (faker *stubUtilsRepo) SaveJobsToSpreadSheet(input [][]interface{}) {
+func (faker *stubUtilsRepo) SaveJobsToSpreadSheet(input []string) {
 	/** this is stub method for adding jobs details in google spreadsheet */
 }
 
