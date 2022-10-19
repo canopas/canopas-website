@@ -27,7 +27,7 @@ type utilsRepository struct{}
 type UtilsRepository interface {
 	SendEmail(*ses.SendEmailInput, *ses.SendRawEmailInput) int
 	VerifyRecaptcha(string) (bool, error)
-	SaveJobsToSpreadSheet([][]interface{})
+	SaveJobsToSpreadSheet([]string)
 }
 
 func NewEmail() *utilsRepository {
@@ -128,7 +128,7 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 	return false, nil
 }
 
-func (repo *utilsRepository) SaveJobsToSpreadSheet(records [][]interface{}) {
+func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 	ctx := context.Background()
 
 	credBytes, err := b64.StdEncoding.DecodeString(os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
@@ -160,29 +160,47 @@ func (repo *utilsRepository) SaveJobsToSpreadSheet(records [][]interface{}) {
 	}
 	spreadsheetId := os.Getenv("JOBS_SPREADSHEET_ID")
 
-	// Convert sheet ID to sheet name.
-	response1, err := srv.Spreadsheets.Get(spreadsheetId).Fields("sheets(properties(sheetId,title))").Do()
-	if err != nil || response1.HTTPStatusCode != 200 {
+	// create the batch request
+	batchUpdateRequest := sheets.BatchUpdateSpreadsheetRequest{
+		Requests: []*sheets.Request{
+			{
+				AppendCells: &sheets.AppendCellsRequest{
+					Fields:  "*",
+					Rows:    populateCells(records),
+					SheetId: int64(sheetId),
+				},
+			},
+		},
+	}
+
+	// execute the request
+	res, err := srv.Spreadsheets.BatchUpdate(spreadsheetId, &batchUpdateRequest).Context(ctx).Do()
+	if err != nil || res.HTTPStatusCode != 200 {
 		log.Error(err)
 		return
 	}
+}
 
-	sheetName := ""
-	for _, v := range response1.Sheets {
-		prop := v.Properties
-		if prop.SheetId == int64(sheetId) {
-			sheetName = prop.Title
-			break
+func populateCells(records []string) []*sheets.RowData {
+	cells := []*sheets.CellData{}
+	for i := range records {
+		data := &sheets.CellData{
+			UserEnteredValue: &sheets.ExtendedValue{
+				StringValue: &(records[i]),
+			},
+			UserEnteredFormat: &sheets.CellFormat{
+				BackgroundColor: &sheets.Color{ // white background
+					Alpha: 1,
+					Blue:  1,
+					Red:   1,
+					Green: 1,
+				},
+			},
 		}
+		cells = append(cells, data)
 	}
 
-	//Append value to the sheet.
-	row := &sheets.ValueRange{
-		Values: records,
-	}
-	response2, err := srv.Spreadsheets.Values.Append(spreadsheetId, sheetName, row).ValueInputOption("USER_ENTERED").InsertDataOption("INSERT_ROWS").Context(ctx).Do()
-	if err != nil || response2.HTTPStatusCode != 200 {
-		log.Error(err)
-		return
+	return []*sheets.RowData{
+		{Values: cells},
 	}
 }
