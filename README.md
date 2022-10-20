@@ -9,8 +9,9 @@ We intend to keep this open source. Plan is to keep the repository up to date wi
 - Node18
 - Go 1.17
 
-### Note : 
-- We have used SSR(Server Side Rendering) in website to improve performance. Server will render UI in `<!--app-html-->` part of `vue-frontend/index.html`. Due to this,  reformating of `index.html` can cause UI breaking. 
+### Note :
+
+- We have used SSR(Server Side Rendering) in website to improve performance. Server will render UI in `<!--app-html-->` part of `vue-frontend/index.html`. Due to this, reformating of `index.html` can cause UI breaking.
 
 ## To run front-end
 
@@ -113,7 +114,7 @@ You can access the page by pointing a web browser at http://localhost:8080.
   ```
 
   [Here](https://github.com/canopas/canopas-website/blob/master/api-doc.md) is APIs reference used in the website.
- 
+
 ## To enable pre-commit hook
 
 ```
@@ -130,23 +131,15 @@ Following are dependencies used by the project
 
 #### [Vite](https://github.com/vitejs/vite)
 
-- It is frontend build tool that significantly improves the frontend development experience. We have used it for server side rendering. 
+- It is frontend build tool that significantly improves the frontend development experience. We have used it for server side rendering.
 
 #### [Tailwind CSS](https://tailwindcss.com/)
 
 - A utility-first CSS framework packed with classes like flex, pt-4, my-4 and text-center that can be composed to build any design, directly in your markup.
 
-#### [Swiper](https://github.com/nolimits4web/swiper)
-
-- This library is used for smooth sliding with indicators.
-
 #### [Vue collapse transition](https://github.com/ivanvermeyen/vue-collapse-transition)
 
 - It is used for collapses elements horizontally or vertically.
-
-#### [GSAP](https://github.com/greensock/GSAP)
-
-- [GSAP](https://greensock.com/docs/) provides animation plugins in large quantity. We have used it for Bongo-Cat animation.
 
 #### [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 
