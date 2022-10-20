@@ -18,11 +18,9 @@
             :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w, ${portfolio.images[2]} 1200w, ${portfolio.images[3]} 1600w`"
             sizes="(min-width: 992px) 45vw, 100vw"
             class="tw-w-full tw-h-full tw-object-cover"
-            loading="lazy"
             :alt="portfolio.title + `-image`"
           />
         </div>
-
         <div
           class="tw-py-[5%] tw-px-[20%] md:tw-m-auto md:tw-p-0 md:tw-w-[35%]"
         >

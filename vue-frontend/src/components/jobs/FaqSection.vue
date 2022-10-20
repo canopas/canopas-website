@@ -84,6 +84,7 @@
               :class="!isActivePrev ? 'tw-opacity-20' : ''"
               class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
               @click="slide(-1)"
+              aria-label="leftArrow"
               @click.native="$gtag.event('tap_faq_previous_arrow')"
             >
               <font-awesome-icon
@@ -98,6 +99,7 @@
               :class="!isActiveNext ? 'tw-opacity-20' : ''"
               class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
               @click="slide(1)"
+              aria-label="rightArrow"
               @click.native="$gtag.event('tap_faq_next_arrow')"
             >
               <font-awesome-icon
