@@ -5,7 +5,11 @@
     <div class="tw-container tw-pb-24 tw-pt-10 sm:tw-pt-20">
       <div class="tw-flex tw-items-center v2-title-2-text tw-font-bold">
         <div class="v2-canopas-gradient-text tw-mr-4">Hey Smarty</div>
-        <img :src="HandWing" class="tw-w-8 tw-h-8 lg:tw-w-12 lg:tw-h-12" />
+        <img
+          :src="HandWing"
+          alt="HandWing"
+          class="tw-w-8 tw-h-8 lg:tw-w-12 lg:tw-h-12"
+        />
       </div>
       <div class="v2-normal-text tw-pt-8">
         Thanks for reaching out to us. We're happy to help you achieve your

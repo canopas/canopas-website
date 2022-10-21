@@ -11,7 +11,7 @@
           class="tw-relative tw-flex-[100%] md:tw-flex-[33%]"
           v-for="virtue in virtues.slice(0, 3)"
           :key="virtue.id"
-          @touchstart="activeIndex = virtue.id"
+          @touchstart.passive="activeIndex = virtue.id"
           @hover.native="$gtag.event('hover_virtue')"
         >
           <div
@@ -57,7 +57,7 @@
           class="tw-relative tw-flex-[100%] md:tw-flex-[33%]"
           v-for="virtue in virtues.slice(3, 5)"
           :key="virtue.id"
-          @touchstart="activeIndex = virtue.id"
+          @touchstart.passive="activeIndex = virtue.id"
           @hover.native="$gtag.event('hover_virtue')"
         >
           <div
@@ -101,7 +101,7 @@
           class="tw-relative tw-flex-[100%] md:tw-flex-[33%]"
           v-for="virtue in virtues.slice(5, 8)"
           :key="virtue.id"
-          @touchstart="activeIndex = virtue.id"
+          @touchstart.passive="activeIndex = virtue.id"
           @hover.native="$gtag.event('hover_virtue')"
         >
           <div
@@ -147,7 +147,7 @@
           class="tw-relative tw-flex-[100%] md:tw-flex-[33%]"
           v-for="virtue in virtues.slice(8, 10)"
           :key="virtue.id"
-          @touchstart="activeIndex = virtue.id"
+          @touchstart.passive="activeIndex = virtue.id"
           @hover.native="$gtag.event('hover_virtue')"
         >
           <div

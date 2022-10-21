@@ -13,6 +13,7 @@
       <div class="tw-mb-16 xl:tw-mb-24" v-if="isJobsUrl">
         <a
           :href="glassdoorLink"
+          aria-label="glassdoorLink"
           @click.native="$gtag.event('tap_glassdoor_review')"
         >
           <img
@@ -45,12 +46,14 @@
               :href="socialMedia.url"
               target="_blank"
               @click.native="$gtag.event(socialMedia.event)"
+              aria-label="footerLink"
               ><img
                 class="active:tw-scale-[0.98] tw-h-full tw-w-full"
                 v-if="socialMedia.image"
                 :src="hover ? designRushHover : designRush"
                 @mouseover="hover = true"
                 @mouseleave="hover = false"
+                alt="designrush-icon"
               />
               <font-awesome-icon
                 v-else
