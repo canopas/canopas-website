@@ -85,6 +85,7 @@
               class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
               @click="slide(-1)"
               @click.native="$gtag.event('tap_faq_previous_arrow')"
+              aria-label="leftArrow"
             >
               <font-awesome-icon
                 class="arrow tw-border-[1px] tw-border-solid tw-border-[#3d3d3d26] tw-rounded-[15px] tw-h-[25px] tw-w-[25px] tw-p-[10px] tw-text-[#fff] tw-bg-black-900"
@@ -99,6 +100,7 @@
               class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
               @click="slide(1)"
               @click.native="$gtag.event('tap_faq_next_arrow')"
+              aria-label="rightArrow"
             >
               <font-awesome-icon
                 class="arrow tw-border-[1px] tw-border-solid tw-border-[#3d3d3d26] tw-rounded-[15px] tw-h-[25px] tw-w-[25px] tw-p-[10px] tw-text-[#fff] tw-bg-black-900"

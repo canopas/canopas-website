@@ -85,6 +85,7 @@
                   @click.native="$gtag.event('tap_read_more_job')"
                   class="gradient-border-btn tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/' + career.unique_id"
+                  aria-label="read-more"
                 >
                   <font-awesome-icon
                     class="fa tw-text-pink-300"

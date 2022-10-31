@@ -43,6 +43,7 @@
           :src="contribution.image"
           class="tw-w-full tw-h-full tw-object-cover tw-rounded-[10px]"
           loading="lazy"
+          :alt="contribution.alt"
         />
 
         <div class="tw-w-full tw-p-[20px] v2-title-3-text">
@@ -84,11 +85,13 @@ export default {
           image: introShowcase,
           bgColor: "#FAF5F2",
           link: "https://github.com/canopas/Intro-showcase-view",
+          alt: "introShowcase",
         },
         {
           image: uiPilot,
           bgColor: "#3D3D3D",
           link: "https://github.com/canopas/UIPilot",
+          alt: "uiPilot",
         },
       ],
     };
