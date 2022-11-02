@@ -19,6 +19,7 @@
             sizes="(min-width: 992px) 45vw, 100vw"
             class="tw-w-full tw-h-full tw-object-cover"
             :alt="portfolio.title + `-image`"
+            loading="lazy"
           />
         </div>
 
