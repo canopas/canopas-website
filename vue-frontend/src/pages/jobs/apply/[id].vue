@@ -531,6 +531,18 @@ export default {
       this.disableInput = false;
       this.isLoad = true;
 
+      //resume file name with the current date
+      var year = new Date().getFullYear();
+      var mon = new Date().toLocaleString("default", { month: "short" });
+      var date = new Date().getDate();
+
+      const currentDate = date + "-" + mon + "-" + year;
+
+      const splitFileName = this.file.name.split(".");
+
+      const fileName =
+        splitFileName[0] + "-" + currentDate + "." + splitFileName[1];
+
       //prepare form data
       const formData = new FormData();
       formData.append("job_title", this.job.title);
@@ -550,7 +562,7 @@ export default {
           : "NA"
       );
       formData.append("message", this.message ? this.message : "NA");
-      formData.append("file", this.file, this.file.name);
+      formData.append("file", this.file, fileName);
       formData.append("save_record_to_spreadsheet", config.IS_PROD);
 
       //verify recpatcha
