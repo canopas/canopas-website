@@ -21,7 +21,7 @@
         :lazy="true"
         :autoplay="{
           delay: 3000,
-          disableOnInteraction: true,
+          disableOnInteraction: false,
         }"
         :loop="true"
         :loopedSlides="50"
@@ -181,6 +181,7 @@ export default {
           image: [life11_400w, life11_800w, life11_1600w, life11_2400w],
         },
       ],
+
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
