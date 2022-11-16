@@ -165,7 +165,7 @@
           },
         }"
         @slideChange="onSlideChange"
-        class="swiper-container"
+        class="swiper-container video-swiper"
       >
         <swiper-slide v-for="(sider, index) in response.slider" :key="index">
           <aspect-ratio
@@ -240,6 +240,7 @@ SwiperCore.use([Pagination, Autoplay]);
 
 export default {
   props: ["json"],
+
   data() {
     return {
       id: this.$route.params.id,
@@ -259,10 +260,12 @@ export default {
     SwiperSlide,
     AspectRatio,
   },
+
   mounted() {
     if (window.innerWidth <= 992) {
       this.isShowSliderInMobile = true;
     }
+
     window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
@@ -309,14 +312,17 @@ export default {
   transition: 0.4s;
 }
 
-.swiper-slide-prev,
-.swiper-slide-next {
-  transform: scale(0.5) !important;
+.video-swiper > .swiper-wrapper > .swiper-slide-prev,
+.video-swiper > .swiper-wrapper > .swiper-slide-next {
+  transform: scale(0.5);
 }
 
 .swiper-wrapper {
   display: flex;
   align-items: center;
+}
+.swiper {
+  @apply tw-z-0;
 }
 
 .mobile-image {
