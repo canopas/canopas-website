@@ -344,10 +344,12 @@ export default {
 
       for (let i = 0; i < descriptionTitles.length; i++) {
         if (descriptionTitles[i]) {
-          let title = descriptionTitles[i].match(/<strong>(.*?)<\/strong>/g)[0];
+          let title = descriptionTitles[i].replace(/<(\/*).[^>]*>/g, "");
           this.job.description = this.job.description.replace(
             descriptionTitles[i],
-            '<h2><span class="bullet"></span>' + title + "</h2>"
+            '<h2><span class="bullet"></span><strong>' +
+              title +
+              "</strong></h2>"
           );
         }
       }
@@ -357,7 +359,7 @@ export default {
 
       for (let i = 0; i < descriptionLists.length; i++) {
         if (descriptionLists[i]) {
-          let list = descriptionLists[i].match(/<div>([\s\S]*?)<\/div>/g)[0];
+          let list = descriptionLists[i].replace(/<(\/*).[^>]*>/g, "");
           this.job.description = this.job.description.replace(
             descriptionLists[i],
             '<li><span class="fas fa-chevron-right"></span>&nbsp;' +
