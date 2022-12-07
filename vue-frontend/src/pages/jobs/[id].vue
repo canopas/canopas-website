@@ -362,7 +362,7 @@ export default {
           let list = descriptionLists[i].replace(/<(\/*).[^>]*>/g, "");
           this.job.description = this.job.description.replace(
             descriptionLists[i],
-            '<li><span class="fas fa-chevron-right"></span>&nbsp;' +
+            '<li><span class="fas fa-chevron-right tw-pr-2"></span>' +
               list +
               "</li>"
           );
