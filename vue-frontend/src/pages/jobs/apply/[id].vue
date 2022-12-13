@@ -541,7 +541,11 @@ export default {
       const splitFileName = this.file.name.split(".");
 
       const fileName =
-        splitFileName[0] + "-" + currentDate + "." + splitFileName[1];
+        splitFileName[0] +
+        "-" +
+        currentDate +
+        "." +
+        splitFileName[splitFileName.length - 1];
 
       //prepare form data
       const formData = new FormData();
