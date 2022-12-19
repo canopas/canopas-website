@@ -5,13 +5,15 @@
         {{ content }}
       </template>
     </metainfo>
-    <HomeNewIndex />
+    <HomeIndex v-if="!isShowNewHomePage" />
+    <HomeNewIndex v-else />
   </div>
 </template>
 
 <script>
 import config from "@/config.js";
 import HomeNewIndex from "@/components/home-new/HomeIndex.vue";
+import HomeIndex from "@/components/home/HomeIndex.vue";
 import { useMeta } from "vue-meta";
 
 export default {
@@ -27,8 +29,13 @@ export default {
       },
     });
   },
-
+  data() {
+    return {
+      isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
+    };
+  },
   components: {
+    HomeIndex,
     HomeNewIndex,
   },
 };

@@ -29,7 +29,7 @@ import VideoSection from "@/components/portfolio/VideoSection.vue";
 import BrandingSection from "@/components/portfolio/BrandingSection.vue";
 import DesignSection from "@/components/portfolio/DesignSection.vue";
 import FooterSection from "@/components/portfolio/FooterSection.vue";
-import CTASection from "@/components/home-new/CTASection.vue";
+import CTASection from "@/components/home/CTASection.vue";
 import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/portfolio-json/luxeradio-data.js";
 import justlyResponse from "@/portfolio-json/justly-data.js";

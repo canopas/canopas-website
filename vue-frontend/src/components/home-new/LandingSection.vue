@@ -1,142 +1,176 @@
 <template>
-  <div class="tw-relative tw-pt-8 lg:tw-mt-16 lg:tw-pb-24">
-    <div class="tw-overflow-hidden tw--z-[1]">
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-w-2.5 tw-h-2.5 tw-top-4 tw-left-1/4 tw-bg-orange-300 tw-animate-zoomOut"
-      ></p>
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-hidden tw-w-5 tw-h-5 tw-top-32 tw-left-14 tw-bg-black-900 lg:tw-block tw-animate-zoomIn"
-      ></p>
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-w-3 tw-h-3 tw-top-96 tw-left-4 tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-animate-zoomOut"
-      ></p>
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-w-3.5 tw-h-3.5 tw-top-3/4 tw-left-2/4 tw-bg-black-900 tw-animate-zoomIn"
-      ></p>
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-w-5 tw-h-5 tw-top-0 tw-right-1/4 tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-animate-zoomIn"
-      ></p>
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-hidden tw-w-2.5 tw-h-2.5 tw-top-32 tw-right-36 tw-bg-black-900 lg:tw-block tw-animate-zoomOut"
-      ></p>
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-w-2 tw-h-2 tw-top-64 tw-right-2/4 tw-bg-orange-300 tw-animate-zoomOut"
-      ></p>
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-w-5 tw-h-5 tw-bottom-60 tw-right-20 tw-bg-pink-300 tw-animate-zoomIn"
-      ></p>
-      <p
-        class="tw-rounded-full tw-absolute tw-z-0 tw-w-3 tw-h-3 tw-top-80 tw-right-5 tw-bg-orange-300 tw-animate-zoomOut"
-      ></p>
-    </div>
+  <section>
+    <div
+      class="tw-relative tw-w-full tw-mx-auto tw-py-0 tw-px-[0.75rem] lg:tw-py-[50px]"
+    >
+      <img
+        :src="background"
+        alt="landing-view-image"
+        class="tw-w-full tw-h-[115%] lg:tw-h-full tw-absolute tw-left-0 -tw-z-[5]"
+      />
+      <div class="tw-relative tw-z-0 tw-pt-8 lg:tw-mt-16 lg:tw-pb-24">
+        <div
+          class="tw-container tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start"
+        >
+          <div class="tw-flex-1 lg:tw-block lg:tw-mt-5">
+            <aspect-ratio height="150%">
+              <img
+                :src="landingImages[2]"
+                :srcset="`${landingImages[0]} 400w, ${landingImages[1]} 800w, ${landingImages[2]} 1200w`"
+                alt="landing-view-image"
+                class="tw-w-full tw-h-full tw-object-cover"
+              />
+            </aspect-ratio>
+          </div>
 
-    <div class="tw-container tw-mx-auto tw-z-10">
-      <div
-        class="tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start"
-      >
-        <picture class="tw-flex-1 lg:tw-mt-5">
-          <source
-            srcset="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-            media="(max-width: 992px)"
-          />
-          <img
-            class="tw-hidden tw-object-cover lg:tw-block tw-align-top tw-w-full tw-h-full"
-            :src="landingImages[2]"
-            :srcset="`${landingImages[0]} 400w, ${landingImages[1]} 800w, ${landingImages[2]} 1200w`"
-            sizes="33vw"
-            alt="landing-view-image"
-          />
-        </picture>
-        <div class="tw-flex-2">
-          <div class="description">
-            <div
-              class="tw-pb-10 tw-w-11/12 v2-header-3-text lg:tw-text-5xl-1 lg:tw-text-7xl-1 lg:tw-leading-18 lg:tw-text-[3.0625rem] lg:tw-leading-[4.375rem] xl:tw-text-[4.0625rem] xl:tw-leading-[5.875rem] tw-font-normal lg:tw-pb-16 xl:tw-pb-20"
-            >
-              We develop amazing products to help
-              <div class="typewriter tw-flex tw-items-center tw-w-fit">
-                <span class="wrapper">
-                  <div
-                    v-for="animationWord in animationWords"
-                    :key="animationWord"
+          <div class="tw-flex-2">
+            <div class="description">
+              <div
+                class="tw-pb-5 lg:tw-w-11/12 v2-header-3-text lg:tw-text-5xl-1 lg:tw-text-7xl-1 lg:tw-leading-18 lg:tw-text-[3.0625rem] lg:tw-leading-[4rem] xl:tw-text-[4rem] xl:tw-leading-[4.7rem] lg:tw-pb-8 xl:tw-pb-10"
+              >
+                For Over A Decade We Have Helped Businesses Grow Exponentially.
+                <div>
+                  — <span class="canopas-gradient-text"> Is Yours Next?</span>
+                </div>
+              </div>
+              <div
+                class="v2-normal-text sm:tw-w-[85%] xl:tw-w-3/4 tw-pb-8 lg:tw-pb-8 xl:tw-text-[1.68rem] xl:tw-leading-[2.4rem] xl:tw-pb-16"
+              >
+                We develop Mobile and Web apps that help you
+                <span
+                  class="tw-bg-no-repeat tw-inline tw-bg-top-bottom-150 md:tw-bg-top-bottom-140 lg:tw-bg-top-bottom-130 tw-bg-[length:100%_10px] tw-bg-gradient-underline"
+                  >generate more revenue</span
+                >,
+                <span
+                  class="tw-bg-no-repeat tw-inline tw-bg-top-bottom-150 md:tw-bg-top-bottom-140 lg:tw-bg-top-bottom-130 tw-bg-[length:100%_10px] tw-bg-gradient-underline"
+                  >acquire new users</span
+                >, and
+                <span
+                  class="tw-bg-no-repeat tw-inline tw-bg-top-bottom-150 md:tw-bg-top-bottom-140 lg:tw-bg-top-bottom-130 tw-bg-[length:100%_10px] tw-bg-gradient-underline"
+                  >deliver an exceptional user experience</span
+                >.
+              </div>
+              <div
+                class="tw-flex tw-items-center tw-flex-col-reverse md:tw-flex-row"
+              >
+                <div class="tw-text-center">
+                  <router-link
+                    class="tw-rounded-[3rem] tw-m-0 tw-py-[0.7rem] tw-px-5 tw-text-center gradient-btn v2-normal-2-text tw-w-max tw-flex tw-items-center"
+                    :to="contactURL"
+                    @click.native="$gtag.event('tap_landing_cta')"
                   >
-                    <p
-                      v-if="animationWord.isActive"
-                      class="v2-canopas-gradient-text tw-font-bold tw-animate-typingErase tw-overflow-hidden tw-border-r-2 tw-border-orange-300 tw-mr-2.5 tw-mt-2.5 tw-mb-0"
-                    >
-                      {{ animationWord.name }}
-                    </p>
-                  </div>
-                </span>
-              </div>
-              bring their ideas to life.
-            </div>
-            <div class="tw-flex tw-flex-col tw-items-center lg:tw-items-start">
-              <div class="tw-text-center">
-                <router-link
-                  class="active:tw-scale-[0.98] hover:tw-text-black-900 tw-rounded-[3rem] tw-text-center tw-border-[1px] tw-border-solid tw-border-[#3d3d3d] tw-bg-white tw-text-black tw-flex tw-items-center tw-bg-black-900 tw-text-white hover:tw-bg-white v2-normal-3-text tw-py-4 tw-px-20"
-                  :to="contactURL"
-                  @click.native="$gtag.event('tap_landing_cta')"
+                    <span class="tw-mr-2.5"
+                      ><span class="tw-font-medium"
+                        >Get Free Consultation
+                      </span></span
+                    > </router-link
+                  ><small class="md:tw-hidden">100% MONEY BACK GUARANTEE</small>
+                </div>
+
+                <div
+                  class="tw-flex tw-items-center tw-pb-3.5 md:tw-pb-0 md:tw-pl-7"
                 >
-                  <span class="tw-mr-2.5">Let's talk</span>
-                  <font-awesome-icon
-                    class="arrow fa tw-h-4 tw-w-4"
-                    icon="arrow-right"
-                    id="leftArrow"
-                  />
-                </router-link>
-                <small class="v2-canopas-gradient-text pt-1">
-                  100% MONEY BACK GUARANTEE
-                </small>
+                  <div v-for="review in reviews" :key="review">
+                    <div
+                      v-if="review.image"
+                      class="tw-w-[40px] tw-h-[40px] md:tw-w-[50px] md:tw-h-[50px] tw-rounded-full"
+                      :class="review.className"
+                    >
+                      <img
+                        :src="review.image"
+                        class="tw-w-full tw-h-full tw-object-cover"
+                        loading="lazy"
+                        alt="phase.alt"
+                      />
+                    </div>
+                    <div v-if="review.plusIcon">
+                      <div
+                        class="tw-w-[40px] tw-h-[40px] md:tw-w-[50px] md:tw-h-[50px] tw-border-[3px] tw-border-white tw-rounded-full tw-bg-[#ffc4c0]"
+                        :class="review.className"
+                      >
+                        <font-awesome-icon
+                          class="fa tw-text-white tw-w-[35px] tw-h-[23px] tw-pt-[5px] md:tw-w-[45px] md:tw-pt-[10px]"
+                          icon="plus"
+                          id="leftArrow"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tw-pl-4">
+                    <font-awesome-icon
+                      v-for="i in 5"
+                      :key="i"
+                      class="fas tw-text-[#FF3D2E]"
+                      icon="star"
+                    />
+                    <div class="tw-font-light">40+ Reviews</div>
+                  </div>
+                </div>
               </div>
+              <small
+                class="tw-hidden md:tw-flex v2-normal-3-text tw-pt-5 tw-w-11/12 md:tw-w-2/3 lg:tw-w-9/12 xl:tw-w-3/5 lg:tw-text-[1.0625rem] lg:tw-leading-[1.5rem] lg:tw-pt-8 xl:tw-pt-8"
+              >
+                We offer a 100% MONEY BACK GUARANTEE FOR 14 DAYS if you don't
+                like our work. No questions asked.
+              </small>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
-<script type="module">
-import landing400w from "@/assets/images/Landing/landing-image-400w.webp";
-import landing800w from "@/assets/images/Landing/landing-image-800w.webp";
-import landing1200w from "@/assets/images/Landing/landing-image-1200w.webp";
+<script>
+import landing400w from "@/assets/images/Landing/landing-400w.webp";
+import landing800w from "@/assets/images/Landing/landing-800w.webp";
+import landing1200w from "@/assets/images/Landing/landing-1200w.webp";
+import review1 from "@/assets/images/Landing/review1.webp";
+import review2 from "@/assets/images/Landing/review2.webp";
+import review3 from "@/assets/images/Landing/review3.webp";
+import review4 from "@/assets/images/Landing/review4.webp";
+import backgroundImage from "@/assets/images/Landing/background-1200w.webp";
 
+import AspectRatio from "@/components/utils/AspectRatio.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
   data() {
     return {
       landingImages: [landing400w, landing800w, landing1200w],
+      background: backgroundImage,
       contactURL: "/contact",
-      animationWords: [
-        { name: "Entrepreneurs ", isActive: true },
-        { name: "Startups ", isActive: false },
-        { name: "Businesses ", isActive: false },
+      reviews: [
+        {
+          id: 1,
+          className: "tw-z-0",
+          image: review1,
+        },
+        {
+          id: 2,
+          className: "tw-z-10 -tw-ml-[20px]",
+          image: review2,
+        },
+        {
+          id: 3,
+          className: "tw-z-20 -tw-ml-[20px]",
+          image: review3,
+        },
+        {
+          id: 4,
+          className: "tw-z-30 -tw-ml-[20px]",
+          image: review4,
+        },
+        {
+          id: 5,
+          className: "tw-z-40 -tw-ml-[20px]",
+          plusIcon: true,
+        },
       ],
     };
   },
   components: {
     FontAwesomeIcon,
-  },
-  mounted() {
-    var animateText = document.querySelector(".wrapper");
-
-    animateText.addEventListener(
-      "animationiteration",
-      () => {
-        for (var i = 0; i < this.animationWords.length; i++) {
-          if (this.animationWords[i].isActive) {
-            this.animationWords[i].isActive = false;
-            if (i == this.animationWords.length - 1) {
-              this.animationWords[0].isActive = true;
-            } else {
-              this.animationWords[i + 1].isActive = true;
-            }
-            break;
-          }
-        }
-      },
-      false
-    );
+    AspectRatio,
   },
 };
 </script>
