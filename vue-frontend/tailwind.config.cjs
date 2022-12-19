@@ -103,6 +103,15 @@ module.exports = {
         270: "270.11deg",
         180: "180deg",
       },
+      backgroundPosition: {
+        "top-bottom-130": "120%, 122%, 0 130%",
+        "top-bottom-140": "120%, 122%, 0 140%",
+        "top-bottom-150": "120%, 122%, 0 150%",
+      },
+      backgroundImage: {
+        "gradient-underline":
+          "linear-gradient(transparent, transparent),linear-gradient(transparent, transparent),linear-gradient(to right, #ff835b, #f2709c)",
+      },
     },
   },
   corePlugins: {
