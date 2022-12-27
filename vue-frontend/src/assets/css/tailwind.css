@@ -20,6 +20,22 @@
   src: url(./../fonts/FuturaLT-Bold.woff2);
 }
 
+@font-face {
+  font-family: "Inter-Medium";
+  font-style: medium;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./../fonts/Inter-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./../fonts/Roboto-Bold.ttf);
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,

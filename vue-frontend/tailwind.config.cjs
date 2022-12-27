@@ -22,6 +22,7 @@ module.exports = {
       },
       colors: {
         black: {
+          core: "#000000",
           900: "#3d3d3d",
         },
         white: "#ffffff",
@@ -57,6 +58,8 @@ module.exports = {
       fontFamily: {
         "product-sans": ["Product Sans"],
         "futura-bold": ["FuturaLT-Bold"],
+        "roboto-bold": ["Roboto-Bold"],
+        "inter-medium": ["Inter-Medium"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",
