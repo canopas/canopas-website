@@ -52,7 +52,7 @@ a {
 }
 
 .v2-canopas-gradient-text {
-  @apply tw-bg-clip-text tw-text-transparent tw-from-[#ff9472] tw-to-[#f2709c] tw-bg-gradient-[270.11deg];
+  @apply tw-bg-clip-text tw-text-transparent tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[270.11deg];
 }
 
 .abs-fit-parent {

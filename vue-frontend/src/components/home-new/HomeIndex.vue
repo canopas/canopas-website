@@ -2,12 +2,14 @@
   <div>
     <ScreenHeader />
     <LandingSection />
+    <CTASection />
   </div>
 </template>
 
 <script>
 import ScreenHeader from "@/components/partials/ScreenHeaderV2.vue";
 import LandingSection from "@/components/home-new/LandingSection.vue";
+import CTASection from "@/components/home-new/CTASection.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,6 +20,7 @@ export default {
   components: {
     ScreenHeader,
     LandingSection,
+    CTASection,
   },
   data() {
     return {
