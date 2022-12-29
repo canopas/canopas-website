@@ -175,17 +175,15 @@ a {
   @apply tw-rounded-[0.6rem] tw-p-[1rem] tw-m-[5px] tw-text-center tw-border-[1px] tw-border-solid tw-border-transparent tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-bg-gradient-to-r tw-shadow-[inset_2px_1000px_1px_#fff] active:tw-scale-[0.98] hover:tw-from-[#f2709c] hover:tw-to-[#ff9472] hover:tw-bg-gradient-[91.53deg] hover:tw-border-[1px] hover:tw-border-solid hover:tw-border-transparent hover:tw-shadow-none;
 }
 
-.gradient-border-btn > span {
-  @apply tw-my-0 tw-mx-[6px] tw-text-[#3d3d3d];
+.gradient-border-btn > a > .fab {
+  @apply tw-text-[#f2709c];
 }
 
 .gradient-border-btn:hover > span,
-.gradient-border-btn:hover > span > span {
-  @apply tw-text-[#fff];
-}
-
+.gradient-border-btn:hover > span > span,
 .gradient-border-btn:hover > .fa,
-.gradient-border-btn:hover > .arrow {
+.gradient-border-btn:hover > .arrow,
+.gradient-border-btn:hover > a > .fab {
   @apply tw-text-white;
 }
 </style>

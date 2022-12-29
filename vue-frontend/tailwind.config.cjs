@@ -11,6 +11,7 @@ module.exports = {
         md: "768px",
         lg: "992px",
         xl: "1200px",
+        xl2: "1330px",
         "2xl": "1400px",
         "3xl": "3840px",
         "4xl": "5000px",
@@ -59,7 +60,9 @@ module.exports = {
         "product-sans": ["Product Sans"],
         "futura-bold": ["FuturaLT-Bold"],
         "roboto-bold": ["Roboto-Bold"],
+        "inter-bold": ["Inter-Bold"],
         "inter-medium": ["Inter-Medium"],
+        "inter-regular": ["Inter-Regular"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",

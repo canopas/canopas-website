@@ -3,7 +3,7 @@
     class="tw-m-0 tw-p-0 tw-relative tw-flex tw-flex-col tw-items-center tw-justify-between"
   >
     <img
-      src="@/assets/images/footer/Canopas-footer-img.svg"
+      src="@/assets/images/footer/bg.svg"
       class="tw-w-full tw-h-full sm:tw-object-cover tw-oject-fill tw-absolute tw-top-0 tw-left-0 -tw-z-[5]"
       alt="footer-background-image"
     />
@@ -80,8 +80,8 @@
 <script type="module">
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import designRush from "@/assets/images/footer/design-rush.svg";
-import designRushHover from "@/assets/images/footer/design-rush-hover.svg";
+import designRush from "@/assets/images/footer/design-rush-gradient.svg";
+import designRushHover from "@/assets/images/footer/design-rush-white.svg";
 
 import {
   faFacebookF,

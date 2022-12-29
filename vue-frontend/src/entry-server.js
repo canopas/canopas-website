@@ -1,9 +1,9 @@
-import { createApp } from "./main";
+import { buildApp } from "./main";
 import { renderToString } from "vue/server-renderer";
 import { renderMetaToString } from "vue-meta/ssr";
 
 export async function render(url, manifest) {
-  const { app, router, pinia } = createApp(true);
+  const { app, router, pinia } = buildApp(true);
 
   // set the router to the desired URL before rendering
   router.push(url);

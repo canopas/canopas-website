@@ -1,12 +1,12 @@
 import App from "./App.vue";
-import { createSSRApp } from "vue";
+import { createSSRApp, createApp } from "vue";
 import { createRouter } from "./router";
 import { createPinia } from "pinia";
 import { createMetaManager } from "vue-meta";
 import "@/assets/css/tailwind.css";
 
-export function createApp(isSSR) {
-  const app = createSSRApp(App);
+export function buildApp(isSSR) {
+  const app = isSSR ? createSSRApp(App) : createApp(App);
   const router = createRouter();
   const pinia = createPinia();
   const metaManager = createMetaManager(isSSR);
