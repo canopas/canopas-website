@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-relative tw-px-0 tw-overflow-hidden tw-font-inter-medium">
+  <div class="tw-relative tw-overflow-hidden tw-px-0 tw-font-inter-medium">
     <img
       v-if="width < 600"
       :src="bg400"
@@ -9,34 +9,34 @@
     <img
       :src="bg2400"
       :srcset="`${bg400} 400w, ${bg800} 800w, ${bg1200} 1200w, ${bg2400} 2400w`"
-      class="tw-w-full tw-h-full tw-absolute tw-top-[15px] sm:tw-top-0 tw-left-0 tw--z-[1] tw-object-cover xl2:tw-object-fill xl2:tw-h-[unset]"
+      class="tw-absolute tw-top-[15px] sm:tw-top-0 tw-left-0 tw-w-full tw-h-full xl2:tw-h-[unset] tw--z-[1] tw-object-cover xl2:tw-object-fill"
       alt="canopas-contact-footer"
     />
     <div class="tw-container tw-text-center">
       <div
-        class="canopas-gradient-text tw-text-[1.875rem] tw-leading-[2.25rem] md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold tw-mt-11 md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20"
+        class="tw-mt-11 md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-[1.875rem] tw-leading-[2.25rem] md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
       >
         Say Hello!
       </div>
       <ContactForm />
       <div class="tw-mb-8 md:tw-mb-[60px]">
         <div
-          class="tw-text-[1.375rem] tw-leading-[1.6875rem] md:tw-text-[1.5rem] md:tw-leading-[1.8125rem] lg:tw-text-[1.625rem] lg:tw-leading-[1.9375rem] tw-text-white/[.87] tw-font-bold tw-mb-5"
+          class="tw-mb-5 tw-text-[1.375rem] tw-leading-[1.6875rem] md:tw-text-[1.5rem] md:tw-leading-[1.8125rem] lg:tw-text-[1.625rem] lg:tw-leading-[1.9375rem] tw-text-white/[.87] tw-font-bold"
         >
           Follow us on
         </div>
         <ul
-          class="tw-cursor-pointer tw-list-none tw-flex tw-flex-wrap tw-justify-center tw-w-full tw-m-auto"
+          class="tw-flex tw-flex-wrap tw-justify-center tw-w-full tw-m-auto tw-cursor-pointer tw-list-none"
         >
           <li
             v-for="icon in socialMediaIcons"
             :key="icon"
-            class="tw-w-[40px] tw-h-[40px] md:tw-w-[62px] md:tw-h-[62px] tw-cursor-pointer tw-rounded-[50%] tw-text-center tw-flex tw-justify-center tw-items-center"
+            class="tw-flex tw-justify-center tw-items-center tw-w-[40px] tw-h-[40px] md:tw-w-[62px] md:tw-h-[62px] tw-rounded-[50%] tw-text-center tw-cursor-pointer"
             :class="icon.image ? 'tw-m-[5px]' : 'gradient-border-btn'"
           >
             <a :href="icon.url" target="_blank" aria-label="footerLink">
               <img
-                class="active:tw-scale-[0.98] tw-h-full tw-w-full"
+                class="tw-h-full tw-w-full active:tw-scale-[0.98]"
                 v-if="icon.image"
                 :src="hover ? designRushHover : designRush"
                 @mouseover="hover = true"
