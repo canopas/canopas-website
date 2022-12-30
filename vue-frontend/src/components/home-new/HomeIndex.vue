@@ -3,6 +3,7 @@
     <ScreenHeader />
     <LandingSection />
     <CTASection />
+    <FooterV3 />
   </div>
 </template>
 
@@ -10,6 +11,7 @@
 import ScreenHeader from "@/components/partials/ScreenHeaderV2.vue";
 import LandingSection from "@/components/home-new/LandingSection.vue";
 import CTASection from "@/components/home-new/CTASection.vue";
+import FooterV3 from "@/components/partials/FooterV3.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
@@ -21,6 +23,7 @@ export default {
     ScreenHeader,
     LandingSection,
     CTASection,
+    FooterV3,
   },
   data() {
     return {
@@ -28,8 +31,16 @@ export default {
     };
   },
   mounted() {
-    this.$gtag.event("view_landing_section");
     window.addEventListener("scroll", this.sendEvent);
+    let recaptchaScript = document.createElement("script");
+    recaptchaScript.setAttribute(
+      "src",
+      "https://www.google.com/recaptcha/enterprise.js?render=" +
+        import.meta.env.VITE_RECAPTCHA_SITE_KEY
+    );
+    recaptchaScript.setAttribute("async", "true");
+    recaptchaScript.setAttribute("defer", "true");
+    document.head.appendChild(recaptchaScript);
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);

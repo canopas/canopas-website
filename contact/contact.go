@@ -27,6 +27,8 @@ type ContactDetails struct {
 	Reference   string `json:"reference"`
 	ContactType string `json:"contact_type"`
 	Token       string `json:"token"`
+	Invest      string `json:"invest"`
+	NDA         bool   `json:"nda"`
 }
 
 type Template struct {
@@ -78,7 +80,12 @@ func (repository *Template) getEmailTemplate(input ContactDetails) (template *se
 
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)
 
-	title := "Canopas Website - Contact Information (By " + input.ContactType + ")"
+	extendedTitle := ""
+	if input.ContactType != "" {
+		extendedTitle = "(By " + input.ContactType + ")"
+	}
+
+	title := "Canopas Website - Contact Information " + extendedTitle
 
 	template = GetEmailTemplate(htmlBody, input, title)
 

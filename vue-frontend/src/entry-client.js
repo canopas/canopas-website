@@ -1,9 +1,9 @@
-import { createApp } from "./main";
+import { buildApp } from "./main";
 import VueGtag from "vue-gtag";
 import config from "@/config.js";
 import "animate.css";
 
-const { app, router, pinia } = createApp(false);
+const { app, router, pinia } = buildApp(false);
 
 // wait until router is ready before mounting to ensure hydration match
 router.isReady().then(() => {
