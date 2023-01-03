@@ -16,7 +16,7 @@
     />
     <div class="tw-container tw-text-center">
       <div
-        class="tw-mt-11 md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-[1.875rem] tw-leading-[2.25rem] md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
+        class="tw-mt-11 md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-3xl md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
       >
         Say Hello!
       </div>
