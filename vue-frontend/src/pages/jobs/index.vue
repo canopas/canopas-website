@@ -5,7 +5,8 @@
         {{ content }}
       </template>
     </metainfo>
-    <ScreenHeaderV2 />
+    <ScreenHeaderV2 v-if="!isShowNewHomePage" />
+    <NewHeader v-else />
     <LandingView v-on:scroll-to-career="scrollToCareer" ref="landingview" />
     <VirtuesView ref="virtue" />
     <LifeAtCanopas />
@@ -28,6 +29,7 @@
 
 <script>
 import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
+import NewHeader from "@/components/partials/NewHeader.vue";
 import LandingView from "@/components/jobs/LandingView.vue";
 import VirtuesView from "@/components/jobs/VirtuesView.vue";
 import LifeAtCanopas from "@/components/jobs/LifeAtCanopas.vue";
@@ -66,6 +68,7 @@ export default {
   },
   components: {
     ScreenHeaderV2,
+    NewHeader,
     LandingView,
     VirtuesView,
     LifeAtCanopas,
@@ -79,6 +82,7 @@ export default {
   data() {
     return {
       event: "",
+      isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   mounted() {

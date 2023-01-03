@@ -61,8 +61,10 @@ module.exports = {
         "futura-bold": ["FuturaLT-Bold"],
         "roboto-bold": ["Roboto-Bold"],
         "inter-bold": ["Inter-Bold"],
+        "inter-semibold": ["Inter-Semibold"],
         "inter-medium": ["Inter-Medium"],
         "inter-regular": ["Inter-Regular"],
+        "sfpro-regular": ["SFProText-Regular"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",
@@ -110,13 +112,12 @@ module.exports = {
         180: "180deg",
       },
       backgroundPosition: {
-        "top-bottom-130": "120%, 122%, 0 130%",
-        "top-bottom-140": "120%, 122%, 0 140%",
         "top-bottom-150": "120%, 122%, 0 150%",
+        "top-bottom-160": "120%, 122%, 0 160%",
       },
       backgroundImage: {
         "gradient-underline":
-          "linear-gradient(transparent, transparent),linear-gradient(transparent, transparent),linear-gradient(to right, #ff835b, #f2709c)",
+          "linear-gradient(transparent, transparent),linear-gradient(transparent, transparent),linear-gradient(to right, #f2709c, #ff835b)",
       },
     },
   },

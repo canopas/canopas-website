@@ -7,7 +7,7 @@
             <input
               type="text"
               id="username"
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
               name="username"
               required
               autocomplete="given-username"
@@ -26,7 +26,7 @@
           </div>
           <div class="tw-relative md:tw-mb-5 tw-pt-3 lg:tw-pt-9 tw-text-left">
             <input
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
               type="text"
               name="email"
               id="email"
@@ -49,7 +49,7 @@
             class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <textarea
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
               id="project"
               name="project"
               rows="1"
@@ -115,7 +115,7 @@
               </button>
               <ul
                 v-if="showList"
-                class="tw-absolute tw-float-left tw-w-full tw-min-w-max tw-mt-1 tw-m-0 tw-z-[2] tw-border-none tw-bg-white tw-bg-clip-padding tw-py-2 tw-list-none tw-text-left tw-text-base tw-shadow-lg tw-transition-all tw-delay-150 tw-duration-300"
+                class="tw-absolute tw-float-left tw-mt-1 tw-m-0 tw-w-full tw-min-w-max tw-z-[5] tw-border-none tw-rounded-[10px] tw-shadow-[0px_5px_15px_rgba(0,0,0,0.5)] tw-bg-[#3D3D3D] tw-py-1 tw-list-none tw-text-left tw-text-base tw-transition-all tw-delay-150 tw-duration-300"
               >
                 <li
                   v-for="option in investOptions"
@@ -123,7 +123,7 @@
                   @click="setOption(option)"
                 >
                   <span
-                    class="tw-block tw-w-full tw-bg-transparent tw-py-2 tw-px-4 tw-font-normal tw-whitespace-nowrap tw-text-gray-700 tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.1875rem] md:tw-leading-[1.4375rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.6875rem] hover:tw-bg-[#3D3D3D] hover:tw-text-white/[.6]"
+                    class="tw-block tw-w-full tw-py-2 tw-px-4 tw-font-normal tw-whitespace-nowrap tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.1875rem] md:tw-leading-[1.4375rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.6875rem] hover:tw-bg-[#000]/[.2] hover:tw-text-white"
                     >{{ option }}</span
                   >
                 </li>

@@ -97,9 +97,9 @@
 </template>
 
 <script type="module">
-import landing400w from "@/assets/images/Landing/landing-image-400w.webp";
-import landing800w from "@/assets/images/Landing/landing-image-800w.webp";
-import landing1200w from "@/assets/images/Landing/landing-image-1200w.webp";
+import landing400w from "@/assets/images/landing/landing-image-400w.webp";
+import landing800w from "@/assets/images/landing/landing-image-800w.webp";
+import landing1200w from "@/assets/images/landing/landing-image-1200w.webp";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
