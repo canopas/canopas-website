@@ -1,5 +1,7 @@
 <template>
-  <div class="tw-relative tw-mt-[150px] tw-px-0 tw-overflow-hidden">
+  <div
+    class="tw-relative tw-mt-[150px] tw-overflow-hidden tw-px-0 tw-font-inter-regular md:tw-font-inter-medium"
+  >
     <img
       :src="bg2400"
       :srcset="`${bg400} 400w, ${bg800} 800w, ${bg1200} 1200w, ${bg2400} 2400w`"
@@ -7,52 +9,54 @@
       alt="canopas-cta"
     />
     <div
-      class="tw-container sm:tw-w-4/5 lg:tw-w-[70%] tw-m-auto tw-px-[25px] tw-pt-[20%] md:tw-pt-[10%] tw-pb-[5%] tw-text-center tw-opacity-1"
+      class="tw-container tw-m-auto md:tw-w-[86%] lg:tw-w-4/5 xl:tw-w-[86%] tw-px-[25px] tw-pt-[61px] md:tw-pt-[162px] tw-pb-[50px] md:tw-pb-[70px] tw-opacity-1 tw-text-center"
     >
-      <div
-        class="lg:tw-w-4/5 tw-m-auto tw-text-[2.1875rem] tw-leading-[2.75rem] tw-tracking-[1px] md:tw-text-[2.8125rem] md:tw-leading-[3.4375rem] lg:tw-text-[3.4375rem] lg:tw-leading-[4.0281rem] tw-font-roboto-bold canopas-gradient-text"
-      >
-        How do you know we’re a good fit for you?
-      </div>
-      <div
-        class="tw-mt-6 tw-text-[1.25rem] tw-leading-[1.5625rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8156rem] tw-tracking-normal tw-text-black-core/[.87]"
-      >
-        Let’s have a short chat.
-      </div>
-      <div class="tw-flex tw-flex-wrap tw-justify-center">
-        <router-link
-          class="tw-flex tw-items-center tw-rounded-[2rem] gradient-btn"
-          :to="contactURL"
+      <div class="md:tw-w-[86%] lg:tw-w-4/5 xl:tw-w-[86%] tw-m-auto">
+        <div
+          class="tw-w-full tw-text-[2.1875rem] tw-leading-[2.75rem] tw-tracking-[1px] md:tw-text-[2.8125rem] md:tw-leading-[3.4375rem] lg:tw-text-[3.4375rem] lg:tw-leading-[4.0281rem] tw-font-roboto-bold canopas-gradient-text"
         >
-          <span
-            class="!tw-font-semibold tw-text-[0.9375rem] tw-leading-[1.25rem] md:tw-text-[1.0625rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4368rem] tw-tracking-wide"
-            >Get in touch</span
-          >
-        </router-link>
-      </div>
-      <div
-        class="lg:tw-w-[75%] tw-m-auto tw-mt-12 tw-text-[1.25rem] tw-leading-[1.5625rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8156rem] tw-text-left tw-font-medium"
-      >
-        <div class="v2-canopas-gradient-text">
-          Four reasons why we do conversation?
+          How do you know we’re a good fit for you?
         </div>
-      </div>
-      <ul
-        class="lg:tw-w-[75%] tw-m-auto tw-mt-6 tw-list-none tw-p-0 tw-text-[1.0625rem] tw-leading-[1.5rem] md:tw-text-[1.1875rem] md:tw-leading-[1.625rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.75rem] tw-text-left tw-text-black-core/[.87] tw-font-medium"
-      >
-        <li
-          v-for="reason in reasons"
-          :key="reason"
-          class="tw-py-2.5 tw-px-0 tw-flex"
+        <div
+          class="tw-mt-6 tw-text-[1.25rem] tw-leading-[1.5625rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8156rem] tw-tracking-normal tw-text-black-core/[.87]"
         >
-          <span
-            class="tw-inline-block tw-mt-[5px] tw-mr-[24px] tw-w-[16px] tw-h-[16px] tw-rounded-[30%] tw-bg-gradient-to-b tw-from-[#F2709C] tw-to-[#FF9472] tw-content-none"
-          ></span>
-          <div class="tw-w-[90%]">
-            {{ reason }}
+          Let’s have a short chat.
+        </div>
+        <div class="tw-flex tw-flex-wrap tw-justify-center">
+          <router-link
+            class="tw-flex tw-items-center tw-rounded-[2rem] gradient-btn"
+            :to="contactURL"
+          >
+            <span
+              class="tw-text-[0.9375rem] tw-leading-[1.25rem] md:tw-text-[1.0625rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4368rem] tw-tracking-wide"
+              >Get in touch</span
+            >
+          </router-link>
+        </div>
+        <div
+          class="tw-mt-12 tw-w-full tw-text-[1.25rem] tw-leading-[1.5625rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8156rem] tw-text-left"
+        >
+          <div class="v2-canopas-gradient-text">
+            Four reasons why we do conversation?
           </div>
-        </li>
-      </ul>
+        </div>
+        <ul
+          class="tw-w-full tw-mt-4 tw-list-none tw-p-0 tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.1875rem] md:tw-leading-[1.625rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.75rem] tw-text-left tw-text-black-core/[.87]"
+        >
+          <li
+            v-for="reason in reasons"
+            :key="reason"
+            class="tw-flex tw-py-[7.5px] md:tw-py-[17.5px] tw-px-0"
+          >
+            <span
+              class="tw-inline-block tw-mt-[5px] tw-mr-[15px] md:tw-mr-[18px] tw-w-[12px] tw-h-[12px] md:tw-w-[15px] md:tw-h-[15px] tw-rounded-[2px] md:tw-rounded-[5px] tw-bg-gradient-to-b tw-from-[#F2709C] tw-to-[#FF9472] tw-content-none"
+            ></span>
+            <div class="tw-w-[90%]">
+              {{ reason }}
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>

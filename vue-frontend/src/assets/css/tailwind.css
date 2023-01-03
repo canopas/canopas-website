@@ -29,6 +29,14 @@
 }
 
 @font-face {
+  font-family: "Inter-Semibold";
+  font-style: medium;
+  font-weight: 600;
+  font-display: swap;
+  src: url(./../fonts/Inter-Semibold.ttf);
+}
+
+@font-face {
   font-family: "Inter-Medium";
   font-style: medium;
   font-weight: 500;
@@ -52,28 +60,55 @@
   src: url(./../fonts/Roboto-Bold.ttf);
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-  transition: background-color 5000s !important;
+@font-face {
+  font-family: "SFProText-Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./../fonts/SFProText-Regular.ttf);
 }
 
-.floating-input:-webkit-autofill,
-.floating-input:-webkit-autofill:hover,
-.floating-input:-webkit-autofill:focus,
-.floating-input:-webkit-autofill:active {
-  -webkit-text-fill-color: #ffffff !important;
-}
+@layer utilities {
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    transition: background-color 5000s !important;
+  }
 
-* {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+  .floating-input:-webkit-autofill,
+  .floating-input:-webkit-autofill:hover,
+  .floating-input:-webkit-autofill:focus,
+  .floating-input:-webkit-autofill:active {
+    -webkit-text-fill-color: #ffffff !important;
+  }
 
-.footer-icon > path {
-  fill: url("#lgrad");
-}
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
 
-.gradient-border-btn:hover > a > .footer-icon > path {
-  fill: #ffffff;
+  .footer-icon > path {
+    fill: url("#lgrad");
+  }
+
+  .gradient-border-btn:hover > a > .footer-icon > path {
+    fill: #ffffff;
+  }
+
+  .landing-bg-clip-path {
+    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
+    clip-path: polygon(50% 0%, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
+  }
+
+  .landing-bg-mobile-clip-path {
+    -webkit-clip-path: polygon(
+      50% 0%,
+      100% 0,
+      150% 84%,
+      30% 100%,
+      -25% 84%,
+      0 0
+    );
+    clip-path: polygon(50% 0%, 100% 0, 150% 84%, 30% 100%, -25% 84%, 0 0);
+  }
 }

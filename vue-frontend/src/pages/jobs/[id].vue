@@ -9,7 +9,8 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
-    <ScreenHeaderV2 />
+    <ScreenHeaderV2 v-if="!isShowNewHomePage" />
+    <NewHeader v-else />
     <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
@@ -25,9 +26,7 @@
             >
               <div class="tw-relative tw-p-4 tw-flex-auto">
                 <div class="tw-p-[20px]">
-                  <div
-                    class="tw-leading-[2rem] tw-text-[1.5rem] tw-mb-[30px] tw-text-center"
-                  >
+                  <div class="tw-text-2xl tw-mb-[30px] tw-text-center">
                     Something went wrong on our side
                   </div>
                   <div class="tw-w-full">
@@ -93,6 +92,7 @@
 
 <script>
 import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
+import NewHeader from "@/components/partials/NewHeader.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -130,10 +130,12 @@ export default {
       checkCircle: faCheckCircle,
       showErrorMessagePopup: false,
       jobLink: "",
+      isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   components: {
     ScreenHeaderV2,
+    NewHeader,
     ScreenFooter2,
     FontAwesomeIcon,
     ScreenLoader,
@@ -392,7 +394,7 @@ export default {
 }
 
 :deep(h2 *) {
-  @apply tw-text-[1.5rem] tw-leading-[2rem] tw-tracking-[0.05rem] tw-py-[12px] tw-px-0 tw-text-[#3d3d3d] md:tw-text-[2rem] md:tw-leading-[2.5rem];
+  @apply tw-text-2xl tw-tracking-[0.05rem] tw-py-[12px] tw-px-0 tw-text-[#3d3d3d] md:tw-text-[2rem] md:tw-leading-[2.5rem];
 }
 
 :deep(h2 > .bullet) {

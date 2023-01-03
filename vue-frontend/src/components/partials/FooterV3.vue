@@ -1,5 +1,7 @@
 <template>
-  <div class="tw-relative tw-overflow-hidden tw-px-0 tw-font-inter-medium">
+  <div
+    class="tw-relative tw-overflow-hidden tw-px-0 tw-font-inter-medium tw-z-[1]"
+  >
     <img
       v-if="width < 600"
       :src="bg400"
@@ -14,7 +16,7 @@
     />
     <div class="tw-container tw-text-center">
       <div
-        class="tw-mt-11 md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-[1.875rem] tw-leading-[2.25rem] md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
+        class="tw-mt-11 md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-3xl md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
       >
         Say Hello!
       </div>
@@ -32,7 +34,9 @@
             v-for="icon in socialMediaIcons"
             :key="icon"
             class="tw-flex tw-justify-center tw-items-center tw-w-[40px] tw-h-[40px] md:tw-w-[62px] md:tw-h-[62px] tw-rounded-[50%] tw-text-center tw-cursor-pointer"
-            :class="icon.image ? 'tw-m-[5px]' : 'gradient-border-btn'"
+            :class="
+              icon.image ? 'tw-m-[5px]' : 'gradient-border-btn tw-border-0'
+            "
           >
             <a :href="icon.url" target="_blank" aria-label="footerLink">
               <img
