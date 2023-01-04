@@ -7,7 +7,7 @@
             <input
               type="text"
               id="username"
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
               name="username"
               required
               autocomplete="given-username"
@@ -26,7 +26,7 @@
           </div>
           <div class="tw-relative md:tw-mb-5 tw-pt-3 lg:tw-pt-9 tw-text-left">
             <input
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
               type="text"
               name="email"
               id="email"
@@ -49,7 +49,7 @@
             class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <textarea
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
               id="project"
               name="project"
               rows="1"
@@ -72,7 +72,7 @@
             class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <input
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
               type="text"
               name="reference"
               id="reference"
@@ -320,35 +320,46 @@ export default {
           contact_type: "",
         };
 
-        // verify recaptcha
-        grecaptcha.enterprise.ready(() => {
-          grecaptcha.enterprise
-            .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
-              action: "verify",
-            })
-            .then((token) => {
-              formData.token = token;
-              axios
-                .post(config.API_BASE + "/api/send-contact-mail", formData)
-                .then(() => {
-                  setTimeout(() => {
-                    this.showSuccessMessagePopup = true;
+        var head = document.getElementsByTagName("head")[0];
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.onload = function () {
+          // verify recaptcha
+          grecaptcha.enterprise.ready(() => {
+            grecaptcha.enterprise
+              .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
+                action: "verify",
+              })
+              .then((token) => {
+                formData.token = token;
+                axios
+                  .post(config.API_BASE + "/api/send-contact-mail", formData)
+                  .then(() => {
+                    setTimeout(() => {
+                      this.showSuccessMessagePopup = true;
+                      this.showLoader = false;
+                    }, 1000);
+                  })
+                  .catch((err) => {
+                    if (err.response.status == 401) {
+                      this.errorMessage = "Invalid recaptcha score";
+                    }
+                    this.showErrorMessagePopup = true;
                     this.showLoader = false;
-                  }, 1000);
-                })
-                .catch((err) => {
-                  if (err.response.status == 401) {
-                    this.errorMessage = "Invalid recaptcha score";
-                  }
-                  this.showErrorMessagePopup = true;
-                });
-            })
-            .catch(() => {
-              this.errorMessage = "Invalid recaptcha score";
-              this.showErrorMessagePopup = true;
-            });
-        });
+                  });
+              })
+              .catch(() => {
+                this.errorMessage = "Invalid recaptcha score";
+                this.showErrorMessagePopup = true;
+                this.showLoader = false;
+              });
+          });
+        };
       }
+      script.src =
+        "https://www.google.com/recaptcha/enterprise.js?render=" +
+        import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+      head.appendChild(script);
     },
     closePopUps(e) {
       const showList = this.$refs["invest-list"];

@@ -7,35 +7,35 @@
 ## Project setup
 
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 
 ```
-npm run dev
+yarn dev
 ```
 
 ### Compiles and minifies
 
 ```
-npm run build
+yarn build
 ```
 
 ### Server side rendering
 
 ```
-npm run build
+yarn build
 ```
 
 ```
-npm run serve
+yarn serve
 ```
 
 ### Lints and fixes files
 
 ```
-npm run lint
+yarn lint
 ```
 
 ### Customize configuration

@@ -14,6 +14,7 @@ router.isReady().then(() => {
 
   app
     .use(VueGtag, {
+      deferScriptLoad: true,
       config: { id: config.GAP_ID_ROOT },
     })
     .mount("#app");

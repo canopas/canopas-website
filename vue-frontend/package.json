@@ -6,10 +6,10 @@
   "scripts": {
     "serve": "cross-env NODE_ENV=production node server",
     "dev": "node server",
-    "build": "npm run build:client && npm run build:server",
+    "build": "cross-env NODE_ENV=production yarn build:client && yarn build:server",
     "build:client": "vite build --ssrManifest --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.js --outDir dist/server",
-    "generate": "vite build --ssrManifest --outDir dist/static && npm run build:server && node prerender"
+    "generate": "vite build --ssrManifest --outDir dist/static && yarn build:server && node prerender"
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
@@ -31,6 +31,7 @@
     "compression": "^1.7.4",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.3",
+    "cssnano": "^5.1.14",
     "eslint": "^8.7.0",
     "eslint-plugin-vue": "^8.5.0",
     "express": "^4.17.3",

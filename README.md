@@ -18,29 +18,29 @@ We intend to keep this open source. Plan is to keep the repository up to date wi
 - Install dependencies
 
   ```
-  cd vue-frontend && npm install
+  cd vue-frontend && yarn install
   ```
 
 - Run vue server
 
   ```
-  npm run dev
+  yarn dev
   ```
 
 - Compiles and minifies for production
 
   ```
-  npm run build
+  yarn build
   ```
 
 - Server side rendering
 
   ```
-  npm run build
+  yarn build
   ```
 
   ```
-  npm run serve
+  yarn serve
   ```
 
 You can access the page by pointing a web browser at http://localhost:8080.

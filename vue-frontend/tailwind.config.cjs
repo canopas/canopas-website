@@ -1,5 +1,5 @@
 const plugin = require("tailwindcss/plugin");
-const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   prefix: "tw-",
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
@@ -13,6 +13,7 @@ module.exports = {
         xl: "1200px",
         xl2: "1330px",
         "2xl": "1400px",
+        xll: "2440px",
         "3xl": "3840px",
         "4xl": "5000px",
         "hover-hover": { raw: "(hover: hover) and (pointer: fine)" },

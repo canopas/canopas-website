@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-sticky tw-top-0 tw-z-[2] tw-font-inter-medium"
+    class="tw-sticky tw-top-0 tw-z-[5] tw-font-inter-medium"
     :style="{ height: navContainerHeight + 'px' }"
   >
     <nav

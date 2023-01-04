@@ -3,10 +3,10 @@
     class="tw-relative tw-mt-[-50px] tw-bg-gradient-to-t tw-from-pink-300/[0.05] tw-to-white landing-bg-mobile-clip-path md:landing-bg-clip-path tw-overflow-hidden tw-px-0 tw-pb-[50px] md:tw-pb-[100px] tw-font-inter-regular"
   >
     <img
-      v-if="width < 600"
+      v-if="width < 680"
       :src="bgMobile"
       class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw--z-[1] tw-object-cover"
-      alt="canopas-contact-footer"
+      alt="canopas-landing"
     />
     <img
       v-else
@@ -127,8 +127,8 @@ import client1 from "@/assets/images/landing/client1.webp";
 import client2 from "@/assets/images/landing/client2.webp";
 import client3 from "@/assets/images/landing/client3.webp";
 import client4 from "@/assets/images/landing/client4.webp";
-import bgMobile from "@/assets/images/landing/bg/800.svg";
-import bg from "@/assets/images/landing/bg/2400.svg";
+import bgMobile from "@/assets/images/landing/bg/bg800.svg";
+import bg from "@/assets/images/landing/bg/bg2400.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
