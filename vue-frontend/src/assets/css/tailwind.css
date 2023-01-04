@@ -7,9 +7,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: local("Open Sans"), local("OpenSans"),
-    url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2)
-      format("woff2");
+  src: url(./../fonts/ProductSans-Normal.woff2);
 }
 
 @font-face {
@@ -33,7 +31,7 @@
   font-style: medium;
   font-weight: 600;
   font-display: swap;
-  src: url(./../fonts/Inter-Semibold.ttf);
+  src: url(./../fonts/Inter-SemiBold.ttf);
 }
 
 @font-face {

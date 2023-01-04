@@ -54,10 +54,10 @@ jobs:
       - name: Build frontend
         run: |
           cd vue-frontend
-          npm ci
+          yarn install --frozen-lockfile
           npx prettier -c .
           npx eslint .
-          npm run build
+          yarn build
 
       - name: Build backend
         run: |

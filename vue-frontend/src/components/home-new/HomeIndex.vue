@@ -2,6 +2,8 @@
   <div>
     <ScreenHeader />
     <LandingSection />
+    <ServiceSection class="tw-hidden md:tw-block" />
+    <ServiceSectionMobile class="tw-block md:tw-hidden" />
     <CTASection />
     <FooterV3 />
   </div>
@@ -10,30 +12,22 @@
 <script>
 import ScreenHeader from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/home-new/LandingSection.vue";
+import ServiceSection from "@/components/home-new/ServiceSection.vue";
+import ServiceSectionMobile from "@/components/home-new/ServiceSectionMobile.vue";
 import CTASection from "@/components/home-new/CTASection.vue";
 import FooterV3 from "@/components/partials/FooterV3.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-
 library.add(faPlus);
 
 export default {
   components: {
     ScreenHeader,
     LandingSection,
+    ServiceSection,
+    ServiceSectionMobile,
     CTASection,
     FooterV3,
-  },
-  mounted() {
-    let recaptchaScript = document.createElement("script");
-    recaptchaScript.setAttribute(
-      "src",
-      "https://www.google.com/recaptcha/enterprise.js?render=" +
-        import.meta.env.VITE_RECAPTCHA_SITE_KEY
-    );
-    recaptchaScript.setAttribute("async", "true");
-    recaptchaScript.setAttribute("defer", "true");
-    document.head.appendChild(recaptchaScript);
   },
 };
 </script>

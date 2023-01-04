@@ -54,7 +54,9 @@ function renderPreloadLinks(modules, manifest) {
 
 function renderPreloadLink(file) {
   if (file.endsWith(".css")) {
-    return `<link rel="stylesheet" href="${file}">`;
+    return `<link rel="stylesheet" href="${file}" rel="preload">`;
+  } else if (file.includes("bg")) {
+    return `<link rel="preload" as="image" href="${file}">`;
   } else {
     return "";
   }
