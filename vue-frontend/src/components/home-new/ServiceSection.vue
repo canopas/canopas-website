@@ -13,15 +13,13 @@
       @mouseleave="activeIndex = null"
       @touchstart.passive="activeIndex = index"
       :class="
-        activeIndex === index
-          ? 'tw-ease-in-out hover:tw-text-transparent hover:tw-shadow-[0px_2px_50px_4px_rgba(61,61,61,0.1)] '
-          : ''
+        activeIndex === index ? 'tw-ease-in-out hover:tw-text-transparent ' : ''
       "
       class="tw-relative tw-flex tw-items-center tw-h-36 tw-pl-16 xl:tw-pl-48 xll:tw-pl-[40rem]"
     >
       <div
-        v-if="activeIndex === index"
-        class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-justify-center tw-items-center tw-ml-0 tw-w-full tw-h-full tw-z-[2] tw-pr-8 xl:tw-pr-12"
+        v-if="activeIndex === index || (activeIndex == null && index == 0)"
+        class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-justify-center tw-items-center tw-ml-0 tw-w-full tw-h-full tw-z-[2] tw-pr-8 xl:tw-pr-12 tw-shadow-[0px_2px_50px_4px_rgba(61,61,61,0.1)]"
       >
         <div
           class="tw-flex tw-items-center tw-basis-[44%] lg:tw-basis-[49%] tw-h-36 tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B] tw-pl-16 xl:tw-pl-48 xll:tw-pl-[40rem] tw-font-inter-semibold tw-text-white tw-text-2xl xl:tw-text-[1.875rem] xl:tw-leading-[2.4375rem]"
