@@ -34,16 +34,16 @@
         >
           We develop Mobile and Web apps that help you
           <span
-            class="tw-bg-no-repeat tw-bg-top-bottom-160 lg:tw-bg-top-bottom-150 tw-bg-[length:100%_10px] tw-bg-gradient-underline tw-pb-[3px] tw-font-bold"
+            class="tw-bg-no-repeat tw-bg-bottom tw-bg-[length:100%_2.5px] tw-bg-gradient-underline tw-pb-[3px] tw-font-inter-bold"
             >generate more revenue,</span
           >&nbsp;
           <span
-            class="tw-bg-no-repeat tw-bg-top-bottom-160 lg:tw-bg-top-bottom-150 tw-bg-[length:100%_10px] tw-bg-gradient-underline tw-pb-[3px] tw-font-bold"
-            >acquire new users,
-          </span>
+            class="tw-bg-no-repeat tw-bg-bottom tw-bg-[length:100%_2.5px] tw-bg-gradient-underline tw-pb-[3px] tw-font-inter-bold"
+            >acquire new users,</span
+          >
           and
           <span
-            class="tw-bg-no-repeat tw-bg-top-bottom-160 lg:tw-bg-top-bottom-150 tw-bg-[length:100%_10px] tw-bg-gradient-underline tw-pb-[3px] tw-font-bold"
+            class="tw-bg-no-repeat tw-bg-bottom tw-bg-[length:100%_2.5px] tw-bg-gradient-underline tw-pb-[3px] tw-font-inter-bold"
             >deliver an exceptional user experience</span
           >.
         </div>
@@ -90,7 +90,7 @@
               </div>
             </div>
             <div class="tw-pl-[10px] md:tw-pl-[6px]">
-              <div class="tw-flex tw-justify-between">
+              <div class="tw-flex tw-justify-between tw-mt-[3px]">
                 <font-awesome-icon
                   v-for="i in 5"
                   :key="i"
@@ -98,12 +98,13 @@
                   icon="star"
                 />
               </div>
-
-              <p
-                class="tw-font-medium tw-text-[12px] tw-leading-[22px] tw-uppercase tw-text-black-core/[0.6] tw-tracking-[0]"
-              >
-                40+ Reviews
-              </p>
+              <div class="">
+                <span
+                  class="tw-font-medium tw-text-[12px] tw-leading-[22px] tw-uppercase tw-text-black-core/[0.6] tw-tracking-[0]"
+                >
+                  40+ Reviews
+                </span>
+              </div>
             </div>
           </div>
         </div>
