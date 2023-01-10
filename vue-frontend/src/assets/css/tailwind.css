@@ -17,7 +17,6 @@
   font-display: swap;
   src: url(./../fonts/FuturaLT-Bold.woff2);
 }
-
 @font-face {
   font-family: "Inter-Bold";
   font-style: bold;
@@ -25,10 +24,9 @@
   font-display: swap;
   src: url(./../fonts/Inter-Bold.ttf);
 }
-
 @font-face {
-  font-family: "Inter-Semibold";
-  font-style: medium;
+  font-family: "Inter-SemiBold";
+  font-style: normal;
   font-weight: 600;
   font-display: swap;
   src: url(./../fonts/Inter-SemiBold.ttf);
@@ -57,7 +55,21 @@
   font-display: swap;
   src: url(./../fonts/Roboto-Bold.ttf);
 }
+@font-face {
+  font-family: "Roboto-Medium";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./../fonts/Roboto-Medium.ttf);
+}
 
+@font-face {
+  font-family: "Inter-Light";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(./../fonts/Inter-Light.ttf);
+}
 @font-face {
   font-family: "SFProText-Regular";
   font-style: normal;
@@ -92,7 +104,6 @@
   .gradient-border-btn:hover > a > .footer-icon > path {
     fill: #ffffff;
   }
-
   .landing-bg-clip-path {
     -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
     clip-path: polygon(50% 0%, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
