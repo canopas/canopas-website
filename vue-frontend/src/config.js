@@ -13,6 +13,7 @@ export default Object.freeze({
   API_BASE: "https://dev-stack-api.canopas.com",
   BASE_URL: "https://dev-stack.canopas.com",
   CALENDLY_IFRAME_URL: "https://calendly.com/darpanvithani/15min",
+  CLUTCH_URL: "https://clutch.co/profile/canopas-software#reviews",
   SEO_META_DATA: {
     title:
       "Canopas - Fastest growing IT company in Surat, India. A growing software development company.",

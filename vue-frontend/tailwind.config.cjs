@@ -61,9 +61,11 @@ module.exports = {
         "product-sans": ["Product Sans"],
         "futura-bold": ["FuturaLT-Bold"],
         "roboto-bold": ["Roboto-Bold"],
+        "roboto-medium": ["Roboto-Medium"],
         "inter-bold": ["Inter-Bold"],
-        "inter-semibold": ["Inter-Semibold"],
         "inter-medium": ["Inter-Medium"],
+        "inter-semibold": ["Inter-SemiBold"],
+        "inter-light": ["Inter-Light"],
         "inter-regular": ["Inter-Regular"],
         "sfpro-regular": ["SFProText-Regular"],
       },
@@ -112,9 +114,12 @@ module.exports = {
         270: "270.11deg",
         180: "180deg",
       },
+
       backgroundImage: {
         "gradient-underline":
           "linear-gradient(transparent, transparent),linear-gradient(transparent, transparent),linear-gradient(to right, #f2709c, #ff835b)",
+        "single-color-underline":
+          "linear-gradient(to bottom, transparent 54%, #FFECEC 50%)",
       },
     },
   },
