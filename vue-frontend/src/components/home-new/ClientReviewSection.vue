@@ -16,7 +16,7 @@
       >
         <swiper-slide v-for="(client, index) in clients" :key="index">
           <div
-            class="tw-mx-auto sm:tw-px-10 md:tw-px-6 lg:tw-px-4 xl:tw-px-24 2xl:tw-px-40 sm:tw-text-black-core/[0.87] tw-text-black-900"
+            class="tw-mx-auto sm:tw-px-10 md:tw-px-6 lg:tw-px-4 xl:tw-px-24 sm:tw-text-black-core/[0.87] tw-text-black-900"
             :class="[client.className]"
           >
             <div
@@ -98,8 +98,8 @@ export default {
         {
           id: 1,
           name: "Rebecca Kimura",
-          className: "2xl:tw-px-44",
-          designation: "Founder at Togness, Australia.",
+          className: "2xl:tw-px-48",
+          designation: "Founder at Togness, Australia",
           review: `“There was rarely ever a second\
             explanation needed. Even if we \
             struggled to explain technically what\
