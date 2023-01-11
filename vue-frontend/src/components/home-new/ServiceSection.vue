@@ -1,10 +1,10 @@
 <template>
   <div class="md:tw-pt-[100px] tw-font-inter-regular">
-    <div
+    <h1
       class="tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center"
     >
       How We Can Help You
-    </div>
+    </h1>
 
     <div
       v-for="(service, index) in services"

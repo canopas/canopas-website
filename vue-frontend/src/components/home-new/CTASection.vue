@@ -12,16 +12,16 @@
       class="tw-container tw-m-auto md:tw-w-[86%] lg:tw-w-4/5 xl:tw-w-[86%] tw-px-[25px] tw-pt-[61px] md:tw-pt-[162px] tw-pb-[50px] md:tw-pb-[70px] tw-opacity-1 tw-text-center"
     >
       <div class="md:tw-w-[86%] lg:tw-w-4/5 xl:tw-w-[86%] tw-m-auto">
-        <div
+        <h1
           class="tw-w-full tw-text-[2.1875rem] tw-leading-[2.75rem] tw-tracking-[1px] md:tw-text-[2.8125rem] md:tw-leading-[3.4375rem] lg:tw-text-[3.4375rem] lg:tw-leading-[4.0281rem] tw-font-roboto-bold canopas-gradient-text"
         >
           How do you know we’re a good fit for you?
-        </div>
-        <div
+        </h1>
+        <h2
           class="tw-mt-6 tw-text-[1.25rem] tw-leading-[1.5625rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8156rem] tw-tracking-normal tw-text-black-core/[.87]"
         >
           Let’s have a short chat.
-        </div>
+        </h2>
         <div class="tw-flex tw-flex-wrap tw-justify-center">
           <router-link
             class="tw-flex tw-items-center tw-rounded-[2rem] gradient-btn"

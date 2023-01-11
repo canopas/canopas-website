@@ -2,11 +2,11 @@
   <div
     class="tw-container tw-relative tw-m-0 tw-mt-[66px] tw-max-w-full tw-p-0 tw-text-center"
   >
-    <div
+    <h1
       class="tw-pb-20 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem]"
     >
       How We Can Help You
-    </div>
+    </h1>
     <img
       :src="ServiceBackgroundImage"
       alt="service-background-image"
