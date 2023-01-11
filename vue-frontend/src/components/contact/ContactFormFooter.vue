@@ -256,7 +256,7 @@
 import axios from "axios";
 import config from "@/config.js";
 import loaderImage from "@/assets/images/theme/small-loader.svg";
-import { faCaretDown, faCaretUp, faL } from "@fortawesome/free-solid-svg-icons";
+import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {

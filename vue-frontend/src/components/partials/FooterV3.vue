@@ -81,7 +81,7 @@ import bg800 from "@/assets/images/footer/bg/800.svg";
 import bg1200 from "@/assets/images/footer/bg/1200.svg";
 import bg2400 from "@/assets/images/footer/bg/2400.svg";
 import Config from "@/config.js";
-import ContactForm from "@/components/contact/ContactFormNew.vue";
+import ContactForm from "@/components/contact/ContactFormFooter.vue";
 
 import {
   faFacebookF,

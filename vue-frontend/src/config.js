@@ -15,10 +15,9 @@ export default Object.freeze({
   CALENDLY_IFRAME_URL: "https://calendly.com/darpanvithani/15min",
   CLUTCH_URL: "https://clutch.co/profile/canopas-software#reviews",
   SEO_META_DATA: {
-    title:
-      "Canopas - Fastest growing IT company in Surat, India. A growing software development company.",
+    title: "Canopas - Fastest growing IT company in Surat, India.",
     description:
-      "At Canopas, We develop amazing products to help entrepreneurs, startups, and businesses bring their ideas to life.",
+      "Canopas is a software development company helping businesses grow exponentially by developing mobile apps, websites, web apps, desktop apps, UI/UX, and SEO.",
     type: "Website",
     url: "https://dev-stack.canopas.com",
   },

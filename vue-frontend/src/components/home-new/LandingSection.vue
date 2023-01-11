@@ -21,14 +21,14 @@
         <img :src="landing" alt="landing-view-image" loading="lazy" />
       </div>
       <div class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[50px]">
-        <div
+        <h1
           class="tw-w-[100%] sm:tw-w-[85%] tw-pb-5 lg:tw-pb-8 xl:tw-pb-10 v2-header-3-text tw-tracking-[0] tw-text-[1.875rem] tw-leading-[2.5rem] md:tw-text-[2.65625rem] md:tw-leading-[3.28125rem] lg:tw-text-[3.28125rem] lg:tw-leading-[3.70625rem] 2xl:tw-text-[4.0625rem] 2xl:tw-leading-[4.6875rem] tw-text-black-core/[.87] tw-font-roboto-bold"
         >
           For Over A Decade We Have Helped Businesses Grow Exponentially.
           <div>
             — <span class="canopas-gradient-text"> Is Yours Next?</span>
           </div>
-        </div>
+        </h1>
         <div
           class="tw-w-[85%] md:tw-w-[65%] tw-pb-[29.5px] md:tw-pb-[47px] v2-normal-text tw-tracking-[0] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.09375rem] md:tw-leading-[1.53125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.75rem] tw-text-black-core/[0.6] !tw-font-sfpro-regular"
         >
