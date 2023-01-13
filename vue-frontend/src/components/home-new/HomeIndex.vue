@@ -20,6 +20,7 @@ import CTASection from "@/components/home-new/CTASection.vue";
 import FooterV3 from "@/components/partials/FooterV3.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { analyticsEvent } from "@/utils.js";
 library.add(faPlus);
 
 export default {
