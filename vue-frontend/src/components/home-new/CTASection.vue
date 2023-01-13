@@ -26,6 +26,7 @@
           <router-link
             class="tw-flex tw-items-center tw-rounded-[2rem] gradient-btn"
             :to="contactURL"
+            @click.native="$gtag.event('tap_home_touch_cta')"
           >
             <span
               class="tw-text-[0.9375rem] tw-leading-[1.25rem] md:tw-text-[1.0625rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4368rem] tw-tracking-wide"
@@ -37,7 +38,7 @@
           class="tw-mt-12 tw-w-full tw-text-[1.25rem] tw-leading-[1.5625rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8156rem] tw-text-left"
         >
           <div class="v2-canopas-gradient-text">
-            Four reasons why we do conversation?
+            Four reasons why do we do this call?
           </div>
         </div>
         <ul

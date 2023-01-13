@@ -14,6 +14,7 @@
               v-model="name"
               :disabled="disableInput"
               placeholder=" "
+              @click.native="$gtag.event('tap_footer_username_input')"
             />
             <label
               for="username"
@@ -35,6 +36,7 @@
               v-model="email"
               :disabled="disableInput"
               placeholder=" "
+              @click.native="$gtag.event('tap_footer_email_input')"
             />
             <label
               for="email"
@@ -58,6 +60,7 @@
               v-model="projectInfo"
               :disabled="disableInput"
               placeholder=" "
+              @click.native="$gtag.event('tap_footer_project_info_input')"
             ></textarea>
             <label
               for="project"
@@ -81,6 +84,7 @@
               v-model="reference"
               :disabled="disableInput"
               placeholder=" "
+              @click.native="$gtag.event('tap_footer_reference_input')"
             />
             <label
               for="reference"
@@ -105,7 +109,7 @@
                 name="invest"
                 required
                 :disabled="disableInput"
-                @click="showList = !showList"
+                @click="toggleList"
               >
                 {{ invest }}
                 <font-awesome-icon
@@ -138,7 +142,7 @@
           >
             <span
               class="tw-mr-6 tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-text-white/[.6]"
-              @click="NDA = !NDA"
+              @click="toggleNDA()"
               >Send me NDA</span
             >
             <label
@@ -297,6 +301,7 @@ export default {
   },
   methods: {
     submitForm() {
+      this.$gtag.event("tap_home_form_submission");
       if (
         this.name === "" ||
         this.email === "" ||
@@ -370,6 +375,14 @@ export default {
     setOption(option) {
       this.invest = option;
       this.showList = false;
+    },
+    toggleList() {
+      this.$gtag.event("tap_footer_invest_input");
+      this.showList = !this.showList;
+    },
+    toggleNDA() {
+      this.$gtag.event("tap_footer_NDA_input");
+      this.NDA = !this.NDA;
     },
   },
 };

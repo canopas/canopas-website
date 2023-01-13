@@ -41,6 +41,7 @@
               <router-link
                 v-if="!navbar.target"
                 :to="navbar.url"
+                @click.native="$gtag.event(event)"
                 :class="[
                   navbar.className
                     ? navbar.className
@@ -94,24 +95,29 @@ export default {
         {
           name: "Home",
           url: "/",
+          event: "tap_header_home",
         },
         {
-          name: "Career",
-          url: "/jobs",
+          name: "Portfolio",
+          url: "/portfolio",
+          event: "tap_header_portfolio",
         },
         {
           name: "Blog",
           url: Config.BLOG_URL,
           target: true,
+          event: "tap_header_blog",
         },
         {
-          name: "Portfolio",
-          url: "/portfolio",
+          name: "Career",
+          url: "/jobs",
+          event: "tap_header_career",
         },
         {
           name: "Let's talk",
           url: "/contact",
           className: "lg:tw-hidden",
+          event: "tap_header_cta",
         },
         {
           name: "Get Free Consultation",
@@ -119,6 +125,7 @@ export default {
           className:
             " tw-hidden lg:tw-block tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-tracking-[0] gradient-btn consultation-btn",
           showContactBtn: true,
+          event: "tap_header_cta",
         },
       ],
       isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,

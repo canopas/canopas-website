@@ -10,7 +10,6 @@
       v-for="(service, index) in services"
       :key="service"
       @mouseover="activeIndex = index"
-      @mouseleave="activeIndex = null"
       @touchstart.passive="activeIndex = index"
       :class="
         activeIndex === index ? 'tw-ease-in-out hover:tw-text-transparent ' : ''
@@ -70,14 +69,14 @@ export default {
             "Whether you need help with websites, web apps, an admin panel, an analytical dashboard, or desktop apps, our engineers will develop scalable backend and front-end solutions.",
         },
         {
-          title: "UI/UX Design ",
+          title: "UI/UX Design",
           content:
             "We design user-centered UI/UX followed by user testing. We make design decisions based on only one thing: Data. Because it ensures our clients get value from our work.",
         },
         {
           title: "SEO",
           content:
-            "To scale your business exponentially you have to get organic reach for your businesses and we know how to do it. In just one year, we grew from 16 daily impressions to 24369 daily impressions. 1500X impressions growth under one year",
+            "To scale your business exponentially you have to get organic reach for your businesses and we know how to do it. In just one year, we grew from 16 daily impressions to 24369 daily impressions. 1500X impressions growth under one year.",
         },
         {
           title: "Software Testing",
