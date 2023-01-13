@@ -1,11 +1,11 @@
 <template>
   <div>
     <ScreenHeader />
-    <LandingSection />
-    <ServiceSection class="tw-hidden md:tw-block" />
-    <ServiceSectionMobile class="tw-block md:tw-hidden" />
-    <ClientReview />
-    <CTASection />
+    <LandingSection ref="newLanding" />
+    <ServiceSection class="tw-hidden md:tw-block" ref="newService" />
+    <ServiceSectionMobile class="tw-block md:tw-hidden" ref="newService" />
+    <ClientReview ref="newClientReview" />
+    <CTASection ref="newCTA" />
     <FooterV3 />
   </div>
 </template>
@@ -20,6 +20,7 @@ import CTASection from "@/components/home-new/CTASection.vue";
 import FooterV3 from "@/components/partials/FooterV3.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { analyticsEvent } from "@/utils.js";
 library.add(faPlus);
 
 export default {
@@ -31,6 +32,27 @@ export default {
     ClientReview,
     CTASection,
     FooterV3,
+  },
+  data() {
+    return {
+      event: "",
+    };
+  },
+  mounted() {
+    this.$gtag.event("view_landing_section");
+    window.addEventListener("scroll", this.sendEvent);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = analyticsEvent(this.$refs);
+      if (event && this.event !== event) {
+        this.event = event;
+        this.$gtag.event(event);
+      }
+    },
   },
 };
 </script>

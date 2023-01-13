@@ -81,12 +81,12 @@ export default {
         {
           title: "Web Development",
           content:
-            " Whether you need help with websites, web apps, an admin panel, an analytical dashboard, or desktop apps, our engineers will develop scalable backend and front-end solutions.",
+            "Whether you need help with websites, web apps, an admin panel, an analytical dashboard, or desktop apps, our engineers will develop scalable backend and front-end solutions.",
           image: circle2,
           bullet: bullet2,
         },
         {
-          title: "UI/UX Design ",
+          title: "UI/UX Design",
           content:
             "We design user-centered UI/UX followed by user testing. We make design decisions based on only one thing: Data. Because it ensures our clients get value from our work.",
           image: circle3,
@@ -95,7 +95,7 @@ export default {
         {
           title: "SEO",
           content:
-            "To scale your business exponentially you have to get organic reach for your businesses and we know how to do it. In just one year, we grew from 16 daily impressions to 24369 daily impressions. 1500X impressions growth under one year",
+            "To scale your business exponentially you have to get organic reach for your businesses and we know how to do it. In just one year, we grew from 16 daily impressions to 24369 daily impressions. 1500X impressions growth under one year.",
           image: circle4,
           bullet: bullet1,
         },

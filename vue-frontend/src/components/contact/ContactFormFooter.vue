@@ -7,26 +7,30 @@
             <input
               type="text"
               id="username"
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
               name="username"
               required
               autocomplete="given-username"
               v-model="name"
               :disabled="disableInput"
               placeholder=" "
+              @input="showNameValidationError = name === ''"
+              @click.native="$gtag.event('tap_footer_username_input')"
             />
             <label
               for="username"
               class="tw-absolute tw-top-4 tw-left-0 tw-mb-5 tw-z-[2] tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4"
               >Your name</label
             >
-            <span v-if="showValidationError" class="error tw-text-red-600"
+            <span
+              v-if="showNameValidationError"
+              class="error canopas-gradient-text"
               >This field is required</span
             >
           </div>
           <div class="tw-relative md:tw-mb-5 tw-pt-3 lg:tw-pt-9 tw-text-left">
             <input
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
               type="text"
               name="email"
               id="email"
@@ -35,13 +39,17 @@
               v-model="email"
               :disabled="disableInput"
               placeholder=" "
+              @input="showEmailValidationError = email === ''"
+              @click.native="$gtag.event('tap_footer_email_input')"
             />
             <label
               for="email"
               class="tw-absolute tw-top-4 tw-left-0 tw-mb-5 tw-z-[2] tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4"
               >Your email</label
             >
-            <span v-if="showValidationError" class="error tw-text-red-600"
+            <span
+              v-if="showEmailValidationError"
+              class="error canopas-gradient-text"
               >This field is required</span
             >
           </div>
@@ -49,7 +57,7 @@
             class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <textarea
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
               id="project"
               name="project"
               rows="1"
@@ -58,13 +66,17 @@
               v-model="projectInfo"
               :disabled="disableInput"
               placeholder=" "
+              @input="showProjectInfoValidationError = projectInfo === ''"
+              @click.native="$gtag.event('tap_footer_project_info_input')"
             ></textarea>
             <label
               for="project"
               class="tw-absolute tw-top-4 tw-left-0 tw-mb-5 tw-z-[2] tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4"
               >Tell us about your project</label
             >
-            <span v-if="showValidationError" class="error tw-text-red-600"
+            <span
+              v-if="showProjectInfoValidationError"
+              class="error canopas-gradient-text"
               >This field is required</span
             >
           </div>
@@ -72,7 +84,7 @@
             class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <input
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-0 active:tw-outline-0 focus:tw-ring-0 active:tw-ring-0"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
               type="text"
               name="reference"
               id="reference"
@@ -81,18 +93,24 @@
               v-model="reference"
               :disabled="disableInput"
               placeholder=" "
+              @input="showReferenceValidationError = reference === ''"
+              @click.native="$gtag.event('tap_footer_reference_input')"
             />
             <label
               for="reference"
               class="tw-absolute tw-top-4 tw-left-0 tw-mb-5 tw-z-[2] tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4"
               >How did you find us?</label
             >
-            <span v-if="showValidationError" class="error tw-text-red-600"
+            <span
+              v-if="showReferenceValidationError"
+              class="error canopas-gradient-text"
               >This field is required</span
             >
           </div>
-          <div class="tw-relative md:tw-col-span-2 tw-text-left">
-            <div ref="invest-list">
+          <div
+            class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
+          >
+            <div ref="invest-list" class="tw-flex">
               <button
                 class="tw-flex tw-items-center tw-justify-between tw-w-full tw-py-2 tw-px-0 tw-my-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
                 :class="
@@ -105,7 +123,7 @@
                 name="invest"
                 required
                 :disabled="disableInput"
-                @click="showList = !showList"
+                @click="toggleList"
               >
                 {{ invest }}
                 <font-awesome-icon
@@ -115,7 +133,7 @@
               </button>
               <ul
                 v-if="showList"
-                class="tw-absolute tw-float-left tw-mt-1 tw-m-0 tw-w-full tw-min-w-max tw-z-[5] tw-border-none tw-rounded-[10px] tw-shadow-[0px_5px_15px_rgba(0,0,0,0.5)] tw-bg-[#3D3D3D] tw-py-1 tw-list-none tw-text-left tw-text-base tw-transition-all tw-delay-150 tw-duration-300"
+                class="tw-absolute tw-float-left tw-mt-12 tw-m-0 tw-w-full tw-min-w-max tw-z-[5] tw-border-none tw-rounded-[10px] tw-shadow-[0px_5px_15px_rgba(0,0,0,0.5)] tw-bg-[#3D3D3D] tw-py-1 tw-list-none tw-text-left tw-text-base tw-transition-all tw-delay-150 tw-duration-300"
               >
                 <li
                   v-for="option in investOptions"
@@ -129,7 +147,9 @@
                 </li>
               </ul>
             </div>
-            <span v-if="showValidationError" class="error tw-text-red-600"
+            <span
+              v-if="showInvestValidationError"
+              class="error canopas-gradient-text"
               >This field is required</span
             >
           </div>
@@ -138,7 +158,7 @@
           >
             <span
               class="tw-mr-6 tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-text-white/[.6]"
-              @click="NDA = !NDA"
+              @click="toggleNDA"
               >Send me NDA</span
             >
             <label
@@ -279,7 +299,11 @@ export default {
       ],
       NDA: false,
       disableInput: false,
-      showValidationError: false,
+      showNameValidationError: false,
+      showEmailValidationError: false,
+      showProjectInfoValidationError: false,
+      showReferenceValidationError: false,
+      showInvestValidationError: false,
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
       errorMessage: "Something went wrong on our side",
@@ -296,18 +320,25 @@ export default {
     document.removeEventListener("click", this.closePopUps);
   },
   methods: {
+    validateForm() {
+      this.showNameValidationError = this.name === "";
+      this.showEmailValidationError = this.email === "";
+      this.showProjectInfoValidationError = this.projectInfo === "";
+      this.showReferenceValidationError = this.reference === "";
+      this.showInvestValidationError = this.invest === "";
+      return (
+        this.showNameValidationError ||
+        this.showEmailValidationError ||
+        this.showProjectInfoValidationError ||
+        this.showReferenceValidationError ||
+        this.showInvestValidationError
+      );
+    },
     submitForm() {
-      if (
-        this.name === "" ||
-        this.email === "" ||
-        this.projectInfo === "" ||
-        this.reference === "" ||
-        this.invest === "I'll invest"
-      ) {
-        this.showValidationError = true;
-      } else {
+      this.$gtag.event("tap_home_form_submission");
+
+      if (!this.validateForm()) {
         this.disableInput = true;
-        this.showValidationError = false;
         this.showLoader = true;
 
         let formData = {
@@ -368,8 +399,17 @@ export default {
       }
     },
     setOption(option) {
+      this.showInvestValidationError = invest === "";
       this.invest = option;
       this.showList = false;
+    },
+    toggleList() {
+      this.$gtag.event("tap_footer_invest_input");
+      this.showList = !this.showList;
+    },
+    toggleNDA() {
+      this.$gtag.event("tap_footer_NDA_input");
+      this.NDA = !this.NDA;
     },
   },
 };

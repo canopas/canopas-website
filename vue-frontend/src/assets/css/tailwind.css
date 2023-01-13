@@ -64,13 +64,6 @@
 }
 
 @font-face {
-  font-family: "Inter-Light";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url(./../fonts/Inter-Light.ttf);
-}
-@font-face {
   font-family: "SFProText-Regular";
   font-style: normal;
   font-weight: 400;

@@ -22,7 +22,7 @@
       </div>
       <div class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[50px]">
         <h1
-          class="tw-w-[100%] sm:tw-w-[85%] tw-pb-5 lg:tw-pb-8 xl:tw-pb-10 v2-header-3-text tw-tracking-[0] tw-text-[1.875rem] tw-leading-[2.5rem] md:tw-text-[2.65625rem] md:tw-leading-[3.28125rem] lg:tw-text-[3.28125rem] lg:tw-leading-[3.70625rem] 2xl:tw-text-[4.0625rem] 2xl:tw-leading-[4.6875rem] tw-text-black-core/[.87] tw-font-roboto-bold"
+          class="tw-w-[100%] sm:tw-w-[85%] tw-pb-5 lg:tw-pb-8 xl:tw-pb-10 v2-header-3-text tw-tracking-[0] tw-text-[2.1875rem] tw-leading-[2.8125rem] md:tw-text-[2.65625rem] md:tw-leading-[3.28125rem] lg:tw-text-[3.28125rem] lg:tw-leading-[3.70625rem] 2xl:tw-text-[4.0625rem] 2xl:tw-leading-[4.6875rem] tw-text-black-core/[.87] tw-font-roboto-bold"
         >
           For Over A Decade We Have Helped Businesses Grow Exponentially.
           <div>
@@ -44,14 +44,15 @@
           and
           <span
             class="tw-bg-no-repeat tw-bg-bottom tw-bg-[length:100%_2.5px] tw-bg-gradient-underline tw-pb-[3px] tw-font-inter-bold"
-            >deliver an exceptional user experience</span
-          >.
+            >deliver an exceptional user experience.</span
+          >
         </div>
         <div class="tw-flex tw-items-center tw-flex-col-reverse lg:tw-flex-row">
           <div class="tw-text-center">
             <router-link
               class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-[3rem] tw-py-[0.7rem] tw-px-5 tw-text-center gradient-btn"
               :to="contactURL"
+              @click.native="$gtag.event('tap_landing_cta')"
             >
               <span
                 class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0.5px]"
@@ -59,7 +60,8 @@
               </span> </router-link
             ><small
               class="lg:tw-hidden tw-font-inter-regular tw-text-black-core/[0.6] tw-text-[0.75rem] tw-leading-[1.125rem]"
-              >100% MONEY BACK GUARANTEE</small
+              >100% MONEY BACK GUARANTEE <br />
+              FOR 14 DAYS</small
             >
           </div>
 
@@ -113,8 +115,8 @@
         >
           We offer a
           <span class="tw-font-inter-bold"
-            >100% MONEY BACK GUARANTEE FOR 14 DAYS</span
-          >
+            >100% MONEY BACK GUARANTEE FOR 14 DAYS
+          </span>
           if you don't like our work. No questions asked.
         </small>
       </div>

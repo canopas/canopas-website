@@ -65,7 +65,6 @@ module.exports = {
         "inter-bold": ["Inter-Bold"],
         "inter-medium": ["Inter-Medium"],
         "inter-semibold": ["Inter-SemiBold"],
-        "inter-light": ["Inter-Light"],
         "inter-regular": ["Inter-Regular"],
         "sfpro-regular": ["SFProText-Regular"],
       },

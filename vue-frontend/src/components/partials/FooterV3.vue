@@ -110,30 +110,37 @@ export default {
         {
           url: Config.FACEBOOK_URL,
           icon: faFacebookF,
+          event: "tap_home_facebook",
         },
         {
           url: Config.INSTAGRAM_URL,
           icon: faInstagram,
+          event: "tap_home_instagram",
         },
         {
           url: Config.TWITTER_URL,
           icon: faTwitter,
+          event: "tap_home_twitter",
         },
         {
           url: Config.BLOG_URL,
           icon: faMediumM,
+          event: "tap_home_medium",
         },
         {
           url: Config.LINKEDIN_URL,
           icon: faLinkedinIn,
+          event: "tap_home_linkedin",
         },
         {
           url: Config.YOUTUBE_URL,
           icon: faYoutube,
+          event: "tap_home_youtube",
         },
         {
           url: Config.DESIGNRUSH_URL,
           image: true,
+          event: "tap_home_designrush",
         },
       ],
     };

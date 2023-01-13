@@ -9,7 +9,7 @@
     <NewHeader v-else />
     <LandingView v-on:scroll-to-career="scrollToCareer" ref="landingview" />
     <VirtuesView ref="virtue" />
-    <LifeAtCanopas />
+    <LifeAtCanopas ref="life" />
     <PerksAndBenefits v-on:scroll-to-career="scrollToCareer" ref="perks" />
     <WhyCanopas
       class="tw-hidden md:tw-block"
