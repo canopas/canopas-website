@@ -1,7 +1,12 @@
 <template>
   <div class="md:tw-pt-[100px] tw-font-inter-regular">
     <h1
-      class="tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center"
+      class="tw-text-[#F8F8F8] tw-text-center tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[4.0625rem] xl:tw-leading-[5rem]"
+    >
+      Services
+    </h1>
+    <h1
+      class="tw-mt-[-40px] xl:tw-mt-[-50px] tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center"
     >
       How We Can Help You
     </h1>

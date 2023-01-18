@@ -6,7 +6,6 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        xs: "440px",
         sm: "576px",
         md: "768px",
         lg: "992px",
@@ -155,9 +154,6 @@ module.exports = {
           margin: "auto",
           padding: "0 0.75rem",
           maxWidth: "100%",
-          "@screen xs": {
-            maxWidth: "440px",
-          },
           "@screen sm": {
             maxWidth: "540px",
           },

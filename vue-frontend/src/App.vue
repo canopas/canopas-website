@@ -149,7 +149,9 @@ a {
   @apply tw-mr-[10px];
 }
 
-.v2-button:hover > .fa {
+.v2-button:hover > .fa,
+.cta-button:hover > span,
+.portfolio-nav:hover > span {
   @apply tw-text-[#fff];
 }
 
@@ -161,7 +163,8 @@ a {
   @apply tw-my-0 tw-mx-[6px] tw-font-bold;
 }
 
-.gradient-btn:hover > span {
+.gradient-btn:hover > span,
+.gradient-btn:hover > a > span {
   @apply tw-bg-clip-text tw-text-transparent tw-from-[#f2709c] tw-to-[#ff9472] tw-bg-gradient-[89.88deg];
 }
 

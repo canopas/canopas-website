@@ -17,6 +17,15 @@
   font-display: swap;
   src: url(./../fonts/FuturaLT-Bold.woff2);
 }
+
+@font-face {
+  font-family: "SFProText-Regular";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(./../fonts/SFProText-Regular.ttf);
+}
+
 @font-face {
   font-family: "Inter-Bold";
   font-style: bold;
@@ -55,6 +64,7 @@
   font-display: swap;
   src: url(./../fonts/Roboto-Bold.ttf);
 }
+
 @font-face {
   font-family: "Roboto-Medium";
   font-style: normal;
@@ -64,11 +74,11 @@
 }
 
 @font-face {
-  font-family: "SFProText-Regular";
+  font-family: "Roboto-Regular";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./../fonts/SFProText-Regular.ttf);
+  src: url(./../fonts/Roboto-Regular.ttf);
 }
 
 @layer utilities {
