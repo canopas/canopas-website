@@ -133,7 +133,7 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    this.navContainerHeight = this.$refs.mainHeader.clientHeight;
+    this.navContainerHeight = this.$refs.mainHeader.clientHeight + 30;
   },
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);

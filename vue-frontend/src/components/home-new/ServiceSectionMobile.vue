@@ -33,7 +33,7 @@
           class="tw-w-[50px] tw-h-[50px] -tw-mr-[20px]"
         />
         <div
-          class="tw-py-[15px] tw-font-inter-bold tw-text-[1.5rem] tw-leading-[1.816rem]"
+          class="tw-py-[5px] tw-font-inter-bold tw-text-[1.5rem] tw-leading-[1.816rem]"
         >
           {{ service.title }}
         </div>
