@@ -2,11 +2,19 @@
   <div
     class="tw-container tw-relative tw-m-0 tw-mt-[66px] tw-max-w-full tw-p-0 tw-text-center"
   >
-    <h1
-      class="tw-pb-20 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem]"
-    >
-      How We Can Help You
-    </h1>
+    <div>
+      <h1
+        class="tw-text-[#F8F8F8] tw-text-center tw-text-[2.5rem] tw-leading-[1.875rem]"
+      >
+        Services
+      </h1>
+      <h1
+        class="tw-mt-[-20px] tw-pb-20 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem]"
+      >
+        How We Can Help You
+      </h1>
+    </div>
+
     <img
       :src="ServiceBackgroundImage"
       alt="service-background-image"

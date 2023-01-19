@@ -4,6 +4,7 @@
     <LandingSection ref="newLanding" />
     <ServiceSection class="tw-hidden md:tw-block" ref="newService" />
     <ServiceSectionMobile class="tw-block md:tw-hidden" ref="newService" />
+    <CaseStudy />
     <ClientReview ref="newClientReview" />
     <CTASection ref="newCTA" />
     <FooterV3 />
@@ -13,6 +14,7 @@
 <script>
 import ScreenHeader from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/home-new/LandingSection.vue";
+import CaseStudy from "@/components/home-new/CaseStudy.vue";
 import ServiceSection from "@/components/home-new/ServiceSection.vue";
 import ServiceSectionMobile from "@/components/home-new/ServiceSectionMobile.vue";
 import ClientReview from "@/components/home-new/ClientReviewSection.vue";
@@ -27,6 +29,7 @@ export default {
   components: {
     ScreenHeader,
     LandingSection,
+    CaseStudy,
     ServiceSection,
     ServiceSectionMobile,
     ClientReview,
