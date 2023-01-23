@@ -2,11 +2,19 @@
   <div>
     <ScreenHeader />
     <LandingSection ref="newLanding" />
-    <ServiceSection class="tw-hidden md:tw-block" ref="newService" />
-    <ServiceSectionMobile class="tw-block md:tw-hidden" ref="newService" />
-    <CaseStudy />
+    <ServiceSection
+      class="tw-hidden md:tw-block"
+      ref="newService"
+      v-on:add-animation="handleAnimationOnScroll"
+    />
+    <ServiceSectionMobile
+      class="tw-block md:tw-hidden"
+      ref="newService"
+      v-on:add-animation="handleAnimationOnScroll"
+    />
+    <CaseStudy v-on:add-animation="handleAnimationOnScroll" />
     <ClientReview ref="newClientReview" />
-    <CTASection ref="newCTA" />
+    <CTASection ref="newCTA" v-on:add-animation="handleAnimationOnScroll" />
     <FooterV3 />
   </div>
 </template>
@@ -22,7 +30,7 @@ import CTASection from "@/components/home-new/CTASection.vue";
 import FooterV3 from "@/components/partials/FooterV3.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { analyticsEvent } from "@/utils.js";
+import { analyticsEvent, handleAnimationOnScroll } from "@/utils.js";
 library.add(faPlus);
 
 export default {
@@ -38,6 +46,7 @@ export default {
   },
   data() {
     return {
+      handleAnimationOnScroll,
       event: "",
     };
   },

@@ -250,7 +250,6 @@ export default {
       let data = {
         name: this.$refs.faqImage,
         animation: "animate__zoomIn",
-        childRef: [],
       };
       if (data) {
         this.$emit("add-animation", data);

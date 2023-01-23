@@ -13,7 +13,7 @@
             ? 'tw-scale-[1.5] sm:tw-scale-[1.2] tw-z-[2]'
             : '',
         ]"
-        class="tw-relative"
+        class="tw-relative tw-transition-all tw-duration-500 tw-ease-in-out tw-transform"
         @mouseover="activeIndex = portfolio.id"
         @mouseleave="activeIndex = null"
         @touchstart.passive="activeIndex = portfolio.id"

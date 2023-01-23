@@ -6,7 +6,8 @@
       Our Portfolio
     </h1>
     <h1
-      class="tw-container tw-mt-[-20px] md:tw-mt-[-50px] tw-pb-9 md:tw-pb-12 tw-text-[1.875rem] tw-leading-[2.438rem] md:tw-text-[2.65rem] md:tw-leading-[3.218rem] lg:tw-text-[3.438rem] lg:tw-leading-[4rem] tw-text-center tw-text-black-core/[0.87] tw-font-roboto-bold"
+      class="tw-container tw-mt-[-20px] md:tw-mt-[-50px] tw-pb-9 md:tw-pb-12 tw-text-[1.875rem] tw-leading-[2.438rem] md:tw-text-[2.65rem] md:tw-leading-[3.218rem] lg:tw-text-[3.438rem] lg:tw-leading-[4rem] tw-text-center tw-text-black-core/[0.87] tw-font-roboto-bold animate__animated"
+      ref="title"
     >
       Case Studies
     </h1>
@@ -55,7 +56,10 @@
       use our apps every day
     </div>
     <PortfolioSection ref="newPortfolio" />
-    <PortfolioCTASection ref="newPortfolioCTA" />
+    <PortfolioCTASection
+      ref="newPortfolioCTA"
+      v-on:cta-animation="ctaAnimation"
+    />
   </section>
 </template>
 
@@ -105,9 +109,11 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.sendEvent);
+    window.addEventListener("scroll", this.handleScroll);
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     sendEvent() {
@@ -116,6 +122,15 @@ export default {
         this.event = event;
         this.$gtag.event(event);
       }
+    },
+    handleScroll() {
+      this.$emit("add-animation", {
+        name: this.$refs.title,
+        animation: "animate__fadeInUp",
+      });
+    },
+    ctaAnimation(data) {
+      this.$emit("add-animation", data);
     },
   },
   components: {
