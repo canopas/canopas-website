@@ -103,3 +103,14 @@ export function analyticsEvent(refs) {
   });
   return event;
 }
+
+export function handleAnimationOnScroll(data) {
+  if (data) {
+    let { top, bottom } = data.name.getBoundingClientRect();
+    let height = document.documentElement.clientHeight;
+
+    if (top < height && bottom > 0) {
+      data.name.classList.add(data.animation);
+    }
+  }
+}

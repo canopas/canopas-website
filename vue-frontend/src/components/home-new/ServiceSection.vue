@@ -6,7 +6,8 @@
       Services
     </h1>
     <h1
-      class="tw-mt-[-40px] xl:tw-mt-[-50px] tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center"
+      class="tw-mt-[-40px] xl:tw-mt-[-50px] tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center animate__animated"
+      ref="title"
     >
       How We Can Help You
     </h1>
@@ -17,7 +18,9 @@
       @mouseover="activeIndex = index"
       @touchstart.passive="activeIndex = index"
       :class="
-        activeIndex === index ? 'tw-ease-in-out hover:tw-text-transparent ' : ''
+        activeIndex === index
+          ? 'hover:tw-text-transparent tw-transition-all tw-duration-500  tw-ease-in-out tw-transform'
+          : ''
       "
       class="tw-relative tw-flex tw-items-center tw-h-36 tw-pl-16 xl:tw-pl-48 xll:tw-pl-[40rem]"
     >
@@ -90,6 +93,20 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      this.$emit("add-animation", {
+        name: this.$refs.title,
+        animation: "animate__fadeInUp",
+      });
+    },
   },
 };
 </script>

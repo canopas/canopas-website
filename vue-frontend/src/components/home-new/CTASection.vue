@@ -13,7 +13,8 @@
     >
       <div class="md:tw-w-[86%] lg:tw-w-4/5 xl:tw-w-[86%] tw-m-auto">
         <h1
-          class="tw-w-full tw-text-[2.1875rem] tw-leading-[2.75rem] tw-tracking-[1px] md:tw-text-[2.8125rem] md:tw-leading-[3.4375rem] lg:tw-text-[3.4375rem] lg:tw-leading-[4.0281rem] tw-font-roboto-bold canopas-gradient-text"
+          class="tw-w-full tw-text-[2.1875rem] tw-leading-[2.75rem] tw-tracking-[1px] md:tw-text-[2.8125rem] md:tw-leading-[3.4375rem] lg:tw-text-[3.4375rem] lg:tw-leading-[4.0281rem] tw-font-roboto-bold canopas-gradient-text animate__animated"
+          ref="title"
         >
           How do you know we’re a good fit for you?
         </h1>
@@ -83,6 +84,20 @@ export default {
       bg1200,
       bg2400,
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      this.$emit("add-animation", {
+        name: this.$refs.title,
+        animation: "animate__fadeInUp",
+      });
+    },
   },
 };
 </script>

@@ -9,7 +9,8 @@
         Services
       </h1>
       <h1
-        class="tw-mt-[-20px] tw-pb-20 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem]"
+        class="tw-mt-[-20px] tw-pb-20 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem] animate__animated"
+        ref="title"
       >
         How We Can Help You
       </h1>
@@ -116,6 +117,20 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
+  methods: {
+    handleScroll() {
+      this.$emit("add-animation", {
+        name: this.$refs.title,
+        animation: "animate__fadeInUp",
+      });
+    },
   },
 };
 </script>

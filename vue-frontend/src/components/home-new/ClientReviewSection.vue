@@ -152,4 +152,8 @@ export default {
 <style lang="postcss">
 @import "swiper/css";
 @import "swiper/css/pagination";
+
+.swiper-wrapper {
+  @apply !tw-items-center;
+}
 </style>
