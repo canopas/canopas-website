@@ -13,7 +13,7 @@
           class="tw-font-inter-medium tw-text-black-core/[0.6] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.5rem] md:tw-leading-[2.5625rem]"
           >and that starts with the site itself,
           <a
-            class="tw-relative tw-bg-gradient-[1deg] tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l tw-to-pink-300 tw-from-orange-300 after:tw-bottom-0 after:tw-left-0"
+            class="tw-relative tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l tw-to-pink-300 tw-from-orange-300 tw-bg-gradient-[1deg] after:tw-bottom-0 after:tw-left-0"
             :href="websiteOpenSourceUrl"
             target="_blank"
             @click.native="$gtag.event('tap_canopas_website_github')"
@@ -39,7 +39,7 @@
         </div>
 
         <div
-          class="tw-flex tw-flex-col tw-basis-[40%] md:tw-basis-[55%] lg:tw-basis-[35%] tw-my-auto tw-bg-[#FFFFFF] tw-p-2.5 sm:tw-p-4 v2-title-3-text tw-shadow-[0_0px_10px_rgba(0,0,0,0.1)]"
+          class="tw-flex tw-flex-col tw-basis-[40%] md:tw-basis-[55%] lg:tw-basis-[35%] tw-my-auto tw-bg-[#FFFFFF] tw-p-2.5 sm:tw-p-4 tw-shadow-[0_0px_10px_rgba(0,0,0,0.1)]"
           :class="[
             isMobile && index % 2 == 0
               ? 'tw-absolute  tw-ml-40 sm:tw-ml-52 tw-mt-[8.5rem] sm:tw-mt-32  tw-w-[12.563rem]'
