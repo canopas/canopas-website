@@ -61,6 +61,7 @@ module.exports = {
         "futura-bold": ["FuturaLT-Bold"],
         "roboto-bold": ["Roboto-Bold"],
         "roboto-medium": ["Roboto-Medium"],
+        "inter-light": ["Inter-Light"],
         "inter-bold": ["Inter-Bold"],
         "inter-medium": ["Inter-Medium"],
         "inter-semibold": ["Inter-SemiBold"],
