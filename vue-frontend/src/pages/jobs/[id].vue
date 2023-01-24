@@ -151,6 +151,7 @@ export default {
     }),
   },
   mounted() {
+    this.$gtag.event("view_jobs_by_id_page");
     this.setCareerDetails();
     window.addEventListener("scroll", this.sendEvent);
   },

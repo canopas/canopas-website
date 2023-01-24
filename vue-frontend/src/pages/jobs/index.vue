@@ -87,6 +87,7 @@ export default {
     };
   },
   mounted() {
+    this.$gtag.event("view_jobs_page");
     window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {

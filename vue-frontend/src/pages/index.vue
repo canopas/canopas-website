@@ -38,6 +38,11 @@ export default {
     HomeIndex,
     HomeNewIndex,
   },
+  mounted() {
+    this.isShowNewHomePage
+      ? this.$gtag.event("view_new_home_page")
+      : this.$gtag.event("view_home_page");
+  },
 };
 </script>
 
