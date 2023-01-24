@@ -56,7 +56,13 @@
   font-display: swap;
   src: url(./../fonts/Inter-Regular.ttf);
 }
-
+@font-face {
+  font-family: "Inter-Light";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(./../fonts/Inter-Light.ttf);
+}
 @font-face {
   font-family: "Roboto-Bold";
   font-style: normal;
