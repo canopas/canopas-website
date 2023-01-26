@@ -6,8 +6,7 @@
       Services
     </h1>
     <h1
-      class="tw-mt-[-40px] xl:tw-mt-[-50px] tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center animate__animated"
-      ref="title"
+      class="tw-mt-[-40px] xl:tw-mt-[-50px] tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center"
     >
       How We Can Help You
     </h1>
@@ -93,20 +92,6 @@ export default {
         },
       ],
     };
-  },
-  mounted() {
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
-  methods: {
-    handleScroll() {
-      this.$emit("add-animation", {
-        name: this.$refs.title,
-        animation: "animate__fadeInUp",
-      });
-    },
   },
 };
 </script>

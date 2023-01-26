@@ -124,7 +124,7 @@ export default {
         {
           id: 2,
           video: togness,
-          classes: "tw-flex-[40%] tw-bg-[#B7DAFA]",
+          classes: "tw-flex-[40%] tw-bg-[#B3D8FE]",
           title: "Togness",
           description:
             "Togness is a photo editor and slideshow maker app for your life’s most memorable events like weddings, pets, friends & family, and memorials, etc.",
@@ -156,7 +156,7 @@ export default {
         {
           id: 5,
           video: smile,
-          classes: "tw-flex-[50%] tw-bg-[#FCD5CF]",
+          classes: "tw-flex-[50%] tw-bg-[#FED7CC]",
           title: "Smile+",
           description:
             "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
