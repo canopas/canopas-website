@@ -55,9 +55,9 @@ import bullet1 from "@/assets/images/why/why-canopas-dot-1.svg";
 import bullet2 from "@/assets/images/why/why-canopas-dot-2.svg";
 import bullet3 from "@/assets/images/why/why-canopas-dot-3.svg";
 
-import circle1 from "@/assets/images/why/why-canopas-mobile-1.svg";
-import circle2 from "@/assets/images/why/why-canopas-mobile-2.svg";
-import circle3 from "@/assets/images/why/why-canopas-mobile-3.svg";
+import circle1 from "@/assets/images/why/why-canopas-mobile-1.webp";
+import circle2 from "@/assets/images/why/why-canopas-mobile-2.webp";
+import circle3 from "@/assets/images/why/why-canopas-mobile-3.webp";
 
 export default {
   data() {
