@@ -48,84 +48,80 @@
           >
         </div>
 
-          <div
-            class="tw-flex tw-items-center tw-flex-col-reverse lg:tw-flex-row"
-          >
-            <div class="tw-text-center">
-              <router-link
-                class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-text-center gradient-btn consultation-btn"
-                :to="contactURL"
-                @click.native="$gtag.event('tap_landing_cta')"
-              >
-                <span
-                  class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
-                  >Get Free Consultation
-                </span> </router-link
-              ><small
-                class="lg:tw-hidden tw-font-inter-regular tw-text-black-core/[0.6] tw-text-[0.75rem] tw-leading-[1.125rem]"
-                >100% MONEY BACK GUARANTEE <br />
-                FOR 14 DAYS</small
-              >
-            </div>
-
-            <div
-              class="tw-flex tw-items-center tw-pb-3.5 md:tw-pl-7 lg:tw-pb-0"
+        <div class="tw-flex tw-items-center tw-flex-col-reverse lg:tw-flex-row">
+          <div class="tw-text-center">
+            <router-link
+              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-text-center gradient-btn consultation-btn"
+              :to="contactURL"
+              @click.native="$gtag.event('tap_landing_cta')"
             >
-              <div v-for="client in clients" :key="client">
+              <span
+                class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
+                >Get Free Consultation
+              </span> </router-link
+            ><small
+              class="lg:tw-hidden tw-font-inter-regular tw-text-black-core/[0.6] tw-text-[0.75rem] tw-leading-[1.125rem]"
+              >100% MONEY BACK GUARANTEE <br />
+              FOR 14 DAYS</small
+            >
+          </div>
+
+          <div class="tw-flex tw-items-center tw-pb-3.5 md:tw-pl-7 lg:tw-pb-0">
+            <div v-for="client in clients" :key="client">
+              <div
+                v-if="client.image"
+                class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-rounded-full"
+                :class="client.className"
+              >
+                <img
+                  :src="client.image"
+                  class="tw-w-full tw-h-full tw-object-cover"
+                  loading="lazy"
+                  alt="phase.alt"
+                />
+              </div>
+              <div v-if="client.plusIcon">
                 <div
-                  v-if="client.image"
-                  class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-rounded-full"
+                  class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-border-[3px] tw-border-white tw-rounded-full tw-bg-[#ffc4c0]"
                   :class="client.className"
                 >
-                  <img
-                    :src="client.image"
-                    class="tw-w-full tw-h-full tw-object-cover"
-                    loading="lazy"
-                    alt="phase.alt"
+                  <font-awesome-icon
+                    class="fa tw-w-[35px] md:tw-w-[45px] tw-h-[23px] tw-pt-[5px] md:tw-pt-[10px] tw-text-white"
+                    icon="plus"
                   />
-                </div>
-                <div v-if="client.plusIcon">
-                  <div
-                    class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-border-[3px] tw-border-white tw-rounded-full tw-bg-[#ffc4c0]"
-                    :class="client.className"
-                  >
-                    <font-awesome-icon
-                      class="fa tw-w-[35px] md:tw-w-[45px] tw-h-[23px] tw-pt-[5px] md:tw-pt-[10px] tw-text-white"
-                      icon="plus"
-                    />
-                  </div>
                 </div>
               </div>
-              <div class="tw-pl-[10px] md:tw-pl-[6px]">
-                <div class="tw-flex tw-justify-between tw-mt-[3px]">
-                  <font-awesome-icon
-                    v-for="i in 5"
-                    :key="i"
-                    class="fas tw-w-[14px] tw-h-[14px] tw-p-[1px] tw-text-[#FF3D2E]"
-                    icon="star"
-                  />
-                </div>
-                <div class="">
-                  <span
-                    class="tw-font-medium tw-text-[12px] tw-leading-[22px] tw-uppercase tw-text-black-core/[0.6] tw-tracking-[0]"
-                  >
-                    40+ Reviews
-                  </span>
-                </div>
+            </div>
+            <div class="tw-pl-[10px] md:tw-pl-[6px]">
+              <div class="tw-flex tw-justify-between tw-mt-[3px]">
+                <font-awesome-icon
+                  v-for="i in 5"
+                  :key="i"
+                  class="fas tw-w-[14px] tw-h-[14px] tw-p-[1px] tw-text-[#FF3D2E]"
+                  icon="star"
+                />
+              </div>
+              <div class="">
+                <span
+                  class="tw-font-medium tw-text-[12px] tw-leading-[22px] tw-uppercase tw-text-black-core/[0.6] tw-tracking-[0]"
+                >
+                  40+ Reviews
+                </span>
               </div>
             </div>
           </div>
-          <small
-            class="tw-hidden lg:tw-block tw-w-[74%] xl:tw-w-[56%] tw-pt-3 lg:tw-pt-4 tw-text-[0.875rem] tw-leading-[1.125rem] tw-text-black-core/[0.6]"
-          >
-            We offer a
-            <span class="tw-font-inter-bold"
-              >100% MONEY BACK GUARANTEE FOR 14 DAYS
-            </span>
-            if you don't like our work. No questions asked.
-          </small>
         </div>
+        <small
+          class="tw-hidden lg:tw-block tw-w-[74%] xl:tw-w-[56%] tw-pt-3 lg:tw-pt-4 tw-text-[0.875rem] tw-leading-[1.125rem] tw-text-black-core/[0.6]"
+        >
+          We offer a
+          <span class="tw-font-inter-bold"
+            >100% MONEY BACK GUARANTEE FOR 14 DAYS
+          </span>
+          if you don't like our work. No questions asked.
+        </small>
       </div>
+    </div>
   </div>
 </template>
 <script>
