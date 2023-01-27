@@ -39,16 +39,15 @@
             "
           >
             <a :href="icon.url" target="_blank" aria-label="footerLink">
-              <img
+              <!-- <img
                 class="tw-h-full tw-w-full active:tw-scale-[0.98]"
                 v-if="icon.image"
                 :src="hover ? designRushHover : designRush"
                 @mouseover="hover = true"
                 @mouseleave="hover = false"
                 alt="designrush-icon"
-              />
+              /> -->
               <font-awesome-icon
-                v-else
                 class="fab footer-icon tw-w-[20px] tw-h-[20px] md:tw-w-[32px] md:tw-h-[32px] tw-pt-[5px]"
                 :icon="icon.icon"
               />
@@ -74,8 +73,8 @@
 </template>
 
 <script type="module">
-import designRushHover from "@/assets/images/footer/design-rush-gradient.svg";
-import designRush from "@/assets/images/footer/design-rush-white.svg";
+// import designRushHover from "@/assets/images/footer/design-rush-gradient.svg";
+// import designRush from "@/assets/images/footer/design-rush-white.svg";
 import bg400 from "@/assets/images/footer/bg/400.svg";
 import bg800 from "@/assets/images/footer/bg/800.svg";
 import bg1200 from "@/assets/images/footer/bg/1200.svg";
@@ -102,8 +101,8 @@ export default {
       bg800,
       bg1200,
       bg2400,
-      designRush,
-      designRushHover,
+      // designRush,
+      // designRushHover,
       hover: false,
       copyrightIcon: faCopyright,
       socialMediaIcons: [
@@ -137,11 +136,11 @@ export default {
           icon: faYoutube,
           event: "tap_home_youtube",
         },
-        {
-          url: Config.DESIGNRUSH_URL,
-          image: true,
-          event: "tap_home_designrush",
-        },
+        // {
+        //   url: Config.DESIGNRUSH_URL,
+        //   image: true,
+        //   event: "tap_home_designrush",
+        // },
       ],
     };
   },

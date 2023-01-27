@@ -9,6 +9,7 @@
         'tw-fixed tw-left-[unset] tw-bottom-[unset] tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]':
           navbarSticky,
         'tw-animated-menuSticky': navbarAnimation,
+        'tw-shadow-none tw-transform -tw-translate-y-full': !showNavbar,
       }"
       ref="mainHeader"
     >
@@ -91,6 +92,7 @@ export default {
       navContainerHeight: 133,
       lastScrollY: 0,
       currentRoutePath: this.$router.currentRoute._value.path,
+      showNavbar: true,
       navbars: [
         {
           name: "Home",
@@ -138,6 +140,7 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
   },
+
   methods: {
     handleScroll() {
       let wasSticky = this.navbarSticky;
@@ -151,6 +154,14 @@ export default {
         this.navbarAnimation = false;
       }
       this.lastScrollY = window.scrollY;
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollPosition < 0) {
+        return;
+      }
+
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+      this.lastScrollPosition = currentScrollPosition;
     },
   },
 };

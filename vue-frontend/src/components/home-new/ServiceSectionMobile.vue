@@ -3,7 +3,7 @@
     class="tw-container tw-relative tw-m-0 tw-mt-[66px] tw-max-w-full tw-p-0 tw-text-center"
   >
     <h1
-      class="tw-pb-20 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem]"
+      class="tw-pb-8 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem]"
     >
       How We Can Help You
     </h1>
@@ -33,7 +33,7 @@
           class="tw-w-[50px] tw-h-[50px] -tw-mr-[20px]"
         />
         <div
-          class="tw-py-[5px] tw-font-inter-bold tw-text-[1.5rem] tw-leading-[1.816rem]"
+          class="tw-py-[15px] tw-font-inter-bold tw-text-[1.5rem] tw-leading-[1.816rem]"
         >
           {{ service.title }}
         </div>
@@ -60,11 +60,11 @@ import bullet1 from "@/assets/images/why/why-canopas-dot-1.svg";
 import bullet2 from "@/assets/images/why/why-canopas-dot-2.svg";
 import bullet3 from "@/assets/images/why/why-canopas-dot-3.svg";
 
-import circle1 from "@/assets/images/why/why-canopas-mobile-1.svg";
-import circle2 from "@/assets/images/why/why-canopas-mobile-2.svg";
-import circle3 from "@/assets/images/why/why-canopas-mobile-3.svg";
-import circle4 from "@/assets/images/why/why-canopas-mobile-4.svg";
-import circle5 from "@/assets/images/why/why-canopas-mobile-5.svg";
+import circle1 from "@/assets/images/why/why-canopas-mobile-1.webp";
+import circle2 from "@/assets/images/why/why-canopas-mobile-2.webp";
+import circle3 from "@/assets/images/why/why-canopas-mobile-3.webp";
+import circle4 from "@/assets/images/why/why-canopas-mobile-4.webp";
+import circle5 from "@/assets/images/why/why-canopas-mobile-5.webp";
 
 export default {
   data() {

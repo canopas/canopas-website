@@ -107,28 +107,40 @@
               >This field is required</span
             >
           </div>
-          <div
-            class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
-          >
+          <div class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-text-left">
             <div ref="invest-list" class="tw-flex">
               <button
-                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-py-2 tw-px-0 tw-my-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
-                :class="
-                  invest == `I'll invest`
-                    ? '!tw-text-white/[.6]'
-                    : '!tw-text-white'
-                "
+                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pb-0 tw-px-0 tw-my-[2rem] tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
                 type="button"
                 id="invest"
                 name="invest"
                 required
                 :disabled="disableInput"
-                @click="toggleList"
+                @click="
+                  toggleList();
+                  makefloatActive();
+                "
+                @blur="
+                  makeFloatInactive();
+                  deselectOption();
+                "
               >
                 {{ invest }}
+                <label
+                  class="tw-pb-8"
+                  :class="
+                    floatable
+                      ? 'tw-absolute tw-mt-[5rem] tw-mb-[7rem] tw-left-0 tw-z-[2] tw-text-white tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4'
+                      : '' || investSelected
+                      ? 'tw-absolute tw-bottom-10 tw-left-0 tw-z-[2] tw-text-white tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4'
+                      : ''
+                  "
+                  >I'll invest</label
+                >
                 <font-awesome-icon
-                  class="fab tw-mr-0 tw-w-[15px] tw-h-[15px]"
+                  class="tw-absolute fab tw-right-0 tw-w-[15px] tw-h-[15px]"
                   :icon="showList ? faCaretUp : faCaretDown"
+                  :class="showList ? 'tw-mb-[2rem]' : ''"
                 />
               </button>
               <ul
@@ -153,6 +165,7 @@
               >This field is required</span
             >
           </div>
+
           <div
             class="tw-relative tw-inline-flex tw-items-center md:tw-col-span-2 tw-pt-3 lg:tw-pt-10 tw-cursor-pointer tw-text-left"
           >
@@ -182,10 +195,13 @@
             <button
               id="submit"
               ref="recaptcha"
-              class="gradient-btn tw-m-0 tw-rounded-[45px] tw-px-[1.3125rem] tw-py-[0.1625rem] md:tw-py-[1.1575rem] md:tw-px-[1.8125rem] tw-text-[1rem] tw-leading-[2.25rem] md:tw-text-[1.125rem] md:tw-leading-[1.34375rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.5rem]"
+              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-text-center gradient-btn consultation-btn"
               @click.prevent="submitForm()"
             >
-              <span class="!tw-font-semibold">Send Message</span>
+              <span
+                class="!tw-font-semibold tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
+                >Send Message</span
+              >
             </button>
           </div>
         </div>
@@ -290,7 +306,7 @@ export default {
       email: "",
       projectInfo: "",
       reference: "",
-      invest: "I'll invest",
+      invest: "",
       investOptions: [
         "< USD 50000",
         "USD 50000 - USD 100000",
@@ -308,6 +324,8 @@ export default {
       showErrorMessagePopup: false,
       errorMessage: "Something went wrong on our side",
       showLoader: false,
+      floatable: false,
+      investSelected: false,
     };
   },
   components: {
@@ -320,6 +338,12 @@ export default {
     document.removeEventListener("click", this.closePopUps);
   },
   methods: {
+    makefloatActive() {
+      this.floatable = true;
+    },
+    makeFloatInactive() {
+      this.floatable = false;
+    },
     validateForm() {
       this.showNameValidationError = this.name === "";
       this.showEmailValidationError = this.email === "";
@@ -402,6 +426,10 @@ export default {
       this.showInvestValidationError = invest === "";
       this.invest = option;
       this.showList = false;
+      this.investSelected = true;
+    },
+    deselectOption() {
+      this.investSelected = false;
     },
     toggleList() {
       this.$gtag.event("tap_footer_invest_input");

@@ -50,12 +50,12 @@
         <div class="tw-flex tw-items-center tw-flex-col-reverse lg:tw-flex-row">
           <div class="tw-text-center">
             <router-link
-              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-[3rem] tw-py-[0.7rem] tw-px-5 tw-text-center gradient-btn"
+              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-text-center gradient-btn consultation-btn"
               :to="contactURL"
               @click.native="$gtag.event('tap_landing_cta')"
             >
               <span
-                class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0.5px]"
+                class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
                 >Get Free Consultation
               </span> </router-link
             ><small
