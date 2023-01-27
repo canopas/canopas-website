@@ -83,12 +83,12 @@
               >
                 <router-link
                   @click.native="$gtag.event('tap_read_more_job')"
-                  class="gradient-border-btn tw-p-[11px] sm:tw-p-[16px]"
+                  class="tw-flex tw-items-center gradient-border-btn tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/' + career.unique_id"
                   aria-label="read-more"
                 >
                   <font-awesome-icon
-                    class="fa tw-text-pink-300"
+                    class="fa tw-text-pink-300 tw-mr-[5px]"
                     icon="align-left"
                     flip="vertical"
                     aria-hidden="true"
@@ -101,7 +101,7 @@
 
                 <router-link
                   @click.native="$gtag.event('tap_apply_job')"
-                  class="gradient-btn tw-m-[5px] tw-p-[11px] sm:tw-p-[16px]"
+                  class="tw-flex tw-items-center tw-m-[5px] gradient-btn tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/apply/' + career.unique_id"
                 >
                   <font-awesome-icon
