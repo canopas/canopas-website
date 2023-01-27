@@ -10,7 +10,7 @@
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
     <ScreenHeaderV2 v-if="!isShowNewHomePage" />
-    <NewHeader v-else />
+    <NewHeader class="header" v-else />
     <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
@@ -63,7 +63,7 @@
           <div class="tw-mt-12">
             <div
               id="description"
-              class="normal-text"
+              class="normal-text tw-break-all md:tw-break-keep"
               v-html="job.description"
             ></div>
           </div>
@@ -379,7 +379,7 @@ export default {
 <style lang="postcss" scoped>
 .summary-text,
 :deep(div > span *),
-:deep(ul) {
+:deep(ul:not(.header ul)) {
   @apply tw-text-[1.1rem] tw-leading-[2rem] tw-text-justify tw-text-[#3d3d3dcc] md:tw-text-[1.125rem] md:tw-leading-[2.5rem] lg:tw-text-[1.4rem];
 }
 
