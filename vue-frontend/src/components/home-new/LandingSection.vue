@@ -65,7 +65,7 @@
             >
           </div>
 
-          <div class="tw-flex tw-items-center tw-pb-3.5 lg:tw-pb-0 md:tw-pl-7">
+          <div class="tw-flex tw-items-center tw-pb-3.5 md:tw-pl-7 lg:tw-pb-0">
             <div v-for="client in clients" :key="client">
               <div
                 v-if="client.image"
@@ -85,7 +85,7 @@
                   :class="client.className"
                 >
                   <font-awesome-icon
-                    class="fa tw-w-[35px] md:tw-w-[45px] tw-h-[23px] md:tw-pt-[10px] tw-pt-[5px] tw-text-white"
+                    class="fa tw-w-[35px] md:tw-w-[45px] tw-h-[23px] tw-pt-[5px] md:tw-pt-[10px] tw-text-white"
                     icon="plus"
                   />
                 </div>
@@ -123,7 +123,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import landing from "@/assets/images/landing/landing-new.webp";
 import client1 from "@/assets/images/landing/client1.webp";
