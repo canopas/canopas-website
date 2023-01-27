@@ -103,7 +103,6 @@ export default {
         let data = {
           name: this.$refs.whyCanopasMobile[i],
           animation: "animate__fadeIn",
-          childRef: [],
         };
         if (data) {
           this.$emit("add-animation", data);

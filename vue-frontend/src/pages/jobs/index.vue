@@ -13,16 +13,16 @@
     <PerksAndBenefits v-on:scroll-to-career="scrollToCareer" ref="perks" />
     <WhyCanopas
       class="tw-hidden md:tw-block"
-      v-on:add-animation="handleScroll"
+      v-on:add-animation="handleAnimationOnScroll"
       ref="whycanopas"
     />
     <WhyCanopasMobile
       class="tw-block md:tw-hidden"
-      v-on:add-animation="handleScroll"
+      v-on:add-animation="handleAnimationOnScroll"
       ref="whycanopas"
     />
     <Career id="career" ref="joblist" />
-    <FaqSection v-on:add-animation="handleScroll" />
+    <FaqSection v-on:add-animation="handleAnimationOnScroll" />
     <ScreenFooter2 />
   </div>
 </template>
@@ -42,7 +42,7 @@ import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useMeta } from "vue-meta";
-import { analyticsEvent } from "@/utils.js";
+import { analyticsEvent, handleAnimationOnScroll } from "@/utils.js";
 
 import {
   faAlignLeft,
@@ -81,11 +81,13 @@ export default {
   },
   data() {
     return {
+      handleAnimationOnScroll,
       event: "",
       isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   mounted() {
+    this.$gtag.event("view_jobs_page");
     window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
@@ -99,28 +101,10 @@ export default {
         this.$gtag.event(event);
       }
     },
-  },
-  methods: {
     scrollToCareer() {
       var careerDiv = document.getElementById("career");
       var top = careerDiv.offsetTop;
       window.scrollTo({ top: top, behavior: "smooth" });
-    },
-    handleScroll(data) {
-      if (data) {
-        let { top, bottom } = data.name.getBoundingClientRect();
-        let height = document.documentElement.clientHeight;
-
-        if (top < height && bottom > 0) {
-          if (data.childRef.length > 0) {
-            for (let i = 0; i < data.childRef.length; i++) {
-              data.childRef[i].name.classList.add(data.childRef[i].animation);
-            }
-          } else {
-            data.name.classList.add(data.animation);
-          }
-        }
-      }
     },
   },
 };
