@@ -124,13 +124,14 @@
                   makeFloatInactive();
                   deselectOption();
                 "
+                :class="!investSelected ? 'tw-text-white/[.6]' : ''"
               >
                 {{ invest }}
                 <label
-                  class="tw-pb-8"
+                  class="tw-pb-2 2xl:tw-pb-8"
                   :class="
                     floatable
-                      ? 'tw-absolute tw-mt-[5rem] tw-mb-[7rem] tw-left-0 tw-z-[2] tw-text-white tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4'
+                      ? 'tw-absolute tw-mt-[5rem] tw-pb-2 tw-mb-[7rem] tw-left-0 tw-z-[2] tw-text-white tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4'
                       : '' || investSelected
                       ? 'tw-absolute tw-bottom-10 tw-left-0 tw-z-[2] tw-text-white tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4'
                       : ''
