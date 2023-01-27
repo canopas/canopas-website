@@ -17,14 +17,12 @@
     <div
       class="tw-container tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start tw-py-[25px] md:tw-py-[50px]"
     >
-      <div
-        class="tw-flex-[45%] lg:tw-block tw-hidden tw-mt-[40px] animate__animated animate__fadeInRight"
-      >
+      <div class="tw-flex-[45%] lg:tw-block tw-hidden tw-mt-[40px]">
         <img :src="landing" alt="landing-view-image" loading="lazy" />
       </div>
       <div class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[50px]">
         <h1
-          class="tw-w-[100%] sm:tw-w-[85%] tw-pb-5 lg:tw-pb-8 xl:tw-pb-10 v2-header-3-text tw-tracking-[0] tw-text-[2.1875rem] tw-leading-[2.8125rem] md:tw-text-[2.65625rem] md:tw-leading-[3.28125rem] lg:tw-text-[3.28125rem] lg:tw-leading-[3.70625rem] 2xl:tw-text-[4.0625rem] 2xl:tw-leading-[4.6875rem] tw-text-black-core/[.87] tw-font-roboto-bold animate__animated animate__fadeInDown"
+          class="tw-w-[100%] sm:tw-w-[85%] tw-pb-5 lg:tw-pb-8 xl:tw-pb-10 v2-header-3-text tw-tracking-[0] tw-text-[2.1875rem] tw-leading-[2.8125rem] md:tw-text-[2.65625rem] md:tw-leading-[3.28125rem] lg:tw-text-[3.28125rem] lg:tw-leading-[3.70625rem] 2xl:tw-text-[4.0625rem] 2xl:tw-leading-[4.6875rem] tw-text-black-core/[.87] tw-font-roboto-bold"
         >
           For Over A Decade We Have Helped Businesses Grow Exponentially.
           <div>
@@ -32,7 +30,7 @@
           </div>
         </h1>
         <div
-          class="tw-w-[85%] md:tw-w-[65%] tw-pb-[29.5px] md:tw-pb-[47px] v2-normal-text tw-tracking-[0] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.09375rem] md:tw-leading-[1.53125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.75rem] tw-text-black-core/[0.6] !tw-font-sfpro-regular animate__animated animate__fadeInLeft"
+          class="tw-w-[85%] md:tw-w-[65%] tw-pb-[29.5px] md:tw-pb-[47px] v2-normal-text tw-tracking-[0] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.09375rem] md:tw-leading-[1.53125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.75rem] tw-text-black-core/[0.6] !tw-font-sfpro-regular"
         >
           We develop Mobile and Web apps that help you
           <span
@@ -49,7 +47,7 @@
             >deliver an exceptional user experience.</span
           >
         </div>
-        <div class="animate__animated animate__fadeInUp">
+        <div>
           <div
             class="tw-flex tw-items-center tw-flex-col-reverse lg:tw-flex-row"
           >

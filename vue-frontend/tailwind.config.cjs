@@ -91,12 +91,17 @@ module.exports = {
           "0%": { top: "-120px", opacity: "0" },
           "100%": { top: " 0", opacity: "1" },
         },
+        fadeInRight: {
+          "0%": { transform: "translateX(200px);" },
+          "100%": { transform: "translateX(0px);" },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",
         zoomOut: "zoomOut 4s ease-in infinite",
         typingErase: "typingErase 4s steps(40, end) infinite",
         menuSticky: "0.6s ease-in-out",
+        fadeInRight: "fadeInRight 150ms ease-in",
       },
       zIndex: {
         "-1": "-1",

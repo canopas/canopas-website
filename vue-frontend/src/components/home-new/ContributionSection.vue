@@ -35,6 +35,7 @@
             :src="contribution.video"
             :alt="contribution.title + `image`"
             class="tw-w-full tw-h-full"
+            loading="lazy"
           />
         </div>
 
@@ -102,6 +103,7 @@
               <a
                 class="tw-duration-300 tw-ease-in-out hover:tw-scale-[1.1] tw-hover-hover"
                 :href="contribution.link"
+                :aria-label="contribution.title"
                 target="_blank"
                 @click.native="$gtag.event('tap_library')"
               >
@@ -124,11 +126,11 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 
-import ComplexRouting from "@/assets/images/contribution/animations/ComplexRouting.gif";
+import UIPilot from "@/assets/images/contribution/animations/UIPilot.gif";
 import IntroShowCase from "@/assets/images/contribution/animations/introShowCase.gif";
 import JetpackComposeAnimations from "@/assets/images/contribution/animations/JetpackComposeAnimations.gif";
-import SwiftUIAnimation from "@/assets/images/contribution/animations/SwiftUIAnimation.gif";
-import Tailwind from "@/assets/images/contribution/animations/Tailwind.gif";
+import SwiftUIAnimations from "@/assets/images/contribution/animations/SwiftUIAnimations.gif";
+import TailwindAnimations from "@/assets/images/contribution/animations/TailwindAnimations.gif";
 
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import Config from "@/config.js";
@@ -156,7 +158,7 @@ export default {
           title: "UIPilot",
           description: "The missing typesafe SwiftUI navigation library",
           author: "Jimmy S.",
-          video: ComplexRouting,
+          video: UIPilot,
           starPoints: "201",
           link: "https://github.com/canopas/UIPilot",
         },
@@ -172,7 +174,7 @@ export default {
           title: "Tailwind Animations",
           description: "Cool animations implemented with Tailwind CSS",
           author: "Sumita K.",
-          video: Tailwind,
+          video: TailwindAnimations,
           starPoints: "13",
           link: "https://github.com/canopas/tailwind-animations",
         },
@@ -180,7 +182,7 @@ export default {
           title: "Swiftui-animations",
           description: "Cool animations implemented with SwiftUI",
           author: "Amisha I.",
-          video: SwiftUIAnimation,
+          video: SwiftUIAnimations,
           starPoints: "30",
           link: "https://github.com/canopas/Swiftui-animations-examples",
         },
