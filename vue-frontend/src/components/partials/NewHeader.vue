@@ -135,7 +135,7 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    this.navContainerHeight = this.$refs.mainHeader.clientHeight + 30;
+    this.navContainerHeight = this.$refs.mainHeader.clientHeight + 25;
   },
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -159,7 +159,9 @@ export default {
       if (currentScrollPosition < 0) {
         return;
       }
-
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
+        return;
+      }
       this.showNavbar = currentScrollPosition < this.lastScrollPosition;
       this.lastScrollPosition = currentScrollPosition;
     },
