@@ -44,8 +44,7 @@ export default Object.freeze({
   },
   GAP_ID_ROOT: "",
   IS_PROD: false,
-  SMILEPLUS_URL:
-    "https://play.google.com/store/apps/details?id=co.udini.smileplus",
+  SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
   SHOW_SMILEPLUS_PORTFOLIO: true,
   IS_SHOW_NEW_HOME_PAGE: true,
