@@ -81,7 +81,7 @@
             >
           </div>
           <div
-            class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
+            class="tw-relative md:tw-col-span-2 md:tw-mb-8 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <input
               class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
@@ -107,41 +107,37 @@
               >This field is required</span
             >
           </div>
-          <div class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-text-left">
+          <div
+            class="tw-relative md:tw-col-span-2 md:tw-mb-7 tw-pt-3 lg:tw-pt-10 tw-text-left"
+          >
             <div ref="invest-list" class="tw-flex">
               <button
-                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pb-0 tw-px-0 tw-my-[1rem] tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white focus:tw-pb-[5rem] active:tw-pb-[3rem]"
+                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-py-2 tw-px-0 tw-my-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium !tw-text-white tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
                 type="button"
                 id="invest"
                 name="invest"
                 required
                 :disabled="disableInput"
-                @click="
-                  toggleList();
-                  makefloatActive();
-                "
-                @blur="
-                  makeFloatInactive();
-                  deselectOption();
-                "
-                :class="!investSelected ? 'tw-text-white/[.6]' : ''"
+                @click="toggleList"
               >
-                {{ invest }}
                 <label
-                  class="tw-pb-2 2xl:tw-pb-8"
-                  :class="
+                  for="invest"
+                  class="tw-absolute tw-top-4 tw-left-0 tw-z-[2] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw-duration-300"
+                  :class="[
                     floatable
-                      ? 'tw-absolute tw-mt-[5rem] tw-pb-2 tw-mb-[4rem] tw-left-0 tw-z-[2] tw-text-white tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4 '
-                      : '' || investSelected
-                      ? 'tw-absolute tw-left-0 tw-z-[2] tw-text-white tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4 '
-                      : ''
-                  "
+                      ? 'tw--translate-y-4 tw-origin-[0] tw-scale-75 '
+                      : 'tw-translate-y-0 tw-scale-100 ',
+                    floatable && showList
+                      ? 'tw-text-white'
+                      : 'tw-text-white/[.6] ',
+                  ]"
+                  @click="floatable = !floatable"
                   >I'll invest</label
                 >
+                <span class="tw-cursor-text">{{ invest }}</span>
                 <font-awesome-icon
-                  class="tw-absolute fab tw-right-0 tw-w-[15px] tw-h-[15px]"
+                  class="fab tw-mr-0 tw-w-[15px] tw-h-[15px]"
                   :icon="showList ? faCaretUp : faCaretDown"
-                  :class="showList ? 'tw-mb-[2rem]' : ''"
                 />
               </button>
               <ul
@@ -303,6 +299,7 @@ export default {
       faCaretDown,
       faCaretUp,
       showList: false,
+      floatable: false,
       name: "",
       email: "",
       projectInfo: "",
@@ -325,8 +322,6 @@ export default {
       showErrorMessagePopup: false,
       errorMessage: "Something went wrong on our side",
       showLoader: false,
-      floatable: false,
-      investSelected: false,
     };
   },
   components: {
@@ -339,12 +334,6 @@ export default {
     document.removeEventListener("click", this.closePopUps);
   },
   methods: {
-    makefloatActive() {
-      this.floatable = true;
-    },
-    makeFloatInactive() {
-      this.floatable = false;
-    },
     validateForm() {
       this.showNameValidationError = this.name === "";
       this.showEmailValidationError = this.email === "";
@@ -421,20 +410,20 @@ export default {
       const showList = this.$refs["invest-list"];
       if (showList && !showList.contains(e.target)) {
         this.showList = false;
+        if (this.invest == "") {
+          this.floatable = false;
+        }
       }
     },
     setOption(option) {
       this.showInvestValidationError = invest === "";
       this.invest = option;
       this.showList = false;
-      this.investSelected = true;
-    },
-    deselectOption() {
-      this.investSelected = false;
     },
     toggleList() {
       this.$gtag.event("tap_footer_invest_input");
       this.showList = !this.showList;
+      this.floatable = true;
     },
     toggleNDA() {
       this.$gtag.event("tap_footer_NDA_input");
