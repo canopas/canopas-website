@@ -99,7 +99,9 @@
                   <span>
                     {{ blog.author }}
                   </span>
-                  <span @click="openBlog(blog)"> Read more </span>
+                  <span @click="openBlog(blog)" class="tw-cursor-pointer">
+                    Read more
+                  </span>
                 </div>
                 <hr
                   class="tw-h-[0.063rem] tw-mt-[18px] md:tw-mt-[45px] tw-bg-[#C6C6C6]"
@@ -138,7 +140,7 @@
             v-if="activeBlog !== null"
             @click="openBlog(activeBlog)"
             :src="activeBlog.thumbnail"
-            class="tw-inline-block tw-absolute tw-inset-0 tw-m-auto tw-w-[90%]"
+            class="tw-inline-block tw-absolute tw-inset-0 tw-m-auto tw-w-[90%] tw-cursor-pointer"
             :class="animate ? 'tw-animate-fadeInRight' : ''"
             loading="lazy"
             :alt="activeBlog.title"

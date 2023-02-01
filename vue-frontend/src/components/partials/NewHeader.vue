@@ -4,11 +4,12 @@
     :style="{ height: navContainerHeight + 'px' }"
   >
     <nav
-      class="tw-absolute tw-left-0 tw-bottom-0 tw-w-full tw-bg-white tw-z-[1] tw-py-2.5 tw-px-[2%] md:tw-py-5 md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease-in-out tw-duration-600"
+      class="tw-absolute tw-left-0 tw-bottom-0 tw-w-full tw-bg-white tw-z-[1] tw-py-2.5 tw-px-[2%] md:tw-py-5 md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease-in-out tw-duration-1000"
       :class="{
         'tw-fixed tw-left-[unset] tw-bottom-[unset] tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]':
           navbarSticky,
         'tw-animated-menuSticky': navbarAnimation,
+        'tw-shadow-none tw-transform -tw-translate-y-full': !showNavbar,
       }"
       ref="mainHeader"
     >
@@ -42,6 +43,7 @@
                 v-if="!navbar.target"
                 :to="navbar.url"
                 @click.native="$gtag.event(event)"
+                class="v2-normal-3-text"
                 :class="[
                   navbar.className
                     ? navbar.className
@@ -62,9 +64,8 @@
                       : '',
                   ]"
                   >{{ navbar.name }}</span
-                >
-              </router-link>
-
+                ></router-link
+              >
               <a
                 v-else
                 class="tw-inline-block tw-relative tw-my-0 tw-ml-0 tw-mr-[20px] sm:tw-mr-[30px] tw-p-0 after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
@@ -91,6 +92,7 @@ export default {
       navContainerHeight: 133,
       lastScrollY: 0,
       currentRoutePath: this.$router.currentRoute._value.path,
+      showNavbar: true,
       navbars: [
         {
           name: "Home",
@@ -133,7 +135,7 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    this.navContainerHeight = this.$refs.mainHeader.clientHeight;
+    this.navContainerHeight = this.$refs.mainHeader.clientHeight + 25;
   },
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -151,6 +153,13 @@ export default {
         this.navbarAnimation = false;
       }
       this.lastScrollY = window.scrollY;
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop;
+      if (currentScrollPosition < 0) {
+        return;
+      }
+      this.showNavbar = currentScrollPosition < this.lastScrollPosition;
+      this.lastScrollPosition = currentScrollPosition;
     },
   },
 };

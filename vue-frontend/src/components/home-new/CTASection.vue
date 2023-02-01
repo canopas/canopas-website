@@ -24,12 +24,12 @@
         </h2>
         <div class="tw-flex tw-flex-wrap tw-justify-center">
           <router-link
-            class="tw-flex tw-items-center tw-rounded-[2rem] gradient-btn"
+            class="tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-3 tw-px-3 gradient-btn consultation-btn"
             :to="contactURL"
             @click.native="$gtag.event('tap_home_touch_cta')"
           >
             <span
-              class="tw-text-[0.9375rem] tw-leading-[1.25rem] md:tw-text-[1.0625rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4368rem] tw-tracking-wide"
+              class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
               >Get in touch</span
             >
           </router-link>

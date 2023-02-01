@@ -90,7 +90,7 @@
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import reviewImage from "@/assets/images/clients/v3-client/ReviewImage.svg";
+import reviewImage from "@/assets/images/clients/v3-client/ReviewImage.webp";
 SwiperCore.use([Pagination, Autoplay]);
 import Config from "@/config.js";
 export default {
