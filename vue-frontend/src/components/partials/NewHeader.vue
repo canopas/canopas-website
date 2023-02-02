@@ -4,7 +4,7 @@
     :style="{ height: navContainerHeight + 'px' }"
   >
     <nav
-      class="tw-absolute tw-left-0 tw-bottom-0 tw-w-full tw-bg-white tw-z-[1] tw-py-2.5 tw-px-[2%] md:tw-py-5 md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease-in-out tw-duration-1000"
+      class="tw-absolute tw-left-0 tw-bottom-0 tw-w-full tw-bg-white tw-z-[1] tw-py-2.5 tw-px-[2%] md:tw-py-5 md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease-in-out tw-duration-800"
       :class="{
         'tw-fixed tw-left-[unset] tw-bottom-[unset] tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]':
           navbarSticky,
