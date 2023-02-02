@@ -140,6 +140,7 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
   },
+
   methods: {
     handleScroll() {
       let wasSticky = this.navbarSticky;
@@ -156,6 +157,9 @@ export default {
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop;
       if (currentScrollPosition < 0) {
+        return;
+      }
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
         return;
       }
       this.showNavbar = currentScrollPosition < this.lastScrollPosition;
