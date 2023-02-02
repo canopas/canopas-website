@@ -81,7 +81,7 @@
             >
           </div>
           <div
-            class="tw-relative md:tw-col-span-2 md:tw-mb-8 tw-pt-3 lg:tw-pt-10 tw-text-left"
+            class="tw-relative md:tw-col-span-2 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <input
               class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
@@ -108,11 +108,11 @@
             >
           </div>
           <div
-            class="tw-relative md:tw-col-span-2 md:tw-mb-7 tw-pt-3 lg:tw-pt-10 tw-text-left"
+            class="tw-relative md:tw-col-span-2 md:tw-mt-5 lg:tw-mt-0 md:tw-mb-7 md:tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <div ref="invest-list" class="tw-flex">
               <button
-                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-py-2 tw-px-0 tw-my-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium !tw-text-white tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
+                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pt-3 tw-pb-1 lg:tw-py-3 tw-px-0 tw-my-2 md:tw-mt-0 lg:tw-mt-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium !tw-text-white tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
                 type="button"
                 id="invest"
                 name="invest"
@@ -122,7 +122,7 @@
               >
                 <label
                   for="invest"
-                  class="tw-absolute tw-top-4 tw-left-0 tw-z-[2] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw-duration-300"
+                  class="tw-absolute tw-top-4 tw-left-0 lg:tw-mt-7 tw-z-[2] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw-duration-300"
                   :class="[
                     floatable
                       ? 'tw--translate-y-4 tw-origin-[0] tw-scale-75 '
@@ -136,7 +136,7 @@
                 >
                 <span class="tw-cursor-text">{{ invest }}</span>
                 <font-awesome-icon
-                  class="fab tw-mr-0 tw-w-[15px] tw-h-[15px]"
+                  class="fab tw-mr-0 tw-mb-2 tw-w-[15px] lg:tw-w-[25px] tw-h-[15px] lg:tw-h-[25px]"
                   :icon="showList ? faCaretUp : faCaretDown"
                 />
               </button>
@@ -423,7 +423,7 @@ export default {
     toggleList() {
       this.$gtag.event("tap_footer_invest_input");
       this.showList = !this.showList;
-      this.floatable = true;
+      this.floatable = this.showList || this.invest !== "";
     },
     toggleNDA() {
       this.$gtag.event("tap_footer_NDA_input");
