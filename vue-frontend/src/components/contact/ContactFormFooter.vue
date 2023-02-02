@@ -81,7 +81,7 @@
             >
           </div>
           <div
-            class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
+            class="tw-relative md:tw-col-span-2 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <input
               class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
@@ -108,16 +108,12 @@
             >
           </div>
           <div
-            class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
+            class="tw-relative md:tw-col-span-2 md:tw-mt-5 lg:tw-mt-0 md:tw-mb-7 md:tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <div ref="invest-list" class="tw-flex">
               <button
-                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-py-2 tw-px-0 tw-my-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
-                :class="
-                  invest == `I'll invest`
-                    ? '!tw-text-white/[.6]'
-                    : '!tw-text-white'
-                "
+                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pt-3 tw-pb-1 lg:tw-py-3 tw-px-0 tw-my-2 md:tw-mt-0 lg:tw-mt-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium !tw-text-white tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
+                :class="floatable ? 'tw-pb-0 lg:tw-pb-0' : ''"
                 type="button"
                 id="invest"
                 name="invest"
@@ -125,9 +121,23 @@
                 :disabled="disableInput"
                 @click="toggleList"
               >
-                {{ invest }}
+                <label
+                  for="invest"
+                  class="tw-absolute tw-top-4 tw-left-0 lg:tw-mt-7 tw-z-[2] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw-duration-300"
+                  :class="[
+                    floatable
+                      ? 'tw--translate-y-4 tw-origin-[0] tw-scale-75 lg:tw-mt-[1rem]'
+                      : 'tw-translate-y-0 tw-scale-100 ',
+                    floatable && showList
+                      ? 'tw-text-white'
+                      : 'tw-text-white/[.6] ',
+                  ]"
+                  @click="floatable = !floatable"
+                  >I'll invest</label
+                >
+                <span class="tw-cursor-text">{{ invest }}</span>
                 <font-awesome-icon
-                  class="fab tw-mr-0 tw-w-[15px] tw-h-[15px]"
+                  class="fab tw-mr-0 tw-mb-2 tw-w-[15px] lg:tw-w-[25px] tw-h-[15px] lg:tw-h-[25px]"
                   :icon="showList ? faCaretUp : faCaretDown"
                 />
               </button>
@@ -153,8 +163,9 @@
               >This field is required</span
             >
           </div>
+
           <div
-            class="tw-relative tw-inline-flex tw-items-center md:tw-col-span-2 tw-pt-3 lg:tw-pt-10 tw-cursor-pointer tw-text-left"
+            class="tw-relative tw-inline-flex tw-items-center md:tw-col-span-2 tw-pt-3 lg:tw-pt-0 tw-cursor-pointer tw-text-left"
           >
             <span
               class="tw-mr-6 tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-text-white/[.6]"
@@ -182,10 +193,13 @@
             <button
               id="submit"
               ref="recaptcha"
-              class="gradient-btn tw-m-0 tw-rounded-[45px] tw-px-[1.3125rem] tw-py-[0.1625rem] md:tw-py-[1.1575rem] md:tw-px-[1.8125rem] tw-text-[1rem] tw-leading-[2.25rem] md:tw-text-[1.125rem] md:tw-leading-[1.34375rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.5rem]"
+              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-text-center gradient-btn consultation-btn"
               @click.prevent="submitForm()"
             >
-              <span class="!tw-font-semibold">Send Message</span>
+              <span
+                class="!tw-font-semibold tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
+                >Send Message</span
+              >
             </button>
           </div>
         </div>
@@ -278,7 +292,6 @@ import config from "@/config.js";
 import loaderImage from "@/assets/images/theme/small-loader.svg";
 import { faCaretDown, faCaretUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-
 export default {
   data() {
     return {
@@ -286,11 +299,12 @@ export default {
       faCaretDown,
       faCaretUp,
       showList: false,
+      floatable: false,
       name: "",
       email: "",
       projectInfo: "",
       reference: "",
-      invest: "I'll invest",
+      invest: "",
       investOptions: [
         "< USD 50000",
         "USD 50000 - USD 100000",
@@ -336,11 +350,9 @@ export default {
     },
     submitForm() {
       this.$gtag.event("tap_home_form_submission");
-
       if (!this.validateForm()) {
         this.disableInput = true;
         this.showLoader = true;
-
         let formData = {
           name: this.name,
           email: this.email,
@@ -350,7 +362,6 @@ export default {
           nda: this.NDA,
           contact_type: "",
         };
-
         var head = document.getElementsByTagName("head")[0];
         var script = document.createElement("script");
         script.type = "text/javascript";
@@ -396,6 +407,9 @@ export default {
       const showList = this.$refs["invest-list"];
       if (showList && !showList.contains(e.target)) {
         this.showList = false;
+        if (this.invest == "") {
+          this.floatable = false;
+        }
       }
     },
     setOption(option) {
@@ -406,6 +420,7 @@ export default {
     toggleList() {
       this.$gtag.event("tap_footer_invest_input");
       this.showList = !this.showList;
+      this.floatable = this.showList || this.invest !== "";
     },
     toggleNDA() {
       this.$gtag.event("tap_footer_NDA_input");

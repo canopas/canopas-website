@@ -52,7 +52,7 @@
           <div class="tw-flex tw-flex-col 2xl:tw-pr-16">
             <hr
               v-if="index == 0"
-              class="tw-hidden md:tw-block md:tw-ml-[82px] 2xl:tw-ml-[95px] tw-h-[0.063rem] tw-bg-[#C6C6C6]"
+              class="tw-hidden md:tw-block md:tw-ml-[82px] 2xl:tw-ml-[95px] tw-h-[0.063rem] tw-mt-[18px] md:tw-mt-[45px]"
             />
             <div class="tw-flex tw-gap-8 tw-mt-[18px] md:tw-mt-[45px]">
               <div class="tw-flex tw-flex-col tw-items-center tw-mt-[0.3rem]">
@@ -94,12 +94,17 @@
                   >
                 </div>
                 <div
-                  class="tw-flex tw-flex-row tw-justify-between tw-mt-[0.9375rem] md:tw-mt-[1.9375rem] tw-font-inter-medium tw-text-[0.875rem] lg:tw-text-[1.125rem] tw-leading-[0.8125rem] md:tw-leading-[1.125rem] lg:tw-leading-[1.463rem]"
+                  class="tw-flex tw-flex-row tw-justify-between tw-gap-none lg:tw-gap-[22rem] xl:tw-gap-[24rem] 2xl:tw-gap-[38rem] tw-mt-[0.9375rem] md:tw-mt-[1.9375rem] tw-font-inter-medium tw-text-[0.875rem] lg:tw-text-[1.125rem] tw-leading-[0.8125rem] md:tw-leading-[1.125rem] lg:tw-leading-[1.463rem]"
                 >
-                  <span>
+                  <span class="lg:tw-w-[5rem]">
                     {{ blog.author }}
                   </span>
-                  <span @click="openBlog(blog)"> Read more </span>
+                  <span
+                    @click="openBlog(blog)"
+                    class="lg:tw-w-[5.938rem] tw-cursor-pointer"
+                  >
+                    Read more
+                  </span>
                 </div>
                 <hr
                   class="tw-h-[0.063rem] tw-mt-[18px] md:tw-mt-[45px] tw-bg-[#C6C6C6]"
@@ -138,7 +143,7 @@
             v-if="activeBlog !== null"
             @click="openBlog(activeBlog)"
             :src="activeBlog.thumbnail"
-            class="tw-inline-block tw-absolute tw-inset-0 tw-m-auto tw-w-[90%]"
+            class="tw-inline-block tw-absolute tw-inset-0 tw-m-auto tw-w-[90%] tw-cursor-pointer"
             :class="animate ? 'tw-animate-fadeInRight' : ''"
             loading="lazy"
             :alt="activeBlog.title"
