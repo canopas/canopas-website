@@ -94,7 +94,7 @@
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import LottieAnimation from "@/components/utils/LottieAnimation.vue";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 export default {
   props: ["json"],
   data() {
@@ -102,6 +102,12 @@ export default {
       isMobile: false,
       response: this.json,
       event: "",
+      events: {
+        luxefeedback1: "view_luxe_feedback1",
+        tognessfeedback1: "view_togness_feedback1",
+        justlyfeedback1: "view_justly_feedback1",
+        tognessparallax1: "view_togness_parallax1",
+      },
     };
   },
   watch: {
@@ -122,12 +128,13 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
   },
+  inject: ["mixpanel"],
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

@@ -29,7 +29,7 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 
 export default {
   props: ["json"],
@@ -38,6 +38,14 @@ export default {
       isMobile: false,
       response: this.json,
       event: "",
+      events: {
+        luxelanding: "view_luxe_radio_landing",
+        luxebanner: "view_luxe_first_banner_image",
+        tognesslanding: "view_togness_landing",
+        tognessbanner: "view_togness_first_banner_image",
+        justlylanding: "view_justly_landing",
+        justlybanner: "view_justly_first_banner_image",
+      },
     };
   },
   watch: {
@@ -57,12 +65,13 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
   },
+  inject: ["mixpanel"],
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

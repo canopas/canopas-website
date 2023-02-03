@@ -25,7 +25,7 @@
             <router-link
               class="gradient-btn tw-rounded-[2rem] tw-flex tw-items-center hover:tw-shadow-4xl"
               :to="contactURL"
-              @click.native="$gtag.event(callEvent)"
+              @click.native="mixpanel.track(callEvent)"
             >
               <font-awesome-icon
                 class="fa v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white"
@@ -47,7 +47,7 @@
             <router-link
               class="gradient-btn tw-rounded-[2rem] tw-flex tw-items-center hover:tw-shadow-4xl"
               :to="contactURL"
-              @click.native="$gtag.event(mailEvent)"
+              @click.native="mixpanel.track(mailEvent)"
             >
               <font-awesome-icon
                 class="fa v2-title-3-text tw-text-[1.35rem] tw-leading-[1.5rem] tw-text-white"
@@ -152,6 +152,7 @@ export default {
   mounted() {
     this.setEvent();
   },
+  inject: ["mixpanel"],
   methods: {
     setEvent() {
       if (this.currentPath == "/") {

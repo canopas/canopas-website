@@ -14,7 +14,7 @@
         <a
           :href="glassdoorLink"
           aria-label="glassdoorLink"
-          @click.native="$gtag.event('tap_glassdoor_review')"
+          @click.native="mixpanel.track('tap_glassdoor_review')"
         >
           <img
             src="@/assets/images/footer/glassdoor.webp"
@@ -45,7 +45,7 @@
             <a
               :href="socialMedia.url"
               target="_blank"
-              @click.native="$gtag.event(socialMedia.event)"
+              @click.native="mixpanel.track(socialMedia.event)"
               aria-label="footerLink"
               ><img
                 class="active:tw-scale-[0.98] tw-h-full tw-w-full"
@@ -145,5 +145,6 @@ export default {
   components: {
     FontAwesomeIcon,
   },
+  inject: ["mixpanel"],
 };
 </script>

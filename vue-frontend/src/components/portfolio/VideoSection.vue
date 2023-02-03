@@ -34,7 +34,7 @@
               <a
                 target="_blank"
                 :href="button.link"
-                @click.native="$gtag.event(button.event)"
+                @click.native="mixpanel.track(button.event)"
                 >{{ button.name }}</a
               >
             </div>
@@ -219,7 +219,7 @@
               <a
                 target="_blank"
                 :href="button.link"
-                @click.native="$gtag.event(button.event)"
+                @click.native="mixpanel.track(button.event)"
                 >{{ button.name }}</a
               >
             </div>
@@ -234,7 +234,7 @@
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -248,6 +248,11 @@ export default {
       isShowSliderInMobile: false,
       response: this.json,
       event: "",
+      events: {
+        luxevideo: "view_luxe_radio_video",
+        tognessvideo: "view_togness_problem",
+        justlyvideo: "view_justly_horizontal_slider",
+      },
     };
   },
   watch: {
@@ -260,27 +265,25 @@ export default {
     SwiperSlide,
     AspectRatio,
   },
-
   mounted() {
-    if (window.innerWidth <= 992) {
-      this.isShowSliderInMobile = true;
-    }
-
+    this.isShowSliderInMobile = window.innerWidth <= 992;
     window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
   },
+  inject: ["mixpanel"],
   methods: {
     onSlideChange(swiper) {
       this.backgroundColor =
         this.response.slider[swiper.realIndex].backgroundColor;
     },
+
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

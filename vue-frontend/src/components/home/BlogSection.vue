@@ -39,7 +39,7 @@
           :key="blog"
           :href="blog.link"
           target="_blank"
-          @click.native="$gtag.event('tap_home_blog_post')"
+          @click.native="mixpanel.track('tap_home_blog_post')"
         >
           <aspect-ratio
             height="50%"
@@ -72,7 +72,7 @@
           class="v2-button tw-flex tw-item-center v2-normal-2-text"
           :href="blogsURL"
           target="_blank"
-          @click.native="$gtag.event('tap_home_view_all_blogs')"
+          @click.native="mixpanel.track('tap_home_view_all_blogs')"
         >
           <span>VIEW ALL</span>
           <font-awesome-icon
@@ -108,6 +108,7 @@ export default {
   mounted() {
     this.getBlogs();
   },
+  inject: ["mixpanel"],
   methods: {
     getBlogs() {
       axios

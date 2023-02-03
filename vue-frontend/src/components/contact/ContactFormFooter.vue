@@ -15,7 +15,7 @@
               :disabled="disableInput"
               placeholder=" "
               @input="showNameValidationError = name === ''"
-              @click.native="$gtag.event('tap_footer_username_input')"
+              @click.native="mixpanel.track('tap_footer_username_input')"
             />
             <label
               for="username"
@@ -40,7 +40,7 @@
               :disabled="disableInput"
               placeholder=" "
               @input="showEmailValidationError = email === ''"
-              @click.native="$gtag.event('tap_footer_email_input')"
+              @click.native="mixpanel.track('tap_footer_email_input')"
             />
             <label
               for="email"
@@ -67,7 +67,7 @@
               :disabled="disableInput"
               placeholder=" "
               @input="showProjectInfoValidationError = projectInfo === ''"
-              @click.native="$gtag.event('tap_footer_project_info_input')"
+              @click.native="mixpanel.track('tap_footer_project_info_input')"
             ></textarea>
             <label
               for="project"
@@ -94,7 +94,7 @@
               :disabled="disableInput"
               placeholder=" "
               @input="showReferenceValidationError = reference === ''"
-              @click.native="$gtag.event('tap_footer_reference_input')"
+              @click.native="mixpanel.track('tap_footer_reference_input')"
             />
             <label
               for="reference"
@@ -327,6 +327,7 @@ export default {
   components: {
     FontAwesomeIcon,
   },
+  inject: ["mixpanel"],
   mounted() {
     document.addEventListener("click", this.closePopUps);
   },
@@ -349,7 +350,7 @@ export default {
       );
     },
     submitForm() {
-      this.$gtag.event("tap_home_form_submission");
+      this.mixpanel.track("tap_home_form_submission");
       if (!this.validateForm()) {
         this.disableInput = true;
         this.showLoader = true;
@@ -418,12 +419,12 @@ export default {
       this.showList = false;
     },
     toggleList() {
-      this.$gtag.event("tap_footer_invest_input");
+      this.mixpanel.track("tap_footer_invest_input");
       this.showList = !this.showList;
       this.floatable = this.showList || this.invest !== "";
     },
     toggleNDA() {
-      this.$gtag.event("tap_footer_NDA_input");
+      this.mixpanel.track("tap_footer_NDA_input");
       this.NDA = !this.NDA;
     },
   },

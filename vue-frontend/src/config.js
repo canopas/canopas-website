@@ -42,10 +42,10 @@ export default Object.freeze({
     type: "Website",
     url: "https://dev-stack.canopas.com/portfolio",
   },
-  GAP_ID_ROOT: "",
   IS_PROD: false,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
   SHOW_SMILEPLUS_PORTFOLIO: true,
   IS_SHOW_NEW_HOME_PAGE: true,
+  MIX_PANEL_TOKEN: "",
 });

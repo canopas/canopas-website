@@ -44,7 +44,7 @@
         </div>
       </transition>
     </div>
-    <div v-else ref="readmore">
+    <div v-else>
       <div class="tw-py-0 tw-px-[0.75rem]">
         <div
           class="tw-container tw-py-[48px] tw-px-[16px] tw-max-w-full sm:tw-max-w-[540px] md:tw-max-w-[720px] lg:tw-max-w-[960px] xl:tw-max-w-[1140px] 2xl:tw-max-w-[1320px] md:tw-pt-[96px] md:tw-px-[96px] md:tw-pb-[150px]"
@@ -71,7 +71,7 @@
             class="tw-flex tw-justify-center tw-text-[1rem] md:tw-text-[1.125rem] tw-mt-12"
           >
             <router-link
-              @click.native="$gtag.event('tap_job_read_more_apply_now')"
+              @click.native="mixpanel.track('tap_job_read_more_apply_now')"
               class="gradient-btn tw-py-[16px] tw-px-[64px] tw-flex tw-items-center md:tw-py-[16px] md:tw-px-[80px]"
               :to="jobLink"
             >
@@ -102,7 +102,6 @@ import { mapState } from "pinia";
 import { mapActions } from "pinia";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
-import { analyticsEvent } from "@/utils.js";
 
 import {
   faCheckCircle,
@@ -150,22 +149,12 @@ export default {
       isLoading: "isLoading",
     }),
   },
+  inject: ["mixpanel"],
   mounted() {
-    this.$gtag.event("view_jobs_by_id_page");
+    this.mixpanel.track("view_jobs_by_id_page");
     this.setCareerDetails();
-    window.addEventListener("scroll", this.sendEvent);
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.sendEvent);
   },
   methods: {
-    sendEvent() {
-      const event = analyticsEvent(this.$refs);
-      if (event && this.event !== event) {
-        this.event = event;
-        this.$gtag.event(event);
-      }
-    },
     ...mapActions(useJobDetailStore, ["loadJob"]),
     async setCareerDetails() {
       await this.loadJob(this.id, this.$route.href);

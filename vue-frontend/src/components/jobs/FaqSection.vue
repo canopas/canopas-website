@@ -84,7 +84,7 @@
               :class="!isActivePrev ? 'tw-opacity-20' : ''"
               class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
               @click="slide(-1)"
-              @click.native="$gtag.event('tap_faq_previous_arrow')"
+              @click.native="mixpanel.track('tap_faq_previous_arrow')"
               aria-label="leftArrow"
             >
               <font-awesome-icon
@@ -99,7 +99,7 @@
               :class="!isActiveNext ? 'tw-opacity-20' : ''"
               class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
               @click="slide(1)"
-              @click.native="$gtag.event('tap_faq_next_arrow')"
+              @click.native="mixpanel.track('tap_faq_next_arrow')"
               aria-label="rightArrow"
             >
               <font-awesome-icon
@@ -210,15 +210,15 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
   },
-
+  inject: ["mixpanel"],
   methods: {
     expandListItem(index) {
       if (this.previousIndex == index && this.openList) {
         this.openList = false;
-        this.$gtag.event("tap_faq_collapse");
+        this.mixpanel.track("tap_faq_collapse");
       } else {
         this.openList = true;
-        this.$gtag.event("tap_faq_expand");
+        this.mixpanel.track("tap_faq_expand");
       }
 
       this.currentIndex = index;

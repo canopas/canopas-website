@@ -16,9 +16,15 @@
     <button
       class="gradient-btn tw-rounded-[15px] sm:tw-m-auto normal-text animate__animated animate__fadeInUp"
       @click="$emit('scroll-to-career')"
-      @click.native="$gtag.event('tap_see_all_positions')"
+      @click.native="mixpanel.track('tap_see_all_positions')"
     >
       <span>SEE ALL POSITIONS</span>
     </button>
   </div>
 </template>
+
+<script>
+export default {
+  inject: ["mixpanel"],
+};
+</script>

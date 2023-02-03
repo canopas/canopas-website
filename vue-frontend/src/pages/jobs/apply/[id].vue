@@ -8,7 +8,7 @@
     <ScreenHeaderV2 v-if="!isShowNewHomePage" />
     <NewHeader v-else />
     <ScreenLoader v-if="isLoading || job == null" />
-    <div v-else ref="applyjob">
+    <div v-else>
       <div
         class="tw-container tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
       >
@@ -235,7 +235,7 @@
         </div>
 
         <!-- Show Thank you message -->
-        <div v-if="showSuccessMessagePopup" ref="jobsuccess">
+        <div v-if="showSuccessMessagePopup">
           <transition name="modal">
             <div
               class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
@@ -267,7 +267,7 @@
         </div>
 
         <!-- Show error message -->
-        <div v-if="showErrorMessagePopup" ref="jobfailed">
+        <div v-if="showErrorMessagePopup">
           <transition name="modal">
             <div
               class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
@@ -321,10 +321,8 @@ import { mapActions } from "pinia";
 import { useMeta } from "vue-meta";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import loaderImage from "@/assets/images/theme/small-loader.svg";
-
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import { analyticsEvent } from "@/utils.js";
 
 library.add(faCheckCircle);
 
@@ -426,8 +424,8 @@ export default {
   async serverPrefetch() {
     await this.setCareerDetails();
   },
+  inject: ["mixpanel"],
   mounted() {
-    window.addEventListener("scroll", this.sendEvent);
     let recaptchaScript = document.createElement("script");
     recaptchaScript.setAttribute(
       "src",
@@ -438,10 +436,7 @@ export default {
     recaptchaScript.setAttribute("defer", "true");
     document.head.appendChild(recaptchaScript);
     this.setCareerDetails();
-    this.$gtag.event("view_page_job_apply");
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.sendEvent);
+    this.mixpanel.track("view_page_job_apply");
   },
   computed: {
     ...mapState(useJobDetailStore, {
@@ -451,14 +446,6 @@ export default {
     }),
   },
   methods: {
-    sendEvent() {
-      const event = analyticsEvent(this.$refs);
-      if (event && this.event !== event) {
-        this.event = event;
-        this.$gtag.event(event);
-      }
-    },
-
     ...mapActions(useJobDetailStore, ["loadJob"]),
     async setCareerDetails() {
       await this.loadJob(this.id, this.$route.href);
@@ -472,6 +459,7 @@ export default {
           });
         } else {
           this.showErrorMessagePopup = true;
+          this.mixpanel.track("job_apply_failed");
         }
       } else {
         this.setMetaProperties();
@@ -530,7 +518,7 @@ export default {
       }
     },
     submitApplication() {
-      this.$gtag.event("job_submit");
+      this.mixpanel.track("job_submit");
       this.showLoader = true;
       this.disableInput = false;
       this.isLoad = true;
@@ -587,6 +575,7 @@ export default {
                 this.isLoad = false;
                 this.showLoader = false;
                 this.showSuccessMessagePopup = true;
+                this.mixpanel.track("job_apply_success");
                 setTimeout(() => {
                   this.$router.push("/jobs");
                 }, 3500);

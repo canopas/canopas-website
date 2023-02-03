@@ -47,7 +47,7 @@
           @mouseover="activeIndex = index"
           @mouseleave="activeIndex = index"
           @touchstart.passive="activeIndex = index"
-          @click.native="$gtag.event('tap_blog_post')"
+          @click.native="mixpanel.track('tap_blog_post')"
         >
           <div class="tw-flex tw-flex-col 2xl:tw-pr-16">
             <hr
@@ -177,8 +177,10 @@ export default {
     this.getBlogs();
     this.width = window.innerWidth;
   },
+  inject: ["mixpanel"],
   methods: {
     openBlog(blog) {
+      this.mixpanel.track("tap_blog_post");
       window.open(blog.link, "_blank");
     },
     getBlogs() {

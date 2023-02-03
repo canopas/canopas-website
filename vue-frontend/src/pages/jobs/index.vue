@@ -42,7 +42,7 @@ import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useMeta } from "vue-meta";
-import { analyticsEvent, handleAnimationOnScroll } from "@/utils.js";
+import { elementInViewPort, handleAnimationOnScroll } from "@/utils.js";
 
 import {
   faAlignLeft,
@@ -82,12 +82,21 @@ export default {
   data() {
     return {
       handleAnimationOnScroll,
-      event: "",
       isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
+      event: "",
+      events: {
+        landingview: "view_jobs_landing_section",
+        virtue: "view_virtues_section",
+        life: "view_life_at_canopas_section",
+        perks: "view_perks_benefits",
+        whycanopas: "view_why_canopas",
+        joblist: "view_jobs_list",
+      },
     };
   },
+  inject: ["mixpanel"],
   mounted() {
-    this.$gtag.event("view_jobs_page");
+    this.mixpanel.track("view_jobs_page");
     window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
@@ -95,10 +104,10 @@ export default {
   },
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
     scrollToCareer() {

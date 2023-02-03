@@ -38,10 +38,11 @@ export default {
     HomeIndex,
     HomeNewIndex,
   },
+  inject: ["mixpanel"],
   mounted() {
     this.isShowNewHomePage
-      ? this.$gtag.event("view_new_home_page")
-      : this.$gtag.event("view_home_page");
+      ? this.mixpanel.track("view_new_home_page")
+      : this.mixpanel.track("view_home_page");
   },
 };
 </script>

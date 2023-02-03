@@ -162,6 +162,7 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
   },
+  inject: ["mixpanel"],
   methods: {
     handleScroll() {
       let wasSticky = this.navbarSticky;
@@ -178,7 +179,7 @@ export default {
     },
     sendEvent(event) {
       if (event && event != " ") {
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

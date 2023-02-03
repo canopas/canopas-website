@@ -70,8 +70,9 @@ export default {
     ScreenFooter2,
     FontAwesomeIcon,
   },
+  inject: ["mixpanel"],
   mounted() {
-    this.$gtag.event("view_page_404");
+    this.mixpanel.track("view_page_404");
   },
 };
 </script>

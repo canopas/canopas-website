@@ -29,7 +29,7 @@
           v-if="!navbar.target"
           class="portfolio-nav"
           :to="navbar.url"
-          @click.native="$gtag.event(navbar.event)"
+          @click.native="mixpanel.track(navbar.event)"
         >
           <span>{{ navbar.name }}</span>
         </router-link>
@@ -38,7 +38,7 @@
           class="portfolio-nav"
           :href="navbar.url"
           target="_blank"
-          @click.native="$gtag.event(navbar.event)"
+          @click.native="mixpanel.track(navbar.event)"
         >
           <span>{{ navbar.name }}</span>
         </a>
@@ -63,7 +63,7 @@
 import config from "@/config.js";
 import PortfolioSection from "@/components/home-new/PortfolioSection.vue";
 import PortfolioCTASection from "@/components/home-new/PortfolioCTASection.vue";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 
 export default {
   data() {
@@ -101,6 +101,10 @@ export default {
           event: "tap_home_smile_portfolio",
         },
       ],
+      events: {
+        newPortfolio: "view_portfolio_section",
+        newPortfolioCTA: "view_home_portfolio_cta",
+      },
     };
   },
   mounted() {
@@ -109,12 +113,13 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
   },
+  inject: ["mixpanel"],
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

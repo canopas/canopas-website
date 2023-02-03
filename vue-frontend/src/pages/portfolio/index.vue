@@ -42,8 +42,9 @@ export default {
     Portfolio,
     CTA,
   },
+  inject: ["mixpanel"],
   mounted() {
-    this.$gtag.event("view_page_portfolio_list");
+    this.mixpanel.track("view_page_portfolio_list");
   },
 };
 </script>

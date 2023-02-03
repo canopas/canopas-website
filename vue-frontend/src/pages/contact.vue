@@ -58,6 +58,7 @@ export default {
       isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
+  inject: ["mixpanel"],
   mounted() {
     let recaptchaScript = document.createElement("script");
     recaptchaScript.setAttribute(
@@ -68,7 +69,7 @@ export default {
     recaptchaScript.setAttribute("async", "true");
     recaptchaScript.setAttribute("defer", "true");
     document.head.appendChild(recaptchaScript);
-    this.$gtag.event("view_contact_page");
+    this.mixpanel.track("view_contact_page");
   },
   methods: {
     setLoader(loading) {

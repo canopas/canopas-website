@@ -16,7 +16,7 @@
             class="tw-relative tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l tw-to-pink-300 tw-from-orange-300 tw-bg-gradient-[1deg] after:tw-bottom-0 after:tw-left-0"
             :href="websiteOpenSourceUrl"
             target="_blank"
-            @click.native="$gtag.event('tap_canopas_website_github')"
+            @click.native="mixpanel.track('tap_canopas_website_github')"
             >canopas is open source!</a
           ></span
         >
@@ -71,7 +71,7 @@
                     class="tw-flex tw-items-center tw-font-inter-bold tw-text-[0.75rem] md:tw-text-[1.25rem] tw-leading-[2.5625rem] tw-duration-300 tw-ease-in-out hover:tw-scale-[1.1] tw-hover-hover"
                     :href="contribution.link"
                     target="_blank"
-                    @click.native="$gtag.event('tap_library')"
+                    @click.native="mixpanel.track('tap_library')"
                   >
                     <font-awesome-icon
                       class="tw-mr-1 md:tw-mr-2.5 tw-w-[1rem] md:tw-w-[1.75rem] tw-h-[1rem] md:tw-h-[1.75rem] tw-text-pink-300"
@@ -105,7 +105,7 @@
                 :href="contribution.link"
                 :aria-label="contribution.title"
                 target="_blank"
-                @click.native="$gtag.event('tap_library')"
+                @click.native="mixpanel.track('tap_library')"
               >
                 <font-awesome-icon
                   class="arrow fa tw-w-4 tw-h-4"
@@ -193,6 +193,7 @@ export default {
     AspectRatio,
     FontAwesomeIcon,
   },
+  inject: ["mixpanel"],
   mounted() {
     if (window.innerWidth <= 768) {
       this.isMobile = true;

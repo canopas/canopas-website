@@ -57,7 +57,7 @@
               <div
                 v-html="perk.description"
                 @click="scrollToCareer"
-                @click.native="$gtag.event('tap_perks_hiring')"
+                @click.native="mixpanel.track('tap_perks_hiring')"
               ></div>
             </div>
           </div>
@@ -231,13 +231,12 @@ export default {
   components: {
     AspectRatio,
   },
-
+  inject: ["mixpanel"],
   mounted() {
     if (window.innerWidth >= 768 && window.innerWidth < 992) {
       this.isMobile = true;
     }
   },
-
   methods: {
     scrollToCareer(e) {
       if (e.target.matches(".career-link")) {
