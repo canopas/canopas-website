@@ -42,7 +42,7 @@
               <router-link
                 v-if="!navbar.target"
                 :to="navbar.url"
-                @click.native="$gtag.event(event)"
+                @click.native="mixpanel.track(event)"
                 class="v2-normal-3-text"
                 :class="[
                   navbar.className
@@ -140,7 +140,7 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
   },
-
+  inject: ["mixpanel"],
   methods: {
     handleScroll() {
       let wasSticky = this.navbarSticky;

@@ -46,7 +46,7 @@
             class="tw-mb-[80px] tw-border-solid tw-border-transparent tw-border-[1px]"
           >
             <img
-              @click.native="$gtag.event('click_life_photo')"
+              @click.native="mixpanel.track('click_life_photo')"
               :src="sider.image[3]"
               :srcset="`${sider.image[0]} 400w, ${sider.image[1]} 800w, ${sider.image[2]} 1600w, ${sider.image[3]} 2400w`"
               alt="Life at canopas"
@@ -193,6 +193,7 @@ export default {
     SwiperSlide,
     AspectRatio,
   },
+  inject: ["mixpanel"],
 };
 </script>
 

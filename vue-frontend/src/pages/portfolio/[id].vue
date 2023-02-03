@@ -38,7 +38,7 @@ import justlyResponse from "@/portfolio-json/justly-data.js";
 import tognessResponse from "@/portfolio-json/togness-data.js";
 import ErrorPage from "@/components/error404/index.vue";
 import { useMeta } from "vue-meta";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 import config from "@/config.js";
 
 export default {
@@ -56,9 +56,14 @@ export default {
     return {
       details: "",
       response: null,
-      event: "",
       ctaRef: null,
       isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
+      event: "",
+      events: {
+        luxepagecta: "view_luxe_page_cta",
+        tognesspagecta: "view_togness_page_cta",
+        justlypagecta: "view_justly_page_cta",
+      },
     };
   },
   watch: {
@@ -73,8 +78,9 @@ export default {
   created() {
     this.getData(this.$route.params.id);
   },
+  inject: ["mixpanel"],
   mounted() {
-    this.$gtag.event("view_page_portfolio");
+    this.mixpanel.track("view_page_portfolio");
     window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
@@ -111,10 +117,10 @@ export default {
       }
     },
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
     scrollToTop() {

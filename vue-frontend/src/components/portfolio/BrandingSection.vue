@@ -24,7 +24,7 @@
               <a
                 target="_blank"
                 :href="button.link"
-                @click.native="$gtag.event(button.event)"
+                @click.native="mixpanel.track(button.event)"
                 >{{ button.name }}</a
               >
             </div>
@@ -189,7 +189,7 @@
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import LottieAnimation from "@/components/utils/LottieAnimation.vue";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 
 export default {
   props: ["json"],
@@ -200,6 +200,15 @@ export default {
       gridData1: this.json.details.gridData1,
       gridData2: this.json.details.gridData2,
       event: "",
+      events: {
+        luxesolution: "view_luxe_radio_solution",
+        luxeparallax1: "view_luxe_first_parallax_section",
+        luxeui1: "view_luxe_ui_section1",
+        tognesssolution: "view_togness_solution",
+        tognessui1: "view_togness_ui_section1",
+        justlyparallax1: "view_justly_parallax",
+        justlyui1: "view_justly_ui_section1",
+      },
     };
   },
   watch: {
@@ -222,12 +231,13 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
   },
+  inject: ["mixpanel"],
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

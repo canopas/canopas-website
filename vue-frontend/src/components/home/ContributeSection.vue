@@ -23,7 +23,7 @@
           class="v2-canopas-gradient-text tw-font-semibold gradient-underline tw-pb-[1.5px] tw-relative tw-no-underline after:tw-bg-gradient-to-r tw-from-orange-300 tw-to-pink-300 after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[1.5px]"
           :href="websiteOpenSourceUrl"
           target="_blank"
-          @click.native="$gtag.event('tap_canopas_open_source_link')"
+          @click.native="mixpanel.track('tap_canopas_open_source_link')"
           >Canopas is open source!</a
         >
         We also have several projects that are widely recognized in the open
@@ -51,7 +51,7 @@
             class="tw-float-right tw-flex tw-items-end tw-duration-300 tw-ease-in-out hover:tw-scale-[1.1] tw-hover-hover"
             :href="contribution.link"
             target="_blank"
-            @click.native="$gtag.event('tap_contribution_library')"
+            @click.native="mixpanel.track('tap_contribution_library')"
           >
             <font-awesome-icon
               class="tw-h-[30px] tw-width-[30px] tw-text-pink-300 tw-mr-2.5 lg:tw-h-10 lg:tw-w-10"
@@ -99,5 +99,6 @@ export default {
   components: {
     FontAwesomeIcon,
   },
+  inject: ["mixpanel"],
 };
 </script>

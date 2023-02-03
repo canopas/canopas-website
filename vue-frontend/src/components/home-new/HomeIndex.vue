@@ -1,15 +1,15 @@
 <template>
   <div>
     <ScreenHeader />
-    <LandingSection ref="newLanding" />
-    <ServiceSection class="tw-hidden md:tw-block" ref="newService" />
-    <ServiceSectionMobile class="tw-block md:tw-hidden" ref="newService" />
+    <LandingSection ref="landing" />
+    <ServiceSection class="tw-hidden md:tw-block" ref="service" />
+    <ServiceSectionMobile class="tw-block md:tw-hidden" ref="service" />
     <CaseStudy />
-    <ClientReview ref="newClientReview" />
-    <BlogSection ref="newBlogs" />
-    <ContributionSection ref="newContributions" />
-    <CTASection ref="newCTA" />
-    <FooterV3 />
+    <ClientReview ref="clientReview" />
+    <BlogSection ref="blogs" />
+    <ContributionSection ref="contributions" />
+    <CTASection ref="cta" />
+    <FooterV3 ref="footer" />
   </div>
 </template>
 
@@ -26,7 +26,7 @@ import BlogSection from "@/components/home-new/BlogSection.vue";
 import FooterV3 from "@/components/partials/FooterV3.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 library.add(faPlus);
 
 export default {
@@ -45,10 +45,20 @@ export default {
   data() {
     return {
       event: "",
+      events: {
+        landing: "view_landing_section",
+        service: "view_service_section",
+        clientReview: "view_client_review_section",
+        blogs: "view_blog_post_section",
+        contributions: "view_open_source_contribution",
+        cta: "view_home_cta",
+        footer: "view_home_footer",
+      },
     };
   },
+  inject: ["mixpanel"],
   mounted() {
-    this.$gtag.event("view_landing_section");
+    this.mixpanel.track("view_landing_section");
     window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
@@ -56,10 +66,10 @@ export default {
   },
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

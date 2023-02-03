@@ -9,7 +9,7 @@
       <div
         v-for="portfolio in portfolios"
         :key="portfolio"
-        :ref="currentPath == '/portfolio' ? 'portfoliolist' : 'portfolios'"
+        ref="portfolios"
         class="tw-flex tw-flex-col tw-items-center md:odd:tw-flex-row md:even:tw-flex-row-reverse tw-mt-6"
       >
         <div class="tw-w-full md:tw-w-6/12 lg:tw-w-[45%]">
@@ -34,7 +34,7 @@
               v-if="!portfolio.target"
               :to="portfolio.link"
               class="v2-normal-2-text v2-button tw-flex tw-items-center tw-w-fit"
-              @click.native="$gtag.event(portfolio.event)"
+              @click.native="mixpanel.track(portfolio.event)"
             >
               <span class="tw-mr-2.5">VIEW</span>
               <font-awesome-icon
@@ -48,7 +48,7 @@
               class="v2-normal-2-text v2-button tw-flex tw-items-center tw-w-fit"
               :href="portfolio.link"
               target="_blank"
-              @click.native="$gtag.event(portfolio.event)"
+              @click.native="mixpanel.track(portfolio.event)"
             >
               <span class="tw-mr-2.5">VIEW</span>
               <font-awesome-icon
@@ -83,12 +83,13 @@ import togness1200w from "@/assets/images/portfolio/togness-1200w.webp";
 import togness16000w from "@/assets/images/portfolio/togness-1600w.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import config from "@/config.js";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 
 export default {
   data() {
     return {
       currentPath: this.$router.currentRoute._value.path,
+      isPortfolioPage: this.currentPath == "/portfolio",
       portfolios: [
         {
           images: [
@@ -146,6 +147,20 @@ export default {
         },
       ],
       event: "",
+      events: {
+        0: this.isPortfolioPage
+          ? "view_portfolio_page_luxe_radio"
+          : "view_home_luxe_radio_portfolio",
+        1: this.isPortfolioPage
+          ? "view_portfolio_page_togness"
+          : "view_home_togness_portfolio",
+        2: this.isPortfolioPage
+          ? "view_portfolio_page_justly"
+          : "view_home_justly_portfolio",
+        3: this.isPortfolioPage
+          ? "view_portfolio_page_smile"
+          : "view_home_smile_portfolio",
+      },
     };
   },
   components: {
@@ -160,12 +175,13 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
   },
+  inject: ["mixpanel"],
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

@@ -19,7 +19,7 @@
     <router-link
       class="animation-underline tw-inline-block tw-relative hover:tw-text-[#3d3d3d] after:tw-content-[''] after:tw-absolute after:tw-w-full after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
       :to="response.url"
-      @click.native="$gtag.event(button.event)"
+      @click.native="mixpanel.track(button.event)"
       >{{ response.title }}</router-link
     >
   </section>
@@ -27,7 +27,7 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 export default {
   props: ["json"],
   data() {
@@ -35,6 +35,11 @@ export default {
       isMobile: false,
       response: this.json,
       event: "",
+      events: {
+        luxeparallax2: "view_luxe_last_parallax_section",
+        tognessparallax2: "view_togness_last_parallax",
+        justlyparallax2: "view_justly_last_parallax",
+      },
     };
   },
   watch: {
@@ -54,12 +59,13 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
   },
+  inject: ["mixpanel"],
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

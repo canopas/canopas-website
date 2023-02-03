@@ -39,7 +39,7 @@
               <a
                 :href="clutchLink"
                 target="_blank"
-                @click.native="$gtag.event('tap_clutch_ratings')"
+                @click.native="mixpanel.track('tap_clutch_ratings')"
               >
                 <div
                   class="tw-flex tw-flex-row sm:tw-justify-end tw-w-[132px] sm:tw-w-fit"
@@ -146,6 +146,7 @@ export default {
     SwiperSlide,
     FontAwesomeIcon,
   },
+  inject: ["mixpanel"],
 };
 </script>
 

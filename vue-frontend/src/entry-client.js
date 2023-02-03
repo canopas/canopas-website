@@ -1,5 +1,5 @@
 import { buildApp } from "./main";
-import VueGtag from "vue-gtag";
+import mixpanel from "mixpanel-browser";
 import config from "@/config.js";
 import "animate.css";
 
@@ -12,10 +12,6 @@ router.isReady().then(() => {
     pinia.state.value = piniaInitialState;
   }
 
-  app
-    .use(VueGtag, {
-      deferScriptLoad: true,
-      config: { id: config.GAP_ID_ROOT },
-    })
-    .mount("#app");
+  mixpanel.init(config.MIX_PANEL_TOKEN);
+  app.provide("mixpanel", mixpanel).mount("#app");
 });

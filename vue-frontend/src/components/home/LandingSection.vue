@@ -75,7 +75,7 @@
                 <router-link
                   class="active:tw-scale-[0.98] hover:tw-text-black-900 tw-rounded-[3rem] tw-text-center tw-border-[1px] tw-border-solid tw-border-[#3d3d3d] tw-bg-white tw-text-black tw-flex tw-items-center tw-bg-black-900 tw-text-white hover:tw-bg-white v2-normal-3-text tw-py-4 tw-px-20"
                   :to="contactURL"
-                  @click.native="$gtag.event('tap_landing_cta')"
+                  @click.native="mixpanel.track('tap_landing_cta')"
                 >
                   <span class="tw-mr-2.5">Let's talk</span>
                   <font-awesome-icon
@@ -117,6 +117,7 @@ export default {
   components: {
     FontAwesomeIcon,
   },
+  inject: ["mixpanel"],
   mounted() {
     var animateText = document.querySelector(".wrapper");
 

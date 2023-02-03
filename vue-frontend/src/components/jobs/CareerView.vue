@@ -82,7 +82,7 @@
                 class="tw-flex tw-flex-row tw-justify-center tw-pt-0 tw-pr-0 tw-pb-[30px] tw-pl-0 sm:tw-justify-end sm:tw-pt-0 sm:tw-pr-[20px] sm:tw-pb-[30px] sm:tw-pl-[20px]"
               >
                 <router-link
-                  @click.native="$gtag.event('tap_read_more_job')"
+                  @click.native="mixpanel.track('tap_read_more_job')"
                   class="tw-flex tw-items-center gradient-border-btn tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/' + career.unique_id"
                   aria-label="read-more"
@@ -100,7 +100,7 @@
                 </router-link>
 
                 <router-link
-                  @click.native="$gtag.event('tap_apply_job')"
+                  @click.native="mixpanel.track('tap_apply_job')"
                   class="tw-flex tw-items-center tw-m-[5px] gradient-btn tw-p-[11px] sm:tw-p-[16px]"
                   :to="'/jobs/apply/' + career.unique_id"
                 >
@@ -180,26 +180,25 @@ export default {
   async serverPrefetch() {
     await this.loadJobs();
   },
-
   mounted() {
     this.loadJobs();
   },
-
   computed: {
     ...mapState(useJobListStore, {
       careers: "items",
       jobsError: "error",
     }),
   },
+  inject: ["mixpanel"],
   methods: {
     ...mapActions(useJobListStore, ["loadJobs"]),
     expandListItem(id, index) {
       if (this.previousIndex == id && this.openList) {
         this.openList = false;
-        this.$gtag.event("tap_job_collapse");
+        this.mixpanel.track("tap_job_collapse");
       } else {
         this.openList = true;
-        this.$gtag.event("tap_job_expand");
+        this.mixpanel.track("tap_job_expand");
       }
 
       this.currentIndex = id;

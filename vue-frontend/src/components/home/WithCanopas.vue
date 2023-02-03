@@ -87,7 +87,7 @@ import designing from "@/assets/images/phases/canopas_phases_designing.gif";
 import development from "@/assets/images/phases/canopas_phases_development.gif";
 import marketing from "@/assets/images/phases/canopas_phases_marketing.gif";
 import support from "@/assets/images/phases/canopas_phases_support.gif";
-import { analyticsEvent } from "@/utils.js";
+import { elementInViewPort } from "@/utils.js";
 
 export default {
   data() {
@@ -130,6 +130,10 @@ export default {
         },
       ],
       event: "",
+      events: {
+        service1: "view_service_section_first_row",
+        service2: "view_service_section_second_row",
+      },
     };
   },
   components: {
@@ -141,12 +145,13 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
   },
+  inject: ["mixpanel"],
   methods: {
     sendEvent() {
-      const event = analyticsEvent(this.$refs);
+      const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
         this.event = event;
-        this.$gtag.event(event);
+        this.mixpanel.track(event);
       }
     },
   },

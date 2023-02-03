@@ -16,7 +16,7 @@
                 v-model="name"
                 :disabled="disableInput"
                 placeholder="Your name"
-                @click.native="$gtag.event('tap_name_input')"
+                @click.native="mixpanel.track('tap_name_input')"
               />
               <span v-if="showValidationError" class="error tw-text-red-600"
                 >This field is required</span
@@ -32,7 +32,7 @@
                 v-model="email"
                 :disabled="disableInput"
                 placeholder="Your email"
-                @click.native="$gtag.event('tap_email_input')"
+                @click.native="mixpanel.track('tap_email_input')"
               />
               <span v-if="showValidationError" class="error tw-text-red-600"
                 >This field is required</span
@@ -48,7 +48,7 @@
                 v-model="projectInfo"
                 :disabled="disableInput"
                 placeholder="Tell us about your project"
-                @click.native="$gtag.event('tap_tell_us_about_project')"
+                @click.native="mixpanel.track('tap_tell_us_about_project')"
               ></textarea>
               <span v-if="showValidationError" class="error tw-text-red-600"
                 >This field is required</span
@@ -64,7 +64,7 @@
                 v-model="reference"
                 :disabled="disableInput"
                 placeholder="How did you find us?"
-                @click.native="$gtag.event('tap_how_did_you_find_us')"
+                @click.native="mixpanel.track('tap_how_did_you_find_us')"
               />
               <span v-if="showValidationError" class="error tw-text-red-600"
                 >This field is required</span
@@ -85,7 +85,7 @@
                   value="2"
                   v-model.number="contactType"
                   :disabled="disableInput"
-                  @click.native="$gtag.event('tap_preferred_mode_call')"
+                  @click.native="mixpanel.track('tap_preferred_mode_call')"
                 />
                 <div
                   :class="
@@ -112,7 +112,7 @@
                   value="1"
                   v-model.number="contactType"
                   :disabled="disableInput"
-                  @click.native="$gtag.event('tap_preferred_mode_mail')"
+                  @click.native="mixpanel.track('tap_preferred_mode_mail')"
                 />
                 <div
                   :class="
@@ -316,6 +316,7 @@ export default {
     FontAwesomeIcon,
     CalendlyIframe,
   },
+  inject: ["mixpanel"],
   methods: {
     submitForm() {
       if (
@@ -326,7 +327,7 @@ export default {
       ) {
         this.showValidationError = true;
       } else {
-        this.$gtag.event("tap_submit_button_click");
+        this.mixpanel.track("tap_submit_button_click");
         this.disableInput = true;
         this.showValidationError = false;
 
@@ -362,7 +363,7 @@ export default {
                     }, 1000);
                   } else {
                     setTimeout(() => {
-                      this.$gtag.event("tap_schedule_meeting_click");
+                      this.mixpanel.track("tap_schedule_meeting_click");
                       this.openCalendlyIframe();
                       if (this.openCalendlyIframeModal) {
                         this.showLoader = false;
@@ -385,17 +386,17 @@ export default {
       }
     },
     openCalendlyIframe() {
-      this.$gtag.event("open_calendly_dialog_success");
+      this.mixpanel.track("open_calendly_dialog_success");
       this.openCalendlyIframeModal = true;
       this.disableInput = false;
       this.showLoader = false;
     },
     closeCalendlyIframeModal() {
-      this.$gtag.event("close_calendly_dialog_error");
+      this.mixpanel.track("close_calendly_dialog_error");
       this.openCalendlyIframeModal = false;
     },
     showSuccessMessage() {
-      this.$gtag.event("view_contact_success_dialog");
+      this.mixpanel.track("view_contact_success_dialog");
       this.showSuccessMessagePopup = true;
       setTimeout(() => {
         this.$router.push("/");
