@@ -128,7 +128,7 @@ export default {
           name: "Lisa Weinstein",
           className: "2xl:tw-px-52",
           designation: "Founder at Brickandbatten, USA",
-          review: `“There is not enough space to say all the wonderful things I would want to share about Darpan. He is incredibly helpful, stays calm even when we had to deal with tough issues on our app and always found a way to help us fix whatever was needed or roll out any new features for our app in both the
+          review: `“There is not enough space to say all the wonderful things I would want to share about Canopas. The team is incredibly helpful, stays calm even when we had to deal with tough issues on our app and always found a way to help us fix whatever was needed or roll out any new features for our app in both the
             <span class="tw-bg-[length:114%_26px] md:tw-bg-[length:50%_auto]
                tw-bg-single-color-underline
             "> iOS and Android stores.</span>”`,

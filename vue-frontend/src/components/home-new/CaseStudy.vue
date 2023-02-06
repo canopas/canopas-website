@@ -13,36 +13,23 @@
     <div
       class="tw-container tw-flex tw-justify-around tw-m-auto tw-w-[100%] sm:tw-w-[95%] 2xl:tw-w-[45%] tw-rounded-[30px] tw-bg-white tw-py-[5px] tw-drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)]"
     >
-      <div
+      <a
         v-for="(navbar, index) in navbars"
         :key="index"
-        class="tw-flex-[16.66%] tw-m-0 tw-w-full tw-rounded-[25px] tw-px-[5px] tw-py-2 md:tw-py-[13px] tw-text-center tw-tracking-[1px] tw-text-[0.75rem] tw-leading-[0.938rem] md:tw-text-[1rem] md:tw-leading-[1.1875rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.438rem] tw-font-inter-semibold"
+        class="tw-flex-[16.66%] tw-m-0 tw-w-full tw-rounded-[25px] tw-px-[5px] tw-py-2 md:tw-py-[13px] tw-text-center tw-tracking-[1px] tw-text-[0.75rem] tw-leading-[0.938rem] md:tw-text-[1rem] md:tw-leading-[1.1875rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.438rem] tw-font-inter-semibold active:tw-scale-[0.98] portfolio-nav"
         :class="[
           currentRoutePath == navbar.url
-            ? 'gradient-btn'
+            ? 'gradient-btn hover:tw-text-[#f2709c]'
             : 'tw-border-[1px] tw-border-solid tw-border-transparent hover:tw-from-[#ff835b] hover:tw-to-[#f2709c] hover:tw-bg-gradient-[270.11deg] tw-text-black-core/[0.6] hover:tw-text-white',
 
           index == navbars.length - 1 ? '' : 'sm:tw-mr-2.5',
         ]"
+        :href="navbar.url"
+        @click.native="mixpanel.track(navbar.event)"
+        :target="navbar.target ? '_blank' : '_self'"
       >
-        <router-link
-          v-if="!navbar.target"
-          class="portfolio-nav"
-          :to="navbar.url"
-          @click.native="mixpanel.track(navbar.event)"
-        >
-          <span>{{ navbar.name }}</span>
-        </router-link>
-        <a
-          v-else
-          class="portfolio-nav"
-          :href="navbar.url"
-          target="_blank"
-          @click.native="mixpanel.track(navbar.event)"
-        >
-          <span>{{ navbar.name }}</span>
-        </a>
-      </div>
+        {{ navbar.name }}
+      </a>
     </div>
 
     <div

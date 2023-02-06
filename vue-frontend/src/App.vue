@@ -39,7 +39,8 @@ body {
 }
 
 body::-webkit-scrollbar,
-.parallax::-webkit-scrollbar {
+.parallax::-webkit-scrollbar,
+.hidden-scrollbar::-webkit-scrollbar {
   @apply tw-hidden;
 }
 
