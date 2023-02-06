@@ -173,9 +173,16 @@
               >Send me NDA</span
             >
             <label
+              for="nda"
               class="tw-relative tw-inline-flex tw-items-center tw-cursor-pointer"
             >
-              <input type="checkbox" v-model="NDA" class="tw-sr-only tw-peer" />
+              <input
+                name="nda"
+                id="nda"
+                type="checkbox"
+                v-model="NDA"
+                class="tw-sr-only tw-peer"
+              />
               <div
                 class="tw-w-9 tw-h-4 tw-rounded-full tw-bg-white/[.6] tw-peer after:tw-content-[''] after:tw-absolute after:tw-top-[-2px] after:tw-left-[-2px] after:tw-h-5 after:tw-w-5 after:tw-border-white/[.6] after:tw-border after:tw-rounded-full after:tw-bg-white after:tw-transition-all peer-focus:tw-outline-none peer-checked:after:tw-border-white/[.6] peer-checked:tw-bg-gradient-to-r peer-checked:tw-from-[#F2709C] peer-checked:tw-to-[#FF9472] peer-checked:after:tw-translate-x-full"
               ></div>
@@ -193,7 +200,7 @@
             <button
               id="submit"
               ref="recaptcha"
-              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-text-center gradient-btn consultation-btn"
+              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
               @click.prevent="submitForm()"
             >
               <span

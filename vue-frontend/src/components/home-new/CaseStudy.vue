@@ -1,7 +1,7 @@
 <template>
   <section class="tw-mt-[100px] sm:tw-my-[100px] tw-font-inter-regular">
     <h1
-      class="tw-text-[#F8F8F8] tw-text-[2.5rem] md:tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[1.875rem] md:tw-leading-[4.0625rem] xl:tw-leading-[5rem] tw-text-center"
+      class="tw-text-black-core/[.03] tw-text-[2.5rem] md:tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[1.875rem] md:tw-leading-[4.0625rem] xl:tw-leading-[5rem] tw-text-center"
     >
       Our Portfolio
     </h1>

@@ -4,7 +4,7 @@
   >
     <div>
       <h1
-        class="tw-text-[#F8F8F8] tw-text-center tw-text-[2.5rem] tw-leading-[1.875rem]"
+        class="tw-text-black-core/[.03] tw-text-center tw-text-[2.5rem] tw-leading-[1.875rem]"
       >
         Services
       </h1>

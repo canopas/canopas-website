@@ -4,7 +4,7 @@
       class="tw-container tw-flex tw-flex-col tw-items-center tw-m-auto tw-w-full"
     >
       <h1
-        class="tw-text-[#F8F8F8] tw-text-center tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[4.0625rem] xl:tw-leading-[5rem]"
+        class="tw-text-black-core/[.03] tw-text-center tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[4.0625rem] xl:tw-leading-[5rem]"
       >
         Blogs
       </h1>
@@ -95,9 +95,9 @@
                   >
                 </div>
                 <div
-                  class="tw-flex tw-flex-row tw-justify-between tw-gap-none lg:tw-gap-[22rem] xl:tw-gap-[24rem] 2xl:tw-gap-[38rem] tw-mt-[0.9375rem] md:tw-mt-[1.9375rem] tw-font-inter-medium tw-text-[0.875rem] lg:tw-text-[1.125rem] tw-leading-[0.8125rem] md:tw-leading-[1.125rem] lg:tw-leading-[1.463rem]"
+                  class="tw-flex tw-flex-row tw-justify-between tw-mt-[0.9375rem] md:tw-mt-[1.9375rem] tw-font-inter-medium tw-text-[0.875rem] lg:tw-text-[1.125rem] tw-leading-[0.8125rem] md:tw-leading-[1.125rem] lg:tw-leading-[1.463rem]"
                 >
-                  <span class="lg:tw-w-[5rem]">
+                  <span class="tw-w-auto">
                     {{ blog.author }}
                   </span>
                   <span

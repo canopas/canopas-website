@@ -51,7 +51,7 @@
         <div class="tw-flex tw-items-center tw-flex-col-reverse lg:tw-flex-row">
           <div class="tw-text-center">
             <router-link
-              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-text-center gradient-btn consultation-btn"
+              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
               :to="contactURL"
               @click.native="mixpanel.track('tap_landing_cta')"
             >
