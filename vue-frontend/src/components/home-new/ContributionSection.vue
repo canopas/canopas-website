@@ -1,19 +1,21 @@
 <template>
-  <div class="tw-relative">
-    <div class="tw-container tw-mt-2 md:tw-mt-4">
-      <div
-        class="tw-sticky tw-w-full tw-h-[30vh] sm:tw-h-[25vh] lg:tw-h-[35vh] tw-z-[1] tw-top-[6rem] tw-bg-white tw-pt-12 tw-text-center"
+  <div
+    class="tw-container lg:tw-flex lg:tw-flex-row-reverse tw-justify-center tw-max-w-[1878px] lg:tw-pt-20 tw-text-center lg:tw-text-left"
+  >
+    <div
+      class="lg:tw-basis-[25%] tw-my-auto tw-mx-auto lg:tw-ml-11 2xl:tw-mx-0 tw-w-[290px] sm:tw-w-full tw-pb-14 md:tw-pb-20 lg:tw-pb-0"
+    >
+      <h1
+        class="tw-font-inter-bold tw-text-black-core/[.87] tw-text-[1.875rem] tw-leading-[2.5rem] md:tw-text-[3.4375rem] md:tw-leading-[5.5625rem]"
       >
-        <h1
-          class="tw-font-inter-bold tw-text-black-core/[.87] tw-text-[1.875rem] tw-leading-[2.5rem] md:tw-text-[3.4375rem] md:tw-leading-[5.5625rem]"
-        >
-          We are here to Contribute
-        </h1>
+        We are here to Contribute
+      </h1>
+      <div class="tw-mt-2 md:tw-mt-0">
         <span
           class="tw-font-inter-medium tw-text-black-core/[0.6] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.5rem] md:tw-leading-[2.5625rem]"
           >and that starts with the site itself,
           <a
-            class="tw-relative tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l tw-to-pink-300 tw-from-orange-300 tw-bg-gradient-[1deg] after:tw-bottom-0 after:tw-left-0"
+            class="tw-relative tw-bg-gradient-[1deg] tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l after:tw-to-pink-300 after:tw-from-orange-300 after:tw-bottom-0 after:tw-left-0"
             :href="websiteOpenSourceUrl"
             target="_blank"
             @click.native="mixpanel.track('tap_canopas_website_github')"
@@ -21,11 +23,14 @@
           ></span
         >
       </div>
-
+    </div>
+    <div
+      class="tw-relative lg:tw-basis-[70%] 2xl:tw-basis-[60%] tw-h-[35rem] md:tw-h-[50rem] tw-text-left tw-overflow-y-scroll hidden-scrollbar"
+    >
       <div
         v-for="(contribution, index) in contributions"
         :key="contribution"
-        class="tw-flex tw-flex-row tw-justify-center tw-mt-14 sm:tw-mt-4"
+        class="tw-flex tw-flex-row tw-justify-center tw-mt-14 sm:tw-mt-4 md:tw-mt-8 md:tw-mb-6"
         :class="index % 2 != 0 ? 'tw-flex-row-reverse' : ''"
       >
         <div
@@ -40,12 +45,13 @@
         </div>
 
         <div
-          class="tw-flex tw-flex-col tw-basis-[40%] md:tw-basis-[55%] lg:tw-basis-[35%] tw-my-auto tw-bg-[#FFFFFF] tw-p-2.5 sm:tw-p-4 tw-shadow-[0_0px_10px_rgba(0,0,0,0.1)]"
+          @click="openLink(contribution)"
+          class="tw-flex tw-flex-col tw-basis-[40%] lg:tw-basis-[43%] xl:tw-basis-[50%] 2xl:tw-basis-[40%] tw-my-auto md:tw-w-[21.563rem] tw-bg-[#FFFFFF] tw-p-2.5 sm:tw-p-4 xl:tw-p-8 tw-shadow-[0_0px_10px_rgba(0,0,0,0.1)] active:tw-scale-[0.98]"
           :class="[
             isMobile && index % 2 == 0
-              ? 'tw-absolute  tw-ml-40 sm:tw-ml-52 tw-mt-[8.5rem] sm:tw-mt-32  tw-w-[12.563rem]'
+              ? 'tw-absolute  tw-ml-48 sm:tw-ml-56 md:tw-ml-[22rem] tw-mt-[8.5rem] sm:tw-mt-32 tw-w-[10.563rem] sm:tw-w-[12.563rem]'
               : isMobile
-              ? 'tw-absolute tw-mr-40 sm:tw-mr-52  tw-mt-[8.5rem]  sm:tw-mt-32  tw-w-[12.563rem]'
+              ? 'tw-absolute tw-mr-48 sm:tw-mr-56 md:tw-mr-[22rem] tw-mt-[8.5rem] sm:tw-mt-32 tw-w-[10.563rem] sm:tw-w-[12.563rem]'
               : ' ',
           ]"
         >
@@ -188,6 +194,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    openLink(contributions) {
+      window.open(contributions.link, "_blank");
+    },
   },
   components: {
     AspectRatio,

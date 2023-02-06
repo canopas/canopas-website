@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-container tw-flex md:tw-items-center tw-m-auto tw-w-[70%] sm:tw-w-[60%] md:tw-w-full tw-pb-16 md:tw-pb-32"
+    class="tw-container tw-flex md:tw-items-center tw-m-auto sm:tw-w-[70%] md:tw-w-full tw-pb-16 md:tw-pb-32"
   >
     <div class="tw-flex tw-flex-col md:tw-flex-wrap md:tw-flex-row">
       <div
@@ -8,9 +8,9 @@
         :key="portfolio"
         :class="[
           portfolio.classes,
-          portfolio.id != 8 ? 'tw-p-8 md:tw-p-4' : '',
+          portfolio.id != 8 ? 'tw-p-4 sm:tw-p-8' : '',
           activeIndex == portfolio.id
-            ? 'tw-scale-[1.5] sm:tw-scale-[1.2] tw-z-[2]'
+            ? 'tw-scale-[1.1] md:tw-scale-[1.2] tw-z-[2] '
             : '',
         ]"
         class="tw-relative tw-transition-all tw-duration-500 tw-ease-in-out tw-transform"
@@ -20,7 +20,7 @@
         @touchend.passive="activeIndex = null"
       >
         <div
-          class="tw-absolute tw-top-0 sm:tw-top-2 lg:tw-top-4 tw-inset-x-0 tw-z-[2] tw-text-[1.375rem] tw-leading-[2rem] lg:tw-text-[2rem] lg:tw-leading-[2rem] xl:tw-text-[2.5rem] xl:tw-leading-[2rem] tw-text-center tw-font-inter-bold"
+          class="tw-absolute tw-top-[18px] sm:tw-top-[13px] md:tw-top-[20px] xl:tw-top-[30px] tw-inset-x-0 tw-z-[2] tw-text-[1.375rem] tw-leading-[2rem] lg:tw-text-[2rem] lg:tw-leading-[2rem] xl:tw-text-[2.5rem] xl:tw-leading-[2rem] tw-text-center tw-font-inter-bold"
           :class="[
             activeIndex == portfolio.id
               ? 'tw-text-black-core/[0.87] tw-scale-[0.7] sm:tw-scale-[0.8]'
@@ -29,14 +29,14 @@
         >
           {{ portfolio.title }}
         </div>
-        <div class="tw-flex tw-items-center tw-h-full">
+        <div class="tw-flex tw-items-center tw-h-full tw-py-8 sm:tw-p-0">
           <video
             v-if="portfolio.video"
             autoplay
             loop
             muted
             playsinline
-            class="tw-p-4"
+            class="tw-p-1 md:tw-p-8"
           >
             <source :src="portfolio.video" type="video/mp4" />
           </video>
@@ -44,22 +44,27 @@
             v-else
             :src="portfolio.images[3]"
             :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w, ${portfolio.images[2]} 1600w, ${portfolio.images[3]} 2400w`"
-            class="tw-w-full tw-object-cover tw-z-[1]"
-            :class="[portfolio.id != 4 ? 'tw-h-full' : 'tw-h-[90%]']"
+            class="tw-h-full tw-object-cover tw-z-[1]"
+            :class="[
+              portfolio.id == 4
+                ? 'tw-mt-0 sm:tw-mt-4 md:tw-mt-0 sm:tw-w-full sm:tw-h-[90%]'
+                : '',
+            ]"
             :alt="portfolio.title + `-image`"
             loading="lazy"
           />
         </div>
         <div
           v-if="portfolio.description"
-          class="tw-absolute tw-inset-x-0 tw-w-[auto] tw-mx-[-30px] md:tw-mt-[-25px] tw-z-[2] tw-px-0 md:tw-px-2 tw-text-[0.6875rem] tw-leading-[0.875rem] sm:tw-text-[0.75rem] lg:tw-text-[0.875rem] lg:tw-leading-[1rem] xl:tw-text-[1rem] xl:tw-leading-[1.25rem] tw-text-center tw-font-inter-medium"
+          class="tw-absolute tw-inset-x-0 tw--mt-[55px] sm:tw--mt-[30px] tw-z-[2] tw-text-[1rem] md:tw-text-[0.875rem] xl:tw-text-[1rem] tw-leading-[0.95rem] sm:tw-leading-[1rem] md:tw-leading-[0.875rem] lg:tw-leading-[1rem] xl:tw-leading-[1.25rem] tw-text-center tw-font-inter-medium"
           :class="[
             activeIndex == portfolio.id
-              ? 'tw-text-black-core/[0.6] tw-scale-[0.7] sm:tw-scale-[0.8]'
+              ? 'tw-text-black-core/[0.87] tw-scale-[0.7] sm:tw-scale-[0.8]'
               : 'tw-text-transparent',
-            portfolio.id == 4
-              ? 'tw-mt-[-10px] lg:tw-mt-[-45px]'
-              : 'tw-mt-[-20px] lg:tw-mt-[-30px] xl:tw-mt-[-40px]',
+            portfolio.id == 7 ? 'lg:tw-px-2.5' : '',
+            portfolio.video
+              ? '!tw--mt-[60px] sm:!tw--mt-[30px] lg:!tw--mt-[40px]'
+              : '',
           ]"
         >
           {{ portfolio.description }}

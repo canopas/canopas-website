@@ -48,6 +48,7 @@
           @mouseleave="activeIndex = index"
           @touchstart.passive="activeIndex = index"
           @click.native="mixpanel.track('tap_blog_post')"
+          class="tw-w-full"
         >
           <div class="tw-flex tw-flex-col 2xl:tw-pr-16">
             <hr
@@ -69,7 +70,7 @@
               </div>
 
               <div
-                class="tw-flex tw-flex-col"
+                class="tw-flex tw-flex-col tw-w-full"
                 @mouseover="
                   activeBlog = blog;
                   animate = true;
