@@ -1,7 +1,7 @@
 <template>
   <div class="md:tw-pt-[100px] tw-font-inter-regular">
     <h1
-      class="tw-text-[#F8F8F8] tw-text-center tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[4.0625rem] xl:tw-leading-[5rem]"
+      class="tw-text-black-core/[.03] tw-text-center tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[4.0625rem] xl:tw-leading-[5rem]"
     >
       Services
     </h1>

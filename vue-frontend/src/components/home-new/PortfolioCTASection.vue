@@ -41,7 +41,7 @@
             sleek solution.
           </div>
           <router-link
-            class="tw-flex tw-mx-auto sm:tw-mx-0 tw-w-max tw-border-[1px] tw-border-solid tw-border-white tw-bg-white tw-rounded-[3rem] tw-py-2.5 tw-px-4 lg:tw-py-5 lg:tw-px-7 tw-text-[1rem] tw-leading-[1.188rem] md:tw-text-[1.063rem] md:tw-leading-[1.313] lg:tw-text-[1.188rem] lg:tw-leading-[1.438rem] hover:tw-bg-transparent hover:tw-text-white active:tw-scale-[0.98] cta-button"
+            class="tw-flex tw-items-center tw-mx-auto sm:tw-mx-0 tw-w-max tw-rounded-full tw-p-3 tw-text-center tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] tw-border-[1px] tw-border-solid tw-border-white tw-bg-white hover:tw-bg-transparent hover:tw-text-white active:tw-scale-[0.98] cta-button"
             to="/contact"
             @click.native="mixpanel.track('tap_home_portfolio_cta')"
           >

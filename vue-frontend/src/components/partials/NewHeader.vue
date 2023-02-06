@@ -125,7 +125,7 @@ export default {
           name: "Get Free Consultation",
           url: "/contact",
           className:
-            " tw-hidden lg:tw-block tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-tracking-[0] gradient-btn consultation-btn",
+            "tw-hidden lg:tw-block tw-m-0 tw-rounded-full tw-p-3 tw-tracking-[0] gradient-btn consultation-btn",
           showContactBtn: true,
           event: "tap_header_cta",
         },

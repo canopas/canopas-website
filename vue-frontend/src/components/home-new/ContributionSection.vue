@@ -34,12 +34,11 @@
         :class="index % 2 != 0 ? 'tw-flex-row-reverse' : ''"
       >
         <div
-          class="tw-w-[13.625rem] md:tw-w-fit tw-h-[26.875rem] md:tw-h-fit tw-shadow-[2px_2px_10px_rgba(0,0,0,0.1)]"
+          class="tw-w-[13.4375rem] md:tw-w-fit tw-h-fit tw-shadow-[2px_2px_10px_rgba(0,0,0,0.1)]"
         >
           <img
-            :src="contribution.video"
+            :src="contribution.image"
             :alt="contribution.title + `image`"
-            class="tw-w-full tw-h-full"
             loading="lazy"
           />
         </div>
@@ -156,7 +155,7 @@ export default {
           description:
             "Highlight different features of the app using Jetpack Compose",
           author: "Radhika S.",
-          video: IntroShowCase,
+          image: IntroShowCase,
           starPoints: "237",
           link: "https://github.com/canopas/Intro-showcase-view",
         },
@@ -164,7 +163,7 @@ export default {
           title: "UIPilot",
           description: "The missing typesafe SwiftUI navigation library",
           author: "Jimmy S.",
-          video: UIPilot,
+          image: UIPilot,
           starPoints: "201",
           link: "https://github.com/canopas/UIPilot",
         },
@@ -172,7 +171,7 @@ export default {
           title: "Jetpack Compose animations",
           description: "Cool animations implemented with Jetpack compose",
           author: "Radhika S.",
-          video: JetpackComposeAnimations,
+          image: JetpackComposeAnimations,
           starPoints: "186",
           link: "https://github.com/canopas/Jetpack-compose-animations-examples",
         },
@@ -180,7 +179,7 @@ export default {
           title: "Tailwind Animations",
           description: "Cool animations implemented with Tailwind CSS",
           author: "Sumita K.",
-          video: TailwindAnimations,
+          image: TailwindAnimations,
           starPoints: "13",
           link: "https://github.com/canopas/tailwind-animations",
         },
@@ -188,7 +187,7 @@ export default {
           title: "Swiftui-animations",
           description: "Cool animations implemented with SwiftUI",
           author: "Amisha I.",
-          video: SwiftUIAnimations,
+          image: SwiftUIAnimations,
           starPoints: "30",
           link: "https://github.com/canopas/Swiftui-animations-examples",
         },
