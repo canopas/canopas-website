@@ -1,83 +1,85 @@
 <template>
-  <div
-    class="tw-sticky tw-top-0 tw-z-[5] tw-font-inter-medium"
-    :style="{ height: navContainerHeight + 'px' }"
-  >
-    <nav
-      class="tw-absolute tw-left-0 tw-bottom-0 tw-w-full tw-bg-white tw-z-[1] tw-py-2.5 tw-px-[2%] md:tw-py-5 md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease-in-out tw-duration-800"
-      :class="{
-        'tw-fixed tw-left-[unset] tw-bottom-[unset] tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]':
-          navbarSticky,
-        'tw-animated-menuSticky': navbarAnimation,
-        'tw-shadow-none tw-transform -tw-translate-y-full': !showNavbar,
-      }"
-      ref="mainHeader"
+  <div class="tw-relative tw-z-[5] tw-font-inter-medium">
+    <div
+      class="tw-sticky tw-top-0"
+      :style="{ height: navContainerHeight + 'px' }"
     >
-      <div
-        class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-flex-wrap lg:tw-flex-nowrap tw-items-start lg:tw-items-center"
+      <nav
+        class="tw-w-full tw-bg-white tw-z-[1] tw-py-2.5 tw-px-[2%] md:tw-py-5 md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease tw-duration-500"
+        :class="[
+          showNavbar
+            ? 'tw-fixed tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]'
+            : '',
+          animateNavbar ? 'tw-translate-y-0' : 'tw-translate-y-[-110px]',
+        ]"
+        ref="mainHeader"
       >
-        <router-link to="/" replace>
-          <div
-            class="tw-mr-4 tw-text-[1.25rem] tw-whitespace-nowrap tw-no-underline"
-          >
-            <img
-              src="@/assets/images/logo/logo-header.svg"
-              class="tw-w-[205px] tw-h-[38.5px] tw-mt-1"
-              alt="canopas-logo"
-            />
-          </div>
-        </router-link>
-
         <div
-          class="tw-flex tw-basis-[auto] tw-grow tw-items-center tw-my-[5px]"
+          class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-flex-wrap lg:tw-flex-nowrap tw-items-start lg:tw-items-center"
         >
-          <ul
-            class="tw-flex tw-flex-row tw-flex-wrap tw-items-center tw-justify-start tw-mb-[10px] lg:tw-ml-auto tw-p-0 tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
-          >
-            <li
-              v-for="navbar in navbars"
-              :key="navbar"
-              class="tw-my-2 sm:tw-my-0 tw-ml-0 tw-p-0"
+          <router-link to="/" replace>
+            <div
+              class="tw-mt-3 lg:tw-mt-2 tw-mr-4 tw-text-[1.25rem] tw-whitespace-nowrap tw-no-underline"
             >
-              <router-link
-                v-if="!navbar.target"
-                :to="navbar.url"
-                @click.native="mixpanel.track(event)"
-                class="v2-normal-3-text"
-                :class="[
-                  navbar.className
-                    ? navbar.className
-                    : 'tw-inline-block tw-relative tw-my-0 tw-ml-0 tw-mr-[20px] sm:tw-mr-[30px] tw-p-0 after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent',
-                  currentRoutePath == navbar.url ||
-                  (navbar.name == 'Portfolio' &&
-                    currentRoutePath.includes('portfolio')) ||
-                  (navbar.name == 'Career' && currentRoutePath.includes('jobs'))
-                    ? navbar.showContactBtn
-                      ? ''
-                      : 'after:tw-w-full after:tw-scale-x-0 after:tw-scale-x-100'
-                    : '',
-                ]"
-                ><span
+              <img
+                src="@/assets/images/logo/logo-header.svg"
+                class="tw-w-[205px] tw-h-[38.5px]"
+                alt="canopas-logo"
+              />
+            </div>
+          </router-link>
+
+          <div
+            class="tw-flex tw-basis-[auto] tw-grow tw-items-center tw-mt-3 lg:tw-mt-0"
+          >
+            <ul
+              class="tw-flex tw-flex-row tw-flex-wrap tw-items-center tw-justify-start lg:tw-ml-auto tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
+            >
+              <li
+                v-for="navbar in navbars"
+                :key="navbar"
+                class="tw-my-2 sm:tw-my-0 tw-ml-0"
+              >
+                <router-link
+                  v-if="!navbar.target"
+                  :to="navbar.url"
+                  @click.native="mixpanel.track(event)"
                   :class="[
-                    currentRoutePath == navbar.url && !navbar.showContactBtn
-                      ? 'v2-canopas-gradient-text'
+                    navbar.className
+                      ? navbar.className
+                      : 'tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent',
+                    currentRoutePath == navbar.url ||
+                    (navbar.name == 'Portfolio' &&
+                      currentRoutePath.includes('portfolio')) ||
+                    (navbar.name == 'Career' &&
+                      currentRoutePath.includes('jobs'))
+                      ? navbar.showContactBtn
+                        ? ''
+                        : 'after:tw-w-full after:tw-scale-x-0 after:tw-scale-x-100'
                       : '',
                   ]"
-                  >{{ navbar.name }}</span
-                ></router-link
-              >
-              <a
-                v-else
-                class="tw-inline-block tw-relative tw-my-0 tw-ml-0 tw-mr-[20px] sm:tw-mr-[30px] tw-p-0 after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
-                :href="navbar.url"
-                target="_blank"
-                >{{ navbar.name }}</a
-              >
-            </li>
-          </ul>
+                  ><span
+                    :class="[
+                      currentRoutePath == navbar.url && !navbar.showContactBtn
+                        ? 'v2-canopas-gradient-text'
+                        : '',
+                    ]"
+                    >{{ navbar.name }}</span
+                  ></router-link
+                >
+                <a
+                  v-else
+                  class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
+                  :href="navbar.url"
+                  target="_blank"
+                  >{{ navbar.name }}</a
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   </div>
 </template>
 
@@ -87,18 +89,12 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
-      navbarSticky: false,
-      navbarAnimation: false,
-      navContainerHeight: 133,
+      animateNavbar: true,
+      showNavbar: false,
+      navContainerHeight: 100,
       lastScrollY: 0,
       currentRoutePath: this.$router.currentRoute._value.path,
-      showNavbar: true,
       navbars: [
-        {
-          name: "Home",
-          url: "/",
-          event: "tap_header_home",
-        },
         {
           name: "Portfolio",
           url: "/portfolio",
@@ -125,17 +121,16 @@ export default {
           name: "Get Free Consultation",
           url: "/contact",
           className:
-            "tw-hidden lg:tw-block tw-m-0 tw-rounded-full tw-p-3 tw-tracking-[0] gradient-btn consultation-btn",
+            "tw-hidden lg:tw-block tw-m-0 tw-ml-8 tw-rounded-full tw-py-3 tw-px-3 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] tw-tracking-[0] gradient-btn consultation-btn",
           showContactBtn: true,
           event: "tap_header_cta",
         },
       ],
-      isJobsUrl: this.$router.currentRoute.value.fullPath.indexOf("/jobs") > -1,
     };
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    this.navContainerHeight = this.$refs.mainHeader.clientHeight + 25;
+    this.navContainerHeight = this.$refs.mainHeader.clientHeight + 15;
   },
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -143,27 +138,13 @@ export default {
   inject: ["mixpanel"],
   methods: {
     handleScroll() {
-      let wasSticky = this.navbarSticky;
-      this.navbarSticky = window.scrollY > 30;
-      // If scroll diff is large, we show navbar with animation
-      let diff = window.scrollY - this.lastScrollY;
-      if (this.navbarSticky != wasSticky && diff > 15) {
-        this.navbarAnimation = true;
-      }
-      if (!this.navbarSticky) {
-        this.navbarAnimation = false;
-      }
+      let scrollUp =
+        this.lastScrollY > window.scrollY && window.pageYOffset > 100;
+      this.showNavbar = scrollUp
+        ? scrollUp
+        : this.showNavbar && window.pageYOffset > 0;
+      this.animateNavbar = scrollUp || window.pageYOffset < 100;
       this.lastScrollY = window.scrollY;
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScrollPosition < 0) {
-        return;
-      }
-      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
-        return;
-      }
-      this.showNavbar = currentScrollPosition < this.lastScrollPosition;
-      this.lastScrollPosition = currentScrollPosition;
     },
   },
 };
