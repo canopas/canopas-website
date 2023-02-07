@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-relative tw-mt-[-50px] tw-bg-gradient-to-t tw-from-pink-300/[0.05] tw-to-white landing-bg-mobile-clip-path md:landing-bg-clip-path tw-overflow-hidden tw-px-0 tw-pb-[50px] md:tw-pb-[100px] tw-font-inter-regular"
+    class="tw-relative tw-mt-[-30px] tw-bg-gradient-to-t tw-from-pink-300/[0.05] tw-to-white landing-bg-mobile-clip-path md:landing-bg-clip-path tw-overflow-hidden tw-px-0 tw-pb-[50px] md:tw-pb-[100px] tw-font-inter-regular"
   >
     <img
       v-if="width < 680"
