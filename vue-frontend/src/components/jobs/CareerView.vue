@@ -195,10 +195,15 @@ export default {
     expandListItem(id, index) {
       if (this.previousIndex == id && this.openList) {
         this.openList = false;
-        this.mixpanel.track("tap_job_collapse");
+
+        if (this.mixpanel.__loaded) {
+          this.mixpanel.track("tap_job_collapse");
+        }
       } else {
         this.openList = true;
-        this.mixpanel.track("tap_job_expand");
+        if (this.mixpanel.__loaded) {
+          this.mixpanel.track("tap_job_expand");
+        }
       }
 
       this.currentIndex = id;

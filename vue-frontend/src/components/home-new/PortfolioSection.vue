@@ -17,7 +17,6 @@
         @mouseover="activeIndex = portfolio.id"
         @mouseleave="activeIndex = null"
         @touchstart.passive="activeIndex = portfolio.id"
-        @touchend.passive="activeIndex = null"
       >
         <div
           class="tw-absolute tw-top-[18px] sm:tw-top-[13px] md:tw-top-[20px] xl:tw-top-[30px] tw-inset-x-0 tw-z-[2] tw-text-[1.375rem] tw-leading-[2rem] lg:tw-text-[2rem] lg:tw-leading-[2rem] xl:tw-text-[2.5rem] xl:tw-leading-[2rem] tw-text-center tw-font-inter-bold"
