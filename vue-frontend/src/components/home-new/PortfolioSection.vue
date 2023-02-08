@@ -9,8 +9,9 @@
         :class="[
           portfolio.classes,
           portfolio.id != 8 ? 'tw-p-4 sm:tw-p-8' : '',
+          portfolio.id == 4 ? 'sm:!tw-pb-12' : '',
           activeIndex == portfolio.id
-            ? 'tw-scale-[1.1] md:tw-scale-[1.2] tw-z-[2] '
+            ? 'tw-scale-[1.05] md:tw-scale-[1.2] tw-z-[2] '
             : '',
         ]"
         class="tw-relative tw-transition-all tw-duration-500 tw-ease-in-out tw-transform"
@@ -55,14 +56,15 @@
         </div>
         <div
           v-if="portfolio.description"
-          class="tw-absolute tw-inset-x-0 tw--mt-[55px] sm:tw--mt-[30px] tw-z-[2] tw-text-[1rem] md:tw-text-[0.875rem] xl:tw-text-[1rem] tw-leading-[0.95rem] sm:tw-leading-[1rem] md:tw-leading-[0.875rem] lg:tw-leading-[1rem] xl:tw-leading-[1.25rem] tw-text-center tw-font-inter-medium"
+          class="tw-absolute tw-inset-x-0 tw--mt-[50px] sm:tw--mt-[20px] tw-z-[2] tw-text-[1rem] tw-leading-[1.25rem] md:tw-text-[0.875rem] lg:tw-text-[1rem] md:tw-leading-[1rem] lg:tw-leading-[1.25rem] tw-text-center tw-font-inter-medium"
           :class="[
             activeIndex == portfolio.id
               ? 'tw-text-black-core/[0.87] tw-scale-[0.7] sm:tw-scale-[0.8]'
               : 'tw-text-transparent',
             portfolio.id == 7 ? 'lg:tw-px-2.5' : '',
+            portfolio.id == 5 ? '!tw--mt-[50px]' : '',
             portfolio.video
-              ? '!tw--mt-[60px] sm:!tw--mt-[30px] lg:!tw--mt-[40px]'
+              ? 'tw--mt-[40px] sm:!tw--mt-[20px] lg:!tw--mt-[30px]'
               : '',
           ]"
         >
@@ -123,7 +125,7 @@ export default {
           classes: "tw-flex-[40%] tw-bg-[#F5E1B6]",
           title: "Justly",
           description:
-            "Justly is start-up with a strong vision for overcoming loneliness, depression, and mental health-related issues for humanity.",
+            "Justly aims to tackle loneliness, depression, and mental health through innovative solutions.",
         },
         {
           id: 2,
@@ -131,7 +133,7 @@ export default {
           classes: "tw-flex-[40%] tw-bg-[#B3D8FE]",
           title: "Togness",
           description:
-            "Togness is a photo editor and slideshow maker app for your life’s most memorable events like weddings, pets, friends & family, and memorials, etc.",
+            "Togness is a photo editor and slideshow maker app for your life’s most memorable events.",
         },
         {
           id: 3,
@@ -155,7 +157,7 @@ export default {
           classes: "tw-flex-[50%] tw-bg-[#E9CFED]",
           title: "Luxeradio",
           description:
-            "Luxe Radio, the radio of taste, elegance, and refinement,intends to be the showcase of excellence and the best of Moroccan and international creation.",
+            "Luxe Radio displays the best of Moroccan and international creation, emphasizing taste, elegance, and refinement.",
         },
         {
           id: 5,
@@ -163,7 +165,7 @@ export default {
           classes: "tw-flex-[50%] tw-bg-[#FED7CC]",
           title: "Smile+",
           description:
-            "Smile+ app is designed for dentists to create a perfect smile for their patients. Using the Smile+ app, dentists can get their patients the best smile simulation in a minute, automated with AI.",
+            "Smile+ app is designed for dentists to create a perfect smile for their patients automated with AI.",
         },
         {
           id: 6,
@@ -187,7 +189,7 @@ export default {
           classes: "tw-flex-[50%] tw-hidden md:tw-block tw-bg-[#D6E1BF]",
           title: "Togness",
           description:
-            "Togness is a photo editor and slideshow maker app for your life’s most memorable events like weddings, pets, friends & family, and memorials, etc.",
+            "Togness is a photo editor and slideshow maker app for your life’s most memorable events.",
         },
         {
           id: 8,

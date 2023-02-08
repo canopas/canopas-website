@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-container tw-mt-[8rem] tw-ml-auto tw-mx-auto">
+  <div class="tw-container tw-my-[1rem] lg:tw-mt-[5rem] tw-ml-auto tw-mx-auto">
     <div class="swiper-content">
       <swiper
         :slidesPerView="1"
