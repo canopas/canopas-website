@@ -7,7 +7,11 @@
     <CaseStudy />
     <ClientReview ref="clientReview" />
     <BlogSection ref="blogs" />
-    <ContributionSection ref="contributions" />
+    <ContributionSection class="tw-hidden lg:tw-block" ref="contributions" />
+    <ContributionSectionMobile
+      class="tw-block lg:tw-hidden"
+      ref="contributions"
+    />
     <CTASection ref="cta" />
     <FooterV3 ref="footer" />
   </div>
@@ -20,6 +24,7 @@ import CaseStudy from "@/components/home-new/CaseStudy.vue";
 import ServiceSection from "@/components/home-new/ServiceSection.vue";
 import ServiceSectionMobile from "@/components/home-new/ServiceSectionMobile.vue";
 import ContributionSection from "@/components/home-new/ContributionSection.vue";
+import ContributionSectionMobile from "@/components/home-new/ContributionSectionMobile.vue";
 import ClientReview from "@/components/home-new/ClientReviewSection.vue";
 import CTASection from "@/components/home-new/CTASection.vue";
 import BlogSection from "@/components/home-new/BlogSection.vue";
@@ -38,6 +43,7 @@ export default {
     ServiceSectionMobile,
     ClientReview,
     ContributionSection,
+    ContributionSectionMobile,
     CTASection,
     BlogSection,
     FooterV3,

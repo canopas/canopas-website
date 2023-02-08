@@ -113,7 +113,6 @@
             <div ref="invest-list" class="tw-flex">
               <button
                 class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pt-3 tw-pb-1 lg:tw-py-3 tw-px-0 tw-my-2 md:tw-mt-0 lg:tw-mt-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium !tw-text-white tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
-                :class="floatable ? 'tw-pb-0 lg:tw-pb-0' : ''"
                 type="button"
                 id="invest"
                 name="invest"
@@ -143,7 +142,7 @@
               </button>
               <ul
                 v-if="showList"
-                class="tw-absolute tw-float-left tw-mt-12 tw-m-0 tw-w-full tw-min-w-max tw-z-[5] tw-border-none tw-rounded-[10px] tw-shadow-[0px_5px_15px_rgba(0,0,0,0.5)] tw-bg-[#3D3D3D] tw-py-1 tw-list-none tw-text-left tw-text-base tw-transition-all tw-delay-150 tw-duration-300"
+                class="tw-absolute tw-mt-12 tw-m-0 tw-w-full tw-min-w-max tw-z-[5] tw-border-none tw-rounded-[10px] tw-shadow-[0px_5px_15px_rgba(0,0,0,0.5)] tw-bg-[#3D3D3D] tw-py-1 tw-list-none tw-text-left tw-text-base tw-transition-all tw-delay-150 tw-duration-300"
               >
                 <li
                   v-for="option in investOptions"
@@ -426,13 +425,13 @@ export default {
       this.showList = false;
     },
     toggleList() {
-      this.mixpanel.track("tap_footer_invest_input");
       this.showList = !this.showList;
       this.floatable = this.showList || this.invest !== "";
+      this.mixpanel.track("tap_footer_invest_input");
     },
     toggleNDA() {
-      this.mixpanel.track("tap_footer_NDA_input");
       this.NDA = !this.NDA;
+      this.mixpanel.track("tap_footer_NDA_input");
     },
   },
 };
