@@ -181,8 +181,8 @@ export default {
   inject: ["mixpanel"],
   methods: {
     openBlog(blog) {
-      this.mixpanel.track("tap_blog_post");
       window.open(blog.link, "_blank");
+      this.mixpanel.track("tap_blog_post");
     },
     getBlogs() {
       axios
