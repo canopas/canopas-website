@@ -69,7 +69,9 @@ export default {
     recaptchaScript.setAttribute("async", "true");
     recaptchaScript.setAttribute("defer", "true");
     document.head.appendChild(recaptchaScript);
-    this.mixpanel.track("view_contact_page");
+    if (this.mixpanel.__loaded) {
+      this.mixpanel.track("view_contact_page");
+    }
   },
   methods: {
     setLoader(loading) {

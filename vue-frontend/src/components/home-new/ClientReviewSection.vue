@@ -104,7 +104,7 @@ export default {
           name: "Rebecca Kimura",
           className: "2xl:tw-px-48",
           designation: "Founder at Togness, Australia",
-          review: ` “There was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they <span class="tw-bg-[length:114%_26px] md:tw-bg-[length:50%_auto] tw-bg-single-color-underline
+          review: `“There was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they <span class="tw-bg-single-color-underline
             ">understood the first time.</span>”`,
         },
         {
@@ -112,7 +112,7 @@ export default {
           name: "Elyass Bouchater",
           className: "2xl:tw-px-48",
           designation: "Product Manager at Luxe, Morocco",
-          review: `“The Play Store is the hardest app store to get good reviews on, and we’ve just reached a five-star rating, which has been one of our biggest achievements, partly <span class="tw-bg-[length:114%_26px] md:tw-bg-[length:50%_auto] tw-bg-single-color-underline
+          review: `“The Play Store is the hardest app store to get good reviews on, and we’ve just reached a five-star rating, which has been one of our biggest achievements, partly <span class="tw-bg-single-color-underline
             ">thanks to Canopas’ work.</span>”`,
         },
         {
@@ -120,7 +120,7 @@ export default {
           name: "Rob Eberhard",
           className: "2xl:tw-px-52",
           designation: "Founder at ActivScout, Canada",
-          review: `“I was especially impressed with the skills of their backend developer and how well the project manager and she worked with one another to create a <span class="tw-bg-[length:114%_26px] md:tw-bg-[length:50%_auto] tw-bg-single-color-underline
+          review: `“I was especially impressed with the skills of their backend developer and how well the project manager and she worked with one another to create a <span class="tw-bg-single-color-underline
             ">high performing iOS app.</span>”`,
         },
         {
@@ -129,8 +129,7 @@ export default {
           className: "2xl:tw-px-52",
           designation: "Founder at Brickandbatten, USA",
           review: `“There is not enough space to say all the wonderful things I would want to share about Canopas. The team is incredibly helpful, stays calm even when we had to deal with tough issues on our app and always found a way to help us fix whatever was needed or roll out any new features for our app in both the
-            <span class="tw-bg-[length:114%_26px] md:tw-bg-[length:50%_auto]
-               tw-bg-single-color-underline
+            <span class="tw-bg-single-color-underline
             "> iOS and Android stores.</span>”`,
         },
       ],

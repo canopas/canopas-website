@@ -151,8 +151,10 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
-    this.mixpanel.track("view_jobs_by_id_page");
     this.setCareerDetails();
+    if (this.mixpanel.__loaded) {
+      this.mixpanel.track("view_jobs_by_id_page");
+    }
   },
   methods: {
     ...mapActions(useJobDetailStore, ["loadJob"]),
