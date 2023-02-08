@@ -184,7 +184,9 @@ export default {
   methods: {
     openBlog(blog) {
       window.open(blog.link, "_blank");
-      this.mixpanel.track("tap_blog_post");
+      if (this.mixpanel.__loaded) {
+        this.mixpanel.track("tap_blog_post");
+      }
     },
     getBlogs() {
       axios

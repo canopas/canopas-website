@@ -178,7 +178,7 @@ export default {
       this.lastScrollY = window.scrollY;
     },
     sendEvent(event) {
-      if (event && event != " ") {
+      if (this.mixpanel.__loaded && event && event != " ") {
         this.mixpanel.track(event);
       }
     },

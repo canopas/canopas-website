@@ -132,8 +132,8 @@ import client1 from "@/assets/images/landing/client1.webp";
 import client2 from "@/assets/images/landing/client2.webp";
 import client3 from "@/assets/images/landing/client3.webp";
 import client4 from "@/assets/images/landing/client4.webp";
-import bgMobile from "@/assets/images/landing/bg/bg800.svg";
-import bg from "@/assets/images/landing/bg/bg2400.svg";
+import bgMobile from "@/assets/images/landing/bg/bg800.webp";
+import bg from "@/assets/images/landing/bg/bg2400.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
   data() {

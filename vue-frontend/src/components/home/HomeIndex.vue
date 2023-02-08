@@ -72,8 +72,10 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
-    this.mixpanel.track("view_landing_section");
     window.addEventListener("scroll", this.sendEvent);
+    if (this.mixpanel.__loaded) {
+      this.mixpanel.track("view_landing_section");
+    }
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
@@ -81,7 +83,7 @@ export default {
   methods: {
     sendEvent() {
       const event = this.events[elementInViewPort(this.$refs)];
-      if (event && this.event !== event) {
+      if (this.mixpanel.__loaded && event && this.event !== event) {
         this.event = event;
         this.mixpanel.track(event);
       }

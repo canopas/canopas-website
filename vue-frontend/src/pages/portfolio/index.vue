@@ -44,7 +44,9 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
-    this.mixpanel.track("view_page_portfolio_list");
+    if (this.mixpanel.__loaded) {
+      this.mixpanel.track("view_page_portfolio_list");
+    }
   },
 };
 </script>

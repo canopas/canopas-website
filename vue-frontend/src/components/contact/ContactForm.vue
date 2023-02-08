@@ -327,7 +327,9 @@ export default {
       ) {
         this.showValidationError = true;
       } else {
-        this.mixpanel.track("tap_submit_button_click");
+        if (this.mixpanel.__loaded) {
+          this.mixpanel.track("tap_submit_button_click");
+        }
         this.disableInput = true;
         this.showValidationError = false;
 
@@ -363,7 +365,9 @@ export default {
                     }, 1000);
                   } else {
                     setTimeout(() => {
-                      this.mixpanel.track("tap_schedule_meeting_click");
+                      if (this.mixpanel.__loaded) {
+                        this.mixpanel.track("tap_schedule_meeting_click");
+                      }
                       this.openCalendlyIframe();
                       if (this.openCalendlyIframeModal) {
                         this.showLoader = false;
@@ -386,21 +390,27 @@ export default {
       }
     },
     openCalendlyIframe() {
-      this.mixpanel.track("open_calendly_dialog_success");
       this.openCalendlyIframeModal = true;
       this.disableInput = false;
       this.showLoader = false;
+      if (this.mixpanel.__loaded) {
+        this.mixpanel.track("open_calendly_dialog_success");
+      }
     },
     closeCalendlyIframeModal() {
-      this.mixpanel.track("close_calendly_dialog_error");
       this.openCalendlyIframeModal = false;
+      if (this.mixpanel.__loaded) {
+        this.mixpanel.track("close_calendly_dialog_error");
+      }
     },
     showSuccessMessage() {
-      this.mixpanel.track("view_contact_success_dialog");
       this.showSuccessMessagePopup = true;
       setTimeout(() => {
         this.$router.push("/");
       }, 3500);
+      if (this.mixpanel.__loaded) {
+        this.mixpanel.track("view_contact_success_dialog");
+      }
     },
   },
 };
