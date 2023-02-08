@@ -26,7 +26,7 @@
       <div
         v-for="(contribution, index) in contributions"
         :key="contribution"
-        class="tw-relative tw-flex tw-justify-center tw-mt-14 tw-w-full"
+        class="tw-relative tw-flex tw-justify-center tw-mt-8 tw-w-full"
         :class="index % 2 != 0 ? 'tw-flex-row-reverse' : 'tw-flex-row'"
       >
         <div class="tw-w-[45%] tw-shadow-[2px_2px_10px_rgba(0,0,0,0.1)]">
