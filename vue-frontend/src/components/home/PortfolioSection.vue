@@ -168,9 +168,6 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.sendEvent);
-    if (window.innerWidth < 768) {
-      this.portfolios[0].image = mobileLuxeradio;
-    }
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
@@ -179,7 +176,7 @@ export default {
   methods: {
     sendEvent() {
       const event = this.events[elementInViewPort(this.$refs)];
-      if (this.mixpanel.__loaded && event && this.event !== event) {
+      if (event && this.event !== event) {
         this.event = event;
         this.mixpanel.track(event);
       }

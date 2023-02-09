@@ -356,9 +356,7 @@ export default {
       );
     },
     submitForm() {
-      if (this.mixpanel.__loaded) {
-        this.mixpanel.track("tap_home_form_submission");
-      }
+      this.mixpanel.track("tap_home_form_submission");
       if (!this.validateForm()) {
         this.disableInput = true;
         this.showLoader = true;

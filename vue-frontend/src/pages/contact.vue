@@ -5,8 +5,7 @@
         {{ content }}
       </template>
     </metainfo>
-    <ScreenHeaderV2 v-if="!isShowNewHomePage" />
-    <NewHeader v-else />
+    <Header />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
     <div>
       <ContactLanding />
@@ -17,8 +16,7 @@
 </template>
 
 <script>
-import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
-import NewHeader from "@/components/partials/NewHeader.vue";
+import Header from "@/components/partials/NewHeader.vue";
 import ScreenFooterV2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import ContactLanding from "@/components/contact/ContactLanding.vue";
@@ -45,8 +43,7 @@ export default {
     });
   },
   components: {
-    ScreenHeaderV2,
-    NewHeader,
+    Header,
     ScreenLoader,
     ScreenFooterV2,
     ContactLanding,
@@ -55,7 +52,6 @@ export default {
   data() {
     return {
       isLoading: false,
-      isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   inject: ["mixpanel"],
@@ -69,9 +65,7 @@ export default {
     recaptchaScript.setAttribute("async", "true");
     recaptchaScript.setAttribute("defer", "true");
     document.head.appendChild(recaptchaScript);
-    if (this.mixpanel.__loaded) {
-      this.mixpanel.track("view_contact_page");
-    }
+    this.mixpanel.track("view_contact_page");
   },
   methods: {
     setLoader(loading) {

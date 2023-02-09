@@ -5,8 +5,7 @@
         {{ content }}
       </template>
     </metainfo>
-    <Header v-if="!isShowNewHomePage" />
-    <NewHeader v-else />
+    <Header />
     <div
       class="parallax tw-w-full tw-p-0 tw-m-auto 4xl:tw-w-[2300px]"
       ref="response"
@@ -24,8 +23,7 @@
 </template>
 
 <script>
-import Header from "@/components/partials/ScreenHeaderV2.vue";
-import NewHeader from "@/components/partials/NewHeader.vue";
+import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/portfolio/LandingSection.vue";
 import VideoSection from "@/components/portfolio/VideoSection.vue";
 import BrandingSection from "@/components/portfolio/BrandingSection.vue";
@@ -39,7 +37,6 @@ import tognessResponse from "@/portfolio-json/togness-data.js";
 import ErrorPage from "@/components/error404/index.vue";
 import { useMeta } from "vue-meta";
 import { elementInViewPort } from "@/utils.js";
-import config from "@/config.js";
 
 export default {
   setup() {
@@ -57,7 +54,6 @@ export default {
       details: "",
       response: null,
       ctaRef: null,
-      isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
       event: "",
       events: {
         luxepagecta: "view_luxe_page_cta",
@@ -135,7 +131,6 @@ export default {
   },
   components: {
     Header,
-    NewHeader,
     LandingSection,
     VideoSection,
     BrandingSection,

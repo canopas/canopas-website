@@ -5,8 +5,7 @@
         {{ content }}
       </template>
     </metainfo>
-    <ScreenHeaderV2 v-if="!isShowNewHomePage" />
-    <NewHeader v-else />
+    <Header />
     <LandingView v-on:scroll-to-career="scrollToCareer" ref="landingview" />
     <VirtuesView ref="virtue" />
     <LifeAtCanopas ref="life" />
@@ -28,8 +27,7 @@
 </template>
 
 <script>
-import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
-import NewHeader from "@/components/partials/NewHeader.vue";
+import Header from "@/components/partials/NewHeader.vue";
 import LandingView from "@/components/jobs/LandingView.vue";
 import VirtuesView from "@/components/jobs/VirtuesView.vue";
 import LifeAtCanopas from "@/components/jobs/LifeAtCanopas.vue";
@@ -67,8 +65,7 @@ export default {
     });
   },
   components: {
-    ScreenHeaderV2,
-    NewHeader,
+    Header,
     LandingView,
     VirtuesView,
     LifeAtCanopas,
@@ -82,7 +79,6 @@ export default {
   data() {
     return {
       handleAnimationOnScroll,
-      isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
       event: "",
       events: {
         landingview: "view_jobs_landing_section",
@@ -97,9 +93,7 @@ export default {
   inject: ["mixpanel"],
   mounted() {
     window.addEventListener("scroll", this.sendEvent);
-    if (this.mixpanel.__loaded) {
-      this.mixpanel.track("view_jobs_page");
-    }
+    this.mixpanel.track("view_jobs_page");
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
@@ -107,7 +101,7 @@ export default {
   methods: {
     sendEvent() {
       const event = this.events[elementInViewPort(this.$refs)];
-      if (this.mixpanel.__loaded && event && this.event !== event) {
+      if (event && this.event !== event) {
         this.event = event;
         this.mixpanel.track(event);
       }
