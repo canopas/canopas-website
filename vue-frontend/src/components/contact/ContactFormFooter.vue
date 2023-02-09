@@ -239,7 +239,7 @@
                 <div class="close-btn-div">
                   <button
                     class="gradient-btn tw-w-40 tw-mb-2 tw-px-0"
-                    @click.prevent="showSuccessMessagePopup = false"
+                    @click.prevent="reloadWindow()"
                   >
                     <span>Close</span>
                   </button>
@@ -372,7 +372,7 @@ export default {
         var head = document.getElementsByTagName("head")[0];
         var script = document.createElement("script");
         script.type = "text/javascript";
-        script.onload = function () {
+        script.onload = () => {
           // verify recaptcha
           grecaptcha.enterprise.ready(() => {
             grecaptcha.enterprise
@@ -432,6 +432,11 @@ export default {
     toggleNDA() {
       this.NDA = !this.NDA;
       this.mixpanel.track("tap_footer_NDA_input");
+    },
+    reloadWindow() {
+      this.showSuccessMessagePopup = false;
+      window.scrollTo(0, 0);
+      window.location.reload();
     },
   },
 };
