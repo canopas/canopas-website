@@ -26,7 +26,7 @@
         </div>
       </div>
     </div>
-    <div class="tw-relative tw-mt-[5rem]">
+    <div class="tw-relative tw-mt-[3rem]">
       <img
         v-if="width < 680"
         :src="bgMobile"
@@ -184,9 +184,7 @@ export default {
   methods: {
     openBlog(blog) {
       window.open(blog.link, "_blank");
-      if (this.mixpanel.__loaded) {
-        this.mixpanel.track("tap_blog_post");
-      }
+      this.mixpanel.track("tap_blog_post");
     },
     getBlogs() {
       axios

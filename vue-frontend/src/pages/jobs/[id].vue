@@ -9,8 +9,7 @@
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
-    <ScreenHeaderV2 v-if="!isShowNewHomePage" />
-    <NewHeader class="header" v-else />
+    <Header class="header" />
     <ScreenLoader v-if="isLoading" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
@@ -91,8 +90,7 @@
 </template>
 
 <script>
-import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
-import NewHeader from "@/components/partials/NewHeader.vue";
+import Header from "@/components/partials/NewHeader.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -129,12 +127,10 @@ export default {
       checkCircle: faCheckCircle,
       showErrorMessagePopup: false,
       jobLink: "",
-      isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   components: {
-    ScreenHeaderV2,
-    NewHeader,
+    Header,
     ScreenFooter2,
     FontAwesomeIcon,
     ScreenLoader,

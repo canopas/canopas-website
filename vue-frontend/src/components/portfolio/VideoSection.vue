@@ -281,7 +281,7 @@ export default {
 
     sendEvent() {
       const event = this.events[elementInViewPort(this.$refs)];
-      if (this.mixpanel.__loaded && event && this.event !== event) {
+      if (event && this.event !== event) {
         this.event = event;
         this.mixpanel.track(event);
       }

@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-container tw-justify-center tw-text-center">
+  <div class="tw-container tw-justify-center tw-mt-20 tw-text-center">
     <div class="tw-m-auto tw-w-[290px] sm:tw-w-full tw-pb-14 md:tw-pb-20">
       <h1
         class="tw-font-inter-bold tw-text-black-core/[.87] tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.5rem] md:tw-leading-[5.5625rem]"

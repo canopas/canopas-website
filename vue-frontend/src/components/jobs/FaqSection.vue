@@ -215,14 +215,10 @@ export default {
     expandListItem(index) {
       if (this.previousIndex == index && this.openList) {
         this.openList = false;
-        if (this.mixpanel.__loaded) {
-          this.mixpanel.track("tap_faq_collapse");
-        }
+        this.mixpanel.track("tap_faq_collapse");
       } else {
         this.openList = true;
-        if (this.mixpanel.__loaded) {
-          this.mixpanel.track("tap_faq_expand");
-        }
+        this.mixpanel.track("tap_faq_expand");
       }
 
       this.currentIndex = index;

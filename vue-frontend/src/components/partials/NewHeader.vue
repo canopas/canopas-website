@@ -5,13 +5,17 @@
       :style="{ height: navContainerHeight + 'px' }"
     >
       <nav
-        class="tw-w-full tw-bg-white tw-z-[1] tw-px-[2%] md:tw-py-5 md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease tw-duration-500"
+        class="tw-w-full tw-bg-white tw-z-[1] tw-py-5 lg:tw-py-[1.75rem] md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease tw-duration-500"
         :class="[
           showNavbar
             ? 'tw-fixed tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]'
             : '',
-          animateNavbar ? 'tw-translate-y-0' : 'tw-translate-y-[-110px]',
         ]"
+        :style="{
+          transform: animateNavbar
+            ? 'translateY(0)'
+            : 'translateY(-' + navContainerHeight + 'px)',
+        }"
         ref="mainHeader"
       >
         <div
@@ -19,7 +23,7 @@
         >
           <router-link to="/" replace>
             <div
-              class="tw-mt-3 lg:tw-mt-2 tw-mr-4 tw-text-[1.25rem] tw-whitespace-nowrap tw-no-underline"
+              class="lg:tw-mt-2 tw-mr-4 tw-text-[1.25rem] tw-whitespace-nowrap tw-no-underline"
             >
               <img
                 src="@/assets/images/logo/logo-header.svg"
@@ -30,7 +34,7 @@
           </router-link>
 
           <div
-            class="tw-flex tw-basis-[auto] tw-grow tw-items-center tw-mt-3 lg:tw-mt-0 tw-pb-2.5"
+            class="tw-flex tw-basis-[auto] tw-grow tw-items-center tw-mt-3 lg:tw-mt-0"
           >
             <ul
               class="tw-flex tw-flex-row tw-flex-wrap tw-items-center tw-justify-start lg:tw-ml-auto tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
@@ -130,7 +134,7 @@ export default {
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);
-    this.navContainerHeight = this.$refs.mainHeader.clientHeight + 15;
+    this.navContainerHeight = this.$refs.mainHeader.clientHeight;
   },
   unmounted() {
     window.removeEventListener("scroll", this.handleScroll);

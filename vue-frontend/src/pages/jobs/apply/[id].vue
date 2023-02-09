@@ -5,8 +5,7 @@
         {{ content }}
       </template>
     </metainfo>
-    <ScreenHeaderV2 v-if="!isShowNewHomePage" />
-    <NewHeader v-else />
+    <Header />
     <ScreenLoader v-if="isLoading || job == null" />
     <div v-else>
       <div
@@ -309,8 +308,7 @@
 </template>
 
 <script>
-import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
-import NewHeader from "@/components/partials/NewHeader.vue";
+import Header from "@/components/partials/NewHeader.vue";
 import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import axios from "axios";
@@ -411,12 +409,10 @@ export default {
       showLoader: false,
       loaderImage: loaderImage,
       isShowReferenceOption: false,
-      isShowNewHomePage: config.IS_SHOW_NEW_HOME_PAGE,
     };
   },
   components: {
-    ScreenHeaderV2,
-    NewHeader,
+    Header,
     ScreenFooter2,
     FontAwesomeIcon,
     ScreenLoader,
