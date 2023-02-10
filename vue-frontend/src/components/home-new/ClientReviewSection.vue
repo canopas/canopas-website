@@ -12,15 +12,26 @@
         :loopedSlides="50"
         :spaceBetween="20"
         :pagination="pagination"
+        @swiper="onSwiper"
         class="swiper-container"
       >
-        <swiper-slide v-for="(client, index) in clients" :key="index">
+        <swiper-slide
+          v-for="(client, index) in clients"
+          :key="index"
+          @mouseover="playSwiper(false)"
+          @mouseleave="playSwiper(true)"
+          @touchstart="playSwiper(false)"
+          @touchmove="playSwiper(true)"
+          @touchend="playSwiper(true)"
+          class="tw-cursor-pointer"
+        >
           <div
             class="tw-mx-auto sm:tw-px-10 md:tw-px-6 lg:tw-px-4 xl:tw-px-24 sm:tw-text-black-core/[0.87] tw-text-black-900"
             :class="[client.className]"
           >
             <div
-              class="tw-font-roboto-medium tw-text-[1.375rem] md:tw-text-[2.25rem] lg:tw-text-[3.125rem] tw-leading-[1.875rem] md:tw-leading-[2.75rem] lg:tw-leading-[3.75rem]"
+              class="tw-font-roboto-medium tw-text-[1.375rem] md:tw-text-[2.25rem] lg:tw-text-[3.125rem] tw-leading-[1.875rem] md:tw-leading-[2.75rem] lg:tw-leading-[3.75rem] tw-transition-all tw-ease tw-duration-500"
+              :class="reading ? 'tw-scale-[0.98]' : ''"
               v-html="client.review"
             ></div>
             <div
@@ -96,6 +107,8 @@ import Config from "@/config.js";
 export default {
   data() {
     return {
+      swiper: null,
+      reading: false,
       reviewImage: reviewImage,
       clutchLink: Config.CLUTCH_URL,
       clients: [
@@ -133,7 +146,6 @@ export default {
             "> iOS and Android stores.</span>”`,
         },
       ],
-
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -146,6 +158,15 @@ export default {
     FontAwesomeIcon,
   },
   inject: ["mixpanel"],
+  methods: {
+    onSwiper(swiper) {
+      this.swiper = swiper;
+    },
+    playSwiper(play) {
+      play ? this.swiper.autoplay.start() : this.swiper.autoplay.stop();
+      this.reading = !play;
+    },
+  },
 };
 </script>
 
