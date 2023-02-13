@@ -61,7 +61,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
   data() {
     return {
-      width: 680,
       bg,
       hover: false,
       copyrightIcon: faCopyright,
@@ -102,9 +101,6 @@ export default {
   components: {
     FontAwesomeIcon,
     ContactForm,
-  },
-  mounted() {
-    this.width = window.innerWidth;
   },
 };
 </script>
