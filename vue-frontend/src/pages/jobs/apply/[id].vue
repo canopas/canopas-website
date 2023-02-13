@@ -32,14 +32,17 @@
                   class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="fullname"
-                  required
                   autocomplete="given-name"
                   v-model="fullName"
                   :disabled="disableInput"
+                  required
+                  @input="
+                    showNameValidationError = fullName.trim().length === 0
+                  "
                 />
                 <span
-                  v-if="showValidationError"
-                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
+                  v-if="showNameValidationError"
+                  class="error tw-text-red-600 tw-text-[1rem]"
                   >This field is required</span
                 >
               </div>
@@ -56,15 +59,19 @@
                   autocomplete="email"
                   v-model="email"
                   :disabled="disableInput"
+                  @input="
+                    showEmailValidationError = email.trim().length === 0;
+                    showValidEmailError = isValidEmail();
+                  "
                 />
                 <span
-                  v-if="showValidationError"
-                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
+                  v-if="showEmailValidationError"
+                  class="error tw-text-red-600 tw-text-[1rem]"
                   >This field is required</span
                 >
                 <span
-                  v-if="showEmailValidationError"
-                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
+                  v-if="showValidEmailError"
+                  class="error tw-text-red-600 tw-text-[1rem]"
                   >Please enter valid email address</span
                 >
               </div>
@@ -80,16 +87,21 @@
                   autocomplete="tel"
                   v-model="phoneNumber"
                   :disabled="disableInput"
+                  @input="
+                    showPhoneValidationError = phoneNumber.trim().length === 0;
+                    showValidPhoneError = isValidPhone();
+                  "
+                  required
                 />
                 <span id="phoneError"></span>
                 <span
-                  v-if="showValidationError"
-                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
+                  v-if="showPhoneValidationError"
+                  class="error tw-text-red-600 tw-text-[1rem]"
                   >This field is required</span
                 >
                 <span
-                  v-if="showPhoneValidationError"
-                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
+                  v-if="showValidPhoneError"
+                  class="error tw-text-red-600 tw-text-[1rem]"
                   >Please enter valid phone number</span
                 >
               </div>
@@ -199,11 +211,12 @@
                   @change="previewFiles"
                   required
                   :disabled="disableInput"
+                  @input="showFileValidationError = fileUpload === ''"
                 />
 
                 <span
-                  v-if="showValidationError"
-                  class="tw-mt-[8px] tw-table tw-text-[1rem] tw-text-[#ff0000]"
+                  v-if="showFileValidationError"
+                  class="error tw-text-red-600 tw-text-[1rem]"
                   >This field is required</span
                 >
               </div>
@@ -217,7 +230,7 @@
               <button
                 v-else
                 class="gradient-btn tw-py-[16px] tw-px-[64px] md:tw-py-[16px] md:tw-px-[80px]"
-                @click.prevent="validateForm()"
+                @click.prevent="submitApplication()"
               >
                 <font-awesome-icon
                   class="fa"
@@ -398,9 +411,12 @@ export default {
       file: "",
       isLoad: false,
       isShowingReferenceInput: false,
-      showValidationError: false,
+      showNameValidationError: false,
+      showValidEmailError: false,
       showEmailValidationError: false,
       showPhoneValidationError: false,
+      showValidPhoneError: false,
+      showFileValidationError: false,
       fileButtonName: "Upload",
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
@@ -494,112 +510,113 @@ export default {
     chooseFiles: function () {
       document.getElementById("fileUpload").click();
     },
-    validateForm() {
+    isValidPhone() {
+      const phoneRegex = /^[0-9]{10}$/;
+      return !phoneRegex.test(this.phoneNumber);
+    },
+    isValidEmail() {
       var emailRegx =
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return !emailRegx.test(this.email);
+    },
+    validateForm() {
+      this.showNameValidationError = this.fullName.trim().length === 0;
+      this.showEmailValidationError = this.email.trim().length === 0;
+      this.showPhoneValidationError = this.phoneNumber.trim().length === 0;
+      this.showFileValidationError = this.fileButtonName === "Upload";
 
-      if (
-        this.fullName === "" ||
-        this.email === "" ||
-        this.phoneNumber === "" ||
-        this.fileButtonName == "Upload"
-      ) {
-        this.showValidationError = true;
-      } else if (!this.email.match(emailRegx)) {
-        this.showEmailValidationError = true;
-      } else if (!this.phoneNumber.match(/[0-9]{10}/)) {
-        this.showPhoneValidationError = true;
-      } else {
-        this.showValidationError = false;
-        this.showPhoneValidationError = false;
-        this.showEmailValidationError = false;
-        this.disableInput = true;
-        this.submitApplication();
-      }
+      return (
+        this.showNameValidationError ||
+        this.showPhoneValidationError ||
+        this.showFileValidationError ||
+        this.showEmailValidationError ||
+        this.showValidPhoneError ||
+        this.showValidEmailError
+      );
     },
     submitApplication() {
-      if (this.mixpanel.__loaded) {
-        this.mixpanel.track("job_submit");
+      this.mixpanel.track("job_submit");
+      if (!this.validateForm()) {
+        this.showLoader = true;
+        this.disableInput = true;
+        this.isLoad = true;
+
+        //resume file name with the current date
+        var year = new Date().getFullYear();
+        var mon = new Date().toLocaleString("default", { month: "short" });
+        var date = new Date().getDate();
+
+        const currentDate = date + "-" + mon + "-" + year;
+
+        const splitFileName = this.file.name.split(".");
+
+        const fileName =
+          splitFileName[0] +
+          "-" +
+          currentDate +
+          "." +
+          splitFileName[splitFileName.length - 1];
+
+        //prepare form data
+        const formData = new FormData();
+        formData.append("job_title", this.job.title);
+        formData.append("name", this.fullName);
+        formData.append("email", this.email);
+        formData.append("phone", this.phoneNumber);
+        formData.append("place", this.city ? this.city : "NA");
+        formData.append(
+          "references",
+          this.reference &&
+            this.reference != "" &&
+            this.referenceBy &&
+            this.referenceBy != ""
+            ? this.reference + " - " + this.referenceBy
+            : this.reference && this.reference != ""
+            ? this.reference
+            : "NA"
+        );
+        formData.append("message", this.message ? this.message : "NA");
+        formData.append("file", this.file, fileName);
+        formData.append("save_record_to_spreadsheet", config.IS_PROD);
+
+        //verify recpatcha
+        grecaptcha.enterprise.ready(() => {
+          grecaptcha.enterprise
+            .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
+              action: "verify",
+            })
+            .then((token) => {
+              formData.append("token", token);
+              axios
+                .post(config.API_BASE + "/api/send-career-mail", formData)
+                .then(() => {
+                  this.isLoad = false;
+                  this.showLoader = false;
+                  this.showSuccessMessagePopup = true;
+                  if (this.mixpanel.__loaded) {
+                    this.mixpanel.track("job_apply_success");
+                  }
+                  setTimeout(() => {
+                    this.$router.push("/jobs");
+                  }, 3500);
+                })
+                .catch((err) => {
+                  this.isLoad = false;
+                  this.showLoader = false;
+                  if (err.response.status == 401) {
+                    this.errorMessage = "Invalid recaptcha score";
+                  }
+                  this.showErrorMessagePopup = true;
+                });
+            })
+            .catch(() => {
+              this.errorMessage = "Invalid recaptcha score";
+              this.isLoad = false;
+              this.showLoader = false;
+              this.showErrorMessagePopup = true;
+            });
+        });
       }
-      this.showLoader = true;
-      this.disableInput = false;
-      this.isLoad = true;
-
-      //resume file name with the current date
-      var year = new Date().getFullYear();
-      var mon = new Date().toLocaleString("default", { month: "short" });
-      var date = new Date().getDate();
-
-      const currentDate = date + "-" + mon + "-" + year;
-
-      const splitFileName = this.file.name.split(".");
-
-      const fileName =
-        splitFileName[0] +
-        "-" +
-        currentDate +
-        "." +
-        splitFileName[splitFileName.length - 1];
-
-      //prepare form data
-      const formData = new FormData();
-      formData.append("job_title", this.job.title);
-      formData.append("name", this.fullName);
-      formData.append("email", this.email);
-      formData.append("phone", this.phoneNumber);
-      formData.append("place", this.city ? this.city : "NA");
-      formData.append(
-        "references",
-        this.reference &&
-          this.reference != "" &&
-          this.referenceBy &&
-          this.referenceBy != ""
-          ? this.reference + " - " + this.referenceBy
-          : this.reference && this.reference != ""
-          ? this.reference
-          : "NA"
-      );
-      formData.append("message", this.message ? this.message : "NA");
-      formData.append("file", this.file, fileName);
-      formData.append("save_record_to_spreadsheet", config.IS_PROD);
-
-      //verify recpatcha
-      grecaptcha.enterprise.ready(() => {
-        grecaptcha.enterprise
-          .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
-            action: "verify",
-          })
-          .then((token) => {
-            formData.append("token", token);
-            axios
-              .post(config.API_BASE + "/api/send-career-mail", formData)
-              .then(() => {
-                this.isLoad = false;
-                this.showLoader = false;
-                this.showSuccessMessagePopup = true;
-                if (this.mixpanel.__loaded) {
-                  this.mixpanel.track("job_apply_success");
-                }
-                setTimeout(() => {
-                  this.$router.push("/jobs");
-                }, 3500);
-              })
-              .catch((err) => {
-                this.isLoad = false;
-                this.showLoader = false;
-                if (err.response.status == 401) {
-                  this.errorMessage = "Invalid recaptcha score";
-                }
-                this.showErrorMessagePopup = true;
-              });
-          })
-          .catch(() => {
-            this.errorMessage = "Invalid recaptcha score";
-            this.isLoad = false;
-            this.showLoader = false;
-            this.showErrorMessagePopup = true;
-          });
-      });
     },
   },
 };

@@ -14,7 +14,7 @@
               v-model="name"
               :disabled="disableInput"
               placeholder=" "
-              @input="showNameValidationError = name === ''"
+              @input="showNameValidationError = name.trim().length === 0"
               @click.native="mixpanel.track('tap_footer_username_input')"
             />
             <label
@@ -39,7 +39,10 @@
               v-model="email"
               :disabled="disableInput"
               placeholder=" "
-              @input="showEmailValidationError = email === ''"
+              @input="
+                showEmailValidationError = email.trim().length === 0;
+                showValidEmailError = isValidEmail();
+              "
               @click.native="mixpanel.track('tap_footer_email_input')"
             />
             <label
@@ -51,6 +54,9 @@
               v-if="showEmailValidationError"
               class="error canopas-gradient-text"
               >This field is required</span
+            >
+            <span v-if="showValidEmailError" class="error canopas-gradient-text"
+              >Please enter valid email address</span
             >
           </div>
           <div
@@ -66,7 +72,9 @@
               v-model="projectInfo"
               :disabled="disableInput"
               placeholder=" "
-              @input="showProjectInfoValidationError = projectInfo === ''"
+              @input="
+                showProjectInfoValidationError = projectInfo.trim().length === 0
+              "
               @click.native="mixpanel.track('tap_footer_project_info_input')"
             ></textarea>
             <label
@@ -93,7 +101,9 @@
               v-model="reference"
               :disabled="disableInput"
               placeholder=" "
-              @input="showReferenceValidationError = reference === ''"
+              @input="
+                showReferenceValidationError = reference.trim().length === 0
+              "
               @click.native="mixpanel.track('tap_footer_reference_input')"
             />
             <label
@@ -321,6 +331,7 @@ export default {
       disableInput: false,
       showNameValidationError: false,
       showEmailValidationError: false,
+      showValidEmailError: false,
       showProjectInfoValidationError: false,
       showReferenceValidationError: false,
       showInvestValidationError: false,
@@ -341,15 +352,22 @@ export default {
     document.removeEventListener("click", this.closePopUps);
   },
   methods: {
+    isValidEmail() {
+      var emailRegx =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return !emailRegx.test(this.email);
+    },
     validateForm() {
-      this.showNameValidationError = this.name === "";
-      this.showEmailValidationError = this.email === "";
-      this.showProjectInfoValidationError = this.projectInfo === "";
-      this.showReferenceValidationError = this.reference === "";
-      this.showInvestValidationError = this.invest === "";
+      this.showNameValidationError = this.name.trim().length === 0;
+      this.showEmailValidationError = this.email.trim().length === 0;
+      this.showProjectInfoValidationError =
+        this.projectInfo.trim().length === 0;
+      this.showReferenceValidationError = this.reference.trim().length === 0;
+      this.showInvestValidationError = this.invest.trim().length === 0;
       return (
         this.showNameValidationError ||
         this.showEmailValidationError ||
+        this.showValidEmailError ||
         this.showProjectInfoValidationError ||
         this.showReferenceValidationError ||
         this.showInvestValidationError
@@ -420,13 +438,13 @@ export default {
       }
     },
     setOption(option) {
-      this.showInvestValidationError = invest === "";
       this.invest = option;
+      this.showInvestValidationError = this.invest.trim().length == 0;
       this.showList = false;
     },
     toggleList() {
       this.showList = !this.showList;
-      this.floatable = this.showList || this.invest !== "";
+      this.floatable = this.showList || this.invest.trim().length > 0;
       this.mixpanel.track("tap_footer_invest_input");
     },
     toggleNDA() {
