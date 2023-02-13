@@ -16,9 +16,10 @@
                 v-model="name"
                 :disabled="disableInput"
                 placeholder="Your name"
+                @input="showNameValidationError = name.trim().length === 0"
                 @click.native="mixpanel.track('tap_name_input')"
               />
-              <span v-if="showValidationError" class="error tw-text-red-600"
+              <span v-if="showNameValidationError" class="error tw-text-red-600"
                 >This field is required</span
               >
             </div>
@@ -32,10 +33,19 @@
                 v-model="email"
                 :disabled="disableInput"
                 placeholder="Your email"
+                @input="
+                  showEmailValidationError = email.trim().length === 0;
+                  showValidEmailError = isValidEmail();
+                "
                 @click.native="mixpanel.track('tap_email_input')"
               />
-              <span v-if="showValidationError" class="error tw-text-red-600"
+              <span
+                v-if="showEmailValidationError"
+                class="error tw-text-red-600"
                 >This field is required</span
+              >
+              <span v-if="showValidEmailError" class="error tw-text-red-600"
+                >Please enter valid email address</span
               >
             </div>
             <div class="md:tw-col-span-2 tw-pt-1 lg:tw-pt-8">
@@ -48,9 +58,15 @@
                 v-model="projectInfo"
                 :disabled="disableInput"
                 placeholder="Tell us about your project"
+                @input="
+                  showProjectInfoValidationError =
+                    projectInfo.trim().length === 0
+                "
                 @click.native="mixpanel.track('tap_tell_us_about_project')"
               ></textarea>
-              <span v-if="showValidationError" class="error tw-text-red-600"
+              <span
+                v-if="showProjectInfoValidationError"
+                class="error tw-text-red-600"
                 >This field is required</span
               >
             </div>
@@ -64,9 +80,14 @@
                 v-model="reference"
                 :disabled="disableInput"
                 placeholder="How did you find us?"
+                @input="
+                  showReferenceValidationError = reference.trim().length === 0
+                "
                 @click.native="mixpanel.track('tap_how_did_you_find_us')"
               />
-              <span v-if="showValidationError" class="error tw-text-red-600"
+              <span
+                v-if="showReferenceValidationError"
+                class="error tw-text-red-600"
                 >This field is required</span
               >
             </div>
@@ -303,7 +324,11 @@ export default {
       projectInfo: "",
       reference: "",
       disableInput: false,
-      showValidationError: false,
+      showNameValidationError: false,
+      showEmailValidationError: false,
+      showValidEmailError: false,
+      showProjectInfoValidationError: false,
+      showReferenceValidationError: false,
       openCalendlyIframeModal: false,
       showSuccessMessagePopup: false,
       showErrorMessagePopup: false,
@@ -318,18 +343,29 @@ export default {
   },
   inject: ["mixpanel"],
   methods: {
+    isValidEmail() {
+      var emailRegx =
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      return !emailRegx.test(this.email);
+    },
+    validateForm() {
+      this.showNameValidationError = this.name.trim().length === 0;
+      this.showEmailValidationError = this.email.trim().length === 0;
+      this.showProjectInfoValidationError =
+        this.projectInfo.trim().length === 0;
+      this.showReferenceValidationError = this.reference.trim().length === 0;
+      return (
+        this.showNameValidationError ||
+        this.showEmailValidationError ||
+        this.showValidEmailError ||
+        this.showProjectInfoValidationError ||
+        this.showReferenceValidationError
+      );
+    },
     submitForm() {
-      if (
-        this.name === "" ||
-        this.email === "" ||
-        this.projectInfo === "" ||
-        this.reference === ""
-      ) {
-        this.showValidationError = true;
-      } else {
+      if (!this.validateForm()) {
         this.mixpanel.track("tap_submit_button_click");
         this.disableInput = true;
-        this.showValidationError = false;
 
         let formData = {
           name: this.name,
