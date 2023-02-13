@@ -45,7 +45,6 @@
 <script type="module">
 import bg from "@/assets/images/footer/new-bg.svg";
 import Config from "@/config.js";
-import ContactForm from "@/components/contact/ContactFormFooter.vue";
 
 import {
   faFacebookF,
@@ -100,7 +99,6 @@ export default {
   },
   components: {
     FontAwesomeIcon,
-    ContactForm,
   },
 };
 </script>
