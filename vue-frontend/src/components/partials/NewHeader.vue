@@ -98,6 +98,7 @@ export default {
       navContainerHeight: 100,
       lastScrollY: 0,
       currentRoutePath: this.$router.currentRoute._value.path,
+      podcastRef: null,
       navbars: [
         {
           name: "Portfolio",
@@ -133,22 +134,37 @@ export default {
     };
   },
   mounted() {
+    if (
+      this.currentRoutePath.includes("portfolio/") &&
+      window.innerWidth > 992 &&
+      !["/portfolio", "/portfolio/"].includes(this.currentRoutePath)
+    ) {
+      this.podcastRef = document.getElementById("response");
+      this.podcastRef.style.marginTop = -this.navContainerHeight + "px";
+      this.podcastRef.addEventListener("scroll", this.handleScroll);
+    }
     window.addEventListener("scroll", this.handleScroll);
     this.navContainerHeight = this.$refs.mainHeader.clientHeight;
   },
   unmounted() {
+    if (this.podcastRef) {
+      this.podcastRef.removeEventListener("scroll", this.handleScroll);
+    }
     window.removeEventListener("scroll", this.handleScroll);
   },
   inject: ["mixpanel"],
   methods: {
     handleScroll() {
-      let scrollUp =
-        this.lastScrollY > window.scrollY && window.pageYOffset > 100;
+      let scrollY = this.podcastRef
+        ? this.podcastRef.scrollTop
+        : window.scrollY;
+      let pageYOffset = this.podcastRef ? scrollY : window.pageYOffset;
+      let scrollUp = this.lastScrollY > scrollY && pageYOffset > 100;
       this.showNavbar = scrollUp
         ? scrollUp
-        : this.showNavbar && window.pageYOffset > 0;
-      this.animateNavbar = scrollUp || window.pageYOffset < 100;
-      this.lastScrollY = window.scrollY;
+        : this.showNavbar && pageYOffset > 0;
+      this.animateNavbar = scrollUp || pageYOffset < 100;
+      this.lastScrollY = scrollY;
     },
   },
 };

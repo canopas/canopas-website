@@ -8,7 +8,7 @@
     <Header />
     <div
       class="parallax tw-w-full tw-p-0 tw-m-auto 4xl:tw-w-[2300px]"
-      ref="response"
+      id="response"
     >
       <LandingSection v-bind:json="details.landing" />
       <VideoSection v-bind:json="details.video" />
@@ -54,6 +54,7 @@ export default {
       details: "",
       response: null,
       ctaRef: null,
+      portfolioRef: null,
       event: "",
       events: {
         luxepagecta: "view_luxe_page_cta",
@@ -76,13 +77,12 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
-    window.addEventListener("scroll", this.sendEvent);
-    if (this.mixpanel.__loaded) {
-      this.mixpanel.track("view_page_portfolio");
-    }
+    this.portfolioRef = document.getElementById("response");
+    this.portfolioRef.addEventListener("scroll", this.sendEvent);
+    this.mixpanel.track("view_" + this.$route.params.id + "_portfolio_page");
   },
   unmounted() {
-    window.removeEventListener("scroll", this.sendEvent);
+    this.portfolioRef.removeEventListener("scroll", this.sendEvent);
   },
   updated() {
     this.scrollToTop();
@@ -116,15 +116,14 @@ export default {
     },
     sendEvent() {
       const event = this.events[elementInViewPort(this.$refs)];
-      if (this.mixpanel.__loaded && event && this.event !== event) {
+      if (event && this.event !== event) {
         this.event = event;
         this.mixpanel.track(event);
       }
     },
     scrollToTop() {
-      var portfolioDiv = this.$refs.response;
-      portfolioDiv.scrollTo({
-        top: portfolioDiv.offsetTop,
+      this.portfolioRef.scrollTo({
+        top: this.portfolioRef.offsetTop,
         behavior: "instant",
       });
     },
@@ -147,7 +146,6 @@ export default {
 @screen lg {
   .parallax {
     perspective: 2px;
-
     @apply tw-h-screen tw-overflow-hidden tw-overflow-y-auto;
   }
 }

@@ -99,6 +99,7 @@ export default {
   props: ["json"],
   data() {
     return {
+      portfolioRef: null,
       isMobile: false,
       response: this.json,
       event: "",
@@ -123,10 +124,11 @@ export default {
     if (window.innerWidth < 768) {
       this.isMobile = true;
     }
-    window.addEventListener("scroll", this.sendEvent);
+    this.portfolioRef = document.getElementById("response");
+    this.portfolioRef.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
-    window.removeEventListener("scroll", this.sendEvent);
+    this.portfolioRef.removeEventListener("scroll", this.sendEvent);
   },
   inject: ["mixpanel"],
   methods: {

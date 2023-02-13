@@ -244,6 +244,7 @@ export default {
   data() {
     return {
       id: this.$route.params.id,
+      portfolioRef: null,
       backgroundColor: "",
       isShowSliderInMobile: false,
       response: this.json,
@@ -267,10 +268,11 @@ export default {
   },
   mounted() {
     this.isShowSliderInMobile = window.innerWidth <= 992;
-    window.addEventListener("scroll", this.sendEvent);
+    this.portfolioRef = document.getElementById("response");
+    this.portfolioRef.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
-    window.removeEventListener("scroll", this.sendEvent);
+    this.portfolioRef.removeEventListener("scroll", this.sendEvent);
   },
   inject: ["mixpanel"],
   methods: {
@@ -278,7 +280,6 @@ export default {
       this.backgroundColor =
         this.response.slider[swiper.realIndex].backgroundColor;
     },
-
     sendEvent() {
       const event = this.events[elementInViewPort(this.$refs)];
       if (event && this.event !== event) {
