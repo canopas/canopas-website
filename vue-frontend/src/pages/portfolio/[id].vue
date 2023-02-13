@@ -16,7 +16,7 @@
       <DesignSection v-bind:json="details.design" />
       <ElementSection v-bind:json="details.element" />
       <FooterSection v-bind:json="details.footer" />
-      <NewFooter />
+      <CTASection :ref="ctaRef" />
     </div>
   </div>
   <div v-else><ErrorPage /></div>
@@ -29,7 +29,7 @@ import VideoSection from "@/components/portfolio/VideoSection.vue";
 import BrandingSection from "@/components/portfolio/BrandingSection.vue";
 import DesignSection from "@/components/portfolio/DesignSection.vue";
 import FooterSection from "@/components/portfolio/FooterSection.vue";
-import NewFooter from "@/components/partials/NewFooter.vue";
+import CTASection from "@/components/home/CTASection.vue";
 import ElementSection from "@/components/portfolio/ElementSection.vue";
 import luxeradioResponse from "@/portfolio-json/luxeradio-data.js";
 import justlyResponse from "@/portfolio-json/justly-data.js";
@@ -136,7 +136,7 @@ export default {
     BrandingSection,
     DesignSection,
     FooterSection,
-    NewFooter,
+    CTASection,
     ElementSection,
     ErrorPage,
   },
