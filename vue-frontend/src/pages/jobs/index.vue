@@ -22,7 +22,7 @@
     />
     <Career id="career" ref="joblist" />
     <FaqSection v-on:add-animation="handleAnimationOnScroll" />
-    <ScreenFooter2 />
+    <NewFooter />
   </div>
 </template>
 
@@ -36,7 +36,7 @@ import PerksAndBenefits from "@/components/jobs/PerksAndBenefits.vue";
 import WhyCanopas from "@/components/jobs/WhyCanopas.vue";
 import WhyCanopasMobile from "@/components/jobs/WhyCanopasMobile.vue";
 import FaqSection from "@/components/jobs/FaqSection.vue";
-import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useMeta } from "vue-meta";
@@ -74,7 +74,7 @@ export default {
     WhyCanopas,
     WhyCanopasMobile,
     FaqSection,
-    ScreenFooter2,
+    NewFooter,
   },
   data() {
     return {

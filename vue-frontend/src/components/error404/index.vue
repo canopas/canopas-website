@@ -5,7 +5,7 @@
         {{ content }}
       </template>
     </metainfo>
-    <ScreenHeaderV2 />
+    <Header />
     <div
       class="tw-container tw-flex tw-items-center tw-justify-center tw-flex-col tw-my-0 tw-mx-auto tw-py-[150px] tw-px-[5%] tw-min-h-[50vh]"
     >
@@ -31,13 +31,13 @@
         >
       </router-link>
     </div>
-    <ScreenFooter2 />
+    <NewFooter />
   </div>
 </template>
 
 <script>
-import ScreenHeaderV2 from "@/components/partials/ScreenHeaderV2.vue";
-import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+import Header from "@/components/partials/NewHeader.vue";
+import NewFooter from "@/components/partials/NewFooter.vue";
 import firstErrorLetter from "@/assets/images/logo/404page_4_1.svg";
 import middleErrorLetter from "@/assets/images/logo/canopas-icon.svg";
 import lastErrorLetter from "@/assets/images/logo/404page_4_2.svg";
@@ -66,8 +66,8 @@ export default {
     };
   },
   components: {
-    ScreenHeaderV2,
-    ScreenFooter2,
+    Header,
+    NewFooter,
     FontAwesomeIcon,
   },
   inject: ["mixpanel"],

@@ -84,14 +84,14 @@
           </div>
         </div>
       </div>
-      <ScreenFooter2 />
+      <NewFooter />
     </div>
   </div>
 </template>
 
 <script>
 import Header from "@/components/partials/NewHeader.vue";
-import ScreenFooter2 from "@/components/partials/ScreenFooter2.vue";
+import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -131,7 +131,7 @@ export default {
   },
   components: {
     Header,
-    ScreenFooter2,
+    NewFooter,
     FontAwesomeIcon,
     ScreenLoader,
   },

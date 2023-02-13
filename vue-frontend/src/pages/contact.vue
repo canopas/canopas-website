@@ -11,13 +11,13 @@
       <ContactLanding />
       <ContactForm v-on:isLoading="setLoader" />
     </div>
-    <ScreenFooterV2 />
+    <NewFooter />
   </div>
 </template>
 
 <script>
 import Header from "@/components/partials/NewHeader.vue";
-import ScreenFooterV2 from "@/components/partials/ScreenFooter2.vue";
+import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import ContactLanding from "@/components/contact/ContactLanding.vue";
 import ContactForm from "@/components/contact/ContactForm.vue";
@@ -45,7 +45,7 @@ export default {
   components: {
     Header,
     ScreenLoader,
-    ScreenFooterV2,
+    NewFooter,
     ContactLanding,
     ContactForm,
   },
