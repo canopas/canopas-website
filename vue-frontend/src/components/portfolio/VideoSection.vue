@@ -23,7 +23,7 @@
           </div>
 
           <div
-            class="tw-flex tw-flex-col tw-w-fit sm:tw-flex-row tw-pt-12 md:tw-pt-16 tw-pb-12 tw-absolute"
+            class="tw-flex tw-w-fit tw-flex-row tw-pt-12 md:tw-pt-16 tw-pb-12 tw-absolute"
             v-if="response.buttons"
           >
             <div
@@ -208,7 +208,7 @@
           </div>
 
           <div
-            class="tw-flex tw-flex-col sm:tw-flex-row tw-w-fit tw-pt-12 md:tw-pt-16"
+            class="tw-flex tw-flex-row tw-w-fit tw-pt-12 md:tw-pt-16"
             v-if="response.solution.buttons"
           >
             <div

@@ -15,9 +15,7 @@
             v-html="response.solution.description"
           ></div>
 
-          <div
-            class="tw-flex tw-flex-col tw-w-fit sm:tw-flex-row tw-pt-12 md:tw-pt-16"
-          >
+          <div class="tw-flex tw-w-fit tw-flex-row tw-pt-12 md:tw-pt-16">
             <div
               v-for="button in response.solution.buttons"
               :key="button"
