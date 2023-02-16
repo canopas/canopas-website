@@ -28,7 +28,7 @@
                 :href="button.link"
                 @click.native="mixpanel.track(button.event)"
               >
-                <img :src="button.image"
+                <img :src="button.image" class="tw-w-48"
               /></a>
             </div>
           </div>
