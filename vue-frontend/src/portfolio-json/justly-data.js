@@ -35,6 +35,9 @@ import branding4Image800w from "@/assets/images/portfolio/justly/branding/justly
 import branding4Image1200w from "@/assets/images/portfolio/justly/branding/justly_branding_4-1200w.webp";
 import branding4Image1600w from "@/assets/images/portfolio/justly/branding/justly_branding_4-1600w.webp";
 
+import playStoreImage from "@/assets/images/portfolio/play_store.webp";
+import appStoreImage from "@/assets/images/portfolio/app_store.webp";
+
 import design400w from "@/assets/images/portfolio/justly/design/design-400w.webp";
 import design800w from "@/assets/images/portfolio/justly/design/design-800w.webp";
 import design1400w from "@/assets/images/portfolio/justly/design/design-1400w.webp";
@@ -81,11 +84,13 @@ export default {
         {
           name: "Play Store",
           link: "https://play.google.com/store/apps/details?id=com.canopas.nolonely",
+          image: playStoreImage,
           event: "tap_justly_play_store",
         },
         {
           name: "App Store",
           link: "https://apps.apple.com/us/app/nolonely/id1570951174",
+          image: appStoreImage,
           event: "tap_justly_app_store",
         },
       ],

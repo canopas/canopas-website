@@ -23,20 +23,20 @@
           </div>
 
           <div
-            class="tw-flex tw-flex-col tw-w-fit sm:tw-flex-row tw-pt-16 tw-absolute"
+            class="tw-flex tw-flex-col tw-w-fit sm:tw-flex-row tw-pt-12 md:tw-pt-16 tw-pb-12 tw-absolute"
             v-if="response.buttons"
           >
             <div
               v-for="button in response.buttons"
               :key="button"
-              class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
+              class="tw-flex tw-items-center tw-pr-4 tw-py-2 tw-mb-6 sm:tw-mb-0"
             >
               <a
                 target="_blank"
                 :href="button.link"
                 @click.native="mixpanel.track(button.event)"
-                >{{ button.name }}</a
-              >
+                ><img :src="button.image"
+              /></a>
             </div>
           </div>
         </div>
@@ -82,7 +82,7 @@
   <!-- mobile screen slider -->
   <section
     v-if="response.slider && isShowSliderInMobile"
-    class="tw-relative tw-mt-20"
+    class="tw-relative tw-mt-40 md:tw-mt-20"
   >
     <div
       class="mobile-background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
@@ -208,20 +208,20 @@
           </div>
 
           <div
-            class="tw-flex tw-flex-col sm:tw-flex-row tw-w-fit tw-pt-16"
+            class="tw-flex tw-flex-col sm:tw-flex-row tw-w-fit tw-pt-12 md:tw-pt-16"
             v-if="response.solution.buttons"
           >
             <div
               v-for="button in response.solution.buttons"
               :key="button"
-              class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98]"
+              class="tw-flex tw-items-center tw-pr-4 tw-py-2"
             >
               <a
                 target="_blank"
                 :href="button.link"
                 @click.native="mixpanel.track(button.event)"
-                >{{ button.name }}</a
-              >
+                ><img :src="button.image"
+              /></a>
             </div>
           </div>
         </div>

@@ -15,18 +15,21 @@
             v-html="response.solution.description"
           ></div>
 
-          <div class="tw-flex tw-w-fit sm:tw-flex-row tw-pt-16">
+          <div
+            class="tw-flex tw-flex-col tw-w-fit sm:tw-flex-row tw-pt-12 md:tw-pt-16"
+          >
             <div
               v-for="button in response.solution.buttons"
               :key="button"
-              class="hover:tw-text-white v2-normal-3-text contact-button tw-flex tw-items-center tw-border tw-border-black-900 tw-rounded-lg tw-px-4 md:tw-px-6 tw-py-2 hover:tw-bg-black-900 tw-mb-6 sm:tw-mr-9 sm:tw-mb-0 active:tw-scale-[0.98] tw-mr-8"
+              class="tw-flex tw-items-center tw-pr-4 tw-py-2"
             >
               <a
                 target="_blank"
                 :href="button.link"
                 @click.native="mixpanel.track(button.event)"
-                >{{ button.name }}</a
               >
+                <img :src="button.image"
+              /></a>
             </div>
           </div>
         </div>

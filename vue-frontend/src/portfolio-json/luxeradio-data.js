@@ -65,6 +65,9 @@ import element3_1600w from "@/assets/images/portfolio/luxeradio/element/luxeradi
 
 import elementVideo from "@/assets/images/portfolio/luxeradio/element/luxeradio_element_video.mp4";
 
+import playStoreImage from "@/assets/images/portfolio/play_store.webp";
+import appStoreImage from "@/assets/images/portfolio/app_store.webp";
+
 import footerBackgroundImage400w from "@/assets/images/portfolio/luxeradio/footer/background-400w.webp";
 import footerBackgroundImage800w from "@/assets/images/portfolio/luxeradio/footer/background-800w.webp";
 import footerBackgroundImage1400w from "@/assets/images/portfolio/luxeradio/footer/background-1400w.webp";
@@ -123,11 +126,13 @@ export default {
           {
             name: "Play Store",
             link: "https://play.google.com/store/apps/details?id=app.luxeradio.ma",
+            image: playStoreImage,
             event: "tap_luxe_play_store",
           },
           {
             name: "App Store",
             link: "https://apps.apple.com/ma/app/luxe-radio/id1073120504",
+            image: appStoreImage,
             event: "tap_luxe_app_store",
           },
         ],
