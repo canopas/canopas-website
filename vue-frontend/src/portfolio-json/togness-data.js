@@ -55,6 +55,9 @@ import element4_1200w from "@/assets/images/portfolio/togness/element/togness_el
 import element4_1600w from "@/assets/images/portfolio/togness/element/togness_element_4-2400w.webp";
 import draftStroyVideo from "@/assets/images/portfolio/togness/element/draft_stroy_video.gif";
 
+import playStoreImage from "@/assets/images/portfolio/play_store.webp";
+import appStoreImage from "@/assets/images/portfolio/app_store.webp";
+
 import footerBackground400w from "@/assets/images/portfolio/togness/footer/background-400w.webp";
 import footerBackground800w from "@/assets/images/portfolio/togness/footer/background-800w.webp";
 import footerBackground1600w from "@/assets/images/portfolio/togness/footer/background-1600w.webp";
@@ -111,11 +114,13 @@ export default {
           {
             name: "Play Store",
             link: "https://play.google.com/store/apps/details?id=com.togness.story",
+            image: playStoreImage,
             event: "tap_togness_play_store",
           },
           {
             name: "App Store",
             link: "https://apps.apple.com/au/app/togness-slide-show-maker/id1528833797",
+            image: appStoreImage,
             event: "tap_togness_app_store",
           },
         ],
