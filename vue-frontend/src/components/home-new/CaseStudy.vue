@@ -1,15 +1,23 @@
 <template>
   <section class="tw-mt-[100px] tw-font-inter-regular">
-    <h1
-      class="tw-text-black-core/[.03] tw-text-[2.5rem] md:tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[1.875rem] md:tw-leading-[4.0625rem] xl:tw-leading-[5rem] tw-text-center"
+    <div
+      v-if="currentRoutePath == '/portfolio'"
+      class="tw-text-center v2-header-text tw-font-futura-bold tw-mt-8 tw-pb-9 md:tw-pb-20 lg:tw-mt-36"
     >
-      Our Portfolio
-    </h1>
-    <h1
-      class="tw-container tw-mt-[-20px] md:tw-mt-[-50px] tw-pb-9 md:tw-pb-12 tw-text-[1.875rem] tw-leading-[2.438rem] md:tw-text-[2.65rem] md:tw-leading-[3.218rem] lg:tw-text-[3.438rem] lg:tw-leading-[4rem] tw-text-center tw-text-black-core/[0.87] tw-font-roboto-bold"
-    >
-      Case Studies
-    </h1>
+      Portfolio
+    </div>
+    <div v-else>
+      <h1
+        class="tw-text-black-core/[.03] tw-text-[2.5rem] md:tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[1.875rem] md:tw-leading-[4.0625rem] xl:tw-leading-[5rem] tw-text-center"
+      >
+        Our Portfolio
+      </h1>
+      <h1
+        class="tw-container tw-mt-[-20px] md:tw-mt-[-50px] tw-pb-9 md:tw-pb-12 tw-text-[1.875rem] tw-leading-[2.438rem] md:tw-text-[2.65rem] md:tw-leading-[3.218rem] lg:tw-text-[3.438rem] lg:tw-leading-[4rem] tw-text-center tw-text-black-core/[0.87] tw-font-roboto-bold"
+      >
+        Case Studies
+      </h1>
+    </div>
     <div
       class="tw-container tw-flex tw-justify-around tw-m-auto tw-w-[100%] sm:tw-w-[95%] 2xl:tw-w-[45%] tw-rounded-[30px] tw-bg-white tw-py-[5px] tw-drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)]"
     >
@@ -42,7 +50,11 @@
       use our apps every day
     </div>
     <PortfolioSection ref="newPortfolio" />
-    <PortfolioCTASection ref="newPortfolioCTA" />
+    <PortfolioPageCTASection
+      ref="portfolioPageCTA"
+      v-if="currentRoutePath == '/portfolio'"
+    />
+    <PortfolioCTASection ref="newPortfolioCTA" v-else />
   </section>
 </template>
 
@@ -50,6 +62,7 @@
 import config from "@/config.js";
 import PortfolioSection from "@/components/home-new/PortfolioSection.vue";
 import PortfolioCTASection from "@/components/home-new/PortfolioCTASection.vue";
+import PortfolioPageCTASection from "@/components/home-new/PortfolioPageCTASection.vue";
 import { elementInViewPort } from "@/utils.js";
 
 export default {
@@ -91,10 +104,14 @@ export default {
       events: {
         newPortfolio: "view_portfolio_section",
         newPortfolioCTA: "view_home_portfolio_cta",
+        portfolioPageCTA: "view_portfolio_page_cta",
       },
     };
   },
   mounted() {
+    if (this.currentRoutePath == "/portfolio") {
+      this.navbars[0].url = "/portfolio";
+    }
     window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
@@ -113,6 +130,7 @@ export default {
   components: {
     PortfolioSection,
     PortfolioCTASection,
+    PortfolioPageCTASection,
   },
 };
 </script>
