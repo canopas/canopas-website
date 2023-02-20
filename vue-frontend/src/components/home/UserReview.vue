@@ -14,7 +14,7 @@
     <div v-if="backgroundImage !== null">
       <LottieAnimation
         :jsonData="backgroundImage"
-        class="tw-hidden md:tw-block md:tw-w-full md:tw-h-[70%] md:tw-absolute md:tw-object-cover md:-tw-z-[5] tw-mx-auto md:tw-opacity-40"
+        class="tw-hidden lg:tw-block lg:tw-w-full lg:tw-h-[70%] lg:tw-absolute lg:-tw-z-[5] tw-mx-auto lg:tw-opacity-30"
       />
     </div>
 
@@ -134,7 +134,7 @@ export default {
           id: 1,
           review:
             "The best Moroccan app I have ever seen, clean work .. cheers to developers 🤙",
-          ClassName: "lg:tw-mt-[15%]",
+          ClassName: "lg:tw-mt-[150px] xl:tw-mt-[200px]",
         },
         {
           id: 2,
@@ -145,37 +145,38 @@ export default {
         {
           id: 3,
           review: "Thank you, developers, for this amazing app experience",
-          ClassName: "lg:tw-mt-[12%]",
+          ClassName: " lg:tw-mt-[100px] xl:tw-mt-[150px]",
         },
         {
           id: 4,
-          review:
-            "Kudos to the designers who designed the UI and the developers who implemented it.",
-          ClassName: "lg:-tw-mt-[4%]",
+          review: "Great UI. Easy and fun to use.",
+
+          ClassName: "",
         },
         {
           id: 5,
           review:
             "The app has made incredible changes, i had it since the beginning, always improving !!! ",
-          ClassName: "lg:-tw-mt-0",
+          ClassName: "",
         },
         {
           id: 6,
-          review: "Great UI. Easy and fun to use.",
-          ClassName: "lg:tw--mt-[8%]",
+          review:
+            "Kudos to the designers who designed the UI and the developers who implemented it.",
+          ClassName: "lg:tw-mt-[-70px] xl:tw-mt-[-50px]",
         },
         {
           id: 7,
           review:
             "The app is well designed, giving a very pleasing and smooth User Experience. Bravo!",
-          ClassName: "xl:tw-mt-[5%]",
+          ClassName: "",
         },
         {
           id: 8,
           review:
             "Good easy to use apps, And can make slideshow look very nice",
 
-          ClassName: "lg:tw--mt-[5%]",
+          ClassName: "lg:tw-mt-[-70px] xl:tw-mt-[-40px]",
         },
         {
           id: 9,
@@ -186,7 +187,7 @@ export default {
         {
           id: 10,
           review: "Great app, easy to use and amazing design",
-          ClassName: "",
+          ClassName: "lg:tw-mt-[-170px] xl:tw-mt-[-100px]",
         },
       ],
       splitReview: false,
