@@ -132,55 +132,60 @@ export default {
       usersReviews: [
         {
           id: 1,
-          review: "It's smooth, I love, cheers to the team behind it.",
+          review:
+            "Kudos to the designers who designed the UI and the developers who implemented it.",
           ClassName: "md:tw-mt-[15%] lg:tw-mt-[15%]",
         },
         {
           id: 2,
           review:
-            "The best Moroccan app I have ever seen, clean work.. cheers to developers 🤙",
+            "Honestly, 5 stars is an underrating for this app! It's too good. The UI is so much attractive and easy to use. Keep up the Good Work🎯️",
           ClassName: "",
         },
         {
           id: 3,
-          review: "Elegant , splendid well designed app.",
+          review: "thank you, developers, for this amazing app experience",
           ClassName: "md:tw-mt-[12%] lg:tw-mt-[12%]",
         },
         {
           id: 4,
-          review: "I am surprised by how good this app is !! I love it. ",
+          review:
+            "the best Moroccan app I have ever seen, clean work .. cheers to developers 🤙",
           ClassName: "md:tw--mt-[8%] lg:-tw-mt-[4%]",
         },
         {
           id: 5,
           review:
-            "The app is well designed, giving a very pleasing and smooth User Experience. Bravo!",
+            "The app has made incredible changes, i had it since the beginning, always improving !!! ",
           ClassName: "md:tw-mt-[6%] lg:-tw-mt-0",
         },
         {
           id: 6,
-          review: "Perfect design, love how classy they made it",
+          review: "Great UI. Easy and fun to use.",
           ClassName: "lg:tw--mt-[8%] md:tw--mt-[17%]",
         },
         {
           id: 7,
-          review: "Slick and elegant.Nice user interface and great content.",
+          review:
+            "The app is well designed, giving a very pleasing and smooth User Experience. Bravo!",
           ClassName: "md:tw-mt-[2%] xl:tw-mt-[5%]",
         },
         {
           id: 8,
-          review: "Thank you, developers, for this amazing app experience.",
+          review:
+            "I’ve always struggled to make something special because it is always difficult. I found this very easy to produce just what I wanted.",
           ClassName: "md:tw--mt-[17%] lg:tw--mt-[5%]",
         },
         {
           id: 9,
-          review: "Impeccable app. Great user experience. ",
+          review:
+            "Good easy to use apps, And can make slideshow look very nice",
           ClassName: "md:tw--mt-[5%] xl:tw--mt-[5%]",
         },
         {
           id: 10,
           review:
-            "The app has made incredible changes, I had it since the beginning, always improving !!! ",
+            "Very user friendly! This App is straightforward and simple to use. The step by step process with it’s categories, music, photo & quote options makes it easy for those who are not overly- tech savvy. ",
           ClassName: "",
         },
       ],
