@@ -7,7 +7,10 @@
     </metainfo>
     <Header />
     <CaseStudy ref="newPortfolio" />
-    <UserReview ref="userReview" class="sm:tw-top-[40px]" />
+    <UserReview
+      ref="userReview"
+      class="tw-pb-0 sm:tw-pb-10 md:tw-pb-8 lg:tw-pb-20 sm:tw-top-[40px]"
+    />
     <CTASection ref="cta" />
     <NewFooter />
   </div>
