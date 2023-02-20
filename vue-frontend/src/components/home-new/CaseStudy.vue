@@ -2,7 +2,7 @@
   <section class="tw-mt-[100px] tw-font-inter-regular">
     <div
       v-if="currentRoutePath == '/portfolio'"
-      class="tw-text-center v2-header-text tw-font-futura-bold tw-mt-8 tw-pb-9 md:tw-pb-20 lg:tw-mt-36"
+      class="tw-text-center tw-mt-8 lg:tw-mt-36 tw-pb-9 md:tw-pb-20 tw-text-[#3d3d3d] tw-font-futura-bold tw-text-[4.5rem] md:tw-text-[5.625rem] lg:tw-text-[7.5rem] tw-leading-[6rem] md:tw-leading-[7.625rem] lg:tw-leading-[9rem]"
     >
       Portfolio
     </div>
@@ -12,11 +12,11 @@
       >
         Our Portfolio
       </h1>
-      <h1
+      <h2
         class="tw-container tw-mt-[-20px] md:tw-mt-[-50px] tw-pb-9 md:tw-pb-12 tw-text-[1.875rem] tw-leading-[2.438rem] md:tw-text-[2.65rem] md:tw-leading-[3.218rem] lg:tw-text-[3.438rem] lg:tw-leading-[4rem] tw-text-center tw-text-black-core/[0.87] tw-font-roboto-bold"
       >
         Case Studies
-      </h1>
+      </h2>
     </div>
     <div
       class="tw-container tw-flex tw-justify-around tw-m-auto tw-w-[100%] sm:tw-w-[95%] 2xl:tw-w-[45%] tw-rounded-[30px] tw-bg-white tw-py-[5px] tw-drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)]"
