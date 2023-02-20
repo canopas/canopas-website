@@ -14,18 +14,18 @@
     <div v-if="backgroundImage !== null">
       <LottieAnimation
         :jsonData="backgroundImage"
-        class="tw-hidden tw md:tw-block md:tw-w-full md:tw-h-[70%] md:tw-absolute md:tw-object-cover md:-tw-z-[5] tw-mx-auto md:tw-opacity-40"
+        class="tw-hidden md:tw-block md:tw-w-full md:tw-h-[70%] md:tw-absolute md:tw-object-cover md:-tw-z-[5] tw-mx-auto md:tw-opacity-40"
       />
     </div>
 
     <div class="tw-pt-6">
       <div
-        class="tw-flex tw-m-auto tw-flex-wrap md:tw-items-center flex-div md:tw-w-[90%] lg:tw-w-4/5 xl:tw-w-[70%]"
+        class="tw-flex tw-m-auto tw-flex-wrap lg:tw-items-center flex-div lg:tw-w-4/5 xl:tw-w-[70%]"
       >
         <div
           v-for="userReview in usersReviews.slice(0, 3)"
           :key="userReview.id"
-          class="tw-flex-[1_1_100%] md:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center md:tw-text-center md:tw-m-2.5 md:tw-py-5 md:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
+          class="tw-flex-[1_1_100%] lg:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center lg:tw-text-center lg:tw-m-2.5 lg:tw-py-5 :tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
           :class="[userReview.ClassName]"
         >
           {{ userReview.review }}
@@ -39,13 +39,13 @@
         </div>
       </div>
       <div
-        v-if="slpitReview"
-        class="tw-flex tw-m-auto tw-flex-wrap md:tw-items-center flex-div md:tw-w-full lg:tw-w-full xl:tw-w-[90%]"
+        v-if="splitReview"
+        class="tw-flex tw-m-auto tw-flex-wrap lg:tw-items-center flex-div md:tw-w-full xl:tw-w-[90%]"
       >
         <div
           v-for="userReview in usersReviews.slice(3, 5)"
           :key="userReview.id"
-          class="tw-flex-[1_1_100%] md:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center md:tw-text-center md:tw-m-2.5 md:tw-py-5 md:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
+          class="tw-flex-[1_1_100%] lg:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center lg:tw-text-center lg:tw-m-2.5 lg:tw-py-5 lg:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
           :class="[userReview.ClassName]"
         >
           {{ userReview.review }}
@@ -59,13 +59,13 @@
         </div>
       </div>
       <div
-        v-if="slpitReview"
-        class="tw-flex tw-m-auto tw-flex-wrap md:tw-items-center flex-div md:tw-w-[80%] lg:tw-w-[75%] lg:tw-ml-[20%] xl:tw-w-[70%]"
+        v-if="splitReview"
+        class="tw-flex tw-m-auto tw-flex-wrap lg:tw-items-center flex-div lg:tw-w-[75%] lg:tw-ml-[20%] xl:tw-w-[70%]"
       >
         <div
           v-for="userReview in usersReviews.slice(5, 7)"
           :key="userReview.id"
-          class="tw-flex-[1_1_100%] md:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center md:tw-text-center md:tw-m-2.5 md:tw-py-5 md:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
+          class="tw-flex-[1_1_100%] lg:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center lg:tw-text-center lg:tw-m-2.5 lg:tw-py-5 lg:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
           :class="[userReview.ClassName]"
         >
           {{ userReview.review }}
@@ -80,12 +80,12 @@
       </div>
       <div
         v-else
-        class="tw-flex tw-m-auto tw-flex-wrap md:tw-items-center flex-div md:tw-w-[95%] xl:tw-w-[90%] md:tw-mt-[15px] xl:tw-mt-0"
+        class="tw-flex tw-m-auto tw-flex-wrap lg:tw-items-center flex-div lg:tw-w-[95%] xl:tw-w-[90%] lg:tw-mt-[15px] xl:tw-mt-0"
       >
         <div
           v-for="userReview in usersReviews.slice(3, 7)"
           :key="userReview.id"
-          class="tw-flex-[1_1_100%] md:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center md:tw-text-center md:tw-m-2.5 md:tw-py-5 md:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
+          class="tw-flex-[1_1_100%] lg:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center lg:tw-text-center lg:tw-m-2.5 lg:tw-py-5 lg:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
           :class="[userReview.ClassName]"
         >
           {{ userReview.review }}
@@ -99,12 +99,12 @@
         </div>
       </div>
       <div
-        class="tw-flex tw-m-auto tw-flex-wrap md:tw-items-center flex-div lg:tw-w-[75%] lg:tw-ml-[20%] md:tw-mt-[15px] xl:tw-mt-0 xl:tw-w-[70%]"
+        class="tw-flex tw-m-auto tw-flex-wrap lg:tw-items-center flex-div lg:tw-w-[75%] lg:tw-ml-[20%] lg:tw-mt-[15px] xl:tw-mt-0 xl:tw-w-[70%]"
       >
         <div
           v-for="userReview in usersReviews.slice(7, 10)"
           :key="userReview.id"
-          class="tw-flex-[1_1_100%] md:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center md:tw-text-center md:tw-m-2.5 md:tw-py-5 md:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
+          class="tw-flex-[1_1_100%] lg:tw-flex-[1_1_20%] tw-border-[1.5px] tw-border-solid tw-border-[#fa7b78] tw-rounded-[16px] tw-p-5 tw-mt-[15px] tw-mx-[15px] tw-mb-0 tw-flex tw-flex-col tw-justify-center lg:tw-text-center lg:tw-m-2.5 lg:tw-py-5 lg:tw-px-[15px] hover:tw-cursor-pointer hover:tw-shadow-[0_1px_6px_2px_rgba(249,129,136,1)] v2-normal-3-text"
           :class="[userReview.ClassName]"
         >
           {{ userReview.review }}
@@ -133,8 +133,8 @@ export default {
         {
           id: 1,
           review:
-            "Kudos to the designers who designed the UI and the developers who implemented it.",
-          ClassName: "md:tw-mt-[15%] lg:tw-mt-[15%]",
+            "The best Moroccan app I have ever seen, clean work .. cheers to developers 🤙",
+          ClassName: "lg:tw-mt-[15%]",
         },
         {
           id: 2,
@@ -144,52 +144,52 @@ export default {
         },
         {
           id: 3,
-          review: "thank you, developers, for this amazing app experience",
-          ClassName: "md:tw-mt-[12%] lg:tw-mt-[12%]",
+          review: "Thank you, developers, for this amazing app experience",
+          ClassName: "lg:tw-mt-[12%]",
         },
         {
           id: 4,
           review:
-            "the best Moroccan app I have ever seen, clean work .. cheers to developers 🤙",
-          ClassName: "md:tw--mt-[8%] lg:-tw-mt-[4%]",
+            "Kudos to the designers who designed the UI and the developers who implemented it.",
+          ClassName: "lg:-tw-mt-[4%]",
         },
         {
           id: 5,
           review:
             "The app has made incredible changes, i had it since the beginning, always improving !!! ",
-          ClassName: "md:tw-mt-[6%] lg:-tw-mt-0",
+          ClassName: "lg:-tw-mt-0",
         },
         {
           id: 6,
           review: "Great UI. Easy and fun to use.",
-          ClassName: "lg:tw--mt-[8%] md:tw--mt-[17%]",
+          ClassName: "lg:tw--mt-[8%]",
         },
         {
           id: 7,
           review:
             "The app is well designed, giving a very pleasing and smooth User Experience. Bravo!",
-          ClassName: "md:tw-mt-[2%] xl:tw-mt-[5%]",
+          ClassName: "xl:tw-mt-[5%]",
         },
         {
           id: 8,
           review:
-            "I’ve always struggled to make something special because it is always difficult. I found this very easy to produce just what I wanted.",
-          ClassName: "md:tw--mt-[17%] lg:tw--mt-[5%]",
+            "Good easy to use apps, And can make slideshow look very nice",
+
+          ClassName: "lg:tw--mt-[5%]",
         },
         {
           id: 9,
           review:
-            "Good easy to use apps, And can make slideshow look very nice",
-          ClassName: "md:tw--mt-[5%] xl:tw--mt-[5%]",
+            "I’ve always struggled to make something special because it is always difficult. I found this very easy to produce just what I wanted.",
+          ClassName: "",
         },
         {
           id: 10,
-          review:
-            "Very user friendly! This App is straightforward and simple to use. The step by step process with it’s categories, music, photo & quote options makes it easy for those who are not overly- tech savvy. ",
+          review: "Great app, easy to use and amazing design",
           ClassName: "",
         },
       ],
-      slpitReview: false,
+      splitReview: false,
     };
   },
   components: {
@@ -200,9 +200,9 @@ export default {
   },
   mounted() {
     if (window.innerWidth >= 768 && window.innerWidth <= 992) {
-      this.slpitReview = true;
+      this.splitReview = true;
     }
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 992) {
       this.usersReviews = this.usersReviews.slice(0, 6);
     } else {
       import("@/assets/lottie/globe.json").then((data) => {
