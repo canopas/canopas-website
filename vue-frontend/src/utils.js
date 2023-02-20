@@ -3,7 +3,7 @@ import { useElementVisibility } from "@vueuse/core";
 export function elementInViewPort(refs) {
   var element;
   Object.keys(refs).forEach((key) => {
-    if (refs[key].length > 0) {
+    if (refs[key] && refs[key].length > 0) {
       refs[key].forEach((ref, index) => {
         if (useElementVisibility(refs[key][index]).value) {
           element = index;

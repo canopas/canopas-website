@@ -129,4 +129,12 @@
     );
     clip-path: polygon(50% 0%, 100% 0, 150% 84%, 30% 100%, -25% 84%, 0 0);
   }
+
+  .animation-paused {
+    animation-play-state: paused;
+  }
+
+  .animation-running {
+    animation-play-state: running;
+  }
 }

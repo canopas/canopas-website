@@ -265,6 +265,80 @@ export default {
       title: "Justly",
       url: "justly",
       event: "tap_next_project_justly",
+      review: {
+        ref: "tognessreview",
+        usersReviews: [
+          {
+            id: 1,
+            review:
+              "Makes slideshows easy. Really helped me create a slideshow to remember my grandfather so much easier. Recommend it for anyone wanting to share memories with their family.",
+          },
+          {
+            id: 2,
+            review:
+              "It's a great app. Some useful feature and free premium is a plus.Highly recommended",
+          },
+          {
+            id: 3,
+            review:
+              "Good easy to use apps, And can make slideshow look very nice",
+          },
+          {
+            id: 4,
+            review:
+              "I use this app a lot. I've already made some slideshows of my pets. So cute!",
+          },
+          {
+            id: 5,
+            review:
+              "It had amazing quotes, And was super easy to use! I would say it's one of a kind!",
+          },
+          {
+            id: 6,
+            review:
+              "This is a really neat app. I've always been terrible with producing slideshows but this app is very easy to use and the results are beautiful.",
+          },
+          {
+            id: 7,
+            review: "Great UI. Easy and fun to use.",
+          },
+          {
+            id: 8,
+            review:
+              "Easy to use and fun to use. Nowwww I would say that this app is probably one of the best slideshow makers I know! I highly recommend it to any of you guys that need a app for making slide shows.",
+          },
+          {
+            id: 9,
+            review:
+              "Very user friendly! This App is straightforward and simple to use. The step by step process with it’s categories, music, photo & quote options makes it easy for those who are not overly- tech savvy.",
+          },
+          {
+            id: 10,
+            review:
+              "I really enjoy putting together our special moments using Togness. It’s simple and easy to use.",
+          },
+          {
+            id: 11,
+            review:
+              "I’ve always struggled to make something special because it is always difficult. I found this very easy to produce just what I wanted.",
+          },
+          {
+            id: 12,
+            review:
+              "Great and user-friendly. Love it! Super easy to make slide shows and photo montages, complete with quotes and music.",
+          },
+          {
+            id: 13,
+            review:
+              "I can use this for different occasions and it is quick to put something together that looks quite professional.",
+          },
+          {
+            id: 14,
+            review:
+              "Unique and easy. Very easy and intuitive putting together photos, videos with music and quotes.",
+          },
+        ],
+      },
     },
   },
 };

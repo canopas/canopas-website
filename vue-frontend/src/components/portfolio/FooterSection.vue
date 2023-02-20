@@ -12,14 +12,19 @@
       />
     </aspect-ratio>
   </section>
-
+  <section>
+    <UserReviewSection
+      v-bind:json="response.review"
+      :ref="response.review.ref"
+    />
+  </section>
   <section
-    class="v2-header-2-text tw-font-bold tw-text-center tw-bg-white tw-py-20 sm:tw-py-40 lg:tw-py-80"
+    class="v2-header-2-text tw-font-bold tw-text-center tw-bg-white tw-py-20 sm:tw-py-40"
   >
     <router-link
       class="animation-underline tw-inline-block tw-relative hover:tw-text-[#3d3d3d] after:tw-content-[''] after:tw-absolute after:tw-w-full after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"
       :to="response.url"
-      @click.native="mixpanel.track(button.event)"
+      @click.native="mixpanel.track(response.event)"
       >{{ response.title }}</router-link
     >
   </section>
@@ -27,7 +32,9 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
+import UserReviewSection from "@/components/portfolio/UserReviewSection.vue";
 import { elementInViewPort } from "@/utils.js";
+
 export default {
   props: ["json"],
   data() {
@@ -40,6 +47,9 @@ export default {
         luxeparallax2: "view_luxe_last_parallax_section",
         tognessparallax2: "view_togness_last_parallax",
         justlyparallax2: "view_justly_last_parallax",
+        luxeradioreview: "view_luxeradio_user_review",
+        tognessreview: "view_togness_user_review",
+        justlyreview: "view_justly_user_review",
       },
     };
   },
@@ -50,6 +60,7 @@ export default {
   },
   components: {
     AspectRatio,
+    UserReviewSection,
   },
   mounted() {
     if (window.innerWidth < 768) {
@@ -57,9 +68,11 @@ export default {
     }
     this.portfolioRef = document.getElementById("response");
     this.portfolioRef.addEventListener("scroll", this.sendEvent);
+    window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
     this.portfolioRef.removeEventListener("scroll", this.sendEvent);
+    window.removeEventListener("scroll", this.sendEvent);
   },
   inject: ["mixpanel"],
   methods: {

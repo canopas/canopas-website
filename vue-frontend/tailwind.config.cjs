@@ -102,6 +102,8 @@ module.exports = {
         typingErase: "typingErase 4s steps(40, end) infinite",
         menuSticky: "0.6s ease-in-out",
         fadeInRight: "fadeInRight 150ms ease-in",
+        gridAnimation: "scroll 40s linear infinite",
+        gridAnimationReverse: "scroll-reverse 20s linear infinite",
       },
       zIndex: {
         "-1": "-1",
@@ -118,7 +120,6 @@ module.exports = {
         270: "270.11deg",
         180: "180deg",
       },
-
       backgroundImage: {
         "gradient-underline":
           "linear-gradient(transparent, transparent),linear-gradient(transparent, transparent),linear-gradient(to right, #f2709c, #ff835b)",
