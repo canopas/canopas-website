@@ -79,10 +79,12 @@ export default {
   mounted() {
     this.portfolioRef = document.getElementById("response");
     this.portfolioRef.addEventListener("scroll", this.sendEvent);
+    window.addEventListener("scroll", this.sendEvent);
     this.mixpanel.track("view_" + this.$route.params.id + "_portfolio_page");
   },
   unmounted() {
     this.portfolioRef.removeEventListener("scroll", this.sendEvent);
+    window.removeEventListener("scroll", this.sendEvent);
   },
   updated() {
     this.scrollToTop();

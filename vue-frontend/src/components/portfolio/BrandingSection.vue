@@ -230,9 +230,11 @@ export default {
     }
     this.portfolioRef = document.getElementById("response");
     this.portfolioRef.addEventListener("scroll", this.sendEvent);
+    window.addEventListener("scroll", this.sendEvent);
   },
   unmounted() {
     this.portfolioRef.removeEventListener("scroll", this.sendEvent);
+    window.removeEventListener("scroll", this.sendEvent);
   },
   inject: ["mixpanel"],
   methods: {

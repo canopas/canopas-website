@@ -215,7 +215,6 @@ export default {
       title: `Much more than just a <span class="border-text">habit tracker...</span>`,
       detail: "",
     },
-
     footer: {
       ref: "justlyparallax2",
       backgroundImage: [
@@ -229,6 +228,70 @@ export default {
       title: "Luxe Radio",
       url: "luxeradio",
       event: "tap_next_project_luxe",
+      review: {
+        ref: "justlyreview",
+        usersReviews: [
+          {
+            id: 1,
+            review:
+              "Kudos to the designers who designed the UI and the developers who implemented it.",
+          },
+          {
+            id: 2,
+            review:
+              "Best app for making or restoring habits. Truly life changing.",
+          },
+          {
+            id: 3,
+            review:
+              "Honestly, 5 stars is an underrating for this app! It's too good. The UI is so much attractive and easy to use. Keep up the Good Work🎯️",
+          },
+          {
+            id: 4,
+            review:
+              "Simple and very easy to use! Very simple and easy to use application.",
+          },
+          {
+            id: 5,
+            review:
+              "Great app to create new habit in your life! It’s a very good app to create a new habit.",
+          },
+          {
+            id: 6,
+            review:
+              "Simply Brilliant! Everything about the app is so appealing and this is probably one of the best habit trackers out there.",
+          },
+          {
+            id: 7,
+            review:
+              "It is a really amazing app that helped me be more productive and it has so many useful features.",
+          },
+          {
+            id: 8,
+            review:
+              "Really amazing app. I have started doing small things regularly and it's been an awesome experience. Highly recommended!",
+          },
+          {
+            id: 9,
+            review:
+              "I love this app. It really make it easy to start a new habit",
+          },
+          {
+            id: 10,
+            review:
+              "If you want to track your healthy habits and want to gain regularity gradually, this app is just for you",
+          },
+          {
+            id: 11,
+            review: "Excellent!!!",
+          },
+          {
+            id: 12,
+            review:
+              "I just came across it accidentally and installed it, but then after I just felt wow! It's been a very smooth experience. User's perspective from each and every degree is completely at the heart of this app. Definitely gonna use it forever!",
+          },
+        ],
+      },
     },
   },
 };

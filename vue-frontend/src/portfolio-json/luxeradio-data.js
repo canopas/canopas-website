@@ -302,6 +302,101 @@ and everything to the smallest detail.`,
       title: "Togness",
       url: "togness",
       event: "tap_next_project_togness",
+      review: {
+        ref: "luxeradioreview",
+        usersReviews: [
+          {
+            id: 1,
+            review: "Exquisite, it's all i can say. Really exquisite!",
+          },
+          {
+            id: 2,
+            review: "Great app, luxe radio fan from the beginning",
+          },
+          {
+            id: 3,
+            review: "thank you, developers, for this amazing app experience",
+          },
+          {
+            id: 4,
+            review: "it's smooth, I love, cheers to the team behind it",
+          },
+          {
+            id: 5,
+            review:
+              "the best Moroccan app I have ever seen, clean work .. cheers to developers 🤙",
+          },
+          {
+            id: 6,
+            review:
+              "The most professional app I have seen in Morocco, cheer up to the developers",
+          },
+          {
+            id: 7,
+            review: "Perfect design, love how classy they made it",
+          },
+          {
+            id: 8,
+            review: "Elegant , splendid well designed app",
+          },
+          {
+            id: 9,
+            review:
+              "The Best app you can download,I use it everywhere from my car to the shower",
+          },
+          {
+            id: 10,
+            review: "Smooth platform and well designed interface.",
+          },
+          {
+            id: 11,
+            review:
+              "Keep up the good work you truly deserve more than 5 stars.",
+          },
+          {
+            id: 12,
+            review:
+              "5 deserved stars ! Very constructive, subtle programs and cool playlists ! Congrats and KEEP IT UP ",
+          },
+          {
+            id: 13,
+            review:
+              "Impeccable app - allows me to stay in touch with my favourite radio station in Morocco from the UK! ",
+          },
+          {
+            id: 14,
+            review:
+              "I'm a mobile developer and I'm just in love with the UI design. Brilliant app, and exquisite content. Way to go Luxe Radio.",
+          },
+          {
+            id: 15,
+            review:
+              "The app has made incredible changes, i had it since the beginning, always improving !!! ",
+          },
+          {
+            id: 16,
+            review:
+              "The app is well designed, giving a very pleasing and smooth User Experience. Bravo! ",
+          },
+          {
+            id: 17,
+            review: "I have never gave a 5 stars rate, so you better take it.",
+          },
+          {
+            id: 18,
+            review: "I am surprised by how good this app is !! I love it.",
+          },
+          {
+            id: 19,
+            review:
+              "I would love to say that there may be something wrong with the app so that I can contribute to its development... It is perfectly designed, minimalistic, and easy to use. Cheers",
+          },
+          {
+            id: 20,
+            review: "Great app, easy to use and amazing design",
+          },
+        ],
+      },
     },
   },
 };
