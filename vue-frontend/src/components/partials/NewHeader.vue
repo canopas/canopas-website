@@ -123,6 +123,11 @@ export default {
           event: "tap_header_cta",
         },
         {
+          name: "About",
+          url: "/about",
+          event: "tap_header_about",
+        },
+        {
           name: "Get Free Consultation",
           url: "/contact",
           className:
