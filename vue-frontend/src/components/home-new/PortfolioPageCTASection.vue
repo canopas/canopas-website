@@ -8,7 +8,7 @@
           :src="CTAImage[0]"
           :srcset="`${CTAImage[0]} 400w, ${CTAImage[1]} 800w, ${CTAImage[2]} 1600w, ${CTAImage[3]} 2400w`"
           alt="portfolio-cta-image"
-          class="-tw-mb-[0.75rem] sm:-tw-mb-[1.5rem] md:-tw-mb-[1.75rem] lg:tw-absolute lg:tw-right-[2.5rem] lg:-tw-top-[6rem] xl:tw-right-[1.5rem] xl:-tw-top-[8rem] 2xl:tw-right-[3.5rem] 2xl:-tw-top-[12rem]"
+          class="-tw-mb-[0.75rem] sm:-tw-mb-[1.5rem] md:-tw-mb-[1.75rem] lg:tw-absolute lg:tw-right-[2.5rem] lg:-tw-top-[5rem] xl:tw-right-[1.5rem] xl:-tw-top-[7.5rem] 2xl:tw-right-[3.5rem] 2xl:-tw-top-[11.5rem]"
           loading="lazy"
         />
       </div>
