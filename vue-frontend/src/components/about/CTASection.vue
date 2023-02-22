@@ -31,7 +31,7 @@
           <router-link
             class="tw-mx-auto lg:tw-mx-0 tw-w-max tw-rounded-full tw-p-3 tw-text-center tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] xl:tw-text-[1.1875rem] xl:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] gradient-btn hover:tw-text-white active:tw-scale-[0.98]"
             to="/contact"
-            @click.native="mixpanel.track('tap_home_portfolio_cta')"
+            @click.native="mixpanel.track('tap_about_cta')"
           >
             <span class="tw-text-white tw-font-inter-semibold"
               >Talk to our experts</span

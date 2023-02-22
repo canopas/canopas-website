@@ -42,6 +42,13 @@ export default Object.freeze({
     type: "Website",
     url: "https://dev-stack.canopas.com/portfolio",
   },
+  ABOUT_SEO_META_DATA: {
+    title: "Canopas - Fastest growing IT company in Surat, India.",
+    description:
+      "Canopas is a software development company helping businesses grow exponentially by developing mobile apps, websites, web apps, desktop apps, UI/UX, and SEO.",
+    type: "Website",
+    url: "https://dev-stack.canopas.com/about",
+  },
   IS_PROD: false,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",

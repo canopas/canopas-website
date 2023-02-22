@@ -117,15 +117,15 @@ export default {
           event: "tap_header_career",
         },
         {
+          name: "About",
+          url: "/about",
+          event: "tap_header_about",
+        },
+        {
           name: "Let's talk",
           url: "/contact",
           className: "lg:tw-hidden",
           event: "tap_header_cta",
-        },
-        {
-          name: "About",
-          url: "/about",
-          event: "tap_header_about",
         },
         {
           name: "Get Free Consultation",

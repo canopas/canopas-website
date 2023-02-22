@@ -19,20 +19,31 @@ import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/about/LandingSection.vue";
 import CTASection from "@/components/about/CTASection.vue";
-
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faChevronRight);
+import config from "@/config.js";
+import { useMeta } from "vue-meta";
 
 export default {
+  setup() {
+    var seoData = config.ABOUT_SEO_META_DATA;
+    useMeta({
+      title: seoData.title,
+      description: seoData.description,
+      og: {
+        type: seoData.type,
+        title: seoData.title,
+        url: seoData.url,
+      },
+    });
+  },
   components: {
     Header,
     LandingSection,
     CTASection,
     NewFooter,
   },
-
   inject: ["mixpanel"],
+  mounted() {
+    this.mixpanel.track("view_about_page");
+  },
 };
 </script>
