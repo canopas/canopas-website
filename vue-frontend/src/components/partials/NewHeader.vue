@@ -119,6 +119,7 @@ export default {
         {
           name: "About",
           url: "/about",
+          className: "tw-hidden",
           event: "tap_header_about",
         },
         {
