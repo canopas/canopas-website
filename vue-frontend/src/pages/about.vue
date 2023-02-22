@@ -8,6 +8,7 @@
     <Header />
     <div>
       <LandingSection />
+      <CTASection />
     </div>
     <NewFooter />
   </div>
@@ -17,6 +18,7 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/about/LandingSection.vue";
+import CTASection from "@/components/about/CTASection.vue";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
@@ -27,6 +29,7 @@ export default {
   components: {
     Header,
     LandingSection,
+    CTASection,
     NewFooter,
   },
 
