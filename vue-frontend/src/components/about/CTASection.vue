@@ -1,10 +1,10 @@
 <template>
   <section>
     <div
-      class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-mt-[50px] 2xl:tw-gap-[5.5rem]"
+      class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-items-center tw-mt-[50px] 2xl:tw-gap-[5.5rem]"
     >
       <div
-        class="lg:tw-w-[48%] xl:tw-w-[55%] 2xl:tw-w-[50%] lg:tw-pr-10 2xl:tw-pr-0"
+        class="md:tw-w-[80%] lg:tw-w-[48%] xl:tw-w-[55%] 2xl:tw-w-[50%] lg:tw-pr-10 2xl:tw-pr-0"
       >
         <img
           :src="CTAImage[0]"
@@ -14,7 +14,7 @@
         />
       </div>
       <div
-        class="tw-flex tw-flex-col tw-items-center lg:tw-items-start lg:tw-mt-[5.5rem] xl:tw-mt-[9.5rem] lg:tw-w-[52%] xl:tw-w-[45%] 2xl:tw-w-[50%]"
+        class="tw-flex tw-flex-col tw-items-center lg:tw-items-start lg:tw-mt-[5.5rem] xl:tw-mt-[2.5rem] lg:tw-w-[52%] xl:tw-w-[45%] 2xl:tw-w-[50%]"
       >
         <div
           class="md:tw-w-[70%] lg:tw-w-full tw-text-center lg:tw-text-left tw-text-[1.875rem] md:tw-text-[2.5rem] 2xl:tw-text-[3.125rem] tw-leading-[2.813rem] md:tw-leading-[3.438rem] 2xl:tw-leading-[4.688rem] tw-font-inter-bold tw-text-black-core/[0.87]"
@@ -29,13 +29,14 @@
         </div>
         <div class="tw-py-8">
           <router-link
-            class="tw-mx-auto lg:tw-mx-0 tw-w-max tw-rounded-full tw-p-3 tw-text-center tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] xl:tw-text-[1.1875rem] xl:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] gradient-btn hover:tw-text-white active:tw-scale-[0.98]"
+            class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
             to="/contact"
             @click.native="mixpanel.track('tap_about_cta')"
           >
-            <span class="tw-text-white tw-font-inter-semibold"
-              >Talk to our experts</span
-            >
+            <span
+              class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
+              >Talk to our experts
+            </span>
           </router-link>
         </div>
       </div>

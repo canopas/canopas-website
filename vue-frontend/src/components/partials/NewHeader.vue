@@ -119,7 +119,7 @@ export default {
         {
           name: "About",
           url: "/about",
-          className: Config.SHOW_ABOUT_US_PAGE ? "tw-visible" : "tw-hidden",
+          className: Config.SHOW_ABOUT_US_PAGE ? "" : "tw-hidden",
           event: "tap_header_about",
         },
         {
