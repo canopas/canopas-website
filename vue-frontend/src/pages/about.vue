@@ -43,6 +43,12 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
+    if (config.SHOW_ABOUT_US_PAGE == false) {
+      this.$router.push({
+        name: "Error404Page",
+        params: { pathMatch: "about" },
+      });
+    }
     this.mixpanel.track("view_about_page");
   },
 };
