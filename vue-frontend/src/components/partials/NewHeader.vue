@@ -117,6 +117,12 @@ export default {
           event: "tap_header_career",
         },
         {
+          name: "About",
+          url: "/about",
+          className: Config.SHOW_ABOUT_US_PAGE ? "" : "tw-hidden",
+          event: "tap_header_about",
+        },
+        {
           name: "Let's talk",
           url: "/contact",
           className: "lg:tw-hidden",
