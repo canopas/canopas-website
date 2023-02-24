@@ -72,7 +72,7 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
-    this.mixpanel.track("view_page_404");
+    this.mixpanel.track("view_404_page");
   },
 };
 </script>

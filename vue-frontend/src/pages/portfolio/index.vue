@@ -20,7 +20,6 @@
 import Header from "@/components/partials/NewHeader.vue";
 import { useMeta } from "vue-meta";
 import config from "@/config.js";
-import { elementInViewPort } from "@/utils.js";
 import CaseStudy from "@/components/home-new/CaseStudy.vue";
 import UserReview from "@/components/home/UserReview.vue";
 import CTASection from "@/components/home-new/CTASection.vue";
@@ -58,7 +57,7 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
-    this.mixpanel.track("view_page_portfolio_list");
+    this.mixpanel.track("view_portfolio_page");
   },
 };
 </script>

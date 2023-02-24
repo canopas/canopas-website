@@ -448,9 +448,7 @@ export default {
     recaptchaScript.setAttribute("defer", "true");
     document.head.appendChild(recaptchaScript);
     this.setCareerDetails();
-    if (this.mixpanel.__loaded) {
-      this.mixpanel.track("view_page_job_apply");
-    }
+    this.mixpanel.track("view_apply_job_page");
   },
   computed: {
     ...mapState(useJobDetailStore, {
@@ -473,9 +471,7 @@ export default {
           });
         } else {
           this.showErrorMessagePopup = true;
-          if (this.mixpanel.__loaded) {
-            this.mixpanel.track("job_apply_failed");
-          }
+          this.mixpanel.track("job_apply_failed");
         }
       } else {
         this.setMetaProperties();
@@ -593,9 +589,7 @@ export default {
                   this.isLoad = false;
                   this.showLoader = false;
                   this.showSuccessMessagePopup = true;
-                  if (this.mixpanel.__loaded) {
-                    this.mixpanel.track("job_apply_success");
-                  }
+                  this.mixpanel.track("job_apply_success");
                   setTimeout(() => {
                     this.$router.push("/jobs");
                   }, 3500);
