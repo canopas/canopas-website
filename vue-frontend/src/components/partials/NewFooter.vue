@@ -26,6 +26,7 @@
               <font-awesome-icon
                 class="fab tw-w-[20px] tw-h-[20px] md:tw-w-[32px] md:tw-h-[32px] tw-pt-[5px]"
                 :icon="icon.icon"
+                @click.native="mixpanel.track(icon.event)"
               />
             </a>
           </li>
@@ -67,36 +68,37 @@ export default {
         {
           url: Config.FACEBOOK_URL,
           icon: faFacebookF,
-          event: "tap_home_facebook",
+          event: "tap_footer_facebook",
         },
         {
           url: Config.INSTAGRAM_URL,
           icon: faInstagram,
-          event: "tap_home_instagram",
+          event: "tap_footer_instagram",
         },
         {
           url: Config.TWITTER_URL,
           icon: faTwitter,
-          event: "tap_home_twitter",
+          event: "tap_footer_twitter",
         },
         {
           url: Config.BLOG_URL,
           icon: faMediumM,
-          event: "tap_home_medium",
+          event: "tap_footer_medium",
         },
         {
           url: Config.LINKEDIN_URL,
           icon: faLinkedinIn,
-          event: "tap_home_linkedin",
+          event: "tap_footer_linkedin",
         },
         {
           url: Config.YOUTUBE_URL,
           icon: faYoutube,
-          event: "tap_home_youtube",
+          event: "tap_footer_youtube",
         },
       ],
     };
   },
+  inject: ["mixpanel"],
   components: {
     FontAwesomeIcon,
   },

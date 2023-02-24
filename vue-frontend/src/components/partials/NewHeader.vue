@@ -47,7 +47,7 @@
                 <router-link
                   v-if="!navbar.target"
                   :to="navbar.url"
-                  @click.native="mixpanel.track(event)"
+                  @click.native="mixpanel.track(navbar.event)"
                   :class="[
                     navbar.className
                       ? navbar.className
