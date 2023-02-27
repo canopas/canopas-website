@@ -403,6 +403,7 @@ export default {
                   .post(config.API_BASE + "/api/send-contact-mail", formData)
                   .then(() => {
                     setTimeout(() => {
+                      fbq("track", "footer_form_submit_success");
                       this.showSuccessMessagePopup = true;
                       this.showLoader = false;
                     }, 1000);

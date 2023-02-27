@@ -390,6 +390,7 @@ export default {
                 .post(config.API_BASE + "/api/send-contact-mail", formData)
                 .then(() => {
                   this.showLoader = true;
+                  fbq("track", "contact_form_submit_success");
                   if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
                     setTimeout(() => {
                       this.showSuccessMessage();
