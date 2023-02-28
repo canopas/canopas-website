@@ -3,6 +3,7 @@ package utils
 import (
 	"context"
 	"fmt"
+	"io/ioutil"
 	"net/http"
 	"os"
 	"strconv"
@@ -11,6 +12,7 @@ import (
 	"golang.org/x/oauth2/google"
 
 	b64 "encoding/base64"
+	"encoding/json"
 
 	recaptcha "cloud.google.com/go/recaptchaenterprise/v2/apiv1"
 	"github.com/aws/aws-sdk-go/aws"
@@ -202,5 +204,46 @@ func populateCells(records []string) []*sheets.RowData {
 
 	return []*sheets.RowData{
 		{Values: cells},
+	}
+}
+
+// make array or slice unique
+func Unique[T comparable](arr []T) []T {
+	occurred := make(map[T]bool)
+	var result []T
+	for _, e := range arr {
+		if !occurred[e] {
+			occurred[e] = true
+			result = append(result, e)
+		}
+	}
+	return result
+}
+
+func ReadSliceFromFile[T comparable](filePath string, items []T) []T {
+	data, err := ioutil.ReadFile(filePath)
+	if err != nil {
+		log.Warn(err)
+	}
+
+	err = json.Unmarshal(data, &items)
+	if err != nil {
+		log.Warn(err)
+	}
+
+	return items
+}
+
+func WriteSliceToFile[T comparable](filePath string, items []T) {
+
+	data, err := json.Marshal(items)
+
+	if err != nil {
+		log.Warn(err)
+	}
+
+	err = ioutil.WriteFile(filePath, data, 0777)
+	if err != nil {
+		log.Warn(err)
 	}
 }
