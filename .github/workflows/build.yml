@@ -25,6 +25,7 @@ jobs:
           go test jobs
           go test contact
           go test sitemap
+          go test blogs
         env:
           DB_HOST: localhost
           DB_NAME: website_admin_test

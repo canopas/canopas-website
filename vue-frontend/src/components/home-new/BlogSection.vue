@@ -26,7 +26,10 @@
         </div>
       </div>
     </div>
-    <div class="tw-relative tw-mt-[3rem]">
+    <div
+      class="tw-relative tw-mt-[3rem]"
+      :class="width < 768 || width > 2000 ? 'tw-container' : ''"
+    >
       <img
         v-if="width < 680"
         :src="bgMobile"
@@ -34,13 +37,20 @@
         class="md:tw-hidden tw-absolute tw-top-0 -tw-right-10 sm:-tw-right-20 tw-h-full"
         alt="blog-background-image"
       />
+      <img
+        v-else
+        :src="bg"
+        loading="lazy"
+        class="tw-hidden lg:tw-block tw-absolute tw-top-0 tw-right-0"
+        alt="blog-background-image"
+      />
     </div>
     <div
-      class="tw-flex tw-flex-col md:tw-flex-row md:tw-mt-[4rem] tw-z-[1]"
+      class="tw-flex tw-flex-col md:tw-flex-row md:tw-mt-[4rem] tw-z-[1] lg:tw-h-[580px] md:tw-py-[10%] lg:tw-py-0"
       :class="width < 768 || width > 2000 ? 'tw-container' : ''"
     >
       <div
-        class="tw-relative tw-flex tw-flex-col tw-items-center md:tw-items-start md:tw-flex-[60%] md:tw-ml-[5%] lg:tw-ml-[10%] xl:tw-ml-[15%]"
+        class="tw-relative tw-flex tw-flex-col tw-items-center md:tw-items-start md:tw-justify-center md:tw-flex-[60%] md:tw-ml-[5%] lg:tw-ml-[10%] xl:tw-ml-[15%]"
         :class="width > 2000 ? 'tw-ml-0' : ''"
       >
         <div
@@ -55,10 +65,10 @@
           <div class="tw-flex tw-flex-col 2xl:tw-pr-16">
             <hr
               v-if="index == 0"
-              class="tw-hidden md:tw-block md:tw-ml-[82px] 2xl:tw-ml-[95px] tw-h-[0.063rem] tw-mt-[18px] md:tw-mt-[45px]"
+              class="tw-hidden md:tw-block md:tw-ml-[82px] 2xl:tw-ml-[95px] tw-h-[0.063rem]"
             />
             <div class="tw-flex tw-gap-8 tw-mt-[18px] md:tw-mt-[45px]">
-              <div class="tw-flex tw-flex-col tw-items-center tw-mt-[0.3rem]">
+              <div class="tw-flex tw-flex-col tw-items-center">
                 <span
                   class="tw-font-inter-semibold md:tw-font-inter-regular tw-text-[1.5rem] md:tw-text-[2.188rem] 2xl:tw-text-[3.125rem] tw-leading-[1.95rem] md:tw-leading-[2.183rem] 2xl:tw-leading-[4.063rem]"
                 >
@@ -138,10 +148,9 @@
           <img
             :src="bg"
             loading="lazy"
-            class="tw-absolute tw-top-[50%] tw-right-[-1rem] -tw-translate-y-1/2"
+            class="lg:tw-hidden tw-absolute tw-top-[50%] tw-right-[-1rem] -tw-translate-y-1/2"
             alt="blog-background-image"
           />
-
           <img
             v-if="activeBlog !== null"
             @click="openBlog(activeBlog)"
@@ -188,19 +197,9 @@ export default {
     },
     getBlogs() {
       axios
-        .get("https://api.rss2json.com/v1/api.json", {
-          params: {
-            rss_url: "https://medium.com/feed/canopas",
-          },
-        })
-        .then((response) => {
-          var blogs = response.data.items.filter(function (item) {
-            return (
-              !item.title.includes("Weekly") &&
-              !item.title.includes("Newsletter")
-            );
-          });
-          blogs = blogs.slice(0, 3);
+        .get(Config.API_BASE + "/api/blogs")
+        .then((blogs) => {
+          blogs = blogs.data;
 
           for (let i = 0; i < blogs.length; i++) {
             /** replace - to / in date as safari is not supporting this date format.
