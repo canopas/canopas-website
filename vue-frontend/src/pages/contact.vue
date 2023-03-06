@@ -7,9 +7,12 @@
     </metainfo>
     <Header />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
-    <div>
-      <ContactLanding />
-      <ContactForm v-on:isLoading="setLoader" />
+    <div class="tw-container lg:tw-flex lg:tw-flex-row lg:tw-mt-20">
+      <NewContactLanding class="tw-basis-3/6 2xl:tw-basis-[40%]" />
+      <NewContactForm
+        v-on:isLoading="setLoader"
+        class="tw-basis-3/6 lg:tw-basis-[70%] 2xl:tw-basis-[60%] lg:tw--mr-14 xl:tw--mr-24"
+      />
     </div>
     <NewFooter />
   </div>
@@ -19,8 +22,8 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
-import ContactLanding from "@/components/contact/ContactLanding.vue";
-import ContactForm from "@/components/contact/ContactForm.vue";
+import NewContactLanding from "@/components/contact/NewContactLanding.vue";
+import NewContactForm from "@/components/contact/NewContactForm.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -46,8 +49,8 @@ export default {
     Header,
     ScreenLoader,
     NewFooter,
-    ContactLanding,
-    ContactForm,
+    NewContactLanding,
+    NewContactForm,
   },
   data() {
     return {

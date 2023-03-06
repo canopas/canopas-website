@@ -12,9 +12,11 @@
               required
               autocomplete="given-username"
               v-model="name"
-              :disabled="disableInput"
               placeholder=" "
-              @input="showNameValidationError = name.trim().length === 0"
+              @input="
+                showNameValidationError =
+                  $event.target.value.trim().length === 0
+              "
               @click.native="mixpanel.track('tap_footer_username_input')"
             />
             <label
@@ -25,7 +27,7 @@
             <span
               v-if="showNameValidationError"
               class="error canopas-gradient-text"
-              >This field is required</span
+              >Name is required</span
             >
           </div>
           <div class="tw-relative md:tw-mb-5 tw-pt-3 lg:tw-pt-9 tw-text-left">
@@ -37,12 +39,12 @@
               required
               autocomplete="given-email"
               v-model="email"
-              :disabled="disableInput"
               placeholder=" "
               @input="
-                showEmailValidationError = email.trim().length === 0;
-                showValidEmailError = isValidEmail();
+                showEmailValidationError =
+                  $event.target.value.trim().length === 0
               "
+              @blur="showValidEmailError = isValidEmail()"
               @click.native="mixpanel.track('tap_footer_email_input')"
             />
             <label
@@ -53,9 +55,11 @@
             <span
               v-if="showEmailValidationError"
               class="error canopas-gradient-text"
-              >This field is required</span
+              >Email is required</span
             >
-            <span v-if="showValidEmailError" class="error canopas-gradient-text"
+            <span
+              v-if="email.trim().length != 0 && showValidEmailError"
+              class="error canopas-gradient-text"
               >Please enter valid email address</span
             >
           </div>
@@ -70,10 +74,10 @@
               required
               autocomplete="given-project-info"
               v-model="projectInfo"
-              :disabled="disableInput"
               placeholder=" "
               @input="
-                showProjectInfoValidationError = projectInfo.trim().length === 0
+                showProjectInfoValidationError =
+                  $event.target.value.trim().length === 0
               "
               @click.native="mixpanel.track('tap_footer_project_info_input')"
             ></textarea>
@@ -99,10 +103,10 @@
               required
               autocomplete="given-reference"
               v-model="reference"
-              :disabled="disableInput"
               placeholder=" "
               @input="
-                showReferenceValidationError = reference.trim().length === 0
+                showReferenceValidationError =
+                  $event.target.value.trim().length === 0
               "
               @click.native="mixpanel.track('tap_footer_reference_input')"
             />
@@ -127,7 +131,6 @@
                 id="invest"
                 name="invest"
                 required
-                :disabled="disableInput"
                 @click="toggleList"
               >
                 <label
@@ -205,11 +208,32 @@
             :src="loaderImage"
             class="tw-w-[64px] tw-h-[64px]"
           />
-          <div v-else>
+          <div class="tw-relative" v-else>
+            <div
+              class="tw-absolute -tw-top-[2rem] sm:-tw-top-[1.875rem] md:-tw-top-[2.875rem] tw-text-center -tw-right-[4rem] sm:-tw-right-[11rem] md:-tw-right-[15rem] lg:-tw-right-[18rem] xl:-tw-right-[18rem] 2xl:-tw-right-[18.5rem] tw-w-[190%] sm:tw-w-max"
+            >
+              <span
+                v-if="showErrorMessage"
+                class="tw-flex tw-text-center canopas-gradient-text sm:tw-mr-[4rem] md:tw-mr-[8rem] lg:tw-mr-[12rem] tw-text-[1.2rem] sm:tw-text-[1.5rem] tw-leading-[1.5rem] sm:tw-leading-[1.8rem]"
+                :class="
+                  errorMessage == 'Invalid Recaptcha score'
+                    ? 'sm:!tw-mr-[7rem] md:!tw-mr-[12rem] lg:!tw-mr-[15rem] xl:!tw-mr-[16rem] 2xl:!tw-mr-[17rem] !tw-text-[1.5rem] '
+                    : ''
+                "
+                >{{ errorMessage }}</span
+              >
+
+              <span
+                v-if="showSuccessMessage"
+                class="canopas-gradient-text tw-text-[1rem] md:tw-text-[1.2rem] lg:tw-text-[1.5rem]"
+                >Thank you for choosing us to make a difference in your
+                business.</span
+              >
+            </div>
             <button
               id="submit"
               ref="recaptcha"
-              class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
+              class="tw-mt-[1rem] sm:tw-mt-0 tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
               @click.prevent="submitForm()"
             >
               <span
@@ -221,84 +245,6 @@
         </div>
       </div>
     </form>
-    <!-- Show Thank you message -->
-    <div v-if="showSuccessMessagePopup">
-      <transition name="modal">
-        <div
-          class="modal-mask tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-z-[5] tw-bg-[#00000080]"
-        >
-          <div
-            class="tw-flex tw-items-center sm:tw-mx-auto sm:tw-max-w-lg tw-h-full"
-          >
-            <div class="tw-w-full tw-rounded-md tw-bg-white">
-              <div
-                class="tw-rounded-t-md tw-border-b tw-border-solid tw-border-slate-300 tw-p-4"
-              >
-                <div
-                  class="canopas-gradient-text tw-text-[1.75rem] tw-leading-[2.25rem] tw-text-center"
-                >
-                  Thank you for choosing us to make a difference in your
-                  business.
-                </div>
-              </div>
-              <div class="tw-relative tw-flex-auto tw-p-4">
-                <div class="normal-2-text">
-                  If you prefer to chat or email, sit back and relax our team
-                  will get back to you within 24 hours.
-                </div>
-                <div class="close-btn-div">
-                  <button
-                    class="gradient-btn tw-w-40 tw-mb-2 tw-px-0"
-                    @click.prevent="reloadWindow()"
-                  >
-                    <span>Close</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </div>
-    <!-- Show error message -->
-    <div v-if="showErrorMessagePopup">
-      <transition name="modal">
-        <div
-          class="tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-z-[5] tw-bg-[#00000080]"
-        >
-          <div
-            class="tw-flex tw-items-center sm:tw-mx-auto sm:tw-max-w-lg tw-h-full"
-          >
-            <div
-              class="tw-w-full tw-rounded-md tw-bg-white tw-bg-clip-padding tw-p-2"
-            >
-              <div
-                class="tw-rounded-t-md tw-border-b tw-border-solid tw-border-slate-300 tw-p-3"
-              >
-                <div
-                  class="canopas-gradient-text tw-text-[1.75rem] tw-leading-[2.25rem] tw-font-semibold"
-                >
-                  Error
-                </div>
-              </div>
-              <div class="tw-relative tw-flex-auto tw-p-4">
-                <div class="normal-text text-center">
-                  {{ errorMessage }}
-                </div>
-                <div class="close-btn-div">
-                  <button
-                    class="gradient-btn tw-float-right tw-w-40 tw-px-0"
-                    @click.prevent="showErrorMessagePopup = false"
-                  >
-                    <span>Close</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </div>
   </div>
 </template>
 
@@ -328,17 +274,16 @@ export default {
         "> USD 250000",
       ],
       NDA: false,
-      disableInput: false,
       showNameValidationError: false,
       showEmailValidationError: false,
       showValidEmailError: false,
       showProjectInfoValidationError: false,
       showReferenceValidationError: false,
       showInvestValidationError: false,
-      showSuccessMessagePopup: false,
-      showErrorMessagePopup: false,
       errorMessage: "Something went wrong on our side",
       showLoader: false,
+      showSuccessMessage: false,
+      showErrorMessage: false,
     };
   },
   components: {
@@ -376,7 +321,6 @@ export default {
     submitForm() {
       this.mixpanel.track("tap_footer_form_submission");
       if (!this.validateForm()) {
-        this.disableInput = true;
         this.showLoader = true;
         let formData = {
           name: this.name,
@@ -402,24 +346,37 @@ export default {
                 axios
                   .post(config.API_BASE + "/api/send-contact-mail", formData)
                   .then(() => {
+                    this.showSuccessMessage = true;
+                    this.name = "";
+                    this.email = "";
+                    this.projectInfo = "";
+                    this.reference = "";
+                    this.invest = "";
+                    this.NDA = false;
+                    this.floatable = false;
+                    this.showLoader = false;
                     setTimeout(() => {
-                      fbq("track", "footer_form_submit_success");
-                      this.showSuccessMessagePopup = true;
-                      this.showLoader = false;
-                    }, 1000);
+                      this.showSuccessMessage = false;
+                    }, 3000);
                   })
                   .catch((err) => {
                     if (err.response.status == 401) {
                       this.errorMessage = "Invalid recaptcha score";
+                      this.showErrorMessage = true;
+                      this.showLoader = false;
+                      setTimeout(() => {
+                        this.showErrorMessage = false;
+                      }, 3000);
                     }
-                    this.showErrorMessagePopup = true;
-                    this.showLoader = false;
                   });
               })
               .catch(() => {
                 this.errorMessage = "Invalid recaptcha score";
-                this.showErrorMessagePopup = true;
+                this.showErrorMessage = true;
                 this.showLoader = false;
+                setTimeout(() => {
+                  this.showErrorMessage = false;
+                }, 3000);
               });
           });
         };
@@ -451,11 +408,6 @@ export default {
     toggleNDA() {
       this.NDA = !this.NDA;
       this.mixpanel.track("tap_footer_NDA_input");
-    },
-    reloadWindow() {
-      this.showSuccessMessagePopup = false;
-      window.scrollTo(0, 0);
-      window.location.reload();
     },
   },
 };

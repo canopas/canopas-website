@@ -34,16 +34,16 @@
                   name="fullname"
                   autocomplete="given-name"
                   v-model="fullName"
-                  :disabled="disableInput"
                   required
                   @input="
-                    showNameValidationError = fullName.trim().length === 0
+                    showNameValidationError =
+                      $event.target.value.trim().length === 0
                   "
                 />
                 <span
                   v-if="showNameValidationError"
                   class="error tw-text-red-600 tw-text-[1rem]"
-                  >This field is required</span
+                  >Name is required</span
                 >
               </div>
 
@@ -53,24 +53,25 @@
                 >
                 <input
                   class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
-                  type="email"
+                  type="text"
                   name="email"
+                  id="email"
                   required
                   autocomplete="email"
                   v-model="email"
-                  :disabled="disableInput"
                   @input="
-                    showEmailValidationError = email.trim().length === 0;
-                    showValidEmailError = isValidEmail();
+                    showEmailValidationError =
+                      $event.target.value.trim().length === 0
                   "
+                  @blur="showValidEmailError = isValidEmail()"
                 />
                 <span
                   v-if="showEmailValidationError"
                   class="error tw-text-red-600 tw-text-[1rem]"
-                  >This field is required</span
+                  >Email is required</span
                 >
                 <span
-                  v-if="showValidEmailError"
+                  v-if="email.trim().length != 0 && showValidEmailError"
                   class="error tw-text-red-600 tw-text-[1rem]"
                   >Please enter valid email address</span
                 >
@@ -86,10 +87,10 @@
                   name="phonenumber"
                   autocomplete="tel"
                   v-model="phoneNumber"
-                  :disabled="disableInput"
+                  @blur="showValidPhoneError = isValidPhone()"
                   @input="
-                    showPhoneValidationError = phoneNumber.trim().length === 0;
-                    showValidPhoneError = isValidPhone();
+                    showPhoneValidationError =
+                      $event.target.value.trim().length === 0
                   "
                   required
                 />
@@ -97,10 +98,10 @@
                 <span
                   v-if="showPhoneValidationError"
                   class="error tw-text-red-600 tw-text-[1rem]"
-                  >This field is required</span
+                  >Phone number is required</span
                 >
                 <span
-                  v-if="showValidPhoneError"
+                  v-if="phoneNumber.trim().length != 0 && showValidPhoneError"
                   class="error tw-text-red-600 tw-text-[1rem]"
                   >Please enter valid phone number</span
                 >
@@ -114,7 +115,6 @@
                   name="city"
                   autocomplete="address-level2"
                   v-model="city"
-                  :disabled="disableInput"
                 />
               </div>
 
@@ -136,7 +136,6 @@
                       id="reference-option-text"
                       readonly
                       v-model="reference"
-                      :disabled="disableInput"
                     />
                   </div>
                   <div
@@ -168,7 +167,6 @@
                   autocomplete="given-reference-name"
                   :placeholder="references[currentReferenceIndex].hint"
                   v-model="referenceBy"
-                  :disabled="disableInput"
                 />
               </div>
 
@@ -179,7 +177,6 @@
                   name="message"
                   rows="1"
                   v-model="message"
-                  :disabled="disableInput"
                 ></textarea>
               </div>
 
@@ -204,20 +201,20 @@
                 </button>
                 <input
                   id="fileUpload"
+                  ref="fileUpload"
                   type="file"
                   class="tw-block tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed custom-file-input tw-w-0 tw-opacity-0 tw-p-0"
                   name="resume"
                   accept="application/pdf,.doc,.docx"
                   @change="previewFiles"
                   required
-                  :disabled="disableInput"
                   @input="showFileValidationError = fileUpload === ''"
                 />
 
                 <span
                   v-if="showFileValidationError"
-                  class="error tw-text-red-600 tw-text-[1rem]"
-                  >This field is required</span
+                  class="tw-mt-2.5 error tw-text-red-600 tw-text-[1rem]"
+                  >Resume is required</span
                 >
               </div>
             </div>
@@ -227,92 +224,46 @@
                 :src="loaderImage"
                 v-if="showLoader"
               />
-              <button
+              <div
+                class="tw-relative tw-flex tw-flex-col tw-items-center"
                 v-else
-                class="gradient-btn tw-py-[16px] tw-px-[64px] md:tw-py-[16px] md:tw-px-[80px]"
-                @click.prevent="submitApplication()"
               >
-                <font-awesome-icon
-                  class="fa"
-                  :icon="checkCircle"
-                  aria-hidden="true"
-                />
-                <span>Apply Now</span>
-              </button>
+                <div
+                  class="tw-absolute tw-text-center -tw-top-[2.5rem] sm:-tw-top-[1.875rem] tw-right-0 sm:-tw-right-[7rem] lg:-tw-right-[6rem] xl:-tw-right-[10rem] 2xl:-tw-right-[13.5rem] sm:tw-w-max"
+                >
+                  <span
+                    v-if="showErrorMessage"
+                    class="tw-flex tw-mr-0 sm:tw-mr-[2.5rem] md:tw-mr-[3.5rem] xl:tw-mr-[8.5rem] 2xl:tw-mr-[11.5rem] tw-text-center tw-text-red-600 tw-text-[1.3rem] sm:tw-text-[1.5rem]"
+                    :class="
+                      errorMessage == 'Invalid Recaptcha score'
+                        ? '!tw-text-[1.5rem] tw-leading-[2rem] sm:!tw-mr-[6.5rem] md:!tw-mr-[8rem] lg:!tw-mr-[7.5rem] xl:!tw-mr-[12rem] 2xl:!tw-mr-[15rem]'
+                        : ''
+                    "
+                    >{{ errorMessage }}</span
+                  >
+                  <span
+                    v-if="showSuccessMessage"
+                    class="canopas-gradient-text tw-text-[1rem] sm:tw-text-[1.1rem] md:tw-text-[1.2rem] lg:tw-text-[1.2rem] xl:tw-text-[1.6rem] 2xl:tw-text-[1.8rem]"
+                    >We have received your job application, sit back and relax!
+                  </span>
+                </div>
+                <button
+                  class="gradient-btn tw-py-[16px] tw-px-[64px] md:tw-py-[16px] md:tw-px-[80px]"
+                  @click.prevent="submitApplication()"
+                >
+                  <font-awesome-icon
+                    class="fa"
+                    :icon="checkCircle"
+                    aria-hidden="true"
+                  />
+                  <span>Apply Now</span>
+                </button>
+              </div>
             </div>
             <div class="tw-mt-[48px] tw-text-[#ff0000]">
               All fields marked with * are required.
             </div>
           </form>
-        </div>
-
-        <!-- Show Thank you message -->
-        <div v-if="showSuccessMessagePopup">
-          <transition name="modal">
-            <div
-              class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
-            >
-              <div
-                class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full tw-flex tw-items-center"
-                role="document"
-              >
-                <div
-                  class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid tw-p-[10px] tw-rounded-[25px]"
-                >
-                  <div
-                    class="tw-flex tw-items-start tw-justify-between tw-p-4 tw-rounded-t-md tw-border-b tw-border-solid tw-border-slate-300"
-                  >
-                    <div class="normal-text canopas-gradient-text text-center">
-                      Congratulations !!
-                    </div>
-                  </div>
-                  <div class="tw-relative tw-p-4 tw-flex-auto">
-                    <div class="normal-2-text">
-                      We have received your job application, sit back and relax!
-                      Our team will contact you within 24 hours.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </transition>
-        </div>
-
-        <!-- Show error message -->
-        <div v-if="showErrorMessagePopup">
-          <transition name="modal">
-            <div
-              class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
-            >
-              <div
-                class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full tw-flex tw-items-center"
-                role="document"
-              >
-                <div
-                  class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid tw-p-[10px] tw-rounded-[25px]"
-                >
-                  <div
-                    class="tw-flex tw-items-start tw-justify-between tw-p-4 tw-rounded-t-md tw-border-b tw-border-solid tw-border-slate-300"
-                  >
-                    <div class="header-2-text canopas-gradient-text">Error</div>
-                  </div>
-                  <div class="tw-relative tw-p-4 tw-flex-auto">
-                    <div class="normal-text text-center">
-                      {{ errorMessage }}
-                    </div>
-                    <div class="close-btn-div">
-                      <button
-                        class="gradient-btn tw-float-right tw-py-[8px] tw-px-[16px]"
-                        @click.prevent="showErrorMessagePopup = false"
-                      >
-                        <span>Close</span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </transition>
         </div>
       </div>
       <NewFooter />
@@ -418,10 +369,9 @@ export default {
       showValidPhoneError: false,
       showFileValidationError: false,
       fileButtonName: "Upload",
-      showSuccessMessagePopup: false,
-      showErrorMessagePopup: false,
+      showSuccessMessage: false,
+      showErrorMessage: false,
       errorMessage: "Something went wrong on our side",
-      disableInput: false,
       showLoader: false,
       loaderImage: loaderImage,
       isShowReferenceOption: false,
@@ -534,7 +484,6 @@ export default {
       this.mixpanel.track("job_submit");
       if (!this.validateForm()) {
         this.showLoader = true;
-        this.disableInput = true;
         this.isLoad = true;
 
         //resume file name with the current date
@@ -575,7 +524,7 @@ export default {
         formData.append("file", this.file, fileName);
         formData.append("save_record_to_spreadsheet", config.IS_PROD);
 
-        //verify recpatcha
+        // verify recpatcha
         grecaptcha.enterprise.ready(() => {
           grecaptcha.enterprise
             .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
@@ -588,26 +537,41 @@ export default {
                 .then(() => {
                   this.isLoad = false;
                   this.showLoader = false;
-                  this.showSuccessMessagePopup = true;
+                  this.showSuccessMessage = true;
+                  this.fullName = "";
+                  this.email = "";
+                  this.phoneNumber = "";
+                  this.city = "";
+                  this.reference = "";
+                  this.referenceBy = "";
+                  this.message = "";
+                  this.$refs.fileUpload.value = null;
+                  this.fileButtonName = "Upload";
                   this.mixpanel.track("job_apply_success");
                   setTimeout(() => {
-                    this.$router.push("/jobs");
-                  }, 3500);
+                    this.showSuccessMessage = false;
+                  }, 3000);
                 })
                 .catch((err) => {
                   this.isLoad = false;
                   this.showLoader = false;
                   if (err.response.status == 401) {
                     this.errorMessage = "Invalid recaptcha score";
+                    this.showErrorMessage = true;
+                    setTimeout(() => {
+                      this.showErrorMessage = false;
+                    }, 3000);
                   }
-                  this.showErrorMessagePopup = true;
                 });
             })
             .catch(() => {
               this.errorMessage = "Invalid recaptcha score";
               this.isLoad = false;
               this.showLoader = false;
-              this.showErrorMessagePopup = true;
+              this.showErrorMessage = true;
+              setTimeout(() => {
+                this.showErrorMessage = false;
+              }, 3000);
             });
         });
       }
