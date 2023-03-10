@@ -29,7 +29,8 @@ export default Object.freeze({
     url: "https://canopas.com/jobs",
   },
   CONTACT_SEO_META_DATA: {
-    title: "Let's discuss your idea or problem you're facing in your business.",
+    title:
+      "Let's discuss your idea or problem you're facing in your business - Canopas",
     description:
       "Thank you for choosing Canopas for your business. Fill out all the required information about you and your business. We will get back to you soon.",
     type: "Website",

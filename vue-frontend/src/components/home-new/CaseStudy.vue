@@ -4,14 +4,14 @@
       v-if="currentRoutePath == '/portfolio'"
       class="tw-text-center tw-mt-8 lg:tw-mt-36 tw-pb-9 md:tw-pb-20 tw-text-[#3d3d3d] tw-font-futura-bold tw-text-[4.5rem] md:tw-text-[5.625rem] lg:tw-text-[7.5rem] tw-leading-[6rem] md:tw-leading-[7.625rem] lg:tw-leading-[9rem]"
     >
-      Portfolio
+      <h1>Portfolio</h1>
     </div>
     <div v-else>
-      <h1
+      <p
         class="tw-text-black-core/[.03] tw-text-[2.5rem] md:tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[1.875rem] md:tw-leading-[4.0625rem] xl:tw-leading-[5rem] tw-text-center"
       >
         Our Portfolio
-      </h1>
+      </p>
       <h2
         class="tw-container tw-mt-[-20px] md:tw-mt-[-50px] tw-pb-9 md:tw-pb-12 tw-text-[1.875rem] tw-leading-[2.438rem] md:tw-text-[2.65rem] md:tw-leading-[3.218rem] lg:tw-text-[3.438rem] lg:tw-leading-[4rem] tw-text-center tw-text-black-core/[0.87] tw-font-roboto-bold"
       >

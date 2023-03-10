@@ -79,7 +79,7 @@
                   :src="client.image"
                   class="tw-w-full tw-h-full tw-object-cover"
                   loading="lazy"
-                  alt="phase.alt"
+                  alt="client-image"
                 />
               </div>
               <div v-if="client.plusIcon">

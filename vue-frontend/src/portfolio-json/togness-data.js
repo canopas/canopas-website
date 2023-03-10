@@ -3,7 +3,7 @@ import landingBackground800w from "@/assets/images/portfolio/togness/landing/bac
 import landingBackground1600w from "@/assets/images/portfolio/togness/landing/background-1600w.webp";
 import landingBackground2400w from "@/assets/images/portfolio/togness/landing/background-2400w.webp";
 
-import videoSectionVideo from "@/assets/images/portfolio/togness/video/background_video.gif";
+import videoSectionVideo from "@/assets/images/portfolio/togness/video/background_video.mp4";
 import videoBackground400w from "@/assets/images/portfolio/togness/video/background-400w.webp";
 import videoBackground800w from "@/assets/images/portfolio/togness/video/background-800w.webp";
 import videoBackground1600w from "@/assets/images/portfolio/togness/video/background-1600w.webp";
@@ -28,6 +28,7 @@ import branding4Image400w from "@/assets/images/portfolio/togness/branding/togne
 import branding4Image800w from "@/assets/images/portfolio/togness/branding/togness_branding_4-800w.webp";
 import branding4Image1200w from "@/assets/images/portfolio/togness/branding/togness_branding_4-1200w.webp";
 import branding4Image1600w from "@/assets/images/portfolio/togness/branding/togness_branding_4-1600w.webp";
+import draftStroyVideo from "@/assets/images/portfolio/togness/branding/draft_stroy_video.mp4";
 
 import design400w from "@/assets/images/portfolio/togness/design/background-400w.webp";
 import design800w from "@/assets/images/portfolio/togness/design/background-800w.webp";
@@ -53,7 +54,6 @@ import element4_400w from "@/assets/images/portfolio/togness/element/togness_ele
 import element4_800w from "@/assets/images/portfolio/togness/element/togness_element_4-800w.webp";
 import element4_1200w from "@/assets/images/portfolio/togness/element/togness_element_4-1200w.webp";
 import element4_1600w from "@/assets/images/portfolio/togness/element/togness_element_4-2400w.webp";
-import draftStroyVideo from "@/assets/images/portfolio/togness/element/draft_stroy_video.gif";
 
 import playStoreImage from "@/assets/images/portfolio/play_store.webp";
 import appStoreImage from "@/assets/images/portfolio/app_store.webp";
@@ -68,10 +68,9 @@ import config from "@/config.js";
 export default {
   name: "togness",
   seoData: {
-    title:
-      "Canopas Portfolio - Togness - One app for all your life's occasions.",
+    title: "Togness - One app for all your life's occasions - Canopas",
     description:
-      "Togness is a photo editing and slideshow maker app for all your life's occasions. We developed android and iOS apps with an admin panel for content management and analytics.",
+      "Togness is the perfect photo editing and slideshow app for life's occasions. With Android and iOS apps and an admin panel for content management and analytics.",
     type: "Website",
     url: config.BASE_URL + "/portfolio/togness",
   },
@@ -178,7 +177,7 @@ export default {
             ],
             alt: "togness-apply-filters-slide-video-screen",
             title: "",
-            gif: draftStroyVideo,
+            video: draftStroyVideo,
           },
         ],
       },

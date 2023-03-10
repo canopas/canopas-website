@@ -1,15 +1,15 @@
 <template>
   <div class="md:tw-mt-[80px] tw-font-inter-regular">
-    <h1
+    <p
       class="tw-text-black-core/[.03] tw-text-center tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[4.0625rem] xl:tw-leading-[5rem]"
     >
       Services
-    </h1>
-    <h1
+    </p>
+    <p
       class="tw-mt-[-40px] xl:tw-mt-[-50px] tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center"
     >
       How We Can Help You
-    </h1>
+    </p>
 
     <div
       v-for="(service, index) in services"

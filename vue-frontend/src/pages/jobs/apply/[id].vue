@@ -223,6 +223,7 @@
                 class="tw-mt-[1.25rem] tw-mx-auto tw-mb-0 tw-py-0 tw-px-[64px] md:tw-px-[80px] lg:tw-mt-[1.25rem] lg:tw-mx-[0.5rem] lg:tw-mb-0"
                 :src="loaderImage"
                 v-if="showLoader"
+                alt="loader-image"
               />
               <div
                 class="tw-relative tw-flex tw-flex-col tw-items-center"

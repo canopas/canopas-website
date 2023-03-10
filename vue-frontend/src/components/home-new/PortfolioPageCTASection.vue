@@ -19,11 +19,11 @@
         <div
           class="tw-m-auto lg:tw-ml-auto xl:tw-m-auto tw-w-[80%] sm:tw-w-[60%] md:tw-w-[50%] lg:tw-w-full tw-py-[40px] lg:tw-py-0"
         >
-          <h1
+          <p
             class="tw-text-black-core/[0.87] tw-text-[1.5rem] tw-leading-[1.813rem] md:tw-text-[2.188rem] md:tw-leading-[2.625rem] xl:tw-text-[3.125rem] xl:tw-leading-[3.813rem] tw-font-inter-bold"
           >
             Whether you need...
-          </h1>
+          </p>
           <ul
             class="tw-pt-6 tw-text-[1rem] tw-text-black-core/[0.6] tw-leading-[1.25rem] md:tw-text-[1.188rem] md:tw-leading-[1.5rem] xl:tw-text-[1.375rem] xl:tw-leading-[1.8125rem] tw-font-inter-semibold"
           >

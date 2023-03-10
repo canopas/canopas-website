@@ -79,7 +79,7 @@ export default {
   name: "luxeradio",
   seoData: {
     title:
-      "Canopas Portfolio - Luxe Radio - A Radio, Music Streaming, and Podcast Platform.",
+      "Luxe Radio - A Radio, Music Streaming, and Podcast Platform - Canopas",
     description:
       "Luxe Radio is a radio, music streaming, and podcast platform for Moroccan people. We developed mobile apps for iOS, Android, and desktop apps for Mac and Windows.",
     type: "Website",

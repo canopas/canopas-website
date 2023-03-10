@@ -42,13 +42,14 @@ export default {
     NewFooter,
   },
   inject: ["mixpanel"],
-  mounted() {
-    if (config.SHOW_ABOUT_US_PAGE == false) {
-      this.$router.push({
-        name: "Error404Page",
-        params: { pathMatch: "about" },
-      });
+  beforeRouteEnter(to, from, next) {
+    if (config.SHOW_ABOUT_US_PAGE === false) {
+      next({ name: "Error404Page", params: { pathMatch: "/about" } });
+    } else {
+      next();
     }
+  },
+  mounted() {
     this.mixpanel.track("view_about_page");
   },
 };

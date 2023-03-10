@@ -8,7 +8,6 @@
         class="tw-hidden tw-absolute tw-object-cover tw-w-full tw-py-40 lg:tw-block"
         alt="luxeradio-music-background"
       />
-
       <div
         :class="[
           id == 'smileplus'
@@ -35,7 +34,7 @@
                 target="_blank"
                 :href="button.link"
                 @click.native="mixpanel.track(button.event)"
-                ><img :src="button.image" class="tw-w-48"
+                ><img :src="button.image" class="tw-w-48" :alt="button.name"
               /></a>
             </div>
           </div>
@@ -70,13 +69,17 @@
         class="tw-w-full tw-h-full tw-object-cover"
         :alt="response.alt"
       />
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        v-if="response.animation"
+        class="tw-absolute tw-right-0 tw-bottom-0 tw-left-0 tw-top-[10px] sm:tw-top-[18px] md:tw-top-[20px] xl:tw-top-[35px] tw-m-auto tw-h-3/3 tw-w-[19%] tw-rounded-md md:tw-rounded-xl lg:tw-rounded-3xl"
+      >
+        <source :src="response.animation" type="video/mp4" />
+      </video>
     </aspect-ratio>
-    <img
-      v-if="response.animation"
-      :src="response.animation"
-      class="tw-absolute tw-inset-0 md:tw-top-7 tw-m-auto tw-h-3/3 tw-w-1/5 tw-rounded-md md:tw-rounded-xl lg:tw-rounded-3xl"
-      :alt="response.alt"
-    />
   </section>
 
   <!-- mobile screen slider -->
@@ -220,7 +223,7 @@
                 target="_blank"
                 :href="button.link"
                 @click.native="mixpanel.track(button.event)"
-                ><img :src="button.image" class="tw-w-48"
+                ><img :src="button.image" class="tw-w-48" :alt="button.name"
               /></a>
             </div>
           </div>

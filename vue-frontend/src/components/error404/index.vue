@@ -14,9 +14,9 @@
         <img :src="middleErrorLetter" class="tw-m-4 tw-w-[6.5rem]" alt="404" />
         <img :src="lastErrorLetter" alt="404" />
       </div>
-      <div class="tw-mt-[2rem] tw-text-center tw-text-[1.4rem] tw-leading-8">
+      <h1 class="tw-mt-[2rem] tw-text-center tw-text-[1.4rem] tw-leading-8">
         The page you’re looking for was moved, renamed or might never existed.
-      </div>
+      </h1>
       <router-link
         class="tw-my-16 gradient-border-btn tw-flex tw-flex-row tw-items-center"
         to="/"

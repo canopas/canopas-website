@@ -21,7 +21,7 @@
     </div>
 
     <div v-if="careers == null" class="tw-flex tw-justify-center">
-      <img :src="loader" />
+      <img :src="loader" alt="loader-image" />
     </div>
     <div
       v-else

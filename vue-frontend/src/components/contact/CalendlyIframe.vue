@@ -4,6 +4,7 @@
       <img
         :src="loader"
         class="tw-fixed tw-left-[50%] tw-top-[50%] -tw-translate-y-1/2 -tw-translate-x-1/2 tw-z-[100]"
+        alt="loader-image"
       />
     </div>
     <iframe

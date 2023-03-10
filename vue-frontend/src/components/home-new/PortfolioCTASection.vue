@@ -21,11 +21,11 @@
         <div
           class="tw-m-auto lg:tw-ml-auto xl:tw-m-auto tw-w-[80%] sm:tw-w-[60%] md:tw-w-[50%] lg:tw-w-[90%] 2xl:tw-w-9/12 tw-py-[20px] tw-text-white"
         >
-          <h1
+          <p
             class="tw-text-[1.5rem] tw-leading-[1.813rem] md:tw-text-[2.188rem] md:tw-leading-[2.625rem] lg:tw-text-[3.125rem] lg:tw-leading-[3.813rem] tw-font-inter-bold"
           >
             Whether you need...
-          </h1>
+          </p>
           <ul
             class="tw-pt-6 tw-text-[1rem] tw-leading-[1.25rem] md:tw-text-[1.188rem] md:tw-leading-[1.5rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.8125rem] tw-font-inter-semibold"
           >
