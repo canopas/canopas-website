@@ -14,7 +14,6 @@ import (
 const (
 	XMLNS       = "http://www.sitemaps.org/schemas/sitemap/0.9"
 	XMLNS_VIDEO = "http://www.google.com/schemas/sitemap-video/1.1"
-	BLOG_URL    = "https://blog.canopas.com"
 )
 
 type SitemapRepository struct {
@@ -59,7 +58,6 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	sitemapUrls := []URL{
 		{Loc: baseUrl, Priority: `1`},
 		{Loc: baseUrl + `/contact`, Priority: `0.9`},
-		{Loc: BLOG_URL, Priority: `0.8`},
 	}
 
 	sitemapUrls = addPortfolios(baseUrl, sitemapUrls)

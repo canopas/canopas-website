@@ -158,6 +158,7 @@
               v-if="showLoader"
               :src="loaderImage"
               class="tw-w-[64px] tw-h-[64px]"
+              alt="loader-image"
             />
             <div v-else>
               <div class="v2-normal-3-text">

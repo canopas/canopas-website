@@ -194,6 +194,7 @@
                 type="checkbox"
                 v-model="NDA"
                 class="tw-sr-only tw-peer"
+                aria-label="Send NDA"
               />
               <div
                 class="tw-w-9 tw-h-4 tw-rounded-full tw-bg-white/[.6] tw-peer after:tw-content-[''] after:tw-absolute after:tw-top-[-2px] after:tw-left-[-2px] after:tw-h-5 after:tw-w-5 after:tw-border-white/[.6] after:tw-border after:tw-rounded-full after:tw-bg-white after:tw-transition-all peer-focus:tw-outline-none peer-checked:after:tw-border-white/[.6] peer-checked:tw-bg-gradient-to-r peer-checked:tw-from-[#F2709C] peer-checked:tw-to-[#FF9472] peer-checked:after:tw-translate-x-full"
@@ -207,6 +208,7 @@
             v-if="showLoader"
             :src="loaderImage"
             class="tw-w-[64px] tw-h-[64px]"
+            alt="loader-image"
           />
           <div class="tw-relative" v-else>
             <div

@@ -26,7 +26,7 @@
                 :href="button.link"
                 @click.native="mixpanel.track(button.event)"
               >
-                <img :src="button.image" class="tw-w-48"
+                <img :src="button.image" class="tw-w-48" :alt="button.name"
               /></a>
             </div>
           </div>
@@ -142,12 +142,17 @@
                   :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
                   :alt="data.alt"
                 />
-                <img
-                  v-if="data.gif"
-                  :src="data.gif"
+                <video
+                  v-if="data.video"
+                  preload="auto"
+                  loop
+                  muted
+                  autoplay
+                  playsinline
                   class="tw-absolute tw-inset-0 tw-m-auto tw-rounded-2xl md:tw-rounded-xl xl:tw-rounded-3xl tw-object-cover tw-h-3/3"
-                  :alt="data.alt"
-                />
+                >
+                  <source :src="data.video" type="video/mp4" />
+                </video>
                 <LottieAnimation
                   v-else-if="data.animation"
                   :jsonData="data.animation"
@@ -191,7 +196,6 @@
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import LottieAnimation from "@/components/utils/LottieAnimation.vue";
 import { elementInViewPort } from "@/utils.js";
-
 export default {
   props: ["json"],
   data() {
@@ -254,7 +258,6 @@ export default {
     transform: translateZ(-1px) scale(1.5);
   }
 }
-
 @screen 3xl {
   section.background-image {
     transform: translateZ(-1px) scale(1.3);

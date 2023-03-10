@@ -20,8 +20,8 @@
           :key="index"
           @mouseover="playSwiper(false)"
           @mouseleave="playSwiper(true)"
-          @touchstart="playSwiper(false)"
-          @touchmove="playSwiper(true)"
+          @touchstart.passive="playSwiper(false)"
+          @touchmove.passive="playSwiper(true)"
           @touchend="playSwiper(true)"
           class="tw-cursor-pointer"
         >
@@ -144,6 +144,14 @@ export default {
           review: `“There is not enough space to say all the wonderful things I would want to share about Canopas. The team is incredibly helpful, stays calm even when we had to deal with tough issues on our app and always found a way to help us fix whatever was needed or roll out any new features for our app in both the
             <span class="tw-bg-single-color-underline
             "> iOS and Android stores.</span>”`,
+        },
+        {
+          id: 5,
+          name: "Cyril Trosset",
+          className: "2xl:tw-px-52",
+          designation: "CTO at Udini, France",
+          review: `“Multiple versions of this Android app have been successfully delivered over time. They are always very responsive on bug resolution. They are very efficient at producing complex interfaces and <span class="tw-bg-single-color-underline
+            ">high quality apps.</span>”`,
         },
       ],
       pagination: {

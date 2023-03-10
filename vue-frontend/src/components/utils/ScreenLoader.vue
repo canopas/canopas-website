@@ -10,6 +10,7 @@
     <img
       class="tw-fixed tw-left-[50%] tw-top-[50%] tw-z-[100] -tw-translate-x-1/2 -tw-translate-y-1/2"
       :src="loaderImage"
+      alt="loader-image"
     />
   </div>
 </template>

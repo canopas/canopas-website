@@ -56,7 +56,7 @@ export default {
   seoData: {
     title: "Canopas Portfolio - Justly - Build Healthy Habits.",
     description:
-      "Justly is a startup to help people improve their daily life by creating healthy habits. Our team developed mobile apps for android, iOS, and the admin panel for management.",
+      "Justly is a startup to help people create healthy habits for better daily life. We developed mobile apps for android and iOS and an admin panel for management.",
     type: "Website",
     url: config.BASE_URL + "/portfolio/justly",
   },

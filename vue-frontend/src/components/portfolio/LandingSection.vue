@@ -3,9 +3,9 @@
     <div
       class="tw-container tw-pt-20 tw-pb-40 sm:tw-pt-32 lg:tw-pb-80 lg:tw-pt-60"
     >
-      <div class="v2-normal-2-text animate__animated animate__fadeInUp">
+      <h1 class="v2-normal-2-text animate__animated animate__fadeInUp">
         {{ response.title }}
-      </div>
+      </h1>
       <div class="v2-title-text tw-mt-10 animate__animated animate__slideInUp">
         {{ response.subTitle }}
       </div>

@@ -6,11 +6,11 @@
       <div
         class="tw-flex tw-flex-col tw-justify-center tw-w-[30%] tw-h-full tw-float-right"
       >
-        <h1
+        <span
           class="tw-font-inter-bold tw-text-black-core/[.87] tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.5rem] md:tw-leading-[5.5625rem]"
         >
           We are here to Contribute
-        </h1>
+        </span>
         <div
           class="tw-mt-2 md:tw-mt-0 tw-font-inter-medium tw-text-black-core/[0.6] tw-text-[1.5rem] tw-leading-[2.5625rem]"
         >
@@ -36,11 +36,9 @@
         :class="index % 2 != 0 ? 'tw-flex-row-reverse' : ''"
       >
         <div class="tw-shadow-[2px_2px_10px_rgba(0,0,0,0.1)]">
-          <img
-            :src="contribution.image"
-            :alt="contribution.title + `image`"
-            loading="lazy"
-          />
+          <video autoplay loop muted playsinline style="height: 690px">
+            <source :src="contribution.video" type="video/mp4" />
+          </video>
         </div>
 
         <div
@@ -86,11 +84,11 @@
               </div>
             </div>
             <div>
-              <h1
+              <p
                 class="tw-mt-[41px] tw-font-inter-semibold tw-text-black-core/[0.87] tw-text-[1.875rem] tw-leading-[2rem]"
               >
                 {{ contribution.title }}
-              </h1>
+              </p>
             </div>
             <div class="tw-mt-5">
               <span
@@ -102,7 +100,7 @@
               @touchstart.passive="activeIndex = index"
               class="tw-flex tw-flex-row tw-justify-between tw-mt-[30px] tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1rem] tw-leading-[1.5rem]"
             >
-              <h1>by {{ contribution.author }}</h1>
+              <span>by {{ contribution.author }}</span>
               <a
                 class="tw-duration-300 tw-ease-in-out hover:tw-scale-[1.1]"
                 :href="contribution.link"
@@ -128,9 +126,9 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
-import UIPilot from "@/assets/images/contribution/animations/UIPilot.gif";
-import IntroShowCase from "@/assets/images/contribution/animations/introShowCase.gif";
-import JetpackComposeAnimations from "@/assets/images/contribution/animations/JetpackComposeAnimations.gif";
+import UIPilot from "@/assets/images/contribution/animations/UIPilot.mp4";
+import IntroShowCase from "@/assets/images/contribution/animations/introShowCase.mp4";
+import JetpackComposeAnimations from "@/assets/images/contribution/animations/JetpackComposeAnimations.mp4";
 import Config from "@/config.js";
 
 library.add(faGithub);
@@ -147,7 +145,7 @@ export default {
           description:
             "Highlight different features of the app using Jetpack Compose",
           author: "Radhika S.",
-          image: IntroShowCase,
+          video: IntroShowCase,
           starPoints: "237",
           link: "https://github.com/canopas/Intro-showcase-view",
         },
@@ -155,7 +153,7 @@ export default {
           title: "UIPilot",
           description: "The missing typesafe SwiftUI navigation library",
           author: "Jimmy S.",
-          image: UIPilot,
+          video: UIPilot,
           starPoints: "201",
           link: "https://github.com/canopas/UIPilot",
         },
@@ -163,7 +161,7 @@ export default {
           title: "Jetpack Compose animations",
           description: "Cool animations implemented with Jetpack compose",
           author: "Radhika S.",
-          image: JetpackComposeAnimations,
+          video: JetpackComposeAnimations,
           starPoints: "186",
           link: "https://github.com/canopas/Jetpack-compose-animations-examples",
         },

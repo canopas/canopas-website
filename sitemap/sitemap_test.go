@@ -129,7 +129,6 @@ func expectedURLData() []URL {
 	sitemapUrls := []URL{
 		{Loc: baseUrl, Priority: `1`},
 		{Loc: baseUrl + "/contact", Priority: `0.9`},
-		{Loc: BLOG_URL, Priority: `0.8`},
 		{Loc: baseUrl + "/portfolio", Priority: `0.9`},
 		{Loc: baseUrl + "/portfolio/luxeradio", Priority: `0.9`},
 		{Loc: baseUrl + "/portfolio/togness", Priority: `0.9`},

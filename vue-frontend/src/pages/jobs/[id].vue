@@ -48,11 +48,11 @@
         <div
           class="tw-container tw-py-[48px] tw-px-[16px] tw-max-w-full sm:tw-max-w-[540px] md:tw-max-w-[720px] lg:tw-max-w-[960px] xl:tw-max-w-[1140px] 2xl:tw-max-w-[1320px] md:tw-pt-[96px] md:tw-px-[96px] md:tw-pb-[150px]"
         >
-          <div
+          <h1
             class="canopas-gradient-text tw-font-bold tw-text-[1.75rem] tw-leading-8 tw-tracking-[0.1rem] md:tw-text-[2.25rem] md:tw-leading-[2.729rem] tw-text-center"
           >
             {{ job.title }}
-          </div>
+          </h1>
           <hr
             class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-m-0 tw-mt-6"
           />

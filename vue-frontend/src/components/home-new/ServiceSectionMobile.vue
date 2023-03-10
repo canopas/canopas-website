@@ -3,16 +3,16 @@
     class="tw-container tw-relative tw-m-0 tw-mt-[40px] tw-max-w-full tw-p-0 tw-text-center"
   >
     <div>
-      <h1
+      <p
         class="tw-text-black-core/[.03] tw-text-center tw-text-[2.5rem] tw-leading-[1.875rem]"
       >
         Services
-      </h1>
-      <h1
+      </p>
+      <p
         class="tw-mt-[-20px] tw-pb-8 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem]"
       >
         How We Can Help You
-      </h1>
+      </p>
     </div>
     <img
       :src="ServiceBackgroundImage"

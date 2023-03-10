@@ -5,16 +5,16 @@
     <div
       class="tw-container tw-flex tw-flex-col tw-items-center tw-m-auto tw-w-full"
     >
-      <h1
+      <span
         class="tw-text-black-core/[.03] tw-text-center tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[4.0625rem] xl:tw-leading-[5rem]"
       >
         Blogs
-      </h1>
-      <h1
+      </span>
+      <span
         class="tw-mt-[-30px] xl:tw-mt-[-50px] lg:tw-w-[50%] tw-text-center tw-font-roboto-bold tw-text-[1.875rem] md:tw-text-[2.625rem] xl:tw-text-[3.438rem] tw-leading-[2.5rem] md:tw-leading-[2.75rem] xl:tw-leading-[5rem]"
       >
         Do we have a team with the right skills?
-      </h1>
+      </span>
       <div class="tw-mt-[1.125rem] lg:tw-w-[65%]">
         <div
           class="tw-w-full tw-text-center tw-font-inter-medium tw-text-black-core/[0.6] tw-text-[1rem] md:tw-text-[1.25rem] xl:tw-text-[1.5rem] tw-leading-[1.375rem] md:tw-leading-[2rem] xl:tw-leading-[2.625rem]"
