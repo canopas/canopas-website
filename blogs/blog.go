@@ -17,13 +17,12 @@ const YYYYMMDD = "2006-01-02 15:04:05"
 const MAX_BLOG_NUMBER = 3
 
 type Item struct {
-	Title       string `json:"title"`
-	Author      string `json:"author"`
-	PubDate     string `json:"pubDate"`
-	Link        string `json:"link"`
-	GUID        string `json:"guid"`
-	Thumbnail   string `json:"thumbnail"`
-	Description string `json:"description"`
+	Title     string `json:"title"`
+	Author    string `json:"author"`
+	PubDate   string `json:"pubDate"`
+	Link      string `json:"link"`
+	GUID      string `json:"guid"`
+	Thumbnail string `json:"thumbnail"`
 }
 
 type Blog struct {

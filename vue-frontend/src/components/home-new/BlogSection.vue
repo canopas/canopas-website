@@ -26,10 +26,7 @@
         </div>
       </div>
     </div>
-    <div
-      class="tw-relative tw-mt-[3rem]"
-      :class="width < 768 || width > 2000 ? 'tw-container' : ''"
-    >
+    <div class="tw-relative tw-mt-[3rem]">
       <img
         v-if="width < 680"
         :src="bgMobile"
@@ -37,16 +34,9 @@
         class="md:tw-hidden tw-absolute tw-top-0 -tw-right-10 sm:-tw-right-20 tw-h-full"
         alt="blog-background-image"
       />
-      <img
-        v-else
-        :src="bg"
-        loading="lazy"
-        class="tw-hidden lg:tw-block tw-absolute tw-top-0 tw-right-0"
-        alt="blog-background-image"
-      />
     </div>
     <div
-      class="tw-flex tw-flex-col md:tw-flex-row md:tw-mt-[4rem] tw-z-[1] lg:tw-h-[580px] md:tw-py-[10%] lg:tw-py-0"
+      class="tw-flex tw-flex-col md:tw-flex-row md:tw-mt-[4rem] tw-z-[1] lg:tw-min-h-[580px] md:tw-pb-[15%] lg:tw-py-0"
       :class="width < 768 || width > 2000 ? 'tw-container' : ''"
     >
       <div
@@ -148,7 +138,7 @@
           <img
             :src="bg"
             loading="lazy"
-            class="lg:tw-hidden tw-absolute tw-top-[50%] tw-right-[-1rem] -tw-translate-y-1/2"
+            class="tw-absolute tw-top-[50%] tw-right-[-1rem] -tw-translate-y-1/2"
             alt="blog-background-image"
           />
           <img
