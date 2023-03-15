@@ -35,7 +35,7 @@ export default {
 
 <style lang="postcss">
 body {
-  @apply tw-font-product-sans tw-select-none;
+  @apply tw-select-none;
 }
 
 body::-webkit-scrollbar,
