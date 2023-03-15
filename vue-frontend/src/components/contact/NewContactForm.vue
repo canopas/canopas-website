@@ -4,7 +4,7 @@
       <div
         class="tw-rounded-2xl tw-border tw-border-slate-200 tw-bg-white tw-shadow-[0px_0px_45px_rgba(0,0,0,0.1)]"
       >
-        <div class="tw-py-5 tw-px-8 lg:tw-px-12">
+        <div class="tw-pt-5 tw-pb-20 md:tw-pb-24 tw-px-8 lg:tw-px-12">
           <div>
             <div class="tw-relative tw-mb-5 md:tw-mb-5 tw-pt-8 tw-text-left">
               <input
@@ -225,7 +225,7 @@
                   :class="
                     contactType == 2
                       ? 'tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-white tw-shadow-none'
-                      : 'gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
+                      : 'tw-m-0 gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
                   "
                   class="tw-flex tw-items-center tw-mt-1.5 tw-mb-6 tw-cursor-pointer tw-rounded-full tw-px-[2.5rem] lg:tw-px-[1.8rem] tw-py-2 md:tw-py-3 active:tw-scale-[0.98] tw-font-inter-semibold tw-text-[1rem] md:tw-text-[1.1875rem] tw-leading-[1.21rem] md:tw-leading-[1.386875rem] tw-text-center"
                 >
@@ -261,7 +261,7 @@
                   :class="
                     contactType == 1
                       ? 'tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] '
-                      : 'gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
+                      : 'tw-m-0 gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
                   "
                   class="tw-flex tw-cursor-pointer tw-items-center tw-mt-1.5 tw-mb-6 tw-rounded-full tw-px-[2.5rem] lg:tw-px-[1.8rem] tw-py-2 md:tw-py-3 active:tw-scale-[0.98] tw-text-center tw-font-inter-semibold tw-text-[1rem] md:tw-text-[1.1875rem] tw-leading-[1.21rem] md:tw-leading-[1.386875rem]"
                 >
@@ -291,7 +291,7 @@
                 class="tw-relative tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.436875rem] md:tw-leading-[1.386875rem] tw-text-center"
               >
                 <div
-                  class="tw-absolute -tw-top-[2.5rem] sm:-tw-top-[1.875rem] tw-text-center tw-right-[1rem] sm:-tw-right-[5rem] md:-tw-right-[8rem] lg:-tw-right-[4rem] xl:-tw-right-[7rem] 2xl:-tw-right-[7.5rem] sm:tw-w-max"
+                  class="tw-absolute -tw-top-[2.5rem] sm:-tw-top-[2rem] xl:-tw-top-[1.875rem] 2xl:-tw-top-[2.875rem] tw-text-center -tw-right-[8rem] sm:-tw-right-[12.5rem] md:-tw-right-[17rem] lg:-tw-right-[14rem] xl:-tw-right-[17rem] 2xl:-tw-right-[21.5rem] tw-w-[250px] sm:tw-w-max"
                 >
                   <span
                     v-if="showErrorMessage"
@@ -306,7 +306,7 @@
 
                   <span
                     v-if="contactType == 1 && showSuccessMessage"
-                    class="canopas-gradient-text tw-text-[0.8rem] md:tw-text-[1.1rem] lg:tw-text-[0.9rem] xl:tw-text-[1.1rem] tw-leading-[1rem]"
+                    class="canopas-gradient-text tw-text-[0.8rem] md:tw-text-[1.1rem] lg:tw-text-[0.9rem] xl:tw-text-[1.1rem] 2xl:tw-text-[1.375rem] tw-leading-[1rem] 2xl:tw-leading-[3.0625rem]"
                     >Thank you for choosing us to make a difference in your
                     business.</span
                   >
@@ -315,7 +315,7 @@
                   id="submit"
                   v-if="contactType == 1"
                   ref="recaptcha"
-                  class="tw-mt-[1rem] sm:tw-mt-0 tw-rounded-full tw-py-2.5 md:tw-py-5 tw-px-20 md:tw-px-28 tw-text-center gradient-btn consultation-btn"
+                  class="tw-absolute sm:-tw-bottom-[48px] md:-tw-bottom-[70px] -tw-left-[120px] md:-tw-left-[140px] tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 tw-px-20 md:tw-px-28 tw-text-center gradient-btn consultation-btn"
                   @click.prevent="submitForm()"
                 >
                   <font-awesome-icon
@@ -326,7 +326,7 @@
                 </button>
                 <button
                   v-if="contactType == 2"
-                  class="tw-flex tw-items-center tw-m-0 tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 sm:tw-px-12 tw-text-center gradient-btn consultation-btn"
+                  class="tw-absolute sm:-tw-bottom-[48px] md:-tw-bottom-[70px] -tw-left-[120px] sm:-tw-left-[145px] md:-tw-left-[140px] tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 sm:tw-px-12 tw-text-center gradient-btn consultation-btn"
                   @click.prevent="submitForm()"
                 >
                   <font-awesome-icon
