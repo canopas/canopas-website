@@ -19,7 +19,7 @@
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
 
     <div
-      class="tw-container lg:tw-flex lg:tw-flex-row tw-mt-[.5rem] md:tw-mt-16 lg:tw-mt-32"
+      class="tw-container lg:tw-flex lg:tw-flex-row tw-mt-[0.5rem] md:tw-mt-16 lg:tw-mt-32"
     >
       <NewContactLanding class="tw-basis-3/6 2xl:tw-basis-[40%]" />
       <NewContactForm
