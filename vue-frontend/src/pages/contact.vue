@@ -9,7 +9,7 @@
     <div class="tw-relative">
       <div
         v-if="message && type == 1"
-        class="tw-absolute md:tw-mt-[1.5rem] tw-w-full tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center xl:tw-text-right tw-p-[1rem] md:tw-p-[0.5rem] tw-bg-pink-500 tw-font-inter-semibold tw-text-white tw-text-[1rem] md:tw-text-[1.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.813rem] tw-right-[-122px] md:"
+        class="tw-absolute md:tw-mt-[1.5rem] tw-w-full tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center xl:tw-text-right tw-p-[1rem] md:tw-p-[0.5rem] tw-bg-pink-500 tw-font-inter-semibold tw-text-white tw-text-[1rem] md:tw-text-[1.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.813rem]"
       >
         <span class="lg:tw-mr-16">
           Thank you for choosing us to make a difference in your business.</span
@@ -19,7 +19,7 @@
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
 
     <div
-      class="tw-container lg:tw-flex lg:tw-flex-row tw-mt-[0.5rem] md:tw-mt-16 lg:tw-mt-32"
+      class="tw-container lg:tw-flex lg:tw-flex-row tw-mt-[3.5rem] md:tw-mt-16 lg:tw-mt-32"
     >
       <NewContactLanding class="tw-basis-3/6 2xl:tw-basis-[40%]" />
       <NewContactForm
