@@ -149,7 +149,12 @@
                   muted
                   autoplay
                   playsinline
-                  class="tw-absolute tw-inset-0 tw-m-auto tw-rounded-2xl md:tw-rounded-xl xl:tw-rounded-3xl tw-object-cover tw-h-3/3"
+                  class="tw-absolute tw-inset-0 tw-m-auto tw-object-cover"
+                  :class="
+                    data.title !== 'togness'
+                      ? 'tw-rounded-2xl md:tw-rounded-xl xl:tw-rounded-3xl tw-h-3/3'
+                      : ''
+                  "
                 >
                   <source :src="data.video" type="video/mp4" />
                 </video>
@@ -158,22 +163,6 @@
                   :jsonData="data.animation"
                   class="tw-mt-14 lg:tw-mt-20"
                 />
-                <video
-                  v-if="data.video"
-                  preload="auto"
-                  loop
-                  muted
-                  autoplay
-                  playsinline
-                  id="video-preview"
-                  :class="[
-                    data.video
-                      ? 'tw-rounded-b-[90px] tw-border-b-8 tw-border-x-8 tw-border-solid tw-border-white tw-px-8 tw-pb-8'
-                      : '',
-                  ]"
-                >
-                  <source :src="data.video" type="video/mp4" />
-                </video>
               </div>
             </aspect-ratio>
           </div>

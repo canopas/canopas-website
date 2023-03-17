@@ -61,6 +61,7 @@ export default {
         type: seoData.type,
         title: seoData.title,
         url: seoData.url,
+        image: seoData.image,
       },
     });
   },

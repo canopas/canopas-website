@@ -14,12 +14,14 @@ export default Object.freeze({
   BASE_URL: "https://dev-stack.canopas.com",
   CALENDLY_IFRAME_URL: "https://calendly.com/darpanvithani/15min",
   CLUTCH_URL: "https://clutch.co/profile/canopas-software#reviews",
+  OG_IMAGE_URL: "https://dev-stack.canopas.com/apple-touch-icon.png",
   SEO_META_DATA: {
     title: "Canopas - Fastest growing IT company in Surat, India.",
     description:
       "Canopas is a software development company helping businesses grow exponentially by developing mobile apps, websites, web apps, desktop apps, UI/UX, and SEO.",
     type: "Website",
     url: "https://dev-stack.canopas.com",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   JOBS_SEO_META_DATA: {
     title: "Explore Life at Canopas, Find IT jobs in surat at Canopas.",
@@ -27,6 +29,7 @@ export default Object.freeze({
       "Software developer jobs in surat, IT jobs in surat. If you're ready to step out of your comfort zone, want to acquire new skills, we would love to meet you.",
     type: "Jobs Posting Website",
     url: "https://dev-stack.canopas.com/jobs",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   CONTACT_SEO_META_DATA: {
     title:
@@ -35,6 +38,7 @@ export default Object.freeze({
       "Thank you for choosing Canopas for your business. Fill out all the required information about you and your business. We will get back to you soon.",
     type: "Website",
     url: "https://dev-stack.canopas.com/contact",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   PORTFOLIO_SEO_META_DATA: {
     title: "Canopas portfolios",
@@ -42,6 +46,7 @@ export default Object.freeze({
       "Let's grow together. At Canopas, We develop amazing products to help entrepreneurs, startups, and businesses bring their ideas to life.",
     type: "Website",
     url: "https://dev-stack.canopas.com/portfolio",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   ABOUT_SEO_META_DATA: {
     title: "Canopas - Fastest growing IT company in Surat, India.",
@@ -49,6 +54,7 @@ export default Object.freeze({
       "Canopas is a software development company helping businesses grow exponentially by developing mobile apps, websites, web apps, desktop apps, UI/UX, and SEO.",
     type: "Website",
     url: "https://dev-stack.canopas.com/about",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   IS_PROD: false,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",

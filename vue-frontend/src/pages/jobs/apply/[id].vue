@@ -294,6 +294,7 @@ export default {
     const { meta } = useMeta({
       og: {
         type: "Jobs Posting Website",
+        image: config.OG_IMAGE_URL,
       },
     });
     return {
