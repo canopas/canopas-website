@@ -77,7 +77,7 @@
               >
                 <img
                   :src="client.image"
-                  class="tw-w-full tw-h-full tw-object-cover"
+                  class="tw-object-cover"
                   loading="lazy"
                   alt="client-image"
                 />

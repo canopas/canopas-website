@@ -30,7 +30,7 @@
         >
           {{ portfolio.title }}
         </div>
-        <div class="tw-flex tw-items-center tw-h-full tw-py-8 sm:tw-p-0">
+        <div class="tw-flex tw-items-center tw-py-8 sm:tw-p-0">
           <video
             v-if="portfolio.video"
             autoplay
@@ -45,7 +45,7 @@
             v-else
             :src="portfolio.images[3]"
             :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w, ${portfolio.images[2]} 1600w, ${portfolio.images[3]} 2400w`"
-            class="tw-h-full tw-object-cover tw-z-[1]"
+            class="tw-object-cover tw-z-[1]"
             :class="[
               portfolio.id == 4
                 ? 'tw-mt-0 sm:tw-mt-4 md:tw-mt-0 sm:tw-w-full sm:tw-h-[90%]'
@@ -178,6 +178,7 @@ export default {
           description:
             "Smile+ app is designed for dentists to create a perfect smile for their patients automated with AI.",
           url: config.SMILEPLUS_URL,
+          target: "_blank",
           event: "tap_smileplus_portfolio_card",
         },
         {
@@ -228,7 +229,7 @@ export default {
   inject: ["mixpanel"],
   methods: {
     openPortfolio(portfolio) {
-      window.open(portfolio.url, "_self");
+      window.open(portfolio.url, portfolio.target ? portfolio.target : "_self");
       this.mixpanel.track(portfolio.event);
     },
   },
