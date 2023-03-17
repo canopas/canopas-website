@@ -6,7 +6,9 @@
       </template>
     </metainfo>
     <Header />
+    <SuccessMessage v-if="showSuccessMessage" />
     <ScreenLoader v-if="isLoading || job == null" />
+
     <div v-else>
       <div
         class="tw-container tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
@@ -242,11 +244,6 @@
                     "
                     >{{ errorMessage }}</span
                   >
-                  <span
-                    v-if="showSuccessMessage"
-                    class="canopas-gradient-text tw-text-[1rem] sm:tw-text-[1.1rem] md:tw-text-[1.2rem] lg:tw-text-[1.2rem] xl:tw-text-[1.6rem] 2xl:tw-text-[1.8rem]"
-                    >We have received your job application, sit back and relax!
-                  </span>
                 </div>
                 <button
                   class="gradient-btn tw-py-[16px] tw-px-[64px] md:tw-py-[16px] md:tw-px-[80px]"
@@ -276,6 +273,7 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
+import SuccessMessage from "@/components/contact/SuccessMessage.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { useJobDetailStore } from "@/stores/jobs";
@@ -384,6 +382,7 @@ export default {
     NewFooter,
     FontAwesomeIcon,
     ScreenLoader,
+    SuccessMessage,
   },
   async serverPrefetch() {
     await this.setCareerDetails();

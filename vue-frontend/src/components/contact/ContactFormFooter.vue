@@ -212,7 +212,7 @@
           />
           <div class="tw-relative" v-else>
             <div
-              class="tw-absolute -tw-top-[2rem] sm:-tw-top-[1.875rem] md:-tw-top-[2.875rem] tw-text-center -tw-right-[4rem] sm:-tw-right-[11rem] md:-tw-right-[15rem] lg:-tw-right-[18rem] xl:-tw-right-[18rem] 2xl:-tw-right-[18.5rem] tw-w-[190%] sm:tw-w-max"
+              class="tw-absolute -tw-top-[2rem] sm:-tw-top-[1.875rem] md:-tw-top-[2.875rem] tw-text-center -tw-right-[4rem] sm:-tw-right-[11rem] md:-tw-right-[15rem] lg:-tw-right-[18rem] xl:-tw-right-[18rem] 2xl:-tw-right-[20.5rem] tw-w-[190%] sm:tw-w-max"
             >
               <span
                 v-if="showErrorMessage"
@@ -223,13 +223,6 @@
                     : ''
                 "
                 >{{ errorMessage }}</span
-              >
-
-              <span
-                v-if="showSuccessMessage"
-                class="canopas-gradient-text tw-text-[1rem] md:tw-text-[1.2rem] lg:tw-text-[1.5rem]"
-                >Thank you for choosing us to make a difference in your
-                business.</span
               >
             </div>
             <button
@@ -349,6 +342,7 @@ export default {
                   .post(config.API_BASE + "/api/send-contact-mail", formData)
                   .then(() => {
                     this.showSuccessMessage = true;
+                    this.$emit("showMessage", this.showSuccessMessage);
                     this.name = "";
                     this.email = "";
                     this.projectInfo = "";
@@ -357,8 +351,10 @@ export default {
                     this.NDA = false;
                     this.floatable = false;
                     this.showLoader = false;
+
                     setTimeout(() => {
                       this.showSuccessMessage = false;
+                      this.$emit("showMessage", this.showSuccessMessage);
                     }, 3000);
                   })
                   .catch((err) => {
