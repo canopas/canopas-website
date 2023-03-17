@@ -14,13 +14,14 @@
       class="tw-absolute tw-top-[15px] sm:tw-top-0 tw-left-0 tw-w-full tw-h-full xl2:tw-h-[unset] tw--z-[1] tw-object-cover xl2:tw-object-fill"
       alt="canopas-contact-footer"
     />
+    <div
+      class="tw-mt-11 tw-text-center md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-3xl md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
+    >
+      Say Hello!
+    </div>
+    <SuccessMessage v-if="message" />
     <div class="tw-container tw-text-center">
-      <div
-        class="tw-mt-11 md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-3xl md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
-      >
-        Say Hello!
-      </div>
-      <ContactForm />
+      <ContactForm @showMessage="showSuccessMessage" />
       <div class="tw-mb-8 md:tw-mb-[60px]">
         <div
           class="tw-mb-5 tw-text-[1.375rem] tw-leading-[1.6875rem] md:tw-text-[1.5rem] md:tw-leading-[1.8125rem] lg:tw-text-[1.625rem] lg:tw-leading-[1.9375rem] tw-text-white/[.87] tw-font-bold"
@@ -82,6 +83,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import SuccessMessage from "@/components/contact/SuccessMessage.vue";
 
 export default {
   data() {
@@ -93,6 +95,7 @@ export default {
       bg2400,
       hover: false,
       copyrightIcon: faCopyright,
+      message: false,
       socialMediaIcons: [
         {
           url: Config.FACEBOOK_URL,
@@ -130,9 +133,15 @@ export default {
   components: {
     FontAwesomeIcon,
     ContactForm,
+    SuccessMessage,
   },
   mounted() {
     this.width = window.innerWidth;
+  },
+  methods: {
+    showSuccessMessage(data) {
+      this.message = data;
+    },
   },
 };
 </script>

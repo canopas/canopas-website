@@ -20,13 +20,15 @@
           <li
             v-for="icon in socialMediaIcons"
             :key="icon"
-            class="tw-flex tw-justify-center tw-items-center tw-w-[40px] tw-h-[40px] md:tw-w-[62px] md:tw-h-[62px] tw-rounded-[50%] tw-text-center tw-cursor-pointer tw-mx-1 gradient-btn tw-border-0 tw-p-[0.7rem]"
+            class="tw-flex tw-justify-center !tw-items-center tw-w-[40px] tw-h-[40px] md:tw-w-[62px] md:tw-h-[62px] tw-rounded-[50%] tw-text-center tw-cursor-pointer"
+            :class="
+              icon.image ? 'tw-m-[5px]' : 'gradient-border-btn tw-border-0'
+            "
           >
             <a :href="icon.url" target="_blank" aria-label="footerLink">
               <font-awesome-icon
-                class="fab tw-w-[20px] tw-h-[20px] md:tw-w-[32px] md:tw-h-[32px] tw-pt-[5px]"
+                class="fab footer-icon tw-w-[20px] tw-h-[20px] md:tw-w-[32px] md:tw-h-[32px] tw-pt-[5px]"
                 :icon="icon.icon"
-                @click.native="mixpanel.track(icon.event)"
               />
             </a>
           </li>
@@ -40,6 +42,12 @@
         reserved.
       </div>
     </div>
+    <svg width="0" height="0">
+      <linearGradient id="lgrad" x1="100%" y1="100%" x2="0%" y2="0%">
+        <stop offset="-24.42%" style="stop-color: #ff835b; stop-opacity: 1" />
+        <stop offset="101.76%" style="stop-color: #f2709c; stop-opacity: 1" />
+      </linearGradient>
+    </svg>
   </div>
 </template>
 

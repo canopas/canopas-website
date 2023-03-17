@@ -6,10 +6,13 @@
       </template>
     </metainfo>
     <Header />
+    <SuccessMessage v-if="message" />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
-    <div class="tw-container lg:tw-flex lg:tw-flex-row lg:tw-mt-20">
+
+    <div class="tw-container lg:tw-flex lg:tw-flex-row tw-mt-20">
       <NewContactLanding class="tw-basis-3/6 2xl:tw-basis-[40%]" />
       <NewContactForm
+        @showMessage="showSuccessMessage"
         v-on:isLoading="setLoader"
         class="tw-basis-3/6 lg:tw-basis-[70%] 2xl:tw-basis-[60%] lg:tw--mr-14 xl:tw--mr-24"
       />
@@ -24,6 +27,7 @@ import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import NewContactLanding from "@/components/contact/NewContactLanding.vue";
 import NewContactForm from "@/components/contact/NewContactForm.vue";
+import SuccessMessage from "@/components/contact/SuccessMessage.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -51,10 +55,12 @@ export default {
     NewFooter,
     NewContactLanding,
     NewContactForm,
+    SuccessMessage,
   },
   data() {
     return {
       isLoading: false,
+      message: false,
     };
   },
   inject: ["mixpanel"],
@@ -73,6 +79,9 @@ export default {
   methods: {
     setLoader(loading) {
       this.isLoading = loading;
+    },
+    showSuccessMessage(data) {
+      this.message = data;
     },
   },
 };
