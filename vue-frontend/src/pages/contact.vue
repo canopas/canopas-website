@@ -6,16 +6,7 @@
       </template>
     </metainfo>
     <Header />
-    <div class="tw-relative">
-      <div
-        v-if="message"
-        class="tw-absolute md:tw-mt-[1.5rem] tw-w-full tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center xl:tw-text-right tw-p-[1rem] md:tw-p-[0.5rem] tw-bg-pink-500 tw-font-inter-semibold tw-text-white tw-text-[1rem] md:tw-text-[1.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.813rem]"
-      >
-        <span class="lg:tw-mr-16">
-          Thank you for choosing us to make a difference in your business.</span
-        >
-      </div>
-    </div>
+    <SuccessMessage v-if="message" />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
 
     <div
@@ -38,6 +29,7 @@ import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import NewContactLanding from "@/components/contact/NewContactLanding.vue";
 import NewContactForm from "@/components/contact/NewContactForm.vue";
+import SuccessMessage from "@/components/contact/SuccessMessage.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -65,12 +57,12 @@ export default {
     NewFooter,
     NewContactLanding,
     NewContactForm,
+    SuccessMessage,
   },
   data() {
     return {
       isLoading: false,
       message: false,
-      type: 0,
     };
   },
   inject: ["mixpanel"],

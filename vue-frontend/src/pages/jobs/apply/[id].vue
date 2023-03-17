@@ -6,16 +6,7 @@
       </template>
     </metainfo>
     <Header />
-    <div class="tw-relative tw-w-full">
-      <div
-        v-if="showSuccessMessage"
-        class="tw-absolute tw-top-[0.3rem] md:tw-top-[1rem] tw-w-full tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center xl:tw-text-right tw-p-[1rem] md:tw-p-[0.5rem] tw-bg-pink-500 tw-font-inter-semibold tw-text-white tw-text-[1rem] md:tw-text-[1.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.813rem]"
-      >
-        <span class="lg:tw-mr-[-20rem] xl:tw-mr-16">
-          We have received your job application, sit back and relax!</span
-        >
-      </div>
-    </div>
+    <SuccessMessage v-if="showSuccessMessage" />
     <ScreenLoader v-if="isLoading || job == null" />
 
     <div v-else>
@@ -282,6 +273,7 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
+import SuccessMessage from "@/components/contact/SuccessMessage.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { useJobDetailStore } from "@/stores/jobs";
@@ -389,6 +381,7 @@ export default {
     NewFooter,
     FontAwesomeIcon,
     ScreenLoader,
+    SuccessMessage,
   },
   async serverPrefetch() {
     await this.setCareerDetails();

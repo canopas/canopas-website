@@ -19,16 +19,7 @@
     >
       Say Hello!
     </div>
-    <div class="tw-relative tw-w-full">
-      <div
-        v-if="message"
-        class="tw-absolute tw-top-[0.3rem] md:tw-top-[-3rem] md:-tw-bottom-[0.5rem] tw-w-full tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center xl:tw-text-right tw-p-[1rem] md:tw-p-[0.5rem] tw-bg-pink-500 tw-font-inter-semibold tw-text-white tw-text-[1rem] md:tw-text-[1.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.813rem]"
-      >
-        <span class="lg:tw-mr-[-13rem] xl:tw-mr-16">
-          Thank you for choosing us to make a difference in your business.</span
-        >
-      </div>
-    </div>
+    <SuccessMessage v-if="message" />
     <div class="tw-container tw-text-center">
       <ContactForm @showMessage="showSuccessMessage" />
       <div class="tw-mb-8 md:tw-mb-[60px]">
@@ -92,6 +83,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { faCopyright } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import SuccessMessage from "@/components/contact/SuccessMessage.vue";
 
 export default {
   data() {
@@ -141,6 +133,7 @@ export default {
   components: {
     FontAwesomeIcon,
     ContactForm,
+    SuccessMessage,
   },
   mounted() {
     this.width = window.innerWidth;

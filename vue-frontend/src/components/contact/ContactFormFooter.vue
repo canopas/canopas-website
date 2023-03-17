@@ -2,7 +2,7 @@
   <div class="tw-mb-9 md:tw-mb-24 tw-font-inter-regular">
     <form>
       <div
-        class="tw-pt-[5.25rem] sm:tw-pt-[3.25rem] tw-pb-5 md:tw-pt-5 tw-px-8 lg:tw-px-24"
+        class="tw-pt-[5.25rem] sm:tw-pt-[3.25rem] tw-pb-5 md:tw-pt-[4rem] tw-px-8 lg:tw-px-24"
       >
         <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
           <div class="tw-relative md:tw-mb-5 tw-pt-3 lg:tw-pt-9 tw-text-left">
