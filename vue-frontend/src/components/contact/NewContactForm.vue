@@ -483,15 +483,10 @@ export default {
                   this.resetForm();
                   if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
                     this.showSuccessMessage = true;
-                    this.$emit("passData", {
-                      message: this.showSuccessMessage,
-                      type: this.contactType,
-                    });
+                    this.$emit("showMessage", this.showSuccessMessage);
                     setTimeout(() => {
                       this.showSuccessMessage = false;
-                      this.$emit("passData", {
-                        message: this.showSuccessMessage,
-                      });
+                      this.$emit("showMessage", this.showSuccessMessage);
                     }, 3000);
                   } else {
                     setTimeout(() => {

@@ -14,13 +14,23 @@
       class="tw-absolute tw-top-[15px] sm:tw-top-0 tw-left-0 tw-w-full tw-h-full xl2:tw-h-[unset] tw--z-[1] tw-object-cover xl2:tw-object-fill"
       alt="canopas-contact-footer"
     />
-    <div class="tw-container tw-text-center">
+    <div
+      class="tw-mt-11 tw-text-center md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-3xl md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
+    >
+      Say Hello!
+    </div>
+    <div class="tw-relative tw-w-full">
       <div
-        class="tw-mt-11 md:tw-mt-20 lg:tw-mt-32 md:tw-mb-20 canopas-gradient-text tw-text-3xl md:tw-text-[3rem] md:tw-leading-[3.625rem] lg:tw-text-[4.0625rem] lg:tw-leading-[4.9375rem] tw-font-inter-bold"
+        v-if="message"
+        class="tw-absolute tw-top-[0.3rem] md:tw-top-[-3rem] md:-tw-bottom-[0.5rem] tw-w-full tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center xl:tw-text-right tw-p-[1rem] md:tw-p-[0.5rem] tw-bg-pink-500 tw-font-inter-semibold tw-text-white tw-text-[1rem] md:tw-text-[1.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.813rem]"
       >
-        Say Hello!
+        <span class="lg:tw-mr-[-13rem] xl:tw-mr-16">
+          Thank you for choosing us to make a difference in your business.</span
+        >
       </div>
-      <ContactForm />
+    </div>
+    <div class="tw-container tw-text-center">
+      <ContactForm @showMessage="showSuccessMessage" />
       <div class="tw-mb-8 md:tw-mb-[60px]">
         <div
           class="tw-mb-5 tw-text-[1.375rem] tw-leading-[1.6875rem] md:tw-text-[1.5rem] md:tw-leading-[1.8125rem] lg:tw-text-[1.625rem] lg:tw-leading-[1.9375rem] tw-text-white/[.87] tw-font-bold"
@@ -93,6 +103,7 @@ export default {
       bg2400,
       hover: false,
       copyrightIcon: faCopyright,
+      message: false,
       socialMediaIcons: [
         {
           url: Config.FACEBOOK_URL,
@@ -133,6 +144,11 @@ export default {
   },
   mounted() {
     this.width = window.innerWidth;
+  },
+  methods: {
+    showSuccessMessage(data) {
+      this.message = data;
+    },
   },
 };
 </script>

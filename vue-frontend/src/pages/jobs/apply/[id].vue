@@ -6,10 +6,21 @@
       </template>
     </metainfo>
     <Header />
+    <div class="tw-relative tw-w-full">
+      <div
+        v-if="showSuccessMessage"
+        class="tw-absolute tw-top-[0.3rem] md:tw-top-[1rem] tw-w-full tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center xl:tw-text-right tw-p-[1rem] md:tw-p-[0.5rem] tw-bg-pink-500 tw-font-inter-semibold tw-text-white tw-text-[1rem] md:tw-text-[1.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.813rem]"
+      >
+        <span class="lg:tw-mr-[-20rem] xl:tw-mr-16">
+          We have received your job application, sit back and relax!</span
+        >
+      </div>
+    </div>
     <ScreenLoader v-if="isLoading || job == null" />
+
     <div v-else>
       <div
-        class="tw-container tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
+        class="tw-container tw-mt-[105px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
       >
         <div
           class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[15px] tw-py-[32px] tw-px-[24px] md:tw-pt-[48px] md:tw-px-[48px] md:tw-pb-0"
@@ -242,11 +253,6 @@
                     "
                     >{{ errorMessage }}</span
                   >
-                  <span
-                    v-if="showSuccessMessage"
-                    class="canopas-gradient-text tw-text-[1rem] sm:tw-text-[1.1rem] md:tw-text-[1.2rem] lg:tw-text-[1.2rem] xl:tw-text-[1.6rem] 2xl:tw-text-[1.8rem]"
-                    >We have received your job application, sit back and relax!
-                  </span>
                 </div>
                 <button
                   class="gradient-btn tw-py-[16px] tw-px-[64px] md:tw-py-[16px] md:tw-px-[80px]"

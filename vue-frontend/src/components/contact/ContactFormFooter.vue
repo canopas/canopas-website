@@ -1,7 +1,9 @@
 <template>
   <div class="tw-mb-9 md:tw-mb-24 tw-font-inter-regular">
     <form>
-      <div class="tw-py-5 tw-px-8 lg:tw-px-24">
+      <div
+        class="tw-pt-[5.25rem] sm:tw-pt-[3.25rem] tw-pb-5 md:tw-pt-5 tw-px-8 lg:tw-px-24"
+      >
         <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
           <div class="tw-relative md:tw-mb-5 tw-pt-3 lg:tw-pt-9 tw-text-left">
             <input
@@ -224,13 +226,6 @@
                 "
                 >{{ errorMessage }}</span
               >
-
-              <span
-                v-if="showSuccessMessage"
-                class="canopas-gradient-text tw-text-[1rem] md:tw-text-[1.2rem] lg:tw-text-[1.5rem] 2xl:tw-text-[1.75rem]"
-                >Thank you for choosing us to make a difference in your
-                business.</span
-              >
             </div>
             <button
               id="submit"
@@ -349,6 +344,7 @@ export default {
                   .post(config.API_BASE + "/api/send-contact-mail", formData)
                   .then(() => {
                     this.showSuccessMessage = true;
+                    this.$emit("showMessage", this.showSuccessMessage);
                     this.name = "";
                     this.email = "";
                     this.projectInfo = "";
@@ -357,8 +353,10 @@ export default {
                     this.NDA = false;
                     this.floatable = false;
                     this.showLoader = false;
+
                     setTimeout(() => {
                       this.showSuccessMessage = false;
+                      this.$emit("showMessage", this.showSuccessMessage);
                     }, 3000);
                   })
                   .catch((err) => {
