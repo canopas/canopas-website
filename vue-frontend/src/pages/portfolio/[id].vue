@@ -37,12 +37,14 @@ import tognessResponse from "@/portfolio-json/togness-data.js";
 import ErrorPage from "@/components/error404/index.vue";
 import { useMeta } from "vue-meta";
 import { elementInViewPort } from "@/utils.js";
+import config from "@/config.js";
 
 export default {
   setup() {
     const { meta } = useMeta({
       og: {
         type: "Website",
+        image: config.OG_IMAGE_URL,
       },
     });
     return {

@@ -178,6 +178,7 @@ export default {
           description:
             "Smile+ app is designed for dentists to create a perfect smile for their patients automated with AI.",
           url: config.SMILEPLUS_URL,
+          target: "_blank",
           event: "tap_smileplus_portfolio_card",
         },
         {
@@ -228,7 +229,7 @@ export default {
   inject: ["mixpanel"],
   methods: {
     openPortfolio(portfolio) {
-      window.open(portfolio.url, "_self");
+      window.open(portfolio.url, portfolio.target ? portfolio.target : "_self");
       this.mixpanel.track(portfolio.event);
     },
   },

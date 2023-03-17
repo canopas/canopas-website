@@ -28,7 +28,7 @@ import branding4Image400w from "@/assets/images/portfolio/togness/branding/togne
 import branding4Image800w from "@/assets/images/portfolio/togness/branding/togness_branding_4-800w.webp";
 import branding4Image1200w from "@/assets/images/portfolio/togness/branding/togness_branding_4-1200w.webp";
 import branding4Image1600w from "@/assets/images/portfolio/togness/branding/togness_branding_4-1600w.webp";
-import draftStroyVideo from "@/assets/images/portfolio/togness/branding/draft_stroy_video.mp4";
+import draftStoryVideo from "@/assets/images/portfolio/togness/branding/draft_story_video.mp4";
 
 import design400w from "@/assets/images/portfolio/togness/design/background-400w.webp";
 import design800w from "@/assets/images/portfolio/togness/design/background-800w.webp";
@@ -49,12 +49,6 @@ import element3_400w from "@/assets/images/portfolio/togness/element/togness_ele
 import element3_800w from "@/assets/images/portfolio/togness/element/togness_element_3-800w.webp";
 import element3_1200w from "@/assets/images/portfolio/togness/element/togness_element_3-1200w.webp";
 import element3_1600w from "@/assets/images/portfolio/togness/element/togness_element_3-2400w.webp";
-
-import element4_400w from "@/assets/images/portfolio/togness/element/togness_element_4-400w.webp";
-import element4_800w from "@/assets/images/portfolio/togness/element/togness_element_4-800w.webp";
-import element4_1200w from "@/assets/images/portfolio/togness/element/togness_element_4-1200w.webp";
-import element4_1600w from "@/assets/images/portfolio/togness/element/togness_element_4-2400w.webp";
-
 import playStoreImage from "@/assets/images/portfolio/play_store.webp";
 import appStoreImage from "@/assets/images/portfolio/app_store.webp";
 
@@ -169,15 +163,9 @@ export default {
           },
           {
             aspectRatio: "164%",
-            image: [
-              element4_400w,
-              element4_800w,
-              element4_1200w,
-              element4_1600w,
-            ],
             alt: "togness-apply-filters-slide-video-screen",
-            title: "",
-            video: draftStroyVideo,
+            title: "togness",
+            video: draftStoryVideo,
           },
         ],
       },
