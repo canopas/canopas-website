@@ -4,7 +4,7 @@
       <div
         class="tw-rounded-2xl tw-border tw-border-slate-200 tw-bg-white tw-shadow-[0px_0px_45px_rgba(0,0,0,0.1)]"
       >
-        <div class="tw-py-5 tw-px-8 lg:tw-px-12">
+        <div class="tw-pt-5 tw-pb-20 tw-px-8 lg:tw-px-12">
           <div>
             <div class="tw-relative tw-mb-5 md:tw-mb-5 tw-pt-8 tw-text-left">
               <input
@@ -122,7 +122,7 @@
                 >This field is required</span
               >
             </div>
-            <div class="tw-relative tw-pt-7">
+            <div class="tw-relative tw-pt-8">
               <div ref="invest-list" class="tw-flex">
                 <button
                   class="tw-flex tw-items-center tw-justify-between tw-mt-2.5 md:tw-mt-3 tw-mx-0 tw-w-full tw-border-b tw-border-slate-400 tw-bg-none tw-px-0 tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-black-core/[0.6]"
@@ -147,7 +147,7 @@
                     >I'll invest</label
                   >
                   <span
-                    class="md:tw-mt-[0.5rem] lg:tw-mt-[1rem] tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem]"
+                    class="tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem]"
                     >{{ invest }}</span
                   >
                   <font-awesome-icon
@@ -225,7 +225,7 @@
                   :class="
                     contactType == 2
                       ? 'tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-white tw-shadow-none'
-                      : 'gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
+                      : 'tw-m-0 gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
                   "
                   class="tw-flex tw-items-center tw-mt-1.5 tw-mb-6 tw-cursor-pointer tw-rounded-full tw-px-[2.5rem] lg:tw-px-[1.8rem] tw-py-2 md:tw-py-3 active:tw-scale-[0.98] tw-font-inter-semibold tw-text-[1rem] md:tw-text-[1.1875rem] tw-leading-[1.21rem] md:tw-leading-[1.386875rem] tw-text-center"
                 >
@@ -261,7 +261,7 @@
                   :class="
                     contactType == 1
                       ? 'tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] '
-                      : 'gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
+                      : 'tw-m-0 gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
                   "
                   class="tw-flex tw-cursor-pointer tw-items-center tw-mt-1.5 tw-mb-6 tw-rounded-full tw-px-[2.5rem] lg:tw-px-[1.8rem] tw-py-2 md:tw-py-3 active:tw-scale-[0.98] tw-text-center tw-font-inter-semibold tw-text-[1rem] md:tw-text-[1.1875rem] tw-leading-[1.21rem] md:tw-leading-[1.386875rem]"
                 >
@@ -291,31 +291,24 @@
                 class="tw-relative tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.436875rem] md:tw-leading-[1.386875rem] tw-text-center"
               >
                 <div
-                  class="tw-absolute -tw-top-[2.5rem] sm:-tw-top-[1.875rem] tw-text-center tw-right-[1rem] sm:-tw-right-[5rem] md:-tw-right-[8rem] lg:-tw-right-[4rem] xl:-tw-right-[7rem] 2xl:-tw-right-[7.5rem] sm:tw-w-max"
+                  class="tw-absolute -tw-top-[2.5rem] sm:-tw-top-[2rem] xl:-tw-top-[1.875rem] 2xl:-tw-top-[1.875rem] tw-text-center -tw-right-[8rem] sm:-tw-right-[10.5rem] md:-tw-right-[11rem] lg:-tw-right-[10rem] 2xl:-tw-right-[10.5rem] tw-w-[250px] sm:tw-w-max"
                 >
                   <span
                     v-if="showErrorMessage"
-                    class="tw-flex tw-text-center -tw-mr-[0.875rem] sm:tw-mr-[2rem] md:tw-mr-[6.563rem] lg:tw-mr-[3.438rem] xl:tw-mr-[6rem] 2xl:tw-mr-[7rem] tw-text-red-600 tw-text-[1.3rem] sm:tw-text-[1.3rem]"
+                    class="tw-flex tw-text-center tw-text-red-600"
                     :class="
                       errorMessage == 'Invalid Recaptcha score'
-                        ? '!-tw-mr-[1rem] sm:!tw-mr-[5rem] md:!tw-mr-[10rem] lg:!tw-mr-[6.5rem] xl:!tw-mr-[10rem] '
+                        ? '!tw-mt-[0.5rem] md:!-tw-mt-[0.5rem] !tw-mr-[1rem] sm:!tw-mr-[4rem] md:!tw-mr-[3rem] lg:!tw-mr-[2.5rem] xl:!tw-mr-[2.8rem] 2xl:!tw-mr-[3.5rem] '
                         : ''
                     "
                     >{{ errorMessage }}</span
-                  >
-
-                  <span
-                    v-if="contactType == 1 && showSuccessMessage"
-                    class="canopas-gradient-text tw-text-[0.8rem] md:tw-text-[1.1rem] lg:tw-text-[0.9rem] xl:tw-text-[1.1rem] tw-leading-[1rem]"
-                    >Thank you for choosing us to make a difference in your
-                    business.</span
                   >
                 </div>
                 <button
                   id="submit"
                   v-if="contactType == 1"
                   ref="recaptcha"
-                  class="tw-mt-[1rem] sm:tw-mt-0 tw-rounded-full tw-py-2.5 md:tw-py-5 tw-px-20 md:tw-px-28 tw-text-center gradient-btn consultation-btn"
+                  class="tw-absolute tw-top-[-13px] sm:tw-top-[-20px] tw-right-[-122px] md:tw-right-[-170px] tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 tw-px-20 md:tw-px-28 tw-text-center gradient-btn consultation-btn"
                   @click.prevent="submitForm()"
                 >
                   <font-awesome-icon
@@ -326,7 +319,7 @@
                 </button>
                 <button
                   v-if="contactType == 2"
-                  class="tw-flex tw-items-center tw-m-0 tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 sm:tw-px-12 tw-text-center gradient-btn consultation-btn"
+                  class="tw-absolute tw-top-[-13px] sm:tw-top-[-20px] tw-right-[-119px] sm:tw-right-[-155px] md:tw-right-[-170px] tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 sm:tw-px-12 tw-text-center gradient-btn consultation-btn"
                   @click.prevent="submitForm()"
                 >
                   <font-awesome-icon
@@ -490,8 +483,10 @@ export default {
                   this.resetForm();
                   if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
                     this.showSuccessMessage = true;
+                    this.$emit("showMessage", this.showSuccessMessage);
                     setTimeout(() => {
                       this.showSuccessMessage = false;
+                      this.$emit("showMessage", this.showSuccessMessage);
                     }, 3000);
                   } else {
                     setTimeout(() => {
