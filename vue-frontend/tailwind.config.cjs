@@ -95,12 +95,17 @@ module.exports = {
           "0%": { transform: "translateX(200px);" },
           "100%": { transform: "translateX(0px);" },
         },
+        underlineOut: {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",
         zoomOut: "zoomOut 4s ease-in infinite",
         typingErase: "typingErase 4s steps(40, end) infinite",
         menuSticky: "0.6s ease-in-out",
+        underlineOut: "underlineOut 1s",
         fadeInRight: "fadeInRight 150ms ease-in",
         gridAnimation: "scroll 40s linear infinite",
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
