@@ -457,6 +457,7 @@ export default {
     submitForm() {
       if (!this.validateForm()) {
         this.mixpanel.track("tap_contact_submit_button");
+        fbq("track", "tap_contact_submit_button");
         let formData = {
           name: this.name,
           email: this.email,
