@@ -56,10 +56,6 @@ a {
   @apply tw-bg-clip-text tw-text-transparent tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[270.11deg];
 }
 
-.abs-fit-parent {
-  @apply tw-absolute tw-w-full tw-h-full tw-top-0 tw-left-0;
-}
-
 .normal-text {
   @apply tw-not-italic tw-font-normal tw-text-[1.15rem] tw-leading-[1.5rem] tw-text-[#3d3d3dcc] tw-tracking-[0.3px] md:tw-text-[1.2rem] md:tw-leading-[1.375rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8rem];
 }
@@ -132,14 +128,6 @@ a {
 
 .underline-text {
   @apply tw-underline tw-decoration-solid tw-decoration-[#3d3d3dcc] tw-decoration-2 tw-underline-offset-[1rem] md:tw-decoration-[3px];
-}
-
-.swiper-pagination-bullet {
-  @apply !tw-w-[15px] !tw-h-[15px] !tw-rounded-[3px] !tw-bg-transparent !tw-border-[1px] !tw-border-solid !tw-border-[#3d3d3d];
-}
-
-.swiper-pagination-bullet-active {
-  @apply !tw-border-none !tw-from-[#F69259] !tw-to-[#F16975] !tw-bg-gradient-[45deg];
 }
 
 .v2-button {

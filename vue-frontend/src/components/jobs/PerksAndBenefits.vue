@@ -30,7 +30,8 @@
         >
           <img
             class="image tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-w-full tw-h-full tw-object-cover tw-ease-in-out tw-duration-300 hover:tw-scale-110"
-            :src="perk.image"
+            :src="perk.image[0]"
+            :srcset="`${perk.image[0]} 400w, ${perk.image[1]} 800w`"
             loading="lazy"
             alt="perks-and-benefits-image"
           />
@@ -48,7 +49,12 @@
             <div
               class="normal-2-text tw-flex-none title tw-inline-flex tw-items-center tw-text-black-900 tw-font-bold"
             >
-              <img :src="perk.icon" loading="lazy" :alt="perk.alt" />
+              <img
+                :src="perk.icon"
+                loading="lazy"
+                class="tw-w-[1.875rem] tw-h-[1.875rem]"
+                :alt="perk.alt"
+              />
               <span class="tw-ml-[10px] tw-text-[1.3rem] lg:tw-text-[1.5rem]">{{
                 perk.title
               }}</span>
@@ -70,15 +76,22 @@
 <script type="module">
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 
-import perks1 from "@/assets/images/perks/jobs_canopas_perks_1.webp";
-import perks2 from "@/assets/images/perks/jobs_canopas_perks_2.webp";
-import perks3 from "@/assets/images/perks/jobs_canopas_perks_3.webp";
-import perks4 from "@/assets/images/perks/jobs_canopas_perks_4.webp";
-import perks5 from "@/assets/images/perks/jobs_canopas_perks_5.webp";
-import perks6 from "@/assets/images/perks/jobs_canopas_perks_6.webp";
-import perks7 from "@/assets/images/perks/jobs_canopas_perks_7.webp";
-import perks8 from "@/assets/images/perks/jobs_canopas_perks_8.webp";
-
+import perks1_400w from "@/assets/images/perks/jobs_canopas_perks_1_400w.webp";
+import perks1_800w from "@/assets/images/perks/jobs_canopas_perks_1_800w.webp";
+import perks2_400w from "@/assets/images/perks/jobs_canopas_perks_2_400w.webp";
+import perks2_800w from "@/assets/images/perks/jobs_canopas_perks_2_800w.webp";
+import perks3_400w from "@/assets/images/perks/jobs_canopas_perks_3_400w.webp";
+import perks3_800w from "@/assets/images/perks/jobs_canopas_perks_3_800w.webp";
+import perks4_400w from "@/assets/images/perks/jobs_canopas_perks_4_400w.webp";
+import perks4_800w from "@/assets/images/perks/jobs_canopas_perks_4_800w.webp";
+import perks5_400w from "@/assets/images/perks/jobs_canopas_perks_5_400w.webp";
+import perks5_800w from "@/assets/images/perks/jobs_canopas_perks_5_800w.webp";
+import perks6_400w from "@/assets/images/perks/jobs_canopas_perks_6_400w.webp";
+import perks6_800w from "@/assets/images/perks/jobs_canopas_perks_6_800w.webp";
+import perks7_400w from "@/assets/images/perks/jobs_canopas_perks_7_400w.webp";
+import perks7_800w from "@/assets/images/perks/jobs_canopas_perks_7_800w.webp";
+import perks8_400w from "@/assets/images/perks/jobs_canopas_perks_8_400w.webp";
+import perks8_800w from "@/assets/images/perks/jobs_canopas_perks_8_800w.webp";
 import learning from "@/assets/images/benefits/jobs_canopas_learning.svg";
 import health from "@/assets/images/benefits/jobs_canopas_health.svg";
 import clock from "@/assets/images/benefits/jobs_canopas_clock.svg";
@@ -96,7 +109,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks1,
+          image: [perks1_400w, perks1_800w],
           description: "",
         },
         {
@@ -113,7 +126,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks2,
+          image: [perks2_400w, perks2_800w],
           description: "",
         },
         {
@@ -131,7 +144,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks3,
+          image: [perks3_400w, perks3_800w],
           description: "",
         },
         {
@@ -149,7 +162,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks4,
+          image: [perks4_400w, perks4_800w],
           description: "",
         },
         {
@@ -167,7 +180,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks5,
+          image: [perks5_400w, perks5_800w],
           description: "",
         },
         {
@@ -185,7 +198,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks6,
+          image: [perks6_400w, perks6_800w],
           description: "",
         },
         {
@@ -203,7 +216,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks7,
+          image: [perks7_400w, perks7_800w],
           description: "",
         },
         {
@@ -221,7 +234,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: perks8,
+          image: [perks8_400w, perks8_800w],
           description: "",
         },
       ],

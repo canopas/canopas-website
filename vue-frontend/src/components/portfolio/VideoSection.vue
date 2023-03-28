@@ -298,7 +298,6 @@ export default {
 
 <style lang="postcss">
 @import "swiper/css";
-@import "swiper/css/pagination";
 
 .is-animation-tab:after {
   content: "";

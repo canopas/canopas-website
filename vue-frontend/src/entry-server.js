@@ -57,8 +57,8 @@ function renderPreloadLink(file) {
     return `<link rel="preload" as="style" href="${file}" onload="this.rel='stylesheet'">`;
   } else if (file.includes("bg")) {
     return `<link rel="preload" as="image" href="${file}">`;
-  } else if (file.includes(".woff2") || file.includes(".ttf")) {
-    return `<link rel="preload" as="font" href="${file}" crossorigin>`;
+  } else if (file.includes(".woff2")) {
+    return `<link rel="preload" as="font" href="${file}" type="font/woff2" crossorigin="anonymous">`;
   } else {
     return "";
   }
