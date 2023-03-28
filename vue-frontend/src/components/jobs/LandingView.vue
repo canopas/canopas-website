@@ -16,7 +16,7 @@
       our existing team of AVENGERS.
     </div>
     <button
-      class="gradient-btn tw-rounded-[15px] sm:tw-m-auto normal-text animate__animated animate__fadeInUp"
+      class="gradient-btn tw-rounded-[15px] sm:tw-m-auto tw-p-3 normal-text animate__animated animate__fadeInUp"
       @click="$emit('scroll-to-career')"
       @click.native="mixpanel.track('tap_see_all_positions')"
     >

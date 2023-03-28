@@ -23,7 +23,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./../fonts/SFProText-Regular.ttf);
+  src: url(./../fonts/SFProText-Regular.woff2);
 }
 
 @font-face {
@@ -31,14 +31,14 @@
   font-style: bold;
   font-weight: 700;
   font-display: swap;
-  src: url(./../fonts/Inter-Bold.ttf);
+  src: url(./../fonts/Inter-Bold.woff2);
 }
 @font-face {
   font-family: "Inter-SemiBold";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(./../fonts/Inter-SemiBold.ttf);
+  src: url(./../fonts/Inter-SemiBold.woff2);
 }
 
 @font-face {
@@ -46,7 +46,7 @@
   font-style: medium;
   font-weight: 500;
   font-display: swap;
-  src: url(./../fonts/Inter-Medium.ttf);
+  src: url(./../fonts/Inter-Medium.woff2);
 }
 
 @font-face {
@@ -54,21 +54,21 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./../fonts/Inter-Regular.ttf);
+  src: url(./../fonts/Inter-Regular.woff2);
 }
 @font-face {
   font-family: "Inter-Light";
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(./../fonts/Inter-Light.ttf);
+  src: url(./../fonts/Inter-Light.woff2);
 }
 @font-face {
   font-family: "Roboto-Bold";
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(./../fonts/Roboto-Bold.ttf);
+  src: url(./../fonts/Roboto-Bold.woff2);
 }
 
 @font-face {
@@ -76,7 +76,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(./../fonts/Roboto-Medium.ttf);
+  src: url(./../fonts/Roboto-Medium.woff2);
 }
 
 @font-face {
@@ -84,7 +84,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./../fonts/Roboto-Regular.ttf);
+  src: url(./../fonts/Roboto-Regular.woff2);
 }
 
 @layer utilities {

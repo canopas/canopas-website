@@ -169,9 +169,9 @@
           <div
             class="v2-normal-text tw-bg-white tw-font-light ..."
             :class="[
-              data.title
+              data.title !== 'togness'
                 ? 'tw-px-6 tw-py-12 sm:tw-px-8 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-20 tw-text-center'
-                : 'tw-mt-12',
+                : 'tw-hidden',
             ]"
           >
             {{ data.title }}

@@ -14,12 +14,21 @@
       class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw--z-[1] tw-object-cover 2xl:tw-object-contain"
       alt="canopas-landing"
     />
+
     <div
       class="tw-container tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start tw-pb-[25px] md:tw-pb-[50px]"
     >
-      <div class="tw-flex-[45%] lg:tw-block tw-hidden tw-mt-[40px]">
-        <img :src="landing" alt="landing-view-image" loading="lazy" />
-      </div>
+      <aspect-ratio
+        class="tw-flex-[45%] lg:tw-block tw-hidden tw-mt-[40px]"
+        height="60%"
+      >
+        <img
+          class="tw-w-full tw-h-full tw-object-cover"
+          :src="landing"
+          alt="landing-view-image"
+          loading="lazy"
+        />
+      </aspect-ratio>
       <div
         class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[20px] lg:tw-mt-[50px]"
       >
@@ -68,16 +77,18 @@
             >
           </div>
 
-          <div class="tw-flex tw-items-center tw-pb-3.5 md:tw-pl-7 lg:tw-pb-0">
+          <div
+            class="tw-flex tw-items-center tw-pb-3.5 md:tw-pl-7 lg:tw-pl-3 xl:tw-pl-7 lg:tw-pb-0"
+          >
             <div v-for="client in clients" :key="client">
               <div
                 v-if="client.image"
-                class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-rounded-full"
+                class="tw-rounded-full"
                 :class="client.className"
               >
                 <img
                   :src="client.image"
-                  class="tw-w-full tw-h-full tw-object-cover"
+                  class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-object-cover"
                   loading="lazy"
                   alt="client-image"
                 />
@@ -128,13 +139,14 @@
 </template>
 <script>
 import landing from "@/assets/images/landing/landing-new.webp";
-import client1 from "@/assets/images/landing/client1.webp";
-import client2 from "@/assets/images/landing/client2.webp";
-import client3 from "@/assets/images/landing/client3.webp";
-import client4 from "@/assets/images/landing/client4.webp";
+import client1 from "@/assets/images/landing/client1-100w.webp";
+import client2 from "@/assets/images/landing/client2-100w.webp";
+import client3 from "@/assets/images/landing/client3-100w.webp";
+import client4 from "@/assets/images/landing/client4-100w.webp";
 import bgMobile from "@/assets/images/landing/bg/bg800.webp";
 import bg from "@/assets/images/landing/bg/bg2400.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import AspectRatio from "../utils/AspectRatio.vue";
 export default {
   data() {
     return {
@@ -169,6 +181,7 @@ export default {
   },
   components: {
     FontAwesomeIcon,
+    AspectRatio,
   },
   inject: ["mixpanel"],
   mounted() {

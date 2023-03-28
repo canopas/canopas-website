@@ -10,7 +10,7 @@
       href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
     />
     <Header class="header" />
-    <ScreenLoader v-if="isLoading" />
+    <ScreenLoader v-if="isLoading || job == null" />
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
         <div

@@ -17,9 +17,7 @@
           class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[15px] tw-py-[32px] tw-px-[24px] md:tw-pt-[48px] md:tw-px-[48px] md:tw-pb-0"
         >
           <div class="header-2-text tw-text-center tw-pb-4">
-            <div class="canopas-gradient-text">
-              Applying For {{ job.title }}
-            </div>
+            <h1 class="canopas-gradient-text">Applying For {{ job.title }}</h1>
           </div>
 
           <form

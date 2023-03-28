@@ -37,7 +37,8 @@
       >
         <div class="tw-shadow-[2px_2px_10px_rgba(0,0,0,0.1)]">
           <video autoplay loop muted playsinline style="height: 690px">
-            <source :src="contribution.video" type="video/mp4" />
+            <source :src="contribution.video[1]" type="video/webm" />
+            <source :src="contribution.video[0]" type="video/mp4" />
           </video>
         </div>
 
@@ -126,9 +127,12 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
-import UIPilot from "@/assets/images/contribution/animations/UIPilot.mp4";
-import IntroShowCase from "@/assets/images/contribution/animations/introShowCase.mp4";
-import JetpackComposeAnimations from "@/assets/images/contribution/animations/JetpackComposeAnimations.mp4";
+import uIPilotMp4 from "@/assets/images/contribution/animations/UIPilot.mp4";
+import uIPilotWebm from "@/assets/images/contribution/animations/UIPilot.webm";
+import introShowCaseMp4 from "@/assets/images/contribution/animations/introShowCase.mp4";
+import introShowCaseWebm from "@/assets/images/contribution/animations/introShowCase.webm";
+import jcAnimationsMp4 from "@/assets/images/contribution/animations/JetpackComposeAnimations.mp4";
+import jcAnimationsWebm from "@/assets/images/contribution/animations/JetpackComposeAnimations.webm";
 import Config from "@/config.js";
 
 library.add(faGithub);
@@ -145,7 +149,7 @@ export default {
           description:
             "Highlight different features of the app using Jetpack Compose",
           author: "Radhika S.",
-          video: IntroShowCase,
+          video: [introShowCaseMp4, introShowCaseWebm],
           starPoints: "237",
           link: "https://github.com/canopas/Intro-showcase-view",
         },
@@ -153,7 +157,7 @@ export default {
           title: "UIPilot",
           description: "The missing typesafe SwiftUI navigation library",
           author: "Jimmy S.",
-          video: UIPilot,
+          video: [uIPilotMp4, uIPilotWebm],
           starPoints: "201",
           link: "https://github.com/canopas/UIPilot",
         },
@@ -161,7 +165,7 @@ export default {
           title: "Jetpack Compose animations",
           description: "Cool animations implemented with Jetpack compose",
           author: "Radhika S.",
-          video: JetpackComposeAnimations,
+          video: [jcAnimationsMp4, jcAnimationsWebm],
           starPoints: "186",
           link: "https://github.com/canopas/Jetpack-compose-animations-examples",
         },
