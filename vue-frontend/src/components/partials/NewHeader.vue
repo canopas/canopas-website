@@ -48,7 +48,7 @@
                   v-if="!navbar.target"
                   :to="navbar.url"
                   @click.native="mixpanel.track(navbar.event)"
-                  class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
+                  class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px]"
                   :class="[
                     navbar.className,
                     currentRoutePath == navbar.url ||
@@ -58,7 +58,7 @@
                       currentRoutePath.includes('jobs'))
                       ? navbar.showContactBtn
                         ? ''
-                        : 'after:tw-w-full after:tw-scale-x-0 after:tw-scale-x-100'
+                        : 'after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent after:tw-w-full after:tw-scale-x-0 after:tw-scale-x-100'
                       : '',
                   ]"
                   ><span
