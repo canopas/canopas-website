@@ -9,7 +9,7 @@ import path from "path";
 
 export default defineConfig({
   ssr: {
-    noExternal: [/^vue-meta*/, /^@fortawesome*/],
+    noExternal: [/^vue-meta*/],
   },
   resolve: {
     alias: [

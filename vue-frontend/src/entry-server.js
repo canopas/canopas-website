@@ -1,6 +1,6 @@
 import { buildApp } from "./main";
 import { renderToString } from "vue/server-renderer";
-import { renderMetaToString } from "vue-meta/ssr";
+import { renderMetaToString } from "vue-meta/ssr/index.js";
 
 export async function render(url, manifest) {
   const { app, router, pinia } = buildApp(true);

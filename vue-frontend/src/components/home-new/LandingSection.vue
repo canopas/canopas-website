@@ -41,7 +41,7 @@
           </div>
         </h1>
         <div
-          class="tw-w-[85%] md:tw-w-[65%] tw-pb-[29.5px] md:tw-pb-[47px] v2-normal-text tw-tracking-[0] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.09375rem] md:tw-leading-[1.53125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.75rem] tw-text-black-core/[0.6] !tw-font-sfpro-regular"
+          class="tw-w-[85%] md:tw-w-[65%] tw-pb-[29.5px] md:tw-pb-[47px] v2-normal-text tw-tracking-[0] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.09375rem] md:tw-leading-[1.53125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.75rem] tw-text-black-core/[0.6] tw-font-inter-regular"
         >
           We develop Mobile and Web apps that help you
           <span

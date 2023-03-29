@@ -3,7 +3,7 @@
     <div
       class="tw-flex tw-items-center tw-py-7 md:tw-py-12 lg:tw-pb-5 lg:tw-pt-0 tw-font-product-sans tw-font-bold tw-text-[1.875rem] md:tw-text-[2.5rem] tw-leading-[2.274375rem] md:tw-leading-[3.0325rem]"
     >
-      <h1 class="v2-canopas-gradient-text tw-mr-2">Hey Smarty</h1>
+      <h1 class="v2-canopas-gradient-text tw-pr-2">Hey Smarty</h1>
       <img
         :src="HandWing"
         alt="HandWing"
