@@ -5095,7 +5095,7 @@ vue-eslint-parser@^8.0.1:
 
 vue-meta@^3.0.0-alpha.10:
   version "3.0.0-alpha.10"
-  resolved "https://registry.npmjs.org/vue-meta/-/vue-meta-3.0.0-alpha.10.tgz"
+  resolved "https://registry.yarnpkg.com/vue-meta/-/vue-meta-3.0.0-alpha.10.tgz#8aa7dee8ef43edda2633d52d2d4ca0ae03352222"
   integrity sha512-rYeIGkhm1gKBcReEkPHiV6LV2Y6BZTMGTkGw1mQIZTxfFcVJL0srLZsL1zAmLeTGxMrlDYylMQEVSYRkDnwz3A==
 
 vue-router@^4.0.14:

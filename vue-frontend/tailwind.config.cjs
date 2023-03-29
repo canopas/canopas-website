@@ -1,3 +1,4 @@
+/** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
@@ -66,7 +67,6 @@ module.exports = {
         "inter-medium": ["Inter-Medium"],
         "inter-semibold": ["Inter-SemiBold"],
         "inter-regular": ["Inter-Regular"],
-        "sfpro-regular": ["SFProText-Regular"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",
@@ -137,7 +137,7 @@ module.exports = {
     container: false,
   },
   plugins: [
-    plugin(function ({ matchUtilities, theme }) {
+    plugin(({ matchUtilities, theme }) => {
       matchUtilities(
         {
           "bg-gradient": (angle) => ({
@@ -160,7 +160,7 @@ module.exports = {
         }
       );
     }),
-    function ({ addComponents }) {
+    ({ addComponents }) => {
       addComponents({
         ".container": {
           margin: "auto",
