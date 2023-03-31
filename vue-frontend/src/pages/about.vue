@@ -8,6 +8,9 @@
     <Header />
     <div>
       <LandingSection />
+      <AboutusVirtue />
+      <WithCanopasSection />
+      <ClientReviewSection />
       <CTASection />
     </div>
     <NewFooter />
@@ -18,6 +21,9 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/about/LandingSection.vue";
+import AboutusVirtue from "@/components/about/AboutusVirtue.vue";
+import WithCanopasSection from "@/components/home/WithCanopas.vue";
+import ClientReviewSection from "@/components/home-new/ClientReviewSection.vue";
 import CTASection from "@/components/about/CTASection.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
@@ -46,6 +52,10 @@ export default {
   components: {
     Header,
     LandingSection,
+    AboutusVirtue,
+
+    WithCanopasSection,
+    ClientReviewSection,
     CTASection,
     NewFooter,
   },

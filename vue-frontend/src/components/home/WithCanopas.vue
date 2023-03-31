@@ -1,15 +1,15 @@
 <template>
   <div
-    class="tw-bg-gradient-to-t tw-from-orange-300/[0.15] tw-to-white lg:tw-mb-[100px]"
+    class="tw-mb-11 md:tw-mb-24 tw-bg-gradient-to-t tw-from-orange-300/[0.15] tw-to-white"
   >
-    <div
-      class="tw-container tw-pb-4 tw-pt-12 md:tw-pb-12 md:tw-pt-16 lg:tw-pb-20 lg:tw-pt-32"
-    >
-      <div class="v2-header-3-text tw-m-auto sm:tw-w-[90%] tw-text-center">
+    <div class="tw-container tw-pb-4 tw-pt-20 lg:tw-pt-32">
+      <div
+        class="tw-m-auto sm:tw-w-[90%] tw-text-center tw-font-inter-bold tw-text-[1.875rem] lg:tw-text-[3.4375rem] tw-leading-[2.5rem] lg:tw-leading-[5.875rem] tw-tracking-[-4%] tw-text-black-900"
+      >
         With <span class="canopas-gradient-text">canopas</span>, you will have
         everything you need under one roof.
       </div>
-      <div class="tw-mt-8 md:tw-mt-20 lg:tw-mt-40">
+      <div>
         <div
           ref="service1"
           class="tw-flex tw-flex-wrap tw-m-auto md:tw-mt-20 md:tw-mx-auto md:tw-mb-auto lg:even:tw-w-[70%]"
@@ -17,7 +17,7 @@
           <div
             v-for="(phase, i) in phases.slice(0, 3)"
             :key="i"
-            class="tw-text-center tw-py-4 tw-px-0 md:tw-flex-[1_1_30%] md:tw-flex md:tw-flex-col md:tw-p-0 md:tw-text-left last-of-type:md:tw-py-0 last-of-type:md:tw-px-40 last-of-type:lg:tw-p-0"
+            class="md:tw-flex-[1_1_30%] md:tw-flex md:tw-flex-col tw-py-4 tw-px-0 md:tw-p-0 md:tw-text-left last-of-type:md:tw-py-0 last-of-type:md:tw-px-40 last-of-type:lg:tw-p-0 tw-text-center"
           >
             <aspect-ratio height="56.25%">
               <img
@@ -31,11 +31,13 @@
               class="tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
             >
               <div
-                class="tw-p-2 canopas-gradient-text v2-title-2-text tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-bg-clip-text tw-text-transparent"
+                class="tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-p-2 tw-bg-clip-text tw-text-transparent tw-font-inter-medium tw-text-[1.5rem] md:tw-text-[2.1875rem] tw-leading-[1.95rem] md:tw-leading-[4.28rem] tw-tracking-[1%]"
               >
                 {{ phase.title }}
               </div>
-              <div class="v2-normal-2-text md:tw-p-2">
+              <div
+                class="md:tw-p-2 tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] md:tw-leading-[2rem] tw-text-black-900"
+              >
                 {{ phase.description }}
               </div>
             </div>
@@ -65,11 +67,14 @@
               class="tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
             >
               <div
-                class="tw-p-2 canopas-gradient-text v2-title-2-text tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-bg-clip-text tw-text-transparent"
+                class="tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-p-2 tw-bg-clip-text tw-text-transparent tw-font-inter-medium tw-text-[1.5rem] md:tw-text-[2.1875rem] tw-leading-[1.95rem] md:tw-leading-[4.28rem] tw-tracking-[1%]"
+                :class="phase.title == 'Support' ? 'md:tw--mt-[15px]' : ''"
               >
                 {{ phase.title }}
               </div>
-              <div class="v2-normal-2-text md:tw-p-2">
+              <div
+                class="md:tw-p-2 tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] md:tw-leading-[2rem] tw-text-black-900"
+              >
                 {{ phase.description }}
               </div>
             </div>
@@ -95,35 +100,30 @@ export default {
       phases: [
         {
           image: planning,
-          alt: "planning",
           title: "Planning",
           description:
             "We research to understand the vision. The audience. The product. The goals. We collaborate, we re-examine, we ask and conclude.",
         },
         {
           image: designing,
-          alt: "designing",
           title: "Design",
           description:
             "Working passionately with you, our designers create aesthetically pleasing  and user friendly digital experiences.",
         },
         {
           image: development,
-          alt: "development",
           title: "Development",
           description:
             "Backend and Frontend. From the beginning, we have performance and maintainability in mind. Always insisting on best practices and keeping up with the latest trends.",
         },
         {
           image: marketing,
-          alt: "marketing",
           title: "Marketing",
           description:
             "From organic growth to writing irresistible ads for your marketing campaign, we're here to help you. We'll help you build a brand and community of prospects who can give you a boost on your product launch.",
         },
         {
           image: support,
-          alt: "support",
           title: "Support",
           description:
             "From bug fixing to feature updates, you can count on us. For the last 7 years, our clients had a 99.87% uptime for their products.",
@@ -136,11 +136,11 @@ export default {
       },
     };
   },
-  components: {
-    AspectRatio,
-  },
   mounted() {
     window.addEventListener("scroll", this.sendEvent);
+  },
+  components: {
+    AspectRatio,
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
