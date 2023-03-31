@@ -100,30 +100,35 @@ export default {
       phases: [
         {
           image: planning,
+          alt: "planning",
           title: "Planning",
           description:
             "We research to understand the vision. The audience. The product. The goals. We collaborate, we re-examine, we ask and conclude.",
         },
         {
           image: designing,
+          alt: "designing",
           title: "Design",
           description:
             "Working passionately with you, our designers create aesthetically pleasing  and user friendly digital experiences.",
         },
         {
           image: development,
+          alt: "development",
           title: "Development",
           description:
             "Backend and Frontend. From the beginning, we have performance and maintainability in mind. Always insisting on best practices and keeping up with the latest trends.",
         },
         {
           image: marketing,
+          alt: "marketing",
           title: "Marketing",
           description:
             "From organic growth to writing irresistible ads for your marketing campaign, we're here to help you. We'll help you build a brand and community of prospects who can give you a boost on your product launch.",
         },
         {
           image: support,
+          alt: "support",
           title: "Support",
           description:
             "From bug fixing to feature updates, you can count on us. For the last 7 years, our clients had a 99.87% uptime for their products.",
