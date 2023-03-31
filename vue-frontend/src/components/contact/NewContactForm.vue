@@ -10,7 +10,7 @@
               <input
                 type="text"
                 id="username"
-                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
+                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-font-inter-regular tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
                 name="username"
                 required
                 autocomplete="given-username"
@@ -33,7 +33,7 @@
             </div>
             <div class="tw-relative tw-mb-5 md:tw-mb-5 tw-pt-8 tw-text-left">
               <input
-                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
+                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-font-inter-regular tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
                 type="text"
                 name="email"
                 id="email"
@@ -68,7 +68,7 @@
               class="tw-relative md:tw-col-span-2 tw-mb-5 md:tw-mb-5 tw-pt-8 tw-text-left"
             >
               <textarea
-                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
+                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-font-inter-regular tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
                 id="project"
                 name="project"
                 rows="1"
@@ -97,7 +97,7 @@
               class="tw-relative md:tw-col-span-2 tw-pt-6 md:tw-pt-8 tw-text-left"
             >
               <input
-                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
+                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-font-inter-regular tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
                 type="text"
                 name="reference"
                 id="reference"
@@ -165,7 +165,7 @@
                     @click="setOption(option)"
                   >
                     <span
-                      class="tw-block tw-w-full tw-py-2 tw-px-4 tw-whitespace-nowrap tw-text-black-core/[.6] hover:tw-bg-[#000]/[.2] hover:tw-text-[#000] tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem]"
+                      class="tw-block tw-w-full tw-py-2 tw-px-4 tw-whitespace-nowrap tw-text-black-core/[.6] hover:tw-bg-[#000]/[.2] hover:tw-text-[#000] tw-font-inter-regular tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-leading-[1.21rem] md:tw-leading-[2.0625rem]"
                       >{{ option }}</span
                     >
                   </li>
