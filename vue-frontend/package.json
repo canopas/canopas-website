@@ -49,6 +49,7 @@
     "vue-router": "^4.0.14"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.297.0",
     "@vueuse/core": "^9.3.0",
     "mixpanel-browser": "^2.45.0",
     "pinia": "^2.0.14",

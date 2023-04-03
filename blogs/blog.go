@@ -4,11 +4,14 @@ import (
 	"encoding/json"
 	"io/ioutil"
 	"net/http"
+	"os"
+	"reflect"
 	"sort"
 	"strings"
 	"time"
 	"utils"
 
+	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/gin-gonic/gin"
 	log "github.com/sirupsen/logrus"
 )
@@ -30,6 +33,24 @@ type Blog struct {
 }
 
 func Get(c *gin.Context) {
+
+	fileName := "./blogs.json"
+
+	// check if file is present or not
+	_, err := os.Stat(fileName)
+	var sess *session.Session
+
+	if err != nil {
+		// create AWS session
+		sess, err = utils.GetAWSIAMUserSession()
+		if err != nil {
+			log.Error(err)
+			return
+		}
+
+		//read file from AWS S3
+		utils.DownloadFileFromS3("./blogs.json", sess)
+	}
 
 	// get blogs from API
 	response, err := http.Get("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/canopas")
@@ -54,7 +75,7 @@ func Get(c *gin.Context) {
 	json.Unmarshal(responseData, &blogs)
 
 	filteredItems := []Item{}
-	fileName := "./blogs.json"
+	existingBlogs := []Item{}
 
 	// filter weekly and newletteres
 	for _, item := range blogs.Items {
@@ -63,9 +84,12 @@ func Get(c *gin.Context) {
 		}
 	}
 
+	existingBlogs = utils.ReadSliceFromFile(fileName, []Item{})
+
 	// read and append blog from file, if blogs are less then 3
 	if len(filteredItems) < MAX_BLOG_NUMBER {
-		filteredItems = append(filteredItems, utils.ReadSliceFromFile(fileName, []Item{})...)
+
+		filteredItems = append(filteredItems, existingBlogs...)
 
 		// make blogs unique and get only 3 blogs
 		filteredItems = utils.Unique(filteredItems)
@@ -80,6 +104,21 @@ func Get(c *gin.Context) {
 
 	// write blogs to file
 	utils.WriteSliceToFile(fileName, filteredItems)
+
+	// if blog added, write and upload file to s3 too.
+	if !reflect.DeepEqual(filteredItems, existingBlogs) {
+		if sess == nil {
+			// create AWS session
+			sess, err = utils.GetAWSIAMUserSession()
+			if err != nil {
+				log.Error(err)
+				return
+			}
+		}
+
+		// write blogs to file
+		utils.UploadFileToS3(fileName, sess)
+	}
 
 	c.JSON(http.StatusOK, filteredItems)
 }
