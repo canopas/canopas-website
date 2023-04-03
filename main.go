@@ -6,12 +6,9 @@ import (
 	"db"
 	"embed"
 	"jobs"
-	"log"
-	"os"
 	"sitemap"
 	"utils"
 
-	"github.com/apex/gateway"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
@@ -61,20 +58,9 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 		})
 	})
 
-	if inLambda() {
-		log.Fatal(gateway.ListenAndServe(":8080", router))
-	} else {
-		router.Run()
-	}
+	router.Run(":8080")
 
 	return router
-}
-
-func inLambda() bool {
-	if lambdaTaskRoot := os.Getenv("LAMBDA_TASK_ROOT"); lambdaTaskRoot != "" {
-		return true
-	}
-	return false
 }
 
 func corsConfig() cors.Config {
