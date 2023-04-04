@@ -28,7 +28,8 @@
               />
             </aspect-ratio>
             <div
-              class="tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
+              class="md:tw-mt-[-20px] tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
+              :class="phase.className"
             >
               <div
                 class="tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-p-2 tw-bg-clip-text tw-text-transparent tw-font-inter-medium tw-text-[1.5rem] md:tw-text-[2.1875rem] tw-leading-[1.95rem] md:tw-leading-[4.28rem] tw-tracking-[1%]"
@@ -64,11 +65,11 @@
               />
             </aspect-ratio>
             <div
-              class="tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
+              class="md:tw--mt-[40px] tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
+              :class="phase.className"
             >
               <div
                 class="tw-bg-gradient-to-r tw-from-pink-300 tw-to-orange-300 tw-p-2 tw-bg-clip-text tw-text-transparent tw-font-inter-medium tw-text-[1.5rem] md:tw-text-[2.1875rem] tw-leading-[1.95rem] md:tw-leading-[4.28rem] tw-tracking-[1%]"
-                :class="phase.title == 'Support' ? 'md:tw--mt-[15px]' : ''"
               >
                 {{ phase.title }}
               </div>
@@ -104,6 +105,7 @@ export default {
           title: "Planning",
           description:
             "We research to understand the vision. The audience. The product. The goals. We collaborate, we re-examine, we ask and conclude.",
+          className: "",
         },
         {
           image: designing,
@@ -111,6 +113,7 @@ export default {
           title: "Design",
           description:
             "Working passionately with you, our designers create aesthetically pleasing  and user friendly digital experiences.",
+          className: "md:tw-ml-[17px] 2xl:tw-ml-[25px]",
         },
         {
           image: development,
@@ -118,6 +121,7 @@ export default {
           title: "Development",
           description:
             "Backend and Frontend. From the beginning, we have performance and maintainability in mind. Always insisting on best practices and keeping up with the latest trends.",
+          className: "md:tw-ml-[35px] 2xl:tw-ml-[45px]",
         },
         {
           image: marketing,
@@ -125,6 +129,7 @@ export default {
           title: "Marketing",
           description:
             "From organic growth to writing irresistible ads for your marketing campaign, we're here to help you. We'll help you build a brand and community of prospects who can give you a boost on your product launch.",
+          className: "md:tw-ml-[28px] 2xl:tw-ml-[38px]",
         },
         {
           image: support,
@@ -132,6 +137,7 @@ export default {
           title: "Support",
           description:
             "From bug fixing to feature updates, you can count on us. For the last 7 years, our clients had a 99.87% uptime for their products.",
+          className: "tw--mt-[15px] md:tw-ml-[25px] 2xl:tw-ml-[35px]",
         },
       ],
       event: "",
