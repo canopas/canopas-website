@@ -14,7 +14,7 @@
             ? 'tw-scale-[1.05] md:tw-scale-[1.2] tw-z-[2] '
             : '',
         ]"
-        class="tw-relative tw-transition-all tw-duration-500 tw-ease-in-out tw-transform"
+        class="tw-relative tw-transition-all tw-duration-500 tw-ease-in-out tw-transform tw-cursor-pointer"
         @mouseover="activeIndex = portfolio.id"
         @mouseleave="activeIndex = null"
         @touchstart.passive="activeIndex = portfolio.id"
