@@ -1,6 +1,6 @@
 <template>
   <section
-    class="tw-bg-white tw-pt-36 md:tw-pb-0 lg:tw-pt-50"
+    class="tw-bg-white md:tw-pt-36 md:tw-pb-0 lg:tw-pt-50"
     :ref="response.review ? response.review.ref : ''"
   >
     <div class="header-text tw-text-center">

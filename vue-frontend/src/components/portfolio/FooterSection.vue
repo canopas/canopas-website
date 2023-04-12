@@ -7,7 +7,8 @@
       <img
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 2400w`"
-        class="tw-w-full tw-h-full tw-object-cover"
+        class="tw-w-full tw-h-full"
+        :class="isMobile ? 'tw-object-contain' : 'tw-object-cover'"
         :alt="response.alt"
       />
     </aspect-ratio>
@@ -19,7 +20,7 @@
     />
   </section>
   <section
-    class="v2-header-2-text tw-font-bold tw-text-center tw-bg-white tw-py-20 sm:tw-py-40"
+    class="v2-header-2-text tw-font-bold tw-text-center tw-bg-white tw-pt-20 sm:tw-py-40"
   >
     <router-link
       class="animation-underline tw-inline-block tw-relative hover:tw-text-[#3d3d3d] after:tw-content-[''] after:tw-absolute after:tw-w-full after:tw-scale-x-0 after:tw-h-0.5 after:tw-bottom-0 after:tw-left-0 after:tw-bg-black-900 after:tw-origin-bottom-left after:tw-duration-300 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left"

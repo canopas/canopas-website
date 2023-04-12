@@ -1,9 +1,12 @@
 <template>
-  <section class="tw-bg-white tw-relative">
+  <section
+    v-if="response[1] || response[0].designref2 == 'tognessfeedback1'"
+    class="tw-bg-white tw-relative"
+  >
     <div class="tw-relative tw-container">
       <div :ref="response[0].designref ? response[0].designref : ''">
         <div
-          class="tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
+          class="tw-pt-20 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-w-3/4"
         >
           <div
             class="v2-title-text tw-font-bold"
@@ -23,6 +26,7 @@
   </section>
 
   <section
+    v-if="response[1] || response[0].designref2 == 'tognessfeedback1'"
     class="image tw-relative tw-z-[-1]"
     :ref="response[0].designref1 ? response[0].designref1 : ''"
   >
@@ -33,7 +37,8 @@
       <img
         :src="response[0].backgroundImage[3]"
         :srcset="`${response[0].backgroundImage[0]} 400w, ${response[0].backgroundImage[1]} 800w, ${response[0].backgroundImage[2]} 1400w, ${response[0].backgroundImage[3]} 2400w`"
-        class="tw-w-full tw-h-full tw-object-cover"
+        class="tw-w-full tw-h-full"
+        :class="isMobile ? 'tw-object-contain' : 'tw-object-cover'"
         :alt="response[0].alt"
       />
     </aspect-ratio>
@@ -43,10 +48,9 @@
       class="tw-absolute tw-inset-0 tw-left-auto -tw-top-1/6 tw-m-auto tw-h-2/4 tw-w-[31.333333%] tw-object-cover -tw-scale-x-100"
     />
   </section>
-
   <section v-if="response[0].subTitle" class="tw-bg-white">
     <div
-      class="tw-container tw-flex tw-flex-col tw-justifys-between tw-py-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
+      class="tw-container tw-flex tw-flex-col tw-justify-between tw-pb-20 sm:tw-py-40 lg:tw-flex-row lg:tw-py-80"
       :ref="response[0].subTitle ? response[0].designref2 : ''"
     >
       <div class="v2-normal-text tw-font-bold">
@@ -64,7 +68,7 @@
   <section class="tw-bg-white tw-relative" v-if="response[1]">
     <div class="tw-relative" :ref="response[1].designref">
       <div
-        class="tw-container tw-py-40 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-flex-row"
+        class="tw-container tw-py-20 lg:tw-py-80 tw-flex tw-flex-col tw-justify-between xl:tw-flex-row"
       >
         <div class="v2-title-2-text tw-font-bold">{{ response[1].title }}</div>
         <div class="description lg:tw-w-11/12 xl:tw-pl-16">
@@ -84,7 +88,8 @@
       <img
         :src="response[1].backgroundImage[3]"
         :srcset="`${response[1].backgroundImage[0]} 400w, ${response[1].backgroundImage[1]} 800w,${response[1].backgroundImage[2]} 1400w,${response[1].backgroundImage[3]} 2400w`"
-        class="tw-w-full tw-h-full tw-object-cover"
+        class="tw-w-full tw-h-full"
+        :class="isMobile ? 'tw-object-contain' : 'tw-object-cover'"
         :alt="response[1].alt"
       />
     </aspect-ratio>

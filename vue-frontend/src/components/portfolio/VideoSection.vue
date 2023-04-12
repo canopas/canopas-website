@@ -9,10 +9,11 @@
         alt="luxeradio-music-background"
       />
       <div
+        class="tw-flex tw-flex-col tw-justify-between tw-py-20 lg:tw-flex-row lg:tw-py-80"
         :class="[
-          id == 'smileplus'
-            ? 'tw-flex tw-flex-col tw-justify-between tw-pt-40 lg:tw-flex-row lg:tw-pt-80'
-            : 'tw-flex tw-flex-col tw-justify-between tw-py-40 lg:tw-flex-row lg:tw-py-80',
+          id == 'justly'
+            ? '!tw-pt-[4rem] xl:!tw-pt-[11rem] xl:!tw-pb-[14rem]'
+            : '',
         ]"
       >
         <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>
@@ -34,7 +35,10 @@
                 target="_blank"
                 :href="button.link"
                 @click.native="mixpanel.track(button.event)"
-                ><img :src="button.image" class="tw-w-48" :alt="button.name"
+                ><img
+                  :src="button.image"
+                  class="tw-w-48 tw-h-full"
+                  :alt="button.name"
               /></a>
             </div>
           </div>
@@ -81,126 +85,55 @@
       </video>
     </aspect-ratio>
   </section>
-
-  <!-- mobile screen slider -->
-  <section
-    v-if="response.slider && isShowSliderInMobile"
-    class="tw-relative tw-mt-40 md:tw-mt-20"
-  >
+  <section v-if="response.features" class="tw-bg-white">
     <div
-      class="mobile-background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
-      :style="{ background: backgroundColor }"
-    ></div>
-    <div
-      class="swiper-content tw-absolute tw-flex tw-items-center tw-w-full tw-h-full tw-z-0"
+      class="tw-container tw-flex tw-flex-col md:tw-flex-row md:tw-pr-[1.5rem] lg:tw-pr-[2.5rem] xl:tw-pr-[3.5rem]"
     >
-      <swiper
-        ref="swiper"
-        :slidesPerView="1"
-        :centeredSlides="true"
-        :autoplay="{
-          delay: 1500,
-          disableOnInteraction: true,
-        }"
-        :loop="true"
-        :loopedSlides="50"
-        :spaceBetween="50"
-        :breakpoints="{
-          '768': {
-            slidesPerView: 1,
-          },
-        }"
-        @slideChange="onSlideChange"
-        class="swiper-container"
-      >
-        <swiper-slide v-for="(sider, index) in response.slider" :key="index">
+      <div v-if="response.features.gridData1" class="tw-basis-1/2">
+        <div v-for="data in response.features.gridData1" :key="data">
           <aspect-ratio
-            height="43%"
-            class="tw-border-solid tw-border-1 tw-border-transparent"
+            :height="data.aspectRatio"
+            class="tw-mb-4"
+            :class="data.id == 1 ? 'md:tw-w-[92%]' : 'md:tw-w-[110%]'"
           >
             <img
-              :src="sider.image"
-              class="swiper-slide"
-              loading="lazy"
-              :alt="sider.alt ? sider.alt : ''"
+              v-if="data.image"
+              class="tw-w-full tw-h-full tw-object-cover"
+              :src="data.image[2]"
+              :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w`"
+              :alt="data.alt"
             />
           </aspect-ratio>
-        </swiper-slide>
-      </swiper>
-    </div>
-    <aspect-ratio
-      height="92%"
-      class="mobile-images tw-mx-auto tw-h-full tw-w-5/12 tw-z-[-1]"
-    >
-      <img
-        :src="response.videoBackgroundImage"
-        class="tw-w-full tw-h-full tw-object-cover"
-        :alt="response.alt"
-      />
-    </aspect-ratio>
-  </section>
-
-  <!-- large screen slider -->
-  <section v-else-if="response.slider" class="tw-relative tw-mt-20 lg:tw-mt-0">
-    <div
-      class="background-video tw-opacity-50 tw-overflow-hidden tw-absolute tw-inset-0 tw-rounded-full tw-z-[-1]"
-      :style="{ background: backgroundColor }"
-    ></div>
-    <div
-      class="swiper-content tw-absolute tw-flex tw-items-center tw-w-full tw-h-full tw-z-0"
-    >
-      <swiper
-        ref="swiper"
-        :centeredSlides="true"
-        :autoplay="{
-          delay: 1500,
-          disableOnInteraction: true,
-        }"
-        :loop="true"
-        :loopedSlides="50"
-        :spaceBetween="50"
-        :breakpoints="{
-          '993': {
-            slidesPerView: 3,
-          },
-          '1800': {
-            slidesPerView: 3,
-          },
-        }"
-        @slideChange="onSlideChange"
-        class="swiper-container video-swiper"
-      >
-        <swiper-slide v-for="(sider, index) in response.slider" :key="index">
+        </div>
+      </div>
+      <div v-if="response.features.gridData2" class="tw-basis-1/2">
+        <div v-for="data in response.features.gridData2" :key="data">
           <aspect-ratio
-            height="62%"
-            class="tw-border-solid tw-border-1 tw-border-transparent"
+            :height="data.aspectRatio"
+            class="tw-mb-4"
+            :class="
+              data.id == 3
+                ? 'md:tw-w-[110%]'
+                : 'md:tw-w-[92%] md:tw-ml-[3.8rem] lg:tw-ml-[5rem] xl:tw-ml-[6rem] 2xl:tw-ml-[7rem]'
+            "
           >
             <img
-              :src="sider.image"
-              class="swiper-slide"
-              loading="lazy"
-              :alt="sider.alt ? sider.alt : ''"
+              v-if="data.image"
+              class="tw-w-full tw-h-full tw-object-cover"
+              :src="data.image[2]"
+              :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w`"
+              :alt="data.alt"
             />
           </aspect-ratio>
-        </swiper-slide>
-      </swiper>
+        </div>
+      </div>
     </div>
-    <aspect-ratio
-      height="40%"
-      class="mobile-image tw-mx-auto tw-h-full tw-z-[-1]"
-    >
-      <img
-        :src="response.videoBackgroundImage"
-        class="tw-w-full tw-h-full tw-object-cover"
-        :alt="response.alt"
-      />
-    </aspect-ratio>
   </section>
 
   <section v-if="response.solution" class="tw-bg-white tw-relative">
     <div class="tw-container" :ref="response.solution.ref">
       <div
-        class="tw-flex tw-flex-col tw-justify-between tw-pt-40 lg:tw-flex-row lg:tw-pt-80"
+        class="tw-flex tw-flex-col tw-justify-between tw-pt-20 lg:tw-flex-row lg:tw-pt-80"
       >
         <div class="v2-normal-text tw-font-bold">
           {{ response.solution.title }}
@@ -256,6 +189,7 @@ export default {
         luxevideo: "view_luxe_radio_video",
         tognessvideo: "view_togness_problem",
         justlyvideo: "view_justly_horizontal_slider",
+        justlyfeature: "view_justly_feature",
       },
     };
   },
