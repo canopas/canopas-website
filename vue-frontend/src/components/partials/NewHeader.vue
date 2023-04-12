@@ -116,12 +116,6 @@ export default {
           event: "tap_header_career",
         },
         {
-          name: "About",
-          url: "/about",
-          className: Config.SHOW_ABOUT_US_PAGE ? "" : "tw-hidden",
-          event: "tap_header_about",
-        },
-        {
           name: "Let's talk",
           url: "/contact",
           className: "lg:tw-hidden",
@@ -139,6 +133,13 @@ export default {
     };
   },
   mounted() {
+    if (Config.SHOW_ABOUT_US_PAGE) {
+      this.navbars.splice(2, 0, {
+        name: "About",
+        url: "/about",
+        event: "tap_header_about",
+      });
+    }
     if (
       this.currentRoutePath.includes("portfolio/") &&
       window.innerWidth > 992 &&

@@ -27,7 +27,7 @@
           <router-link
             class="tw-relative tw-bg-gradient-[1deg] v2-canopas-gradient-text gradient-underline tw-no-underline after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l after:tw-to-pink-300 after:tw-from-orange-300"
             to="/contact"
-            @click.native="mixpanel.track('tap_about_contact_link')"
+            @click.native="mixpanel.track('tap_about_landing_contact')"
           >
             Let's do it again</router-link
           >

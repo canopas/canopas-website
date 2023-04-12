@@ -27,5 +27,6 @@ export default {
   components: {
     VirtuesViewSection,
   },
+  inject: ["mixpanel"],
 };
 </script>
