@@ -1,7 +1,7 @@
 <template>
   <section>
     <div
-      class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-items-center tw-mt-[50px] 2xl:tw-gap-[5.5rem]"
+      class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-items-center tw-mt-[100px] 2xl:tw-gap-[5.5rem]"
     >
       <div
         class="md:tw-w-[80%] lg:tw-w-[48%] xl:tw-w-[55%] 2xl:tw-w-[50%] lg:tw-pr-10 2xl:tw-pr-0"
@@ -10,6 +10,7 @@
           :src="CTAImage[0]"
           :srcset="`${CTAImage[0]} 400w, ${CTAImage[1]} 800w, ${CTAImage[2]} 1600w, ${CTAImage[3]} 2400w`"
           alt="aboutus-cta-image"
+          class="tw-h-full tw-w-full"
           loading="lazy"
         />
       </div>
@@ -31,7 +32,7 @@
           <router-link
             class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
             to="/contact"
-            @click.native="mixpanel.track('tap_about_cta')"
+            @click.native="mixpanel.track('tap_about_cta_contact')"
           >
             <span
               class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"

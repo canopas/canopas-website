@@ -140,8 +140,8 @@
                         ? 'tw--translate-y-4 xl:tw--translate-y-[0.5rem] tw-origin-[0] tw-scale-75'
                         : 'tw-translate-y-0 tw-scale-100',
                       floatable && showList
-                        ? 'tw-text-white'
-                        : 'tw-text-white/[.6]',
+                        ? 'tw-text-black-core'
+                        : 'tw-text-black-core/[0.6]',
                     ]"
                     @click="floatable = !floatable"
                     >I'll invest</label

@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 const plugin = require("tailwindcss/plugin");
 
 module.exports = {
@@ -67,6 +66,7 @@ module.exports = {
         "inter-medium": ["Inter-Medium"],
         "inter-semibold": ["Inter-SemiBold"],
         "inter-regular": ["Inter-Regular"],
+        "sfpro-regular": ["SFProText-Regular"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",
@@ -95,9 +95,9 @@ module.exports = {
           "0%": { transform: "translateX(200px);" },
           "100%": { transform: "translateX(0px);" },
         },
-        underlineOut: {
-          "0%": { transform: "scaleX(0)" },
-          "100%": { transform: "scaleX(1)" },
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
         },
       },
       animation: {
@@ -105,10 +105,10 @@ module.exports = {
         zoomOut: "zoomOut 4s ease-in infinite",
         typingErase: "typingErase 4s steps(40, end) infinite",
         menuSticky: "0.6s ease-in-out",
-        underlineOut: "underlineOut 1s",
         fadeInRight: "fadeInRight 150ms ease-in",
         gridAnimation: "scroll 40s linear infinite",
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
+        fadeIn: "fadeIn 0.6s ease-in",
       },
       zIndex: {
         "-1": "-1",
@@ -130,6 +130,10 @@ module.exports = {
           "linear-gradient(transparent, transparent),linear-gradient(transparent, transparent),linear-gradient(to right, #f2709c, #ff835b)",
         "single-color-underline":
           "linear-gradient(to bottom, transparent 54%, #FFECEC 50%)",
+        "white-gradient":
+          "linear-gradient(to top, rgba(255, 255, 255, 0.6) 5%, #FFFFFF 51.63% )",
+        "white-gradient-bottom":
+          "linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 5%, #FFFFFF 51.63%)",
       },
     },
   },
@@ -137,7 +141,7 @@ module.exports = {
     container: false,
   },
   plugins: [
-    plugin(({ matchUtilities, theme }) => {
+    plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {
           "bg-gradient": (angle) => ({
@@ -160,7 +164,7 @@ module.exports = {
         }
       );
     }),
-    ({ addComponents }) => {
+    function ({ addComponents }) {
       addComponents({
         ".container": {
           margin: "auto",

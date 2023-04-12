@@ -7,11 +7,16 @@
     </metainfo>
     <Header />
     <div>
-      <LandingSection />
-      <AboutusVirtue />
-      <WithCanopasSection />
-      <ClientReviewSection />
-      <CTASection />
+      <LandingSection ref="landing" />
+      <HowItAllStartedSectionMobile
+        ref="howstarted"
+        class="tw-block lg:tw-hidden"
+      />
+      <HowItAllStartedSection ref="howstarted" class="tw-hidden lg:tw-block" />
+      <AboutusVirtue ref="aboutvirtue" />
+      <WithCanopasSection ref="withcanopas" />
+      <ClientReviewSection ref="aboutclientreview" />
+      <CTASection ref="aboutcta" />
     </div>
     <NewFooter />
   </div>
@@ -21,12 +26,15 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/about/LandingSection.vue";
+import HowItAllStartedSectionMobile from "@/components/about/HowItAllStartedSectionMobile.vue";
+import HowItAllStartedSection from "@/components/about/HowItAllStartedSection.vue";
 import AboutusVirtue from "@/components/about/AboutusVirtue.vue";
 import WithCanopasSection from "@/components/home/WithCanopas.vue";
 import ClientReviewSection from "@/components/home-new/ClientReviewSection.vue";
 import CTASection from "@/components/about/CTASection.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
+import { elementInViewPort } from "@/utils.js";
 
 export default {
   setup() {
@@ -52,12 +60,25 @@ export default {
   components: {
     Header,
     LandingSection,
+    HowItAllStartedSectionMobile,
+    HowItAllStartedSection,
     AboutusVirtue,
-
     WithCanopasSection,
     ClientReviewSection,
     CTASection,
     NewFooter,
+  },
+  data() {
+    return {
+      events: {
+        landing: "view_about_landing",
+        howstarted: "view_about_how_all_started",
+        aboutvirtue: "view_about_virtues",
+        withcanopas: "view_about_phases",
+        aboutclientreview: "view_about_client_review",
+        aboutcta: "view_about_cta",
+      },
+    };
   },
   inject: ["mixpanel"],
   beforeRouteEnter(to, from, next) {
@@ -68,7 +89,20 @@ export default {
     }
   },
   mounted() {
+    window.addEventListener("scroll", this.sendEvent);
     this.mixpanel.track("view_about_page");
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = this.events[elementInViewPort(this.$refs)];
+      if (event && this.event !== event) {
+        this.event = event;
+        this.mixpanel.track(event);
+      }
+    },
   },
 };
 </script>
