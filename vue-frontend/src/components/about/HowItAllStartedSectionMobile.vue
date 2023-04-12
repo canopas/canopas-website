@@ -1,13 +1,13 @@
 <template>
   <section>
-    <div class="tw-container tw-mt-10">
+    <div class="tw-container tw-mt-10 tw-mb-20">
       <h1
         class="tw-pt-5 sm:tw-pt-10 tw-text-center tw-text-[1.875rem] md:tw-text-[2.813rem] tw-leading-[2.25rem] md:tw-leadig-[3.875rem] tw-font-inter-bold tw-text-black-core/[0.87]"
       >
         How it all started?
       </h1>
       <div
-        class="tw-container tw-flex tw-flex-col tw-items-center tw-w-full md:tw-w-[82%] tw-h-[24.25rem] sm:tw-h-[16.4rem] md:tw-h-[18.4rem] tw-mt-[1.5rem] tw-overflow-y-scroll hidden-scrollbar before:tw--mt-5 before:tw-blur-lg before:tw-absolute before:tw-left-0 before:tw-h-[6%] before:tw-w-full before:tw-bg-white-gradient"
+        class="tw-container tw-flex tw-flex-col tw-items-center tw-w-full md:tw-w-[82%] tw-h-[24.25rem] tw-mt-[5rem] tw-overflow-y-scroll hidden-scrollbar before:tw--mt-5 before:tw-blur-lg before:tw-absolute before:tw-left-0 before:tw-h-[6%] before:tw-w-full before:tw-bg-white-gradient"
       >
         <div
           v-for="(event, index) in events"
@@ -23,7 +23,7 @@
               </h1>
               <div
                 :class="index == events.length - 1 ? 'tw-hidden' : ''"
-                class="tw-ml-[1.5rem] tw-h-72 sm:tw-h-40 md:tw-h-48 tw-border-dotted tw-border-l-2 tw-border-[#000000]/[0.87]"
+                class="tw-ml-[1.5rem] tw-h-60 sm:tw-h-40 md:tw-h-48 tw-border-dotted tw-border-l-2 tw-border-[#000000]/[0.87]"
               ></div>
             </div>
             <div

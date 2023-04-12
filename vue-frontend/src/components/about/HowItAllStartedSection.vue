@@ -1,21 +1,19 @@
 <template>
-  <div class="3xl:tw-container !tw-mt-20 tw-mb-8 xl:tw-mb-20 2xl:tw-mb-48">
+  <div class="xll:tw-container !tw-mt-20 xl:tw-mb-20 2xl:tw-mb-48">
     <h1
       class="tw-text-center tw-text-[1.875rem] md:tw-text-[2.813rem] tw-leading-[2.25rem] md:tw-leadig-[3.875rem] tw-font-inter-bold tw-text-black-core/[0.87]"
     >
       How it all started?
     </h1>
-    <div class="tw-flex tw-flex-row tw-pt-10 xl:tw-pt-20">
-      <div class="tw-w-[60%] tw-overflow-hidden tw-py-40">
-        <div
-          class="tw-relative tw-mt-[-120px] 2xl:tw-mt-[-33px] 3xl:tw-mt-[-100px]"
-        >
+    <div class="tw-flex tw-flex-row xl:tw-pt-20">
+      <div class="tw-w-[60%] tw-flex tw-flex-col tw-overflow-hidden tw-py-40">
+        <div class="tw-relative">
           <ul
             ref="years"
             :style="{
               left: `${left}px`,
             }"
-            class="tw-ml-[20%] tw-w-[80%] 3xl:tw-w-full tw-absolute tw-transition-all tw-ease-in-out tw-duration-1000 tw-flex tw-flex-nowrap tw-justify-between tw-w-full tw-list-none"
+            class="tw-ml-[20%] 3xl:tw-ml-[18%] tw-w-[80%] tw-absolute tw-transition-all tw-ease-in-out tw-duration-1000 tw-flex tw-flex-nowrap tw-justify-between tw-w-full tw-list-none"
           >
             <li
               v-for="(story, index) in stories"
@@ -35,9 +33,21 @@
             </li>
           </ul>
         </div>
+        <div
+          v-if="activeStory !== null"
+          class="tw-ml-[20%] 3xl:tw-ml-[18%] tw-h-[200px] tw-w-[80%] tw-mt-[4.5rem]"
+          :key="activeStory.year"
+          :class="animate ? 'tw-animate-fadeIn ' : ''"
+        >
+          <p
+            class="tw-text-[1rem] tw-leading-[1.5rem] xl:tw-text-[1.187rem] xl:tw-leading-[1.813rem] tw-font-inter-medium"
+          >
+            {{ activeStory.story }}
+          </p>
+        </div>
       </div>
       <div
-        class="tw-relative tw-w-[60%] xll:tw-w-[40%] tw-flex tw-flex-col tw-items-center tw-justify-center tw-pr-[5%]"
+        class="tw-relative tw-w-[60%] xll:tw-w-[50%] tw-flex tw-flex-col tw-items-center tw-justify-center tw-pr-[5%]"
       >
         <img
           :src="image1"
@@ -50,18 +60,6 @@
           class="tw-self-end tw-mt-[-90px] tw-w-[50%] 3xl:tw-w-[40%]"
         />
       </div>
-    </div>
-    <div
-      v-if="activeStory !== null"
-      class="tw-ml-[10%] 3xl:tw-ml-[12%] tw-h-[200px] tw-w-[40%] xll:tw-w-[60%] 3xl:tw-w-[45%] tw-mt-[-22%] 2xl:tw-mt-[-21%] 3xl:tw-mt-[-15%]"
-      :key="activeStory.year"
-      :class="animate ? 'tw-animate-fadeIn ' : ''"
-    >
-      <p
-        class="tw-text-[1rem] tw-leading-[1.5rem] xl:tw-text-[1.187rem] xl:tw-leading-[1.813rem] tw-font-inter-medium"
-      >
-        {{ activeStory.story }}
-      </p>
     </div>
   </div>
 </template>
