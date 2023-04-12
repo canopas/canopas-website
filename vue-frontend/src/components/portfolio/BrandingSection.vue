@@ -35,7 +35,7 @@
     </div>
     <div
       v-if="response.title"
-      class="tw-container tw-py-20 lg:tw-py-80 tw-relative"
+      class="tw-container tw-pt-0 tw-pb-20 md:tw-pt-[4rem] lg:tw-pb-80 tw-relative"
     >
       <div class="v2-header-3-text tw-pt-20" v-html="response.title"></div>
     </div>
@@ -46,7 +46,7 @@
     class="background-image tw-relative tw-z-[-1]"
     :ref="response.brandingref ? response.brandingref : ''"
   >
-    <aspect-ratio :height="isMobile ? '100%' : '56.26%'">
+    <aspect-ratio height="100%">
       <img
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400, ${response.backgroundImage[3]} 2400w`"
@@ -61,7 +61,7 @@
     :ref="response.details ? response.details.ref : ''"
   >
     <div
-      class="tw-container tw-pt-48 md:tw-pt-48 xl:tw-pt-80 tw-flex tw-flex-col ... md:tw-flex-row ... md:tw-gap-x-16"
+      class="tw-container tw-flex tw-flex-col md:tw-flex-row md:tw-gap-x-16 tw-pt-[6rem] md:tw-pt-48 xl:tw-pt-80"
     >
       <div v-if="gridData1" class="tw-basis-1/2">
         <div v-for="data in gridData1" :key="data">
@@ -79,8 +79,8 @@
               >
                 <img
                   v-if="data.image"
-                  :src="data.image[3]"
-                  :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
+                  :src="data.image[2]"
+                  :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w`"
                   class="tw-w-full tw-h-full tw-object-cover"
                   :alt="data.alt"
                 />
@@ -110,18 +110,30 @@
             </aspect-ratio>
           </div>
           <div
-            class="v2-normal-text tw-bg-white tw-font-light ..."
+            class="v2-normal-text tw-bg-white tw-font-light ... tw-px-6 sm:tw-px-8 lg:tw-px-12 xl:tw-px-20 tw-py-12 xl:tw-py-20 tw-text-center"
             :class="[
-              data.title
-                ? 'tw-px-6 tw-py-12 sm:tw-px-8 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-20 tw-text-center'
-                : 'tw-mt-12',
+              response.details.ref == 'justlyui1'
+                ? ' tw-pb-[2rem] sm:tw-pb-[3rem] xl:tw-pb-[2rem]  2xl:tw-pb-[3rem] tw-text-[1.188rem] tw-leading-[1.781rem] md:tw-text-[1.281rem] md:tw-leading-[1.875rem] xl:tw-text-[1.375rem] xl:tw-leading-[2rem] tw-font-inter-regular tw-text-black-core/[0.87] '
+                : '',
+              response.details.ref == 'justlyui1' && data.id == 2
+                ? 'tw-pt-[8rem] sm:tw-pt-[7rem] md:tw-pt-[5rem] lg:tw-pt-[7rem] xl:tw-pt-[7rem] 2xl:tw-pt-[9rem] md:!tw-pb-0'
+                : '',
+              response.details.ref == 'justlyui1' && data.id == 1
+                ? 'tw-pt-[10rem] sm:tw-pt-[10rem] md:tw-pt-[7rem] lg:tw-pt-[9rem] xl:tw-pt-[10rem] 2xl:tw-pt-[12rem]'
+                : '',
             ]"
           >
             {{ data.title }}
           </div>
         </div>
       </div>
-      <div v-if="gridData2" class="tw-basis-1/2 md:tw-mt-36 lg:tw-mt-64">
+      <div
+        v-if="gridData2"
+        class="tw-basis-1/2"
+        :class="[
+          response.details.ref !== 'justlyui1' ? 'md:tw-mt-36 lg:tw-mt-64' : '',
+        ]"
+      >
         <div v-for="data in gridData2" :key="data">
           <div class="tw-relative">
             <aspect-ratio
@@ -138,8 +150,8 @@
                 <img
                   v-if="data.image"
                   class="tw-w-full tw-h-full tw-object-cover"
-                  :src="data.image[3]"
-                  :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w, ${data.image[3]} 1600w`"
+                  :src="data.image[2]"
+                  :srcset="`${data.image[0]} 400w, ${data.image[1]} 800w, ${data.image[2]} 1200w`"
                   :alt="data.alt"
                 />
                 <video
@@ -167,11 +179,20 @@
             </aspect-ratio>
           </div>
           <div
-            class="v2-normal-text tw-bg-white tw-font-light ..."
+            class="v2-normal-text tw-bg-white tw-font-light ... tw-px-6 sm:tw-px-8 lg:tw-px-12 xl:tw-px-20 tw-py-12 xl:tw-py-20 tw-text-center"
             :class="[
-              data.title !== 'togness'
-                ? 'tw-px-6 tw-py-12 sm:tw-px-8 lg:tw-px-12 lg:tw-py-12 xl:tw-px-20 xl:tw-py-20 tw-text-center'
-                : 'tw-hidden',
+              response.details.ref == 'justlyui1'
+                ? 'tw-px-6  sm:tw-px-8 lg:tw-px-12  2xl:tw-px-20 tw-pb-[2rem] sm:tw-pb-[3rem] md:tw-pb-[11rem] lg:tw-pb-[13rem] xl:tw-pb-[11.5rem]  2xl:tw-pb-[16.8rem] tw-text-[1.188rem] tw-leading-[1.781rem] md:tw-text-[1.281rem] md:tw-leading-[1.875rem] xl:tw-text-[1.375rem] xl:tw-leading-[2rem] tw-font-inter-regular tw-text-center tw-text-black-core/[0.87] '
+                : '',
+              response.details.ref == 'justlyui1' && data.id == 4
+                ? 'tw-pt-[1rem] md:tw-pt-[1rem] xl:tw-pt-0  md:!tw-pb-0'
+                : '',
+              response.details.ref == 'justlyui1' && data.id == 3
+                ? 'tw-pt-[14rem] sm:tw-pt-[13rem] md:tw-pt-[9rem] lg:tw-pt-[12rem] xl:tw-pt-[14rem] 2xl:tw-pt-[16rem]'
+                : '',
+              response.details.ref == 'tognessui1' && data.title == 'togness'
+                ? 'tw-hidden'
+                : '',
             ]"
           >
             {{ data.title }}

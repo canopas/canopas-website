@@ -1,8 +1,6 @@
 <template>
   <section class="tw-bg-white" :ref="response.landingref1">
-    <div
-      class="tw-container tw-pt-20 tw-pb-40 sm:tw-pt-32 lg:tw-pb-80 lg:tw-pt-60"
-    >
+    <div class="tw-container tw-py-20 sm:tw-pt-32 lg:tw-pb-80 lg:tw-pt-60">
       <h1 class="v2-normal-2-text animate__animated animate__fadeInUp">
         {{ response.title }}
       </h1>

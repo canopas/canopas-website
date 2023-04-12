@@ -2,7 +2,9 @@
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative tw-container">
       <div v-if="response.title">
-        <div class="tw-py-40 lg:tw-py-80">
+        <div
+          class="lg:tw-pt-40 tw-pb-[3rem] lg:tw-pb-80 tw-pt-0 md:tw-pt-[7rem]"
+        >
           <div
             :class="
               response.class
@@ -16,10 +18,7 @@
     </div>
   </section>
 
-  <section
-    v-if="response.detail"
-    class="tw-relative tw-bg-white tw-pb-40 lg:tw-pb-80"
-  >
+  <section v-if="response.detail" class="tw-relative tw-bg-white lg:tw-pb-80">
     <div class="tw-container tw-flex tw-flex-col sm:tw-flex-row tw-relative">
       <div v-if="gridData1" class="tw-basis-1/2">
         <div v-for="data in gridData1" :key="data" class="tw-px-3">

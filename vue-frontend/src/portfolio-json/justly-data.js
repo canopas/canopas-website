@@ -3,12 +3,23 @@ import landingBackground800w from "@/assets/images/portfolio/justly/landing/back
 import landingBackground1400w from "@/assets/images/portfolio/justly/landing/background-1400w.webp";
 import landingBackground2400w from "@/assets/images/portfolio/justly/landing/background-2400w.webp";
 
+import featureGoal400w from "@/assets/images/portfolio/justly/features/justly-goal-400w.webp";
+import featureGoal800w from "@/assets/images/portfolio/justly/features/justly-goal-800w.webp";
+import featureGoal1200w from "@/assets/images/portfolio/justly/features/justly-goal-1200w.webp";
+
+import featureLogo400w from "@/assets/images/portfolio/justly/features/justly-logo-400w.webp";
+import featureLogo800w from "@/assets/images/portfolio/justly/features/justly-logo-800w.webp";
+import featureLogo1200w from "@/assets/images/portfolio/justly/features/justly-logo-1200w.webp";
+
+import featureNotes400w from "@/assets/images/portfolio/justly/features/justly-notes-400w.webp";
+import featureNotes800w from "@/assets/images/portfolio/justly/features/justly-notes-800w.webp";
+import featureNotes1200w from "@/assets/images/portfolio/justly/features/justly-notes-1200w.webp";
+
+import featureRank400w from "@/assets/images/portfolio/justly/features/justly-rank-400w.webp";
+import featureRank800w from "@/assets/images/portfolio/justly/features/justly-rank-800w.webp";
+import featureRank1200w from "@/assets/images/portfolio/justly/features/justly-rank-1200w.webp";
+
 import videoBackgroundImage from "@/assets/images/portfolio/justly/swiper/mobile.webp";
-import cooking from "@/assets/images/portfolio/justly/swiper/cooking.svg";
-import meditation from "@/assets/images/portfolio/justly/swiper/meditation.svg";
-import painting from "@/assets/images/portfolio/justly/swiper/painting.svg";
-import pet from "@/assets/images/portfolio/justly/swiper/pet.svg";
-import singing from "@/assets/images/portfolio/justly/swiper/singing.svg";
 
 import brandingBackground400w from "@/assets/images/portfolio/justly/branding/background-400w.webp";
 import brandingBackground800w from "@/assets/images/portfolio/justly/branding/background-800w.webp";
@@ -18,22 +29,18 @@ import brandingBackground2400w from "@/assets/images/portfolio/justly/branding/b
 import branding1Image400w from "@/assets/images/portfolio/justly/branding/justly_branding_1-400w.webp";
 import branding1Image800w from "@/assets/images/portfolio/justly/branding/justly_branding_1-800w.webp";
 import branding1Image1200w from "@/assets/images/portfolio/justly/branding/justly_branding_1-1200w.webp";
-import branding1Image1600w from "@/assets/images/portfolio/justly/branding/justly_branding_1-1600w.webp";
 
 import branding2Image400w from "@/assets/images/portfolio/justly/branding/justly_branding_2-400w.webp";
 import branding2Image800w from "@/assets/images/portfolio/justly/branding/justly_branding_2-800w.webp";
 import branding2Image1200w from "@/assets/images/portfolio/justly/branding/justly_branding_2-1200w.webp";
-import branding2Image1600w from "@/assets/images/portfolio/justly/branding/justly_branding_2-1600w.webp";
 
 import branding3Image400w from "@/assets/images/portfolio/justly/branding/justly_branding_3-400w.webp";
 import branding3Image800w from "@/assets/images/portfolio/justly/branding/justly_branding_3-800w.webp";
 import branding3Image1200w from "@/assets/images/portfolio/justly/branding/justly_branding_3-1200w.webp";
-import branding3Image1600w from "@/assets/images/portfolio/justly/branding/justly_branding_3-1600w.webp";
 
 import branding4Image400w from "@/assets/images/portfolio/justly/branding/justly_branding_4-400w.webp";
 import branding4Image800w from "@/assets/images/portfolio/justly/branding/justly_branding_4-800w.webp";
 import branding4Image1200w from "@/assets/images/portfolio/justly/branding/justly_branding_4-1200w.webp";
-import branding4Image1600w from "@/assets/images/portfolio/justly/branding/justly_branding_4-1600w.webp";
 
 import playStoreImage from "@/assets/images/portfolio/play_store.webp";
 import appStoreImage from "@/assets/images/portfolio/app_store.webp";
@@ -79,7 +86,7 @@ export default {
       ref: "justlyvideo",
       title: "About",
       description:
-        "Justly - A startup to help people improve their daily life by creating new habits. Habits are the core of any change people want to make in their lives. Inspired by the atomic habits book, the startup wanted to create a product that helps people focus on progress instead of goals and talents. The project is in the development mode and the habit module is live on both app stores.",
+        "Justly helps you improve your mental and physical well-being and reach your goals. It offers tools and resources for weight loss, relationship improvement, and career advancement. But it's not just about personal goals - Justly is committed to advancing humanity. Download the app to learn more about our meticulous approach to every aspect of the project, from APP ARCHITECTURE TO DEPLOYMENT.",
       buttons: [
         {
           name: "Play Store",
@@ -97,41 +104,39 @@ export default {
       backgroundImage: "",
       videoBackgroundImage: videoBackgroundImage,
       alt: "justly-background-image",
-      slider: [
-        {
-          id: 1,
-          image: cooking,
-          backgroundColor: "#FD6429",
-          alt: "justly-cooking-activity",
-        },
-        {
-          id: 2,
-          image: meditation,
-          backgroundColor: "#5C3C8C",
-          alt: "justly-meditation-activity",
-        },
-        {
-          id: 3,
-          image: painting,
-          backgroundColor: "#96BC9F",
-          alt: "justly-painting-activity",
-        },
-        {
-          id: 4,
-          image: pet,
-          backgroundColor: "#F9626B",
-          alt: "justly-spend-time-with-pet-activity",
-        },
-        {
-          id: 5,
-          image: singing,
-          backgroundColor: "#A1AEC3",
-          alt: "justly-singing-activity",
-        },
-      ],
+      features: {
+        gridData1: [
+          {
+            id: 1,
+            aspectRatio: "104%",
+            image: [featureLogo400w, featureLogo800w, featureLogo1200w],
+            alt: "justly-logo",
+          },
+          {
+            id: 2,
+            aspectRatio: "125%",
+            image: [featureGoal400w, featureGoal800w, featureGoal1200w],
+            alt: "goal-feture",
+          },
+        ],
+        gridData2: [
+          {
+            id: 3,
+            aspectRatio: "104%",
+            image: [featureRank400w, featureRank800w, featureRank1200w],
+            alt: "rank-feture",
+          },
+          {
+            id: 4,
+            aspectRatio: "125%",
+            image: [featureNotes400w, featureNotes800w, featureNotes1200w],
+            alt: "notes-feature",
+          },
+        ],
+      },
     },
     branding: {
-      title: `<span class="border-text">Justly</span> <br/>branding`,
+      title: `<span class="border-text">Careful</span> <br/>branding`,
       responsiveImages: true,
       backgroundImage: [
         brandingBackground400w,
@@ -147,12 +152,12 @@ export default {
           {
             id: 1,
             aspectRatio: "135%",
-            title: "",
+            title:
+              "25+ habits from 5 unique domains to help you create the system you want for your identity.",
             image: [
               branding1Image400w,
               branding1Image800w,
               branding1Image1200w,
-              branding1Image1600w,
             ],
             alt: "justly-reminder-screen",
           },
@@ -160,12 +165,11 @@ export default {
             id: 2,
             aspectRatio: "94%",
             title:
-              "25+ habits from 5 unique domains to help you create the system you want for your identity.",
+              "Create a community, find a wise mentor, or ask a friend to hold you accountable for the habits you want to cultivate.",
             image: [
               branding2Image400w,
               branding2Image800w,
               branding2Image1200w,
-              branding2Image1600w,
             ],
             alt: "justly-habits-activity-image",
           },
@@ -174,24 +178,24 @@ export default {
           {
             id: 3,
             aspectRatio: "94%",
-            title: "",
+            title:
+              "Never lose your focus again with a wealth of stats and highlights to keep you on track.",
             image: [
               branding3Image400w,
               branding3Image800w,
               branding3Image1200w,
-              branding3Image1600w,
             ],
             alt: "justly-my-activities-image",
           },
           {
             id: 4,
             aspectRatio: "135%",
-            title: "Learn how the activity helps you improve yourself.",
+            title:
+              "Adopt the daily routines of successful people to set yourself apart and achieve your goals.",
             image: [
               branding4Image400w,
               branding4Image800w,
               branding4Image1200w,
-              branding4Image1600w,
             ],
             alt: "justly-maditation-activity-screen",
           },
