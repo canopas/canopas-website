@@ -88,12 +88,13 @@
               >
                 <div>
                   <span
+                    @click="width > 768 ? openBlog(blog) : ''"
                     :class="
                       activeIndex == index
                         ? 'tw-bg-gradient-to-b tw-from-[#ff9472] tw-to-[#f2709c] tw-bg-[length:100%_3px] md:tw-bg-[length:100%_5px] tw-bg-no-repeat tw-bg-bottom tw-pb-[3px]'
                         : ''
                     "
-                    class="tw-font-inter-semibold tw-text-[1.125rem] md:tw-text-[1.688rem] 2xl:tw-text-[2.125rem] tw-leading-[1.575rem] md:tw-leading-[2.313rem] 2xl:tw-leading-[3.188rem]"
+                    class="tw-font-inter-semibold tw-text-[1.125rem] md:tw-text-[1.688rem] 2xl:tw-text-[2.125rem] tw-leading-[1.575rem] md:tw-leading-[2.313rem] 2xl:tw-leading-[3.188rem] tw-cursor-pointer"
                   >
                     {{ blog.title }}</span
                   >
@@ -106,9 +107,14 @@
                   </span>
                   <span
                     @click="openBlog(blog)"
-                    class="lg:tw-w-[5.938rem] tw-cursor-pointer"
+                    class="lg:tw-w-[7.938rem] tw-cursor-pointer v2-canopas-gradient-text"
                   >
                     Read more
+                    <font-awesome-icon
+                      class="arrow fa tw-w-4 tw-h-4 tw-text-pink-300"
+                      :icon="rightArrow"
+                      id="leftArrow"
+                    />
                   </span>
                 </div>
                 <hr
@@ -159,6 +165,8 @@
 </template>
 
 <script type="module">
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faArrowRightLong } from "@fortawesome/free-solid-svg-icons";
 import bgMobile from "@/assets/images/blog/bg/bg400.svg";
 import bg from "@/assets/images/blog/bg/bg2400.svg";
 import axios from "axios";
@@ -167,6 +175,7 @@ import Config from "@/config.js";
 export default {
   data() {
     return {
+      rightArrow: faArrowRightLong,
       width: 680,
       bgMobile,
       bg,
@@ -210,6 +219,9 @@ export default {
         })
         .catch(() => {});
     },
+  },
+  components: {
+    FontAwesomeIcon,
   },
 };
 </script>
