@@ -6,7 +6,7 @@
       <img
         :src="Cta2400"
         :srcset="`${Cta400} 400w, ${Cta800} 800w, ${Cta1200} 1200w, ${Cta2400} 2400w`"
-        class="tw-absolute tw-bottom-8 sm:tw-bottom-0.5 tw-max-w-[1700px] tw-w-[93%] tw-h-[68%] sm:tw-h-full tw-rounded-[8px] sm:tw-rounded-[12px] md:tw-rounded-[14px] lg:tw-rounded-[16px] xl2:tw-rounded-[20px] tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B]"
+        class="tw-absolute tw-h-full tw-w-full tw-object-cover tw-bottom-8 sm:tw-bottom-0.5 tw-max-w-[1700px] tw-w-[93%] tw-h-[68%] sm:tw-h-full tw-rounded-[8px] sm:tw-rounded-[12px] md:tw-rounded-[14px] lg:tw-rounded-[16px] xl2:tw-rounded-[20px] tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B]"
         alt="canopas-CTA"
       />
       <div class="tw-container tw-mx-6 md:tw-mx-10 tw-z-[1] tw-text-center">

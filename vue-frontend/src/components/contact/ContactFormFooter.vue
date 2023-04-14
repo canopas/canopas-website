@@ -384,6 +384,7 @@ export default {
         import.meta.env.VITE_RECAPTCHA_SITE_KEY;
       head.appendChild(script);
     },
+
     closePopUps(e) {
       const showList = this.$refs["invest-list"];
       if (showList && !showList.contains(e.target)) {

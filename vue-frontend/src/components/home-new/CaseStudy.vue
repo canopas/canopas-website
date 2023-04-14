@@ -4,7 +4,7 @@
       v-if="currentRoutePath == '/portfolio'"
       class="tw-text-center tw-mt-8 lg:tw-mt-36 tw-pb-9 md:tw-pb-20 tw-text-[#3d3d3d] tw-font-futura-bold tw-text-[4.5rem] md:tw-text-[5.625rem] lg:tw-text-[7.5rem] tw-leading-[6rem] md:tw-leading-[7.625rem] lg:tw-leading-[9rem]"
     >
-      <h1>Portfolio</h1>
+      <p>Portfolio</p>
     </div>
     <div v-else>
       <p

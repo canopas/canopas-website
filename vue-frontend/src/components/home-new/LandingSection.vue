@@ -3,15 +3,9 @@
     class="tw-relative tw-bg-gradient-to-t tw-from-pink-300/[0.05] tw-to-white landing-bg-mobile-clip-path md:landing-bg-clip-path tw-overflow-hidden tw-px-0 tw-pb-[50px] md:tw-pb-[100px] tw-font-inter-regular"
   >
     <img
-      v-if="width < 680"
-      :src="bgMobile"
-      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw--z-[1] tw-object-cover"
-      alt="canopas-landing"
-    />
-    <img
-      v-else
-      :src="bg"
-      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw--z-[1] tw-object-cover 2xl:tw-object-contain"
+      :src="background2100"
+      :srcset="`${background400} 400w, ${background800} 800w, ${background1200} 1200w, ${background2100} 2100w`"
+      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw--z-[1] tw-object-contain"
       alt="canopas-landing"
     />
 
@@ -23,10 +17,10 @@
         height="60%"
       >
         <img
-          class="tw-w-full tw-h-full tw-object-cover"
-          :src="landing"
+          class="tw-w-full tw-h-full tw-object-contain"
+          :src="landing2100"
+          :srcset="`${landing400} 400w, ${landing800} 800w, ${landing1200} 1200w, ${landing2100} 2100w`"
           alt="landing-view-image"
-          loading="lazy"
         />
       </aspect-ratio>
       <div
@@ -138,22 +132,32 @@
   </div>
 </template>
 <script>
-import landing from "@/assets/images/landing/landing-new.webp";
+import landing400 from "@/assets/images/landing/landing-400w.webp";
+import landing800 from "@/assets/images/landing/landing-800w.webp";
+import landing1200 from "@/assets/images/landing/landing-1200w.webp";
+import landing2100 from "@/assets/images/landing/landing-2100w.webp";
 import client1 from "@/assets/images/landing/client1-100w.webp";
 import client2 from "@/assets/images/landing/client2-100w.webp";
 import client3 from "@/assets/images/landing/client3-100w.webp";
 import client4 from "@/assets/images/landing/client4-100w.webp";
-import bgMobile from "@/assets/images/landing/bg/bg800.webp";
-import bg from "@/assets/images/landing/bg/bg2400.webp";
+import background400 from "@/assets/images/landing/bg/background-400w.webp";
+import background800 from "@/assets/images/landing/bg/background-800w.webp";
+import background1200 from "@/assets/images/landing/bg/background-1200w.webp";
+import background2100 from "@/assets/images/landing/bg/background-2100w.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import AspectRatio from "../utils/AspectRatio.vue";
 export default {
   data() {
     return {
       width: 680,
-      landing,
-      bgMobile,
-      bg,
+      landing400,
+      landing800,
+      landing1200,
+      landing2100,
+      background400,
+      background800,
+      background1200,
+      background2100,
       contactURL: "/contact",
       clients: [
         {

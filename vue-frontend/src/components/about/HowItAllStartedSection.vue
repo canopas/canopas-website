@@ -61,6 +61,7 @@
         <img
           :src="image2"
           alt="workspace-image-2"
+          loading="lazy"
           class="tw-relative tw-self-end tw-w-[70%] xll:tw-w-[100%]"
         />
       </div>

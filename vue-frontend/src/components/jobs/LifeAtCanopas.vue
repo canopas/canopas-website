@@ -50,7 +50,7 @@
               :src="sider.image[0]"
               :srcset="`${sider.image[0]} 400w, ${sider.image[1]} 800w, ${sider.image[2]} 1600w`"
               alt="Life at canopas"
-              class="swiper-slide tw-object-cover"
+              class="swiper-slide tw-h-full tw-w-full tw-object-cover"
               loading="lazy"
             />
           </aspect-ratio>

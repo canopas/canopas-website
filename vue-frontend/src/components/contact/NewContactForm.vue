@@ -476,6 +476,7 @@ export default {
             .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
               action: "verify",
             })
+
             .then((token) => {
               formData.token = token;
               axios
