@@ -15,11 +15,14 @@
         class="tw-flex-[33%] image tw-py-0 tw-px-[20%] md:tw-py-0 md:tw-px-0 md:tw-translate-y-60 lg:tw-translate-y-80 xl:tw-translate-y-40 animate__animated"
         ref="faqImage"
       >
-        <img
-          :src="faqImage"
-          loading="lazy"
-          alt="frequently-asked-questions-image"
-        />
+        <aspect-ratio height="100%">
+          <img
+            :src="faqImage"
+            loading="lazy"
+            alt="frequently-asked-questions-image"
+            class="tw-h-full tw-w-full tw-object-contain"
+          />
+        </aspect-ratio>
       </div>
       <div class="tw-flex-[67%]">
         <div class="faq-content md:tw-pl-[60px]">
@@ -116,6 +119,7 @@
 </template>
 
 <script type="module">
+import AspectRatio from "@/components/utils/AspectRatio.vue";
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import faqImage from "@/assets/images/faq/FAQ.svg";
@@ -203,6 +207,7 @@ export default {
   components: {
     CollapseTransition,
     FontAwesomeIcon,
+    AspectRatio,
   },
   mounted() {
     window.addEventListener("scroll", this.handleScroll);

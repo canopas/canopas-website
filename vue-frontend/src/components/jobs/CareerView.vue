@@ -1,9 +1,9 @@
 <template>
   <div class="tw-container tw-my-[100px] tw-mx-auto">
     <div class="tw-text-center">
-      <h1 class="header-text canopas-gradient-text">
+      <p class="header-text canopas-gradient-text">
         <span class="underline-text">Find t</span>he career of your dreams
-      </h1>
+      </p>
       <div
         class="tw-my-[30px] tw-mx-[2%] md:tw-my-[50px] md:tw-mx-[80px] normal-text"
       >
@@ -85,15 +85,16 @@
                   @click.native="mixpanel.track('tap_read_more_job')"
                   class="tw-flex tw-items-center gradient-border-btn tw-p-3"
                   :to="'/jobs/' + career.unique_id"
-                  aria-label="read-more"
+                  aria-label="read-more about job descriptions"
+                  title="read-more about job descriptions"
                 >
                   <font-awesome-icon
                     class="fa tw-text-pink-300 tw-mr-[5px]"
                     icon="align-left"
                     flip="vertical"
-                    aria-hidden="true"
                   />
                   <span
+                    title="read-more about job descriptions"
                     class="tw-text-[.9rem] tw-leading-[1.364rem] tw-font-bold tw-tracking-[0.06rem] md:tw-text-[1rem] lg:tw-text-[1.125rem]"
                     >Read More</span
                   >

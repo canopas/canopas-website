@@ -10,7 +10,7 @@
           :src="CTAImage[0]"
           :srcset="`${CTAImage[0]} 400w, ${CTAImage[1]} 800w, ${CTAImage[2]} 1600w, ${CTAImage[3]} 2400w`"
           alt="aboutus-cta-image"
-          class="tw-h-full tw-w-full"
+          class="tw-w-full tw-h-full tw-object-contain"
           loading="lazy"
         />
       </div>

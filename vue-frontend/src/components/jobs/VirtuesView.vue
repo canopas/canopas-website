@@ -24,7 +24,6 @@
                 class="tw-absolute tw-w-[95%] tw-h-[95%] tw-left-0"
                 :src="virtue.image"
                 :alt="virtue.title"
-                loading="lazy"
               />
             </div>
             <div

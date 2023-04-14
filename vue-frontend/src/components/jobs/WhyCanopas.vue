@@ -20,9 +20,10 @@
         >
           <img
             :src="reason.image"
-            alt="why-canopas-image"
+            alt="why-canopas-image "
             loading="lazy"
             v-if="reason.image"
+            class="tw-w-full tw-h-full tw-object-contain"
           />
           <div
             :class="reason.class"
