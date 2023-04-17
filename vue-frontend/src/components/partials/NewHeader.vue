@@ -48,6 +48,7 @@
                   v-if="!navbar.target"
                   :to="navbar.url"
                   @click.native="mixpanel.track(navbar.event)"
+                  class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[20px]"
                   :class="[
                     navbar.className
                       ? navbar.className
@@ -139,6 +140,13 @@ export default {
         name: "About",
         url: "/about",
         event: "tap_header_about",
+      });
+    }
+    if (Config.SHOW_SERVICES_PAGE) {
+      this.navbars.splice(4, 0, {
+        name: "Services",
+        url: "/services",
+        event: "tap_header_services",
       });
     }
     if (
