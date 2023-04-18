@@ -182,7 +182,7 @@
             class="v2-normal-text tw-bg-white tw-font-light ... tw-px-6 sm:tw-px-8 lg:tw-px-12 xl:tw-px-20 tw-py-12 xl:tw-py-20 tw-text-center"
             :class="[
               response.details.ref == 'justlyui1'
-                ? 'tw-px-6  sm:tw-px-8 lg:tw-px-12  2xl:tw-px-20 tw-pb-[2rem] sm:tw-pb-[3rem] md:tw-pb-[11rem] lg:tw-pb-[13rem] xl:tw-pb-[11.5rem]  2xl:tw-pb-[16.8rem] tw-text-[1.188rem] tw-leading-[1.781rem] md:tw-text-[1.281rem] md:tw-leading-[1.875rem] xl:tw-text-[1.375rem] xl:tw-leading-[2rem] tw-font-inter-regular tw-text-center tw-text-black-core/[0.87] '
+                ? 'tw-px-6  sm:tw-px-8 lg:tw-px-12  2xl:tw-px-20 tw-pb-[2rem] sm:tw-pb-[3rem] md:tw-pb-[11rem] lg:tw-pb-[13rem] xl:tw-pb-[13.5rem]  2xl:tw-pb-[14.8rem] tw-text-[1.188rem] tw-leading-[1.781rem] md:tw-text-[1.281rem] md:tw-leading-[1.875rem] xl:tw-text-[1.375rem] xl:tw-leading-[2rem] tw-font-inter-regular tw-text-center tw-text-black-core/[0.87] '
                 : '',
               response.details.ref == 'justlyui1' && data.id == 4
                 ? 'tw-pt-[1rem] md:tw-pt-[1rem] xl:tw-pt-0  md:!tw-pb-0'

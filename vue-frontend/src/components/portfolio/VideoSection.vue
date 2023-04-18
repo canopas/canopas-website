@@ -85,7 +85,7 @@
       </video>
     </aspect-ratio>
   </section>
-  <section v-if="response.features" class="tw-bg-white">
+  <section v-if="response.features" class="tw-bg-white tw-mt-20 lg:tw-mt-0">
     <div
       class="tw-container tw-flex tw-flex-col md:tw-flex-row md:tw-pr-[1.5rem] lg:tw-pr-[2.5rem] xl:tw-pr-[3.5rem]"
     >
@@ -93,7 +93,7 @@
         <div v-for="data in response.features.gridData1" :key="data">
           <aspect-ratio
             :height="data.aspectRatio"
-            class="tw-mb-4"
+            class="tw-mb-4 md:tw-mb-[1.5rem] lg:tw-mb-[2rem] xl:tw-mb-[2.5rem] 2xl:tw-mb-[3rem]"
             :class="data.id == 1 ? 'md:tw-w-[92%]' : 'md:tw-w-[110%]'"
           >
             <img
@@ -110,7 +110,7 @@
         <div v-for="data in response.features.gridData2" :key="data">
           <aspect-ratio
             :height="data.aspectRatio"
-            class="tw-mb-4"
+            class="tw-mb-4 md:tw-mb-[1.5rem] lg:tw-mb-[2rem] xl:tw-mb-[2.5rem] 2xl:tw-mb-[3rem]"
             :class="
               data.id == 3
                 ? 'md:tw-w-[110%]'
