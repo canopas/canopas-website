@@ -66,6 +66,8 @@ import bg400w from "@/assets/images/services/bg/bg-400w.webp";
 import bg800w from "@/assets/images/services/bg/bg-800w.webp";
 import bg1200w from "@/assets/images/services/bg/bg-1200w.webp";
 import bg1600w from "@/assets/images/services/bg/bg-1600w.webp";
+import AspectRatio from "@/components/utils/AspectRatio.vue";
+
 export default {
   data() {
     return {
@@ -73,6 +75,9 @@ export default {
       landingImages: [landing400w, landing800w, landing1200w, landing1400w],
       bgImages: [bg400w, bg800w, bg1200w, bg1600w],
     };
+  },
+  components: {
+    AspectRatio,
   },
   mounted() {
     this.width = window.innerWidth;

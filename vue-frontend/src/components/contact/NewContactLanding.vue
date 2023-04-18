@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-px-2">
+  <div class="tw-pr-2">
     <div
       class="tw-flex tw-items-center tw-py-7 md:tw-py-12 lg:tw-pb-5 lg:tw-pt-0 tw-font-product-sans tw-font-bold tw-text-[1.875rem] md:tw-text-[2.5rem] tw-leading-[2.274375rem] md:tw-leading-[3.0325rem]"
     >
