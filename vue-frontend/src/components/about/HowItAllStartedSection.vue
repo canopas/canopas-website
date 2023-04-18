@@ -6,7 +6,10 @@
       How it all started?
     </h1>
     <div
-      class="tw-flex tw-flex-row tw-items-center tw-mx-auto tw-w-full 2xl:tw-w-[1535px] xll:tw-w-[1530px] 3xl:tw-w-[1595px] xl:tw-pt-20"
+      :class="
+        width > 1399 && width < 1536 ? '2xl:!tw-w-full' : '2xl:!tw-w-[1535px]'
+      "
+      class="tw-flex tw-flex-row tw-items-center tw-mx-auto tw-w-full xll:tw-w-[1530px] 3xl:tw-w-[1595px] xl:tw-pt-20"
     >
       <div
         class="tw-flex tw-flex-col tw-w-[60%] xll:tw-w-[70%] tw-overflow-hidden tw-py-40"
@@ -17,7 +20,7 @@
             :style="{
               left: `${left}px`,
             }"
-            class="tw-absolute tw-flex tw-flex-nowrap tw-justify-between tw-w-full tw-ml-[16%] 3xl:tw-ml-[18%] tw-w-[84%] 2xl:tw-w-[75%] xll:tw-w-[72%] tw-transition-all tw-ease-in-out tw-duration-1000"
+            class="tw-absolute tw-flex tw-flex-nowrap tw-justify-between tw-w-full tw-ml-[16%] 3xl:tw-ml-[14%] tw-w-[84%] 2xl:tw-w-[75%] xll:tw-w-[72%] tw-transition-all tw-ease-in-out tw-duration-1000"
           >
             <li
               v-for="(story, index) in stories"
@@ -30,7 +33,7 @@
                   ? 'tw-text-black-core/[0.2]'
                   : 'tw-text-black-core/[0.6]'
               "
-              class="tw-flex tw-justify-center tw-text-[1.5rem] tw-leading-[2.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.812rem] tw-font-inter-medium hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-from-[#FF835B] hover:tw-to-[#F2709C] hover:tw-bg-gradient-[270.11deg]"
+              class="tw-text-[1.5rem] tw-leading-[2.5rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.812rem] tw-font-inter-medium hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-from-[#FF835B] hover:tw-to-[#F2709C] hover:tw-bg-gradient-[270.11deg]"
               @click="slide(index, story)"
             >
               <span>{{ story.year }}</span>
@@ -39,7 +42,7 @@
         </div>
         <div
           v-if="activeStory !== null"
-          class="tw-ml-[16%] 3xl:tw-ml-[18%] tw-mt-[4.5rem] tw-w-[84%] 2xl:tw-w-[76%] xll:tw-w-[67%] tw-h-[200px]"
+          class="tw-ml-[16%] 3xl:tw-ml-[14%] tw-mt-[4.5rem] tw-w-[84%] 2xl:tw-w-[76%] xll:tw-w-[67%] tw-h-[200px]"
           :key="activeStory.year"
           :class="animate ? 'tw-animate-fadeIn ' : ''"
         >
@@ -51,18 +54,18 @@
         </div>
       </div>
       <div
-        class="tw-relative tw-flex tw-flex-col tw-items-center tw-justify-center tw-mt-[4.25rem] 2xl:tw-mt-[14.25rem] xll:tw-mt-[21.25rem] 3xl:tw-mt-[26.25rem] tw-w-[40%] xll:tw-w-[30%] xll:tw-w-[50%] tw-pr-[5%] xll:tw-pr-0"
+        class="tw-relative tw-flex tw-flex-col tw-items-center tw-justify-center tw-mt-[4.25rem] 2xl:tw-mt-[14.25rem] xll:tw-mt-[21.25rem] 3xl:tw-mt-[26.25rem] tw-w-[40%] xll:tw-w-[30%] tw-pr-[5%] xll:tw-pr-0"
       >
         <img
           :src="image1"
           alt="workspace-image-1"
-          class="tw-absolute tw-bottom-[8.5rem] xl:tw-bottom-[9.5rem] 2xl:tw-bottom-[12.5rem] xll:tw-bottom-[21.5rem] tw-left-[1.5rem] xll:tw-left-[-4.5rem] tw-w-[60%] xll:tw-w-[80%] tw-z-[3]"
+          class="tw-absolute tw-bottom-[8.5rem] xl:tw-bottom-[9.5rem] 2xl:tw-bottom-[12.5rem] xll:tw-bottom-[12.5rem] tw-left-[1.5rem] xll:tw-left-[-2.5rem] tw-w-[60%] xll:tw-w-[80%] tw-z-[3]"
         />
         <img
           :src="image2"
           alt="workspace-image-2"
           loading="lazy"
-          class="tw-relative tw-self-end tw-w-[70%] xll:tw-w-[100%]"
+          class="tw-relative tw-self-end tw-w-[70%] xll:tw-w-[80%]"
         />
       </div>
     </div>
@@ -82,6 +85,7 @@ export default {
       activeIndex: 0,
       left: 0,
       animate: false,
+      width: 1400,
       stories: [
         {
           year: "2012",
@@ -149,6 +153,7 @@ export default {
   inject: ["mixpanel"],
   mounted() {
     this.activeStory = this.stories[0];
+    this.width = window.innerWidth;
   },
 };
 </script>

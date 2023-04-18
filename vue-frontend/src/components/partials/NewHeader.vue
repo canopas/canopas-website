@@ -104,6 +104,11 @@ export default {
           event: "tap_header_portfolio",
         },
         {
+          name: "About",
+          url: "/about",
+          event: "tap_header_about",
+        },
+        {
           name: "Career",
           url: "/jobs",
           event: "tap_header_career",
@@ -114,7 +119,6 @@ export default {
           target: "_blank",
           event: "tap_header_blog",
         },
-
         {
           name: "Let's talk",
           url: "/contact",
@@ -133,13 +137,6 @@ export default {
     };
   },
   mounted() {
-    if (Config.SHOW_ABOUT_US_PAGE) {
-      this.navbars.splice(2, 0, {
-        name: "About",
-        url: "/about",
-        event: "tap_header_about",
-      });
-    }
     if (Config.SHOW_SERVICES_PAGE) {
       this.navbars.splice(4, 0, {
         name: "Services",
