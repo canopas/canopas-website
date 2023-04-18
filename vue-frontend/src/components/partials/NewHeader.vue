@@ -19,7 +19,7 @@
         ref="mainHeader"
       >
         <div
-          class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-flex-wrap lg:tw-flex-nowrap tw-items-start lg:tw-items-center"
+          class="tw-container tw-flex tw-flex-col xl:tw-flex-row tw-flex-wrap xl:tw-flex-nowrap tw-items-start xl:tw-items-center"
         >
           <router-link to="/" replace>
             <div
@@ -42,7 +42,7 @@
               <li
                 v-for="navbar in navbars"
                 :key="navbar"
-                class="tw-my-2 sm:tw-my-0 tw-ml-0"
+                class="tw-my-2 tw-ml-0"
               >
                 <router-link
                   v-if="!navbar.target"
@@ -52,12 +52,9 @@
                   :class="[
                     navbar.className
                       ? navbar.className
-                      : 'tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent',
-                    currentRoutePath == navbar.url ||
-                    (navbar.name == 'Portfolio' &&
-                      currentRoutePath.includes('portfolio')) ||
-                    (navbar.name == 'Career' &&
-                      currentRoutePath.includes('jobs'))
+                      : navbar.class +
+                        ' after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent',
+                    currentRoutePath.includes(navbar.url)
                       ? navbar.showContactBtn
                         ? ''
                         : 'after:tw-w-full after:tw-scale-x-0 after:tw-scale-x-100'
@@ -76,7 +73,7 @@
                   v-else
                   class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
                   :href="navbar.url"
-                  target="_blank"
+                  :target="navbar.target"
                   >{{ navbar.name }}</a
                 >
               </li>
@@ -107,20 +104,21 @@ export default {
           event: "tap_header_portfolio",
         },
         {
-          name: "Blog",
-          url: Config.BLOG_URL,
-          target: true,
-          event: "tap_header_blog",
-        },
-        {
           name: "Career",
           url: "/jobs",
           event: "tap_header_career",
         },
         {
+          name: "Blog",
+          url: Config.BLOG_URL,
+          target: "_blank",
+          event: "tap_header_blog",
+        },
+
+        {
           name: "Let's talk",
           url: "/contact",
-          className: "lg:tw-hidden",
+          class: "lg:tw-hidden",
           event: "tap_header_cta",
         },
         {
@@ -147,6 +145,14 @@ export default {
         name: "Services",
         url: "/services",
         event: "tap_header_services",
+      });
+    }
+    if (Config.SHOW_RESOURCES_PAGE) {
+      this.navbars.splice(3, 0, {
+        name: "Resources",
+        url: "/resources",
+        target: "_self",
+        event: "tap_header_resources",
       });
     }
     if (

@@ -9,7 +9,9 @@
     <SuccessMessage v-if="message" />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
 
-    <div class="tw-container lg:tw-flex lg:tw-flex-row lg:tw-mt-20">
+    <div
+      class="tw-container lg:tw-flex lg:tw-flex-row tw-mt-10 md:tw-mt-0 lg:tw-mt-20"
+    >
       <NewContactLanding class="tw-basis-3/6 2xl:tw-basis-[40%]" />
       <NewContactForm
         @showMessage="showSuccessMessage"
