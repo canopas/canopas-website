@@ -1,6 +1,6 @@
 <template>
   <section
-    class="tw-bg-gradient-to-t tw-from-[#F2709C]/[0.1] tw-via-[#FF835B]/[0.1] tw-to-[#FFFFFF] tw-pb-[2.5rem] lg:tw-pb-[5.5rem]"
+    class="tw-opacity-80 tw-bg-gradient-to-b tw-from-[#FFFFFF]/[0.1] tw-via-[#FF835B]/[0.1] tw-to-[#F2709C]/[0.1] tw-pb-[2.5rem] lg:tw-pb-[5.5rem]"
   >
     <div
       class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-items-center tw-mt-[2.313rem] 2xl:tw-mt-[5.313rem]"

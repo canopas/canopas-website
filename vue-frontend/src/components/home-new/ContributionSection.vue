@@ -36,9 +36,16 @@
         :class="index % 2 != 0 ? 'tw-flex-row-reverse' : ''"
       >
         <div class="tw-shadow-[2px_2px_10px_rgba(0,0,0,0.1)]">
-          <video autoplay loop muted playsinline style="height: 690px">
-            <source :src="contribution.video[1]" type="video/webm" />
-            <source :src="contribution.video[0]" type="video/mp4" />
+          <video
+            class="lozad"
+            autoplay
+            loop
+            muted
+            playsinline
+            style="height: 690px"
+          >
+            <source :data-src="contribution.video[1]" type="video/webm" />
+            <source :data-src="contribution.video[0]" type="video/mp4" />
           </video>
         </div>
 
@@ -134,6 +141,7 @@ import introShowCaseWebm from "@/assets/images/contribution/animations/introShow
 import jcAnimationsMp4 from "@/assets/images/contribution/animations/JetpackComposeAnimations.mp4";
 import jcAnimationsWebm from "@/assets/images/contribution/animations/JetpackComposeAnimations.webm";
 import Config from "@/config.js";
+import lozad from "lozad";
 
 library.add(faGithub);
 
@@ -171,6 +179,9 @@ export default {
         },
       ],
     };
+  },
+  mounted() {
+    lozad().observe(); // lazy loads videos with default selector as '.lozad'
   },
   methods: {
     openLink(contributions) {

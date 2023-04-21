@@ -26,15 +26,25 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/about/LandingSection.vue";
-import HowItAllStartedSectionMobile from "@/components/about/HowItAllStartedSectionMobile.vue";
 import HowItAllStartedSection from "@/components/about/HowItAllStartedSection.vue";
-import AboutusVirtue from "@/components/about/AboutusVirtue.vue";
-import WithCanopasSection from "@/components/home/WithCanopas.vue";
-import ClientReviewSection from "@/components/home-new/ClientReviewSection.vue";
 import CTASection from "@/components/about/CTASection.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { elementInViewPort } from "@/utils.js";
+import { defineAsyncComponent } from "vue";
+
+const HowItAllStartedSectionMobile = defineAsyncComponent(() =>
+  import("@/components/about/HowItAllStartedSectionMobile.vue")
+);
+const AboutusVirtue = defineAsyncComponent(() =>
+  import("@/components/about/AboutusVirtue.vue")
+);
+const WithCanopasSection = defineAsyncComponent(() =>
+  import("@/components/home/WithCanopas.vue")
+);
+const ClientReviewSection = defineAsyncComponent(() =>
+  import("@/components/home-new/ClientReviewSection.vue")
+);
 
 export default {
   setup() {

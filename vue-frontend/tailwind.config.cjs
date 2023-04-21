@@ -66,7 +66,6 @@ module.exports = {
         "inter-medium": ["Inter-Medium"],
         "inter-semibold": ["Inter-SemiBold"],
         "inter-regular": ["Inter-Regular"],
-        "sfpro-regular": ["SFProText-Regular"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",
