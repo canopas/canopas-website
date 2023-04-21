@@ -17,13 +17,19 @@
 </template>
 
 <script>
-import Header from "@/components/partials/NewHeader.vue";
 import { useMeta } from "vue-meta";
 import config from "@/config.js";
+import Header from "@/components/partials/NewHeader.vue";
 import CaseStudy from "@/components/home-new/CaseStudy.vue";
-import UserReview from "@/components/home/UserReview.vue";
-import CTASection from "@/components/home-new/CTASection.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
+import { defineAsyncComponent } from "vue";
+
+const UserReview = defineAsyncComponent(() =>
+  import("@/components/home/UserReview.vue")
+);
+const CTASection = defineAsyncComponent(() =>
+  import("@/components/home-new/CTASection.vue")
+);
 
 export default {
   data() {

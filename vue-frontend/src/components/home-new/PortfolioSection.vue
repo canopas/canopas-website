@@ -37,15 +37,15 @@
             loop
             muted
             playsinline
-            class="tw-p-1 md:tw-p-8"
+            class="lozad tw-p-1 md:tw-p-8"
           >
-            <source :src="portfolio.video[1]" type="video/webm" />
-            <source :src="portfolio.video[0]" type="video/mp4" />
+            <source :data-src="portfolio.video[1]" type="video/webm" />
+            <source :data-src="portfolio.video[0]" type="video/mp4" />
           </video>
           <img
             v-else
             :src="portfolio.images[0]"
-            :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w, ${portfolio.images[2]} 1600w`"
+            :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w`"
             class="tw-h-full tw-w-full tw-object-cover tw-z-[1]"
             :class="[
               portfolio.id == 4
@@ -80,35 +80,30 @@
 <script type="module">
 import justly_1_400w from "@/assets/images/portfolio/new-portfolio/justly-1-400w.webp";
 import justly_1_800w from "@/assets/images/portfolio/new-portfolio/justly-1-800w.webp";
-import justly_1_1600w from "@/assets/images/portfolio/new-portfolio/justly-1-1600w.webp";
 
 import tognessMp4 from "@/assets/images/portfolio/new-portfolio/togness.mp4";
 import tognessWebm from "@/assets/images/portfolio/new-portfolio/togness.webm";
 
 import luxeradio_1_400w from "@/assets/images/portfolio/new-portfolio/luxeradio-1-400w.webp";
 import luxeradio_1_800w from "@/assets/images/portfolio/new-portfolio/luxeradio-1-800w.webp";
-import luxeradio_1_1600w from "@/assets/images/portfolio/new-portfolio/luxeradio-1-1600w.webp";
 
 import luxeradio_2_400w from "@/assets/images/portfolio/new-portfolio/luxeradio-2-400w.webp";
 import luxeradio_2_800w from "@/assets/images/portfolio/new-portfolio/luxeradio-2-800w.webp";
-import luxeradio_2_1600w from "@/assets/images/portfolio/new-portfolio/luxeradio-2-1600w.webp";
 
 import smileMp4 from "@/assets/images/portfolio/new-portfolio/smile.mp4";
 import smileWebm from "@/assets/images/portfolio/new-portfolio/smile.webm";
 
 import justly_2_400w from "@/assets/images/portfolio/new-portfolio/justly-2-400w.webp";
 import justly_2_800w from "@/assets/images/portfolio/new-portfolio/justly-2-800w.webp";
-import justly_2_1600w from "@/assets/images/portfolio/new-portfolio/justly-2-1600w.webp";
 
 import togness_1_400w from "@/assets/images/portfolio/new-portfolio/togness-1-400w.webp";
 import togness_1_800w from "@/assets/images/portfolio/new-portfolio/togness-1-800w.webp";
-import togness_1_1600w from "@/assets/images/portfolio/new-portfolio/togness-1-1600w.webp";
 
 import justly_3_400w from "@/assets/images/portfolio/new-portfolio/justly-3-400w.webp";
 import justly_3_800w from "@/assets/images/portfolio/new-portfolio/justly-3-800w.webp";
-import justly_3_1600w from "@/assets/images/portfolio/new-portfolio/justly-3-1600w.webp";
 
 import config from "@/config.js";
+import lozad from "lozad";
 
 export default {
   data() {
@@ -116,7 +111,7 @@ export default {
       portfolios: [
         {
           id: 1,
-          images: [justly_1_400w, justly_1_800w, justly_1_1600w],
+          images: [justly_1_400w, justly_1_800w],
           classes: "tw-flex-[40%] tw-bg-[#F5E1B6]",
           title: "Justly",
           description:
@@ -136,7 +131,7 @@ export default {
         },
         {
           id: 3,
-          images: [luxeradio_1_400w, luxeradio_1_800w, luxeradio_1_1600w],
+          images: [luxeradio_1_400w, luxeradio_1_800w],
           classes: "tw-flex-[20%] tw-hidden md:tw-block tw-bg-[#EBB7DB]",
           title: "Luxeradio",
           url: "/portfolio/luxeradio",
@@ -144,7 +139,7 @@ export default {
         },
         {
           id: 4,
-          images: [luxeradio_2_400w, luxeradio_2_800w, luxeradio_2_1600w],
+          images: [luxeradio_2_400w, luxeradio_2_800w],
           classes: "tw-flex-[50%] tw-bg-[#E9CFED]",
           title: "Luxeradio",
           description:
@@ -165,7 +160,7 @@ export default {
         },
         {
           id: 6,
-          images: [justly_2_400w, justly_2_800w, justly_2_1600w],
+          images: [justly_2_400w, justly_2_800w],
           classes: "tw-flex-[25%] tw-hidden md:tw-block tw-bg-[#CDE3F7]",
           title: "Justly",
           url: "/portfolio/justly",
@@ -173,7 +168,7 @@ export default {
         },
         {
           id: 7,
-          images: [togness_1_400w, togness_1_800w, togness_1_1600w],
+          images: [togness_1_400w, togness_1_800w],
           classes: "tw-flex-[50%] tw-hidden md:tw-block tw-bg-[#D6E1BF]",
           title: "Togness",
           description:
@@ -183,7 +178,7 @@ export default {
         },
         {
           id: 8,
-          images: [justly_3_400w, justly_3_800w, justly_3_1600w],
+          images: [justly_3_400w, justly_3_800w],
           classes: "tw-flex-[25%] tw-hidden md:tw-block tw-bg-[#AED2F6]",
           title: "Justly",
           url: "/portfolio/justly",
@@ -194,6 +189,9 @@ export default {
     };
   },
   inject: ["mixpanel"],
+  mounted() {
+    lozad().observe(); // lazy loads videos with default selector as '.lozad'
+  },
   methods: {
     openPortfolio(portfolio) {
       window.open(portfolio.url, portfolio.target ? portfolio.target : "_self");

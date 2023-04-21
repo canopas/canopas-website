@@ -18,8 +18,8 @@
       >
         <img
           class="tw-w-full tw-h-full tw-object-contain"
-          :src="landing2100"
-          :srcset="`${landing400} 400w, ${landing800} 800w, ${landing1200} 1200w, ${landing2100} 2100w`"
+          :src="landing800"
+          :srcset="`${landing400} 400w, ${landing800} 800w`"
           alt="landing-view-image"
         />
       </aspect-ratio>
@@ -134,8 +134,6 @@
 <script>
 import landing400 from "@/assets/images/landing/landing-400w.webp";
 import landing800 from "@/assets/images/landing/landing-800w.webp";
-import landing1200 from "@/assets/images/landing/landing-1200w.webp";
-import landing2100 from "@/assets/images/landing/landing-2100w.webp";
 import client1 from "@/assets/images/landing/client1-100w.webp";
 import client2 from "@/assets/images/landing/client2-100w.webp";
 import client3 from "@/assets/images/landing/client3-100w.webp";
@@ -152,8 +150,6 @@ export default {
       width: 680,
       landing400,
       landing800,
-      landing1200,
-      landing2100,
       background400,
       background800,
       background1200,

@@ -29,25 +29,40 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import LandingView from "@/components/jobs/LandingView.vue";
-import VirtuesView from "@/components/jobs/VirtuesView.vue";
-import LifeAtCanopas from "@/components/jobs/LifeAtCanopas.vue";
-import Career from "@/components/jobs/CareerView.vue";
-import PerksAndBenefits from "@/components/jobs/PerksAndBenefits.vue";
-import WhyCanopas from "@/components/jobs/WhyCanopas.vue";
-import WhyCanopasMobile from "@/components/jobs/WhyCanopasMobile.vue";
-import FaqSection from "@/components/jobs/FaqSection.vue";
+import { defineAsyncComponent } from "vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useMeta } from "vue-meta";
 import { elementInViewPort, handleAnimationOnScroll } from "@/utils.js";
-
 import {
   faAlignLeft,
   faCheckCircle,
   faMinus,
   faPlus,
 } from "@fortawesome/free-solid-svg-icons";
+
+const VirtuesView = defineAsyncComponent(() =>
+  import("@/components/jobs/VirtuesView.vue")
+);
+const LifeAtCanopas = defineAsyncComponent(() =>
+  import("@/components/jobs/LifeAtCanopas.vue")
+);
+const Career = defineAsyncComponent(() =>
+  import("@/components/jobs/CareerView.vue")
+);
+const PerksAndBenefits = defineAsyncComponent(() =>
+  import("@/components/jobs/PerksAndBenefits.vue")
+);
+const WhyCanopas = defineAsyncComponent(() =>
+  import("@/components/jobs/WhyCanopas.vue")
+);
+const WhyCanopasMobile = defineAsyncComponent(() =>
+  import("@/components/jobs/WhyCanopasMobile.vue")
+);
+const FaqSection = defineAsyncComponent(() =>
+  import("@/components/jobs/FaqSection.vue")
+);
 
 library.add(faAlignLeft, faCheckCircle, faMinus, faPlus);
 

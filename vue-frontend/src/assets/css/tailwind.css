@@ -7,7 +7,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./../fonts/ProductSans-Normal.woff2) format("woff2");
+  src: url(./../fonts/ProductSans-Regular-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -15,7 +15,7 @@
   font-style: bold;
   font-weight: 700;
   font-display: swap;
-  src: url(./../fonts/FuturaLT-Bold.woff2);
+  src: url(./../fonts/FuturaLT-Bold-Subset.woff2);
 }
 
 @font-face {
@@ -23,7 +23,7 @@
   font-style: bold;
   font-weight: 700;
   font-display: swap;
-  src: url(./../fonts/Inter-Bold.woff2) format("woff2");
+  src: url(./../fonts/Inter-Bold-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -31,7 +31,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(./../fonts/Inter-SemiBold.woff2) format("woff2");
+  src: url(./../fonts/Inter-SemiBold-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -39,7 +39,7 @@
   font-style: medium;
   font-weight: 500;
   font-display: swap;
-  src: url(./../fonts/Inter-Medium.woff2) format("woff2");
+  src: url(./../fonts/Inter-Medium-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -47,7 +47,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(./../fonts/Inter-Regular.woff2) format("woff2");
+  src: url(./../fonts/Inter-Regular-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -55,7 +55,7 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(./../fonts/Inter-Light.woff2) format("woff2");
+  src: url(./../fonts/Inter-Light-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -63,7 +63,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(./../fonts/Roboto-Bold.woff2);
+  src: url(./../fonts/RobotoBold-Subset.woff2);
 }
 
 @font-face {
@@ -71,7 +71,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(./../fonts/Roboto-Medium.woff2);
+  src: url(./../fonts/RobotoMedium-Subset.woff2);
 }
 
 @layer utilities {
@@ -100,6 +100,7 @@
   .gradient-border-btn:hover > a > .footer-icon > path {
     fill: #ffffff;
   }
+
   .landing-bg-clip-path {
     -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
     clip-path: polygon(50% 0%, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);

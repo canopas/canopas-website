@@ -85,8 +85,7 @@
                   @click.native="mixpanel.track('tap_read_more_job')"
                   class="tw-flex tw-items-center gradient-border-btn tw-p-3"
                   :to="'/jobs/' + career.unique_id"
-                  aria-label="read-more about job descriptions"
-                  title="read-more about job descriptions"
+                  :aria-label="'Get more details about ' + career.title"
                 >
                   <font-awesome-icon
                     class="fa tw-text-pink-300 tw-mr-[5px]"
@@ -94,7 +93,6 @@
                     flip="vertical"
                   />
                   <span
-                    title="read-more about job descriptions"
                     class="tw-text-[.9rem] tw-leading-[1.364rem] tw-font-bold tw-tracking-[0.06rem] md:tw-text-[1rem] lg:tw-text-[1.125rem]"
                     >Read More</span
                   >
