@@ -161,7 +161,7 @@
                 class="tw-mb-8 reference-input"
               >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
                   type="text"
                   name="referenceby"
                   autocomplete="given-reference-name"
@@ -177,6 +177,7 @@
                   name="message"
                   rows="1"
                   v-model="message"
+                  id="textArea"
                 ></textarea>
               </div>
 
@@ -185,7 +186,7 @@
                   >Resume
                 </label>
                 <br />
-                <label>
+                <label class="tw-text-[#999]">
                   <i>Supported formats:</i
                   ><span class="black tw-pl-[8px]">PDF and Docs </span>
                   <i>only</i>
@@ -194,7 +195,7 @@
               <div class="tw-flex">
                 <button
                   type="button"
-                  class="resume-upload-btns tw-bg-[#fff] tw-text-[#3d3d3d] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-shadow-none tw-outline-hidden tw-outline-0 tw-py-[10px] tw-px-[48px] tw-rounded-[10px] tw-h-[50px] focus:tw-outline-hidden focus:tw-outline-0"
+                  class="resume-upload-btns tw-bg-[#fff] tw-text-[#3d3d3d] tw-truncate tw-border-[1px] tw-break-normal tw-border-solid tw-border-[#e2e2e2] tw-shadow-none tw-outline-hidden tw-outline-0 tw-py-[10px] tw-px-[48px] tw-rounded-[10px] tw-h-[50px] focus:tw-outline-hidden focus:tw-outline-0"
                   @click="chooseFiles()"
                 >
                   {{ fileButtonName }}
@@ -387,6 +388,11 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
+    const textarea = document.getElementById("textArea");
+    textarea.addEventListener("input", () => {
+      textarea.style.height = "auto";
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    });
     let recaptchaScript = document.createElement("script");
     recaptchaScript.setAttribute(
       "src",
@@ -519,7 +525,10 @@ export default {
             ? this.reference
             : "NA"
         );
-        formData.append("message", this.message ? this.message : "NA");
+        formData.append(
+          "message",
+          this.message.replace(/\n/g, "<br>") ? this.message : "NA"
+        );
         formData.append("file", this.file, fileName);
         formData.append("save_record_to_spreadsheet", config.IS_PROD);
 
@@ -550,6 +559,9 @@ export default {
                   setTimeout(() => {
                     this.showSuccessMessage = false;
                   }, 3000);
+                  this.$router.push({
+                    path: `/jobs`,
+                  });
                 })
                 .catch((err) => {
                   this.isLoad = false;

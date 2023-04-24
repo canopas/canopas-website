@@ -351,9 +351,7 @@ export default {
           let list = descriptionLists[i].replace(/<(\/*).[^>]*>/g, "");
           this.job.description = this.job.description.replace(
             descriptionLists[i],
-            '<li><span class="fas fa-chevron-right tw-pr-2"></span>' +
-              list +
-              "</li>"
+            '<li><span class="chevron right tw-pr-2 "></span>' + list + "</li>'
           );
         }
       }
@@ -390,5 +388,8 @@ export default {
 
 :deep(ul) {
   @apply tw-list-none tw-pl-0;
+}
+:deep(ul > li > span) {
+  @apply tw-relative tw-inline-block tw-content-none tw-mr-[20px] tw-ml-[-5px] tw-w-[10px] md:tw-w-[13px] tw-h-[10px] md:tw-h-[12px]  tw-border-solid tw-border-[#3d3d3dcc] tw-border-t-[3px] tw-border-r-[3px] tw-border-b-0 tw-border-l-0  tw-left-[0.15em] tw-top-[0.15em]  tw-rotate-[50deg] tw-align-top;
 }
 </style>
