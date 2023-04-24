@@ -390,7 +390,6 @@ export default {
   mounted() {
     const textarea = document.getElementById("textArea");
     textarea.addEventListener("input", () => {
-      textarea.style.height = "auto";
       textarea.style.height = `${textarea.scrollHeight}px`;
     });
     let recaptchaScript = document.createElement("script");
@@ -558,10 +557,10 @@ export default {
                   this.mixpanel.track("job_apply_success");
                   setTimeout(() => {
                     this.showSuccessMessage = false;
+                    this.$router.push({
+                      path: `/jobs`,
+                    });
                   }, 3000);
-                  this.$router.push({
-                    path: `/jobs`,
-                  });
                 })
                 .catch((err) => {
                   this.isLoad = false;
