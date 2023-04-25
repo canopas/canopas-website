@@ -9,6 +9,10 @@
     <div>
       <LandingSection />
       <ContactUsToday />
+      <BlogSection />
+      <ContributionSection class="tw-hidden lg:tw-block" />
+      <ContributionSectionMobile class="tw-block lg:tw-hidden" />
+      <ClientReviewSection />
     </div>
     <NewFooter />
   </div>
@@ -18,8 +22,12 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/services/LandingSection.vue";
-import config from "@/config.js";
 import ContactUsToday from "@/components/services/ContactUsToday.vue";
+import BlogSection from "@/components/home-new/BlogSection.vue";
+import ContributionSection from "@/components/home-new/ContributionSection.vue";
+import ContributionSectionMobile from "@/components/home-new/ContributionSectionMobile.vue";
+import ClientReviewSection from "@/components/home-new/ClientReviewSection.vue";
+import config from "@/config.js";
 import { useMeta } from "vue-meta";
 export default {
   setup() {
@@ -46,6 +54,10 @@ export default {
     Header,
     LandingSection,
     ContactUsToday,
+    BlogSection,
+    ContributionSection,
+    ContributionSectionMobile,
+    ClientReviewSection,
     NewFooter,
   },
   inject: ["mixpanel"],
