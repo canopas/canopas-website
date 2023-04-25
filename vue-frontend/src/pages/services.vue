@@ -8,6 +8,7 @@
     <Header />
     <div>
       <LandingSection />
+      <ContactUsToday />
     </div>
     <NewFooter />
   </div>
@@ -18,8 +19,8 @@ import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/services/LandingSection.vue";
 import config from "@/config.js";
+import ContactUsToday from "@/components/services/ContactUsToday.vue";
 import { useMeta } from "vue-meta";
-
 export default {
   setup() {
     var seoData = config.SERVICES_SEO_META_DATA;
@@ -44,6 +45,7 @@ export default {
   components: {
     Header,
     LandingSection,
+    ContactUsToday,
     NewFooter,
   },
   inject: ["mixpanel"],
