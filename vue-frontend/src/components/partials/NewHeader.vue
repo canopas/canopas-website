@@ -73,11 +73,11 @@
                         : '',
                     ]"
                     class="tw-flex tw-mt-[0.1rem]"
+                    @click="
+                      navbar.name == 'Others' ? (showMenu = !showMenu) : ''
+                    "
                     >{{ navbar.name
-                    }}<span
-                      v-if="navbar.name == 'Others'"
-                      @click="showMenu = !showMenu"
-                    >
+                    }}<span v-if="navbar.name == 'Others'">
                       <font-awesome-icon
                         :icon="showMenu ? faAngleUp : faAngleDown"
                         class="tw-ml-2 tw-mt-[0.20rem]" /></span></span
