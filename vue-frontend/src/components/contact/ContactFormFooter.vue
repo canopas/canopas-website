@@ -320,7 +320,9 @@ export default {
         let formData = {
           name: this.name,
           email: this.email,
-          project_info: this.projectInfo ? this.projectInfo : "NA",
+          project_info: this.projectInfo
+            ? this.projectInfo.replace(/\./g, ".\n")
+            : "NA",
           reference: this.reference,
           invest: this.invest,
           nda: this.NDA,

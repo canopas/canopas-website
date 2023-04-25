@@ -19,7 +19,7 @@ export default {
   mounted() {
     if (this.currentRoutePath.includes("/jobs/apply")) {
       this.message =
-        "We have received your job application, sit back and relax!";
+        "Thank you for applying at Canopas, we will get in touch with you soon!";
     }
   },
 };

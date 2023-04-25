@@ -39,6 +39,7 @@
                     showNameValidationError =
                       $event.target.value.trim().length === 0
                   "
+                  aria-label="Full Name"
                 />
                 <span
                   v-if="showNameValidationError"
@@ -64,6 +65,7 @@
                       $event.target.value.trim().length === 0
                   "
                   @blur="showValidEmailError = isValidEmail()"
+                  aria-label="User Email "
                 />
                 <span
                   v-if="showEmailValidationError"
@@ -93,6 +95,7 @@
                       $event.target.value.trim().length === 0
                   "
                   required
+                  aria-label="Phone Number"
                 />
                 <span id="phoneError"></span>
                 <span
@@ -108,13 +111,14 @@
               </div>
 
               <div class="tw-mb-8">
-                <label class="">City</label>
+                <label>City</label>
                 <input
                   class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="city"
                   autocomplete="address-level2"
                   v-model="city"
+                  aria-label="City name"
                 />
               </div>
 
@@ -136,6 +140,7 @@
                       id="reference-option-text"
                       readonly
                       v-model="reference"
+                      aria-label="How did you find canopas"
                     />
                   </div>
                   <div
@@ -161,23 +166,28 @@
                 class="tw-mb-8 reference-input"
               >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
+                  class="tw-block tw--mt-[15px] tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
                   type="text"
                   name="referenceby"
                   autocomplete="given-reference-name"
                   :placeholder="references[currentReferenceIndex].hint"
                   v-model="referenceBy"
+                  aria-label="reference by"
                 />
               </div>
 
               <div class="md:tw-col-span-2 tw-mb-8">
-                <label class="">Message</label>
-                <textarea
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
-                  name="message"
-                  rows="1"
-                  v-model="message"
-                ></textarea>
+                <label
+                  >Message
+
+                  <textarea
+                    class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed hidden-scrollbar tw-whitespace-pre-wrap"
+                    name="message"
+                    rows="1"
+                    v-model="message"
+                    id="textArea"
+                  ></textarea>
+                </label>
               </div>
 
               <div class="">
@@ -185,7 +195,7 @@
                   >Resume
                 </label>
                 <br />
-                <label>
+                <label class="tw-text-[#999]">
                   <i>Supported formats:</i
                   ><span class="black tw-pl-[8px]">PDF and Docs </span>
                   <i>only</i>
@@ -194,7 +204,7 @@
               <div class="tw-flex">
                 <button
                   type="button"
-                  class="resume-upload-btns tw-bg-[#fff] tw-text-[#3d3d3d] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-shadow-none tw-outline-hidden tw-outline-0 tw-py-[10px] tw-px-[48px] tw-rounded-[10px] tw-h-[50px] focus:tw-outline-hidden focus:tw-outline-0"
+                  class="resume-upload-btns tw-bg-[#fff] tw-text-[#3d3d3d] tw-truncate tw-border-[1px] tw-break-normal tw-border-solid tw-border-[#e2e2e2] tw-shadow-none tw-outline-hidden tw-outline-0 tw-py-[10px] tw-px-[48px] tw-rounded-[10px] tw-h-[50px] focus:tw-outline-hidden focus:tw-outline-0"
                   @click="chooseFiles()"
                 >
                   {{ fileButtonName }}
@@ -209,6 +219,7 @@
                   @change="previewFiles"
                   required
                   @input="showFileValidationError = fileUpload === ''"
+                  aria-label="file upload"
                 />
 
                 <span
@@ -387,6 +398,10 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
+    const textarea = document.getElementById("textArea");
+    textarea.addEventListener("input", () => {
+      textarea.style.height = `${textarea.scrollHeight}px`;
+    });
     let recaptchaScript = document.createElement("script");
     recaptchaScript.setAttribute(
       "src",
@@ -519,7 +534,11 @@ export default {
             ? this.reference
             : "NA"
         );
-        formData.append("message", this.message ? this.message : "NA");
+
+        formData.append(
+          "message",
+          this.message ? this.message.replace(/\./g, ".\n") : "NA"
+        );
         formData.append("file", this.file, fileName);
         formData.append("save_record_to_spreadsheet", config.IS_PROD);
 
@@ -549,6 +568,9 @@ export default {
                   this.mixpanel.track("job_apply_success");
                   setTimeout(() => {
                     this.showSuccessMessage = false;
+                    this.$router.push({
+                      path: `/jobs`,
+                    });
                   }, 3000);
                 })
                 .catch((err) => {
