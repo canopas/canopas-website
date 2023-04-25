@@ -179,13 +179,12 @@
               <div class="md:tw-col-span-2 tw-mb-8">
                 <label
                   >Message
-
                   <textarea
                     class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed hidden-scrollbar tw-whitespace-pre-wrap"
                     name="message"
                     rows="1"
                     v-model="message"
-                    id="textArea"
+                    @input="resizeTextarea"
                   ></textarea>
                 </label>
               </div>
@@ -398,10 +397,6 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
-    const textarea = document.getElementById("textArea");
-    textarea.addEventListener("input", () => {
-      textarea.style.height = `${textarea.scrollHeight}px`;
-    });
     let recaptchaScript = document.createElement("script");
     recaptchaScript.setAttribute(
       "src",
@@ -422,6 +417,10 @@ export default {
     }),
   },
   methods: {
+    resizeTextarea(event) {
+      event.target.style.height = "auto";
+      event.target.style.height = event.target.scrollHeight + "px";
+    },
     ...mapActions(useJobDetailStore, ["loadJob"]),
     async setCareerDetails() {
       await this.loadJob(this.id, this.$route.href);
