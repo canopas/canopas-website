@@ -98,6 +98,10 @@ module.exports = {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
         },
+        underlineOut: {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",
@@ -105,6 +109,7 @@ module.exports = {
         typingErase: "typingErase 4s steps(40, end) infinite",
         menuSticky: "0.6s ease-in-out",
         fadeInRight: "fadeInRight 150ms ease-in",
+        underlineOut: "underlineOut 1s",
         gridAnimation: "scroll 40s linear infinite",
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
         fadeIn: "fadeIn 0.6s ease-in",
