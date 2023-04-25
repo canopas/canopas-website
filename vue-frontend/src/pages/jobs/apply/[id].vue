@@ -39,6 +39,7 @@
                     showNameValidationError =
                       $event.target.value.trim().length === 0
                   "
+                  aria-label="Full Name"
                 />
                 <span
                   v-if="showNameValidationError"
@@ -64,6 +65,7 @@
                       $event.target.value.trim().length === 0
                   "
                   @blur="showValidEmailError = isValidEmail()"
+                  aria-label="User Email "
                 />
                 <span
                   v-if="showEmailValidationError"
@@ -93,6 +95,7 @@
                       $event.target.value.trim().length === 0
                   "
                   required
+                  aria-label="Phone Number"
                 />
                 <span id="phoneError"></span>
                 <span
@@ -108,13 +111,14 @@
               </div>
 
               <div class="tw-mb-8">
-                <label class="">City</label>
+                <label>City</label>
                 <input
                   class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="city"
                   autocomplete="address-level2"
                   v-model="city"
+                  aria-label="City name"
                 />
               </div>
 
@@ -136,6 +140,7 @@
                       id="reference-option-text"
                       readonly
                       v-model="reference"
+                      aria-label="How did you find canopas"
                     />
                   </div>
                   <div
@@ -167,18 +172,22 @@
                   autocomplete="given-reference-name"
                   :placeholder="references[currentReferenceIndex].hint"
                   v-model="referenceBy"
+                  aria-label="reference by"
                 />
               </div>
 
               <div class="md:tw-col-span-2 tw-mb-8">
-                <label class="">Message</label>
-                <textarea
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed hidden-scrollbar"
-                  name="message"
-                  rows="1"
-                  v-model="message"
-                  id="textArea"
-                ></textarea>
+                <label
+                  >Message
+
+                  <textarea
+                    class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed hidden-scrollbar tw-whitespace-pre-wrap"
+                    name="message"
+                    rows="1"
+                    v-model="message"
+                    id="textArea"
+                  ></textarea>
+                </label>
               </div>
 
               <div class="">
@@ -210,6 +219,7 @@
                   @change="previewFiles"
                   required
                   @input="showFileValidationError = fileUpload === ''"
+                  aria-label="file upload"
                 />
 
                 <span
@@ -524,10 +534,7 @@ export default {
             ? this.reference
             : "NA"
         );
-        formData.append(
-          "message",
-          this.message.replace(/\n/g, "<br>") ? this.message : "NA"
-        );
+        formData.append("message", this.message ? this.message : "NA");
         formData.append("file", this.file, fileName);
         formData.append("save_record_to_spreadsheet", config.IS_PROD);
 
