@@ -155,7 +155,7 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 	}
 
 	if input.SaveRecordToSpreadsheet {
-		records := []string{input.Name, input.Email, input.Phone, time.Now().Format("2 Jan 2006 03:04PM"), input.JobTitle, "", input.References}
+		records := []string{input.Name, input.Email, input.Phone, time.Now().Format("2 Jan 2006 03:04PM"), input.Place, input.JobTitle, "", input.References}
 		go repository.UtilsRepo.SaveJobsToSpreadSheet(records)
 	}
 
