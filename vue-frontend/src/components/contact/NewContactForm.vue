@@ -457,7 +457,6 @@ export default {
     submitForm() {
       if (!this.validateForm()) {
         this.mixpanel.track("tap_contact_submit_button");
-        window.fbq("track", "tap_contact_submit_button");
         let formData = {
           name: this.name,
           email: this.email,
@@ -484,6 +483,9 @@ export default {
               axios
                 .post(config.API_BASE + "/api/send-contact-mail", formData)
                 .then(() => {
+                  gtag("event", "conversion", {
+                    send_to: "AW-11157168108/OpYlCPjY4poYEOy_k8gp",
+                  });
                   this.resetForm();
                   if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
                     this.showSuccessMessage = true;
