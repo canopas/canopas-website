@@ -5,7 +5,7 @@
       :style="{ height: navContainerHeight + 'px' }"
     >
       <nav
-        class="tw-w-full tw-bg-white tw-z-[1] tw-py-5 lg:tw-py-[1.75rem] md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease tw-duration-500"
+        class="tw-w-full tw-bg-white tw-z-[1] tw-pt-5 lg:tw-py-[1.75rem] md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease tw-duration-500"
         :class="[
           showNavbar
             ? 'tw-fixed tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]'
@@ -43,11 +43,6 @@
                 v-for="navbar in navbars"
                 :key="navbar"
                 class="tw-my-2 tw-ml-0"
-                :class="
-                  navbar.url == '/contact' && width < 576
-                    ? 'tw-w-[32%] tw-mr-[-27px]'
-                    : ''
-                "
               >
                 <router-link
                   v-if="!navbar.target"
@@ -73,15 +68,9 @@
                         : '',
                     ]"
                     class="tw-flex tw-mt-[0.1rem]"
-                    @click="
-                      navbar.name == 'Others' ? (showMenu = !showMenu) : ''
-                    "
-                    >{{ navbar.name
-                    }}<span v-if="navbar.name == 'Others'">
-                      <font-awesome-icon
-                        :icon="showMenu ? faAngleUp : faAngleDown"
-                        class="tw-ml-2 tw-mt-[0.20rem]" /></span></span
-                ></router-link>
+                    >{{ navbar.name }}</span
+                  ></router-link
+                >
                 <a
                   v-else
                   class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
@@ -90,27 +79,6 @@
                   >{{ navbar.name }}</a
                 >
               </li>
-              <ul
-                :class="
-                  showMenu
-                    ? 'tw-absolute tw-left-[77px] sm:tw-left-auto sm:tw-right-[-40px] md:tw-right-[-47px] lg:tw-right-[266px] tw-top-[4.5rem] sm:tw-top-10 lg:tw-top-[3.5rem]  tw-bg-white tw-w-max tw-border tw-rounded-[3px] tw-shadow-md tw-px-2  tw-py-[1rem]'
-                    : 'tw-hidden tw-overflow-hidden'
-                "
-                class="tw-flex-col tw-space-y-6"
-              >
-                <li v-for="navbar in hamburgerNavbars" :key="navbar">
-                  <router-link
-                    class="tw-relative tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-pink-300 after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
-                    :to="navbar.url"
-                    :class="[
-                      currentRoutePath == navbar.url
-                        ? 'v2-canopas-gradient-text after:tw-w-full after:tw-scale-x-0 after:tw-scale-x-100'
-                        : '',
-                    ]"
-                    >{{ navbar.name }}</router-link
-                  >
-                </li>
-              </ul>
             </ul>
           </div>
         </div>
@@ -169,22 +137,9 @@ export default {
           name: "Get Free Consultation",
           url: "/contact",
           className:
-            "tw-hidden lg:tw-block tw-m-0 tw-ml-[4rem] tw-rounded-full tw-py-3 tw-px-3 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] tw-tracking-[0] gradient-btn consultation-btn",
+            "tw-hidden lg:tw-block tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] tw-tracking-[0] gradient-btn consultation-btn",
           showContactBtn: true,
           event: "tap_header_cta",
-        },
-      ],
-      hamburgerNavbars: [
-        {
-          name: "Services",
-          url: "/services",
-          event: "tap_header_services",
-        },
-        {
-          name: "Resources",
-          url: "/resources",
-          target: "_self",
-          event: "tap_header_resources",
         },
       ],
     };
@@ -193,12 +148,18 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
-    if (Config.SHOW_SERVICES_PAGE && Config.SHOW_RESOURCES_PAGE) {
-      this.navbars.splice(5, 0, {
-        name: "Others",
-        className: "fab tw-w-[20px] lg:tw-w-[25px] tw-h-[20px] lg:tw-h-[25px]",
-        url: "",
-        event: "tap_header_others",
+    if (Config.SHOW_SERVICES_PAGE) {
+      this.navbars.splice(3, 0, {
+        name: "Services",
+        url: "/services",
+        event: "tap_header_services",
+      });
+    }
+    if (Config.SHOW_RESOURCES_PAGE) {
+      this.navbars.splice(4, 0, {
+        name: "Resources",
+        url: "/Resources",
+        event: "tap_header_resources",
       });
     }
     if (

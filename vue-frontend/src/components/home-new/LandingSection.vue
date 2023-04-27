@@ -24,7 +24,7 @@
         />
       </aspect-ratio>
       <div
-        class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[20px] lg:tw-mt-[50px]"
+        class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[40px] md:tw-mt-[20px] lg:tw-mt-[50px]"
       >
         <h1
           class="tw-w-[100%] sm:tw-w-[85%] tw-pb-5 lg:tw-pb-8 xl:tw-pb-10 v2-header-3-text tw-tracking-[0] tw-text-[2.1875rem] tw-leading-[2.8125rem] md:tw-text-[2.65625rem] md:tw-leading-[3.28125rem] lg:tw-text-[3.28125rem] lg:tw-leading-[3.70625rem] 2xl:tw-text-[4.0625rem] 2xl:tw-leading-[4.6875rem] tw-text-black-core/[.87] tw-font-roboto-bold"
