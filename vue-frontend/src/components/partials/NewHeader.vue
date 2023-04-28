@@ -159,6 +159,7 @@ export default {
       this.navbars.splice(4, 0, {
         name: "Resources",
         url: "/resources",
+        target: "_self",
         event: "tap_header_resources",
       });
     }
