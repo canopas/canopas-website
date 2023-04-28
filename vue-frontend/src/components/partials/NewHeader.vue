@@ -158,7 +158,7 @@ export default {
     if (Config.SHOW_RESOURCES_PAGE) {
       this.navbars.splice(4, 0, {
         name: "Resources",
-        url: "/Resources",
+        url: "/resources",
         event: "tap_header_resources",
       });
     }

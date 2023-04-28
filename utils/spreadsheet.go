@@ -8,6 +8,7 @@ Terminologies:
 
 import (
 	"context"
+	"math"
 	"math/rand"
 	"os"
 	"strconv"
@@ -23,9 +24,6 @@ import (
 	"google.golang.org/api/option"
 	"google.golang.org/api/sheets/v4"
 )
-
-// 3 months total hours
-const QUARTER_HOURS = 2160
 
 func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 
@@ -47,15 +45,15 @@ func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 	request := []*sheets.Request{}
 	currentTime := time.Now()
 
-	newYearStarted, newQuarterStarted, sheetId := getSheetData(spreadsheetId, srv, ctx)
+	newYearStarted, newQuarterStarted, quarter, sheetId := getSheetData(spreadsheetId, srv, ctx)
 
 	if newYearStarted {
 		// create new spreadsheet on every year
-		createNewSpreadSheet(currentTime, records, srv, ctx)
+		createNewSpreadSheet(currentTime, quarter, records, srv, ctx)
 		return
 	} else if newQuarterStarted {
 		// create new sheet on every quarter (3 months diff)
-		request = newSheetRequest(currentTime, records)
+		request = newSheetRequest(currentTime, quarter, records)
 	} else {
 		request = []*sheets.Request{
 			{
@@ -116,7 +114,7 @@ func googleServiceAuth(ctx context.Context, scope string, sheet bool) interface{
 	return srv
 }
 
-func getSheetData(spreadsheetId string, srv *sheets.Service, ctx context.Context) (bool, bool, int64) {
+func getSheetData(spreadsheetId string, srv *sheets.Service, ctx context.Context) (bool, bool, int, int64) {
 	/** get latest sheet title and sheetID,
 	    compare its month with current month
 		create new one, if difference is > 3 months
@@ -126,29 +124,39 @@ func getSheetData(spreadsheetId string, srv *sheets.Service, ctx context.Context
 	resp, err := srv.Spreadsheets.Get(spreadsheetId).Context(ctx).Do()
 	if err != nil {
 		log.Error(err)
-		return false, false, 0
+		return false, false, 0, 0
 	}
 
 	sheetId := resp.Sheets[len(resp.Sheets)-1].Properties.SheetId
 
-	prevSheetTitle := resp.Sheets[len(resp.Sheets)-1].Properties.Title
+	var newYearStarted bool
+	sheetQuarter := 1
 
-	prevTime, err := time.Parse("January 2006", prevSheetTitle)
-	if err != nil {
-		log.Error(err)
-		return false, false, sheetId
+	for i := range resp.Sheets {
+
+		title := strings.Split(resp.Sheets[i].Properties.Title, "-")
+
+		year, _ := strconv.Atoi(title[len(title)-1])
+		newYearStarted = year < time.Now().Year()
+
+		if newYearStarted {
+			// create new spreadsheet every year
+			sheetId = 0
+			break
+		}
+
+		// get quarter from sheet name
+		quarter, _ := strconv.Atoi(title[0][len(title[0])-1:])
+		if quarter > sheetQuarter {
+			sheetQuarter = quarter
+			sheetId = resp.Sheets[i].Properties.SheetId
+		}
 	}
 
 	// create new sheet in spreadsheet on each quarter
-	newQuarterStarted := time.Now().Sub(prevTime).Hours() > QUARTER_HOURS
+	currentQuarter := int(math.Ceil(float64(time.Now().Month()) / 3))
 
-	// create new spreadsheet every year
-	newYearStarted := newQuarterStarted && strings.Contains(strings.ToLower(prevSheetTitle), "octo")
-	if newYearStarted {
-		sheetId = 0
-	}
-
-	return newYearStarted, newQuarterStarted, sheetId
+	return newYearStarted, sheetQuarter < currentQuarter, currentQuarter, sheetId
 }
 
 func populateCells(isTitle bool, records []string) []*sheets.RowData {
@@ -178,19 +186,19 @@ func populateCells(isTitle bool, records []string) []*sheets.RowData {
 	}
 }
 
-func createNewSpreadSheet(currentTime time.Time, records []string, srv *sheets.Service, ctx context.Context) {
+func createNewSpreadSheet(currentTime time.Time, quarter int, records []string, srv *sheets.Service, ctx context.Context) {
 	sheetId := int64(rand.Intn(10))
 
 	// create spreadsheet
 	sheetResp, err := srv.Spreadsheets.Create(&sheets.Spreadsheet{
 		Properties: &sheets.SpreadsheetProperties{
-			Title: "Jobs Applications " + strconv.Itoa(currentTime.Year()),
+			Title: "Interview Logbook " + strconv.Itoa(currentTime.Year()),
 		},
 		Sheets: []*sheets.Sheet{
 			{
 				Properties: &sheets.SheetProperties{
 					SheetId: sheetId,
-					Title:   currentTime.Month().String() + " " + strconv.Itoa(currentTime.Year()),
+					Title:   "Q" + strconv.Itoa(quarter) + "-" + strconv.Itoa(currentTime.Year()),
 				},
 				Data: []*sheets.GridData{
 					{
@@ -234,17 +242,21 @@ func createNewSpreadSheet(currentTime time.Time, records []string, srv *sheets.S
 	}
 
 	os.Setenv("JOBS_SPREADSHEET_ID", spreadsheetId)
+	/**
+	     <-- TO_DO UpdateSpreadSheetIdSecret(spreadsheetId) -->
+	**/
 }
 
-func newSheetRequest(currentTime time.Time, records []string) []*sheets.Request {
+func newSheetRequest(currentTime time.Time, quarter int, records []string) []*sheets.Request {
 	sheetId := int64(rand.Intn(10))
 
 	return []*sheets.Request{
 		{
 			AddSheet: &sheets.AddSheetRequest{
 				Properties: &sheets.SheetProperties{
+					Index:   0,
 					SheetId: sheetId,
-					Title:   currentTime.Month().String() + " " + strconv.Itoa(currentTime.Year()),
+					Title:   "Q" + strconv.Itoa(quarter) + "-" + strconv.Itoa(currentTime.Year()),
 				},
 			},
 		},
