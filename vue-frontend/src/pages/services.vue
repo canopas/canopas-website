@@ -14,6 +14,7 @@
       <ContributionSectionMobile class="tw-block lg:tw-hidden" />
       <SuccessStories />
       <ClientReviewSection />
+      <CTASection />
     </div>
     <NewFooter />
   </div>
@@ -29,6 +30,7 @@ import BlogSection from "@/components/home-new/BlogSection.vue";
 import ContributionSection from "@/components/home-new/ContributionSection.vue";
 import ContributionSectionMobile from "@/components/home-new/ContributionSectionMobile.vue";
 import ClientReviewSection from "@/components/home-new/ClientReviewSection.vue";
+import CTASection from "@/components/services/CTASection.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 export default {
@@ -61,6 +63,7 @@ export default {
     ContributionSection,
     ContributionSectionMobile,
     ClientReviewSection,
+    CTASection,
     NewFooter,
   },
   inject: ["mixpanel"],
