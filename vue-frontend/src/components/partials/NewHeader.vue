@@ -160,6 +160,7 @@ export default {
         name: "Resources",
         url: "/resources",
         event: "tap_header_resources",
+        target: "_self",
       });
     }
     if (
