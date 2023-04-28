@@ -12,6 +12,7 @@
       <BlogSection />
       <ContributionSection class="tw-hidden lg:tw-block" />
       <ContributionSectionMobile class="tw-block lg:tw-hidden" />
+      <SuccessStories />
       <ClientReviewSection />
     </div>
     <NewFooter />
@@ -23,6 +24,7 @@ import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/services/LandingSection.vue";
 import ContactUsToday from "@/components/services/ContactUsToday.vue";
+import SuccessStories from "@/components/services/SuccessStories.vue";
 import BlogSection from "@/components/home-new/BlogSection.vue";
 import ContributionSection from "@/components/home-new/ContributionSection.vue";
 import ContributionSectionMobile from "@/components/home-new/ContributionSectionMobile.vue";
@@ -54,6 +56,7 @@ export default {
     Header,
     LandingSection,
     ContactUsToday,
+    SuccessStories,
     BlogSection,
     ContributionSection,
     ContributionSectionMobile,
