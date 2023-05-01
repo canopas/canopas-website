@@ -141,7 +141,7 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 		return
 	}
 
-	fmt.Println("input: ", input)
+	fmt.Println("input: ", input.SaveRecordToSpreadsheet, input.SaveRecordToSpreadsheet == true)
 
 	input.Phone = strings.ReplaceAll(input.Phone, " ", "")
 
@@ -157,7 +157,8 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 		return
 	}
 
-	if input.SaveRecordToSpreadsheet {
+	if input.SaveRecordToSpreadsheet == true {
+		fmt.Println("input.SaveRecordToSpreadsheet")
 		records := []string{input.Name, input.Email, input.Phone, time.Now().Format("2 Jan 2006 03:04PM"), input.Place, input.JobTitle, "", input.References}
 		fmt.Println("records: ", records)
 		go repository.UtilsRepo.SaveJobsToSpreadSheet(records)
