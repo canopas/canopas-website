@@ -31,6 +31,8 @@ func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 
 	sheetSrv := googleServiceAuth(ctx, "https://www.googleapis.com/auth/spreadsheets", true)
 
+	log.Debug("sheetSrv: ", sheetSrv)
+
 	if sheetSrv == nil {
 		return
 	}
@@ -85,12 +87,18 @@ func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 
 func googleServiceAuth(ctx context.Context, scope string, sheet bool) interface{} {
 	credBytes, err := b64.StdEncoding.DecodeString(os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
+
+	log.Debug("Captcha: ", os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
+
 	if err != nil {
 		log.Error(err)
 		return nil
 	}
 
 	config, err := google.JWTConfigFromJSON(credBytes, scope)
+
+	log.Debug("config: ", config)
+
 	if err != nil {
 		log.Error(err)
 		return nil
