@@ -26,6 +26,7 @@ import (
 )
 
 func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
+	log.Debug("In SaveJobsToSpreadSheet")
 
 	ctx := context.Background()
 

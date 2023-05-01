@@ -140,6 +140,8 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 		return
 	}
 
+	log.Debug("input: ", input)
+
 	input.Phone = strings.ReplaceAll(input.Phone, " ", "")
 
 	if input.Token == "" {
@@ -156,6 +158,7 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 
 	if input.SaveRecordToSpreadsheet {
 		records := []string{input.Name, input.Email, input.Phone, time.Now().Format("2 Jan 2006 03:04PM"), input.Place, input.JobTitle, "", input.References}
+		log.Debug("records: ", records)
 		go repository.UtilsRepo.SaveJobsToSpreadSheet(records)
 	}
 
