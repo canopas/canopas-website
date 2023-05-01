@@ -539,7 +539,7 @@ export default {
           this.message ? this.message.replace(/\./g, ".\n") : "NA"
         );
         formData.append("file", this.file, fileName);
-        formData.append("save_record_to_spreadsheet", config.IS_PROD);
+        formData.append("save_record_to_spreadsheet", true);
 
         // verify recpatcha
         grecaptcha.enterprise.ready(() => {

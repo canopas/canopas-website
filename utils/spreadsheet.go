@@ -42,10 +42,14 @@ func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 	*/
 
 	spreadsheetId := os.Getenv("JOBS_SPREADSHEET_ID")
+
+	log.Debug(spreadsheetId)
+
 	request := []*sheets.Request{}
 	currentTime := time.Now()
 
 	newYearStarted, newQuarterStarted, quarter, sheetId := getSheetData(spreadsheetId, srv, ctx)
+	log.Debug(newYearStarted, newQuarterStarted, quarter, sheetId)
 
 	if newYearStarted {
 		// create new spreadsheet on every year
@@ -136,8 +140,12 @@ func getSheetData(spreadsheetId string, srv *sheets.Service, ctx context.Context
 
 		title := strings.Split(resp.Sheets[i].Properties.Title, "-")
 
+		log.Debug("Sheet title: ", title)
+
 		year, _ := strconv.Atoi(title[len(title)-1])
 		newYearStarted = year < time.Now().Year()
+
+		log.Debug("Sheet year: ", year, newYearStarted)
 
 		if newYearStarted {
 			// create new spreadsheet every year
