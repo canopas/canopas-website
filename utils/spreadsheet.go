@@ -8,6 +8,7 @@ Terminologies:
 
 import (
 	"context"
+	"fmt"
 	"math"
 	"math/rand"
 	"os"
@@ -26,13 +27,13 @@ import (
 )
 
 func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
-	log.Debug("In SaveJobsToSpreadSheet")
+	fmt.Println("In SaveJobsToSpreadSheet")
 
 	ctx := context.Background()
 
 	sheetSrv := googleServiceAuth(ctx, "https://www.googleapis.com/auth/spreadsheets", true)
 
-	log.Debug("sheetSrv: ", sheetSrv)
+	fmt.Println("sheetSrv: ", sheetSrv)
 
 	if sheetSrv == nil {
 		return
@@ -46,13 +47,13 @@ func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 
 	spreadsheetId := os.Getenv("JOBS_SPREADSHEET_ID")
 
-	log.Debug(spreadsheetId)
+	fmt.Println(spreadsheetId)
 
 	request := []*sheets.Request{}
 	currentTime := time.Now()
 
 	newYearStarted, newQuarterStarted, quarter, sheetId := getSheetData(spreadsheetId, srv, ctx)
-	log.Debug(newYearStarted, newQuarterStarted, quarter, sheetId)
+	fmt.Println(newYearStarted, newQuarterStarted, quarter, sheetId)
 
 	if newYearStarted {
 		// create new spreadsheet on every year
@@ -89,7 +90,7 @@ func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 func googleServiceAuth(ctx context.Context, scope string, sheet bool) interface{} {
 	credBytes, err := b64.StdEncoding.DecodeString(os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
 
-	log.Debug("Captcha: ", os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
+	fmt.Println("Captcha: ", os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
 
 	if err != nil {
 		log.Error(err)
@@ -98,7 +99,7 @@ func googleServiceAuth(ctx context.Context, scope string, sheet bool) interface{
 
 	config, err := google.JWTConfigFromJSON(credBytes, scope)
 
-	log.Debug("config: ", config)
+	fmt.Println("config: ", config)
 
 	if err != nil {
 		log.Error(err)
@@ -149,12 +150,12 @@ func getSheetData(spreadsheetId string, srv *sheets.Service, ctx context.Context
 
 		title := strings.Split(resp.Sheets[i].Properties.Title, "-")
 
-		log.Debug("Sheet title: ", title)
+		fmt.Println("Sheet title: ", title)
 
 		year, _ := strconv.Atoi(title[len(title)-1])
 		newYearStarted = year < time.Now().Year()
 
-		log.Debug("Sheet year: ", year, newYearStarted)
+		fmt.Println("Sheet year: ", year, newYearStarted)
 
 		if newYearStarted {
 			// create new spreadsheet every year
