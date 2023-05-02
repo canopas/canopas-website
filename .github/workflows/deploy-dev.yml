@@ -30,7 +30,7 @@ jobs:
           cd nginx 
           sed -i "s|WEBSITE_URL|dev-stack.canopas.com|g" conf.d/default.conf
           sed -i "s|API_URL|dev-stack-api.canopas.com|g" conf.d/default.conf
-          sed -i "s|ARTICLES_URL|main.dzkjozipsd9ra.amplifyapp.com|g" conf.d/default.conf
+          sed -i "s|ARTICLES_URL|development.dzkjozipsd9ra.amplifyapp.com|g" conf.d/default.conf
           bash ./../deploy/deploy-ecr-image.sh dev-nginx ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-nginx
 
       - name: Build frontend and push on ECR
