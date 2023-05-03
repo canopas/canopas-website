@@ -67,6 +67,7 @@
           @touchmove.passive="playSwiper(true)"
           @touchend="playSwiper(true)"
           class="tw-cursor-pointer"
+          @click="openPortfolio(story)"
         >
           <aspect-ratio
             height="50%"
@@ -75,7 +76,7 @@
             <img
               :src="story.image[0]"
               :srcset="`${story.image[0]} 400w, ${story.image[1]} 800w`"
-              class="tw-mb-[0.5rem] tw-w-full tw-h-full tw-object-cover"
+              class="tw-mb-[0.5rem] tw-w-full tw-h-[600px] lg:tw-h-full tw-object-cover"
               alt="story-image"
             />
           </aspect-ratio>
@@ -98,6 +99,7 @@ import togness400w from "@/assets/images/services/success-stories/togness-400w.w
 import togness800w from "@/assets/images/services/success-stories/togness-800w.webp";
 import smile400w from "@/assets/images/services/success-stories/smile+400w.webp";
 import smile800w from "@/assets/images/services/success-stories/smile+800w.webp";
+import config from "@/config.js";
 
 SwiperCore.use([Pagination, Navigation, Autoplay]);
 export default {
@@ -109,15 +111,24 @@ export default {
       stories: [
         {
           image: [justly400w, justly800w],
+          url: "/portfolio/justly",
+          event: "tap_services_justly_portfolio",
         },
         {
           image: [luxeradio400w, luxeradio800w],
+          url: "/portfolio/luxeradio",
+          event: "tap_services_luxe_radio_portfolio",
         },
         {
           image: [togness400w, togness800w],
+          url: "/portfolio/togness",
+          event: "tap_services_togness_portfolio",
         },
         {
           image: [smile400w, smile800w],
+          url: config.SMILEPLUS_URL,
+          target: "_blank",
+          event: "tap_services_smile_portfolio",
         },
       ],
       pagination: {
@@ -139,6 +150,10 @@ export default {
     playSwiper(play) {
       play ? this.swiper.autoplay.start() : this.swiper.autoplay.stop();
       this.reading = !play;
+    },
+    openPortfolio(story) {
+      window.open(story.url, story.target ? story.target : "_self");
+      this.mixpanel.track(story.event);
     },
   },
 };
