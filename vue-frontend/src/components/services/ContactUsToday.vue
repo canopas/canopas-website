@@ -1,6 +1,6 @@
 <template>
   <section
-    class="lg:tw-relative tw-mt-10 lg:tw-mb-[300px] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.08] tw-to-[#F2709C]/[0.08] tw-pt-[2rem] tw-pb-[2rem] lg:tw-bg-none"
+    class="lg:tw-relative tw-mt-10 lg:tw-mb-[10%] xll:tw-mb-[15%] 3xl:tw-mb-[8%] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.08] tw-to-[#F2709C]/[0.08] tw-pt-[2rem] tw-pb-[2rem] lg:tw-bg-none"
   >
     <div class="tw-w-full tw-h-full">
       <img
@@ -8,7 +8,7 @@
         :src="contactbgImages[3]"
         :srcset="`${contactbgImages[1]} 400w, ${contactbgImages[1]} 800w, ${contactbgImages[2]} 1200w, ${contactbgImages[3]} 1600w`"
         loading="lazy"
-        class="tw-hidden lg:tw-block tw-absolute tw-top-[217px] tw-left-0 tw--z-[1] tw-object-cover"
+        class="tw-hidden lg:tw-block tw-absolute tw-top-[217px] 3xl:tw-top-[50px] tw-left-0 tw--z-[1] tw-object-cover 3xl:tw-object-scale-down"
         alt="background-image"
       />
     </div>

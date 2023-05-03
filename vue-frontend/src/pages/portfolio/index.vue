@@ -21,7 +21,6 @@ import { useMeta } from "vue-meta";
 import config from "@/config.js";
 import Header from "@/components/partials/NewHeader.vue";
 import CaseStudy from "@/components/home-new/CaseStudy.vue";
-import NewFooter from "@/components/partials/NewFooter.vue";
 import { defineAsyncComponent } from "vue";
 
 const UserReview = defineAsyncComponent(() =>
@@ -29,6 +28,9 @@ const UserReview = defineAsyncComponent(() =>
 );
 const CTASection = defineAsyncComponent(() =>
   import("@/components/home-new/CTASection.vue")
+);
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue")
 );
 
 export default {
