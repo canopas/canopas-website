@@ -67,7 +67,6 @@ export default Object.freeze({
   IS_PROD: true,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
-  SHOW_RESOURCES_PAGE: true,
   SHOW_SERVICES_PAGE: false,
   MIX_PANEL_TOKEN: "16b177c2cda3ec1fb11c63a07f27996c",
 });

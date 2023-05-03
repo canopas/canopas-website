@@ -216,6 +216,12 @@ export default {
           event: "tap_header_blog",
         },
         {
+          name: "Resources",
+          url: "/resources",
+          target: "_self",
+          event: "tap_header_resources",
+        },
+        {
           name: "Career",
           url: "/jobs",
           event: "tap_header_career",
@@ -247,14 +253,7 @@ export default {
         event: "tap_header_services",
       });
     }
-    if (Config.SHOW_RESOURCES_PAGE) {
-      this.navbars.splice(2, 0, {
-        name: "Resources",
-        url: "/resources",
-        target: "_self",
-        event: "tap_header_resources",
-      });
-    }
+
     if (
       this.currentRoutePath.includes("portfolio/") &&
       window.innerWidth > 992 &&
