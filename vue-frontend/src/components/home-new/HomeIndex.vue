@@ -20,7 +20,6 @@
 <script>
 import ScreenHeader from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/home-new/LandingSection.vue";
-import FooterV3 from "@/components/partials/FooterV3.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { elementInViewPort } from "@/utils.js";
@@ -49,6 +48,9 @@ const CTASection = defineAsyncComponent(() =>
 );
 const BlogSection = defineAsyncComponent(() =>
   import("@/components/home-new/BlogSection.vue")
+);
+const FooterV3 = defineAsyncComponent(() =>
+  import("@/components/partials/FooterV3.vue")
 );
 
 library.add(faPlus);

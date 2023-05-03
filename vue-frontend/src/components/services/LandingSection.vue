@@ -1,13 +1,12 @@
 <template>
   <section
-    class="tw-relative tw-bg-gradient-to-t tw-from-[#F47695]/[0.1] tw-via-[#F98584]/[0.1] tw-to-[#FFFFFF] tw-pb-[6.5rem]"
+    class="tw-relative tw-mt-[15%] lg:tw-mt-0 tw-bg-gradient-to-t tw-from-[#F47695]/[0.1] tw-via-[#F98584]/[0.1] tw-to-[#FFFFFF] tw-pb-[6.5rem]"
   >
     <div>
       <img
         v-if="width < 680"
         :src="bgImages[0]"
         :srcset="`${bgImages[0]} 400w, ${bgImages[1]} 800w, ${bgImages[2]} 1200w, ${bgImages[2]} 1600w`"
-        loading="lazy"
         class="lg:tw-hidden tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw--z-[1] tw-object-cover"
         alt="background-image"
       />

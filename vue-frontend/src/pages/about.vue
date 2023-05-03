@@ -24,7 +24,6 @@
 
 <script>
 import Header from "@/components/partials/NewHeader.vue";
-import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/about/LandingSection.vue";
 import HowItAllStartedSection from "@/components/about/HowItAllStartedSection.vue";
 import CTASection from "@/components/about/CTASection.vue";
@@ -44,6 +43,9 @@ const WithCanopasSection = defineAsyncComponent(() =>
 );
 const ClientReviewSection = defineAsyncComponent(() =>
   import("@/components/home-new/ClientReviewSection.vue")
+);
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue")
 );
 
 export default {

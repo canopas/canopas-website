@@ -30,7 +30,6 @@
 import Header from "@/components/partials/NewHeader.vue";
 import LandingView from "@/components/jobs/LandingView.vue";
 import { defineAsyncComponent } from "vue";
-import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useMeta } from "vue-meta";
@@ -62,6 +61,9 @@ const WhyCanopasMobile = defineAsyncComponent(() =>
 );
 const FaqSection = defineAsyncComponent(() =>
   import("@/components/jobs/FaqSection.vue")
+);
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue")
 );
 
 library.add(faAlignLeft, faCheckCircle, faMinus, faPlus);

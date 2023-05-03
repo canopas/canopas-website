@@ -122,7 +122,7 @@
                 />
               </div>
 
-              <div class="md:tw-col-span-2 tw-mb-8">
+              <div class="tw-mb-8">
                 <label class="">How did you find Canopas?</label>
                 <div
                   class="tw-relative tw-mt-[15px] tw-w-full tw-h-[50px] tw-outline-hidden tw-outline-0 before:tw-content-[''] before:tw-absolute before:tw-top-[20px] before:tw-right-[20px] before:tw-z-[1] before:tw-w-[8px] before:tw-h-[8px] before:tw-border-2 before:tw-border-solid before:tw-border-[#00000080] before:tw-border-t-2 before:tw-border-t-[#fff] before:tw-border-r-2 before:tw-border-r-[#fff] before:tw-rotate-[-45deg] before:tw-duration-[0.5s] before:tw-pointer-events-none"
@@ -165,8 +165,9 @@
                 v-if="isShowingReferenceInput"
                 class="tw-mb-8 reference-input"
               >
+                <label class="">Reference</label>
                 <input
-                  class="tw-block tw--mt-[15px] tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
                   type="text"
                   name="referenceby"
                   autocomplete="given-reference-name"
