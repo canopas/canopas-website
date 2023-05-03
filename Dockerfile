@@ -9,7 +9,7 @@ RUN CGO_ENABLED=0 go build -a -installsuffix cgo -ldflags '-s' -o go-api-platfor
 
 FROM alpine
 
-RUN apk update && apk add ca-certificates
+RUN apk update && apk add ca-certificates && apk add --no-cache tzdata
 
 COPY --from=builder /go-api-platform/go-api-platform /
 
