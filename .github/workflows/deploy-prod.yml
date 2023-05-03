@@ -27,7 +27,6 @@ jobs:
       - name: Build nginx and push on ECR
         run: |
           cd nginx 
-          sed -i.bak -e '10,15d' conf.d/default.conf && rm conf.d/default.conf.bak
           sed -i "s|WEBSITE_URL|canopas.com|g" conf.d/default.conf
           sed -i "s|API_URL|prod-stack-api.canopas.com|g" conf.d/default.conf
           sed -i "s|ARTICLES_URL|articles.canopas.com|g" conf.d/default.conf
