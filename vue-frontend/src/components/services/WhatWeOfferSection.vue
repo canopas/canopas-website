@@ -103,7 +103,7 @@ export default {
             "From unit testing to Test Driven Development, Manual Testing to Automation Testing, our team of QA specialists will work with engineers to make sure you get products built to last, \
             with the highest standards, so that you can rely on your solution for years to come.",
           class:
-            "tw-bg-gradient-to-b tw-from-[#FFF2F0] via-[#FFF2F0] tw-to-white tw-bg-gradient-[180deg] ",
+            "tw-bg-gradient-to-b tw-from-[#E8FAF0] via-[#E8FAF0] tw-to-white tw-bg-gradient-[180deg] ",
         },
       ],
     };

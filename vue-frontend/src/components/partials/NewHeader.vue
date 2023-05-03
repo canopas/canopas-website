@@ -124,7 +124,7 @@
         class="tw-flex tw-flex-col tw-flex-wrap lg:tw-items-center tw-justify-start tw-mt-8 lg:tw-ml-auto tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
       >
         <li
-          v-for="navbar in navbars.slice(0, 6)"
+          v-for="navbar in navbars.slice(0, navbars.length - 1)"
           :key="navbar"
           class="tw-my-2 tw-py-2 tw-ml-1 lg:tw-ml-0"
         >
