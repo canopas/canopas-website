@@ -210,16 +210,16 @@ export default {
           event: "tap_header_portfolio",
         },
         {
-          name: "Blog",
-          url: Config.BLOG_URL,
-          target: "_blank",
-          event: "tap_header_blog",
-        },
-        {
           name: "Resources",
           url: "/resources",
           target: "_self",
           event: "tap_header_resources",
+        },
+        {
+          name: "Blog",
+          url: Config.BLOG_URL,
+          target: "_blank",
+          event: "tap_header_blog",
         },
         {
           name: "Career",
