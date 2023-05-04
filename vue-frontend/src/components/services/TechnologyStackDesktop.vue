@@ -1,5 +1,7 @@
 <template>
-  <section class="tw-mb-20 md:tw-mb-40 tw-flex">
+  <section
+    class="lg:tw-mt-[18rem] xl:tw-mt-[21rem] tw-mb-20 md:tw-mb-40 tw-flex"
+  >
     <div
       class="tw-container tw--mt-48 tw-mb-28 tw-mx-auto tw-w-8/12 tw-text-center"
     >
@@ -56,7 +58,7 @@
         <img
           class="tw-absolute tw-z-[1] tw-w-[100px] tw-h-[100x]"
           :class="{
-            'tw-opacity-50 tw-transition-opacity tw-duration-700 tw-ease-in':
+            'tw-opacity-10 tw-transition-opacity tw-duration-700 tw-ease-in':
               isHovered,
           }"
           :src="service.image"
