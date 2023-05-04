@@ -9,9 +9,13 @@
 
     <div>
       <LandingSection />
+
       <WhatWeOfferSection class="tw-block lg:tw-hidden" />
       <WhatWeOfferDesktopSection class="tw-hidden lg:tw-block" />
+
       <ContactUsToday />
+      <TechnologyStackMobile class="tw-block lg:tw-hidden" />
+      <TechnologyStackDesktop class="tw-hidden lg:tw-block" />
       <BlogSection />
       <ContributionSection class="tw-hidden lg:tw-block" />
       <ContributionSectionMobile class="tw-block lg:tw-hidden" />
@@ -27,6 +31,15 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/services/LandingSection.vue";
+import TechnologyStackMobile from "@/components/services/TechnologyStackMobile.vue";
+import TechnologyStackDesktop from "@/components/services/TechnologyStackDesktop.vue";
+import ContactUsToday from "@/components/services/ContactUsToday.vue";
+import SuccessStories from "@/components/services/SuccessStories.vue";
+import BlogSection from "@/components/home-new/BlogSection.vue";
+import ContributionSection from "@/components/home-new/ContributionSection.vue";
+import ContributionSectionMobile from "@/components/home-new/ContributionSectionMobile.vue";
+import ClientReviewSection from "@/components/home-new/ClientReviewSection.vue";
+import CTASection from "@/components/services/CTASection.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
@@ -87,6 +100,8 @@ export default {
   components: {
     Header,
     LandingSection,
+    TechnologyStackMobile,
+    TechnologyStackDesktop,
     WhatWeOfferSection,
     WhatWeOfferDesktopSection,
     ContactUsToday,
