@@ -1,6 +1,6 @@
 <template>
   <section
-    class="lg:tw-mt-[18rem] xl:tw-mt-[21rem] tw-mb-20 md:tw-mb-40 tw-flex"
+    class="lg:tw-mt-[18rem] xl:tw-mt-[21rem] 3xl:tw-mt-[29rem] tw-mb-20 md:tw-mb-40 tw-flex"
   >
     <div
       class="tw-container tw--mt-48 tw-mb-28 tw-mx-auto tw-w-8/12 tw-text-center"
@@ -20,7 +20,7 @@
       </p>
     </div>
 
-    <div class="tw-relative xll:tw-container xll:tw-mt-80">
+    <div class="tw-relative xll:tw-container xll:tw-mt-80 3xl:tw-mt-[5rem]">
       <aspect-ratio height="40%">
         <img
           class="tw-w-ful tw-h-full tw-object-cover"
