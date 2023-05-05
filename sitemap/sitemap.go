@@ -59,6 +59,7 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 		{Loc: baseUrl, Priority: `1`},
 		{Loc: baseUrl + `/contact`, Priority: `0.9`},
 		{Loc: baseUrl + `/about`, Priority: `0.9`},
+		{Loc: baseUrl + `/resources`, Priority: `0.9`},
 	}
 
 	sitemapUrls = addPortfolios(baseUrl, sitemapUrls)
