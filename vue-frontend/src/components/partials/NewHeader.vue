@@ -121,7 +121,7 @@
         </div>
       </div>
       <ul
-        class="tw-flex tw-flex-col tw-flex-wrap lg:tw-items-center tw-justify-start tw-mt-8 lg:tw-ml-auto tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
+        class="tw-flex tw-flex-col lg:tw-items-center tw-justify-start tw-h-[50%] sm:tw-h-[45%] tw-mt-8 lg:tw-ml-auto tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-overflow-y-scroll"
       >
         <li
           v-for="navbar in navbars.slice(0, navbars.length - 1)"
@@ -164,17 +164,14 @@
           >
         </li>
       </ul>
-      <div
-        v-if="showMenu"
-        class="tw-fixed tw-bottom-0 tw-left-0 tw-w-full tw-h-auto tw-bg-white tw-p-4 tw-shadow-[0_25px_50px_-12px_rgb(0,0,0)]"
-      >
+      <div v-if="showMenu" class="tw-w-full tw-h-auto tw-bg-white tw-p-4">
         <div className="tw-grid tw-p-3 tw-pb-5">
           <a
             href="/contact"
-            className="tw-relative tw-justify-self-center tw-rounded-[8px] tw-border-[1px] tw-border-solid tw-border-transparent tw-bg-gradient-to-r tw-from-[#f2709c] tw-to-[#ff9472] hover:tw-shadow-[inset_2px_1000px_1px_#fff] tw-font-bold tw-text-white "
+            className="tw-relative tw-justify-self-center tw-rounded-full tw-border-[1px] tw-border-solid tw-border-transparent tw-bg-gradient-to-r tw-from-[#f2709c] tw-to-[#ff9472] hover:tw-shadow-[inset_2px_1000px_1px_#fff] tw-font-bold tw-text-white "
           >
             <div
-              className="tw-py-[0.8rem] tw-px-[2.5rem] tw-text-lg tw-gradient-text tw-inline-block"
+              className="tw-py-[0.8rem] tw-px-[2.5rem] tw-text-lg hover:tw-bg-clip-text hover:tw-bg-gradient-to-r hover:tw-from-[#f2709c] hover:tw-via-[#ff909c] hover:tw-to-[#ff9472] hover:tw-text-transparent tw-inline-block"
             >
               Get Free Consulation
             </div>
