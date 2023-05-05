@@ -1,6 +1,6 @@
 <template>
   <section
-    class="lg:tw-mt-[18rem] xl:tw-mt-[21rem] 3xl:tw-mt-[29rem] tw-mb-20 md:tw-mb-40 tw-flex"
+    class="lg:tw-mt-[18rem] xl:tw-mt-[21rem] tw-mb-20 md:tw-mb-40 tw-flex"
   >
     <div
       class="tw-container tw--mt-48 tw-mb-28 tw-mx-auto tw-w-8/12 tw-text-center"
@@ -20,7 +20,7 @@
       </p>
     </div>
 
-    <div class="tw-relative xll:tw-container xll:tw-mt-80 3xl:tw-mt-[5rem]">
+    <div class="tw-relative 2xll:tw-container">
       <aspect-ratio height="40%">
         <img
           class="tw-w-ful tw-h-full tw-object-cover"
@@ -37,7 +37,7 @@
         <img
           :class="
             width > 1300 || width < 1600
-              ? 'tw-w-[425px]   xl:tw-w-[476px]  2xl:tw-w-[590px] 2xll:tw-w-[705px]  3xl:tw-w-[510px]  tw-h-[385px] xl:tw-h-[413px] 2xl:tw-h-[515px]  xll:tw-h-[440px] 2xll:tw-h-[595px]  3xl:tw-h-[440px] '
+              ? 'tw-w-[425px]   xl:tw-w-[476px]  2xl:tw-w-[590px] 2xll:tw-w-[500px]    tw-h-[385px] xl:tw-h-[413px] 2xl:tw-h-[515px]   2xll:tw-h-[440px] xll:tw-h-[445px] '
               : ''
           "
           class="tw-absolute tw-inset-0 tw-m-auto"
