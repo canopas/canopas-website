@@ -566,12 +566,18 @@ export default {
                   this.$refs.fileUpload.value = null;
                   this.fileButtonName = "Upload";
                   this.mixpanel.track("job_apply_success");
-                  setTimeout(() => {
-                    this.showSuccessMessage = false;
+                  if (config.SHOW_JOBSTHANKYOU_PAGE) {
                     this.$router.push({
-                      path: `/jobs`,
+                      path: `/jobs/thank-you`,
                     });
-                  }, 3000);
+                  } else {
+                    setTimeout(() => {
+                      this.showSuccessMessage = false;
+                      this.$router.push({
+                        path: `/jobs`,
+                      });
+                    }, 3000);
+                  }
                 })
                 .catch((err) => {
                   this.isLoad = false;
