@@ -14,8 +14,8 @@
       <WhatWeOfferDesktopSection class="tw-hidden lg:tw-block" />
 
       <ContactUsToday />
-      <TechnologyStackMobile class="tw-block lg:tw-hidden" />
-      <TechnologyStackDesktop class="tw-hidden lg:tw-block" />
+      <TechnologyStack />
+
       <BlogSection />
       <ContributionSection class="tw-hidden lg:tw-block" />
       <ContributionSectionMobile class="tw-block lg:tw-hidden" />
@@ -31,8 +31,7 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/services/LandingSection.vue";
-import TechnologyStackMobile from "@/components/services/TechnologyStackMobile.vue";
-import TechnologyStackDesktop from "@/components/services/TechnologyStackDesktop.vue";
+import TechnologyStack from "@/components/services/TechnologyStack.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
@@ -93,8 +92,7 @@ export default {
   components: {
     Header,
     LandingSection,
-    TechnologyStackMobile,
-    TechnologyStackDesktop,
+    TechnologyStack,
     WhatWeOfferSection,
     WhatWeOfferDesktopSection,
     ContactUsToday,
