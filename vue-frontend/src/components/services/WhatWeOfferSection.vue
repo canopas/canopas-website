@@ -73,7 +73,7 @@ export default {
           images: [webapp400w, webapp800w],
           title: "Web App Development",
           description:
-            "Web apps are complex, so you'll be wanting some proven experience in your corner. We've been specialized app developers for over a decade; you're in safe hands. Our team of web engineers will save your website from the evil forces of slow load times and outdated design.\
+            "Web apps are complex, so you'll be wanting some proven experience in your corner. We've been specialized app developers for over a decade, you're in safe hands. Our team of web engineers will save your website from the evil forces of slow load times and outdated design.\
              So, if you're in need of a web superhero, call us today, and let the magic begin!",
           class:
             "tw-bg-gradient-to-b tw-from-[#BBDEFF]  via-[#BBDEFF]  tw-to-white tw-bg-gradient-[180deg] ",

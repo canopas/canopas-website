@@ -167,67 +167,67 @@
 </template>
 
 <script>
-import frontend1 from "@/assets/images/services/technology/frontend-1-400w.webp";
-import frontend2 from "@/assets/images/services/technology/frontend-2-400w.webp";
-import frontend3 from "@/assets/images/services/technology/frontend-3-400w.webp";
-import frontend4 from "@/assets/images/services/technology/frontend-4-400w.webp";
-import frontend5 from "@/assets/images/services/technology/frontend-5-400w.webp";
-import frontend6 from "@/assets/images/services/technology/frontend-6-400w.webp";
-import frontend7 from "@/assets/images/services/technology/frontend-7-400w.webp";
+import frontend1 from "@/assets/images/services/technology/frontend-1-200w.webp";
+import frontend2 from "@/assets/images/services/technology/frontend-2-200w.webp";
+import frontend3 from "@/assets/images/services/technology/frontend-3-200w.webp";
+import frontend4 from "@/assets/images/services/technology/frontend-4-200w.webp";
+import frontend5 from "@/assets/images/services/technology/frontend-5-200w.webp";
+import frontend6 from "@/assets/images/services/technology/frontend-6-200w.webp";
+import frontend7 from "@/assets/images/services/technology/frontend-7-200w.webp";
 
-import desktopfrontend1 from "@/assets/images/services/technology/desktop-icon/frontend-1-400w.webp";
-import desktopfrontend2 from "@/assets/images/services/technology/desktop-icon/frontend-2-400w.webp";
-import desktopfrontend3 from "@/assets/images/services/technology/desktop-icon/frontend-3-400w.webp";
-import desktopfrontend4 from "@/assets/images/services/technology/desktop-icon/frontend-4-400w.webp";
-import desktopfrontend5 from "@/assets/images/services/technology/desktop-icon/frontend-5-400w.webp";
-import desktopfrontend6 from "@/assets/images/services/technology/desktop-icon/frontend-6-400w.webp";
-import desktopfrontend7 from "@/assets/images/services/technology/desktop-icon/frontend-7-400w.webp";
+import desktopfrontend1 from "@/assets/images/services/technology/desktop-icon/frontend-1-200w.webp";
+import desktopfrontend2 from "@/assets/images/services/technology/desktop-icon/frontend-2-200w.webp";
+import desktopfrontend3 from "@/assets/images/services/technology/desktop-icon/frontend-3-200w.webp";
+import desktopfrontend4 from "@/assets/images/services/technology/desktop-icon/frontend-4-200w.webp";
+import desktopfrontend5 from "@/assets/images/services/technology/desktop-icon/frontend-5-200w.webp";
+import desktopfrontend6 from "@/assets/images/services/technology/desktop-icon/frontend-6-200w.webp";
+import desktopfrontend7 from "@/assets/images/services/technology/desktop-icon/frontend-7-200w.webp";
 
-import backend1 from "@/assets/images/services/technology/backend-1-400w.webp";
-import backend2 from "@/assets/images/services/technology/backend-2-400w.webp";
-import backend3 from "@/assets/images/services/technology/backend-3-400w.webp";
-import backend4 from "@/assets/images/services/technology/backend-4-400w.webp";
-import backend5 from "@/assets/images/services/technology/backend-5-400w.webp";
+import backend1 from "@/assets/images/services/technology/backend-1-200w.webp";
+import backend2 from "@/assets/images/services/technology/backend-2-200w.webp";
+import backend3 from "@/assets/images/services/technology/backend-3-200w.webp";
+import backend4 from "@/assets/images/services/technology/backend-4-200w.webp";
+import backend5 from "@/assets/images/services/technology/backend-5-200w.webp";
 
-import desktopbackend1 from "@/assets/images/services/technology/desktop-icon/backend-1-400w.webp";
-import desktopbackend2 from "@/assets/images/services/technology/desktop-icon/backend-2-400w.webp";
-import desktopbackend3 from "@/assets/images/services/technology/desktop-icon/backend-3-400w.webp";
-import desktopbackend4 from "@/assets/images/services/technology/desktop-icon/backend-4-400w.webp";
-import desktopbackend5 from "@/assets/images/services/technology/desktop-icon/backend-5-400w.webp";
+import desktopbackend1 from "@/assets/images/services/technology/desktop-icon/backend-1-200w.webp";
+import desktopbackend2 from "@/assets/images/services/technology/desktop-icon/backend-2-200w.webp";
+import desktopbackend3 from "@/assets/images/services/technology/desktop-icon/backend-3-200w.webp";
+import desktopbackend4 from "@/assets/images/services/technology/desktop-icon/backend-4-200w.webp";
+import desktopbackend5 from "@/assets/images/services/technology/desktop-icon/backend-5-200w.webp";
 
-import mobileapp1 from "@/assets/images/services/technology/mobileapp-1-400w.webp";
-import mobileapp2 from "@/assets/images/services/technology/mobileapp-2-400w.webp";
-import mobileapp3 from "@/assets/images/services/technology/mobileapp-3-400w.webp";
-import mobileapp4 from "@/assets/images/services/technology/mobileapp-4-400w.webp";
+import mobileapp1 from "@/assets/images/services/technology/mobileapp-1-200w.webp";
+import mobileapp2 from "@/assets/images/services/technology/mobileapp-2-200w.webp";
+import mobileapp3 from "@/assets/images/services/technology/mobileapp-3-200w.webp";
+import mobileapp4 from "@/assets/images/services/technology/mobileapp-4-200w.webp";
 
-import desktopmobileapp1 from "@/assets/images/services/technology/desktop-icon/mobileapp-1-400w.webp";
-import desktopmobileapp2 from "@/assets/images/services/technology/desktop-icon/mobileapp-2-400w.webp";
-import desktopmobileapp3 from "@/assets/images/services/technology/desktop-icon/mobileapp-3-400w.webp";
-import desktopmobileapp4 from "@/assets/images/services/technology/desktop-icon/mobileapp-4-400w.webp";
+import desktopmobileapp1 from "@/assets/images/services/technology/desktop-icon/mobileapp-1-200w.webp";
+import desktopmobileapp2 from "@/assets/images/services/technology/desktop-icon/mobileapp-2-200w.webp";
+import desktopmobileapp3 from "@/assets/images/services/technology/desktop-icon/mobileapp-3-200w.webp";
+import desktopmobileapp4 from "@/assets/images/services/technology/desktop-icon/mobileapp-4-200w.webp";
 
-import ui1 from "@/assets/images/services/technology/ui-1-400w.webp";
-import ui2 from "@/assets/images/services/technology/ui-2-400w.webp";
-import ui3 from "@/assets/images/services/technology/ui-3-400w.webp";
-import ui4 from "@/assets/images/services/technology/ui-4-400w.webp";
-import ui5 from "@/assets/images/services/technology/ui-5-400w.webp";
+import ui1 from "@/assets/images/services/technology/ui-1-200w.webp";
+import ui2 from "@/assets/images/services/technology/ui-2-200w.webp";
+import ui3 from "@/assets/images/services/technology/ui-3-200w.webp";
+import ui4 from "@/assets/images/services/technology/ui-4-200w.webp";
+import ui5 from "@/assets/images/services/technology/ui-5-200w.webp";
 
-import desktopui1 from "@/assets/images/services/technology/desktop-icon/ui-1-400w.webp";
-import desktopui2 from "@/assets/images/services/technology/desktop-icon/ui-2-400w.webp";
-import desktopui3 from "@/assets/images/services/technology/desktop-icon/ui-3-400w.webp";
-import desktopui4 from "@/assets/images/services/technology/desktop-icon/ui-4-400w.webp";
-import desktopui5 from "@/assets/images/services/technology/desktop-icon/ui-5-400w.webp";
+import desktopui1 from "@/assets/images/services/technology/desktop-icon/ui-1-200w.webp";
+import desktopui2 from "@/assets/images/services/technology/desktop-icon/ui-2-200w.webp";
+import desktopui3 from "@/assets/images/services/technology/desktop-icon/ui-3-200w.webp";
+import desktopui4 from "@/assets/images/services/technology/desktop-icon/ui-4-200w.webp";
+import desktopui5 from "@/assets/images/services/technology/desktop-icon/ui-5-200w.webp";
 
-import seo1 from "@/assets/images/services/technology/seo-1-400w.webp";
-import seo2 from "@/assets/images/services/technology/seo-2-400w.webp";
-import seo3 from "@/assets/images/services/technology/seo-3-400w.webp";
-import seo4 from "@/assets/images/services/technology/seo-4-400w.webp";
-import seo5 from "@/assets/images/services/technology/seo-5-400w.webp";
+import seo1 from "@/assets/images/services/technology/seo-1-200w.webp";
+import seo2 from "@/assets/images/services/technology/seo-2-200w.webp";
+import seo3 from "@/assets/images/services/technology/seo-3-200w.webp";
+import seo4 from "@/assets/images/services/technology/seo-4-200w.webp";
+import seo5 from "@/assets/images/services/technology/seo-5-200w.webp";
 
-import desktopseo1 from "@/assets/images/services/technology/desktop-icon/seo-1-400w.webp";
-import desktopseo2 from "@/assets/images/services/technology/desktop-icon/seo-2-400w.webp";
-import desktopseo3 from "@/assets/images/services/technology/desktop-icon/seo-3-400w.webp";
-import desktopseo4 from "@/assets/images/services/technology/desktop-icon/seo-4-400w.webp";
-import desktopseo5 from "@/assets/images/services/technology/desktop-icon/seo-5-400w.webp";
+import desktopseo1 from "@/assets/images/services/technology/desktop-icon/seo-1-200w.webp";
+import desktopseo2 from "@/assets/images/services/technology/desktop-icon/seo-2-200w.webp";
+import desktopseo3 from "@/assets/images/services/technology/desktop-icon/seo-3-200w.webp";
+import desktopseo4 from "@/assets/images/services/technology/desktop-icon/seo-4-200w.webp";
+import desktopseo5 from "@/assets/images/services/technology/desktop-icon/seo-5-200w.webp";
 
 export default {
   data() {
