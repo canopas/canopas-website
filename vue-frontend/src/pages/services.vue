@@ -28,7 +28,6 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/services/LandingSection.vue";
-import TechnologyStack from "@/components/services/TechnologyStack.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
@@ -62,6 +61,9 @@ const CTASection = defineAsyncComponent(() =>
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
+);
+const TechnologyStack = defineAsyncComponent(() =>
+  import("@/components/services/TechnologyStack.vue")
 );
 
 export default {

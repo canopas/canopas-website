@@ -85,7 +85,7 @@ export default {
           image: webapp800w,
           title: "Web App Development",
           description:
-            "Web apps are complex, so you'll be wanting some proven experience in your corner. We've been specialized app developers for over a decade; you're in safe hands. Our team of web engineers will save your website from the evil forces of slow load times and outdated design.\
+            "Web apps are complex, so you'll be wanting some proven experience in your corner. We've been specialized app developers for over a decade, you're in safe hands. Our team of web engineers will save your website from the evil forces of slow load times and outdated design.\
              So, if you're in need of a web superhero, call us today, and let the magic begin!",
         },
         {
@@ -120,9 +120,11 @@ export default {
   },
   methods: {
     handleScroll() {
+      // get scroll direction
       const scrollY = window.scrollY;
       const scrollUp = this.lastScrollY > scrollY && window.pageYOffset > 100;
 
+      // check which element is in viewport
       const elementIdx = elementInViewPort(this.$refs);
       const index = parseInt(
         elementIdx ? elementIdx.charAt(elementIdx.length - 1) : 0
@@ -130,12 +132,21 @@ export default {
 
       if (this.prevIndex != index) {
         // when image will change, prevImage should be at path 0 or 100
-        this.services[this.prevIndex].path = [
-          scrollUp ? 100 : 0,
-          scrollUp ? 100 : 0,
-        ];
+        if (this.prevIndex != 0) {
+          this.services[this.prevIndex].path = [
+            scrollUp ? 100 : 0,
+            scrollUp ? 100 : 0,
+          ];
+        }
+
         this.prevIndex = index;
       }
+
+      // make previous images clip path 0
+      this.services = this.services.map((val, i) => {
+        val.path = i < index ? [0, 0] : val.path;
+        return val;
+      });
 
       // random offset used when scrolling
       const rect = this.$refs[elementIdx][0].getBoundingClientRect();
@@ -143,6 +154,7 @@ export default {
         ((window.innerHeight - rect.top) * 100) / window.innerHeight;
 
       // if firstImage then path should be 0
+      // else set respective path
       if (index == 0) {
         this.services[index].path = [0, 0];
       } else if (

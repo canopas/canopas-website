@@ -14,7 +14,7 @@
         class="tw-mt-[1rem] tw-text-center lg:tw-text-left tw-font-inter-regular tw-text-[1.2rem] md:tw-text-[1.25rem] lg:tw-text-[1.5rem] tw-leading-[1.575rem] md:tw-leading-[1.875rem] lg:tw-leading-[2.25rem] tw-text-black-core/[0.6]"
       >
         Check out the best from our vault of<br />
-        100+ projects.
+        50+ projects.
       </p>
       <router-link
         class="tw-hidden lg:tw-block tw-flex tw-items-center tw-m-0 tw-mt-6 tw-w-max tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
