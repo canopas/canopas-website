@@ -13,6 +13,7 @@
     >
       <div class="md:tw-w-[86%] lg:tw-w-4/5 xl:tw-w-[86%] tw-m-auto">
         <span
+          style="-webkit-box-decoration-break: clone"
           class="tw-w-full tw-text-[2.1875rem] tw-leading-[2.75rem] tw-tracking-[1px] md:tw-text-[2.8125rem] md:tw-leading-[3.4375rem] lg:tw-text-[3.4375rem] lg:tw-leading-[4.0281rem] tw-font-roboto-bold canopas-gradient-text"
         >
           How do you know we’re a good fit for you?

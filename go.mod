@@ -14,6 +14,8 @@ replace sitemap => ./sitemap
 
 replace utils => ./utils
 
+replace contribution => ./contribution
+
 require (
 	blogs v0.0.0-00010101000000-000000000000
 	contact v0.0.0-00010101000000-000000000000
@@ -31,6 +33,7 @@ require (
 	cloud.google.com/go/compute v1.7.0 // indirect
 	cloud.google.com/go/recaptchaenterprise v1.3.1 // indirect
 	cloud.google.com/go/recaptchaenterprise/v2 v2.0.1 // indirect
+	contribution v0.0.0-00010101000000-000000000000 // indirect
 	github.com/aws/aws-sdk-go v1.44.83 // indirect
 	github.com/bytedance/sonic v1.8.0 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect

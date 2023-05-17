@@ -1,6 +1,6 @@
 <template>
   <section class="tw-relative tw-mt-32 xl:tw-mt-20 tw-mb-20 xl:tw-mb-0">
-    <aspect-ratio class="xl:tw-hidden" height="30%">
+    <div class="xl:tw-hidden">
       <img
         :src="ctabgImages[0]"
         :srcset="`${ctabgImages[0]} 400w`"
@@ -8,7 +8,7 @@
         alt="cta-bg-image"
         class="tw-absolute tw-top-[-6.5rem] sm:tw-left-[4.5rem] md:tw-left-[6.5rem] tw-w-[100%] sm:tw-w-[80%] tw tw-object-content"
       />
-    </aspect-ratio>
+    </div>
     <div class="tw-container xl:tw-flex xl:tw-flex-row">
       <div
         class="tw-flex tw-flex-col tw-items-center xl:tw-items-start xl:tw-mb-10 xl:tw-w-[60%] 2xl:tw-w-[50%]"

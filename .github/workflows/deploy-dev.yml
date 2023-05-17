@@ -2,8 +2,6 @@ name: DeployDev
 
 on:
   push:
-    branches:
-      - "master"
 
 jobs:
   deploy-dev:
@@ -78,6 +76,7 @@ jobs:
             RecaptchaProjectId=${{ secrets.RECAPTCHA_PROJECT_ID }},
             JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
             JobsSheetId=${{ secrets.JOBS_SHEET_ID }},
+            GithubAccessToken=${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }},
             ClusterName=canopas-website-dev,
             ImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-frontend,
             BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-backend,

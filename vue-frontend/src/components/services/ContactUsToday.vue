@@ -5,10 +5,10 @@
     <div class="tw-w-full tw-h-full">
       <img
         v-if="width > 991"
-        :src="contactbgImages[3]"
-        :srcset="`${contactbgImages[1]} 400w, ${contactbgImages[1]} 800w, ${contactbgImages[2]} 1200w, ${contactbgImages[3]} 1600w`"
+        :src="contactbgImages[0]"
+        :srcset="`${contactbgImages[0]} 1200w, ${contactbgImages[1]} 1600w`"
         loading="lazy"
-        class="tw-hidden lg:tw-block tw-absolute tw-top-[217px] 3xl:tw-top-[50px] tw-left-0 tw--z-[1] tw-object-cover 3xl:tw-object-scale-down"
+        class="tw-hidden lg:tw-block tw-absolute tw-top-[217px] xll:tw-top-[50px] tw-left-0 tw--z-[1] tw-object-cover xll:tw-object-scale-down"
         alt="background-image"
       />
     </div>
@@ -42,15 +42,13 @@
       <div
         class="tw-flex tw-flex-col tw-items-center lg:tw-w-[41%] xl:tw-w-[50%]"
       >
-        <aspect-ratio height="30%">
-          <img
-            class="tw-h-full tw-w-full tw-object-cover"
-            :src="contactImages[0]"
-            :srcset="`${contactImages[0]} 400w, ${contactImages[1]} 800w`"
-            alt="contact-view-image"
-            loading="lazy"
-          />
-        </aspect-ratio>
+        <img
+          class="tw-h-full tw-w-full tw-object-cover"
+          :src="contactImages[0]"
+          :srcset="`${contactImages[0]} 400w, ${contactImages[1]} 800w`"
+          alt="contact-view-image"
+          loading="lazy"
+        />
         <div class="tw-mt-[-35px] lg:tw-hidden">
           <router-link
             class="tw-flex tw-items-center tw-w-max tw-rounded-full tw-py-3 tw-px-3 gradient-btn consultation-btn"
@@ -71,8 +69,6 @@
 <script>
 import contact400w from "@/assets/images/services/contact/contact-400w.webp";
 import contact800w from "@/assets/images/services/contact/contact-800w.webp";
-import contactbg400w from "@/assets/images/services/contact/bg/contact-bg-400w.webp";
-import contactbg800w from "@/assets/images/services/contact/bg/contact-bg-800w.webp";
 import contactbg1200w from "@/assets/images/services/contact/bg/contact-bg-1200w.webp";
 import contactbg1600w from "@/assets/images/services/contact/bg/contact-bg-1600w.webp";
 
@@ -81,12 +77,7 @@ export default {
     return {
       width: 991,
       contactImages: [contact400w, contact800w],
-      contactbgImages: [
-        contactbg400w,
-        contactbg800w,
-        contactbg1200w,
-        contactbg1600w,
-      ],
+      contactbgImages: [contactbg1200w, contactbg1600w],
       contactURL: "/contact",
     };
   },

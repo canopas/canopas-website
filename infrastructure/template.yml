@@ -55,6 +55,9 @@ Parameters:
   JobsSheetId:
     Type: String
     Description: Spreadsheet's GID.
+  GithubAccessToken:
+    Type: String
+    Description: Github's personal access token.
   ClusterName:
     Type: String
     Description: Name of ECS cluster
@@ -162,6 +165,9 @@ Resources:
             - Name: JOBS_SHEET_ID
               Value: 
                 Fn::Sub: ${JobsSheetId}
+            - Name: PERSONAL_ACCESS_TOKEN_GITHUB
+              Value: 
+                Fn::Sub: ${GithubAccessToken}
             - Name: TZ
               Value: UTC
             - Name: GIN_MODE

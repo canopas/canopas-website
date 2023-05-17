@@ -28,13 +28,11 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/services/LandingSection.vue";
+import WhatWeOfferSection from "@/components/services/WhatWeOfferSection.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
 
-const WhatWeOfferSection = defineAsyncComponent(() =>
-  import("@/components/services/WhatWeOfferSection.vue")
-);
 const WhatWeOfferDesktopSection = defineAsyncComponent(() =>
   import("@/components/services/WhatWeOfferDesktop.vue")
 );

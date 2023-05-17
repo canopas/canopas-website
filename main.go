@@ -3,6 +3,7 @@ package main
 import (
 	"blogs"
 	"contact"
+	"contribution"
 	"db"
 	"embed"
 	"jobs"
@@ -51,6 +52,8 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 	router.GET("/api/sitemap", sitemapRepo.GenerateSitemap)
 
 	router.GET("/api/blogs", blogs.Get)
+
+	router.GET("/api/github/stars", contribution.GetStargazers)
 
 	router.GET("/api/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
