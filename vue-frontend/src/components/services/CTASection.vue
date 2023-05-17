@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-relative tw-mt-32 xl:tw-mt-20 tw-mb-20 xl:tw-mb-0">
+  <section class="tw-relative tw-mt-32 xl:tw-mt-40 tw-mb-20 xl:tw-mb-0">
     <div class="xl:tw-hidden">
       <img
         :src="ctabgImages[0]"
@@ -11,19 +11,18 @@
     </div>
     <div class="tw-container xl:tw-flex xl:tw-flex-row">
       <div
-        class="tw-flex tw-flex-col tw-items-center xl:tw-items-start xl:tw-mb-10 xl:tw-w-[60%] 2xl:tw-w-[50%]"
+        class="tw-flex tw-flex-col tw-items-center xl:tw-items-start xl:tw-mb-20 xl:tw-w-[60%] 2xl:tw-w-[50%]"
       >
         <p
-          class="tw-font-inter-bold tw-text-[1.875rem] md:tw-text-[2.813rem] tw-leading-[2.813rem] md:tw-leading-[4.063rem] tw-text-center xl:tw-text-left tw-text-black-core/[0.87]"
+          class="tw-font-inter-bold tw-text-center xl:tw-text-left tw-text-[1.875rem] md:tw-text-[2.813rem] lg:tw-text-[3.438rem] tw-leading-[2.5rem] md:tw-leading-[3.75rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
         >
           Want to build a new version of your existing app or add new features?
         </p>
         <p
-          class="tw-mt-4 tw-text-[1rem] md:tw-text-[1.25rem] tw-leading-[1.5rem] md:tw-leading-[1.875rem] tw-font-inter-medium tw-text-center xl:tw-text-left tw-text-black-core/[0.87]"
+          class="tw-mt-4 tw-text-[1rem] md:tw-text-[1.25rem] tw-leading-[1.5rem] md:tw-leading-[1.875rem] tw-font-inter-medium tw-text-center xl:tw-text-left tw-text-black-core/[0.87] lg:tw-text-black-core/[0.60]"
         >
-          Not sure where to start? <br />
-          We also offer code and architecture reviews, strategic planning, and
-          more.
+          Not sure where to start? We also offer code and architecture reviews,
+          strategic planning, and more.
         </p>
         <router-link
           class="tw-flex tw-items-center tw-m-0 tw-mt-6 tw-w-max tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="lg:tw-relative tw-mt-10 lg:tw-mb-[10%] xll:tw-mb-[15%] 3xl:tw-mb-[8%] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.08] tw-to-[#F2709C]/[0.08] tw-pt-[2rem] tw-pb-[2rem] lg:tw-bg-none"
+    class="lg:tw-relative tw-mt-10 lg:tw-mb-[10%] xll:tw-mb-[5%] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.08] tw-to-[#F2709C]/[0.08] tw-pt-[2rem] tw-pb-[2rem] lg:tw-bg-none"
   >
     <div class="tw-w-full tw-h-full">
       <img
