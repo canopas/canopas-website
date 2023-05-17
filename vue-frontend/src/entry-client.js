@@ -2,6 +2,7 @@ import { buildApp } from "./main";
 import mixpanel from "mixpanel-browser";
 import config from "@/config.js";
 import "animate.css";
+import { useContributionStore } from "./stores/contribution";
 
 const { app, router, pinia } = buildApp(false);
 
@@ -13,5 +14,6 @@ router.isReady().then(() => {
   }
 
   mixpanel.init(config.MIX_PANEL_TOKEN);
+  useContributionStore(pinia).fetchStars("fetchContributionStars");
   app.provide("mixpanel", mixpanel).mount("#app");
 });

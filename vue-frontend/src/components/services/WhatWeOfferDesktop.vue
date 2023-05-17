@@ -153,6 +153,10 @@ export default {
       const scrollOffset =
         ((window.innerHeight - rect.top) * 100) / window.innerHeight;
 
+      if (scrollUp) {
+        this.services[0].path = [0, 0];
+      }
+
       // if firstImage then path should be 0
       // else set respective path
       if (index == 0) {
@@ -162,7 +166,10 @@ export default {
         index == this.services.length - 1 &&
         rect.top < window.innerHeight / 2
       ) {
-        this.services[index].path = [scrollUp ? 100 : 0, scrollUp ? 100 : 0];
+        this.services[index].path = [
+          100 - scrollOffset * 1.2,
+          100 - scrollOffset * 1.2,
+        ];
       } else {
         this.services[index].path = [100 - scrollOffset, 100 - scrollOffset];
       }
@@ -171,7 +178,8 @@ export default {
     },
   },
   mounted() {
-    this.height = window.innerHeight;
+    this.height =
+      window.innerWidth > 2000 ? window.innerHeight / 1.5 : window.innerHeight;
     window.addEventListener("scroll", this.handleScroll);
   },
   unmounted() {

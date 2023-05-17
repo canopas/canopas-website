@@ -69,17 +69,12 @@
           class="tw-cursor-pointer"
           @click="openPortfolio(story)"
         >
-          <aspect-ratio
-            height="50%"
-            class="tw-mb-[80px] tw-border-solid tw-border-transparent tw-border-[1px]"
-          >
-            <img
-              :src="story.image[0]"
-              :srcset="`${story.image[0]} 400w, ${story.image[1]} 800w`"
-              class="tw-mb-[0.5rem] tw-w-full tw-h-[600px] lg:tw-h-full tw-object-cover"
-              alt="story-image"
-            />
-          </aspect-ratio>
+          <img
+            :src="story.image[0]"
+            :srcset="`${story.image[0]} 400w, ${story.image[1]} 800w`"
+            class="tw-mb-[0.5rem] tw-w-full tw-h-[600px] lg:tw-h-full tw-object-cover"
+            alt="story-image"
+          />
         </swiper-slide>
         <div class="swiper-pagination"></div>
       </swiper>

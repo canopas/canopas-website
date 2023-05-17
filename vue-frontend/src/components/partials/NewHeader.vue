@@ -172,7 +172,7 @@
               <div
                 className="tw-py-[0.8rem] tw-px-[2.5rem] tw-text-lg hover:tw-bg-clip-text hover:tw-bg-gradient-to-r hover:tw-from-[#f2709c] hover:tw-via-[#ff909c] hover:tw-to-[#ff9472] hover:tw-text-transparent tw-inline-block"
               >
-                Get Free Consulation
+                Get Free Consultation
               </div>
             </a>
           </div>
