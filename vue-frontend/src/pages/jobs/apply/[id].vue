@@ -147,7 +147,7 @@
                     :style="{
                       display: isShowReferenceOption ? 'block' : 'none',
                     }"
-                    class="tw-absolute tw-top-[50px] tw-w-full tw-bg-[#fff] tw-overflow-hidden tw-hidden tw-shadow-[0_5px_20px_rgba(0,0,0,0.1)] tw-rounded-[10px] tw-border-[1px] tw-border-solid tw-border-[#0000000d]"
+                    class="tw-absolute tw-top-[50px] tw-z-[1] tw-w-full tw-bg-[#fff] tw-overflow-hidden tw-hidden tw-shadow-[0_5px_20px_rgba(0,0,0,0.1)] tw-rounded-[10px] tw-border-[1px] tw-border-solid tw-border-[#0000000d]"
                   >
                     <div
                       class="tw-py-[12px] tw-px-[12px] tw-cursor-pointer hover:tw-bg-[#e2e2e280]"

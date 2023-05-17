@@ -178,8 +178,7 @@ export default {
     },
   },
   mounted() {
-    this.height =
-      window.innerWidth > 2000 ? window.innerHeight / 1.5 : window.innerHeight;
+    this.height = window.innerHeight;
     window.addEventListener("scroll", this.handleScroll);
   },
   unmounted() {

@@ -1,6 +1,6 @@
 <template>
   <section
-    class="xll:tw-container tw-flex tw-flex-col lg:tw-flex-row tw-mt-20 tw-mb-20"
+    class="xll:tw-container tw-flex tw-flex-col lg:tw-flex-row tw-mt-20 tw-mb-20 lg:tw-my-40"
   >
     <div
       class="tw-flex tw-flex-col tw-mt-10 lg:tw-mt-[4.563rem] lg:tw-w-[50%] 2xl:tw-w-[40%] lg:tw-pl-[8%] 2xl:tw-pl-[10%] xll:tw-pl-0"
