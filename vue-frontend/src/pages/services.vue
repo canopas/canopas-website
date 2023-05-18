@@ -102,13 +102,6 @@ export default {
     NewFooter,
   },
   inject: ["mixpanel"],
-  beforeRouteEnter(to, from, next) {
-    if (config.SHOW_SERVICES_PAGE === false) {
-      next({ name: "Error404Page", params: { pathMatch: "/services" } });
-    } else {
-      next();
-    }
-  },
   mounted() {
     this.mixpanel.track("view_services_page");
   },

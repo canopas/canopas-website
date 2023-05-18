@@ -42,7 +42,7 @@
           :src="ctaImages[0]"
           :srcset="`${ctaImages[0]} 400w, ${ctaImages[1]} 800w`"
           loading="lazy"
-          class="tw-absolute tw-right-0 tw-w-[100%] xl:tw-w-[95%] 2xl:tw-w-[66%] tw-h-full tw-object-cover tw-z-[2] tw-mr-[-15%] 2xl:tw-mr-0"
+          class="tw-absolute tw-right-0 tw-h-full tw-object-contain tw-z-[2] tw-mr-[-50px]"
           alt="cta-image"
         />
         <div
