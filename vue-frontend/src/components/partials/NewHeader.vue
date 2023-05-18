@@ -202,6 +202,11 @@ export default {
       podcastRef: null,
       navbars: [
         {
+          name: "Services",
+          url: "/services",
+          event: "tap_header_services",
+        },
+        {
           name: "Portfolio",
           url: "/portfolio",
           event: "tap_header_portfolio",
@@ -243,14 +248,6 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
-    if (Config.SHOW_SERVICES_PAGE) {
-      this.navbars.splice(0, 0, {
-        name: "Services",
-        url: "/services",
-        event: "tap_header_services",
-      });
-    }
-
     if (
       this.currentRoutePath.includes("portfolio/") &&
       window.innerWidth > 992 &&
