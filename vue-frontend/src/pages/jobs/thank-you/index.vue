@@ -9,6 +9,7 @@
     <InterviewProcess />
     <VirtueView />
     <LifeAtCanopasVue />
+    <ContributionSection />
     <NewFooter />
   </div>
 </template>
@@ -18,6 +19,7 @@ import NewFooter from "@/components/partials/NewFooter.vue";
 import InterviewProcess from "@/components/jobs-thankyou/InterviewProcess.vue";
 import VirtueView from "@/components/jobs/VirtuesView.vue";
 import LifeAtCanopasVue from "@/components/jobs/PerksAndBenefits.vue";
+import ContributionSection from "@/components/jobs-thankyou/ContributionSection.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -40,6 +42,7 @@ export default {
     InterviewProcess,
     VirtueView,
     LifeAtCanopasVue,
+    ContributionSection,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
