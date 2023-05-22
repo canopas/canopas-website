@@ -10,7 +10,7 @@ import (
 )
 
 func (repo *utilsRepository) SendEmail(emailTemplate *ses.SendEmailInput, jobsTemplate *ses.SendRawEmailInput) int {
-
+	
 	sess, err := GetAWSIAMUserSession()
 
 	if err != nil {

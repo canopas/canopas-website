@@ -6,6 +6,7 @@
       </template>
     </metainfo>
     <Header />
+    <LandingSection />
     <InterviewProcess />
     <VirtueView />
     <LifeAtCanopasVue />
@@ -15,6 +16,7 @@
 </template>
 <script>
 import Header from "@/components/partials/NewHeader.vue";
+import LandingSection from "@/components/contact/ThankyouLandingSection.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import InterviewProcess from "@/components/jobs-thankyou/InterviewProcess.vue";
 import VirtueView from "@/components/jobs/VirtuesView.vue";
@@ -39,6 +41,7 @@ export default {
   },
   components: {
     Header,
+    LandingSection,
     InterviewProcess,
     VirtueView,
     LifeAtCanopasVue,

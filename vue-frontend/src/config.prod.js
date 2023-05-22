@@ -64,9 +64,18 @@ export default Object.freeze({
     url: "https://canopas.com/services",
     image: "https://canopas.com/apple-touch-icon.png",
   },
+  CLIENT_THANKYOU_SEO_META_DATA: {
+    title: "Canopas - Fastest growing IT company in Surat, India.",
+    description:
+      "Canopas is a software development company helping businesses grow exponentially by developing mobile apps, websites, web apps, desktop apps, UI/UX, and SEO.",
+    type: "Website",
+    url: "https://canopas.com/thankyou",
+    image: "https://canopas.com/apple-touch-icon.png",
+  },
   IS_PROD: true,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
+  SHOW_CLIENT_THANKYOU_PAGE: false,
   SHOW_JOBSTHANKYOU_PAGE: false,
   MIX_PANEL_TOKEN: "16b177c2cda3ec1fb11c63a07f27996c",
 });
