@@ -79,6 +79,7 @@ jobs:
             JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
             JobsSheetId=${{ secrets.JOBS_SHEET_ID }},
             GithubAccessToken=${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }},
+            ResourcesURL=${{secrets.RESOURCES_URL}},
             ClusterName=canopas-website-prod,
             ImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-frontend,
             BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-backend,
