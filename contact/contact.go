@@ -17,7 +17,7 @@ import (
 )
 
 const (
-	CHARSET = "utf-8"
+	CHARSET                    = "utf-8"
 )
 
 type ContactDetails struct {
@@ -29,6 +29,7 @@ type ContactDetails struct {
 	Token       string `json:"token"`
 	Invest      string `json:"invest"`
 	NDA         bool   `json:"nda"`
+	SendEMailToClient bool `json:"send_client_thankyou_email" form:"send_client_thankyou_email"`
 }
 
 type Template struct {
@@ -37,12 +38,12 @@ type Template struct {
 }
 
 func New(templateFs embed.FS, utilsRepo utils.UtilsRepository) *Template {
-	templates, _ := template.ParseFS(templateFs, "templates/contact-email-template.html")
+	templates := template.Must(template.ParseGlob("templates/*.html"))
+
 	return &Template{
 		templates: templates, UtilsRepo: utilsRepo,
 	}
 }
-
 func (repository *Template) SendContactMail(c *gin.Context) {
 	var input ContactDetails
 
@@ -73,6 +74,17 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 		return
 	}
 
+	if input.SendEMailToClient {
+		clientEmailTemplate := repository.getClientEmailTemplate(input)
+
+		statusCode = repository.UtilsRepo.SendEmail(clientEmailTemplate, nil)
+
+		if statusCode != 0 {
+			c.AbortWithStatus(statusCode)
+			return
+		}
+	}
+
 	c.JSON(http.StatusOK, "Contact mail sent successfully")
 }
 
@@ -87,7 +99,18 @@ func (repository *Template) getEmailTemplate(input ContactDetails) (template *se
 
 	title := "Canopas Website - Contact Information " + extendedTitle
 
-	template = GetEmailTemplate(htmlBody, input, title)
+	template = GetEmailTemplate(htmlBody, input, title, os.Getenv("CONTACT_RECEIVER"))
+
+	return
+}
+
+func (repository *Template) getClientEmailTemplate(input ContactDetails) (template *ses.SendEmailInput) {
+
+	htmlBody := repository.getHTMLBodyOfClientEmailTemplate(input)
+
+	title := "Thank you " + input.Name + " for choosing Canopas!"
+
+	template = GetEmailTemplate(htmlBody, input, title, input.Email)
 
 	return
 }
@@ -106,11 +129,24 @@ func (repository *Template) getHTMLBodyOfEmailTemplate(input ContactDetails) str
 	return templateBuffer.String()
 }
 
-func GetEmailTemplate(htmlBody string, data ContactDetails, title string) (template *ses.SendEmailInput) {
+func (repository *Template) getHTMLBodyOfClientEmailTemplate(input ContactDetails) string {
+
+	var templateBuffer bytes.Buffer
+
+	err := repository.templates.ExecuteTemplate(&templateBuffer, "client-thankyou-email-template.html", input)
+
+	if err != nil {
+		log.Error(err)
+		return ""
+	}
+
+	return templateBuffer.String()
+}
+
+func GetEmailTemplate(htmlBody string, data ContactDetails, title string, receiver string) (template *ses.SendEmailInput) {
 
 	SENDER := os.Getenv("SENDER")
-	RECEIVER := os.Getenv("CONTACT_RECEIVER")
-
+	RECEIVER := receiver
 	template = &ses.SendEmailInput{
 		Destination: &ses.Destination{
 			CcAddresses: []*string{},

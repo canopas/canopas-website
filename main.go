@@ -18,6 +18,7 @@ import (
 
 //go:embed templates/contact-email-template.html
 //go:embed templates/career-email-template.html
+//go:embed templates/client-thankyou-email-template.html
 var templateFS embed.FS
 
 func main() {

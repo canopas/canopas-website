@@ -211,6 +211,7 @@
               What's your preferred mode of communication?
             </div>
             <div
+              v-if="!showOptions"
               class="tw-flex tw-flex-row tw-items-center tw-justify-center md:tw-justify-start tw-gap-4 tw-pt-4"
             >
               <label class="contactLabel1"
@@ -382,7 +383,6 @@ import {
   faEnvelope,
   faCalendarAlt,
 } from "@fortawesome/free-solid-svg-icons";
-
 const CONTACT_BY_CHAT_OR_MAIL = 1;
 export default {
   data() {
@@ -419,6 +419,7 @@ export default {
       showSuccessMessage: false,
       showErrorMessage: false,
       contactType: 1,
+      showOptions: config.SHOW_CLIENT_THANKYOU_PAGE,
     };
   },
   components: {
@@ -432,6 +433,7 @@ export default {
   unmounted() {
     document.removeEventListener("click", this.closePopUps);
   },
+
   methods: {
     isValidEmail() {
       var emailRegx =
@@ -470,8 +472,8 @@ export default {
             this.contactType == CONTACT_BY_CHAT_OR_MAIL
               ? "Chat or Email"
               : "Call",
+          send_client_thankyou_email: config.SHOW_CLIENT_THANKYOU_PAGE,
         };
-
         grecaptcha.enterprise.ready(() => {
           grecaptcha.enterprise
             .execute(import.meta.env.VITE_RECAPTCHA_SITE_KEY, {
@@ -486,24 +488,31 @@ export default {
                   gtag("event", "conversion", {
                     send_to: "AW-11157168108/OpYlCPjY4poYEOy_k8gp",
                   });
-                  this.resetForm();
-                  if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
-                    this.showSuccessMessage = true;
-                    this.$emit("showMessage", this.showSuccessMessage);
-                    setTimeout(() => {
-                      this.showSuccessMessage = false;
-                      this.$emit("showMessage", this.showSuccessMessage);
-                    }, 3000);
+                  if (config.SHOW_CLIENT_THANKYOU_PAGE == true) {
+                    this.$router.push({
+                      path: "/thankyou",
+                    });
+                    localStorage.setItem("name", JSON.stringify(formData.name));
                   } else {
-                    setTimeout(() => {
-                      this.mixpanel.track("tap_schedule_meeting_click");
-                      this.openCalendlyIframe();
-                      if (this.openCalendlyIframeModal) {
-                        this.showLoader = false;
-                      }
-                    }, 1000);
+                    if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
+                      this.showSuccessMessage = true;
+                      this.$emit("showMessage", this.showSuccessMessage);
+                      setTimeout(() => {
+                        this.showSuccessMessage = false;
+                        this.$emit("showMessage", this.showSuccessMessage);
+                      }, 3000);
+                    } else {
+                      setTimeout(() => {
+                        this.mixpanel.track("tap_schedule_meeting_click");
+                        this.openCalendlyIframe();
+                        if (this.openCalendlyIframeModal) {
+                          this.showLoader = false;
+                        }
+                      }, 1000);
+                    }
+                    this.contactType = CONTACT_BY_CHAT_OR_MAIL;
                   }
-                  this.contactType = CONTACT_BY_CHAT_OR_MAIL;
+                  this.resetForm();
                 })
                 .catch((err) => {
                   if (err.response.status == 401) {
@@ -524,6 +533,14 @@ export default {
             });
         });
       }
+    },
+    openCalendlyIframe() {
+      this.openCalendlyIframeModal = true;
+      this.showLoader = false;
+    },
+    closeCalendlyIframeModal() {
+      this.openCalendlyIframeModal = false;
+      this.mixpanel.track("close_calendly_dialog_error");
     },
     resetForm() {
       this.name = "";
@@ -556,14 +573,6 @@ export default {
     toggleNDA() {
       this.NDA = !this.NDA;
       this.mixpanel.track("tap_contact_NDA_input");
-    },
-    openCalendlyIframe() {
-      this.openCalendlyIframeModal = true;
-      this.showLoader = false;
-    },
-    closeCalendlyIframeModal() {
-      this.openCalendlyIframeModal = false;
-      this.mixpanel.track("close_calendly_dialog_error");
     },
   },
 };
