@@ -58,6 +58,9 @@ Parameters:
   GithubAccessToken:
     Type: String
     Description: Github's personal access token.
+  ResourcesURL:
+    Type: String
+    Description: Resources URL.
   ClusterName:
     Type: String
     Description: Name of ECS cluster
@@ -168,6 +171,9 @@ Resources:
             - Name: PERSONAL_ACCESS_TOKEN_GITHUB
               Value: 
                 Fn::Sub: ${GithubAccessToken}
+            - Name: RESOURCES_URL
+              Value: 
+                Fn::Sub: ${ResourcesURL}
             - Name: TZ
               Value: UTC
             - Name: GIN_MODE

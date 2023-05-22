@@ -130,7 +130,6 @@ func expectedURLData() []URL {
 		{Loc: baseUrl, Priority: `1`},
 		{Loc: baseUrl + "/contact", Priority: `0.9`},
 		{Loc: baseUrl + "/about", Priority: `0.9`},
-		{Loc: baseUrl + `/resources`, Priority: `0.9`},
 		{Loc: baseUrl + "/portfolio", Priority: `0.9`},
 		{Loc: baseUrl + "/portfolio/luxeradio", Priority: `0.9`},
 		{Loc: baseUrl + "/portfolio/togness", Priority: `0.9`},
@@ -138,6 +137,7 @@ func expectedURLData() []URL {
 		{Loc: baseUrl + "/jobs", Priority: `1`},
 		{Loc: baseUrl + "/jobs/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", Priority: `0.9`},
 		{Loc: baseUrl + "/jobs/apply/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", Priority: `0.9`},
+		{Loc: baseUrl + `/resources`, Priority: `0.9`},
 	}
 
 	for i := range sitemapUrls {

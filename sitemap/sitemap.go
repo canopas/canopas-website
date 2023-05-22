@@ -1,9 +1,12 @@
 package sitemap
 
 import (
+	"encoding/json"
 	"encoding/xml"
+	"io/ioutil"
 	"jobs"
 	"net/http"
+	"os"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -45,6 +48,19 @@ type Portfolio struct {
 	Videos []Video
 }
 
+// resources structs
+type Attributes struct {
+	Slug string `json:"slug"`
+}
+
+type Data struct {
+	Attributes Attributes `json:"attributes"`
+}
+
+type Resources struct {
+	Data []Data `json:"data"`
+}
+
 type URLset struct {
 	XMLName    xml.Name `xml:"urlset"`
 	XMLNS      string   `xml:"xmlns,attr"`
@@ -59,12 +75,22 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 		{Loc: baseUrl, Priority: `1`},
 		{Loc: baseUrl + `/contact`, Priority: `0.9`},
 		{Loc: baseUrl + `/about`, Priority: `0.9`},
-		{Loc: baseUrl + `/resources`, Priority: `0.9`},
 	}
 
+	// add portfolios
 	sitemapUrls = addPortfolios(baseUrl, sitemapUrls)
 
+	// add all jobs
 	sitemapUrls, err := repository.addJobs(baseUrl, sitemapUrls)
+
+	if err != nil {
+		log.Error(err)
+		c.AbortWithStatus(http.StatusInternalServerError)
+		return
+	}
+
+	// add published resource blogs
+	sitemapUrls, err = addPublishedResources(baseUrl, sitemapUrls)
 
 	if err != nil {
 		log.Error(err)
@@ -138,4 +164,44 @@ func addPortfolios(baseUrl string, sitemapUrls []URL) []URL {
 	}
 
 	return sitemapUrls
+}
+
+func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
+	resourcesUrl := baseUrl + "/resources"
+	sitemapUrls = append(sitemapUrls, URL{Loc: resourcesUrl, Priority: `0.9`})
+
+	resourceUrl := os.Getenv("RESOURCES_URL")
+
+	if resourceUrl == "" {
+		return sitemapUrls, nil
+	}
+
+	req, err := http.NewRequest("GET", resourceUrl+"/v1/posts?populate=deep&publicationState=live", nil)
+	if err != nil {
+		log.Error(err)
+		return sitemapUrls, err
+	}
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		log.Error(err)
+		return sitemapUrls, err
+	}
+	defer resp.Body.Close()
+
+	responseData, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Error(err)
+		return sitemapUrls, err
+	}
+
+	var resources Resources
+	json.Unmarshal(responseData, &resources)
+
+	for i := range resources.Data {
+		data := resources.Data[i]
+		sitemapUrls = append(sitemapUrls, URL{Loc: resourcesUrl + `/` + data.Attributes.Slug, Priority: `0.9`})
+	}
+
+	return sitemapUrls, nil
 }
