@@ -7,7 +7,7 @@
     </metainfo>
     <Header />
     <div>
-      <LandingSection />
+      <LandingSection :name="clientName" />
       <BenefitSection
         class="tw-overflow-y-hidden 2xl:tw-overflow-y-visible 3xl:tw-overflow-y-hidden"
       />
@@ -43,6 +43,14 @@ export default {
         image: seoData.image,
       },
     });
+  },
+  data() {
+    return {
+      clientName:
+        localStorage.getItem("client-name") != ""
+          ? JSON.parse(localStorage.getItem("client-name"))
+          : "Dear Client",
+    };
   },
   components: {
     Header,
