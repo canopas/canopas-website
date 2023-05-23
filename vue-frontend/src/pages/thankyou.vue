@@ -8,6 +8,9 @@
     <Header />
     <div>
       <LandingSection />
+      <BenefitSection
+        class="tw-overflow-y-hidden 2xl:tw-overflow-y-visible 3xl:tw-overflow-y-hidden"
+      />
     </div>
     <NewFooter />
   </div>
@@ -15,8 +18,9 @@
 
 <script>
 import Header from "@/components/partials/NewHeader.vue";
-import NewFooter from "@/components/partials/NewFooter.vue";
 import LandingSection from "@/components/contact/ThankyouLandingSection.vue";
+import BenefitSection from "@/components/contact/ThankyouBenefitSection.vue";
+import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 export default {
@@ -43,9 +47,9 @@ export default {
   components: {
     Header,
     LandingSection,
+    BenefitSection,
     NewFooter,
   },
-  inject: ["mixpanel"],
   beforeRouteEnter(to, from, next) {
     if (config.SHOW_CLIENT_THANKYOU_PAGE === false) {
       next({ name: "Error404Page", params: { pathMatch: "/thankyou" } });
