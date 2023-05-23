@@ -52,10 +52,11 @@ import landingbg400 from "@/assets/images/thankyou/landingbg-400w.webp";
 import PaintStroke from "@/components/utils/PaintBrushStroke.vue";
 
 export default {
+  props: ["name"],
   data() {
     return {
+      name: this.name,
       landingbg400,
-      name: "",
       CEO: "Jimmy",
     };
   },
@@ -72,9 +73,6 @@ export default {
     isLongText() {
       return this.name.length > 7;
     },
-  },
-  mounted() {
-    this.name = JSON.parse(localStorage.getItem("name"));
   },
 };
 </script>

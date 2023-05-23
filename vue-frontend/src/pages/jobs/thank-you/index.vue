@@ -6,10 +6,11 @@
       </template>
     </metainfo>
     <Header />
-    <LandingSection />
+    <LandingSection :name="applicantName" />
     <InterviewProcess />
     <VirtueView />
     <LifeAtCanopasVue />
+    <LatestBlog />
     <ContributionSection />
     <NewFooter />
   </div>
@@ -17,11 +18,25 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/contact/ThankyouLandingSection.vue";
-import NewFooter from "@/components/partials/NewFooter.vue";
 import InterviewProcess from "@/components/jobs-thankyou/InterviewProcess.vue";
-import VirtueView from "@/components/jobs/VirtuesView.vue";
-import LifeAtCanopasVue from "@/components/jobs/PerksAndBenefits.vue";
-import ContributionSection from "@/components/jobs-thankyou/ContributionSection.vue";
+import { defineAsyncComponent } from "vue";
+
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue")
+);
+const VirtueView = defineAsyncComponent(() =>
+  import("@/components/jobs/VirtuesView.vue")
+);
+
+const LifeAtCanopasVue = defineAsyncComponent(() =>
+  import("@/components/jobs/PerksAndBenefits.vue")
+);
+const LatestBlog = defineAsyncComponent(() =>
+  import("@/components/jobs-thankyou/LatestBlog.vue")
+);
+const ContributionSection = defineAsyncComponent(() =>
+  import("@/components/jobs-thankyou/ContributionSection.vue")
+);
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -45,6 +60,7 @@ export default {
     InterviewProcess,
     VirtueView,
     LifeAtCanopasVue,
+    LatestBlog,
     ContributionSection,
     NewFooter,
   },
@@ -56,7 +72,12 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      applicantName:
+        localStorage.getItem("applicant-name") != ""
+          ? JSON.parse(localStorage.getItem("applicant-name"))
+          : "Dear Applicant",
+    };
   },
 };
 </script>

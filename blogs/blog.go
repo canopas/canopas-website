@@ -6,6 +6,7 @@ import (
 	"net/http"
 	"os"
 	"reflect"
+	"regexp"
 	"sort"
 	"strings"
 	"time"
@@ -20,12 +21,13 @@ const YYYYMMDD = "2006-01-02 15:04:05"
 const MAX_BLOG_NUMBER = 3
 
 type Item struct {
-	Title     string `json:"title"`
-	Author    string `json:"author"`
-	PubDate   string `json:"pubDate"`
-	Link      string `json:"link"`
-	GUID      string `json:"guid"`
-	Thumbnail string `json:"thumbnail"`
+	Title       string `json:"title"`
+	Author      string `json:"author"`
+	PubDate     string `json:"pubDate"`
+	Link        string `json:"link"`
+	GUID        string `json:"guid"`
+	Thumbnail   string `json:"thumbnail"`
+	Description string `json:"description"`
 }
 
 type Blog struct {
@@ -80,6 +82,7 @@ func Get(c *gin.Context) {
 	// filter weekly and newletteres
 	for _, item := range blogs.Items {
 		if !strings.Contains(strings.ToLower(item.Title), "weekly") && !strings.Contains(strings.ToLower(item.Title), "newsletter") {
+			item.Description = truncateTo20Words(item.Description)
 			filteredItems = append(filteredItems, item)
 		}
 	}
@@ -91,10 +94,11 @@ func Get(c *gin.Context) {
 
 		filteredItems = append(filteredItems, existingBlogs...)
 
-		// make blogs unique and get only 3 blogs
-		filteredItems = utils.Unique(filteredItems)
+		// Make blogs unique
+		filteredItems = Unique(filteredItems)
 	}
 
+	// Get only 3 blogs
 	if len(filteredItems) > MAX_BLOG_NUMBER {
 		filteredItems = filteredItems[0:MAX_BLOG_NUMBER]
 	}
@@ -135,4 +139,27 @@ func sortBlogs(blogs []Item) {
 		}
 		return dateI.After(dateJ)
 	})
+}
+
+func truncateTo20Words(description string) string {
+	r := regexp.MustCompile(`<.*?>`)
+	description = r.ReplaceAllString(description, " ")
+	words := strings.Fields(description)
+	if len(words) > 20 {
+		words = words[:20]
+	}
+	return strings.Join(words, " ") + "..."
+}
+
+// make array or slice unique
+func Unique(arr []Item) []Item {
+	occurred := make(map[string]bool)
+	var result []Item
+	for _, e := range arr {
+		if !occurred[e.GUID] {
+			occurred[e.GUID] = true
+			result = append(result, e)
+		}
+	}
+	return result
 }

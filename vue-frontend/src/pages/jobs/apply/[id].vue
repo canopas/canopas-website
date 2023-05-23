@@ -523,6 +523,7 @@ export default {
         formData.append("email", this.email);
         formData.append("phone", this.phoneNumber);
         formData.append("place", this.city ? this.city : "NA");
+        localStorage.setItem("applicant-name", JSON.stringify(this.fullName));
         formData.append(
           "references",
           this.reference &&

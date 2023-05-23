@@ -491,7 +491,10 @@ export default {
                     this.$router.push({
                       path: "/thankyou",
                     });
-                    localStorage.setItem("name", JSON.stringify(formData.name));
+                    localStorage.setItem(
+                      "client-name",
+                      JSON.stringify(formData.name)
+                    );
                   } else {
                     if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
                       this.showSuccessMessage = true;
