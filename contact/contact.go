@@ -17,19 +17,19 @@ import (
 )
 
 const (
-	CHARSET                    = "utf-8"
+	CHARSET = "utf-8"
 )
 
 type ContactDetails struct {
-	Name        string `json:"name"`
-	Email       string `json:"email"`
-	ProjectInfo string `json:"project_info"`
-	Reference   string `json:"reference"`
-	ContactType string `json:"contact_type"`
-	Token       string `json:"token"`
-	Invest      string `json:"invest"`
-	NDA         bool   `json:"nda"`
-	SendEMailToClient bool `json:"send_client_thankyou_email" form:"send_client_thankyou_email"`
+	Name             string `json:"name"`
+	Email            string `json:"email"`
+	ProjectInfo      string `json:"project_info"`
+	Reference        string `json:"reference"`
+	ContactType      string `json:"contact_type"`
+	Token            string `json:"token"`
+	Invest           string `json:"invest"`
+	NDA              bool   `json:"nda"`
+	SendMailToClient bool   `json:"send_mail_to_client" form:"send_mail_to_client"`
 }
 
 type Template struct {
@@ -38,7 +38,7 @@ type Template struct {
 }
 
 func New(templateFs embed.FS, utilsRepo utils.UtilsRepository) *Template {
-	templates := template.Must(template.ParseGlob("templates/*.html"))
+	templates := template.Must(template.ParseFS(templateFs, "templates/*.html"))
 
 	return &Template{
 		templates: templates, UtilsRepo: utilsRepo,
@@ -74,7 +74,7 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 		return
 	}
 
-	if input.SendEMailToClient {
+	if input.SendMailToClient {
 		clientEmailTemplate := repository.getClientEmailTemplate(input)
 
 		statusCode = repository.UtilsRepo.SendEmail(clientEmailTemplate, nil)
@@ -90,7 +90,7 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 
 func (repository *Template) getEmailTemplate(input ContactDetails) (template *ses.SendEmailInput) {
 
-	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)
+	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "contact-email-template.html")
 
 	extendedTitle := ""
 	if input.ContactType != "" {
@@ -106,7 +106,7 @@ func (repository *Template) getEmailTemplate(input ContactDetails) (template *se
 
 func (repository *Template) getClientEmailTemplate(input ContactDetails) (template *ses.SendEmailInput) {
 
-	htmlBody := repository.getHTMLBodyOfClientEmailTemplate(input)
+	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "client-thankyou-email-template.html")
 
 	title := "Thank you " + input.Name + " for choosing Canopas!"
 
@@ -115,25 +115,11 @@ func (repository *Template) getClientEmailTemplate(input ContactDetails) (templa
 	return
 }
 
-func (repository *Template) getHTMLBodyOfEmailTemplate(input ContactDetails) string {
+func (repository *Template) getHTMLBodyOfEmailTemplate(input ContactDetails, templateName string) string {
 
 	var templateBuffer bytes.Buffer
 
-	err := repository.templates.ExecuteTemplate(&templateBuffer, "contact-email-template.html", input)
-
-	if err != nil {
-		log.Error(err)
-		return ""
-	}
-
-	return templateBuffer.String()
-}
-
-func (repository *Template) getHTMLBodyOfClientEmailTemplate(input ContactDetails) string {
-
-	var templateBuffer bytes.Buffer
-
-	err := repository.templates.ExecuteTemplate(&templateBuffer, "client-thankyou-email-template.html", input)
+	err := repository.templates.ExecuteTemplate(&templateBuffer, templateName, input)
 
 	if err != nil {
 		log.Error(err)
