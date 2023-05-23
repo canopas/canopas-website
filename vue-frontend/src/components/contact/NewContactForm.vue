@@ -204,14 +204,13 @@
             </div>
           </div>
 
-          <div class="tw-pt-6">
+          <div class="tw-pt-6" v-if="!showOptions">
             <div
               class="tw-text-black-core/[0.6] tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem]"
             >
               What's your preferred mode of communication?
             </div>
             <div
-              v-if="!showOptions"
               class="tw-flex tw-flex-row tw-items-center tw-justify-center md:tw-justify-start tw-gap-4 tw-pt-4"
             >
               <label class="contactLabel1"
@@ -472,7 +471,7 @@ export default {
             this.contactType == CONTACT_BY_CHAT_OR_MAIL
               ? "Chat or Email"
               : "Call",
-          send_client_thankyou_email: config.SHOW_CLIENT_THANKYOU_PAGE,
+          send_mail_to_client: config.SHOW_CLIENT_THANKYOU_PAGE,
         };
         grecaptcha.enterprise.ready(() => {
           grecaptcha.enterprise
@@ -488,7 +487,7 @@ export default {
                   gtag("event", "conversion", {
                     send_to: "AW-11157168108/OpYlCPjY4poYEOy_k8gp",
                   });
-                  if (config.SHOW_CLIENT_THANKYOU_PAGE == true) {
+                  if (config.SHOW_CLIENT_THANKYOU_PAGE) {
                     this.$router.push({
                       path: "/thankyou",
                     });

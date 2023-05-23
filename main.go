@@ -16,9 +16,7 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
-//go:embed templates/contact-email-template.html
-//go:embed templates/career-email-template.html
-//go:embed templates/client-thankyou-email-template.html
+//go:embed templates/*.html
 var templateFS embed.FS
 
 func main() {
