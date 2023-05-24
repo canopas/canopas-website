@@ -12,10 +12,10 @@
         Thank You
         <span
           :class="{
-            'tw-text-[1.5rem] sm:tw-text-[2rem] lg:tw-text-[3.75rem] tw-px-[2rem]   sm:tw-pl-[4rem] lg:tw-pl-[6rem]':
+            'tw-text-[1.5rem] sm:tw-text-[2rem] lg:tw-text-[3.75rem] tw-px-[2rem] sm:tw-pl-[4rem] lg:tw-pl-[6rem]':
               isLongText,
           }"
-          class="tw-text-white brush-wrap tw-relative tw-inline-block tw-text-center tw-px-[3rem] tw-py-[1rem] md:tw-py-[3rem]"
+          class="tw-text-white brush-wrap tw-relative tw-inline-block tw-text-center tw-px-[3rem] tw-py-[1rem]"
           ><PaintStroke />{{ truncatedName }}
         </span>
 
@@ -55,7 +55,6 @@ export default {
   props: ["name"],
   data() {
     return {
-      name: this.name,
       landingbg400,
       CEO: "Jimmy",
     };

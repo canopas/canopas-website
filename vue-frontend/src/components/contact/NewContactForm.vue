@@ -489,7 +489,7 @@ export default {
                   });
                   if (config.SHOW_CLIENT_THANKYOU_PAGE) {
                     this.$router.push({
-                      path: "/thankyou",
+                      path: "/thank-you",
                     });
                     localStorage.setItem(
                       "client-name",
