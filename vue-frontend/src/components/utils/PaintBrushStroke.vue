@@ -8,7 +8,7 @@
             <animate
               id="anim"
               attributeName="width"
-              dur="1s"
+              dur="0.5s"
               fill="freeze"
               calcMode="spline"
               keyTimes="0; 1"

@@ -18,8 +18,8 @@
 
 <script>
 import Header from "@/components/partials/NewHeader.vue";
-import LandingSection from "@/components/contact/ThankyouLandingSection.vue";
-import BenefitSection from "@/components/contact/ThankyouBenefitSection.vue";
+import LandingSection from "@/components/contact/thank-you/LandingSection.vue";
+import BenefitSection from "@/components/contact/thank-you/BenefitSection.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
@@ -46,11 +46,14 @@ export default {
   },
   data() {
     return {
-      clientName:
-        localStorage.getItem("client-name") != ""
-          ? JSON.parse(localStorage.getItem("client-name"))
-          : "Dear Client",
+      clientName: "Dear Client",
     };
+  },
+  mounted() {
+    this.clientName =
+      localStorage.getItem("client-name") != ""
+        ? JSON.parse(localStorage.getItem("client-name"))
+        : "Dear Client";
   },
   components: {
     Header,

@@ -17,8 +17,8 @@
 </template>
 <script>
 import Header from "@/components/partials/NewHeader.vue";
-import LandingSection from "@/components/contact/ThankyouLandingSection.vue";
-import InterviewProcess from "@/components/jobs-thankyou/InterviewProcess.vue";
+import LandingSection from "@/components/contact/thank-you/LandingSection.vue";
+import InterviewProcess from "@/components/jobs/thank-you/InterviewProcess.vue";
 import { defineAsyncComponent } from "vue";
 
 const NewFooter = defineAsyncComponent(() =>
@@ -32,10 +32,10 @@ const LifeAtCanopasVue = defineAsyncComponent(() =>
   import("@/components/jobs/PerksAndBenefits.vue")
 );
 const LatestBlog = defineAsyncComponent(() =>
-  import("@/components/jobs-thankyou/LatestBlog.vue")
+  import("@/components/jobs/thank-you/LatestBlog.vue")
 );
 const ContributionSection = defineAsyncComponent(() =>
-  import("@/components/jobs-thankyou/ContributionSection.vue")
+  import("@/components/jobs/thank-you/ContributionSection.vue")
 );
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
@@ -73,11 +73,14 @@ export default {
   },
   data() {
     return {
-      applicantName:
-        localStorage.getItem("applicant-name") != ""
-          ? JSON.parse(localStorage.getItem("applicant-name"))
-          : "Dear Applicant",
+      applicantName: "Dear Applicant",
     };
+  },
+  mounted() {
+    this.applicantName =
+      localStorage.getItem("applicant-name") != ""
+        ? JSON.parse(localStorage.getItem("applicant-name"))
+        : "Dear Applicant";
   },
 };
 </script>
