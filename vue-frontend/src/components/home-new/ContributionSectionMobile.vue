@@ -145,18 +145,21 @@ export default {
       contributions: [
         {
           title: "Intro Showcase view in jetpack compose",
+          stars: "0",
           author: "Radhika S.",
           video: [introShowCaseMp4, introShowCaseWebm],
           link: "https://github.com/canopas/Intro-showcase-view",
         },
         {
           title: "UIPilot",
+          stars: "0",
           author: "Jimmy S.",
           video: [uIPilotMp4, uIPilotWebm],
           link: "https://github.com/canopas/UIPilot",
         },
         {
           title: "Jetpack Compose animations",
+          stars: "0",
           author: "Radhika S.",
           video: [jcAnimationsMp4, jcAnimationsWebm],
           link: "https://github.com/canopas/Jetpack-compose-animations-examples",

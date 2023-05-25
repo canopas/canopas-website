@@ -63,7 +63,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(./../fonts/RobotoBold-Subset.woff2);
+  src: url(./../fonts/Roboto-Bold-Subset.woff2);
 }
 
 @font-face {
@@ -71,7 +71,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(./../fonts/RobotoMedium-Subset.woff2);
+  src: url(./../fonts/Roboto-Medium-Subset.woff2);
 }
 
 @layer utilities {
