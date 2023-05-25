@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-w-full tw-h-[550px] tw-border-0 tw-pt-[20px] md:tw-h-[700px]">
+  <div class="tw-w-full tw-h-[550px] tw-border-0 tw-pt-[20px] md:tw-h-screen">
     <div v-if="isLoading" class="iframe-loader">
       <img
         :src="loader"
@@ -8,7 +8,7 @@
       />
     </div>
     <iframe
-      class="tw-h-full tw-w-full"
+      class="tw-h-screen tw-w-full"
       :src="calendlyUrl"
       title="calendly"
       v-on:load="isLoading = false"

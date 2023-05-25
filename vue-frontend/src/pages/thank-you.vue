@@ -11,6 +11,7 @@
       <BenefitSection
         class="tw-overflow-y-hidden 2xl:tw-overflow-y-visible 3xl:tw-overflow-y-hidden"
       />
+      <ScheduleMeeting />
     </div>
     <NewFooter />
   </div>
@@ -20,9 +21,16 @@
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/contact/thank-you/LandingSection.vue";
 import BenefitSection from "@/components/contact/thank-you/BenefitSection.vue";
-import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
+import { defineAsyncComponent } from "vue";
+
+const ScheduleMeeting = defineAsyncComponent(() =>
+  import("@/components/contact/thank-you/ScheduleMeeting.vue")
+);
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue")
+);
 export default {
   setup() {
     var seoData = config.CLIENT_THANKYOU_SEO_META_DATA;
@@ -59,11 +67,12 @@ export default {
     Header,
     LandingSection,
     BenefitSection,
+    ScheduleMeeting,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
     if (config.SHOW_CLIENT_THANKYOU_PAGE === false) {
-      next({ name: "Error404Page", params: { pathMatch: "/thankyou" } });
+      next({ name: "Error404Page", params: { pathMatch: "/thank-you" } });
     } else {
       next();
     }

@@ -69,7 +69,15 @@ export default Object.freeze({
     description:
       "Canopas is a software development company helping businesses grow exponentially by developing mobile apps, websites, web apps, desktop apps, UI/UX, and SEO.",
     type: "Website",
-    url: "https://canopas.com/thankyou",
+    url: "https://canopas.com/thank-you",
+    image: "https://canopas.com/apple-touch-icon.png",
+  },
+  JOBS_THANKYOU_SEO_META_DATA: {
+    title: "Explore Life at Canopas, Find IT jobs in surat at Canopas.",
+    description:
+      "Software developer jobs in surat, IT jobs in surat. If you're ready to step out of your comfort zone, want to acquire new skills, we would love to meet you.",
+    type: "Jobs Posting Website",
+    url: "https://canopas.com/jobs/thank-you",
     image: "https://canopas.com/apple-touch-icon.png",
   },
   IS_PROD: true,
