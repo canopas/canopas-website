@@ -10,13 +10,17 @@ import (
 	log "github.com/sirupsen/logrus"
 )
 
-type GithubRepo struct {
+type Response struct {
+	Items []Item `json:"items"`
+}
+
+type Item struct {
 	Name  string `json:"name"`
 	Stars int    `json:"stargazers_count"`
 }
 
 func GetStargazers(c *gin.Context) {
-	req, err := http.NewRequest("GET", "https://api.github.com/orgs/canopas/repos?type=sources", nil)
+	req, err := http.NewRequest("GET", "https://api.github.com/search/repositories?q=org:canopas+stars:>150", nil)
 	if err != nil {
 		log.Error(err)
 		c.AbortWithStatus(http.StatusInternalServerError)
@@ -42,7 +46,7 @@ func GetStargazers(c *gin.Context) {
 		return
 	}
 
-	var repos []GithubRepo
+	var repos Response
 	json.Unmarshal(responseData, &repos)
 
 	c.JSON(http.StatusOK, repos)
