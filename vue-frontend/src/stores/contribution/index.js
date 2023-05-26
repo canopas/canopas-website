@@ -21,7 +21,7 @@ export const useContributionStore = defineStore("github-list", {
           `/api/github/stars")
             .then((response) => response.json())
             .then((data) => {
-              self.postMessage(data);
+              self.postMessage(data.items);
             })
             .catch((error) => {
               console.error(error);
