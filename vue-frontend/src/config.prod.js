@@ -12,7 +12,7 @@ export default Object.freeze({
   BLOG_URL: "https://blog.canopas.com",
   API_BASE: "https://prod-stack-api.canopas.com",
   BASE_URL: "https://canopas.com",
-  CALENDLY_IFRAME_URL: "https://calendly.com/darpanvithani/15min",
+  CALENDLY_IFRAME_URL: "https://calendly.com/jimmy822/30min",
   CLUTCH_URL: "https://clutch.co/profile/canopas-software#reviews",
   OG_IMAGE_URL: "https://canopas.com/apple-touch-icon.png",
   SEO_META_DATA: {

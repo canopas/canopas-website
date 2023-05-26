@@ -8,9 +8,7 @@
     <Header />
     <div>
       <LandingSection :name="clientName" />
-      <BenefitSection
-        class="tw-overflow-y-hidden 2xl:tw-overflow-y-visible 3xl:tw-overflow-y-hidden"
-      />
+      <BenefitSection class="tw-overflow-y-hidden 2xl:tw-overflow-y-visible" />
       <ScheduleMeeting />
     </div>
     <NewFooter />
