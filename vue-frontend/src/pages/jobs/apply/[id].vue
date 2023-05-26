@@ -541,6 +541,7 @@ export default {
           this.message ? this.message.replace(/\./g, ".\n") : "NA"
         );
         formData.append("save_record_to_spreadsheet", config.IS_PROD);
+        formData.append("save_data_to_database", config.IS_PROD);
         localStorage.setItem("applicant-name", JSON.stringify(this.fullName));
 
         // verify recpatcha

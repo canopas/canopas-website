@@ -48,14 +48,12 @@
   </section>
 </template>
 <script>
-import landingbg400 from "@/assets/images/thankyou/landingbg-400w.webp";
 import PaintStroke from "@/components/utils/PaintBrushStroke.vue";
 
 export default {
   props: ["name"],
   data() {
     return {
-      landingbg400,
       CEO: "Jimmy",
     };
   },

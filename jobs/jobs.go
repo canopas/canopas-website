@@ -64,6 +64,7 @@ type JobsApplicationsDetails struct {
 	Token                   string                `json:"token" form:"token"`
 	JobTitle                string                `json:"job_title" form:"job_title"`
 	SaveRecordToSpreadsheet bool                  `json:"save_record_to_spreadsheet" form:"save_record_to_spreadsheet"`
+	SaveDataToDatabase      bool                  `json:"save_data_to_database" form:"save_data_to_database"`
 }
 
 type CareerRepository struct {
@@ -164,12 +165,14 @@ func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
 		go repository.UtilsRepo.SaveJobsToSpreadSheet(records)
 	}
 
-	err = repository.InsertJobApplication(input)
+	if input.SaveDataToDatabase {
+		err = repository.InsertJobApplication(input)
 
-	if err != nil {
-		log.Error(err)
-		c.AbortWithStatus(http.StatusInternalServerError)
-		return
+		if err != nil {
+			log.Error(err)
+			c.AbortWithStatus(http.StatusInternalServerError)
+			return
+		}
 	}
 
 	repository.SendJobsApplicationMail(c, input)
