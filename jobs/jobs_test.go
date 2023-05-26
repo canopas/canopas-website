@@ -27,10 +27,10 @@ var testRequests []utils.TestRequest
 const (
 	GET_ALL_JOBS_API_URL   = "/api/careers"
 	GET_JOBS_BY_ID_API_URL = "/api/careers/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d"
-	SEND_CAREER_MAIL       = "/api/send-career-mail"
+	SAVE_APPLICATIONS_DATA = "/api/send-jobs-applications"
 )
 
-//stubUtilsRepo is a mock Utils Service Interface
+// stubUtilsRepo is a mock Utils Service Interface
 type stubUtilsRepo struct{}
 
 func (faker *stubUtilsRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
@@ -68,7 +68,7 @@ func Test_init(t *testing.T) {
 			ExpectedData:      expectedJobsData(),
 		},
 		{
-			Url:               SEND_CAREER_MAIL,
+			Url:               SAVE_APPLICATIONS_DATA,
 			Method:            "POST",
 			Headers:           map[string]interface{}{"Content-Type": contentType},
 			Body:              prepareRequestBody(),
@@ -142,7 +142,7 @@ func initializeRepo() (*CareerRepository, error) {
 func setUpRouter(engine *gin.Engine) {
 	engine.GET(GET_ALL_JOBS_API_URL, repo.Careers)
 	engine.GET("/api/careers/:unique_id", repo.CareerById)
-	engine.POST(SEND_CAREER_MAIL, repo.SendCareerMail)
+	engine.POST(SAVE_APPLICATIONS_DATA, repo.SaveApplicationsData)
 }
 
 func expectedJobsData() map[string]interface{} {

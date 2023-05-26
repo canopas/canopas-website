@@ -4,6 +4,9 @@ import (
 	"context"
 	"fmt"
 	"os"
+	"path/filepath"
+	"strings"
+	"time"
 
 	log "github.com/sirupsen/logrus"
 
@@ -102,4 +105,11 @@ func Unique[T comparable](arr []T) []T {
 		}
 	}
 	return result
+}
+
+func GenerateUniqueFileName(filename string) string {
+	ext := filepath.Ext(filename)
+	name := strings.TrimSuffix(filename, ext)
+	name = strings.Replace(name, " ", "", -1)
+	return fmt.Sprintf("%s_%d%s", name, time.Now().Unix(), ext)
 }
