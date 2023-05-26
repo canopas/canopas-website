@@ -2,7 +2,9 @@ package utils
 
 import (
 	"bytes"
+	"fmt"
 	"io/ioutil"
+	"mime/multipart"
 	"net/http"
 	"os"
 
@@ -88,4 +90,41 @@ func UploadFileToS3(fileName string, sess *session.Session) {
 	}
 
 	return
+}
+
+func UploadResumeToS3(fileHeader *multipart.FileHeader) (string, error) {
+	file, err := fileHeader.Open()
+	if err != nil {
+		return "", err
+	}
+	defer file.Close()
+
+	// Set up AWS session
+	sess, err := GetAWSIAMUserSession()
+	if err != nil {
+		return "", err
+	}
+
+	svc := s3.New(sess)
+
+	fileName := GenerateUniqueFileName(fileHeader.Filename)
+
+	params := &s3.PutObjectInput{
+		Bucket: aws.String("canopas-website"),
+		Key:    aws.String("resumes/" + fileName),
+		Body:   file,
+		ACL:    aws.String("public-read"),
+	}
+
+	// Upload the file to the S3 bucket
+	_, err = svc.PutObject(params)
+
+	if err != nil {
+		return "", err
+	}
+
+	// Generate the URL for the uploaded resume
+	resumeURL := fmt.Sprintf("https://%s.s3.%s.amazonaws.com/resumes/%s", "canopas-website", os.Getenv("REGION"), fileName)
+
+	return resumeURL, nil
 }

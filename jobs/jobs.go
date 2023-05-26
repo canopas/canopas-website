@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"embed"
 	"io"
+	"mime/multipart"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -52,16 +53,17 @@ type Career struct {
 	Index               int         `json:"index"`
 }
 
-type CareerDetails struct {
-	JobTitle                string `json:"job_title" form:"job_title"`
-	Name                    string `json:"name" form:"name"`
-	Email                   string `json:"email" form:"email"`
-	Phone                   string `json:"phone" form:"phone"`
-	Place                   string `json:"place" form:"place"`
-	References              string `json:"references" form:"references"`
-	Message                 string `json:"message" form:"message"`
-	Token                   string `json:"token" form:"token"`
-	SaveRecordToSpreadsheet bool   `json:"save_record_to_spreadsheet" form:"save_record_to_spreadsheet"`
+type JobsApplicationsDetails struct {
+	Name                    string                `json:"name" form:"name"`
+	Email                   string                `json:"email" form:"email"`
+	Phone                   string                `json:"phone" form:"phone"`
+	Place                   string                `json:"place" form:"place"`
+	References              string                `json:"references" form:"references"`
+	File                    *multipart.FileHeader `json:"file" form:"file"`
+	Message                 string                `json:"message" form:"message"`
+	Token                   string                `json:"token" form:"token"`
+	JobTitle                string                `json:"job_title" form:"job_title"`
+	SaveRecordToSpreadsheet bool                  `json:"save_record_to_spreadsheet" form:"save_record_to_spreadsheet"`
 }
 
 type CareerRepository struct {
@@ -130,12 +132,12 @@ func (repository *CareerRepository) CareerById(c *gin.Context) {
 	c.JSON(http.StatusOK, career)
 }
 
-func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
-	input := CareerDetails{}
+func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
+	input := JobsApplicationsDetails{}
 
 	err := c.Bind(&input)
-
 	if err != nil {
+		log.Error(err)
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "Invalid data"})
 		return
 	}
@@ -146,10 +148,9 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 		c.AbortWithStatus(http.StatusUnauthorized)
 		return
 	}
-
 	success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
-
 	if err != nil || !success {
+		log.Error(err)
 		c.AbortWithStatus(http.StatusUnauthorized)
 		return
 	}
@@ -163,12 +164,53 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 		go repository.UtilsRepo.SaveJobsToSpreadSheet(records)
 	}
 
+	err = repository.InsertJobApplication(input)
+
+	if err != nil {
+		log.Error(err)
+		c.AbortWithStatus(http.StatusInternalServerError)
+		return
+	}
+
+	repository.SendJobsApplicationMail(c, input)
+
+	c.JSON(http.StatusOK, "Job application received successfully")
+}
+
+func (repository *CareerRepository) InsertJobApplication(input JobsApplicationsDetails) error {
+
+	// Upload resume to S3
+	resumeURL, err := utils.UploadResumeToS3(input.File)
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+
+	stmt, err := repository.Db.Prepare(`INSERT INTO job_applications (name, email, phone, place, reference, resumeURL, position, message, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+	defer stmt.Close()
+
+	_, err = stmt.Exec(input.Name, input.Email, input.Phone, input.Place, input.References, resumeURL, input.JobTitle, input.Message, 1, time.Now(), time.Now())
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+
+	return nil
+}
+
+func (repository *CareerRepository) SendJobsApplicationMail(c *gin.Context, input JobsApplicationsDetails) {
+
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input)
 
 	title := input.JobTitle + " job application - Canopas Website"
 
 	attachmentBytes, err := getFileBytes(c)
 	if err != nil {
+		log.Error(err)
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
 		return
 	}
@@ -181,8 +223,6 @@ func (repository *CareerRepository) SendCareerMail(c *gin.Context) {
 		c.AbortWithStatus(statusCode)
 		return
 	}
-
-	c.JSON(http.StatusOK, "Job application received successfully")
 }
 
 func getFileBytes(c *gin.Context) (*bytes.Buffer, error) {
@@ -244,7 +284,7 @@ func GetEmailTemplate(htmlBody string, title string, attachmentBytes *bytes.Buff
 	return template
 }
 
-func (repository *CareerRepository) getHTMLBodyOfEmailTemplate(input CareerDetails) string {
+func (repository *CareerRepository) getHTMLBodyOfEmailTemplate(input JobsApplicationsDetails) string {
 
 	var templateBuffer bytes.Buffer
 

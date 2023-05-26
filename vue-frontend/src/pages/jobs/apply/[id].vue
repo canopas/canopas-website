@@ -518,12 +518,10 @@ export default {
 
         //prepare form data
         const formData = new FormData();
-        formData.append("job_title", this.job.title);
         formData.append("name", this.fullName);
         formData.append("email", this.email);
         formData.append("phone", this.phoneNumber);
         formData.append("place", this.city ? this.city : "NA");
-        localStorage.setItem("applicant-name", JSON.stringify(this.fullName));
         formData.append(
           "references",
           this.reference &&
@@ -536,12 +534,14 @@ export default {
             : "NA"
         );
 
+        formData.append("file", this.file, fileName);
+        formData.append("job_title", this.job.title);
         formData.append(
           "message",
           this.message ? this.message.replace(/\./g, ".\n") : "NA"
         );
-        formData.append("file", this.file, fileName);
         formData.append("save_record_to_spreadsheet", config.IS_PROD);
+        localStorage.setItem("applicant-name", JSON.stringify(this.fullName));
 
         // verify recpatcha
         grecaptcha.enterprise.ready(() => {
@@ -552,7 +552,7 @@ export default {
             .then((token) => {
               formData.append("token", token);
               axios
-                .post(config.API_BASE + "/api/send-career-mail", formData)
+                .post(config.API_BASE + "/api/send-jobs-applications", formData)
                 .then(() => {
                   this.isLoad = false;
                   this.showLoader = false;
