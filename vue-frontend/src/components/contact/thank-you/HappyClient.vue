@@ -25,7 +25,7 @@
             :spaceBetween="30"
             :direction="'vertical'"
             :autoplay="{
-              delay: 5000,
+              delay: 4000,
               disableOnInteraction: false,
             }"
             :loop="true"

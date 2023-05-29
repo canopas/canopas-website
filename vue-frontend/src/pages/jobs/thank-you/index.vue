@@ -87,7 +87,6 @@ export default {
     this.applicantName = localStorage.getItem("applicant-name")
       ? JSON.parse(localStorage.getItem("applicant-name"))
       : "Dear Applicant";
-    console.log("Applicant", this.applicantName);
   },
 };
 </script>

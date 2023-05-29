@@ -96,7 +96,8 @@
               >
             </div>
             <div
-              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[1.625rem] tw-leading-[2.4375rem] tw-text-black-core/[0.6]"
+              @click="openBlog(blog)"
+              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[1.625rem] tw-leading-[2.4375rem] tw-text-black-core/[0.6] tw-cursor-pointer"
             >
               <p class="tw-line-clamp-3">
                 {{ blog.description }}
