@@ -1,7 +1,7 @@
 <template>
-  <section class="tw-container tw-mb-12 md:tw-mb-36">
+  <section class="tw-container tw--mt-12 md:tw-mt-0 md:tw-mb-36">
     <div
-      class="tw-flex tw-flex-col tw-items-center tw-mt-24 tw-mb-7 tw-m-auto tw-w-full"
+      class="tw-flex tw-flex-col tw-items-center tw-mb-7 tw-m-auto tw-w-full"
     >
       <h2
         class="tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.8125rem] md:tw-leading-[5.15625rem] tw-text-center tw-text-black-core/[0.87] tw-font-inter-bold"

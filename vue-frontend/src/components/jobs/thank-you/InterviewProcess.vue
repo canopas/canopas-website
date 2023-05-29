@@ -1,6 +1,6 @@
 <template>
   <section class="tw-container tw-mb-28">
-    <div class="tw-py-20 tw-text-center">
+    <div class="tw-pt-20 tw-pb-8 xl:tw-pb-20 tw-text-center">
       <span
         class="tw-font-inter-bold tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.4375rem] md:tw-leading-[5.15625rem]"
         >Interview Process

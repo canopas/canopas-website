@@ -8,7 +8,11 @@
     <Header />
     <div>
       <LandingSection :name="clientName" />
-      <BenefitSection class="tw-overflow-y-hidden 2xl:tw-overflow-y-visible" />
+      <BenefitSection
+        class="tw-overflow-y-hidden 2xl:tw-overflow-y-visible 3xl:tw-overflow-y-hidden"
+      />
+      <HappyClientSection />
+
       <ScheduleMeeting />
     </div>
     <NewFooter />
@@ -16,12 +20,15 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/contact/thank-you/LandingSection.vue";
 import BenefitSection from "@/components/contact/thank-you/BenefitSection.vue";
+const HappyClientSection = defineAsyncComponent(() =>
+  import("@/components/contact/thank-you/HappyClient.vue")
+);
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
-import { defineAsyncComponent } from "vue";
 
 const ScheduleMeeting = defineAsyncComponent(() =>
   import("@/components/contact/thank-you/ScheduleMeeting.vue")
@@ -56,15 +63,15 @@ export default {
     };
   },
   mounted() {
-    this.clientName =
-      localStorage.getItem("client-name") != ""
-        ? JSON.parse(localStorage.getItem("client-name"))
-        : "Dear Client";
+    this.clientName = localStorage.getItem("client-name")
+      ? JSON.parse(localStorage.getItem("client-name"))
+      : "Dear Client";
   },
   components: {
     Header,
     LandingSection,
     BenefitSection,
+    HappyClientSection,
     ScheduleMeeting,
     NewFooter,
   },
