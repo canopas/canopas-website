@@ -1,7 +1,7 @@
 <template>
-  <section class="tw-container tw-mb-12 md:tw-mb-36">
+  <section class="tw-container tw--mt-12 md:tw-mt-0 md:tw-mb-36">
     <div
-      class="tw-flex tw-flex-col tw-items-center tw-mt-24 tw-mb-7 tw-m-auto tw-w-full"
+      class="tw-flex tw-flex-col tw-items-center tw-mb-7 tw-m-auto tw-w-full"
     >
       <h2
         class="tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.8125rem] md:tw-leading-[5.15625rem] tw-text-center tw-text-black-core/[0.87] tw-font-inter-bold"
@@ -66,7 +66,8 @@
           @mouseleave="activeIndex = index"
           @touchstart.passive="activeIndex = index"
           @click.native="mixpanel.track('tap_blog_post')"
-          class="tw-block tw-grow-[2] tw-basis-[70%] xl:tw-basis-[70%] tw-content-stretch tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4"
+          @click="openBlog(blog)"
+          class="tw-block tw-grow-[2] tw-basis-[70%] xl:tw-basis-[70%] tw-content-stretch tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4 tw-cursor-pointer"
         >
           <div class="tw-flex tw-flex-col tw-w-full">
             <div
@@ -96,7 +97,8 @@
               >
             </div>
             <div
-              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[1.625rem] tw-leading-[2.4375rem] tw-text-black-core/[0.6]"
+              @click="openBlog(blog)"
+              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[1.625rem] tw-leading-[2.4375rem] tw-text-black-core/[0.6] tw-cursor-pointer"
             >
               <p class="tw-line-clamp-3">
                 {{ blog.description }}
@@ -112,7 +114,8 @@
             @mouseleave="activeIndex = index"
             @touchstart.passive="activeIndex = index"
             @click.native="mixpanel.track('tap_blog_post')"
-            class="tw-block tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4"
+            @click="openBlog(blog)"
+            class="tw-block tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4 tw-cursor-pointer"
           >
             <div class="tw-flex tw-flex-col tw-w-full">
               <div

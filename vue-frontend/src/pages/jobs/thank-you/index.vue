@@ -84,10 +84,9 @@ export default {
     };
   },
   mounted() {
-    this.applicantName =
-      localStorage.getItem("applicant-name") != ""
-        ? JSON.parse(localStorage.getItem("applicant-name"))
-        : "Dear Applicant";
+    this.applicantName = localStorage.getItem("applicant-name")
+      ? JSON.parse(localStorage.getItem("applicant-name"))
+      : "Dear Applicant";
   },
 };
 </script>
