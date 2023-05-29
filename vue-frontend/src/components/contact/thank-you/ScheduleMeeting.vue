@@ -1,6 +1,6 @@
 <template>
   <section
-    class="lg:tw-bg-gradient-to-b tw-from-[#FFFFFF]/[0.05] tw-via-[#F98584]/[0.05] tw-to-[#F47695]/[0.05] tw-mt-[100px] 2xl:tw-mt-[250px] tw-pb-10"
+    class="lg:tw-bg-gradient-to-b tw-from-[#FFFFFF]/[0.05] tw-via-[#F98584]/[0.05] tw-to-[#F47695]/[0.05] tw-mt-[100px] tw-pb-10"
   >
     <div class="tw-relative 2xl:tw-container">
       <img
@@ -75,8 +75,6 @@
             <span class="tw-font-inter-bold">
               We offer Two Week of Money Back Guarantee.</span
             >
-            Will add detailed content as tooltips when users hover on the bold
-            guarantee sentence.
           </li>
           <li>
             <span

@@ -4,18 +4,7 @@
     <svg height="0" width="0" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <clipPath id="rect-cp">
-          <rect id="rect" x="0" y="0" width="0" height="1">
-            <animate
-              id="anim"
-              attributeName="width"
-              dur="0.1s"
-              fill="freeze"
-              calcMode="spline"
-              keyTimes="0; 1"
-              keySplines="0.5,0,0.5,1"
-              values="0;1"
-            />
-          </rect>
+          <rect id="rect" x="0" y="0" width="1" height="1"></rect>
         </clipPath>
 
         <clipPath id="clip" clipPathUnits="objectBoundingBox">
