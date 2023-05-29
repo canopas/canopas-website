@@ -29,6 +29,7 @@
           <a
             class="tw-flex tw-items-center tw-mt-6 tw-ml-0 tw-w-max tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
             :href="contributionURL"
+            target="_blank"
           >
             <span
               class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.425rem]"
@@ -101,11 +102,13 @@
           </video>
 
           <div>
-            <p
+            <a
+              target="_blank"
+              :href="contribution.link"
               class="tw-pr-5 tw-font-inter-semibold tw-text-black-core/[0.87] tw-text-[1.25rem] md:tw-text-[1.875rem] tw-leading-[1.875rem] md:tw-leading-[2.4rem]"
             >
               {{ contribution.title }}
-            </p>
+            </a>
           </div>
           <div
             @touchstart.passive="activeIndex = index"
@@ -129,8 +132,9 @@
     </div>
     <div class="tw-block lg:tw-hidden tw-mx-auto">
       <a
-        class="tw-flex tw-items-center tw-w-max tw-rounded-full tw-mt-2 tw-p-3 tw-px-10 tw-text-center gradient-btn consultation-btn"
+        class="tw-flex tw-items-center tw-m-0 tw-mt-6 tw-w-max tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
         :href="contributionURL"
+        target="_blank"
       >
         <span
           class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.425rem]"

@@ -557,7 +557,6 @@ export default {
                 .then(() => {
                   this.isLoad = false;
                   this.showLoader = false;
-                  this.showSuccessMessage = true;
                   this.fullName = "";
                   this.email = "";
                   this.phoneNumber = "";
@@ -573,6 +572,7 @@ export default {
                       path: `/jobs/thank-you`,
                     });
                   } else {
+                    this.showSuccessMessage = true;
                     setTimeout(() => {
                       this.showSuccessMessage = false;
                       this.$router.push({

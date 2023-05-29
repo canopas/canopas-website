@@ -37,6 +37,7 @@ const LatestBlog = defineAsyncComponent(() =>
 const ContributionSection = defineAsyncComponent(() =>
   import("@/components/jobs/thank-you/ContributionSection.vue")
 );
+const Error404Page = () => import("@/components/error404/index.vue");
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -71,13 +72,6 @@ export default {
     ContributionSection,
     NewFooter,
   },
-  beforeRouteEnter(to, from, next) {
-    if (config.SHOW_JOBSTHANKYOU_PAGE === false) {
-      next({ name: "Error404Page", params: { pathMatch: "/jobs/thank-you" } });
-    } else {
-      next();
-    }
-  },
   data() {
     return {
       applicantName: "Dear Applicant",
@@ -87,6 +81,14 @@ export default {
     this.applicantName = localStorage.getItem("applicant-name")
       ? JSON.parse(localStorage.getItem("applicant-name"))
       : "Dear Applicant";
+
+    if (!localStorage.getItem("applicant-name")) {
+      routes.push({
+        path: "/:pathMatch(.*)*",
+        name: "Error404Page",
+        component: Error404Page,
+      });
+    }
   },
 };
 </script>

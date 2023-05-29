@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-container tw--mt-12 md:tw-mt-0 md:tw-mb-36">
+  <section class="tw-container tw--mt-20 md:tw--mt-12 md:tw-mt-0 md:tw-mb-36">
     <div
       class="tw-flex tw-flex-col tw-items-center tw-mb-7 tw-m-auto tw-w-full"
     >
@@ -154,7 +154,7 @@
       <a
         target="_blank"
         :href="blogsURL"
-        class="tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-2 sm:tw-py-3 tw-px-12 sm:tw-px-3 gradient-btn consultation-btn"
+        class="tw-flex tw-items-center tw-m-0 tw-mt-6 tw-w-max tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
       >
         <span
           class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.425rem]"
