@@ -66,7 +66,8 @@
           @mouseleave="activeIndex = index"
           @touchstart.passive="activeIndex = index"
           @click.native="mixpanel.track('tap_blog_post')"
-          class="tw-block tw-grow-[2] tw-basis-[70%] xl:tw-basis-[70%] tw-content-stretch tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4"
+          @click="openBlog(blog)"
+          class="tw-block tw-grow-[2] tw-basis-[70%] xl:tw-basis-[70%] tw-content-stretch tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4 tw-cursor-pointer"
         >
           <div class="tw-flex tw-flex-col tw-w-full">
             <div
@@ -113,7 +114,8 @@
             @mouseleave="activeIndex = index"
             @touchstart.passive="activeIndex = index"
             @click.native="mixpanel.track('tap_blog_post')"
-            class="tw-block tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4"
+            @click="openBlog(blog)"
+            class="tw-block tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4 tw-cursor-pointer"
           >
             <div class="tw-flex tw-flex-col tw-w-full">
               <div

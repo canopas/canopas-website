@@ -38,7 +38,7 @@
               class="tw-cursor-pointer"
             >
               <div
-                class="tw-flex tw-flex-col tw-w-fit tw-p-10 tw-gap-y-10 md:tw-gap-y-20 tw-bg-white tw-shadow-[0px_0px_50px_rgba(0,0,0,0.08)]"
+                class="tw-flex tw-flex-col tw-w-fit tw-p-10 tw-gap-y-10 md:tw-gap-y-12 tw-bg-white tw-shadow-[0px_0px_50px_rgba(0,0,0,0.08)]"
               >
                 <div class="tw-flex tw-flex-row tw-justify-between">
                   <div class="tw-flex tw-flex-col">
