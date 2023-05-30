@@ -10,6 +10,9 @@ Parameters:
   Sender:
     Type: String
     Description: Email address of sender.
+  ContactSender:
+    Type: String
+    Description: Email address of contact sender.
   JobsReceiver:
     Type: String
     Description: Email address of jobs receiver.
@@ -123,6 +126,9 @@ Resources:
             - Name: SENDER
               Value: 
                 Fn::Sub: ${Sender}
+            - Name: CONTACT_SENDER
+              Value: 
+                Fn::Sub: ${ContactSender}
             - Name: JOBS_RECEIVER
               Value: 
                 Fn::Sub: ${JobsReceiver}

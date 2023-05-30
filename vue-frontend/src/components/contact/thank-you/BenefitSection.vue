@@ -156,7 +156,7 @@ a customized plan of action.`,
           title: `Quick response time`,
           description: `We pride ourselves on our ability to respond quickly to our clients' inquiries, concerns, 
 or complaints. Our team is dedicated to providing exceptional customer service, 
-and weal ways aim to resolve any issues promptly.`,
+and we always aim to resolve any issues promptly.`,
           className:
             "tw-top-[4.5rem] tw-left-[2rem]  tw-w-[20%] tw-h-[131px] xl:tw-h-[130px] 2xl:tw-h-[99px]   tw-border-l-[3px]",
           secondBorder:

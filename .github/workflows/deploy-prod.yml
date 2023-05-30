@@ -63,6 +63,7 @@ jobs:
           parameter-overrides: >-
             EnvName=prod,
             Sender=${{ secrets.SENDER }},
+            ContactSender=${{ secrets.CONTACT_SENDER }},
             JobsReceiver=${{ secrets.JOBS_RECEIVER }},
             ContactReceiver=${{ secrets.CONTACT_RECEIVER }},
             AccessKeyId=${{ secrets.ACCESS_KEY_ID }},
