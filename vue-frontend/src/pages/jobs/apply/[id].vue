@@ -24,12 +24,12 @@
             class="tw-text-[#3d3d3dcc] tw-text-[1rem] md:tw-text-[1.125rem] tw-pt-12 tw-pb-12"
           >
             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
-              <div class="tw-mb-8">
+              <div class="tw-mb-[0.5rem]">
                 <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
                   >Full Name</label
                 >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="fullname"
                   autocomplete="given-name"
@@ -48,12 +48,12 @@
                 >
               </div>
 
-              <div class="tw-mb-8">
+              <div class="tw-mb-[0.5rem]">
                 <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
                   >Email</label
                 >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="email"
                   id="email"
@@ -79,12 +79,12 @@
                 >
               </div>
 
-              <div class="tw-mb-8">
+              <div class="tw-mb-[0.5rem]">
                 <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
                   >Phone Number</label
                 >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="tel"
                   name="phonenumber"
                   autocomplete="tel"
@@ -110,10 +110,10 @@
                 >
               </div>
 
-              <div class="tw-mb-8">
+              <div class="tw-mb-[0.5rem]">
                 <label>City</label>
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="city"
                   autocomplete="address-level2"
@@ -122,10 +122,10 @@
                 />
               </div>
 
-              <div class="tw-mb-8">
+              <div class="tw-mb-[0.5rem]">
                 <label class="">How did you find Canopas?</label>
                 <div
-                  class="tw-relative tw-mt-[15px] tw-w-full tw-h-[50px] tw-outline-hidden tw-outline-0 before:tw-content-[''] before:tw-absolute before:tw-top-[20px] before:tw-right-[20px] before:tw-z-[1] before:tw-w-[8px] before:tw-h-[8px] before:tw-border-2 before:tw-border-solid before:tw-border-[#00000080] before:tw-border-t-2 before:tw-border-t-[#fff] before:tw-border-r-2 before:tw-border-r-[#fff] before:tw-rotate-[-45deg] before:tw-duration-[0.5s] before:tw-pointer-events-none"
+                  class="tw-relative tw-mt-[5px] tw-w-full tw-h-[50px] tw-outline-hidden tw-outline-0 before:tw-content-[''] before:tw-absolute before:tw-top-[20px] before:tw-right-[20px] before:tw-z-[1] before:tw-w-[8px] before:tw-h-[8px] before:tw-border-2 before:tw-border-solid before:tw-border-[#00000080] before:tw-border-t-2 before:tw-border-t-[#fff] before:tw-border-r-2 before:tw-border-r-[#fff] before:tw-rotate-[-45deg] before:tw-duration-[0.5s] before:tw-pointer-events-none"
                   v-on:click.stop="
                     isShowReferenceOption = !isShowReferenceOption
                   "
@@ -136,7 +136,7 @@
                       class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-cursor-pointer tw-bg-[#fff] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-outline-hidden tw-outline-0 tw-py-[12px] tw-px-[16px] tw-rounded-[10px]"
                       name="howdidyoufindcanopas"
                       type="text"
-                      placeholder="Choose anyone"
+                      placeholder="Choose any option"
                       id="reference-option-text"
                       readonly
                       v-model="reference"
@@ -167,7 +167,7 @@
               >
                 <label class="">Reference</label>
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
+                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
                   type="text"
                   name="referenceby"
                   autocomplete="given-reference-name"
@@ -177,15 +177,16 @@
                 />
               </div>
 
-              <div class="md:tw-col-span-2 tw-mb-8">
+              <div class="md:tw-col-span-2 tw-mb-[0.5rem]">
                 <label
                   >Message
                   <textarea
-                    class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed hidden-scrollbar tw-whitespace-pre-wrap"
+                    class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed hidden-scrollbar tw-whitespace-pre-wrap"
                     name="message"
-                    rows="1"
+                    rows="3"
                     v-model="message"
                     @input="resizeTextarea"
+                    placeholder="Tell us about yourself..."
                   ></textarea>
                 </label>
               </div>
@@ -213,7 +214,7 @@
                   id="fileUpload"
                   ref="fileUpload"
                   type="file"
-                  class="tw-block tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed custom-file-input tw-w-0 tw-opacity-0 tw-p-0"
+                  class="tw-block tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed custom-file-input tw-w-0 tw-opacity-0 tw-p-0 tw-pr-[10px]"
                   name="resume"
                   accept="application/pdf,.doc,.docx"
                   @change="previewFiles"
@@ -228,6 +229,20 @@
                   >Resume is required</span
                 >
               </div>
+            </div>
+            <div class="tw-flex tw-items-center tw-mt-8">
+              <input
+                type="checkbox"
+                id="checkbox"
+                class="md:tw-mt-[-25px] xl:tw-mt-[-23px] 2xl:tw-mt-[-17px] tw-w-[1.5rem] tw-h-[1.5rem] tw-rounded-[5px] tw-accent-pink-500"
+                checked
+              />
+              <label
+                class="tw-ml-2 tw-text-[1.125rem] tw-leading-[1.688rem] tw-font-inter-medium tw-text-black-core/[0.87]"
+                for="checkbox"
+                >I acknowledge that Canopas does not conduct remote interviews
+                and does not offer remote job positions.</label
+              >
             </div>
             <div class="tw-flex tw-justify-center tw-mt-12">
               <img
@@ -255,7 +270,7 @@
                   >
                 </div>
                 <button
-                  class="gradient-btn tw-py-[16px] tw-px-[64px] md:tw-py-[16px] md:tw-px-[80px]"
+                  class="gradient-btn tw-rounded-full tw-px-[64px] md:tw-px-[80px]"
                   @click.prevent="submitApplication()"
                 >
                   <font-awesome-icon
@@ -266,9 +281,6 @@
                   <span>Apply Now</span>
                 </button>
               </div>
-            </div>
-            <div class="tw-mt-[48px] tw-text-[#ff0000]">
-              All fields marked with * are required.
             </div>
           </form>
         </div>
@@ -538,7 +550,9 @@ export default {
         formData.append("job_title", this.job.title);
         formData.append(
           "message",
-          this.message ? this.message.replace(/\./g, ".\n") : "NA"
+          this.message
+            ? this.message.replace(/\n/g, "<br>\n").replace(/\./g, ".\n")
+            : "NA"
         );
         formData.append("save_record_to_spreadsheet", config.IS_PROD);
         formData.append("save_data_to_database", config.IS_PROD);

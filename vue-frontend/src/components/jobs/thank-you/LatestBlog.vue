@@ -91,14 +91,14 @@
             <div class="tw-my-[10px]">
               <span
                 @click="openBlog(blog)"
-                class="tw-font-inter-semibold tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-black-core[0.87] tw-cursor-pointer"
+                class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[2.438rem] tw-text-black-core[0.87] tw-cursor-pointer"
               >
                 {{ blog.title }}</span
               >
             </div>
             <div
               @click="openBlog(blog)"
-              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[1.625rem] tw-leading-[2.4375rem] tw-text-black-core/[0.6] tw-cursor-pointer"
+              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-black-core/[0.6] tw-cursor-pointer"
             >
               <p class="tw-line-clamp-3">
                 {{ blog.description }}

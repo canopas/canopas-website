@@ -65,7 +65,8 @@
         <p
           class="tw-mt-10 tw-text-center tw-font-inter-bold tw-text-[1.125rem] md:tw-text-[1.375rem] xl:tw-text-[1.875rem] tw-leading-[1.688rem] md:tw-leading-[2.188rem] xl:tw-leading-[2.813rem] tw-text-black-core/[0.87]"
         >
-          If you'd like to propose an alternate time, just let me know.
+          If you'd like to propose an alternate time, just let me know by
+          replying to the email you've got from us.
         </p>
 
         <ul
