@@ -14,6 +14,10 @@ router.isReady().then(() => {
   }
 
   mixpanel.init(config.MIX_PANEL_TOKEN);
-  useContributionStore(pinia).fetchStars("fetchContributionStars");
+
+  if (!config.IS_PROD) {
+    useContributionStore(pinia).fetchStars("fetchContributionStars");
+  }
+
   app.provide("mixpanel", mixpanel).mount("#app");
 });

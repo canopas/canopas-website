@@ -123,7 +123,7 @@ import introShowCaseMp4 from "@/assets/images/contribution/animations/introShowC
 import introShowCaseWebm from "@/assets/images/contribution/animations/introShowCase.webm";
 import jcAnimationsMp4 from "@/assets/images/contribution/animations/JetpackComposeAnimations.mp4";
 import jcAnimationsWebm from "@/assets/images/contribution/animations/JetpackComposeAnimations.webm";
-import Config from "@/config.js";
+import config from "@/config.js";
 import lozad from "lozad";
 import { setGithubStars } from "@/utils.js";
 import { mapState } from "pinia";
@@ -141,25 +141,25 @@ export default {
     return {
       icon: faGithub,
       rightArrow: faArrowRightLong,
-      websiteOpenSourceUrl: Config.WEBSITE_OPEN_SOURCE_URL,
+      websiteOpenSourceUrl: config.WEBSITE_OPEN_SOURCE_URL,
       contributions: [
         {
           title: "Intro Showcase view in jetpack compose",
-          stars: "0",
+          stars: "271",
           author: "Radhika S.",
           video: [introShowCaseMp4, introShowCaseWebm],
           link: "https://github.com/canopas/Intro-showcase-view",
         },
         {
           title: "UIPilot",
-          stars: "0",
+          stars: "226",
           author: "Jimmy S.",
           video: [uIPilotMp4, uIPilotWebm],
           link: "https://github.com/canopas/UIPilot",
         },
         {
           title: "Jetpack Compose animations",
-          stars: "0",
+          stars: "202",
           author: "Radhika S.",
           video: [jcAnimationsMp4, jcAnimationsWebm],
           link: "https://github.com/canopas/Jetpack-compose-animations-examples",
@@ -173,14 +173,16 @@ export default {
     }),
   },
   mounted() {
-    this.$watch(
-      () => this.cData,
-      (data) => {
-        setGithubStars(this.contributions, data);
+    if (!config.IS_PROD) {
+      this.$watch(
+        () => this.cData,
+        (data) => {
+          setGithubStars(this.contributions, data);
+        }
+      );
+      if (this.cData != null) {
+        setGithubStars(this.contributions, this.cData);
       }
-    );
-    if (this.cData != null) {
-      setGithubStars(this.contributions, this.cData);
     }
     lozad().observe(); // lazy loads videos with default selector as '.lozad'
   },
