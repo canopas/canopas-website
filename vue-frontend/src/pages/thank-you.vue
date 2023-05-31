@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show">
+  <div>
     <metainfo>
       <template v-slot:title="{ content }">
         {{ content }}
@@ -12,12 +12,10 @@
         class="tw-overflow-y-hidden 2xl:tw-overflow-y-visible 3xl:tw-overflow-y-hidden"
       />
       <HappyClientSection />
-
       <ScheduleMeeting />
     </div>
     <NewFooter />
   </div>
-  <Error404Page v-else />
 </template>
 
 <script>
@@ -36,9 +34,6 @@ const ScheduleMeeting = defineAsyncComponent(() =>
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
-);
-const Error404Page = defineAsyncComponent(() =>
-  import("@/components/error404/index.vue")
 );
 
 export default {
@@ -65,7 +60,6 @@ export default {
   data() {
     return {
       clientName: "",
-      show: false,
     };
   },
   components: {
@@ -75,12 +69,15 @@ export default {
     HappyClientSection,
     ScheduleMeeting,
     NewFooter,
-    Error404Page,
   },
   beforeMount() {
     if (localStorage.getItem("client-name")) {
       this.clientName = JSON.parse(localStorage.getItem("client-name"));
-      this.show = true;
+    } else {
+      this.$router.push({
+        name: "Error404Page",
+        params: { pathMatch: ["thank-you"] },
+      });
     }
   },
 };

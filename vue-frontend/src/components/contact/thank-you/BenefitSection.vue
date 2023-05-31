@@ -39,7 +39,7 @@
           {{ benefit.title }}
         </div>
         <div
-          class="tw-mt-2 tw-pr-2 tw-font-inter-medium tw-text-black-core/[0.87] tw-text-[1rem] md:tw-text-[1.125rem] tw-leading-[1.5rem] md:tw-leading-[1.625rem]"
+          class="tw-mt-2 tw-pr-2 tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1rem] md:tw-text-[1.125rem] tw-leading-[1.5rem] md:tw-leading-[1.625rem]"
         >
           {{ benefit.description }}
         </div>
