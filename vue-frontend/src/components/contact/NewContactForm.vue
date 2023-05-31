@@ -183,82 +183,6 @@
               We sign NDA for all of our projects.
             </div>
           </div>
-
-          <div class="tw-pt-6" v-if="!showOptions">
-            <div
-              class="tw-text-black-core/[0.6] tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.21rem] md:tw-leading-[2.0625rem]"
-            >
-              What's your preferred mode of communication?
-            </div>
-            <div
-              class="tw-flex tw-flex-row tw-items-center tw-justify-center md:tw-justify-start tw-gap-4 tw-pt-4"
-            >
-              <label class="contactLabel1"
-                ><input
-                  class="tw-hidden"
-                  type="radio"
-                  name="contact_type"
-                  value="2"
-                  v-model.number="contactType"
-                />
-                <div
-                  :class="
-                    contactType == 2
-                      ? 'tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-white tw-shadow-none'
-                      : 'tw-m-0 gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
-                  "
-                  class="tw-flex tw-items-center tw-mt-1.5 tw-mb-6 tw-cursor-pointer tw-rounded-full tw-px-[2.5rem] lg:tw-px-[1.8rem] tw-py-2 md:tw-py-3 active:tw-scale-[0.98] tw-font-inter-semibold tw-text-[1rem] md:tw-text-[1.1875rem] tw-leading-[1.21rem] md:tw-leading-[1.386875rem] tw-text-center"
-                >
-                  <font-awesome-icon
-                    :class="
-                      contactType == 2 ? 'tw-text-white' : 'tw-text-[#f2709c]'
-                    "
-                    class="fa md:tw-mr-2 tw-w-[22.99px] md:tw-w-[28.18px] tw-h-[15.83px] md:tw-h-[24.18px]"
-                    :icon="phone"
-                    aria-hidden="true"
-                  />
-                  <span
-                    class="v2-canopas-gradient-text"
-                    :class="
-                      contactType == 2
-                        ? 'tw-text-white'
-                        : 'v2-canopas-gradient-text'
-                    "
-                    >Call</span
-                  >
-                </div></label
-              >
-
-              <label class="contactLabel2"
-                ><input
-                  class="tw-hidden"
-                  type="radio"
-                  name="contact_type"
-                  value="1"
-                  v-model.number="contactType"
-                />
-                <div
-                  :class="
-                    contactType == 1
-                      ? 'tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] '
-                      : 'tw-m-0 gradient-border-btn tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg]'
-                  "
-                  class="tw-flex tw-cursor-pointer tw-items-center tw-mt-1.5 tw-mb-6 tw-rounded-full tw-px-[2.5rem] lg:tw-px-[1.8rem] tw-py-2 md:tw-py-3 active:tw-scale-[0.98] tw-text-center tw-font-inter-semibold tw-text-[1rem] md:tw-text-[1.1875rem] tw-leading-[1.21rem] md:tw-leading-[1.386875rem]"
-                >
-                  <font-awesome-icon
-                    :class="contactType == 1 ? '' : 'tw-text-[#f2709c]'"
-                    :icon="mail"
-                    class="fa md:tw-mr-2 tw-w-[22.99px] md:tw-w-[28.18px] tw-h-[15.83px] md:tw-h-[24.18px] tw-text-white"
-                    aria-hidden="true"
-                  />
-                  <span
-                    :class="contactType == 1 ? '' : 'v2-canopas-gradient-text'"
-                    >Mail</span
-                  >
-                </div></label
-              >
-            </div>
-          </div>
           <div class="tw-flex tw-justify-center tw-py-5 lg:tw-py-8">
             <img
               v-if="showLoader"
@@ -286,7 +210,6 @@
                 </div>
                 <button
                   id="submit"
-                  v-if="contactType == 1"
                   ref="recaptcha"
                   class="tw-absolute tw-top-[-13px] sm:tw-top-[-20px] tw-right-[-122px] md:tw-right-[-170px] tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 tw-px-20 md:tw-px-28 tw-text-center gradient-btn consultation-btn"
                   @click.prevent="submitForm()"
@@ -297,56 +220,12 @@
                   />
                   <span>Submit</span>
                 </button>
-                <button
-                  v-if="contactType == 2"
-                  class="tw-absolute tw-top-[-13px] sm:tw-top-[-20px] tw-right-[-119px] sm:tw-right-[-155px] md:tw-right-[-170px] tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 sm:tw-px-12 tw-text-center gradient-btn consultation-btn"
-                  @click.prevent="submitForm()"
-                >
-                  <font-awesome-icon
-                    class="fa tw-w-6 tw-h-6"
-                    :icon="calendarIcon"
-                    aria-hidden="true"
-                  />
-                  <span>Schedule Meeting</span>
-                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
     </form>
-    <!-- Show Calendly Iframe -->
-    <div v-if="openCalendlyIframeModal">
-      <transition name="modal">
-        <div
-          class="modal-mask tw-fixed tw-top-0 tw-left-0 tw-w-full tw-h-full tw-table mask tw-z-[1] tw-bg-[#00000080] tw-z-[5]"
-        >
-          <div
-            class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full login-modal modal-xl tw-flex tw-items-center"
-            role="document"
-          >
-            <div
-              class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid tw-p-2.5 tw-rounded-3xl"
-            >
-              <div class="tw-relative tw-p-4 tw-flex-auto">
-                <CalendlyIframe />
-
-                <button
-                  type="button"
-                  class="close modal-close-btn tw-border-none tw-text-pink-300 tw-text-4xl tw-font-light tw-bg-transparent tw-absolute tw-right-2.5 tw-top-0 focus:tw-outline-none"
-                  data-dismiss="modal"
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true" @click="closeCalendlyIframeModal"
-                    >&times;</span
-                  >
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </transition>
-    </div>
   </div>
 </template>
 
@@ -362,7 +241,6 @@ import {
   faEnvelope,
   faCalendarAlt,
 } from "@fortawesome/free-solid-svg-icons";
-const CONTACT_BY_CHAT_OR_MAIL = 1;
 export default {
   data() {
     return {
@@ -397,7 +275,6 @@ export default {
       showSuccessMessage: false,
       showErrorMessage: false,
       contactType: 1,
-      showOptions: config.SHOW_CLIENT_THANKYOU_PAGE,
     };
   },
   components: {
@@ -445,11 +322,7 @@ export default {
             : "NA",
           reference: this.reference,
           invest: this.invest,
-          contact_type:
-            this.contactType == CONTACT_BY_CHAT_OR_MAIL
-              ? "Chat or Email"
-              : "Call",
-          send_mail_to_client: config.SHOW_CLIENT_THANKYOU_PAGE,
+          send_mail_to_client: config.IS_PROD,
         };
         grecaptcha.enterprise.ready(() => {
           grecaptcha.enterprise
@@ -465,33 +338,13 @@ export default {
                   gtag("event", "conversion", {
                     send_to: "AW-11157168108/OpYlCPjY4poYEOy_k8gp",
                   });
-                  if (config.SHOW_CLIENT_THANKYOU_PAGE) {
-                    this.$router.push({
-                      path: "/thank-you",
-                    });
-                    localStorage.setItem(
-                      "client-name",
-                      JSON.stringify(formData.name)
-                    );
-                  } else {
-                    if (this.contactType == CONTACT_BY_CHAT_OR_MAIL) {
-                      this.showSuccessMessage = true;
-                      this.$emit("showMessage", this.showSuccessMessage);
-                      setTimeout(() => {
-                        this.showSuccessMessage = false;
-                        this.$emit("showMessage", this.showSuccessMessage);
-                      }, 3000);
-                    } else {
-                      setTimeout(() => {
-                        this.mixpanel.track("tap_schedule_meeting_click");
-                        this.openCalendlyIframe();
-                        if (this.openCalendlyIframeModal) {
-                          this.showLoader = false;
-                        }
-                      }, 1000);
-                    }
-                    this.contactType = CONTACT_BY_CHAT_OR_MAIL;
-                  }
+                  this.$router.push({
+                    path: "/thank-you",
+                  });
+                  localStorage.setItem(
+                    "client-name",
+                    JSON.stringify(formData.name)
+                  );
                   this.resetForm();
                 })
                 .catch((err) => {
@@ -513,14 +366,6 @@ export default {
             });
         });
       }
-    },
-    openCalendlyIframe() {
-      this.openCalendlyIframeModal = true;
-      this.showLoader = false;
-    },
-    closeCalendlyIframeModal() {
-      this.openCalendlyIframeModal = false;
-      this.mixpanel.track("close_calendly_dialog_error");
     },
     resetForm() {
       this.name = "";

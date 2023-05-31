@@ -2,7 +2,7 @@
   <section>
     <div class="tw-container tw-my-20 md:tw-my-32">
       <div
-        class="tw-flex tw-flex-col lg:tw-flex-row tw-space-x-10 tw-gap-y-20 xl:tw-justify-between"
+        class="tw-flex tw-flex-col lg:tw-flex-row tw-gap-y-20 xl:tw-justify-between"
       >
         <div
           class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-basis-[40%]"
@@ -38,7 +38,7 @@
               class="tw-cursor-pointer"
             >
               <div
-                class="tw-flex tw-flex-col tw-w-fit tw-p-10 tw-gap-y-10 md:tw-gap-y-12 tw-bg-white tw-shadow-[0px_0px_50px_rgba(0,0,0,0.08)]"
+                class="tw-flex tw-flex-col tw-w-fit tw-p-6 sm:tw-p-10 tw-gap-y-10 md:tw-gap-y-12 tw-bg-white tw-shadow-[0px_0px_50px_rgba(0,0,0,0.08)]"
               >
                 <div class="tw-flex tw-flex-row tw-justify-between">
                   <div class="tw-flex tw-flex-col">
@@ -95,7 +95,7 @@
                   </a>
                 </div>
                 <div
-                  class="tw-mx-auto sm:tw-px-10 md:tw-px-6 sm:tw-text-black-core/[0.87] tw-text-black-900"
+                  class="tw-mx-auto md:tw-px-6 sm:tw-text-black-core/[0.87] tw-text-black-900"
                 >
                   <div
                     class="tw-font-roboto-medium tw-text-[1.375rem] md:tw-text-[1.625rem] tw-leading-[1.875rem] md:tw-leading-[2.4375rem] tw-transition-all tw-ease tw-duration-500"
