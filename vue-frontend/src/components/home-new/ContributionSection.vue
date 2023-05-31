@@ -140,7 +140,7 @@ import introShowCaseMp4 from "@/assets/images/contribution/animations/introShowC
 import introShowCaseWebm from "@/assets/images/contribution/animations/introShowCase.webm";
 import jcAnimationsMp4 from "@/assets/images/contribution/animations/JetpackComposeAnimations.mp4";
 import jcAnimationsWebm from "@/assets/images/contribution/animations/JetpackComposeAnimations.webm";
-import Config from "@/config.js";
+import config from "@/config.js";
 import lozad from "lozad";
 import { setGithubStars } from "@/utils.js";
 import { mapState } from "pinia";
@@ -158,10 +158,11 @@ export default {
     return {
       icon: faGithub,
       rightArrow: faArrowRightLong,
-      websiteOpenSourceUrl: Config.WEBSITE_OPEN_SOURCE_URL,
+      websiteOpenSourceUrl: config.WEBSITE_OPEN_SOURCE_URL,
       contributions: [
         {
           title: "Intro Showcase view in jetpack compose",
+          stars: "271",
           description:
             "Highlight different features of the app using Jetpack Compose",
           author: "Radhika S.",
@@ -170,6 +171,7 @@ export default {
         },
         {
           title: "UIPilot",
+          stars: "226",
           description: "The missing typesafe SwiftUI navigation library",
           author: "Jimmy S.",
           video: [uIPilotMp4, uIPilotWebm],
@@ -177,6 +179,7 @@ export default {
         },
         {
           title: "Jetpack Compose animations",
+          stars: "202",
           description: "Cool animations implemented with Jetpack compose",
           author: "Radhika S.",
           video: [jcAnimationsMp4, jcAnimationsWebm],
@@ -186,15 +189,18 @@ export default {
     };
   },
   mounted() {
-    this.$watch(
-      () => this.cData,
-      (data) => {
-        setGithubStars(this.contributions, data);
+    if (!config.IS_PROD) {
+      this.$watch(
+        () => this.cData,
+        (data) => {
+          setGithubStars(this.contributions, data);
+        }
+      );
+      if (this.cData != null) {
+        setGithubStars(this.contributions, this.cData);
       }
-    );
-    if (this.cData != null) {
-      setGithubStars(this.contributions, this.cData);
     }
+
     lozad().observe(); // lazy loads videos with default selector as '.lozad'
   },
   methods: {
