@@ -73,7 +73,6 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 		c.AbortWithStatus(statusCode)
 		return
 	}
-
 	if input.SendMailToClient {
 		clientEmailTemplate := repository.getClientEmailTemplate(input)
 
@@ -84,7 +83,6 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 			return
 		}
 	}
-
 	c.JSON(http.StatusOK, "Contact mail sent successfully")
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="show">
     <metainfo>
       <template v-slot:title="{ content }">
         {{ content }}
@@ -14,6 +14,7 @@
     <ContributionSection />
     <NewFooter />
   </div>
+  <Error404Page v-else />
 </template>
 <script>
 import Header from "@/components/partials/NewHeader.vue";
@@ -27,7 +28,6 @@ const NewFooter = defineAsyncComponent(() =>
 const VirtueView = defineAsyncComponent(() =>
   import("@/components/jobs/VirtuesView.vue")
 );
-
 const LifeAtCanopasVue = defineAsyncComponent(() =>
   import("@/components/jobs/PerksAndBenefits.vue")
 );
@@ -37,7 +37,9 @@ const LatestBlog = defineAsyncComponent(() =>
 const ContributionSection = defineAsyncComponent(() =>
   import("@/components/jobs/thank-you/ContributionSection.vue")
 );
-const Error404Page = () => import("@/components/error404/index.vue");
+const Error404Page = defineAsyncComponent(() =>
+  import("@/components/error404/index.vue")
+);
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -71,23 +73,18 @@ export default {
     LatestBlog,
     ContributionSection,
     NewFooter,
+    Error404Page,
   },
   data() {
     return {
-      applicantName: "Dear Applicant",
+      applicantName: "",
+      show: false,
     };
   },
-  mounted() {
-    this.applicantName = localStorage.getItem("applicant-name")
-      ? JSON.parse(localStorage.getItem("applicant-name"))
-      : "Dear Applicant";
-
-    if (!localStorage.getItem("applicant-name")) {
-      routes.push({
-        path: "/:pathMatch(.*)*",
-        name: "Error404Page",
-        component: Error404Page,
-      });
+  beforeMount() {
+    if (localStorage.getItem("applicant-name")) {
+      this.clientName = JSON.parse(localStorage.getItem("applicant-name"));
+      this.show = true;
     }
   },
 };

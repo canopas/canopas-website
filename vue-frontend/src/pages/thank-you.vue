@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="show">
     <metainfo>
       <template v-slot:title="{ content }">
         {{ content }}
@@ -17,6 +17,7 @@
     </div>
     <NewFooter />
   </div>
+  <Error404Page v-else />
 </template>
 
 <script>
@@ -36,6 +37,10 @@ const ScheduleMeeting = defineAsyncComponent(() =>
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
 );
+const Error404Page = defineAsyncComponent(() =>
+  import("@/components/error404/index.vue")
+);
+
 export default {
   setup() {
     var seoData = config.CLIENT_THANKYOU_SEO_META_DATA;
@@ -59,13 +64,9 @@ export default {
   },
   data() {
     return {
-      clientName: "Dear Client",
+      clientName: "",
+      show: false,
     };
-  },
-  mounted() {
-    this.clientName = localStorage.getItem("client-name")
-      ? JSON.parse(localStorage.getItem("client-name"))
-      : "Dear Client";
   },
   components: {
     Header,
@@ -74,12 +75,12 @@ export default {
     HappyClientSection,
     ScheduleMeeting,
     NewFooter,
+    Error404Page,
   },
-  beforeRouteEnter(to, from, next) {
-    if (config.SHOW_CLIENT_THANKYOU_PAGE === false) {
-      next({ name: "Error404Page", params: { pathMatch: "/thank-you" } });
-    } else {
-      next();
+  beforeMount() {
+    if (localStorage.getItem("client-name")) {
+      this.clientName = JSON.parse(localStorage.getItem("client-name"));
+      this.show = true;
     }
   },
 };
