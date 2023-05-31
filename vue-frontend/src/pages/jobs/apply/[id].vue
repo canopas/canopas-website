@@ -571,6 +571,13 @@ export default {
                 .then(() => {
                   this.isLoad = false;
                   this.showLoader = false;
+                  this.$router.push({
+                    path: `/jobs/thank-you`,
+                  });
+                  localStorage.setItem(
+                    "applicant-name",
+                    JSON.stringify(this.fullName)
+                  );
                   this.fullName = "";
                   this.email = "";
                   this.phoneNumber = "";
@@ -581,19 +588,6 @@ export default {
                   this.$refs.fileUpload.value = null;
                   this.fileButtonName = "Upload";
                   this.mixpanel.track("job_apply_success");
-                  if (config.SHOW_JOBSTHANKYOU_PAGE) {
-                    this.$router.push({
-                      path: `/jobs/thank-you`,
-                    });
-                  } else {
-                    this.showSuccessMessage = true;
-                    setTimeout(() => {
-                      this.showSuccessMessage = false;
-                      this.$router.push({
-                        path: `/jobs`,
-                      });
-                    }, 3000);
-                  }
                 })
                 .catch((err) => {
                   this.isLoad = false;

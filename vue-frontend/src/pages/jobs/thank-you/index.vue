@@ -1,5 +1,5 @@
 <template>
-  <div v-if="show">
+  <div>
     <metainfo>
       <template v-slot:title="{ content }">
         {{ content }}
@@ -14,7 +14,6 @@
     <ContributionSection />
     <NewFooter />
   </div>
-  <Error404Page v-else />
 </template>
 <script>
 import Header from "@/components/partials/NewHeader.vue";
@@ -37,9 +36,7 @@ const LatestBlog = defineAsyncComponent(() =>
 const ContributionSection = defineAsyncComponent(() =>
   import("@/components/jobs/thank-you/ContributionSection.vue")
 );
-const Error404Page = defineAsyncComponent(() =>
-  import("@/components/error404/index.vue")
-);
+
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -73,18 +70,20 @@ export default {
     LatestBlog,
     ContributionSection,
     NewFooter,
-    Error404Page,
   },
   data() {
     return {
       applicantName: "",
-      show: false,
     };
   },
   beforeMount() {
     if (localStorage.getItem("applicant-name")) {
-      this.clientName = JSON.parse(localStorage.getItem("applicant-name"));
-      this.show = true;
+      this.applicantName = JSON.parse(localStorage.getItem("applicant-name"));
+    } else {
+      this.$router.push({
+        name: "Error404Page",
+        params: { pathMatch: ["jobs", "thank-you"] },
+      });
     }
   },
 };
