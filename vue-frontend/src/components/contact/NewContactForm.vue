@@ -68,7 +68,7 @@
               class="tw-relative md:tw-col-span-2 tw-mb-5 md:tw-mb-5 tw-pt-8 tw-text-left"
             >
               <textarea
-                class="tw-block tw-peer tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-font-inter-regular tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
+                class="tw-block tw-peer tw-mx-0 tw-w-full tw-min-h-[50px] md:tw-min-h-[90px] tw-rounded-none tw-border-b tw-border-slate-400 tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-[1rem] md:tw-text-[1.375rem] tw-font-inter-regular tw-leading-[1.21rem] md:tw-leading-[2.0625rem] tw-text-black-core tw-placeholder-black-core/[.6] focus:tw-outline-none active:tw-outline-none"
                 id="project"
                 name="project"
                 rows="3"

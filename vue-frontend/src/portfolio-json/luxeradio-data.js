@@ -78,10 +78,9 @@ import config from "@/config.js";
 export default {
   name: "luxeradio",
   seoData: {
-    title:
-      "Luxe Radio - A Radio, Music Streaming, and Podcast Platform - Canopas",
+    title: "Luxe Radio - A Music Streaming and Podcast Platform | Canopas",
     description:
-      "Luxe Radio is a radio, music streaming, and podcast platform for Moroccan people. We developed mobile apps for iOS, Android, and desktop apps for Mac and Windows.",
+      "Find out how Canopas developed Luxe Radio App, which helped them reach a massive user base.",
     type: "Website",
     url: config.BASE_URL + "/portfolio/luxeradio",
   },

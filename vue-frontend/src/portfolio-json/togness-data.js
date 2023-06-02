@@ -62,9 +62,10 @@ import config from "@/config.js";
 export default {
   name: "togness",
   seoData: {
-    title: "Togness - One app for all your life's occasions - Canopas",
+    title:
+      "Togness - One app for all your life's occasions | Photo and Video Editing App | Canopas",
     description:
-      "Togness is the perfect photo editing and slideshow app for life's occasions. With Android and iOS apps and an admin panel for content management and analytics.",
+      "The only photo and video editor for your memorable occasions. Canopas developed native Android and iOS apps with a backend and admin panel.",
     type: "Website",
     url: config.BASE_URL + "/portfolio/togness",
   },
