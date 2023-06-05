@@ -61,9 +61,9 @@ import config from "@/config.js";
 export default {
   name: "justly",
   seoData: {
-    title: "Canopas Portfolio - Justly - Build Healthy Habits.",
+    title: "Justly - Build healthy habits with Justly Habit Tracker",
     description:
-      "Justly is a startup to help people create healthy habits for better daily life. We developed mobile apps for android and iOS and an admin panel for management.",
+      "Developed Android and iOS apps to help people create healthy habits. A habit tracker to improve your life by 1% every day.",
     type: "Website",
     url: config.BASE_URL + "/portfolio/justly",
   },

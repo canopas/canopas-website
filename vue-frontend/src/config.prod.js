@@ -56,9 +56,9 @@ export default Object.freeze({
     image: "https://canopas.com/apple-touch-icon.png",
   },
   SERVICES_SEO_META_DATA: {
-    title: "Canopas - Fastest growing IT company in Surat, India.",
+    title: "Web and Mobile App Development Services",
     description:
-      "Canopas is a software development company helping businesses grow exponentially by developing mobile apps, websites, web apps, desktop apps, UI/UX, and SEO.",
+      "Canopas offers web and mobile app development services. From app architecture to deployment, we are responsible for every micro detail in your project.",
     type: "Website",
     url: "https://canopas.com/services",
     image: "https://canopas.com/apple-touch-icon.png",
