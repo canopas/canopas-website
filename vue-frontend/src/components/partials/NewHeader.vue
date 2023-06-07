@@ -248,6 +248,13 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
+    if (Config.SHOW_CONTRIBUTION_PAGE) {
+      this.navbars.splice(0, 0, {
+        name: "Contributions",
+        url: "/contributions",
+        event: "tap_header_contributions",
+      });
+    }
     if (
       this.currentRoutePath.includes("portfolio/") &&
       window.innerWidth > 992 &&
