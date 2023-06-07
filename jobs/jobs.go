@@ -196,7 +196,7 @@ func (repository *CareerRepository) InsertJobApplication(input JobsApplicationsD
 	}
 
 	defer stmt.Close()
-	query, err := repository.Db.Prepare(`INSERT INTO jobs_applicant_status (applicant_id, status, ` + "`index`" + `, rejection_with_mail, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`)
+	query, err := repository.Db.Prepare(`INSERT INTO job_applicant_statuses (applicant_id, status, ` + "`index`" + `, rejection_with_mail, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`)
 
 	if err != nil {
 		log.Error(err)

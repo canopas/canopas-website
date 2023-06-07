@@ -89,7 +89,7 @@ func CreateTables(db *sqlx.DB) error {
 	if err != nil {
 		return err
 	}
-	jobsApplicantStatus := "CREATE TABLE IF NOT EXISTS `jobs_applicant_status` (`id` int(10) unsigned NOT NULL AUTO_INCREMENT, `applicant_id` int(10) unsigned NOT NULL DEFAULT 0, `status` int(10) NOT NULL DEFAULT 1, `index` int(10) NOT NULL DEFAULT 0, `rejection_with_mail` tinyint(1) NULL DEFAULT 0, `created_at` timestamp NULL DEFAULT NULL,`updated_at` timestamp NULL DEFAULT NULL, PRIMARY KEY (`id`) ,FOREIGN KEY (`applicant_id`) REFERENCES `job_applications` (`id`))"
+	jobsApplicantStatus := "CREATE TABLE IF NOT EXISTS `job_applicant_statuses` (`id` int(10) unsigned NOT NULL AUTO_INCREMENT, `applicant_id` int(10) unsigned NOT NULL DEFAULT 0, `status` int(10) NOT NULL DEFAULT 1, `index` int(10) NOT NULL DEFAULT 0, `rejection_with_mail` tinyint(1) NULL DEFAULT 0, `created_at` timestamp NULL DEFAULT NULL,`updated_at` timestamp NULL DEFAULT NULL, PRIMARY KEY (`id`) ,FOREIGN KEY (`applicant_id`) REFERENCES `job_applications` (`id`))"
 
 	_, err = db.Exec(jobsApplicantStatus)
 
@@ -105,7 +105,7 @@ func TruncateTables(db *sqlx.DB) {
 
 	db.MustExec("TRUNCATE TABLE jobs")
 	db.MustExec("TRUNCATE TABLE job_applications")
-	db.MustExec("TRUNCATE TABLE jobs_applicant_status")
+	db.MustExec("TRUNCATE TABLE job_applicant_statuses")
 
 	db.MustExec("SET FOREIGN_KEY_CHECKS = 1") // Enable foreign key checks
 }
@@ -113,7 +113,7 @@ func TruncateTables(db *sqlx.DB) {
 func PrepareTablesData(db *sqlx.DB) {
 	db.MustExec("INSERT INTO jobs(`id`, `title`, `summary`, `description`, `button_name`,`qualification`, `employment_type`, `base_salary`, `experience`, `is_active`, `skills`, `total_openings`, `responsibilities`, `icon_name`, `unique_id`, `seo_title`, `seo_description`, `apply_seo_title`, `apply_seo_description`, `created_at`, `updated_at`) VALUES(1, 'IOS Developer', 'We have an opening for a passionate iOS developer who can develop and maintain applications for iOS devices. As an iOS developer you will be a part of a highly agile team tasked with developing new features. If you love to tackle new challenges, we would love to meet you!', '<p><span style=\"color:#16a085;\"><span style=\"font-family:Arial,Helvetica,sans-serif;\">&nbsp;Develop mobile applications (iOS: Swift)</span></span></p>\r\n', 'Apply', 'B.E/B.Tech/BCA/MCA/MSc IT degree in Computer Science, Engineering, or a related subject ', 'full_time', 15000 , '0-3 years', true, '', 1, '','fab fa-apple', 'ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d', 'iOS developer jobs in surat at Canopas, Mobile developer jobs', 'Find iOS developer job in surat. If we hire you as an iOS developer, you will be responsible for designing and coding the base application, ensuring the quality, fixing bugs, maintaining the code, and implementing app updates.', 'Apply for iOS developer job in surat or mobile developer jobs in surat at canopas software', 'Apply for iOS developer job at Canopas and be part of a dynamic and versatile iOS app development team.',  UTC_TIMESTAMP(), UTC_TIMESTAMP())")
 	db.MustExec("INSERT INTO job_applications(`id`, `name`, `email`, `phone`, `place`,`reference`, `resumeURL`, `position`, `message`, `status`, `created_at`, `updated_at`) VALUES(1, 'New Web Developer', 'developer@gmail.com', '1234567890', 'surat', 'From canopas', '', 'Web Developer from testing', 'I m a very good programer', '1',UTC_TIMESTAMP(), UTC_TIMESTAMP())")
-	db.MustExec("INSERT INTO jobs_applicant_status(`id`, `applicant_id`, `status`, `index`, `rejection_with_mail`, `created_at`, `updated_at`) VALUES(1, 1, 1, 0, 0, UTC_TIMESTAMP(), UTC_TIMESTAMP())")
+	db.MustExec("INSERT INTO job_applicant_statuses(`id`, `applicant_id`, `status`, `index`, `rejection_with_mail`, `created_at`, `updated_at`) VALUES(1, 1, 1, 0, 0, UTC_TIMESTAMP(), UTC_TIMESTAMP())")
 }
 
 func PrepareTextFileFormData() (string, *bytes.Buffer) {
