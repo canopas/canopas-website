@@ -88,8 +88,8 @@ export default Object.freeze({
     image: "https://dev-stack.canopas.com/contributions",
   },
   IS_PROD: false,
+  SHOW_CONTRIBUTION_PAGE: true,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
-  SHOW_CONTRIBUTION_PAGE: true,
   MIX_PANEL_TOKEN: "acf7239a736ff487ca6058c981a55d7e",
 });
