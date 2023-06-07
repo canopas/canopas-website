@@ -194,9 +194,29 @@ func (repository *CareerRepository) InsertJobApplication(input JobsApplicationsD
 		log.Error(err)
 		return err
 	}
-	defer stmt.Close()
 
-	_, err = stmt.Exec(input.Name, input.Email, input.Phone, input.Place, input.References, resumeURL, input.JobTitle, input.Message, 1, time.Now(), time.Now())
+	defer stmt.Close()
+	query, err := repository.Db.Prepare(`INSERT INTO jobs_applicant_status (applicant_id, status, ` + "`index`" + `, rejection_with_mail, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`)
+
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+	defer query.Close()
+
+	result, err := stmt.Exec(input.Name, input.Email, input.Phone, input.Place, input.References, resumeURL, input.JobTitle, input.Message, 1, time.Now(), time.Now())
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+
+	responseID, err := result.LastInsertId()
+	if err != nil {
+		log.Error(err)
+		return err
+	}
+
+	_, err = query.Exec(responseID, 1, 0, false, time.Now(), time.Now())
 	if err != nil {
 		log.Error(err)
 		return err
