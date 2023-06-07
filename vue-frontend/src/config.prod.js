@@ -79,7 +79,16 @@ export default Object.freeze({
     url: "https://canopas.com/jobs/thank-you",
     image: "https://canopas.com/apple-touch-icon.png",
   },
+  CONTRIBUTION_SEO_META_DATA: {
+    title: "Canopas Open Source Contributions - Web and Mobile App Development",
+    description:
+      "Explore Canopas' open-source contributions on GitHub and glean expert insights on Medium. Evaluate our exceptional work quality and experience for yourself.",
+    type: "Jobs Posting Website",
+    url: "https://dev-stack.canopas.com/contributions",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
+  },
   IS_PROD: true,
+  SHOW_CONTRIBUTION_PAGE: false,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
   MIX_PANEL_TOKEN: "16b177c2cda3ec1fb11c63a07f27996c",

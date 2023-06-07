@@ -6,6 +6,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
+        xs: "420px",
         sm: "576px",
         md: "768px",
         lg: "992px",
@@ -73,14 +74,14 @@ module.exports = {
       },
       keyframes: {
         zoomIn: {
-          "0%": { transform: "scale(0, 0);" },
-          "50%": { transform: "scale(1, 1);" },
-          "100%": { transform: "scale(0, 0);" },
+          "0%": { transform: "scale(1, 1);" },
+          "50%": { transform: "scale(1.5, 1.5);" },
+          "100%": { transform: "scale(1, 1);" },
         },
         zoomOut: {
-          "0%": { transform: "scale(1, 1);" },
-          "50%": { transform: "scale(0, 0);" },
-          "100%": { transform: "scale(1, 1);" },
+          "0%": { transform: "scale(1.5, 1.5);" },
+          "50%": { transform: "scale(1, 1);" },
+          "100%": { transform: "scale(1.5, 1.5);" },
         },
         typingErase: {
           "0%": { width: "0;" },
