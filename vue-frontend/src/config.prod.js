@@ -84,12 +84,13 @@ export default Object.freeze({
     description:
       "Explore Canopas' open-source contributions on GitHub and glean expert insights on Medium. Evaluate our exceptional work quality and experience for yourself.",
     type: "Jobs Posting Website",
-    url: "https://dev-stack.canopas.com/contributions",
-    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
+    url: "https://canopas.com/contributions",
+    image: "https://canopas.com/contributions",
   },
   IS_PROD: true,
   SHOW_CONTRIBUTION_PAGE: false,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
+  SHOW_CONTRIBUTION_PAGE: false,
   MIX_PANEL_TOKEN: "16b177c2cda3ec1fb11c63a07f27996c",
 });

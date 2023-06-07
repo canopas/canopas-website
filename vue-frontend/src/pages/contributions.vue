@@ -9,9 +9,10 @@
     <div class="tw-overflow-hidden">
       <MobileLandingSection class="tw-block md:tw-hidden" />
       <DesktopLandingSection class="tw-hidden md:tw-block" />
+      <GithubContribution />
     </div>
     <NewFooter />
-  </div>
+
 </template>
 
 <script>
@@ -25,6 +26,7 @@ import { defineAsyncComponent } from "vue";
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
 );
+import GithubContribution from "@/components/contribution/GithubContribution.vue";
 export default {
   setup() {
     var seoData = config.CONTRIBUTION_SEO_META_DATA;
@@ -50,6 +52,7 @@ export default {
     Header,
     MobileLandingSection,
     DesktopLandingSection,
+    GithubContribution,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
