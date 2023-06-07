@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-mb-32 lg:tw-mb-48 tw-mt-[25px]">
+  <section class="tw-mb-48 2xl:tw-mb-[14rem] 2xll:tw-mb-[16rem] tw-mt-[25px]">
     <div
       class="tw-relative xll:tw-container tw-w-full tw-h-full tw-bg-gradient-to-r tw-from-[#FFFFFF] tw-via-[#F2709C]/[0.05] tw-to-[#FFFFFF] tw-bg-gradient-[180.05deg] tw-pb-16 lg:tw-pt-[3rem]"
     >

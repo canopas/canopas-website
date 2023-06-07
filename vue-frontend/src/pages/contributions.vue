@@ -12,7 +12,7 @@
       <GithubContribution />
     </div>
     <NewFooter />
-
+  </div>
 </template>
 
 <script>

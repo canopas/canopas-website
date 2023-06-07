@@ -1,6 +1,6 @@
 <template>
   <section
-    class="tw-mb-80 tw-h-[470px] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.1] tw-to-[#F2709C]/[0.1] tw-bg-gradient-[270.11deg]"
+    class="tw-mb-16 tw-h-[470px] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.1] tw-to-[#F2709C]/[0.1] tw-bg-gradient-[270.11deg]"
   >
     <div class="tw-relative tw-block md:tw-hidden">
       <div
