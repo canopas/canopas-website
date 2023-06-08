@@ -61,11 +61,12 @@
 </template>
 
 <script type="module">
-import mobileApp800w from "@/assets/images/service/mobileapp-800w.webp";
-import seo800w from "@/assets/images/service/seo-800w.webp";
-import softwaretesting800w from "@/assets/images/service/softwaretesting-800w.webp";
+import androidApp800w from "@/assets/images/service/androidapp-800w.webp";
+import flutterApp800w from "@/assets/images/service/flutterapp-800w.webp";
+import frontend800w from "@/assets/images/service/frontend-800w.webp";
+import backend800w from "@/assets/images/service/backend-800w.webp";
 import uiuxdesign800w from "@/assets/images/service/uiuxdesign-800w.webp";
-import webapp800w from "@/assets/images/service/webapp-800w.webp";
+import iosApp800w from "@/assets/images/service/iosapp-800w.webp";
 import { elementInViewPort } from "@/utils";
 
 export default {
@@ -74,19 +75,24 @@ export default {
       services: [
         {
           path: [0, 0],
-          image: mobileApp800w,
-          title: "Mobile App Development",
+          image: androidApp800w,
+          title: "Android App Development",
           description:
-            "When you've spent over a decade building apps you learn a lot about the ins and outs of the mobile world. It's for that reason that at Canopas we've crafted specialized app solutions for our clients that help ensure \
-             their mobile apps are next level when they launch, and stay that way as they grow. From native to hybrid, we've got you covered.",
+            "Take your business to new heights with an Android app! Tap into a global user base, boost customer engagement, communicate directly, and gather insightful data. Plus, enhance your visibility, add revenue streams, and provide top-notch customer service. With over a decade of expertise in Android app development, our team can help you craft high-quality, user-friendly apps that drive business growth and customer engagement. ",
         },
         {
           path: [100, 100],
-          image: webapp800w,
-          title: "Web App Development",
+          image: iosApp800w,
+          title: "iPhone/iOS App Development",
           description:
-            "Web apps are complex, so you'll be wanting some proven experience in your corner. We've been specialized app developers for over a decade, you're in safe hands. Our team of web engineers will save your website from the evil forces of slow load times and outdated design.\
-             So, if you're in need of a web superhero, call us today, and let the magic begin!",
+            "Our seasoned iOS developers specialize in creating aesthetically pleasing, intuitive, and user-friendly apps that seamlessly function across all Apple devices. We leverage the latest iOS technologies to deliver solutions that give you an edge in the competitive Apple app market. Plus, our team follows Human Interface Guidelines defined by Apple to deliver exceptional user experience.",
+        },
+        {
+          path: [100, 100],
+          image: flutterApp800w,
+          title: "Flutter App Development ",
+          description:
+            "Bring your multi-platform app vision to life with our Flutter app development services. We excel in crafting high-quality, stunning applications that work flawlessly on Android, iOS, and the web, all from a single codebase, facilitating faster time to market and cost savings.",
         },
         {
           path: [100, 100],
@@ -98,19 +104,17 @@ export default {
         },
         {
           path: [100, 100],
-          image: seo800w,
-          title: "SEO / Digital Marketer",
+          image: backend800w,
+          title: "Backend Development",
           description:
-            "To scale your business exponentially you have to get organic reach for your business and we know how to do it. In just one year, \
-            we grew from 16 daily impressions to 24369 daily impressions. 1500X impressions growth under one year. We know how it works and what it takes.",
+            "The 'behind-the-scenes' backbone of any app, the backend, handles the critical tasks of data management, server configuration, and application logic. Our experts ensure your app is robust, secure, and efficient from its core, enabling it to handle high traffic loads, process data swiftly, and interact flawlessly with front-end requests.",
         },
         {
           path: [100, 100],
-          image: softwaretesting800w,
-          title: "Software Testing",
+          image: frontend800w,
+          title: "Frontend Development",
           description:
-            "From unit testing to Test Driven Development, Manual Testing to Automation Testing, our team of QA specialists will work with engineers to make sure you get products built to last, \
-            with the highest standards, so that you can rely on your solution for years to come.",
+            "The front end is the first point of interaction between your users and your app, making its design and functionality crucial. We focus on creating interactive, visually stunning, and easy-to-navigate interfaces that make your digital presence stand out, promoting enhanced user satisfaction and brand loyalty. ",
         },
       ],
       lastScrollY: 0,

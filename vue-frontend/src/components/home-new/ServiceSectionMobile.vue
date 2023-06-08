@@ -76,7 +76,7 @@ export default {
       ServiceBackgroundImage,
       services: [
         {
-          title: "Mobile Development",
+          title: "Mobile App Development",
           content:
             "Whether your goal is to acquire new users, improve your retention rate, or increase in-app sales, our team will guide you based on our decade-long experience. From native to hybrid, we've got you covered.",
           image: circle1,
@@ -90,23 +90,23 @@ export default {
           bullet: bullet2,
         },
         {
-          title: "UI/UX Design",
+          title: "Custom Software Development",
           content:
-            "We design user-centered UI/UX followed by user testing. We make design decisions based on only one thing: Data. Because it ensures our clients get value from our work.",
+            "Unlock your business growth with tailored solutions for unique business needs, enabling scalability, seamless integration, competitive edge, long-term cost efficiency, and enhanced security.",
           image: circle3,
           bullet: bullet3,
         },
         {
-          title: "SEO",
+          title: "UI/UX Design",
           content:
-            "To scale your business exponentially you have to get organic reach for your businesses and we know how to do it. In just one year, we grew from 16 daily impressions to 24369 daily impressions. 1500X impressions growth under one year.",
+            "We design user-centered UI/UX followed by user testing. We make design decisions based on only one thing: Data. Because it ensures our clients get value from our work.",
           image: circle4,
           bullet: bullet1,
         },
         {
-          title: "Software Testing",
+          title: "DevOps and Maintenance",
           content:
-            "Prevention is better than cure. Our development team lives by this motto. We write unit tests from the very early stages of development to ensure future maintainability, extendibility, and rapid development.",
+            "Our team values prevention over cure, writes unit tests from an early stage of the project for future maintainability, extendibility, and quick development, and uses auto-deployment to save time.",
           image: circle5,
           bullet: bullet1,
         },

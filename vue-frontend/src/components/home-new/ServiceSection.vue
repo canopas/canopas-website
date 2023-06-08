@@ -76,19 +76,19 @@ export default {
             "Whether you need help with websites, web apps, an admin panel, an analytical dashboard, or desktop apps, our engineers will develop scalable backend and front-end solutions.",
         },
         {
+          title: "Custom Software Development",
+          content:
+            "Unlock your business growth with tailored solutions for unique business needs, enabling scalability, seamless integration, competitive edge, long-term cost efficiency, and enhanced security.",
+        },
+        {
           title: "UI/UX Design",
           content:
             "We design user-centered UI/UX followed by user testing. We make design decisions based on only one thing: Data. Because it ensures our clients get value from our work.",
         },
         {
-          title: "SEO",
+          title: "DevOps and Maintenance",
           content:
-            "To scale your business exponentially you have to get organic reach for your businesses and we know how to do it. In just one year, we grew from 16 daily impressions to 24369 daily impressions. 1500X impressions growth under one year.",
-        },
-        {
-          title: "Software Testing",
-          content:
-            "Prevention is better than cure. Our development team lives by this motto. We write unit tests from the very early stages of development to ensure future maintainability, extendibility, and rapid development.",
+            "Our team values prevention over cure, writes unit tests from an early stage of the project for future maintainability, extendibility, and quick development, and uses auto-deployment to save time.",
         },
       ],
     };
