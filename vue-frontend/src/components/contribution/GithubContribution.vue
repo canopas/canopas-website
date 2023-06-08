@@ -224,47 +224,47 @@
 <script>
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import android1_400w from "@/assets/images/contributions/github/android-1-400w.webp";
-import android1_800w from "@/assets/images/contributions/github/android-1-800w.webp";
-import android2_400w from "@/assets/images/contributions/github/android-2-400w.webp";
-import android2_800w from "@/assets/images/contributions/github/android-2-800w.webp";
-import android3_400w from "@/assets/images/contributions/github/android-3-400w.webp";
-import android3_800w from "@/assets/images/contributions/github/android-3-800w.webp";
-import ios1_400w from "@/assets/images/contributions/github/ios-1-400w.webp";
-import ios1_800w from "@/assets/images/contributions/github/ios-1-800w.webp";
-import ios2_400w from "@/assets/images/contributions/github/ios-2-400w.webp";
-import ios2_800w from "@/assets/images/contributions/github/ios-2-800w.webp";
-import ios3_400w from "@/assets/images/contributions/github/ios-3-400w.webp";
-import ios3_800w from "@/assets/images/contributions/github/ios-3-800w.webp";
-import web1_400w from "@/assets/images/contributions/github/web-1-400w.webp";
-import web1_800w from "@/assets/images/contributions/github/web-1-800w.webp";
-import web2_400w from "@/assets/images/contributions/github/web-2-400w.webp";
-import web2_800w from "@/assets/images/contributions/github/web-2-800w.webp";
-import web3_400w from "@/assets/images/contributions/github/web-3-400w.webp";
-import web3_800w from "@/assets/images/contributions/github/web-3-800w.webp";
-import web4_400w from "@/assets/images/contributions/github/web-4-400w.webp";
-import web4_800w from "@/assets/images/contributions/github/web-4-800w.webp";
-import deskandroid1_400w from "@/assets/images/contributions/github/desk-android-1-400w.webp";
-import deskandroid1_800w from "@/assets/images/contributions/github/desk-android-1-800w.webp";
-import deskandroid2_400w from "@/assets/images/contributions/github/desk-android-2-400w.webp";
-import deskandroid2_800w from "@/assets/images/contributions/github/desk-android-2-800w.webp";
-import deskandroid3_400w from "@/assets/images/contributions/github/desk-android-3-400w.webp";
-import deskandroid3_800w from "@/assets/images/contributions/github/desk-android-3-800w.webp";
-import deskios1_400w from "@/assets/images/contributions/github/desk-ios-1-400w.webp";
-import deskios1_800w from "@/assets/images/contributions/github/desk-ios-1-800w.webp";
-import deskios2_400w from "@/assets/images/contributions/github/desk-ios-2-400w.webp";
-import deskios2_800w from "@/assets/images/contributions/github/desk-ios-2-800w.webp";
-import deskios3_400w from "@/assets/images/contributions/github/desk-ios-3-400w.webp";
-import deskios3_800w from "@/assets/images/contributions/github/desk-ios-3-800w.webp";
+import android1_400w from "@/assets/images/contributions/github/mobile/android-1-400w.webp";
+import android1_800w from "@/assets/images/contributions/github/mobile/android-1-800w.webp";
+import android2_400w from "@/assets/images/contributions/github/mobile/android-2-400w.webp";
+import android2_800w from "@/assets/images/contributions/github/mobile/android-2-800w.webp";
+import android3_400w from "@/assets/images/contributions/github/mobile/android-3-400w.webp";
+import android3_800w from "@/assets/images/contributions/github/mobile/android-3-800w.webp";
+import ios1_400w from "@/assets/images/contributions/github/mobile/ios-1-400w.webp";
+import ios1_800w from "@/assets/images/contributions/github/mobile/ios-1-800w.webp";
+import ios2_400w from "@/assets/images/contributions/github/mobile/ios-2-400w.webp";
+import ios2_800w from "@/assets/images/contributions/github/mobile/ios-2-800w.webp";
+import ios3_400w from "@/assets/images/contributions/github/mobile/ios-3-400w.webp";
+import ios3_800w from "@/assets/images/contributions/github/mobile/ios-3-800w.webp";
+import web1_400w from "@/assets/images/contributions/github/mobile/web-1-400w.webp";
+import web1_800w from "@/assets/images/contributions/github/mobile/web-1-800w.webp";
+import web2_400w from "@/assets/images/contributions/github/mobile/web-2-400w.webp";
+import web2_800w from "@/assets/images/contributions/github/mobile/web-2-800w.webp";
+import web3_400w from "@/assets/images/contributions/github/mobile/web-3-400w.webp";
+import web3_800w from "@/assets/images/contributions/github/mobile/web-3-800w.webp";
+import web4_400w from "@/assets/images/contributions/github/mobile/web-4-400w.webp";
+import web4_800w from "@/assets/images/contributions/github/mobile/web-4-800w.webp";
+import desktop_android1_400w from "@/assets/images/contributions/github/desktop/android-1-400w.webp";
+import desktop_android1_800w from "@/assets/images/contributions/github/desktop/android-1-800w.webp";
+import desktop_android2_400w from "@/assets/images/contributions/github/desktop/android-2-400w.webp";
+import desktop_android2_800w from "@/assets/images/contributions/github/desktop/android-2-800w.webp";
+import desktop_android3_400w from "@/assets/images/contributions/github/desktop/android-3-400w.webp";
+import desktop_android3_800w from "@/assets/images/contributions/github/desktop/android-3-800w.webp";
+import desktop_ios1_400w from "@/assets/images/contributions/github/desktop/ios-1-400w.webp";
+import desktop_ios1_800w from "@/assets/images/contributions/github/desktop/ios-1-800w.webp";
+import desktop_ios2_400w from "@/assets/images/contributions/github/desktop/ios-2-400w.webp";
+import desktop_ios2_800w from "@/assets/images/contributions/github/desktop/ios-2-800w.webp";
+import desktop_ios3_400w from "@/assets/images/contributions/github/desktop/ios-3-400w.webp";
+import desktop_ios3_800w from "@/assets/images/contributions/github/desktop/ios-3-800w.webp";
 
-import deskweb1_400w from "@/assets/images/contributions/github/desk-web-1-400w.webp";
-import deskweb1_800w from "@/assets/images/contributions/github/desk-web-1-800w.webp";
-import deskweb2_400w from "@/assets/images/contributions/github/desk-web-2-400w.webp";
-import deskweb2_800w from "@/assets/images/contributions/github/desk-web-2-800w.webp";
-import deskweb3_400w from "@/assets/images/contributions/github/desk-web-3-400w.webp";
-import deskweb3_800w from "@/assets/images/contributions/github/desk-web-3-800w.webp";
-import deskweb4_400w from "@/assets/images/contributions/github/desk-web-4-400w.webp";
-import deskweb4_800w from "@/assets/images/contributions/github/desk-web-4-800w.webp";
+import desktop_web1_400w from "@/assets/images/contributions/github/desktop/web-1-400w.webp";
+import desktop_web1_800w from "@/assets/images/contributions/github/desktop/web-1-800w.webp";
+import desktop_web2_400w from "@/assets/images/contributions/github/desktop/web-2-400w.webp";
+import desktop_web2_800w from "@/assets/images/contributions/github/desktop/web-2-800w.webp";
+import desktop_web3_400w from "@/assets/images/contributions/github/desktop/web-3-400w.webp";
+import desktop_web3_800w from "@/assets/images/contributions/github/desktop/web-3-800w.webp";
+import desktop_web4_400w from "@/assets/images/contributions/github/desktop/web-4-400w.webp";
+import desktop_web4_800w from "@/assets/images/contributions/github/desktop/web-4-800w.webp";
 
 import contributor1 from "@/assets/images/contributions/github/contributors/contributor-1-100w.webp";
 import contributor2 from "@/assets/images/contributions/github/contributors/contributor-2-100w.webp";
@@ -326,7 +326,7 @@ export default {
         {
           id: 1,
           image: [android1_400w, android1_800w],
-          deskImage: [deskandroid1_400w, deskandroid1_800w],
+          deskImage: [desktop_android1_400w, desktop_android1_800w],
           link: "https://github.com/canopas/Intro-showcase-view",
           language: "Kotlin",
           color: "tw-bg-[#A97BFF]",
@@ -350,7 +350,7 @@ export default {
         {
           id: 2,
           image: [android2_400w, android2_800w],
-          deskImage: [deskandroid2_400w, deskandroid2_800w],
+          deskImage: [desktop_android2_400w, desktop_android2_800w],
           link: "https://github.com/canopas/Jetpack-compose-animations-examples",
           language: "Kotlin",
           color: "tw-bg-[#A97BFF]",
@@ -373,7 +373,7 @@ export default {
         {
           id: 3,
           image: [android3_400w, android3_800w],
-          deskImage: [deskandroid3_400w, deskandroid3_800w],
+          deskImage: [desktop_android3_400w, desktop_android3_800w],
           link: "https://github.com/canopas/JetCountrypicker",
           language: "Kotlin",
           color: "tw-bg-[#A97BFF]",
@@ -400,7 +400,7 @@ export default {
         {
           id: 4,
           image: [ios1_400w, ios1_800w],
-          deskImage: [deskios1_400w, deskios1_800w],
+          deskImage: [desktop_ios1_400w, desktop_ios1_800w],
           link: "https://github.com/canopas/UIPilot",
           language: "Swift",
           color: "tw-bg-[#F05138]",
@@ -426,7 +426,7 @@ export default {
         {
           id: 5,
           image: [ios2_400w, ios2_800w],
-          deskImage: [deskios2_400w, deskios2_800w],
+          deskImage: [desktop_ios2_400w, desktop_ios2_800w],
           link: "https://github.com/canopas/Swiftui-animations-examples",
           language: "Swift",
           color: "tw-bg-[#F05138]",
@@ -446,7 +446,7 @@ export default {
         {
           id: 6,
           image: [ios3_400w, ios3_800w],
-          deskImage: [deskios3_400w, deskios3_800w],
+          deskImage: [desktop_ios3_400w, desktop_ios3_800w],
           link: "https://github.com/canopas/iOS-developer-roadmap",
           language: "Swift",
           color: "tw-bg-[#F05138]",
@@ -467,7 +467,7 @@ export default {
         {
           id: 7,
           image: [web1_400w, web1_800w],
-          deskImage: [deskweb1_400w, deskweb1_800w],
+          deskImage: [desktop_web1_400w, desktop_web1_800w],
           link: "https://github.com/canopas/tailwind-animations",
           language: "JavaScript",
           color: "tw-bg-[#F1E05A]",
@@ -488,7 +488,7 @@ export default {
         {
           id: 8,
           image: [web2_400w, web2_800w],
-          deskImage: [deskweb2_400w, deskweb2_800w],
+          deskImage: [desktop_web2_400w, desktop_web2_800w],
 
           link: "https://github.com/canopas/web-developer-roadmap-2023",
           language: "JAVA",
@@ -510,8 +510,7 @@ export default {
         {
           id: 9,
           image: [web3_400w, web3_800w],
-          deskImage: [deskweb3_400w, deskweb3_800w],
-
+          deskImage: [desktop_web4_400w, desktop_web4_800w],
           link: "https://github.com/canopas/canopas-blog",
           language: "JavaScript",
           color: "tw-bg-[#F1E05A]",
@@ -538,7 +537,7 @@ export default {
         {
           id: 10,
           image: [web4_400w, web4_800w],
-          deskImage: [deskweb4_400w, deskweb4_800w],
+          deskImage: [desktop_web3_400w, desktop_web3_800w],
           link: "https://github.com/canopas/canopas-website",
           language: "Vue",
           color: "tw-bg-[#41B883]",
