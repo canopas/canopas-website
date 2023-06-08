@@ -83,9 +83,9 @@ export default Object.freeze({
     title: "Canopas Open Source Contributions - Web and Mobile App Development",
     description:
       "Explore Canopas' open-source contributions on GitHub and glean expert insights on Medium. Evaluate our exceptional work quality and experience for yourself.",
-    type: "Jobs Posting Website",
+    type: "Website",
     url: "https://canopas.com/contributions",
-    image: "https://canopas.com/contributions",
+    image: "https://canopas.com/apple-touch-icon.png",
   },
   IS_PROD: true,
   SHOW_CONTRIBUTION_PAGE: false,

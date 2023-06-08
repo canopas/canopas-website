@@ -10,6 +10,7 @@
       <MobileLandingSection class="tw-block md:tw-hidden" />
       <DesktopLandingSection class="tw-hidden md:tw-block" />
       <GithubContribution />
+      <Favourite />
     </div>
     <NewFooter />
   </div>
@@ -17,16 +18,21 @@
 
 <script>
 import Header from "@/components/partials/NewHeader.vue";
+import { useMeta } from "vue-meta";
 import MobileLandingSection from "@/components/contribution/MobileLanding.vue";
 import DesktopLandingSection from "@/components/contribution/DesktopLanding.vue";
 import config from "@/config.js";
 
-import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
+const GithubContribution = defineAsyncComponent(() =>
+  import("@/components/contribution/GithubContribution.vue")
+);
+const Favourite = defineAsyncComponent(() =>
+  import("@/components/contribution/Favourite.vue")
+);
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
 );
-import GithubContribution from "@/components/contribution/GithubContribution.vue";
 export default {
   setup() {
     var seoData = config.CONTRIBUTION_SEO_META_DATA;
@@ -53,6 +59,7 @@ export default {
     MobileLandingSection,
     DesktopLandingSection,
     GithubContribution,
+    Favourite,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
