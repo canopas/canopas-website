@@ -11,7 +11,7 @@
 
     <div v-else>
       <div
-        class="tw-container tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
+        class="tw-container tw-mt-[30px] lg:tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
       >
         <div
           class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[15px] tw-py-[32px] tw-px-[24px] md:tw-pt-[48px] md:tw-px-[48px] md:tw-pb-0"
@@ -234,7 +234,7 @@
               <input
                 type="checkbox"
                 id="checkbox"
-                class="md:tw-mt-[-25px] xl:tw-mt-[-23px] 2xl:tw-mt-[-17px] tw-w-[1.5rem] tw-h-[1.5rem] tw-rounded-[5px] tw-accent-pink-500"
+                class="tw-mt-[-51px] md:tw-mt-[-25px] xl:tw-mt-[-23px] 2xl:tw-mt-[-17px] tw-w-[1.5rem] tw-h-[1.5rem] tw-rounded-[5px] tw-accent-pink-500"
                 checked
               />
               <label
@@ -244,7 +244,7 @@
                 and does not offer remote job positions.</label
               >
             </div>
-            <div class="tw-flex tw-justify-center tw-mt-12">
+            <div class="tw-flex tw-justify-center tw-mt-4">
               <img
                 class="tw-mt-[1.25rem] tw-mx-auto tw-mb-0 tw-py-0 tw-px-[64px] md:tw-px-[80px] lg:tw-mt-[1.25rem] lg:tw-mx-[0.5rem] lg:tw-mb-0"
                 :src="loaderImage"
