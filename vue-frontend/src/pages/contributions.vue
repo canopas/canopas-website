@@ -11,6 +11,7 @@
       <DesktopLandingSection class="tw-hidden md:tw-block" />
       <GithubContribution />
       <Favourite />
+      <UnitTest />
     </div>
     <NewFooter />
   </div>
@@ -30,6 +31,10 @@ const GithubContribution = defineAsyncComponent(() =>
 const Favourite = defineAsyncComponent(() =>
   import("@/components/contribution/Favourite.vue")
 );
+const UnitTest = defineAsyncComponent(() =>
+  import("@/components/contribution/UnitTest.vue")
+);
+
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
 );
@@ -60,6 +65,7 @@ export default {
     DesktopLandingSection,
     GithubContribution,
     Favourite,
+    UnitTest,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
