@@ -40,10 +40,9 @@
               >Monthly minutes Read on blog
             </span>
           </div>
-          <img
-            :src="github"
+          <font-awesome-icon
             class="tw-w-4 tw-h-4 tw-animate-zoomIn"
-            alt="mobile-background-icon"
+            :icon="github"
           />
         </div>
         <div
@@ -57,12 +56,11 @@
               icon="star"
             />
           </div>
-          <img
-            :src="medium"
-            class="tw-w-[17px] tw-h-[10px] tw-animate-zoomOut"
-            alt="mobile-background-icon"
-          />
 
+          <font-awesome-icon
+            class="tw-w-[17px] tw-h-[10px] tw-animate-zoomOut"
+            :icon="medium"
+          />
           <div
             class="tw-flex tw-flex-col tw-items-center tw-justify-center tw--mt-6 tw-w-[98px] xs:tw-w-[120px] lg:tw-w-[150px] tw-h-[70px] xs:tw-h-[100px] tw-rounded-md tw-drop-shadow-md tw-text-center tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] lg:tw-p-[20px]"
           >
@@ -81,11 +79,16 @@
         <div
           class="tw-flex tw-flex-col tw-justify-between tw-items-center tw-gap-y-5 tw-mt-[50px]"
         >
-          <img
-            :src="star237"
-            class="tw-ml-[30px] xs:tw-ml-[40px] tw-w-[40px] tw-h-[20px] tw-animate-zoomIn"
-            alt="mobile-background-icon"
-          />
+          <div
+            class="tw-flex tw-flex-row tw-gap-x-[2px] tw-items-center tw-justify-center tw-ml-[30px] xs:tw-ml-[40px] tw-w-[52px] tw-h-[22px] tw-rounded-full tw-drop-shadow-md tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center tw-text-white tw-animate-zoomIn"
+          >
+            <img
+              :src="clapsmall"
+              class="tw-w-[12px] tw-h-[14px]"
+              alt="desktop-background-icon"
+            />
+            <span class="tw-font-inter-semibold">237</span>
+          </div>
 
           <div
             class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-w-[80px] tw-h-[80px] tw-rounded-md tw-bg-white tw-text-center tw-drop-shadow-md"
@@ -126,25 +129,24 @@
 </template>
 
 <script type="module">
-import heartlike from "@/assets/images/ContributionPage/mobile/heart_like.webp";
-import star237 from "@/assets/images/ContributionPage/mobile/237stars.webp";
-import githubicon from "@/assets/images/ContributionPage/desktop/githubicon.webp";
+import heartlike from "@/assets/images/contributions/landing/mobile_heart_like.webp";
+import githubicon from "@/assets/images/contributions/landing/githubicon.webp";
+import clapsmall from "@/assets/images/contributions/landing/clap-small.webp";
 
-import medium from "@/assets/images/ContributionPage/mobile/medium.webp";
-import dribble from "@/assets/images/ContributionPage/mobile/dribble.webp";
+import dribble from "@/assets/images/contributions/landing/dribble.webp";
+import { faMediumM, faGithub } from "@fortawesome/free-brands-svg-icons";
 
-import github from "@/assets/images/ContributionPage/mobile/github.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 export default {
   data() {
     return {
       heartlike,
-      medium,
       dribble,
-      github,
-      star237,
+      clapsmall,
       githubicon,
+      medium: faMediumM,
+      github: faGithub,
     };
   },
   components: {

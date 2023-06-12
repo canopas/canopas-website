@@ -23,16 +23,20 @@
       <div
         class="tw-absolute tw-top-0 lg:tw-top-[30px] tw-left-[10%] tw-flex tw-flex-col tw-justify-between tw-gap-y-12 lg:tw-gap-y-20 2xl:tw-gap-y-24 tw-w-[80%]"
       >
-        <img
-          :src="github"
+        <font-awesome-icon
           class="tw--ml-3 tw-w-5 lg:tw-w-7 tw-h-[1.25rem] lg:tw-h-7 tw-animate-zoomIn"
-          alt="desktop-background-icon"
+          :icon="github"
         />
-        <img
-          :src="star315"
-          class="tw--ml-16 tw-w-[50px] lg:tw-w-[75px] tw-h-[25px] lg:tw-h-[33px] tw-animate-zoomOut"
-          alt="mobile-background-icon"
-        />
+        <div
+          class="tw-flex tw-flex-row tw-items-center tw-gap-x-1.5 tw-justify-center tw--ml-16 tw-w-[65px] tw-h-[25px] tw-rounded-full tw-drop-shadow-md tw-text-center tw-text-white tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-animate-zoomOut"
+        >
+          <img
+            :src="clapsmall"
+            class="tw-w-[16px] tw-h-[18px]"
+            alt="desktop-background-icon"
+          />
+          <span class="tw-font-inter-semibold">315</span>
+        </div>
         <img
           :src="heartlike"
           class="tw-ml-[35px] lg:tw-ml-[52px] xl:tw-ml-[96px] tw--mt-[52px] lg:tw--mt-[90px] tw-w-10 tw-h-10 tw-animate-zoomIn"
@@ -111,10 +115,9 @@
         <div
           class="tw-flex tw-flex-col tw-justify-between tw-gap-y-36 lg:tw-gap-y-40 xl:tw-gap-y-48 2xl:tw-gap-y-56"
         >
-          <img
-            :src="medium"
+          <font-awesome-icon
             class="tw--ml-6 tw-w-5 lg:tw-w-7 tw-h-[1rem] tw-animate-zoomIn"
-            alt="desktop-background-icon"
+            :icon="medium"
           />
           <div
             class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-w-[95px] xl:tw-w-[120px] tw-h-[75px] xl:tw-h-[95px] tw-rounded-md tw-bg-white tw-text-center tw-drop-shadow-md"
@@ -137,21 +140,26 @@
         </div>
       </div>
       <div
-        class="tw-absolute tw-left-[90%] tw-top-[3%] 2xll:tw--top-[7%] tw-flex tw-flex-row tw-justify-between tw-w-[80%]"
+        class="tw-absolute tw-left-[90%] tw--top-[10%] lg:tw-top-[3%] 2xll:tw--top-[7%] tw-flex tw-flex-row tw-justify-between tw-w-[80%]"
       >
         <div
-          class="tw-flex tw-flex-col tw-justify-between tw-gap-y-20 lg:tw-gap-28 2xl:tw-gap-y-36"
+          class="tw-flex tw-flex-col tw-justify-between tw-gap-y-20 lg:tw-gap-20 xl:tw-gap-28 2xl:tw-gap-y-36"
         >
           <img
             :src="clap"
             class="tw-w-14 tw-h-14 tw-animate-zoomOut"
             alt="desktop-background-icon"
           />
-          <img
-            :src="star237"
-            class="tw-ml-5 tw-w-[50px] lg:tw-w-[65px] tw-h-[25px] lg:tw-h-[30px] tw-animate-zoomIn"
-            alt="desktop-background-icon"
-          />
+          <div
+            class="tw-flex tw-flex-row tw-gap-x-1.5 tw-items-center tw-justify-center tw--ml-[30px] lg:tw-ml-5 tw-w-[65px] tw-h-[30px] tw-rounded-full tw-drop-shadow-md tw-from-[#ff835b] tw-to-[#f2709c] tw-bg-gradient-[270.11deg] tw-text-center tw-text-white tw-animate-zoomIn"
+          >
+            <img
+              :src="clapsmall"
+              class="tw-w-[16px] tw-h-[18px]"
+              alt="desktop-background-icon"
+            />
+            <span class="tw-font-inter-semibold">237</span>
+          </div>
         </div>
       </div>
     </div>
@@ -159,28 +167,26 @@
 </template>
 
 <script type="module">
-import heartlike from "@/assets/images/ContributionPage/desktop/heart_like.webp";
-import clap from "@/assets/images/ContributionPage/desktop/clap.webp";
-import star237 from "@/assets/images/ContributionPage/desktop/237.webp";
-import star315 from "@/assets/images/ContributionPage/desktop/315.webp";
+import heartlike from "@/assets/images/contributions/landing/heart_like.webp";
+import clap from "@/assets/images/contributions/landing/clap.webp";
+import clapsmall from "@/assets/images/contributions/landing/clap-small.webp";
 
-import githubicon from "@/assets/images/ContributionPage/desktop/githubicon.webp";
-import medium from "@/assets/images/ContributionPage/desktop/medium.webp";
-import dribble from "@/assets/images/ContributionPage/desktop/dribble.webp";
+import githubicon from "@/assets/images/contributions/landing/githubicon.webp";
+import dribble from "@/assets/images/contributions/landing/dribble.webp";
 
-import github from "@/assets/images/ContributionPage/desktop/github.webp";
+import { faMediumM, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+
 export default {
   data() {
     return {
       heartlike,
       clap,
-      medium,
+      clapsmall,
       dribble,
-      github,
-      star237,
-      star315,
       githubicon,
+      medium: faMediumM,
+      github: faGithub,
     };
   },
   components: {
