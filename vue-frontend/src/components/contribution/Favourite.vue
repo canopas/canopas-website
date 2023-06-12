@@ -6,7 +6,7 @@
       The Favorites You <br />
       Can't Miss
     </p>
-    <div class="tw-block md:tw-hidden tw-mt-8">
+    <div class="tw-block lg:tw-hidden tw-mt-8">
       <swiper :slidesPerView="1.2" :spaceBetween="0" class="tw-p-[1rem]">
         <swiper-slide
           v-for="(favourite, index) in favourites"
@@ -48,12 +48,12 @@
     </div>
 
     <p
-      class="tw-container tw-hidden md:tw-block tw-font-inter-bold tw-text-[2rem] lg:tw-text-[3rem] tw-leading-[3rem] lg:tw-leading-[4rem] tw-text-black-core/[0.87]"
+      class="tw-container tw-hidden lg:tw-block tw-font-inter-bold tw-text-[2rem] lg:tw-text-[3rem] tw-leading-[3rem] lg:tw-leading-[4rem] tw-text-black-core/[0.87]"
     >
       The Favorites You <br />
       Can't Miss
     </p>
-    <div class="tw-container tw-hidden md:tw-flex tw-flex-row">
+    <div class="tw-container tw-hidden lg:tw-flex tw-flex-row">
       <div
         class="tw-flex tw-flex-col tw-mt-[7.438rem]"
         v-for="favourite in favourites.slice(0, 1)"
@@ -72,7 +72,7 @@
             >{{ favourite.likes }}</span
           >
         </div>
-        <div class="tw-w-full tw-h-full">
+        <div class="tw-relative tw-w-full tw-h-full tw-group">
           <img
             :src="favourite.deskImage[0]"
             :srcset="`${favourite.deskImage[0]} 400w, ${favourite.deskImage[1]} 800w`"
@@ -81,6 +81,14 @@
             class="tw-w-[90%] tw-h-[57%] tw-object-cover tw-rounded-[10px] tw-cursor-pointer"
             loading="lazy"
           />
+          <div
+            class="tw-absolute tw-left-[0] tw-top-[0] tw-w-[0] tw-h-[0] tw-opacity-0 tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] tw-transition-all tw-duration-1000 tw-ease group-hover:tw-w-[90%] group-hover:tw-h-[57%] group-hover:tw-opacity-[0.9]"
+          ></div>
+          <div
+            class="tw-absolute tw-top-[15%] lg:tw-top-[21%] tw-left-[4%] tw-w-[82%] lg:tw-w-[80%] tw-h-full tw-text-center tw-font-inter-bold tw-text-[1rem] lg:tw-text-[1.5rem] tw-leading-[1.8rem] lg:tw-leading-[2.25rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000"
+          >
+            {{ favourite.description }}
+          </div>
         </div>
       </div>
       <div class="tw-flex tw-flex-col tw-gap-8">
@@ -102,7 +110,7 @@
               >{{ favourite.likes }}</span
             >
           </div>
-          <div class="tw-w-full tw-h-full">
+          <div class="tw-relative tw-w-full tw-h-full tw-group">
             <img
               :src="favourite.deskImage[0]"
               :srcset="`${favourite.deskImage[0]} 400w, ${favourite.deskImage[1]} 800w`"
@@ -111,6 +119,14 @@
               class="tw-w-[90%] tw-h-[100%] tw-rounded-[10px] tw-object-cover tw-cursor-pointer"
               loading="lazy"
             />
+            <div
+              class="tw-absolute tw-left-[0] tw-top-[0] tw-w-[0] tw-h-[0] tw-opacity-0 tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] tw-transition-all tw-duration-1000 tw-ease group-hover:tw-w-[90%] group-hover:tw-h-[100%] group-hover:tw-opacity-[0.9]"
+            ></div>
+            <div
+              class="tw-absolute tw-top-[32%] lg:tw-top-[35%] tw-left-[4%] tw-w-[82%] lg:tw-w-[80%] tw-h-full tw-text-center tw-font-inter-bold tw-text-[1rem] lg:tw-text-[1.5rem] tw-leading-[1.8rem] lg:tw-leading-[2.25rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000"
+            >
+              {{ favourite.description }}
+            </div>
           </div>
         </div>
       </div>
@@ -134,7 +150,7 @@
               >{{ favourite.likes }}</span
             >
           </div>
-          <div class="tw-w-full tw-h-full">
+          <div class="tw-relative tw-w-full tw-h-full tw-group">
             <img
               :src="favourite.deskImage[0]"
               :srcset="`${favourite.deskImage[0]} 400w, ${favourite.deskImage[1]} 800w`"
@@ -143,6 +159,14 @@
               class="tw-w-[90%] tw-h-[100%] tw-object-cover tw-rounded-[10px] tw-cursor-pointer"
               loading="lazy"
             />
+            <div
+              class="tw-absolute tw-left-[0] tw-top-[0] tw-w-[0] tw-h-[0] tw-opacity-0 tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] tw-transition-all tw-duration-1000 tw-ease group-hover:tw-w-[90%] group-hover:tw-h-[100%] group-hover:tw-opacity-[0.9]"
+            ></div>
+            <div
+              class="tw-absolute tw-top-[32%] lg:tw-top-[35%] tw-left-[4%] tw-w-[82%] lg:tw-w-[80%] tw-h-full tw-text-center tw-font-inter-bold tw-text-[1rem] lg:tw-text-[1.5rem] tw-leading-[1.8rem] lg:tw-leading-[2.25rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000"
+            >
+              {{ favourite.description }}
+            </div>
           </div>
         </div>
       </div>
@@ -184,7 +208,8 @@ export default {
           id: 1,
           image: [golang_400w, golang_800w],
           deskImage: [desktop_golang_400w, desktop_golang_800w],
-          description: "Golang — 1 Minute guide to Useful Tips and...",
+          description:
+            "Golang — 1 Minute guide to Useful Tips and Libraries in 2022",
           likes: "496",
           link: "https://blog.canopas.com/1-min-guide-to-golang-development-best-practices-in-2022-b50d846fd6c",
         },
@@ -192,7 +217,8 @@ export default {
           id: 2,
           image: [android_400w, android_800w],
           deskImage: [desktop_android_400w, desktop_android_800w],
-          description: "Android — 1 Minute guide to Useful Tips and ...",
+          description:
+            "Android — 1 Minute guide to Useful Tips and Libraries in 2022",
           likes: "248",
           link: "https://blog.canopas.com/android-development-best-practices-2022-203682a440f5",
         },
@@ -208,7 +234,8 @@ export default {
           id: 4,
           image: [kotlin_400w, kotlin_800w],
           deskImage: [desktop_kotlin_400w, desktop_kotlin_800w],
-          description: "Android — 9 Useful Kotlin Flow Operators You...",
+          description:
+            "Android — 9 Useful Kotlin Flow Operators You Need to know",
           likes: "236",
           link: "https://blog.canopas.com/android-9-useful-kotlin-flow-operators-you-need-to-know-b9daef4b630f",
         },
@@ -216,7 +243,7 @@ export default {
           id: 5,
           image: [uipilot_400w, uipilot_800w],
           deskImage: [desktop_uipilot_400w, desktop_uipilot_800w],
-          description: "SwiftUI — Complex navigation made easier... ",
+          description: "SwiftUI — Complex navigation made easier with uipilot",
           likes: "98",
           link: "https://blog.canopas.com/swiftui-complex-navigation-made-easier-with-uipilot-5b33279f3476",
         },

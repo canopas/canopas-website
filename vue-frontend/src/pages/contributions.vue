@@ -11,6 +11,7 @@
       <DesktopLandingSection class="tw-hidden md:tw-block" />
       <GithubContribution />
       <Favourite />
+      <AnimatedCreation />
     </div>
     <NewFooter />
   </div>
@@ -24,11 +25,15 @@ import DesktopLandingSection from "@/components/contribution/DesktopLanding.vue"
 import config from "@/config.js";
 
 import { defineAsyncComponent } from "vue";
+
 const GithubContribution = defineAsyncComponent(() =>
   import("@/components/contribution/GithubContribution.vue")
 );
 const Favourite = defineAsyncComponent(() =>
   import("@/components/contribution/Favourite.vue")
+);
+const AnimatedCreation = defineAsyncComponent(() =>
+  import("@/components/contribution/AnimatedCreation.vue")
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
@@ -60,6 +65,7 @@ export default {
     DesktopLandingSection,
     GithubContribution,
     Favourite,
+    AnimatedCreation,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
