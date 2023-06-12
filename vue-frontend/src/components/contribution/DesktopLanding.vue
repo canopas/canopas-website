@@ -98,7 +98,7 @@
             class="tw-flex tw-justify-center tw-items-center tw--mt-9 2xl:tw-mt-[5.75rem] tw-w-7 tw-h-7 tw-rounded-full tw-bg-white tw-drop-shadow-md tw-animate-zoomOut"
           >
             <font-awesome-icon
-              class="fas tw-w-[14px] tw-h-[14px] tw-p-[1px] tw-text-[#FF3D2E]"
+              class="fas tw-w-[14px] tw-h-[14px] tw-p-[1px] footer-icon"
               icon="star"
             />
           </div>
@@ -194,3 +194,12 @@ export default {
   },
 };
 </script>
+<style lang="postcss">
+@import "swiper/css";
+
+.text-gradient {
+  background: linear-gradient(to right, var(--tw-gradient-stops));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+</style>

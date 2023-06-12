@@ -52,7 +52,7 @@
             class="tw-flex tw-justify-center tw-items-center tw-rounded-full tw-bg-white tw-drop-shadow-md xs:tw--mr-24 tw-mt-[25px] sm:tw--mr-[14rem] tw-w-[28px] tw-h-[28px] tw-animate-zoomIn"
           >
             <font-awesome-icon
-              class="fas tw-w-[14px] tw-h-[14px] tw-p-[1px] tw-text-[#FF3D2E]"
+              class="fas tw-w-[14px] tw-h-[14px] tw-p-[1px] footer-icon"
               icon="star"
             />
           </div>
