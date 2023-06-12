@@ -5,6 +5,7 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      display: ["group-hover"],
       screens: {
         xs: "420px",
         sm: "576px",
