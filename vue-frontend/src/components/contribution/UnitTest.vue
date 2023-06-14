@@ -1,5 +1,7 @@
 <template>
-  <div class="tw-my-[1rem] lg:tw-mt-[5rem] tw-mx-auto tw-text-center">
+  <div
+    class="xll:tw-container tw-my-[1rem] lg:tw-mt-[5rem] tw-mx-auto tw-text-center"
+  >
     <span
       class="tw-container tw-text-center tw-font-inter-bold tw-text-black-core/[0.8] tw-text-[1.875rem] lg:tw-text-[3.4375rem] tw-leading-[2.4375rem] lg:tw-leading-[5.15625rem]"
       >WHY and How to Write Unit Tests?</span
@@ -9,7 +11,7 @@
         :slidesPerView="1.1"
         :centeredSlides="true"
         :autoplay="{
-          delay: 4000,
+          delay: 3000,
           disableOnInteraction: true,
         }"
         :loop="true"
@@ -31,7 +33,8 @@
         >
           <div>
             <img
-              :src="test.image"
+              :src="test.image[0]"
+              :srcset="`${test.image[0]} 400w,${test.image[1]} 800w`"
               class="tw-w-fit tw-h-fit tw-object-contain tw-border-b-[0.5px] tw-rounded-t-lg tw-border-black-core/[0.87] tw-drop-shadow-md tw-animate-slideLeft"
               alt="UnitTestImage"
             />
@@ -46,41 +49,11 @@
         </swiper-slide>
       </swiper>
     </div>
+
     <div
       class="tw-hidden md:tw-block tw-bg-gradient-to-t tw-from-[#FF835B]/[0.1] tw-via-[#F2709C]/[0.1] tw-to-[#FFFFFF]"
     >
-      <!-- <div class="swiper-content tw-mt-16 tw-ml-[17rem]">
-        <swiper
-          :slidesPerView="1.1"
-          :centeredSlides="true"
-          :autoplay="{
-            delay: 3000,
-            disableOnInteraction: true,
-          }"
-          :loop="true"
-          :loopedSlides="50"
-          :spaceBetween="10"
-          :pagination="pagination"
-          class="swiper-container"
-        >
-          <swiper-slide
-            v-for="(test, index) in tests"
-            :key="index"
-            class="tw-cursor-pointer"
-          >
-            <div>
-              <img
-                :src="test.image"
-                class="tw-w-[800px] tw-h-[450px] tw-object-contain tw-rounded-t-lg tw-border-black-core/[0.87] tw-drop-shadow-md"
-                alt="UnitTestImage"
-              />
-            </div>
-          </swiper-slide>
-        </swiper>
-      </div> -->
-      <div
-        class="swiper-content tw-mt-[3rem] lg:tw-w-[50%] 2xl:tw-w-[60%] tw-pl-4 md:tw-pl-0"
-      >
+      <div class="swiper-content tw-mt-[3rem] tw-pl-[25%]">
         <swiper
           :slidesPerView="1.1"
           :centeredSlides="false"
@@ -91,28 +64,15 @@
           :loop="true"
           :loopedSlides="50"
           :spaceBetween="20"
-          :pagination="{ type: 'progressbar' }"
           :navigation="true"
-          :breakpoints="{
-            '576': {
-              slidesPerView: 1.2,
-            },
-            '768': {
-              centeredSlides: true,
-              slidesPerView: 1.525,
-            },
-            '992': {
-              centeredSlides: false,
-              slidesPerView: 2.2,
-            },
-          }"
           @swiper="onSwiper"
           class="swiper-container"
         >
           <swiper-slide v-for="(test, index) in tests" :key="index">
             <div>
               <img
-                :src="test.image"
+                :src="test.image[0]"
+                :srcset="`${test.image[0]} 400w,${test.image[1]} 800w`"
                 class="tw-w-[800px] tw-h-[450px] tw-object-contain tw-rounded-t-lg tw-border-black-core/[0.87] tw-drop-shadow-md"
                 alt="UnitTestImage"
               />
@@ -120,6 +80,7 @@
           </swiper-slide>
         </swiper>
       </div>
+      <div class="skewed tw-bg-white tw-h-[100px]"></div>
     </div>
   </div>
 </template>
@@ -127,10 +88,15 @@
 <script>
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import unittest1 from "@/assets/images/ContributionPage/unittest/unit_test_1.webp";
-import unittest2 from "@/assets/images/ContributionPage/unittest/unit_test_2.webp";
-import unittest3 from "@/assets/images/ContributionPage/unittest/unit_test_3.webp";
-import unittest4 from "@/assets/images/ContributionPage/unittest/unit_test_4.webp";
+import unittest1_400w from "@/assets/images/contributions/unittest/unit_test_1-400w.webp";
+import unittest1_800w from "@/assets/images/contributions/unittest/unit_test_1-800w.webp";
+import unittest2_400w from "@/assets/images/contributions/unittest/unit_test_2-400w.webp";
+import unittest2_800w from "@/assets/images/contributions/unittest/unit_test_2-800w.webp";
+import unittest3_400w from "@/assets/images/contributions/unittest/unit_test_3-400w.webp";
+import unittest3_800w from "@/assets/images/contributions/unittest/unit_test_3-800w.webp";
+import unittest4_400w from "@/assets/images/contributions/unittest/unit_test_4-400w.webp";
+import unittest4_800w from "@/assets/images/contributions/unittest/unit_test_4-800w.webp";
+
 SwiperCore.use([Pagination, Autoplay]);
 
 export default {
@@ -139,23 +105,23 @@ export default {
       swiper: null,
       tests: [
         {
-          image: unittest1,
+          image: [unittest1_400w, unittest1_800w],
           title:
             "The Ultimate Guide to iOS unit testing with best practices — Part 1",
         },
         {
-          image: unittest2,
+          image: [unittest2_400w, unittest2_800w],
           title:
             "The Ultimate Guide to iOS unit testing with best practices — Part 1 ",
         },
 
         {
-          image: unittest3,
+          image: [unittest3_400w, unittest3_800w],
           title:
             "The Ultimate Guide to iOS unit testing with best practices — Part 1 ",
         },
         {
-          image: unittest4,
+          image: [unittest4_400w, unittest4_800w],
           title:
             "The Ultimate Guide to iOS unit testing with best practices — Part 1 ",
         },
@@ -192,6 +158,15 @@ export default {
 }
 
 .swiper-slide:not(.swiper-slide-active) {
-  @apply md:tw--mt-[50px] tw-opacity-40 tw--mt-[400px];
+  @apply tw-opacity-40 tw--mt-[400px];
+}
+@screen md {
+  .swiper-slide:not(.swiper-slide-active) {
+    @apply !tw-opacity-100 tw-mt-0;
+  }
+}
+.skewed {
+  transform-origin: bottom right;
+  transform: skew(-87deg);
 }
 </style>
