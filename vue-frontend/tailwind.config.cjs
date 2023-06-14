@@ -115,6 +115,7 @@ module.exports = {
         underlineOut: "underlineOut 1s",
         gridAnimation: "scroll 40s linear infinite",
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
+        gridAnimationReverse2: "scroll-reverse 40s linear infinite",
         fadeIn: "fadeIn 0.6s ease-in",
       },
       zIndex: {
