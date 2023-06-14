@@ -56,7 +56,7 @@ func (repository *LeaveRepository) SendLeaveRequest(c *gin.Context) {
 		return
 	}
 
-	c.JSON(http.StatusOK, "New leave request mail sent successfully")
+	c.JSON(http.StatusOK, "Leave request has been sent successfully")
 
 }
 
@@ -65,6 +65,39 @@ func (repository *LeaveRepository) getNewLeaveEmailTemplate(input LeaveData) (te
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "new-leave-email-template.html")
 
 	subject := "New leave request"
+
+	template = GetEmailTemplate(htmlBody, input, subject)
+
+	return
+}
+
+func (repository *LeaveRepository) SendUpdateLeaveMail(c *gin.Context) {
+	var input LeaveData
+
+	err := c.ShouldBindWith(&input, binding.JSON)
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		return
+	}
+
+	emailTemplate := repository.getUpdateLeaveEmailTemplate(input)
+
+	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
+
+	if statusCode != 0 {
+		c.AbortWithStatus(statusCode)
+		return
+	}
+
+	c.JSON(http.StatusOK, "Update leave request has been sent successfully")
+
+}
+
+func (repository *LeaveRepository) getUpdateLeaveEmailTemplate(input LeaveData) (template *ses.SendEmailInput) {
+
+	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "update-leave-email-template.html")
+
+	subject := "Leave request update"
 
 	template = GetEmailTemplate(htmlBody, input, subject)
 

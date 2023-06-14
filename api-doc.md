@@ -299,7 +299,7 @@
         </urlset>
 ```
 
-### 4. Send New Leave Request mail
+### 6. Send New Leave Request mail
 
 ```
 - Method : POST
@@ -327,4 +327,33 @@
     - Status Code: 200 Ok
     - Headers : none
     - Message : Leave request has been sent successfully
+```
+### 7. Send Update Leave Request mail
+
+```
+- Method : POST
+- Endpoint : /api/leave/update
+- Description : API for sending Rejection/Approval mail of leave request to the employee
+- Request:
+    - Headers : none
+    - Body :
+         {
+            "name": "mansi dhameliya",
+            "date": "3 jan 2023", // OR if you want to add multiple dates, you can add like this : "3 jan 2023 to 5 jan 2023"
+            "status": "approve",
+            "receiver": "mansi@canopas.com",
+        }
+- Response :
+    - If API is not found,
+    - Status Code: 404 not found
+    - Data: no response data
+
+    - If any server error is there then,
+    - Status Code: 500 Internal server error
+    - Data: no response data
+
+    - If request will success ,
+    - Status Code: 200 Ok
+    - Headers : none
+    - Message : Update leave request has been sent successfully
 ```

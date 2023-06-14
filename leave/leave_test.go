@@ -51,7 +51,20 @@ func Test_SendLeaveRequest(t *testing.T) {
 	assert.Equal(t, http.StatusOK, w.Code)
 }
 
+func Test_SendUpdateLeaveMail(t *testing.T) {
+	w := httptest.NewRecorder()
+	req, err := http.NewRequest("POST", "/api/leave/update", bytes.NewBuffer([]byte(`{"Name":"test","Date":"3 jan 2023","Status":"approve","Receiver":"test@canopas.com"}`)))
+	assert.NoError(t, err)
+
+	engine := gin.New()
+	setUpRouter(engine)
+	engine.ServeHTTP(w, req)
+
+	assert.Equal(t, http.StatusOK, w.Code)
+}
+
 // configure api you want to test
 func setUpRouter(engine *gin.Engine) {
 	engine.POST("/api/leave/new", repo.SendLeaveRequest)
+	engine.POST("/api/leave/update", repo.SendUpdateLeaveMail)
 }
