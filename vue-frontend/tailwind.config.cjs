@@ -5,6 +5,7 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      display: ["group-hover"],
       screens: {
         xs: "420px",
         sm: "576px",
@@ -142,6 +143,7 @@ module.exports = {
         underlineOut: "underlineOut 1s",
         gridAnimation: "scroll 40s linear infinite",
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
+        gridAnimationReverse2: "scroll-reverse 40s linear infinite",
         fadeIn: "fadeIn 0.6s ease-in",
         slideDown: "slideDown 4s infinite",
         slideLeft: "slideLeft 4s infinite",

@@ -34,7 +34,7 @@ var contactDetailInput = ContactDetails{
 	Token:       "xyz123",
 }
 
-//stubUtilsRepo is a mock Utils Service Interface
+// stubUtilsRepo is a mock Utils Service Interface
 type stubUtilsRepo struct{}
 
 func (faker *stubUtilsRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {

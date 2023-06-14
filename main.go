@@ -7,6 +7,7 @@ import (
 	"db"
 	"embed"
 	"jobs"
+	"leave"
 	"sitemap"
 	"utils"
 
@@ -39,6 +40,7 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 	contactRepo := contact.New(templateFS, utilsRepo)
 	jobsRepo := jobs.New(sqlDb, templateFS, utilsRepo)
 	sitemapRepo := sitemap.New(jobsRepo)
+	leaveRepo := leave.New(templateFS, utilsRepo)
 
 	router.POST("/api/send-contact-mail", contactRepo.SendContactMail)
 
@@ -53,6 +55,10 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 	router.GET("/api/blogs", blogs.Get)
 
 	router.GET("/api/github/stars", contribution.GetStargazers)
+
+	router.POST("/api/leave/new", leaveRepo.SendLeaveRequest)
+
+	router.POST("/api/leave/update", leaveRepo.SendUpdateLeaveMail)
 
 	router.GET("/api/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
