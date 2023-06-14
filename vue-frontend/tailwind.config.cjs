@@ -104,6 +104,34 @@ module.exports = {
           "0%": { transform: "scaleX(0)" },
           "100%": { transform: "scaleX(1)" },
         },
+        slideDown: {
+          "0%": {
+            transform: "translateX(100%) translateY(-50%)",
+            opacity: 1,
+          },
+          "50%": {
+            transform: "translateX(0) translateY(0)",
+            opacity: 1,
+          },
+          "100%": {
+            transform: "translateY(-200%) translateX(-50%)",
+            opacity: 0,
+          },
+        },
+        slideLeft: {
+          "0%": {
+            opacity: 0,
+            transform: "translateX(50%)",
+          },
+          "50%": {
+            opacity: 1,
+            transform: "translateX(0)",
+          },
+          "100%": {
+            opacity: 1,
+            transform: "translateX(-50%)",
+          },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",
@@ -115,6 +143,8 @@ module.exports = {
         gridAnimation: "scroll 40s linear infinite",
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
         fadeIn: "fadeIn 0.6s ease-in",
+        slideDown: "slideDown 4s infinite",
+        slideLeft: "slideLeft 4s infinite",
       },
       zIndex: {
         "-1": "-1",
