@@ -10,6 +10,7 @@
       <MobileLandingSection class="tw-block md:tw-hidden" />
       <DesktopLandingSection class="tw-hidden md:tw-block" />
       <GithubContribution />
+      <WhatsTrending />
       <Favourite />
       <AnimatedCreation />
     </div>
@@ -20,20 +21,23 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import { useMeta } from "vue-meta";
-import MobileLandingSection from "@/components/contribution/MobileLanding.vue";
-import DesktopLandingSection from "@/components/contribution/DesktopLanding.vue";
+import MobileLandingSection from "@/components/contributions/MobileLanding.vue";
+import DesktopLandingSection from "@/components/contributions/DesktopLanding.vue";
 import config from "@/config.js";
 
 import { defineAsyncComponent } from "vue";
 
 const GithubContribution = defineAsyncComponent(() =>
-  import("@/components/contribution/GithubContribution.vue")
+  import("@/components/contributions/GithubContribution.vue")
+);
+const WhatsTrending = defineAsyncComponent(() =>
+  import("@/components/contributions/WhatsTrending.vue")
 );
 const Favourite = defineAsyncComponent(() =>
-  import("@/components/contribution/Favourite.vue")
+  import("@/components/contributions/Favourite.vue")
 );
 const AnimatedCreation = defineAsyncComponent(() =>
-  import("@/components/contribution/AnimatedCreation.vue")
+  import("@/components/contributions/AnimatedCreation.vue")
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
@@ -64,6 +68,7 @@ export default {
     MobileLandingSection,
     DesktopLandingSection,
     GithubContribution,
+    WhatsTrending,
     Favourite,
     AnimatedCreation,
     NewFooter,
