@@ -58,6 +58,8 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 
 	router.POST("/api/leave/new", leaveRepo.SendLeaveRequest)
 
+	router.POST("/api/leave/update", leaveRepo.SendUpdateLeaveMail)
+
 	router.GET("/api/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "Pong",
