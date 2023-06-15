@@ -13,6 +13,7 @@
       <WhatsTrending />
       <Favourite />
       <AnimatedCreation />
+      <DevOps />
     </div>
     <NewFooter />
   </div>
@@ -38,6 +39,9 @@ const Favourite = defineAsyncComponent(() =>
 );
 const AnimatedCreation = defineAsyncComponent(() =>
   import("@/components/contributions/AnimatedCreation.vue")
+);
+const DevOps = defineAsyncComponent(() =>
+  import("@/components/contributions/DevOps.vue")
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
@@ -71,6 +75,7 @@ export default {
     WhatsTrending,
     Favourite,
     AnimatedCreation,
+    DevOps,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
