@@ -1,5 +1,5 @@
 <template>
-  <section class="lg:tw-mt-[100px]">
+  <section class="lg:tw-my-[100px]">
     <div class="tw-container">
       <p
         class="tw-text-center tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
@@ -19,38 +19,30 @@
           v-for="(navbar, index) in navbars"
           :key="index"
           class="tw-flex-[16.66%] tw-m-0 tw-w-full tw-rounded-[25px] tw-px-[5px] tw-py-2 md:tw-py-[13px] tw-text-center tw-tracking-[1px] tw-text-[0.75rem] tw-leading-[0.938rem] md:tw-text-[1rem] md:tw-leading-[1.1875rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.438rem] tw-font-inter-semibold active:tw-scale-[0.98] portfolio-nav lg:hover:tw-bg-gradient-[270.11deg] lg:hover:tw-from-[#ff835b] lg:hover:tw-to-[#f2709c] lg:hover:tw-text-white"
-          @click="
-            [
-              index == 0 ? slideTo(1) : '',
-              index == 1 ? slideTo(4) : '',
-              index == 2 ? slideTo(7) : '',
-            ],
-              (activeIndex = index),
-              changeContributions(index)
-          "
+          @click="slideTo(index), changeContributions(index)"
           :class="
             activeIndex == index
               ? 'tw-bg-gradient-[270.11deg] tw-from-[#ff835b] tw-to-[#f2709c] tw-text-white '
               : 'tw-border-[1px] tw-border-solid tw-border-transparent tw-text-black-core/[0.6]'
           "
         >
-          {{ navbar.name }}
+          {{ navbar }}
         </button>
       </div>
     </div>
-    <div class="swiper-content tw-mt-4 lg:tw-hidden">
+    <!-- Mobile UI start -->
+    <div class="sm:tw-container swiper-content !tw-mt-8 lg:tw-hidden">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
         :spaceBetween="20"
         @swiper="setSwiperRef"
+        @slideChange="onSlideChange()"
         class="swiper-container"
       >
         <swiper-slide
           v-for="(contribution, index) in allContributions"
           :key="index"
-          @touchstart.passive="false"
-          @touchmove.passive="true, onSlideChange(index)"
           @click="openContribution(contribution)"
           class="tw-cursor-pointer"
         >
@@ -64,7 +56,9 @@
           <div
             class="tw-flex tw-flex-col tw-mt-[-23px] tw-mb-10 tw-mx-auto tw-max-w-[95%] sm:tw-max-w-[85%] md:tw-max-w-[70%] tw-z-[1] tw-rounded-[10px] tw-bg-white tw-drop-shadow-2xl tw-py-4"
           >
-            <div class="tw-flex tw-flex-row tw-items-center tw-gap-6 tw-px-4">
+            <div
+              class="tw-flex tw-flex-row tw-items-center tw-justify-start tw-gap-8 tw-px-4"
+            >
               <div
                 class="tw-flex tw-items-center tw-justify-center tw-w-[4.75rem] tw-h-[1.875rem] tw-rounded-full tw-bg-gradient-[270.11deg] tw-from-[#ff835b] tw-to-[#f2709c] tw-px-2.5 tw-font-inter-semibold tw-text-[1rem] tw-text-white"
               >
@@ -112,11 +106,11 @@
               </p>
               <div
                 class="tw-flex tw-flex-row tw-items-center tw-ml-2"
-                :key="index"
                 v-for="(contributor, index) in contribution.contributors"
+                :key="index"
               >
                 <img
-                  :src="contributor.image"
+                  :src="contributor"
                   class="tw-w-9 tw-h-9 tw-object-cover"
                   alt="contribution-image"
                 />
@@ -126,116 +120,117 @@
         </swiper-slide>
       </swiper>
     </div>
+    <!-- Mobile UI end -->
+    <!-- Desktop UI start -->
     <div
       class="tw-container tw-hidden lg:tw-flex tw-flex-wrap tw-justify-between tw-mx-auto tw-my-10"
     >
       <div
         v-for="(contribution, index) in contributions"
-        class="tw-relative tw-w-[48%] tw-h-[440px] xl:tw-h-[500px] 2xl:tw-h-[550px] contribution-card tw-mt-[2rem] xl:tw-mt-[2.5rem] 2xl:tw-mt-[3rem] tw-cursor-pointer"
-        :class="[
-          contributions.length == 3 && index == 2 ? '!tw-mx-auto ' : '',
-          contributions.length == 4 ? '!tw-mx-0' : '',
-        ]"
+        class="flip-card tw-relative tw-w-[48%] tw-h-[440px] xl:tw-h-[500px] 2xl:tw-h-[550px] tw-mt-[2rem] tw-mx-auto tw-cursor-pointer"
         :key="index"
         @click="openContribution(contribution)"
       >
-        <img
-          :src="contribution.deskImage[1]"
-          :srcset="`${contribution.deskImage[0]} 400w, ${contribution.deskImage[1]} 800w`"
-          class="tw-absolute tw-w-full tw-h-full tw-object-cover tw-rounded-[20px] card-image"
-          alt="contribution-image"
-        />
-        <div
-          class="tw-absolute tw-w-full tw-h-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] card-image back-card"
-        >
-          <div
-            class="tw-flex tw-flex-row tw-items-center tw-gap-[5rem] xl:tw-gap-[7rem] 2xl:tw-gap-[10rem] tw-pl-6 tw-pr-4 tw-pt-6"
-            :class="
-              contribution.language == 'JavaScript'
-                ? 'lg:tw-gap-[3rem] xl:!tw-gap-[5rem] 2xl:tw-gap-[8rem]'
-                : ''
-            "
-          >
-            <div
-              class="tw-flex tw-flex-row tw-items-center tw-gap-2 tw-text-white"
-            >
-              <span>
-                <font-awesome-icon
-                  class="fa tw-w-6 tw-h-6"
-                  :icon="fork" /></span
-              ><span
-                class="tw-text-[1.625rem] tw-leading-[1.625rem] tw-font-inter-semibold"
-                >{{ contribution.forks }}</span
-              >
-            </div>
-            <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
-              <span
-                class="tw-text-[1.625rem] tw-leading-[1.625rem] tw-font-inter-semibold tw-text-white"
-                >{{ contribution.language }}</span
-              >
-            </div>
-            <div
-              class="tw-flex tw-flex-row tw-items-center tw-rounded-[30px] tw-bg-white tw-px-[1rem] tw-py-[0.5rem] xl:tw-px-[1.5rem]"
-            >
-              <font-awesome-icon
-                class="fab footer-icon tw-w-[26px] tw-h-[26px] tw-pr-[5px]"
-                :icon="star"
-              />
-              <span
-                class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem] v2-canopas-gradient-text"
-                >{{ contribution.stars }}</span
-              >
-            </div>
+        <div class="flip-card-inner tw-relative tw-w-full tw-h-full">
+          <div class="flip-card-front">
+            <img
+              :src="contribution.deskImage[1]"
+              :srcset="`${contribution.deskImage[0]} 400w, ${contribution.deskImage[1]} 800w`"
+              class="tw-absolute tw-w-full tw-h-full tw-object-cover tw-rounded-[20px] card-image card-image-1"
+              alt="contribution-image"
+            />
           </div>
-          <p
-            class="tw-mt-[4rem] tw-ml-6 tw-mr-2 tw-font-inter-semibold tw-text-[2rem] tw-leading-[3rem] tw-text-white"
+          <div
+            class="flip-card-back tw-absolute tw-w-full tw-h-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] card-image back-card"
           >
-            {{ contribution.title }}
-          </p>
-          <p
-            class="tw-ml-6 tw-mr-2 tw-font-inter-regular tw-text-[1.75rem] tw-leading-[2.625rem] tw-text-white"
-          >
-            {{ contribution.description }}
-          </p>
-          <div class="tw-flex tw-flex-row tw-items-center tw-mt-8 tw-px-6">
-            <p
-              class="tw-mr-2 tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[2.438rem] tw-text-white"
-            >
-              Contributors:
-            </p>
             <div
-              class="tw-flex tw-flex-row tw-items-center tw-ml-2"
-              :key="index"
-              v-for="(contributor, index) in contribution.contributors"
+              class="tw-flex tw-flex-row tw-items-center tw-justify-between tw-pl-6 tw-pr-4 tw-pt-6"
             >
-              <img
-                :src="contributor.image"
-                class="tw-w-9 tw-h-9 tw-object-cover"
-                alt="contribution-image"
-              />
+              <div
+                class="tw-flex tw-flex-row tw-items-center tw-gap-2 tw-text-white"
+              >
+                <span>
+                  <font-awesome-icon
+                    class="fa tw-w-6 tw-h-6"
+                    :icon="fork" /></span
+                ><span
+                  class="tw-text-[1.625rem] tw-leading-[1.625rem] tw-font-inter-semibold"
+                  >{{ contribution.forks }}</span
+                >
+              </div>
+              <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
+                <span
+                  class="tw-text-[1.625rem] tw-leading-[1.625rem] tw-font-inter-semibold tw-text-white"
+                  >{{ contribution.language }}</span
+                >
+              </div>
+              <div
+                class="tw-flex tw-flex-row tw-items-center tw-rounded-[30px] tw-bg-white tw-px-[1rem] tw-py-[0.5rem] xl:tw-px-[1.5rem]"
+              >
+                <font-awesome-icon
+                  class="fab footer-icon tw-w-[26px] tw-h-[26px] tw-pr-[5px]"
+                  :icon="star"
+                />
+                <span
+                  class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem] v2-canopas-gradient-text"
+                  >{{ contribution.stars }}</span
+                >
+              </div>
+            </div>
+            <p
+              class="tw-mt-[4rem] tw-ml-6 tw-mr-2 tw-font-inter-semibold tw-text-[2rem] tw-leading-[3rem] tw-text-white"
+            >
+              {{ contribution.title }}
+            </p>
+            <p
+              class="tw-ml-6 tw-mr-2 tw-font-inter-regular tw-text-[1.75rem] tw-leading-[2.625rem] tw-text-white"
+            >
+              {{ contribution.description }}
+            </p>
+            <div class="tw-flex tw-flex-row tw-items-center tw-mt-8 tw-px-6">
+              <p
+                class="tw-mr-2 tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[2.438rem] tw-text-white"
+              >
+                Contributors:
+              </p>
+              <div
+                class="tw-flex tw-flex-row tw-items-center tw-ml-2"
+                v-for="(contributor, index) in contribution.contributors"
+                :key="index"
+              >
+                <img
+                  :src="contributor"
+                  class="tw-w-9 tw-h-9 tw-object-cover tw-rounded-full"
+                  alt="contribution-image"
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- Desktop UI end -->
   </section>
 </template>
 
 <script>
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
+
 import android1_400w from "@/assets/images/contributions/github/mobile/android-1-400w.webp";
 import android1_800w from "@/assets/images/contributions/github/mobile/android-1-800w.webp";
 import android2_400w from "@/assets/images/contributions/github/mobile/android-2-400w.webp";
 import android2_800w from "@/assets/images/contributions/github/mobile/android-2-800w.webp";
 import android3_400w from "@/assets/images/contributions/github/mobile/android-3-400w.webp";
 import android3_800w from "@/assets/images/contributions/github/mobile/android-3-800w.webp";
+
 import ios1_400w from "@/assets/images/contributions/github/mobile/ios-1-400w.webp";
 import ios1_800w from "@/assets/images/contributions/github/mobile/ios-1-800w.webp";
 import ios2_400w from "@/assets/images/contributions/github/mobile/ios-2-400w.webp";
 import ios2_800w from "@/assets/images/contributions/github/mobile/ios-2-800w.webp";
 import ios3_400w from "@/assets/images/contributions/github/mobile/ios-3-400w.webp";
 import ios3_800w from "@/assets/images/contributions/github/mobile/ios-3-800w.webp";
+
 import web1_400w from "@/assets/images/contributions/github/mobile/web-1-400w.webp";
 import web1_800w from "@/assets/images/contributions/github/mobile/web-1-800w.webp";
 import web2_400w from "@/assets/images/contributions/github/mobile/web-2-400w.webp";
@@ -244,12 +239,14 @@ import web3_400w from "@/assets/images/contributions/github/mobile/web-3-400w.we
 import web3_800w from "@/assets/images/contributions/github/mobile/web-3-800w.webp";
 import web4_400w from "@/assets/images/contributions/github/mobile/web-4-400w.webp";
 import web4_800w from "@/assets/images/contributions/github/mobile/web-4-800w.webp";
+
 import desktop_android1_400w from "@/assets/images/contributions/github/desktop/android-1-400w.webp";
 import desktop_android1_800w from "@/assets/images/contributions/github/desktop/android-1-800w.webp";
 import desktop_android2_400w from "@/assets/images/contributions/github/desktop/android-2-400w.webp";
 import desktop_android2_800w from "@/assets/images/contributions/github/desktop/android-2-800w.webp";
 import desktop_android3_400w from "@/assets/images/contributions/github/desktop/android-3-400w.webp";
 import desktop_android3_800w from "@/assets/images/contributions/github/desktop/android-3-800w.webp";
+
 import desktop_ios1_400w from "@/assets/images/contributions/github/desktop/ios-1-400w.webp";
 import desktop_ios1_800w from "@/assets/images/contributions/github/desktop/ios-1-800w.webp";
 import desktop_ios2_400w from "@/assets/images/contributions/github/desktop/ios-2-400w.webp";
@@ -270,17 +267,13 @@ import contributor1 from "@/assets/images/contributions/github/contributors/cont
 import contributor2 from "@/assets/images/contributions/github/contributors/contributor-2-100w.webp";
 import contributor3 from "@/assets/images/contributions/github/contributors/contributor-3-100w.webp";
 import contributor4 from "@/assets/images/contributions/github/contributors/contributor-4-100w.webp";
-import contributor5 from "@/assets/images/contributions/github/contributors/contributor-5-100w.webp";
 import contributor6 from "@/assets/images/contributions/github/contributors/contributor-6-100w.webp";
-import contributor7 from "@/assets/images/contributions/github/contributors/contributor-7-100w.webp";
 import contributor8 from "@/assets/images/contributions/github/contributors/contributor-8-100w.webp";
 import contributor9 from "@/assets/images/contributions/github/contributors/contributor-9-100w.webp";
 import contributor10 from "@/assets/images/contributions/github/contributors/contributor-10-100w.webp";
 import contributor11 from "@/assets/images/contributions/github/contributors/contributor-11-100w.webp";
 import contributor12 from "@/assets/images/contributions/github/contributors/contributor-12-100w.webp";
-import contributor13 from "@/assets/images/contributions/github/contributors/contributor-13-100w.webp";
 import contributor14 from "@/assets/images/contributions/github/contributors/contributor-14-100w.webp";
-import contributor15 from "@/assets/images/contributions/github/contributors/contributor-15-100w.webp";
 
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faCodeFork } from "@fortawesome/free-solid-svg-icons";
@@ -288,67 +281,38 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 SwiperCore.use([Pagination, Autoplay]);
 
+const ANDROID = 0;
+const IOS = 1;
+const WEB = 2;
+
 export default {
   data() {
     return {
-      navbars: [
-        {
-          name: "Android",
-        },
-        {
-          name: "iOS",
-        },
-        {
-          name: "Web",
-        },
-      ],
+      navbars: ["Android", "iOS", "Web"],
       contributions: [],
       activeIndex: 0,
       fork: faCodeFork,
       star: faStar,
-      swiper: null,
-      contributor1,
-      contributor2,
-      contributor3,
-      contributor4,
-      contributor5,
-      contributor6,
-      contributor7,
-      contributor8,
-      contributor9,
-      contributor10,
-      contributor11,
-      contributor12,
-      contributor13,
-      contributor14,
-      contributor15,
+      swiperRef: null,
       allContributions: [
         {
           id: 1,
+          key: ANDROID,
           image: [android1_400w, android1_800w],
           deskImage: [desktop_android1_400w, desktop_android1_800w],
           link: "https://github.com/canopas/Intro-showcase-view",
           language: "Kotlin",
           color: "tw-bg-[#A97BFF]",
-          forks: "20",
+          forks: "22",
           title: "Intro Showcase View",
           description:
             "Intro showcase view in Jetpack compose. An implementation of Intro Showcase from ...",
-          stars: "263",
-          contributors: [
-            {
-              image: contributor1,
-            },
-            {
-              image: contributor2,
-            },
-            {
-              image: contributor3,
-            },
-          ],
+          stars: "274",
+          contributors: [contributor1, contributor2, contributor3],
         },
         {
           id: 2,
+          key: ANDROID,
           image: [android2_400w, android2_800w],
           deskImage: [desktop_android2_400w, desktop_android2_800w],
           link: "https://github.com/canopas/Jetpack-compose-animations-examples",
@@ -357,21 +321,12 @@ export default {
           forks: "19",
           title: "Jetpack Compose Animations",
           description: "Cool animations implemented with Jetpack compose....",
-          stars: "263",
-          contributors: [
-            {
-              image: contributor1,
-            },
-            {
-              image: contributor2,
-            },
-            {
-              image: contributor4,
-            },
-          ],
+          stars: "203",
+          contributors: [contributor1, contributor2, contributor4],
         },
         {
           id: 3,
+          key: ANDROID,
           image: [android3_400w, android3_800w],
           deskImage: [desktop_android3_400w, desktop_android3_800w],
           link: "https://github.com/canopas/JetCountrypicker",
@@ -381,50 +336,26 @@ export default {
           title: "JetCountryPicker",
           description:
             "Country code bottomsheet picker in Jetpack Compose with Search functionality...",
-          stars: "35",
-          contributors: [
-            {
-              image: contributor1,
-            },
-            {
-              image: contributor2,
-            },
-            {
-              image: contributor4,
-            },
-            {
-              image: contributor5,
-            },
-          ],
+          stars: "34",
+          contributors: [contributor1, contributor2, contributor4],
         },
         {
           id: 4,
+          key: IOS,
           image: [ios1_400w, ios1_800w],
           deskImage: [desktop_ios1_400w, desktop_ios1_800w],
           link: "https://github.com/canopas/UIPilot",
           language: "Swift",
           color: "tw-bg-[#F05138]",
-          forks: "12",
+          forks: "15",
           title: "UIPilot ",
           description: "The missing typesafe SwiftUI navigation library.",
-          stars: "224",
-          contributors: [
-            {
-              image: contributor1,
-            },
-            {
-              image: contributor6,
-            },
-            {
-              image: contributor2,
-            },
-            {
-              image: contributor7,
-            },
-          ],
+          stars: "227",
+          contributors: [contributor1, contributor6, contributor2],
         },
         {
           id: 5,
+          key: IOS,
           image: [ios2_400w, ios2_800w],
           deskImage: [desktop_ios2_400w, desktop_ios2_800w],
           link: "https://github.com/canopas/Swiftui-animations-examples",
@@ -433,39 +364,27 @@ export default {
           forks: "02",
           title: "Swiftui Animations",
           description: "Cool animations implemented with SwiftUI",
-          stars: "36",
-          contributors: [
-            {
-              image: contributor1,
-            },
-            {
-              image: contributor6,
-            },
-          ],
+          stars: "37",
+          contributors: [contributor1, contributor6],
         },
         {
           id: 6,
+          key: IOS,
           image: [ios3_400w, ios3_800w],
           deskImage: [desktop_ios3_400w, desktop_ios3_800w],
           link: "https://github.com/canopas/iOS-developer-roadmap",
           language: "Swift",
           color: "tw-bg-[#F05138]",
-          forks: "10",
+          forks: "11",
           title: "iOS Developer Roadmap 2022",
           description:
             "iOS Developer Roadmap 2022 is a learning path to understand iOS development...",
-          stars: "29",
-          contributors: [
-            {
-              image: contributor1,
-            },
-            {
-              image: contributor6,
-            },
-          ],
+          stars: "43",
+          contributors: [contributor1, contributor6],
         },
         {
           id: 7,
+          key: WEB,
           image: [web1_400w, web1_800w],
           deskImage: [desktop_web1_400w, desktop_web1_800w],
           link: "https://github.com/canopas/tailwind-animations",
@@ -475,40 +394,27 @@ export default {
           title: "Tailwind Animations",
           description:
             "This repository contains different animations implemented using tailwind css...",
-          stars: "49",
-          contributors: [
-            {
-              image: contributor8,
-            },
-            {
-              image: contributor9,
-            },
-          ],
+          stars: "59",
+          contributors: [contributor8, contributor9],
         },
         {
           id: 8,
+          key: WEB,
           image: [web2_400w, web2_800w],
           deskImage: [desktop_web2_400w, desktop_web2_800w],
-
           link: "https://github.com/canopas/web-developer-roadmap-2023",
-          language: "JAVA",
-          color: "tw-bg-[#F1E05A]",
+          language: "",
+          color: "",
           forks: "10",
           title: "Web Development Roadmap",
           description:
             "Web Developer Roadmap is a path to understand web development including...",
-          stars: "72",
-          contributors: [
-            {
-              image: contributor8,
-            },
-            {
-              image: contributor10,
-            },
-          ],
+          stars: "00",
+          contributors: [contributor8, contributor10],
         },
         {
           id: 9,
+          key: WEB,
           image: [web3_400w, web3_800w],
           deskImage: [desktop_web4_400w, desktop_web4_800w],
           link: "https://github.com/canopas/canopas-blog",
@@ -519,23 +425,11 @@ export default {
           description:
             "We intend to keep this open source. Plan is to keep the repository up to date with...",
           stars: "02",
-          contributors: [
-            {
-              image: contributor8,
-            },
-            {
-              image: contributor11,
-            },
-            {
-              image: contributor12,
-            },
-            {
-              image: contributor13,
-            },
-          ],
+          contributors: [contributor8, contributor11, contributor12],
         },
         {
           id: 10,
+          key: WEB,
           image: [web4_400w, web4_800w],
           deskImage: [desktop_web3_400w, desktop_web3_800w],
           link: "https://github.com/canopas/canopas-website",
@@ -546,32 +440,7 @@ export default {
           description:
             "We intend to keep this open source. Plan is to keep the repository up to date with latest...",
           stars: "07",
-          contributors: [
-            {
-              image: contributor8,
-            },
-            {
-              image: contributor1,
-            },
-            {
-              image: contributor12,
-            },
-            {
-              image: contributor14,
-            },
-            {
-              image: contributor15,
-            },
-            {
-              image: contributor10,
-            },
-            {
-              image: contributor11,
-            },
-            {
-              image: contributor13,
-            },
-          ],
+          contributors: [contributor8, contributor14, contributor12],
         },
       ],
     };
@@ -582,35 +451,29 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
-    this.contributions = this.allContributions.slice(0, 3);
+    this.contributions = this.allContributions.filter((obj) => {
+      return obj.key === ANDROID;
+    });
   },
   methods: {
     openContribution(contribution) {
       window.open(contribution.link, "_blank");
     },
-    onSlideChange(index) {
-      if (index <= 1) {
-        this.activeIndex = 0;
-      } else if (index > 1 && index <= 4) {
-        this.activeIndex = 1;
-      } else if (index > 4 && index <= 7) {
-        this.activeIndex = 2;
-      }
+    onSlideChange() {
+      this.activeIndex = this.allContributions[this.swiperRef.activeIndex].key;
     },
     setSwiperRef(swiper) {
       this.swiperRef = swiper;
     },
     slideTo(index) {
-      this.swiperRef.slideTo(index - 1, 0);
+      this.activeIndex = index;
+      this.swiperRef.slideTo(index * 3, 1000);
     },
     changeContributions(index) {
-      if (index == 0) {
-        this.contributions = this.allContributions.slice(0, 3);
-      } else if (index == 1) {
-        this.contributions = this.allContributions.slice(3, 6);
-      } else {
-        this.contributions = this.allContributions.slice(6, 10);
-      }
+      this.activeIndex = index;
+      this.contributions = this.allContributions.filter((obj) => {
+        return obj.key === index;
+      });
     },
   },
 };
@@ -618,25 +481,36 @@ export default {
 <style lang="postcss">
 @import "swiper/css";
 @import "swiper/css/pagination";
+
 .swiper-wrapper {
   @apply !tw-items-center;
 }
+
 .swiper {
   @apply tw-z-0;
 }
-.contribution-card {
+
+.flip-card {
   background-color: transparent;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
   perspective: 1000px;
 }
-.contribution-card:hover {
+
+.flip-card-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
-.card-image {
+
+.flip-card-front,
+.flip-card-back {
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
-.back-card {
+
+.flip-card-back {
   transform: rotateY(180deg);
 }
 </style>

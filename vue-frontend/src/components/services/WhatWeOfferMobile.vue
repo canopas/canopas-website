@@ -41,23 +41,23 @@
 </template>
 
 <script type="module">
-import androidApp400w from "@/assets/images/service/androidapp-400w.webp";
-import androidApp800w from "@/assets/images/service/androidapp-800w.webp";
+import androidApp400w from "@/assets/images/services/service/androidapp-400w.webp";
+import androidApp800w from "@/assets/images/services/service/androidapp-800w.webp";
 
-import flutterApp400w from "@/assets/images/service/flutterapp-400w.webp";
-import flutterApp800w from "@/assets/images/service/flutterapp-800w.webp";
+import flutterApp400w from "@/assets/images/services/service/flutterapp-400w.webp";
+import flutterApp800w from "@/assets/images/services/service/flutterapp-800w.webp";
 
-import iosApp400w from "@/assets/images/service/iosapp-400w.webp";
-import iosApp800w from "@/assets/images/service/iosapp-800w.webp";
+import iosApp400w from "@/assets/images/services/service/iosapp-400w.webp";
+import iosApp800w from "@/assets/images/services/service/iosapp-800w.webp";
 
-import backend400w from "@/assets/images/service/backend-400w.webp";
-import backend800w from "@/assets/images/service/backend-800w.webp";
+import backend400w from "@/assets/images/services/service/backend-400w.webp";
+import backend800w from "@/assets/images/services/service/backend-800w.webp";
 
-import uiuxdesign400w from "@/assets/images/service/uiuxdesign-400w.webp";
-import uiuxdesign800w from "@/assets/images/service/uiuxdesign-800w.webp";
+import uiuxdesign400w from "@/assets/images/services/service/uiuxdesign-400w.webp";
+import uiuxdesign800w from "@/assets/images/services/service/uiuxdesign-800w.webp";
 
-import frontend400w from "@/assets/images/service/frontend-400w.webp";
-import frontend800w from "@/assets/images/service/frontend-800w.webp";
+import frontend400w from "@/assets/images/services/service/frontend-400w.webp";
+import frontend800w from "@/assets/images/services/service/frontend-800w.webp";
 
 export default {
   data() {

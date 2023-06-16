@@ -5,6 +5,7 @@
     >
       Explore Our Animated Creations
     </div>
+    <!-- Mobile UI start -->
     <div class="tw-block lg:tw-hidden tw-mt-10">
       <swiper :slidesPerView="1.1" :spaceBetween="0" class="tw-p-[1rem]">
         <swiper-slide
@@ -34,6 +35,8 @@
         </swiper-slide>
       </swiper>
     </div>
+    <!-- Mobile UI end -->
+    <!-- Desktop UI start -->
     <div
       class="tw-container tw-hidden lg:tw-flex tw-flex-row tw-gap-8 tw-mt-[50px]"
     >
@@ -54,7 +57,7 @@
               class="tw-absolute tw-left-[50%] tw-top-[50%] tw-w-[0%] tw-h-[0%] tw-opacity-0 tw-rounded-tr-[50px] tw-rounded-bl-[50px] tw-bg-black-900 tw-transition-all tw-duration-1000 tw-ease tw--translate-x-1/2 tw--translate-y-1/2 group-hover:tw-w-[100%] group-hover:tw-h-[100%] group-hover:tw-opacity-[1]"
             ></div>
             <div
-              class="tw-absolute tw-top-[32%] lg:tw-top-[35%] tw-w-[100%] tw-h-full tw-text-center tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[1.75rem] tw-leading-[1.5rem] lg:tw-leading-[2.625rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 tw-translate-y-[-50%] group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000"
+              class="tw-absolute tw-top-[40%] tw-inset-x-0 tw-m-auto tw-h-full tw-px-4 tw-text-center tw-font-inter-bold tw-text-[1rem] lg:tw-text-[1.75rem] tw-leading-[1.5rem] lg:tw-leading-[2.625rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 tw-translate-y-[-50%] group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000"
             >
               {{ animation.title }}
             </div>
@@ -76,10 +79,10 @@
               loading="lazy"
             />
             <div
-              class="tw-absolute tw-left-[50%] tw-top-[50%] tw-w-[0%] tw-h-[0%] tw-opacity-0 tw-rounded-tr-[50px] tw-rounded-bl-[50px] tw-bg-black-900 tw-transition-all tw-duration-1000 tw-ease tw--translate-x-1/2 tw--translate-y-1/2 group-hover:tw-w-[100%] group-hover:tw-h-[100%] group-hover:tw-opacity-[1]"
+              class="tw-absolute tw-left-[50%] tw-top-[50%] tw-w-0 tw-h-0 tw-opacity-0 tw-rounded-tr-[50px] tw-rounded-bl-[50px] tw-bg-black-900 tw-transition-all tw-duration-1000 tw-ease tw--translate-x-1/2 tw--translate-y-1/2 group-hover:tw-w-[100%] group-hover:tw-h-[100%] group-hover:tw-opacity-[1]"
             ></div>
             <div
-              class="tw-absolute tw-top-[32%] lg:tw-top-[35%] tw-left-[4%] tw-w-[82%] lg:tw-w-[80%] tw-h-full tw-text-center tw-font-inter-bold tw-text-[1rem] lg:tw-text-[1.75rem] tw-leading-[1.5rem] lg:tw-leading-[2.625rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 tw-translate-y-[-50%] group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000"
+              class="tw-absolute tw-top-[40%] tw-inset-x-0 tw-m-auto tw-h-full tw-px-4 tw-text-center tw-font-inter-bold tw-text-[1rem] lg:tw-text-[1.75rem] tw-leading-[1.5rem] lg:tw-leading-[2.625rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 tw-translate-y-[-50%] group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000"
             >
               {{ animation.title }}
             </div>
@@ -87,35 +90,38 @@
         </div>
       </div>
     </div>
+    <!-- Desktop UI end -->
   </section>
 </template>
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import animation1_400w from "@/assets/images/animations/mobile/animation-1-400w.webp";
-import animation1_800w from "@/assets/images/animations/mobile/animation-1-800w.webp";
-import animation2_400w from "@/assets/images/animations/mobile/animation-2-400w.webp";
-import animation2_800w from "@/assets/images/animations/mobile/animation-2-800w.webp";
-import animation3_400w from "@/assets/images/animations/mobile/animation-3-400w.webp";
-import animation3_800w from "@/assets/images/animations/mobile/animation-3-800w.webp";
-import animation4_400w from "@/assets/images/animations/mobile/animation-4-400w.webp";
-import animation4_800w from "@/assets/images/animations/mobile/animation-4-800w.webp";
-import animation5_400w from "@/assets/images/animations/mobile/animation-5-400w.webp";
-import animation5_800w from "@/assets/images/animations/mobile/animation-5-800w.webp";
-import animation6_400w from "@/assets/images/animations/mobile/animation-6-400w.webp";
-import animation6_800w from "@/assets/images/animations/mobile/animation-6-800w.webp";
-import desktop_animation1_400w from "@/assets/images/animations/desktop/animation-1-400w.webp";
-import desktop_animation1_800w from "@/assets/images/animations/desktop/animation-1-800w.webp";
-import desktop_animation2_400w from "@/assets/images/animations/desktop/animation-2-400w.webp";
-import desktop_animation2_800w from "@/assets/images/animations/desktop/animation-2-800w.webp";
-import desktop_animation3_400w from "@/assets/images/animations/desktop/animation-3-400w.webp";
-import desktop_animation3_800w from "@/assets/images/animations/desktop/animation-3-800w.webp";
-import desktop_animation4_400w from "@/assets/images/animations/desktop/animation-4-400w.webp";
-import desktop_animation4_800w from "@/assets/images/animations/desktop/animation-4-800w.webp";
-import desktop_animation5_400w from "@/assets/images/animations/desktop/animation-5-400w.webp";
-import desktop_animation5_800w from "@/assets/images/animations/desktop/animation-5-800w.webp";
-import desktop_animation6_400w from "@/assets/images/animations/desktop/animation-6-400w.webp";
-import desktop_animation6_800w from "@/assets/images/animations/desktop/animation-6-800w.webp";
+import animation1_400w from "@/assets/images/contributions/animations/mobile/animation-1-400w.webp";
+import animation1_800w from "@/assets/images/contributions/animations/mobile/animation-1-800w.webp";
+import animation2_400w from "@/assets/images/contributions/animations/mobile/animation-2-400w.webp";
+import animation2_800w from "@/assets/images/contributions/animations/mobile/animation-2-800w.webp";
+import animation3_400w from "@/assets/images/contributions/animations/mobile/animation-3-400w.webp";
+import animation3_800w from "@/assets/images/contributions/animations/mobile/animation-3-800w.webp";
+import animation4_400w from "@/assets/images/contributions/animations/mobile/animation-4-400w.webp";
+import animation4_800w from "@/assets/images/contributions/animations/mobile/animation-4-800w.webp";
+import animation5_400w from "@/assets/images/contributions/animations/mobile/animation-5-400w.webp";
+import animation5_800w from "@/assets/images/contributions/animations/mobile/animation-5-800w.webp";
+import animation6_400w from "@/assets/images/contributions/animations/mobile/animation-6-400w.webp";
+import animation6_800w from "@/assets/images/contributions/animations/mobile/animation-6-800w.webp";
+
+import desktop_animation1_400w from "@/assets/images/contributions/animations/desktop/animation-1-400w.webp";
+import desktop_animation1_800w from "@/assets/images/contributions/animations/desktop/animation-1-800w.webp";
+import desktop_animation2_400w from "@/assets/images/contributions/animations/desktop/animation-2-400w.webp";
+import desktop_animation2_800w from "@/assets/images/contributions/animations/desktop/animation-2-800w.webp";
+import desktop_animation3_400w from "@/assets/images/contributions/animations/desktop/animation-3-400w.webp";
+import desktop_animation3_800w from "@/assets/images/contributions/animations/desktop/animation-3-800w.webp";
+import desktop_animation4_400w from "@/assets/images/contributions/animations/desktop/animation-4-400w.webp";
+import desktop_animation4_800w from "@/assets/images/contributions/animations/desktop/animation-4-800w.webp";
+import desktop_animation5_400w from "@/assets/images/contributions/animations/desktop/animation-5-400w.webp";
+import desktop_animation5_800w from "@/assets/images/contributions/animations/desktop/animation-5-800w.webp";
+import desktop_animation6_400w from "@/assets/images/contributions/animations/desktop/animation-6-400w.webp";
+import desktop_animation6_800w from "@/assets/images/contributions/animations/desktop/animation-6-800w.webp";
+
 export default {
   data() {
     return {
@@ -147,8 +153,8 @@ export default {
           id: 4,
           image: [animation2_400w, animation2_800w],
           deskImages: [desktop_animation2_400w, desktop_animation2_800w],
-          title: "Automation: Trigger GitHub workflow from the backend",
-          link: "https://blog.canopas.com/automation-trigger-github-workflow-from-the-backend-f04e818094e5",
+          title: "iOS — Animations in SwiftUI with Examples — Part 2",
+          link: "https://blog.canopas.com/ios-animations-in-swiftui-with-examples-part-2-980a2df69145",
         },
 
         {

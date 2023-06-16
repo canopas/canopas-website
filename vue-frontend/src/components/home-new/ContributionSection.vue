@@ -162,7 +162,7 @@ export default {
       contributions: [
         {
           title: "Intro Showcase view in jetpack compose",
-          stars: "271",
+          stars: "275",
           description:
             "Highlight different features of the app using Jetpack Compose",
           author: "Radhika S.",
@@ -171,7 +171,7 @@ export default {
         },
         {
           title: "UIPilot",
-          stars: "226",
+          stars: "228",
           description: "The missing typesafe SwiftUI navigation library",
           author: "Jimmy S.",
           video: [uIPilotMp4, uIPilotWebm],
@@ -179,7 +179,7 @@ export default {
         },
         {
           title: "Jetpack Compose animations",
-          stars: "202",
+          stars: "203",
           description: "Cool animations implemented with Jetpack compose",
           author: "Radhika S.",
           video: [jcAnimationsMp4, jcAnimationsWebm],

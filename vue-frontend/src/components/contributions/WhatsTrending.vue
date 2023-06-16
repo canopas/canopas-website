@@ -1,5 +1,5 @@
 <template>
-  <div class="xll:tw-container tw-my-20 md:tw-mb-40">
+  <div class="xll:tw-container tw-mt-20">
     <div
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] lg:tw-text-[3.4375rem] tw-leading-[2.25rem] lg:tw-leading-[5.1875rem]"
     >
@@ -21,11 +21,11 @@
               :key="index"
               class="tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-ml-[32px] tw-rounded-2xl tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
               :class="
-                pausedId == index ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
+                pausedId == post.id ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
-              @mouseover="pausedId = index"
+              @mouseover="pausedId = post.id"
               @mouseleave="pausedId = 0"
-              @touchstart.passive="pausedId = index"
+              @touchstart.passive="pausedId = post.id"
               @touchend="pausedId = 0"
               :ref="'card-1-' + index"
               @click="openBlog(post.link)"
@@ -83,11 +83,11 @@
               :key="index"
               class="tw-relative tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-ml-[32px] tw-rounded-2xl tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
               :class="
-                pausedId == index ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
+                pausedId == post.id ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
-              @mouseover="pausedId = index"
+              @mouseover="pausedId = post.id"
               @mouseleave="pausedId = 0"
-              @touchstart.passive="pausedId = index"
+              @touchstart.passive="pausedId = post.id"
               @touchend="pausedId = 0"
               :ref="'card-2-' + index"
               @click="openBlog(post.link)"
@@ -134,11 +134,11 @@
               :key="index"
               class="tw-relative tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-mt-[32px] tw-ml-[32px] tw-rounded-2xl tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
               :class="
-                pausedId == index ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
+                pausedId == post.id ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
-              @mouseover="pausedId = index"
+              @mouseover="pausedId = post.id"
               @mouseleave="pausedId = 0"
-              @touchstart.passive="pausedId = index"
+              @touchstart.passive="pausedId = post.id"
               @touchend="pausedId = 0"
               :ref="'card-3-' + index"
               @click="openBlog(post.link)"
@@ -220,6 +220,7 @@ export default {
       grid2: [],
       data: [
         {
+          id: 1,
           title:
             "Retrofit — Effective error handling with Kotlin Coroutine and Result API",
           images: [retrofit, retrofit600w],
@@ -227,30 +228,35 @@ export default {
           link: "https://blog.canopas.com/retrofit-effective-error-handling-with-kotlin-coroutine-and-result-api-405217e9a73d",
         },
         {
+          id: 2,
           title: "Golang — 1 Minute guide to Useful Tips and Libraries in 2022",
           images: [goGuide, goGuide600w],
           views: "18k",
           link: "https://blog.canopas.com/1-min-guide-to-golang-development-best-practices-in-2022-b50d846fd6c",
         },
         {
+          id: 3,
           title: "Keyboard Handling In Jetpack Compose — All You Need To Know",
           images: [keyboardHandling, keyboardHandling600w],
           views: "17k",
           link: "https://blog.canopas.com/keyboard-handling-in-jetpack-compose-all-you-need-to-know-3e6fddd30d9a",
         },
         {
+          id: 4,
           title: "Android — 9 Useful Kotlin Flow Operators You Need to Know",
           images: [kotlinFlow, kotlinFlow600w],
           views: "14.5k",
           link: "https://blog.canopas.com/android-9-useful-kotlin-flow-operators-you-need-to-know-b9daef4b630f",
         },
         {
+          id: 5,
           title: "Golang: gorm with MySQL and gin",
           images: [gorm, gorm600w],
           views: "14.2k",
           link: "https://blog.canopas.com/golang-gorm-with-mysql-and-gin-ab876f406244",
         },
         {
+          id: 6,
           title:
             "Android — 1 Minute guide to Useful Tips and Libraries in 2022",
           images: [androidGuide, androidGuide600w],
@@ -258,24 +264,28 @@ export default {
           link: "https://blog.canopas.com/android-development-best-practices-2022-203682a440f5",
         },
         {
+          id: 7,
           title: "Approach To Avoid Accessing Variables Globally in Golang",
           images: [globalVars, globalVars600w],
           views: "12.4k",
           link: "https://blog.canopas.com/approach-to-avoid-accessing-variables-globally-in-golang-2019b234762",
         },
         {
+          id: 8,
           title: "Android — How to Drag And Drop Views in Jetpack Compose",
           images: [dragAndDrop, dragAndDrop600w],
           views: "12.2k",
           link: "https://blog.canopas.com/android-drag-and-drop-ui-element-in-jetpack-compose-14922073b3f1",
         },
         {
+          id: 9,
           title: "Android code coverage using JaCoCo",
           images: [jacoco, jacoco600w],
           views: "11.8k",
           link: "https://blog.canopas.com/android-code-coverage-using-jacoco-6639a1fc4293",
         },
         {
+          id: 10,
           title: "Vue 3 lifecycle hooks with real-time example",
           images: [lifecycle, lifecycle600w],
           views: "11k",

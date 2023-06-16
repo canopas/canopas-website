@@ -9,8 +9,8 @@
 
     <div>
       <LandingSection />
-      <WhatWeOfferSection class="tw-block lg:tw-hidden" />
-      <WhatWeOfferDesktopSection class="tw-hidden lg:tw-block" />
+      <WhatWeOfferMobile class="tw-block lg:tw-hidden" />
+      <WhatWeOfferDesktop class="tw-hidden lg:tw-block" />
       <ContactUsToday />
       <TechnologyStack />
       <BlogSection />
@@ -28,14 +28,12 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/services/LandingSection.vue";
-import WhatWeOfferSection from "@/components/services/WhatWeOfferSection.vue";
+import WhatWeOfferMobile from "@/components/services/WhatWeOfferMobile.vue";
+import WhatWeOfferDesktop from "@/components/services/WhatWeOfferDesktop.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
 
-const WhatWeOfferDesktopSection = defineAsyncComponent(() =>
-  import("@/components/services/WhatWeOfferDesktop.vue")
-);
 const SuccessStories = defineAsyncComponent(() =>
   import("@/components/services/SuccessStories.vue")
 );
@@ -89,8 +87,8 @@ export default {
   components: {
     Header,
     LandingSection,
-    WhatWeOfferSection,
-    WhatWeOfferDesktopSection,
+    WhatWeOfferMobile,
+    WhatWeOfferDesktop,
     ContactUsToday,
     TechnologyStack,
     SuccessStories,

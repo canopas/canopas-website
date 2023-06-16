@@ -217,17 +217,19 @@ import desktopui3 from "@/assets/images/services/technology/desktop-icon/ui-3-20
 import desktopui4 from "@/assets/images/services/technology/desktop-icon/ui-4-200w.webp";
 import desktopui5 from "@/assets/images/services/technology/desktop-icon/ui-5-200w.webp";
 
-import seo1 from "@/assets/images/services/technology/seo-1-200w.webp";
-import seo2 from "@/assets/images/services/technology/seo-2-200w.webp";
-import seo3 from "@/assets/images/services/technology/seo-3-200w.webp";
-import seo4 from "@/assets/images/services/technology/seo-4-200w.webp";
-import seo5 from "@/assets/images/services/technology/seo-5-200w.webp";
+import devOps1 from "@/assets/images/services/technology/devops-1-200w.webp";
+import devOps2 from "@/assets/images/services/technology/devops-2-200w.webp";
+import devOps3 from "@/assets/images/services/technology/devops-3-200w.webp";
+import devOps4 from "@/assets/images/services/technology/devops-4-200w.webp";
+import devOps5 from "@/assets/images/services/technology/devops-5-200w.webp";
+import devOps6 from "@/assets/images/services/technology/devops-6-200w.webp";
 
-import desktopseo1 from "@/assets/images/services/technology/desktop-icon/seo-1-200w.webp";
-import desktopseo2 from "@/assets/images/services/technology/desktop-icon/seo-2-200w.webp";
-import desktopseo3 from "@/assets/images/services/technology/desktop-icon/seo-3-200w.webp";
-import desktopseo4 from "@/assets/images/services/technology/desktop-icon/seo-4-200w.webp";
-import desktopseo5 from "@/assets/images/services/technology/desktop-icon/seo-5-200w.webp";
+import desktopDevOps1 from "@/assets/images/services/technology/desktop-icon/devops-1-200w.webp";
+import desktopDevOps2 from "@/assets/images/services/technology/desktop-icon/devops-2-200w.webp";
+import desktopDevOps3 from "@/assets/images/services/technology/desktop-icon/devops-3-200w.webp";
+import desktopDevOps4 from "@/assets/images/services/technology/desktop-icon/devops-4-200w.webp";
+import desktopDevOps5 from "@/assets/images/services/technology/desktop-icon/devops-5-200w.webp";
+import desktopDevOps6 from "@/assets/images/services/technology/desktop-icon/devops-6-200w.webp";
 
 export default {
   data() {
@@ -258,8 +260,8 @@ export default {
           image: [ui1, ui2, ui3, ui4, ui5],
         },
         {
-          title: "SEO",
-          image: [seo1, seo2, seo3, seo4, seo5],
+          title: "DevOps",
+          image: [devOps1, devOps2, devOps3, devOps4, devOps5, devOps6],
         },
       ],
       stack1: [
@@ -310,13 +312,14 @@ export default {
           ],
         },
         {
-          title: "SEO",
+          title: "DevOps",
           icons: [
-            { image: desktopseo1, content: "Ahrefs" },
-            { image: desktopseo2, content: "Google Adwords" },
-            { image: desktopseo3, content: "Google Analytics" },
-            { image: desktopseo4, content: "SEMrush" },
-            { image: desktopseo5, content: "Google Search Console" },
+            { image: desktopDevOps1, content: "AWS" },
+            { image: desktopDevOps2, content: "GCP" },
+            { image: desktopDevOps3, content: "Firebase" },
+            { image: desktopDevOps4, content: "Docker" },
+            { image: desktopDevOps5, content: "Git" },
+            { image: desktopDevOps6, content: "CI/CD" },
           ],
         },
       ],

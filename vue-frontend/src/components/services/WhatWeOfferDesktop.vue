@@ -61,12 +61,12 @@
 </template>
 
 <script type="module">
-import androidApp800w from "@/assets/images/service/androidapp-800w.webp";
-import flutterApp800w from "@/assets/images/service/flutterapp-800w.webp";
-import frontend800w from "@/assets/images/service/frontend-800w.webp";
-import backend800w from "@/assets/images/service/backend-800w.webp";
-import uiuxdesign800w from "@/assets/images/service/uiuxdesign-800w.webp";
-import iosApp800w from "@/assets/images/service/iosapp-800w.webp";
+import androidApp800w from "@/assets/images/services/service/androidapp-800w.webp";
+import flutterApp800w from "@/assets/images/services/service/flutterapp-800w.webp";
+import frontend800w from "@/assets/images/services/service/frontend-800w.webp";
+import backend800w from "@/assets/images/services/service/backend-800w.webp";
+import uiuxdesign800w from "@/assets/images/services/service/uiuxdesign-800w.webp";
+import iosApp800w from "@/assets/images/services/service/iosapp-800w.webp";
 import { elementInViewPort } from "@/utils";
 
 export default {
@@ -148,7 +148,7 @@ export default {
 
       // make previous images clip path 0
       this.services = this.services.map((val, i) => {
-        val.path = i < index ? [0, 0] : val.path;
+        val.path = i < index ? [0, 0] : i > index ? [100, 100] : val.path;
         return val;
       });
 
