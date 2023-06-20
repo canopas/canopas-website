@@ -1,10 +1,12 @@
 <template>
-  <section class="tw-mb-48 2xl:tw-mb-[14rem] 2xll:tw-mb-[16rem] tw-mt-[25px]">
+  <section
+    class="tw-mb-48 2xl:tw-mb-[14rem] 2xll:tw-mb-[16rem] tw-mt-[25px] tw-bg-gradient-to-r tw-from-[#FFFFFF] tw-via-[#F2709C]/[0.05] tw-to-[#FFFFFF] tw-bg-gradient-[180.05deg]"
+  >
     <div
-      class="tw-relative xll:tw-container tw-w-full tw-h-full tw-bg-gradient-to-r tw-from-[#FFFFFF] tw-via-[#F2709C]/[0.05] tw-to-[#FFFFFF] tw-bg-gradient-[180.05deg] tw-pb-16 lg:tw-pt-[3rem]"
+      class="tw-relative xll:tw-container tw-w-full tw-h-full tw-pb-16 lg:tw-pt-[3rem]"
     >
       <div
-        class="tw-flex tw-flex-col tw-items-center tw-mx-auto tw-w-[52%] lg:tw-w-[55%] xl:tw-w-[62%] 2xl:tw-w-[55%] 2xll:tw-w-[45%] 3xl:tw-w-[55%] md:tw-text-center"
+        class="tw-flex tw-flex-col tw-items-center tw-mx-auto tw-w-[52%] lg:tw-w-[55%] xl:tw-w-[62%] 2xll:tw-w-[45%] xll:tw-w-[60%] 3xl:tw-w-[60%] md:tw-text-center"
       >
         <div
           class="tw-text-[2rem] xl:tw-text-[3.75rem] tw-leading-[3rem] xl:tw-leading-[5.625rem] tw-font-inter-bold"
@@ -194,12 +196,3 @@ export default {
   },
 };
 </script>
-<style lang="postcss">
-@import "swiper/css";
-
-.text-gradient {
-  background: linear-gradient(to right, var(--tw-gradient-stops));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-</style>

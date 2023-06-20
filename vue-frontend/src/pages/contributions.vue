@@ -10,6 +10,7 @@
       <MobileLandingSection class="tw-block md:tw-hidden" />
       <DesktopLandingSection class="tw-hidden md:tw-block" />
       <GithubContribution />
+      <WeeklyUpdateSection />
       <WhatsTrending />
       <Favourite />
       <AnimatedCreation />
@@ -22,12 +23,14 @@
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import { useMeta } from "vue-meta";
+import config from "@/config.js";
 import MobileLandingSection from "@/components/contributions/MobileLanding.vue";
 import DesktopLandingSection from "@/components/contributions/DesktopLanding.vue";
-import config from "@/config.js";
-
 import { defineAsyncComponent } from "vue";
 
+const WeeklyUpdateSection = defineAsyncComponent(() =>
+  import("@/components/contributions/WeeklyUpdate.vue")
+);
 const GithubContribution = defineAsyncComponent(() =>
   import("@/components/contributions/GithubContribution.vue")
 );
@@ -46,6 +49,7 @@ const DevOps = defineAsyncComponent(() =>
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
 );
+
 export default {
   setup() {
     var seoData = config.CONTRIBUTION_SEO_META_DATA;
@@ -72,6 +76,7 @@ export default {
     MobileLandingSection,
     DesktopLandingSection,
     GithubContribution,
+    WeeklyUpdateSection,
     WhatsTrending,
     Favourite,
     AnimatedCreation,
