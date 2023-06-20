@@ -183,7 +183,7 @@
                   <textarea
                     class="tw-block tw-w-full tw-min-h-[100px] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed hidden-scrollbar tw-whitespace-pre-wrap"
                     name="message"
-                    rows="3"
+                    rows="4"
                     v-model="message"
                     @input="resizeTextarea"
                     placeholder="Tell us about yourself..."
@@ -234,7 +234,7 @@
               <input
                 type="checkbox"
                 id="checkbox"
-                class="tw-mt-[-51px] md:tw-mt-[-25px] xl:tw-mt-[-23px] 2xl:tw-mt-[-17px] tw-w-[1.5rem] tw-h-[1.5rem] tw-rounded-[5px] tw-accent-pink-500"
+                class="tw-mt-[-51px] md:tw-mt-[-25px] xl:tw-mt-[-23px] 2xl:tw-mt-[-17px] tw-w-[1.5rem] tw-h-[1.5rem] tw-rounded-[5px] !tw-accent-[#f7787f]"
                 checked
               />
               <label
@@ -620,5 +620,10 @@ export default {
 <style lang="postcss" scoped>
 .active::before {
   @apply tw-top-[22px] -tw-rotate-[225deg];
+}
+input[type="checkbox"]:checked {
+  background-color: #ed820a;
+  border-color: #ed820a;
+  color: #fff;
 }
 </style>

@@ -62,7 +62,7 @@
           <div class="tw-mt-12">
             <div
               id="description"
-              class="normal-text tw-break-all md:tw-break-keep"
+              class="normal-text"
               v-html="job.description"
             ></div>
           </div>
@@ -368,7 +368,7 @@ export default {
 }
 
 :deep(ul > li) {
-  @apply tw-flex tw-items-baseline lg:tw-items-center;
+  @apply tw-flex tw-items-baseline;
 }
 :deep(ul > li > a > svg) {
   @apply tw-flex tw-items-center;
