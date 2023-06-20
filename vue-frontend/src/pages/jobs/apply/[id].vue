@@ -621,9 +621,4 @@ export default {
 .active::before {
   @apply tw-top-[22px] -tw-rotate-[225deg];
 }
-input[type="checkbox"]:checked {
-  background-color: #ed820a;
-  border-color: #ed820a;
-  color: #fff;
-}
 </style>
