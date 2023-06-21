@@ -101,9 +101,37 @@ module.exports = {
           "0%": { opacity: 0 },
           "100%": { opacity: 1 },
         },
+        fadeOut: {
+          "0%": { opacity: 1 },
+          "100%": { opacity: 0 },
+        },
+        fadeUp: {
+          "0%": {
+            transform: "translateX(0) translateY(0)",
+            opacity: 1,
+          },
+          "50%": {
+            transform: "translateY(-300%) translateX(-50%)",
+            opacity: 0,
+          },
+          "100%": {
+            transform: "translateY(-600%) translateX(-50%)",
+            opacity: 0,
+          },
+        },
         underlineOut: {
           "0%": { transform: "scaleX(0)" },
           "100%": { transform: "scaleX(1)" },
+        },
+        slideDown: {
+          "0%": {
+            transform: "translateX(100%) translateY(-300%)",
+            opacity: 1,
+          },
+          "50%": {
+            transform: "translateX(0) translateY(0)",
+            opacity: 1,
+          },
         },
       },
       animation: {
@@ -117,6 +145,10 @@ module.exports = {
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
         gridAnimationReverse2: "scroll-reverse 40s linear infinite",
         fadeIn: "fadeIn 0.6s ease-in",
+        slideDown: "slideDown 7s infinite",
+        fadeUp: "fadeUp 4s ease-in",
+        fadeSlide: "fadeIn 4s ease-in-out",
+        fadeSlideOut: "fadeOut 2.5s ease-in-out",
       },
       zIndex: {
         "-1": "-1",

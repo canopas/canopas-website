@@ -14,6 +14,7 @@
       <WhatsTrending />
       <Favourite />
       <AnimatedCreation />
+      <UnitTest />
       <DevOps />
     </div>
     <NewFooter />
@@ -43,6 +44,10 @@ const Favourite = defineAsyncComponent(() =>
 const AnimatedCreation = defineAsyncComponent(() =>
   import("@/components/contributions/AnimatedCreation.vue")
 );
+const UnitTest = defineAsyncComponent(() =>
+  import("@/components/contributions/UnitTest.vue")
+);
+
 const DevOps = defineAsyncComponent(() =>
   import("@/components/contributions/DevOps.vue")
 );
@@ -80,6 +85,7 @@ export default {
     WhatsTrending,
     Favourite,
     AnimatedCreation,
+    UnitTest,
     DevOps,
     NewFooter,
   },
