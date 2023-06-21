@@ -23,7 +23,13 @@
       <span class="title-span"> {{.ProjectInfo}}</span>
     </p>
 
+    {{if .PhoneNumber}}
+    <p><span class="title-span"><b>Phone Number :</b> {{.PhoneNumber}}</span></p>
+    {{end}}
+
+    {{if .Reference}}
     <p><span class="title-span">Reference : {{.Reference}}</span></p>
+    {{end}}
 
     {{if .Invest}}
     <p><span class="title-span">I'll invest : {{.Invest}}</span></p>

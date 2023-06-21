@@ -24,6 +24,7 @@ type ContactDetails struct {
 	Name             string `json:"name"`
 	Email            string `json:"email"`
 	ProjectInfo      string `json:"project_info"`
+	PhoneNumber      string `json:"phone_number"`
 	Reference        string `json:"reference"`
 	ContactType      string `json:"contact_type"`
 	Token            string `json:"token"`
