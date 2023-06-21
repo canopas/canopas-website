@@ -3,7 +3,7 @@
     <div
       class="tw-container tw-flex tw-flex-col tw-items-center tw-gap-y-2.5 tw-mt-24"
     >
-      <div>
+      <div class="tw-text-center">
         <span
           class="tw-text-[1.875rem] lg:tw-text-[3.4375rem] tw-leading-[2.4375rem] lg:tw-leading-[5.15625rem] tw-text-black-core/[.87] tw-font-inter-bold"
         >
