@@ -33,10 +33,11 @@
             </div>
           </router-link>
           <div
-            class="tw-flex tw-relative tw-basis-[auto] tw-grow tw-items-center"
+            class="tw-relative tw-flex tw-basis-[auto] tw-grow tw-items-center"
           >
             <ul
-              class="tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] xl:tw-text-[1.1875rem] xl:tw-leading-[1.4375rem] tw-hidden lg:tw-flex lg:tw-flex-row tw-flex-wrap lg:tw-items-center tw-justify-evenly xl:tw-justify-end tw-w-full"
+              class="tw-hidden lg:tw-flex lg:tw-flex-row tw-flex-wrap lg:tw-items-center tw-justify-evenly xl:tw-justify-end tw-w-full tw-text-[1rem] md:tw-text-[1.09375rem] xl:tw-text-[1.1875rem] tw-leading-[1.125rem] md:tw-leading-[1.28125rem] xl:tw-leading-[1.4375rem]"
+              @mouseleave="showContributionMenu = false"
             >
               <li
                 v-for="navbar in navbars"
@@ -44,32 +45,27 @@
                 class="tw-my-2 tw-py-2"
               >
                 <router-link
+                  @mouseover="
+                    showContributionMenu = navbar.name == 'Contribution'
+                  "
                   v-if="!navbar.target"
                   :to="navbar.url"
                   @click.native="mixpanel.track(navbar.event)"
-                  class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px]"
+                  class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px] tw-group"
                   :class="[
                     navbar.className
                       ? navbar.className
                       : navbar.class +
-                        ' after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent',
-                    currentRoutePath.includes(navbar.url)
-                      ? navbar.showContactBtn
-                        ? ''
-                        : 'after:tw-w-full after:tw-scale-x-0 after:tw-scale-x-100'
-                      : '',
+                        ' after:tw-absolute after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[3px]  after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent ',
                   ]"
                 >
                   <span
                     :class="[
-                      currentRoutePath == navbar.url && !navbar.showContactBtn
-                        ? 'v2-canopas-gradient-text'
-                        : '',
+                      navbar.id == 7 ? 'hover:v2-canopas-gradient-text' : '',
                     ]"
-                    class="tw-flex tw-mt-[0.1rem]"
                     >{{ navbar.name }}</span
-                  ></router-link
-                >
+                  >
+                </router-link>
                 <a
                   v-else
                   class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
@@ -77,6 +73,37 @@
                   :target="navbar.target"
                   >{{ navbar.name }}</a
                 >
+                <ul
+                  v-show="showContributionMenu"
+                  @mouseleave="showContributionMenu = false"
+                  class="tw-absolute xl:tw-left-[296px] 2xl:tw-left-[475px] lg:tw-top-[4.5rem] tw-w-max tw-border tw-rounded-[5px] tw-bg-white tw-shadow-md tw-px-6 tw-py-[1.5rem] tw-flex-col tw-space-y-6"
+                  :class="
+                    subMenus.length == 2
+                      ? 'lg:tw-left-[180px]'
+                      : 'lg:tw-left-[169px]'
+                  "
+                >
+                  <li
+                    v-for="navbar in subMenus"
+                    :key="navbar"
+                    class="tw-relative tw-group"
+                  >
+                    <a
+                      class="tw-group tw-relative tw-py-[1rem] tw-font-inter-medium tw-text-black-core/[0.6] tw-text-[1rem] md:tw-text-[1.09375rem] lg:tw-text-[1.188rem] tw-leading-[1.125rem] md:tw-leading-[1.28125rem] lg:tw-leading-[1.437rem] group-hover:tw-text-white group-hover:tw-z-[1]"
+                      :href="navbar.url"
+                      :target="navbar.target"
+                      >{{ navbar.name }}
+                      <div
+                        :class="
+                          subMenus.length == 2
+                            ? 'group-hover:tw-w-[145px]'
+                            : 'group-hover:tw-w-[168px]'
+                        "
+                        class="tw-absolute tw-left-[-25px] tw-top-[0] tw-w-0 tw-h-[100%] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] tw-transition-all tw-duration-300 tw-ease group-hover:tw-h-[100%] tw-z-[-1]"
+                      ></div
+                    ></a>
+                  </li>
+                </ul>
               </li>
             </ul>
           </div>
@@ -120,7 +147,7 @@
           </div>
         </div>
         <ul
-          class="tw-flex tw-flex-col lg:tw-items-center tw-justify-start tw-h-[50%] sm:tw-h-[45%] tw-mt-8 lg:tw-ml-auto tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-overflow-y-scroll"
+          class="tw-flex tw-flex-col lg:tw-items-center tw-justify-start tw-mt-8 lg:tw-ml-auto tw-h-[50%] sm:tw-h-[45%] tw-text-[1rem] md:tw-text-[1.09375rem] lg:tw-text-[1.1875rem] tw-leading-[1.125rem] md:tw-leading-[1.28125rem] lg:tw-leading-[1.4375rem] tw-overflow-y-scroll"
         >
           <li
             v-for="navbar in navbars.slice(0, navbars.length - 1)"
@@ -131,36 +158,53 @@
               v-if="!navbar.target"
               :to="navbar.url"
               @click.native="mixpanel.track(navbar.event)"
-              class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[20px]"
+              class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[20px] tw-group"
               :class="[
                 navbar.className
                   ? navbar.className
                   : navbar.class +
-                    ' after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent',
-                currentRoutePath.includes(navbar.url)
-                  ? ''
-                    ? ''
-                    : 'after:tw-w-full after:tw-scale-x-0 after:tw-scale-x-100'
-                  : '',
+                    ' after:tw-absolute after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[3px]  after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent',
               ]"
+              @click="
+                navbar.name == 'Contribution'
+                  ? (showContributionMenu = !showContributionMenu)
+                  : ''
+              "
             >
-              <span
-                :class="[
-                  currentRoutePath == navbar.url
-                    ? 'v2-canopas-gradient-text'
-                    : '',
-                ]"
-                class="tw-flex tw-mt-[0.1rem]"
-                >{{ navbar.name }}</span
-              ></router-link
+              {{ navbar.name }}</router-link
             >
+
             <a
               v-else
-              class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
+              class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[3px] after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
               :href="navbar.url"
               :target="navbar.target"
               >{{ navbar.name }}</a
             >
+            <ul
+              :class="
+                showContributionMenu && navbar.name == 'Contribution'
+                  ? 'tw-mt-8 tw-w-full tw-px-6 tw-bg-white'
+                  : 'tw-hidden tw-overflow-hidden'
+              "
+              class="tw-flex-col tw-space-y-6"
+            >
+              <li
+                v-for="navbar in subMenus"
+                :key="navbar"
+                class="tw-relative tw-group"
+              >
+                <a
+                  class="tw-relative tw-group tw-py-[0.5rem] tw-font-inter-medium tw-text-black-core/[0.6] tw-text-[1rem] md:tw-text-[1.09375rem] lg:tw-text-[1.188rem] tw-leading-[1.125rem] md:tw-leading-[1.28125rem] lg:tw-leading-[1.437rem] group-hover:tw-text-white group-hover:tw-z-[1]"
+                  :href="navbar.url"
+                  :target="navbar.target"
+                  >{{ navbar.name }}
+                  <div
+                    class="tw-fixed tw-mt-[-31px] tw-left-0 tw-w-0 tw-from-[#F2709C] tw-to-[#FF835B] tw-bg-gradient-to-r tw-transition-all tw-duration-100 tw-ease group-hover:tw-w-screen group-hover:tw-h-[5%] tw-z-[-1]"
+                  ></div>
+                </a>
+              </li>
+            </ul>
           </li>
         </ul>
         <div v-if="showMenu" class="tw-w-full tw-h-auto tw-bg-white tw-p-4">
@@ -193,6 +237,7 @@ export default {
       faBars,
       faXmark,
       width: 576,
+      showContributionMenu: false,
       showMenu: false,
       animateNavbar: true,
       showNavbar: false,
@@ -212,16 +257,9 @@ export default {
           event: "tap_header_portfolio",
         },
         {
-          name: "Resources",
-          url: "/resources",
-          target: "_self",
-          event: "tap_header_resources",
-        },
-        {
-          name: "Blog",
-          url: Config.BLOG_URL,
-          target: "_blank",
-          event: "tap_header_blog",
+          name: "Contribution",
+          url: "",
+          event: "tap_header_contribution",
         },
         {
           name: "Career",
@@ -234,12 +272,27 @@ export default {
           event: "tap_header_about",
         },
         {
+          id: 7,
           name: "Get Free Consultation",
           url: "/contact",
           className:
-            "tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] tw-tracking-[0] gradient-btn consultation-btn",
+            "tw-m-0 tw-rounded-full tw-py-3 tw-px-3 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] tw-tracking-[0]  gradient-btn consultation-btn",
           showContactBtn: true,
           event: "tap_header_cta",
+        },
+      ],
+      subMenus: [
+        {
+          name: "Blog",
+          url: Config.BLOG_URL,
+          target: "_blank",
+          event: "tap_header_blog",
+        },
+        {
+          name: "Resources",
+          url: "/resources",
+          target: "_self",
+          event: "tap_header_resources",
         },
       ],
     };
@@ -249,8 +302,8 @@ export default {
   },
   mounted() {
     if (Config.SHOW_CONTRIBUTION_PAGE) {
-      this.navbars.splice(0, 0, {
-        name: "Contributions",
+      this.subMenus.splice(0, 0, {
+        name: "Open Source",
         url: "/contributions",
         event: "tap_header_contributions",
       });

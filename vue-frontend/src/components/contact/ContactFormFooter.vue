@@ -67,10 +67,10 @@
             class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
           >
             <textarea
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
+              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-min-h-[50px] md:tw-min-h-[90px] tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
               id="project"
               name="project"
-              rows="1"
+              rows="3"
               required
               autocomplete="given-project-info"
               v-model="projectInfo"
@@ -175,31 +175,10 @@
               >This field is required</span
             >
           </div>
-
           <div
-            class="tw-relative tw-inline-flex tw-items-center md:tw-col-span-2 tw-pt-3 lg:tw-pt-0 tw-cursor-pointer tw-text-left"
+            class="tw-w-full tw-text-[1rem] xl:tw-text-[1.5rem] tw-leading-[1.5rem] xl:tw-leading-[1.875rem] tw-font-inter-regular tw-text-white/[.6] tw-text-left"
           >
-            <span
-              class="tw-mr-6 tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-text-white/[.6]"
-              @click="toggleNDA"
-              >Send me NDA</span
-            >
-            <label
-              for="nda"
-              class="tw-relative tw-inline-flex tw-items-center tw-cursor-pointer"
-            >
-              <input
-                name="nda"
-                id="nda"
-                type="checkbox"
-                v-model="NDA"
-                class="tw-sr-only tw-peer"
-                aria-label="Send NDA"
-              />
-              <div
-                class="tw-w-9 tw-h-4 tw-rounded-full tw-bg-white/[.6] tw-peer after:tw-content-[''] after:tw-absolute after:tw-top-[-2px] after:tw-left-[-2px] after:tw-h-5 after:tw-w-5 after:tw-border-white/[.6] after:tw-border after:tw-rounded-full after:tw-bg-white after:tw-transition-all peer-focus:tw-outline-none peer-checked:after:tw-border-white/[.6] peer-checked:tw-bg-gradient-to-r peer-checked:tw-from-[#F2709C] peer-checked:tw-to-[#FF9472] peer-checked:after:tw-translate-x-full"
-              ></div>
-            </label>
+            We sign NDA for all of our projects.
           </div>
         </div>
 
@@ -268,7 +247,6 @@ export default {
         "USD 100000 - USD 250000",
         "> USD 250000",
       ],
-      NDA: false,
       showNameValidationError: false,
       showEmailValidationError: false,
       showValidEmailError: false,
@@ -325,7 +303,6 @@ export default {
             : "NA",
           reference: this.reference,
           invest: this.invest,
-          nda: this.NDA,
           contact_type: "",
         };
         var head = document.getElementsByTagName("head")[0];
@@ -350,7 +327,6 @@ export default {
                     this.projectInfo = "";
                     this.reference = "";
                     this.invest = "";
-                    this.NDA = false;
                     this.floatable = false;
                     this.showLoader = false;
 
@@ -405,10 +381,6 @@ export default {
       this.showList = !this.showList;
       this.floatable = this.showList || this.invest.trim().length > 0;
       this.mixpanel.track("tap_footer_invest_input");
-    },
-    toggleNDA() {
-      this.NDA = !this.NDA;
-      this.mixpanel.track("tap_footer_NDA_input");
     },
   },
 };
