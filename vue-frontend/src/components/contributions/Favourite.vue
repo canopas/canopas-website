@@ -1,13 +1,13 @@
 <template>
-  <section class="tw-my-20 md:tw-mt-10">
+  <section class="tw-my-20 md:tw-mt-16">
     <!-- Mobile UI start -->
     <p
-      class="tw-container lg:tw-hidden tw-text-center tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
+      class="tw-container lg:tw-hidden md:tw-w-[39%] md:tw-ml-[6%] tw-text-center md:tw-text-left tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
     >
       The Favorites You <br class="md:tw-hidden" />
       Can't Miss
     </p>
-    <div class="tw-block lg:tw-hidden tw-mt-8">
+    <div class="tw-block md:tw-hidden tw-mt-8">
       <swiper :slidesPerView="1.2" :spaceBetween="0" class="tw-p-[1rem]">
         <swiper-slide
           v-for="(favourite, index) in favourites"
@@ -55,14 +55,14 @@
       The Favorites You <br />
       Can't Miss
     </p>
-    <div class="tw-container tw-hidden lg:tw-flex tw-flex-row">
+    <div class="tw-container tw-hidden md:tw-flex tw-flex-row">
       <div
         class="tw-flex tw-flex-col tw-mt-[7.438rem]"
         v-for="favourite in favourites.slice(0, 1)"
         :key="favourite.id"
       >
         <div
-          class="tw-flex tw-flex-row tw-gap-2 tw-items-center tw-justify-end tw-mb-2 tw-mr-6 lg:tw-mr-[2rem] xl:tw-mr-[2.5rem] 2xl:tw-mr-[3rem]"
+          class="tw-flex tw-flex-row tw-gap-2 tw-text-left tw-items-center tw-justify-end tw-mb-2 tw-mr-6 lg:tw-mr-[2rem] xl:tw-mr-[2.5rem] 2xl:tw-mr-[3rem]"
         >
           <img
             :src="like_100w"

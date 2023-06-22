@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="tw-container tw-flex tw-flex-col tw-items-center tw-gap-y-2.5 tw-mt-24"
+      class="tw-container tw-flex tw-flex-col tw-items-center tw-gap-y-2.5 tw-mt-[3rem] lg:tw-mt-24"
     >
       <div class="tw-text-center">
         <span
@@ -21,7 +21,7 @@
     <!-- Mobile UI start -->
     <div class="swiper-content tw-block md:tw-hidden tw-mb-10">
       <div
-        class="tw-flex tw-justify-around tw-mx-auto tw-mb-[3.75rem] tw-w-[70%] xs:tw-w-[90%] xl:tw-w-[65%] 2xl:tw-w-[55%] xll:tw-w-[30%] tw-rounded-[30px] tw-py-[5px]"
+        class="tw-flex tw-justify-around tw-mx-auto tw-mb-[3.75rem] tw-w-[70%] xs:tw-w-[70%] sm:tw-w-full xl:tw-w-[65%] 2xl:tw-w-[55%] xll:tw-w-[30%] tw-rounded-[30px] tw-py-[5px]"
       >
         <a
           v-for="(weekly, index) in weeklies"

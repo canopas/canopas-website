@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-my-[1rem] lg:tw-mt-[5rem] tw-mx-auto tw-text-center">
+  <div class="lg:tw-mt-[5rem] tw-mx-auto tw-text-center">
     <span
       class="tw-container tw-text-center tw-font-inter-bold tw-text-black-core/[0.8] tw-text-[1.875rem] lg:tw-text-[3.4375rem] tw-leading-[2.4375rem] lg:tw-leading-[5.15625rem]"
       >WHY and How to Write Unit Tests?</span
@@ -61,14 +61,6 @@
             delay: 3000,
             disableOnInteraction: false,
           }"
-          :breakpoints="{
-            '768': {
-              slidesPerView: 1.125,
-            },
-            '992': {
-              slidesPerView: 3,
-            },
-          }"
           :spaceBetween="20"
           :navigation="true"
           class="swiper-container tw-absolute tw-top-[10px] tw-left-0 tw-mx-auto tw-w-full tw-h-full tw-z-30"
@@ -84,7 +76,7 @@
               <img
                 :src="test.images[0]"
                 :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
-                class="tw-w-fit tw-h-fit tw-object-cover tw-drop-shadow-md"
+                class="tw-w-fit tw-h-[80%] lg:tw-h-fit tw-object-cover tw-drop-shadow-md"
                 alt="UnitTestImage"
               />
             </div>

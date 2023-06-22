@@ -1,12 +1,14 @@
 <template>
-  <section class="tw-my-[100px]">
+  <section
+    class="tw-mb-[100px] tw-mt-[12%] lg:tw-mt-[7%] 2xll:tw-mt-[4%] 3xl:tw-mt-0"
+  >
     <p
       class="tw-container tw-text-center tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
     >
       DevOps: CI/CD and Auto Deployment
     </p>
     <!-- Mobile UI start -->
-    <div class="tw-block lg:tw-hidden tw-mt-[3rem]">
+    <div class="tw-block md:tw-hidden tw-mt-[3rem]">
       <swiper :slidesPerView="1.325" :centeredSlides="true" :spaceBetween="0">
         <swiper-slide v-for="(blog, index) in devOps" :key="index">
           <div
@@ -31,7 +33,7 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-container tw-hidden lg:tw-flex tw-flex-col tw-gap-10 tw-mt-16"
+      class="tw-container tw-hidden md:tw-flex tw-flex-col tw-gap-10 tw-mt-16"
     >
       <div class="tw-flex tw-flex-row tw-gap-10">
         <div v-for="blog in devOps.slice(0, 2)" :key="blog.id">
@@ -47,7 +49,7 @@
             />
             <div @click="openBlog(blog.link)">
               <div
-                class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-[85%]"
+                class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
               ></div>
               <div
                 class="tw-absolute tw-bottom-[-4rem] tw-p-[1rem] tw-opacity-1 tw-text-white tw-font-inter-medium tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 group-hover:tw-bottom-[-1rem] xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
@@ -82,7 +84,7 @@
           />
           <div @click="openBlog(blog.link)">
             <div
-              class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-[85%]"
+              class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
             ></div>
             <div
               class="tw-absolute tw-bottom-[-4rem] tw-p-[1rem] tw-opacity-1 tw-text-white tw-font-inter-medium tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 group-hover:tw-bottom-[-1rem] xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
@@ -115,10 +117,10 @@
             />
             <div @click="openBlog(blog.link)">
               <div
-                class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-[85%]"
+                class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
               ></div>
               <div
-                class="tw-absolute tw-bottom-[-4rem] tw-p-[1rem] tw-opacity-1 tw-text-white tw-font-inter-medium tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 group-hover:tw-bottom-[-1rem] xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
+                class="tw-absolute tw-bottom-[-4rem] tw-p-[1rem] tw-text-white tw-font-inter-medium tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 group-hover:tw-bottom-[-1rem] xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
               >
                 <p
                   class="tw-text-[1.1rem] tw-leading-[1.1875rem] xl:tw-text-[1.125rem] xl:tw-leading-[1.688rem]"
