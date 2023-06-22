@@ -1,12 +1,12 @@
 <template>
-  <section class="tw-my-[100px]">
+  <section class="tw-my-[60px]">
     <div
       class="tw-container tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-text-center tw-font-inter-bold tw-text-black-core/[0.87]"
     >
       Explore Our Animated Creations
     </div>
     <!-- Mobile UI start -->
-    <div class="tw-block lg:tw-hidden tw-mt-10">
+    <div class="tw-block md:tw-hidden tw-mt-10">
       <swiper :slidesPerView="1.1" :spaceBetween="0" class="tw-p-[1rem]">
         <swiper-slide
           v-for="(animation, index) in animations"
@@ -38,7 +38,7 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-container tw-hidden lg:tw-flex tw-flex-row tw-gap-8 tw-mt-[50px]"
+      class="tw-container tw-hidden md:tw-flex tw-flex-row tw-gap-8 tw-mt-[50px]"
     >
       <div class="tw-flex tw-flex-col tw-gap-8 tw-w-[50%]">
         <div v-for="animation in animations.slice(0, 3)" :key="animation.id">

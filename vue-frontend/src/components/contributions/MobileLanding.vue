@@ -2,7 +2,7 @@
   <section
     class="tw-mb-16 tw-h-[470px] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.1] tw-to-[#F2709C]/[0.1] tw-bg-gradient-[270.11deg]"
   >
-    <div class="tw-relative tw-block md:tw-hidden">
+    <div class="tw-relative">
       <div
         class="tw-absolute tw-w-[80%] tw-top-4 tw-left-[16%] tw-flex tw-flex-row tw-justify-between"
       >

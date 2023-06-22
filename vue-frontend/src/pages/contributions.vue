@@ -16,6 +16,7 @@
       <AnimatedCreation />
       <UnitTest />
       <DevOps />
+      <ExploreDesign />
     </div>
     <NewFooter />
   </div>
@@ -51,6 +52,10 @@ const UnitTest = defineAsyncComponent(() =>
 const DevOps = defineAsyncComponent(() =>
   import("@/components/contributions/DevOps.vue")
 );
+const ExploreDesign = defineAsyncComponent(() =>
+  import("@/components/contributions/DesignExplore.vue")
+);
+
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
 );
@@ -87,6 +92,7 @@ export default {
     AnimatedCreation,
     UnitTest,
     DevOps,
+    ExploreDesign,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {

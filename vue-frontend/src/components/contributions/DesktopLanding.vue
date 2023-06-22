@@ -1,6 +1,6 @@
 <template>
   <section
-    class="tw-mb-48 2xl:tw-mb-[14rem] 2xll:tw-mb-[16rem] tw-mt-[25px] tw-bg-gradient-to-r tw-from-[#FFFFFF] tw-via-[#F2709C]/[0.05] tw-to-[#FFFFFF] tw-bg-gradient-[180.05deg]"
+    class="tw-mb-48 2xl:tw-mb-[14rem] 2xll:tw-mb-[16rem] xll:tw-mb-[25rem] tw-mt-[25px] tw-bg-gradient-to-r tw-from-[#FFFFFF] tw-via-[#F2709C]/[0.05] tw-to-[#FFFFFF] tw-bg-gradient-[180.05deg]"
   >
     <div
       class="tw-relative xll:tw-container tw-w-full tw-h-full tw-pb-16 lg:tw-pt-[3rem]"

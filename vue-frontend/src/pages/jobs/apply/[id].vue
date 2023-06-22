@@ -231,18 +231,16 @@
               </div>
             </div>
             <div class="tw-flex tw-items-center tw-mt-8">
-              <input
-                type="checkbox"
-                id="checkbox"
-                class="tw-mt-[-51px] md:tw-mt-[-25px] xl:tw-mt-[-23px] 2xl:tw-mt-[-17px] tw-w-[1.5rem] tw-h-[1.5rem] tw-rounded-[5px] tw-accent-pink-500"
-                checked
-              />
               <label
-                class="tw-ml-2 tw-text-[1.125rem] tw-leading-[1.688rem] tw-font-inter-medium tw-text-black-core/[0.87]"
+                class="tw-relative tw-block tw-mb-[15px] tw-ml-2 tw-pl-[35px] tw-text-[1.125rem] tw-leading-[1.688rem] tw-font-inter-medium tw-text-black-core/[0.87] box tw-cursor-pointer"
                 for="checkbox"
                 >I acknowledge that Canopas does not conduct remote interviews
-                and does not offer remote job positions.</label
-              >
+                and does not offer remote job positions.
+                <input type="checkbox" id="checkbox" checked />
+                <span
+                  class="tw-absolute tw-top-0 tw-left-0 tw-mt-[5px] tw-h-[1.5rem] tw-w-[1.5rem] tw-border-2 tw-border-solid tw-border-[#999999] tw-rounded mark"
+                ></span>
+              </label>
             </div>
             <div class="tw-flex tw-justify-center tw-mt-4">
               <img
@@ -620,5 +618,23 @@ export default {
 <style lang="postcss" scoped>
 .active::before {
   @apply tw-top-[22px] -tw-rotate-[225deg];
+}
+
+input[type="checkbox"] {
+  @apply tw-invisible;
+}
+
+.box input:checked + .mark {
+  @apply tw-bg-[#f2709c] tw-border-0;
+}
+
+.mark:after {
+  @apply tw-absolute tw-hidden tw-content-[''];
+}
+.box input:checked + .mark:after {
+  @apply tw-block;
+}
+.box .mark:after {
+  @apply tw-left-[9px] tw-bottom-[7px] tw-w-[6px] tw-h-[14px] tw-border-solid tw-border-[#fff] tw-border-t-0 tw-border-r-[3px] tw-border-b-[3px] tw-border-l-0 tw-rotate-[45deg];
 }
 </style>

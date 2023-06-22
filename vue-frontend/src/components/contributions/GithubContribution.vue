@@ -1,6 +1,6 @@
 <template>
   <section class="lg:tw-my-[100px]">
-    <div class="tw-container">
+    <div class="tw-container tw-mb-24 lg:tw-mb-0">
       <p
         class="tw-text-center tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
       >
@@ -31,7 +31,7 @@
       </div>
     </div>
     <!-- Mobile UI start -->
-    <div class="sm:tw-container swiper-content !tw-mt-8 lg:tw-hidden">
+    <div class="sm:tw-container swiper-content !tw-mt-8 md:tw-hidden">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
@@ -123,25 +123,27 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-container tw-hidden lg:tw-flex tw-flex-wrap tw-justify-between tw-mx-auto tw-my-10"
+      class="tw-container tw-hidden md:tw-flex tw-flex-wrap tw-justify-between tw-mx-auto tw-mt-[2rem] lg:tw-my-10"
     >
       <div
         v-for="(contribution, index) in contributions"
-        class="flip-card tw-relative tw-w-[48%] tw-h-[440px] xl:tw-h-[500px] 2xl:tw-h-[550px] tw-mt-[2rem] tw-mx-auto tw-cursor-pointer"
+        class="flip-card tw-relative md:tw--mt-[3rem] lg:tw-mt-[1rem] xl:tw-mt-[2rem] tw-w-[48%] tw-h-[368px] lg:tw-h-[440px] xl:tw-h-[500px] 2xl:tw-h-[550px] tw--gap-y-8 tw-mx-auto tw-cursor-pointer"
         :key="index"
         @click="openContribution(contribution)"
       >
-        <div class="flip-card-inner tw-relative tw-w-full tw-h-full">
+        <div
+          class="flip-card-inner tw-relative tw-w-full tw-h-[92%] lg:tw-h-full"
+        >
           <div class="flip-card-front">
             <img
               :src="contribution.deskImage[1]"
               :srcset="`${contribution.deskImage[0]} 400w, ${contribution.deskImage[1]} 800w`"
-              class="tw-absolute tw-w-full tw-h-full tw-object-cover tw-rounded-[20px] card-image card-image-1"
+              class="tw-absolute tw-w-full lg:tw-h-full tw-object-cover tw-object-contain tw-rounded-[20px] card-image card-image-1"
               alt="contribution-image"
             />
           </div>
           <div
-            class="flip-card-back tw-absolute tw-w-full tw-h-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] card-image back-card"
+            class="flip-card-back tw-absolute tw-w-full tw-h-[92%] lg:tw-h-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] card-image back-card"
           >
             <div
               class="tw-flex tw-flex-row tw-items-center tw-justify-between tw-pl-6 tw-pr-4 tw-pt-6"
@@ -178,16 +180,18 @@
               </div>
             </div>
             <p
-              class="tw-mt-[4rem] tw-ml-6 tw-mr-2 tw-font-inter-semibold tw-text-[2rem] tw-leading-[3rem] tw-text-white"
+              class="lg:tw-mt-[4rem] tw-ml-6 tw-mr-2 tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2rem] tw-leading-[3rem] tw-text-white"
             >
               {{ contribution.title }}
             </p>
             <p
-              class="tw-ml-6 tw-mr-2 tw-font-inter-regular tw-text-[1.75rem] tw-leading-[2.625rem] tw-text-white"
+              class="tw-ml-6 tw-mr-2 tw-font-inter-regular tw-text-[1.2rem] lg:tw-text-[1.75rem] tw-leading-[2.625rem] tw-text-white"
             >
               {{ contribution.description }}
             </p>
-            <div class="tw-flex tw-flex-row tw-items-center tw-mt-8 tw-px-6">
+            <div
+              class="tw-flex tw-flex-row tw-items-center tw-mt-4 lg:tw-mt-8 tw-px-6"
+            >
               <p
                 class="tw-mr-2 tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[2.438rem] tw-text-white"
               >
