@@ -19,10 +19,12 @@ const (
 )
 
 type LeaveData struct {
-	Name     string `json:"name" form:"name"`
-	Date     string `json:"date" form:"date"`
-	Status   string `json:"status" form:"status"`
-	Receiver string `json:"receiver" form:"receiver"`
+	Name        string `json:"name" form:"name"`
+	Date        string `json:"date" form:"date"`
+	Status      int    `json:"status" form:"status"`
+	Reason      string `json:"reason" form:"reason"`
+	Receiver    string `json:"receiver" form:"receiver"`
+	StatusValue string
 }
 
 type LeaveRepository struct {
@@ -62,6 +64,8 @@ func (repository *LeaveRepository) SendLeaveRequest(c *gin.Context) {
 
 func (repository *LeaveRepository) getNewLeaveEmailTemplate(input LeaveData) (template *ses.SendEmailInput) {
 
+	input.StatusValue = utils.GetStatusValue(input.Status)
+
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "new-leave-email-template.html")
 
 	subject := "New leave request"
@@ -94,6 +98,8 @@ func (repository *LeaveRepository) SendUpdateLeaveMail(c *gin.Context) {
 }
 
 func (repository *LeaveRepository) getUpdateLeaveEmailTemplate(input LeaveData) (template *ses.SendEmailInput) {
+
+	input.StatusValue = utils.GetStatusValue(input.Status)
 
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "update-leave-email-template.html")
 

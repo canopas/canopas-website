@@ -41,7 +41,7 @@ func (faker *stubUtilsRepo) getNewLeaveEmailTemplate(input []string) string {
 
 func Test_SendLeaveRequest(t *testing.T) {
 	w := httptest.NewRecorder()
-	req, err := http.NewRequest("POST", "/api/leave/new", bytes.NewBuffer([]byte(`{"Name":"test","Date":"3 jan 2023","Status":"request","Receiver":"test@canopas.com"}`)))
+	req, err := http.NewRequest("POST", "/api/leave/new", bytes.NewBuffer([]byte(`{"Name":"test","Date":"3 jan 2023","Status":1,"Reason":"Casual Leave","Receiver":"test@canopas.com"}`)))
 	assert.NoError(t, err)
 
 	engine := gin.New()
@@ -53,7 +53,7 @@ func Test_SendLeaveRequest(t *testing.T) {
 
 func Test_SendUpdateLeaveMail(t *testing.T) {
 	w := httptest.NewRecorder()
-	req, err := http.NewRequest("POST", "/api/leave/update", bytes.NewBuffer([]byte(`{"Name":"test","Date":"3 jan 2023","Status":"approve","Receiver":"test@canopas.com"}`)))
+	req, err := http.NewRequest("POST", "/api/leave/update", bytes.NewBuffer([]byte(`{"Name":"test","Date":"3 jan 2023","Status":2,"Receiver":"test@canopas.com"}`)))
 	assert.NoError(t, err)
 
 	engine := gin.New()

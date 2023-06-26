@@ -18,6 +18,13 @@ import (
 	"github.com/aws/aws-sdk-go/service/s3/s3manager"
 )
 
+const (
+	REQUEST   = 1
+	APPROVED  = 2
+	REJECTED  = 3
+	CANCELLED = 4
+)
+
 func ReadSliceFromFile[T comparable](filePath string, items []T) []T {
 	data, err := ioutil.ReadFile(filePath)
 	if err != nil {
@@ -127,4 +134,20 @@ func UploadResumeToS3(fileHeader *multipart.FileHeader) (string, error) {
 	resumeURL := fmt.Sprintf("https://%s.s3.%s.amazonaws.com/resumes/%s", "canopas-website", os.Getenv("REGION"), fileName)
 
 	return resumeURL, nil
+}
+
+func GetStatusValue(status int) string {
+	var StatusValue string
+	switch status {
+	case REQUEST:
+		StatusValue = "request"
+	case APPROVED:
+		StatusValue = "approved"
+	case REJECTED:
+		StatusValue = "rejected"
+	case CANCELLED:
+		StatusValue = "cancelled"
+	}
+
+	return StatusValue
 }

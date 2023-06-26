@@ -311,7 +311,8 @@
         {
             "name": "mansi dhameliya",
             "date": "3 jan 2023",  // OR if you want to add multiple dates, you can add like this : "3 jan 2023 to 5 jan 2023"
-            "status": "request",
+            "status": 1,  // you can use 1 for request
+            "reason": "Casual Leave",
             "receiver": "hr@canopas.com",
         }
 - Response :
@@ -328,6 +329,7 @@
     - Headers : none
     - Message : Leave request has been sent successfully
 ```
+
 ### 7. Send Update Leave Request mail
 
 ```
@@ -340,7 +342,7 @@
          {
             "name": "mansi dhameliya",
             "date": "3 jan 2023", // OR if you want to add multiple dates, you can add like this : "3 jan 2023 to 5 jan 2023"
-            "status": "approve",
+            "status": 2 OR 3 , // you can use 2 for approved and 3 for rejected
             "receiver": "mansi@canopas.com",
         }
 - Response :
