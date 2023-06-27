@@ -87,8 +87,17 @@ export default Object.freeze({
     url: "https://dev-stack.canopas.com/contributions",
     image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
+  MOBILE_APP_DEVELOPMENT_SEO_META_DATA: {
+    title: "Canopas Open Source Contributions - Web and Mobile App Development",
+    description:
+      "Explore Canopas' open-source contributions on GitHub and glean expert insights on Medium. Evaluate our exceptional work quality and experience for yourself.",
+    type: "Website",
+    url: "https://dev-stack.canopas.com/mobile-app-development",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
+  },
   IS_PROD: false,
   SHOW_CONTRIBUTION_PAGE: true,
+  SHOW_MOBILE_APP_DEVELOPMENT_PAGE: true,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
   MIX_PANEL_TOKEN: "acf7239a736ff487ca6058c981a55d7e",

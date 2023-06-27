@@ -1,12 +1,12 @@
 <template>
-  <div class="md:tw-mt-[80px] tw-font-inter-regular">
+  <div class="tw-font-inter-regular md:tw-mt-[80px]">
     <p
-      class="tw-text-black-core/[.03] tw-text-center tw-text-[3.75rem] xl:tw-text-[5rem] tw-leading-[4.0625rem] xl:tw-leading-[5rem]"
+      class="tw-text-center tw-text-[3.75rem] tw-leading-[4.0625rem] tw-text-black-core/[.03] xl:tw-text-[5rem] xl:tw-leading-[5rem]"
     >
       Services
     </p>
     <p
-      class="tw-mt-[-40px] xl:tw-mt-[-50px] tw-pb-16 md:tw-pb-24 tw-font-roboto-bold tw-text-black-core/[.87] tw-leading-[4.4375rem] tw-text-[3.438rem] tw-text-center"
+      class="tw-mt-[-40px] tw-pb-16 tw-text-center tw-font-roboto-bold tw-text-[3.438rem] tw-leading-[4.4375rem] tw-text-black-core/[.87] md:tw-pb-24 xl:tw-mt-[-50px]"
     >
       How We Can Help You
     </p>
@@ -16,19 +16,21 @@
       :key="service"
       @mouseover="activeIndex = index"
       @touchstart.passive="activeIndex = index"
-      :class="
+      @click="showServices ? openUrl(service.url) : ''"
+      :class="[
         activeIndex === index
-          ? 'hover:tw-text-transparent tw-transition-all tw-duration-500  tw-ease-in-out tw-transform'
-          : ''
-      "
-      class="tw-relative tw-flex tw-items-center tw-h-36 tw-pl-16 xl:tw-pl-48 xll:tw-pl-[40rem]"
+          ? 'tw-transform tw-transition-all tw-duration-500  tw-ease-in-out hover:tw-text-transparent'
+          : '',
+        showServices ? 'tw-cursor-pointer' : '',
+      ]"
+      class="tw-relative tw-flex tw-h-36 tw-items-center tw-pl-16 xl:tw-pl-48 xll:tw-pl-[40rem]"
     >
       <div
         v-if="activeIndex === index || (activeIndex == null && index == 0)"
-        class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-justify-center tw-items-center tw-ml-0 tw-w-full tw-h-full tw-z-[2] tw-pr-8 xl:tw-pr-12 tw-shadow-[0px_2px_50px_4px_rgba(61,61,61,0.1)]"
+        class="tw-absolute tw-left-0 tw-top-0 tw-z-[2] tw-ml-0 tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center tw-pr-8 tw-shadow-[0px_2px_50px_4px_rgba(61,61,61,0.1)] xl:tw-pr-12"
       >
         <div
-          class="tw-flex tw-items-center tw-basis-[44%] lg:tw-basis-[49%] tw-h-36 tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B] tw-pl-16 xl:tw-pl-48 xll:tw-pl-[40rem] tw-font-inter-semibold tw-text-white tw-text-2xl xl:tw-text-[1.875rem] xl:tw-leading-[2.4375rem]"
+          class="tw-flex tw-h-36 tw-basis-[44%] tw-items-center tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B] tw-pl-16 tw-font-inter-semibold tw-text-2xl tw-text-white lg:tw-basis-[49%] xl:tw-pl-48 xl:tw-text-[1.875rem] xl:tw-leading-[2.4375rem] xll:tw-pl-[40rem]"
         >
           0{{ index + 1 }}
           <span class="tw-pl-[20px] xl:tw-pl-[62px]">
@@ -36,10 +38,10 @@
           </span>
         </div>
         <div
-          class="tw-basis-[1%] tw-ml-[-1px] tw-border-transparent tw-border-r-[70px] tw-border-t-[144px] tw-border-t-[#ff835b]"
+          class="tw-ml-[-1px] tw-basis-[1%] tw-border-r-[70px] tw-border-t-[144px] tw-border-transparent tw-border-t-[#ff835b]"
         ></div>
         <div
-          class="tw-flex tw-flex-col tw-basis-[55%] lg:tw-basis-[50%] tw-justify-center tw-items-start tw-px-4 tw-font-inter-regular tw-text-base xl:tw-text-[1.25rem] xl:tw-leading-[1.775rem] tw-text-black-core/[.8]"
+          class="tw-flex tw-basis-[55%] tw-flex-col tw-items-start tw-justify-center tw-px-4 tw-font-inter-regular tw-text-base tw-text-black-core/[.8] lg:tw-basis-[50%] xl:tw-text-[1.25rem] xl:tw-leading-[1.775rem]"
         >
           <p>
             {{ service.content }}
@@ -60,15 +62,18 @@
 </template>
 
 <script type="module">
+import config from "@/config.js";
 export default {
   data() {
     return {
       activeIndex: null,
+      showServices: !config.IS_PROD,
       services: [
         {
           title: "Mobile app Development",
           content:
             "Whether your goal is to acquire new users, improve your retention rate, or increase in-app sales, our team will guide you based on our decade-long experience. From native to hybrid, we've got you covered.",
+          url: "/mobile-app-development",
         },
         {
           title: "Web Development",
@@ -92,6 +97,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    openUrl(url) {
+      window.open(url, "_self");
+    },
   },
 };
 </script>
