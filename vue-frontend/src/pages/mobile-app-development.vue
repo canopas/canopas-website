@@ -9,6 +9,7 @@
 
     <div>
       <Services />
+      <CTASection />
     </div>
 
     <NewFooter />
@@ -22,6 +23,9 @@ import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
 
+const CTASection = defineAsyncComponent(() =>
+  import("@/components/mobile-app-development/CTASection.vue")
+);
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
 );
@@ -47,10 +51,10 @@ export default {
       },
     });
   },
-
   components: {
     Header,
     Services,
+    CTASection,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
