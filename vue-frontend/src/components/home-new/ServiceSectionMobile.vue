@@ -4,12 +4,12 @@
   >
     <div>
       <p
-        class="tw-text-black-core/[.03] tw-text-center tw-text-[2.5rem] tw-leading-[1.875rem]"
+        class="tw-text-center tw-text-[2.5rem] tw-leading-[1.875rem] tw-text-black-core/[.03]"
       >
         Services
       </p>
       <p
-        class="tw-mt-[-20px] tw-pb-8 tw-font-roboto-bold tw-text-center tw-leading-[2.198rem] tw-text-[1.875rem]"
+        class="tw-mt-[-20px] tw-pb-8 tw-text-center tw-font-roboto-bold tw-text-[1.875rem] tw-leading-[2.198rem]"
       >
         How We Can Help You
       </p>
@@ -18,12 +18,12 @@
       :src="ServiceBackgroundImage"
       alt="service-background-image"
       loading="lazy"
-      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-object-contain sm:tw-object-cover"
+      class="tw-absolute tw-left-0 tw-top-0 tw-h-full tw-w-full tw-object-contain sm:tw-object-cover"
     />
     <div
       v-for="(service, index) in services"
       :key="index"
-      class="tw-relative tw-flex even:tw-flex-row-reverse tw-py-[20px] tw-px-0"
+      class="tw-relative tw-flex tw-px-0 tw-py-[20px] even:tw-flex-row-reverse"
     >
       <div
         :class="
@@ -31,21 +31,22 @@
             ? 'tw-items-end tw-text-right'
             : 'tw-items-start tw-text-left'
         "
-        class="tw-flex tw-flex-col tw-flex-[70%] tw-mx-[20px] tw-text-black-900"
+        class="tw-mx-[20px] tw-flex tw-flex-[70%] tw-flex-col tw-text-black-900"
       >
         <img
           :src="service.bullet"
           alt="service-bullet"
           loading="lazy"
-          class="tw-w-[50px] tw-h-[50px] -tw-mr-[20px]"
+          class="-tw-mr-[20px] tw-h-[50px] tw-w-[50px]"
         />
         <div
+          @click="!showServices ? openUrl(service.url) : ''"
           class="tw-py-[15px] tw-font-inter-bold tw-text-[1.5rem] tw-leading-[1.816rem]"
         >
           {{ service.title }}
         </div>
         <div
-          class="sm:tw-w-[70%] tw-py-[15px] tw-font-inter-regular tw-text-[1rem] tw-leading-[1.25rem]"
+          class="tw-py-[15px] tw-font-inter-regular tw-text-[1rem] tw-leading-[1.25rem] sm:tw-w-[70%]"
         >
           {{ service.content }}
         </div>
@@ -54,7 +55,7 @@
         :src="service.image"
         alt="service-background-image"
         loading="lazy"
-        class="tw-flex-[30%] tw-w-[126px] tw-h-full"
+        class="tw-h-full tw-w-[126px] tw-flex-[30%]"
       />
     </div>
   </div>
@@ -70,10 +71,13 @@ import circle2 from "@/assets/images/why/why-canopas-mobile-2.webp";
 import circle3 from "@/assets/images/why/why-canopas-mobile-3.webp";
 import circle4 from "@/assets/images/why/why-canopas-mobile-4.webp";
 import circle5 from "@/assets/images/why/why-canopas-mobile-5.webp";
+import config from "@/config.js";
+
 export default {
   data() {
     return {
       ServiceBackgroundImage,
+      showServices: config.IS_PROD,
       services: [
         {
           title: "Mobile App Development",
@@ -81,6 +85,7 @@ export default {
             "Whether your goal is to acquire new users, improve your retention rate, or increase in-app sales, our team will guide you based on our decade-long experience. From native to hybrid, we've got you covered.",
           image: circle1,
           bullet: bullet1,
+          url: "/mobile-app-development",
         },
         {
           title: "Web Development",
@@ -112,6 +117,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    openUrl(url) {
+      window.open(url, "_self");
+    },
   },
 };
 </script>
