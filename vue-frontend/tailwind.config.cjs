@@ -186,6 +186,9 @@ module.exports = {
           "linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 5%, #FFFFFF 51.63%)",
         "gradient-background":
           "linear-gradient(to bottom, #FFFFFF , #FDE0E2 23%, #FDE0E2 88%, #FFFFFF 100%);",
+        "gradient-L": "linear-gradient(178deg, #FFFFFF  68%, #f77783 40%);",
+        "gradient-W": "linear-gradient(257deg, #FFFFFF  65%, #f77783 68%);",
+        "gradient-T": "linear-gradient(540deg, #FFFFFF  30%, #f77783 10%);",
       },
     },
   },
