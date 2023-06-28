@@ -17,7 +17,7 @@
         >
           <div class="tw-flex tw-ml-[160px]" v-if="mobileGrid.length > 0">
             <div
-              v-for="(post, index) in mobileGrid"
+              v-for="(item, index) in mobileGrid"
               :key="index"
               class="tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-ml-[32px] tw-rounded-2xl tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
               :class="
@@ -28,16 +28,16 @@
               @touchstart.passive="pausedId = index"
               @touchend="pausedId = 0"
               :ref="'card-1-' + index"
-              @click="openBlog(post.link)"
+              @click="openBlog(item.link)"
             >
               <div class="image-container sm:tw-px-[20px]">
                 <img
                   @click.native="mixpanel.track('tap_explore_design')"
-                  :src="post.images[0]"
-                  :srcset="`${post.images[0]} 400w, ${post.images[1]} 800w`"
+                  :src="item.images[0]"
+                  :srcset="`${item.images[0]} 400w, ${item.images[1]} 800w`"
                   alt="explore_uiux_design"
                   class="tw-object-cover tw-h-full tw-w-full tw-rounded-lg"
-                  :class="post.classname"
+                  :class="item.classname"
                   loading="lazy"
                 />
               </div>
@@ -50,30 +50,30 @@
     <!-- Desktop UI start -->
 
     <div class="tw-hidden md:tw-block tw-mt-[3rem] xl:tw-mt-16">
-      <div class="xll:tw-container swiper-content tw--mt-6">
+      <div class="xll:tw-container swiper-content tw--mt-6 tw-w-full">
         <swiper
-          :slidesPerView="3"
+          :slidesPerView="3.5"
           :centeredSlides="true"
+          :loop="true"
+          :loopedSlides="50"
           :autoplay="{
             delay: 2000,
             disableOnInteraction: false,
           }"
           :speed="3000"
-          :spaceBetween="10"
-          :freeMode="true"
+          :zoom="true"
+          :spaceBetween="20"
           :navigation="true"
-          :loop="true"
-          :loopedSlides="50"
-          class="swiper-container"
+          class="swiper-container !tw-pt-[30px]"
         >
-          <swiper-slide v-for="(post, index) in data.slice(0, 5)" :key="index">
+          <swiper-slide v-for="(item, index) in data" :key="index">
             <div
-              class="tw-cursor-pointer image-content"
-              @click="openBlog(post.link)"
+              class="tw-cursor-pointer image-content swiper-zoom-container"
+              @click="openBlog(item.link)"
             >
               <img
-                :src="post.images[0]"
-                :srcset="`${post.images[0]} 400w,${post.images[1]} 800w`"
+                :src="item.images[0]"
+                :srcset="`${item.images[0]} 400w,${item.images[1]} 800w`"
                 class="tw-w-full tw-h-full lg:tw-w-fit lg:tw-h-fit tw-object-cover tw-drop-shadow-md tw-rounded-lg"
                 alt="DesignImage"
               />
@@ -81,31 +81,27 @@
           </swiper-slide>
         </swiper>
       </div>
-      <div class="xll:tw-container swiper-content">
+      <div class="xll:tw-container swiper-content tw-mt-[1rem]">
         <swiper
           dir="rtl"
-          :slidesPerView="4"
-          :freeMode="true"
+          :slidesPerView="3.5"
           :centeredSlides="true"
-          :speed="3000"
+          :loop="true"
+          :loopedSlides="50"
           :autoplay="{
             delay: 2000,
             disableOnInteraction: false,
           }"
+          :speed="3000"
           :spaceBetween="20"
           :navigation="true"
-          :loop="true"
-          :loopedSlides="50"
           class="swiper-container"
         >
-          <swiper-slide v-for="(post, index) in data.slice(5, 10)" :key="index">
-            <div
-              class="tw-cursor-pointer image2-content"
-              @click="openBlog(post.link)"
-            >
+          <swiper-slide v-for="(item, index) in data" :key="index">
+            <div class="tw-cursor-pointer" @click="openBlog(item.link)">
               <img
-                :src="post.images[0]"
-                :srcset="`${post.images[0]} 400w,${post.images[1]} 800w`"
+                :src="item.images[0]"
+                :srcset="`${item.images[0]} 400w,${item.images[1]} 800w`"
                 class="tw-w-full tw-h-full lg:tw-w-fit lg:tw-h-fit tw-object-cover tw-drop-shadow-md tw-rounded-lg"
                 alt="DesignImage"
               />
@@ -151,9 +147,9 @@ import socialnetworkingapp from "@/assets/images/contributions/explore/10-400w.w
 import socialnetworkingapp800w from "@/assets/images/contributions/explore/10-800w.webp";
 
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import SwiperCore, { FreeMode, Pagination, Autoplay } from "swiper";
+import SwiperCore, { Zoom, Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
-SwiperCore.use([FreeMode, Pagination, Autoplay]);
+SwiperCore.use([Zoom, Pagination, Autoplay]);
 
 export default {
   data() {
@@ -319,22 +315,18 @@ export default {
 <style lang="postcss" scoped>
 @import "swiper/css";
 @import "swiper/css/pagination";
-@import "swiper/css/free-mode";
+@import "swiper/css/zoom";
 
 .swiper-slide-active .image-content {
-  @apply tw-w-full tw-h-full tw-animate-verticalZoom tw-mb-[10%] 2xll:tw-mb-[11%] tw-scale-100;
+  @apply tw-scale-[1.05];
 }
 .swiper-slide:not(.swiper-slide-active) .image-content {
-  @apply tw-w-fit tw-h-fit tw-scale-[0.8];
+  @apply tw-scale-[0.95];
 }
 .swiper-slide:not(.swiper-slide-active) {
   @apply tw-w-fit tw-h-fit;
 }
-
-.swiper-slide-prev .image-content {
-  @apply tw-animate-verticalZoomOut tw-mb-[12%] 2xll:tw-mb-[11%];
-}
-.swiper-slide-next .image-content {
-  @apply tw--mb-[2%] 2xll:tw--mb-[2%];
+.swiper-slide .swiper-zoom-container {
+  @apply tw-duration-[3000ms] tw-origin-bottom;
 }
 </style>

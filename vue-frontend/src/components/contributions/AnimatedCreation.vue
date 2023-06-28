@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-my-[60px]">
+  <section class="tw-my-[60px] tw-overflow-hidden">
     <div
       class="tw-container tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-text-center tw-font-inter-bold tw-text-black-core/[0.87]"
     >
@@ -43,7 +43,7 @@
       <div class="tw-flex tw-flex-col tw-gap-8 tw-w-[50%]">
         <div v-for="animation in animations.slice(0, 3)" :key="animation.id">
           <div
-            class="tw-relative tw-group tw-cursor-pointer"
+            class="tw-relative tw-group tw-cursor-pointer tw-overflow-hidden"
             @click="openBlog(animation)"
           >
             <img
@@ -67,7 +67,7 @@
       <div class="tw-flex tw-flex-col tw-gap-8 tw-w-[50%] tw-mt-[50px]">
         <div v-for="animation in animations.slice(3, 6)" :key="animation.id">
           <div
-            class="tw-relative tw-group tw-cursor-pointer"
+            class="tw-relative tw-group tw-cursor-pointer tw-overflow-hidden"
             @click="openBlog(animation)"
           >
             <img

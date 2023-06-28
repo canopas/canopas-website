@@ -11,7 +11,7 @@
 
     <div v-else>
       <div
-        class="tw-container tw-mt-[30px] lg:tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px]"
+        class="tw-container tw-mt-[30px] lg:tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px] tw-overflow-hidden"
       >
         <div
           class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[15px] tw-py-[32px] tw-px-[24px] md:tw-pt-[48px] md:tw-px-[48px] md:tw-pb-0"
@@ -238,7 +238,7 @@
                 and does not offer remote job positions.
                 <input type="checkbox" id="checkbox" checked />
                 <span
-                  class="tw-absolute tw-top-0 tw-left-0 tw-mt-[5px] tw-h-[1.5rem] tw-w-[1.5rem] tw-border-2 tw-border-solid tw-border-[#999999] tw-rounded mark"
+                  class="tw-absolute tw-top-0 tw-left-0 tw-mt-[5px] tw-h-[1.5rem] tw-w-[1.5rem] tw-border-2 tw-border-solid tw-border-[#999999] tw-rounded after:tw-absolute after:tw-hidden after:tw-content-[''] mark after:tw-left-[9px] after:tw-bottom-[7px] after:tw-w-[6px] after:tw-h-[14px] after:tw-border-solid after:tw-border-[#fff] after:tw-border-t-0 after:tw-border-r-[3px] after:tw-border-b-[3px] after:tw-border-l-0 after:tw-rotate-[45deg]"
                 ></span>
               </label>
             </div>
@@ -623,18 +623,11 @@ export default {
 input[type="checkbox"] {
   @apply tw-invisible;
 }
-
 .box input:checked + .mark {
   @apply tw-bg-[#f2709c] tw-border-0;
 }
 
-.mark:after {
-  @apply tw-absolute tw-hidden tw-content-[''];
-}
 .box input:checked + .mark:after {
   @apply tw-block;
-}
-.box .mark:after {
-  @apply tw-left-[9px] tw-bottom-[7px] tw-w-[6px] tw-h-[14px] tw-border-solid tw-border-[#fff] tw-border-t-0 tw-border-r-[3px] tw-border-b-[3px] tw-border-l-0 tw-rotate-[45deg];
 }
 </style>

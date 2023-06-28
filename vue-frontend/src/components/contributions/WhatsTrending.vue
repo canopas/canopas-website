@@ -15,7 +15,10 @@
           class="tw-animate-gridAnimation"
           :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
         >
-          <div class="tw-flex tw-ml-[160px]" v-if="mobileGrid.length > 0">
+          <div
+            class="tw-flex tw-ml-[160px] tw-pb-2.5"
+            v-if="mobileGrid.length > 0"
+          >
             <div
               v-for="(post, index) in mobileGrid"
               :key="index"
@@ -122,11 +125,11 @@
     <div class="tw-hidden md:tw-block tw-mb-10 lg:tw-mb-20 tw-overflow-hidden">
       <div
         class="tw-animate-gridAnimation"
-        :class="[pausedId == 0 ? gridAnimation : 'animation-paused']"
+        :class="[pauseId == 0 ? gridAnimation : 'animation-paused']"
       >
         <div
           class="tw-animate-gridAnimationReverse2"
-          :class="[pausedId == 0 ? gridAnimationReverse : 'animation-paused']"
+          :class="[pauseId == 0 ? gridAnimationReverse : 'animation-paused']"
         >
           <div class="tw-flex tw-mb-[64px]" v-if="grid2.length > 0">
             <div
@@ -134,12 +137,12 @@
               :key="index"
               class="tw-relative tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-mt-[32px] tw-ml-[32px] tw-rounded-2xl tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
               :class="
-                pausedId == post.id ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
+                pauseId == post.id ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
-              @mouseover="pausedId = post.id"
-              @mouseleave="pausedId = 0"
-              @touchstart.passive="pausedId = post.id"
-              @touchend="pausedId = 0"
+              @mouseover="pauseId = post.id"
+              @mouseleave="pauseId = 0"
+              @touchstart.passive="pauseId = post.id"
+              @touchend="pauseId = 0"
               :ref="'card-3-' + index"
               @click="openBlog(post.link)"
             >
@@ -212,6 +215,7 @@ export default {
       gridAnimation: "animation-paused",
       gridAnimationReverse: "animation-running",
       pausedId: 0,
+      pauseId: 0,
       lastWidth: null,
       lastScrollY: 0,
       viewTop: 0,

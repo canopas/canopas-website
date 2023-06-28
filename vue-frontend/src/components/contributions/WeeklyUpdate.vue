@@ -20,31 +20,11 @@
     </div>
     <!-- Mobile UI start -->
     <div class="swiper-content tw-block md:tw-hidden tw-mb-10">
-      <div
-        class="tw-flex tw-justify-around tw-mx-auto tw-mb-[3.75rem] tw-w-[70%] xs:tw-w-[70%] sm:tw-w-full xl:tw-w-[65%] 2xl:tw-w-[55%] xll:tw-w-[30%] tw-rounded-[30px] tw-py-[5px]"
-      >
-        <a
-          v-for="(weekly, index) in weeklies"
-          :key="index"
-          target="_blank"
-          class="md:tw-hidden tw-flex-[16.66%] tw-gap-x-4 tw-m-0 tw-w-full tw-px-[5px] tw-py-[0.7rem] md:tw-py-[15px] tw-text-center tw-tracking-[1px] tw-text-[0.75rem] sm:tw-text-[1rem] md:tw-text-[1.25rem] tw-leading-[0.938rem] md:tw-leading-[1.1875rem] tw-font-inter-regular md:hover:tw-bg-gradient-[270.11deg] md:hover:tw-from-[#ff835b] md:hover:tw-to-[#f2709c] md:hover:tw-text-white"
-          :class="
-            activeIndex == index
-              ? 'v2-canopas-gradient-text tw-px-1.5 !tw-font-inter-bold'
-              : 'tw-border-[1px] tw-border-solid tw-border-transparent tw-text-black-core/[0.6]'
-          "
-          @click="slideTo(index)"
-        >
-          {{ weekly.category }}
-        </a>
-      </div>
       <swiper
         :slidesPerView="1.1"
         :spaceBetween="0"
         :effect="'cards'"
         :grabCursor="true"
-        @swiper="setSwiperRef"
-        @slideChange="activeIndex = swiperRef.activeIndex"
         class="swiper-container"
       >
         <swiper-slide v-for="(weekly, index) in weeklies" :key="index">
@@ -86,9 +66,9 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-hidden md:tw-flex tw-justify-around tw-m-auto tw-mb-[7rem] tw-mt-8 md:tw-my-[3.75rem] tw-w-[100%] md:tw-w-[95%] xl:tw-w-[65%] 2xl:tw-w-[55%] xll:tw-w-[30%] tw-rounded-[30px] tw-py-[5px]"
+      class="tw-hidden md:tw-flex tw-justify-around tw-m-auto tw-mb-[7rem] tw-mt-8 md:tw-my-[3.75rem] md:tw-w-[95%] lg:tw-w-[77%] xl:tw-w-[65%] 2xl:tw-w-[55%] xll:tw-w-[30%] tw-rounded-[30px] tw-py-[5px]"
     >
-      <a
+      <div
         v-for="(weekly, index) in weeklies"
         :key="index"
         target="_blank"
@@ -101,12 +81,12 @@
         @click="scrollToCard(index)"
       >
         {{ weekly.category }}
-      </a>
+      </div>
     </div>
     <ul
       @scroll="handleScroll"
       id="scrollContainer"
-      class="tw-relative tw-hidden md:tw-block tw-h-[50vh] tw-overflow-scroll hidden-scrollbar"
+      class="tw-relative tw-hidden md:tw-block tw-h-[52vh] xl:tw-h-[65vh] 2xl:tw-h-[70vh] xll:tw-h-[37vh] tw-overflow-y-scroll hidden-scrollbar"
     >
       <li
         v-for="(weekly, index) in weeklies"
@@ -114,12 +94,15 @@
         :ref="'weekly-' + index"
         :id="'weekly-' + index"
         @click="openUrl(weekly.url)"
-        class="tw-sticky tw-top-[10px] tw-mx-auto tw-container tw-h-[50vh] tw-overflow-hidden tw-origin-[center top] tw-cursor-pointer"
+        class="tw-sticky tw-top-[10px] tw-mx-[1%] xl:tw-mx-auto 2xl:tw-mt-[-3rem] lg:tw-container tw-h-[45vh] lg:tw-h-[45vh] xl:tw-h-[55vh] 2xl:tw-h-[65vh] xll:tw-h-[33vh] tw-overflow-hidden tw-origin-[center top] tw-cursor-pointer tw-drop-shadow-xl"
         :style="{
           transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
         }"
       >
-        <div :class="weekly.color" class="tw-flex tw-flex-row tw-mx-auto">
+        <div
+          :class="weekly.color"
+          class="tw-flex tw-flex-row tw-mx-auto tw-h-[350px] xl:tw-h-[450px] 2xl:tw-h-[515px]"
+        >
           <div class="tw-basis-1/2 tw-p-[20px]">
             <img
               :src="[weekly.image]"
@@ -198,7 +181,7 @@ export default {
             "Welcome to iOS Weekly — a newsletter on new development and updates of the iOS universe curated by Canopas team, delivered every Monday.",
           color: "tw-bg-[#FFF8EF]",
           url: "https://blog.canopas.com/tagged/canopas-ios-weekly",
-          translate: 30,
+          translate: 40,
           scale: 1,
         },
         {
@@ -211,7 +194,7 @@ export default {
             "Welcome to Web weekly — a weekly newsletter on new development and updates of Web universe curated by Canopas team, delivered every Monday.",
           color: "tw-bg-[#EDEFFF]",
           url: "https://blog.canopas.com/tagged/canopas-web-weekly",
-          translate: 60,
+          translate: 80,
           scale: 1,
         },
         {
@@ -224,7 +207,7 @@ export default {
             "Welcome to Flutter Weekly — a newsletter on new development and updates of Flutter universe curated by Canopas team, delivered every Monday.",
           color: "tw-bg-[#EBF9EF]",
           url: "https://blog.canopas.com/tagged/canopas-flutter-weekly",
-          translate: 90,
+          translate: 120,
           scale: 1,
         },
       ],
@@ -278,16 +261,6 @@ export default {
       });
 
       this.activeIndex = this.weeklies.length - Object.keys(counts).length;
-    },
-    onSlideChange() {
-      this.activeIndex = this.swiperRef.activeIndex;
-    },
-    setSwiperRef(swiper) {
-      this.swiperRef = swiper;
-    },
-    slideTo(index) {
-      this.activeIndex = index;
-      this.swiperRef.slideTo(index, 500);
     },
   },
 };
