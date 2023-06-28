@@ -1,6 +1,6 @@
 <template>
   <section class="lg:tw-my-[100px]">
-    <div class="tw-container tw-mb-24 lg:tw-mb-0">
+    <div class="tw-container md:tw-mb-24 lg:tw-mb-0">
       <p
         class="tw-text-center tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
       >
@@ -134,7 +134,7 @@
         <div
           class="flip-card-inner tw-relative tw-w-full tw-h-[92%] lg:tw-h-full"
         >
-          <div class="flip-card-front">
+          <div class="flip-card-front tw-overflow-hidden">
             <img
               :src="contribution.deskImage[1]"
               :srcset="`${contribution.deskImage[0]} 400w, ${contribution.deskImage[1]} 800w`"
@@ -311,7 +311,7 @@ export default {
           title: "Intro Showcase View",
           description:
             "Intro showcase view in Jetpack compose. An implementation of Intro Showcase from ...",
-          stars: "274",
+          stars: "277",
           contributors: [contributor1, contributor2, contributor3],
         },
         {
@@ -325,7 +325,7 @@ export default {
           forks: "19",
           title: "Jetpack Compose Animations",
           description: "Cool animations implemented with Jetpack compose....",
-          stars: "203",
+          stars: "205",
           contributors: [contributor1, contributor2, contributor4],
         },
         {
@@ -340,7 +340,7 @@ export default {
           title: "JetCountryPicker",
           description:
             "Country code bottomsheet picker in Jetpack Compose with Search functionality...",
-          stars: "34",
+          stars: "35",
           contributors: [contributor1, contributor2, contributor4],
         },
         {
@@ -354,7 +354,7 @@ export default {
           forks: "15",
           title: "UIPilot ",
           description: "The missing typesafe SwiftUI navigation library.",
-          stars: "227",
+          stars: "229",
           contributors: [contributor1, contributor6, contributor2],
         },
         {
@@ -383,7 +383,7 @@ export default {
           title: "iOS Developer Roadmap 2022",
           description:
             "iOS Developer Roadmap 2022 is a learning path to understand iOS development...",
-          stars: "43",
+          stars: "45",
           contributors: [contributor1, contributor6],
         },
         {
@@ -398,7 +398,7 @@ export default {
           title: "Tailwind Animations",
           description:
             "This repository contains different animations implemented using tailwind css...",
-          stars: "59",
+          stars: "62",
           contributors: [contributor8, contributor9],
         },
         {
@@ -409,11 +409,11 @@ export default {
           link: "https://github.com/canopas/web-developer-roadmap-2023",
           language: "",
           color: "",
-          forks: "10",
+          forks: "01",
           title: "Web Development Roadmap",
           description:
             "Web Developer Roadmap is a path to understand web development including...",
-          stars: "00",
+          stars: "02",
           contributors: [contributor8, contributor10],
         },
         {

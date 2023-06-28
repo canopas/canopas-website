@@ -1,6 +1,6 @@
 <template>
   <section
-    class="tw-mb-[100px] tw-mt-[12%] lg:tw-mt-[7%] 2xll:tw-mt-[4%] 3xl:tw-mt-0"
+    class="tw-mb-[100px] tw-mt-[12%] sm:tw-mt-[7%] 2xll:tw-mt-[2%] 3xl:tw-mt-0 tw-overflow-hidden"
   >
     <p
       class="tw-container tw-text-center tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
@@ -35,7 +35,7 @@
     <div
       class="tw-container tw-hidden md:tw-flex tw-flex-col tw-gap-10 tw-mt-16"
     >
-      <div class="tw-flex tw-flex-row tw-gap-10">
+      <div class="tw-flex tw-flex-row tw-gap-10 tw-overflow-hidden">
         <div v-for="blog in devOps.slice(0, 2)" :key="blog.id">
           <div
             class="tw-relative tw-w-full tw-h-full tw-group tw-cursor-pointer"
@@ -72,7 +72,7 @@
       <div
         v-for="blog in devOps.slice(2, 3)"
         :key="blog.id"
-        class="tw-w-[50%] tw-mx-auto"
+        class="tw-w-[50%] tw-mx-auto tw-overflow-hidden"
       >
         <div class="tw-relative tw-w-full tw-h-full tw-group tw-cursor-pointer">
           <img
@@ -103,7 +103,7 @@
           </div>
         </div>
       </div>
-      <div class="tw-flex tw-flex-row tw-gap-10">
+      <div class="tw-flex tw-flex-row tw-gap-10 tw-overflow-hidden">
         <div v-for="blog in devOps.slice(3, 5)" :key="blog.id">
           <div
             class="tw-relative tw-w-full tw-h-full tw-group tw-cursor-pointer"
@@ -169,9 +169,9 @@ export default {
         {
           id: 2,
           image: [devops2_400w, devops2_800w],
-          title: "iOS — How to handle Semantic Auto-Versioning on CI",
+          title: "Android Continuous integration using Gitlab CI and Fastlane",
           readTime: "4 min read",
-          link: "https://blog.canopas.com/ios-how-to-handle-semantic-auto-versioning-on-ci-c4eec775409",
+          link: "https://blog.canopas.com/android-continuous-integration-using-gitlab-ci-and-fastlane-1a5bbb8b5b38",
         },
         {
           id: 3,

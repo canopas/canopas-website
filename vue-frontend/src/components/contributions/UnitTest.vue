@@ -84,7 +84,7 @@
         </swiper>
       </div>
       <div
-        class="tw-bg-white tw-h-[100px] lg:tw-h-[135px] tw-skew-x-[-87deg] tw-origin-bottom-right"
+        class="tw-bg-white tw-h-[100px] lg:tw-h-[135px] xll:tw-h-[220px] tw-skew-x-[-87deg] tw-origin-bottom-right"
       ></div>
     </div>
   </div>
@@ -131,32 +131,29 @@ export default {
 
         {
           images: [unittest3_400w, unittest3_800w],
-          title: "What should you choose between Go and Node.js?",
+          title: "Vue 3 component testing with Jest?",
           url: "https://blog.canopas.com/vue-3-component-testing-with-jest-8b80a8a8946b",
         },
         {
           images: [unittest4_400w, unittest4_800w],
-          title:
-            "Introduction to unit testing ViewModel with Kotlin Coroutine & Flow",
+          title: "Swift — Essential tips for writing testable code",
           url: "https://blog.canopas.com/swift-essential-tips-to-know-for-writing-testable-code-65287584d83c",
         },
         {
           images: [unittest5_400w, unittest5_800w],
           title:
-            "Introduction to unit testing ViewModel with Kotlin Coroutine & Flow",
+            "Developing a Todo app with android integration testing following the TDD approach — Part 3 of 3",
           url: "https://blog.canopas.com/how-to-use-tdd-effectively-to-write-android-integration-tests-5efc7ee48ba8",
         },
         {
           images: [unittest6_400w, unittest6_800w],
-          title:
-            "Introduction to unit testing ViewModel with Kotlin Coroutine & Flow",
-          url: "https://blog.canopas.com/golang-unit-tests-with-test-gin-context-80e1ac04adcd",
+          title: "Unit testing in go with MySQL",
+          url: "https://blog.canopas.com/unit-testing-in-go-with-mysql-8db449d86722",
         },
         {
           images: [unittest7_400w, unittest7_800w],
-          title:
-            "Introduction to unit testing ViewModel with Kotlin Coroutine & Flow",
-          url: "https://blog.canopas.com/unit-testing-in-go-with-mysql-8db449d86722",
+          title: "Golang: Unit tests with test gin context",
+          url: "https://blog.canopas.com/golang-unit-tests-with-test-gin-context-80e1ac04adcd",
         },
       ],
     };

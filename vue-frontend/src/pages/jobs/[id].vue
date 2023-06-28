@@ -364,7 +364,7 @@ export default {
 .summary-text,
 :deep(div > span *),
 :deep(ul:not(.header ul)) {
-  @apply tw-text-[1.1rem] tw-leading-[2rem] tw-text-justify tw-text-[#3d3d3dcc] md:tw-text-[1.125rem] md:tw-leading-[2.5rem] lg:tw-text-[1.4rem];
+  @apply tw-text-[1.1rem] tw-leading-[2rem] tw-text-left tw-text-[#3d3d3dcc] md:tw-text-[1.125rem] md:tw-leading-[2.5rem] lg:tw-text-[1.4rem];
 }
 
 :deep(ul > li) {

@@ -123,14 +123,6 @@ module.exports = {
           "0%": { transform: "scaleX(0)" },
           "100%": { transform: "scaleX(1)" },
         },
-        verticalZoom: {
-          "0%": { transform: "scale(0.8);", transformOrigin: "bottom" },
-          "100%": { transform: "scale(1);", transformOrigin: "bottom" },
-        },
-        verticalZoomOut: {
-          "0%": { transform: "scale(1);", transformOrigin: "bottom" },
-          "100%": { transform: "scale(0.8);", transformOrigin: "bottom" },
-        },
         slideDown: {
           "0%": {
             transform: "translateX(100%) translateY(-300%)",
@@ -153,8 +145,6 @@ module.exports = {
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
         gridAnimationReverse2: "scroll-reverse 40s linear infinite",
         fadeIn: "fadeIn 0.6s ease-in",
-        verticalZoom: "verticalZoom 4s  ease-in-out forwards",
-        verticalZoomOut: "verticalZoomOut 4s  ease-in-out forwards",
         slideDown: "slideDown 7s infinite",
         fadeUp: "fadeUp 4s ease-in",
         fadeSlide: "fadeIn 4s ease-in-out",
