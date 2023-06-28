@@ -10,6 +10,7 @@
     <div>
       <Services />
       <CTASection />
+      <CTASection2 />
     </div>
 
     <NewFooter />
@@ -25,6 +26,9 @@ import { defineAsyncComponent } from "vue";
 
 const CTASection = defineAsyncComponent(() =>
   import("@/components/mobile-app-development/CTASection.vue")
+);
+const CTASection2 = defineAsyncComponent(() =>
+  import("@/components/mobile-app-development/CTASection2.vue")
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
@@ -55,6 +59,7 @@ export default {
     Header,
     Services,
     CTASection,
+    CTASection2,
     NewFooter,
   },
   beforeRouteEnter(to, from, next) {
