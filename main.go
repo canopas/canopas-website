@@ -64,6 +64,8 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 
 	router.POST("/api/invitation", notificationRepo.SendInvitationMail)
 
+	router.POST("/api/acceptence", notificationRepo.SendAcceptenceMail)
+
 	router.GET("/api/ping", func(c *gin.Context) {
 		c.JSON(200, gin.H{
 			"message": "Pong",
