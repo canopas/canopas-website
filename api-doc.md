@@ -359,3 +359,32 @@
     - Headers : none
     - Message : Update leave request has been sent successfully
 ```
+
+### 8. Send Invitation Mail (Notification)
+
+```
+- Method : POST
+- Endpoint : /api/invitation
+- Description : API for sending invitation mail to the Company employee
+- Request:
+    - Headers : none
+    - Body :
+         {
+            "receiver": "mansi@canopas.com",
+            "companyname" : "canopas"
+            "spacelink": "https://unity.canopas.com/home",
+        }
+- Response :
+    - If API is not found,
+    - Status Code: 404 not found
+    - Data: no response data
+
+    - If any server error is there then,
+    - Status Code: 500 Internal server error
+    - Data: no response data
+
+    - If request will success ,
+    - Status Code: 200 Ok
+    - Headers : none
+    - Message : Invitation mail has been sent successfully
+```
