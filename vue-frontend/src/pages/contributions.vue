@@ -23,18 +23,16 @@
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue";
 import Header from "@/components/partials/NewHeader.vue";
 import { useMeta } from "vue-meta";
 import config from "@/config.js";
 import MobileLandingSection from "@/components/contributions/MobileLanding.vue";
 import DesktopLandingSection from "@/components/contributions/DesktopLanding.vue";
-import { defineAsyncComponent } from "vue";
+import GithubContribution from "@/components/contributions/GithubContribution.vue";
 
 const WeeklyUpdateSection = defineAsyncComponent(() =>
   import("@/components/contributions/WeeklyUpdate.vue")
-);
-const GithubContribution = defineAsyncComponent(() =>
-  import("@/components/contributions/GithubContribution.vue")
 );
 const WhatsTrending = defineAsyncComponent(() =>
   import("@/components/contributions/WhatsTrending.vue")

@@ -1,13 +1,13 @@
 <template>
-  <div class="tw-mb-9 md:tw-mb-24 tw-font-inter-regular">
+  <div class="tw-mb-9 tw-font-inter-regular md:tw-mb-24">
     <form>
-      <div class="tw-py-5 tw-px-8 lg:tw-px-24">
-        <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
-          <div class="tw-relative md:tw-mb-5 tw-pt-3 lg:tw-pt-9 tw-text-left">
+      <div class="tw-px-8 tw-py-5 lg:tw-px-24">
+        <div class="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-2">
+          <div class="tw-relative tw-pt-3 tw-text-left md:tw-mb-5 lg:tw-pt-9">
             <input
               type="text"
               id="username"
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
+              class="floating-input tw-peer tw-mx-0 tw-my-2 tw-block tw-w-full tw-appearance-none tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-text-lg tw-text-white tw-placeholder-white/[.6] tw-transition tw-ease-in-out focus:tw-outline-none active:tw-outline-none md:tw-text-xl lg:tw-text-2xl"
               name="username"
               required
               autocomplete="given-username"
@@ -21,7 +21,7 @@
             />
             <label
               for="username"
-              class="tw-absolute tw-top-4 tw-left-0 tw-mb-5 tw-z-[2] tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4"
+              class="tw-absolute tw-left-0 tw-top-4 tw-z-[2] tw-mb-5 tw-origin-[0] tw--translate-y-4 tw-scale-75 tw-transform tw-text-[1rem] tw-leading-[1.1875rem] tw-text-white/[.6] tw-duration-300 peer-placeholder-shown:tw-translate-y-0 peer-placeholder-shown:tw-scale-100 peer-focus:tw--translate-y-4 peer-focus:tw-scale-75 peer-focus:tw-text-white md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem]"
               >Your name</label
             >
             <span
@@ -30,9 +30,9 @@
               >Name is required</span
             >
           </div>
-          <div class="tw-relative md:tw-mb-5 tw-pt-3 lg:tw-pt-9 tw-text-left">
+          <div class="tw-relative tw-pt-3 tw-text-left md:tw-mb-5 lg:tw-pt-9">
             <input
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
+              class="floating-input tw-peer tw-mx-0 tw-my-2 tw-block tw-w-full tw-appearance-none tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-text-lg tw-text-white tw-placeholder-white/[.6] tw-transition tw-ease-in-out focus:tw-outline-none active:tw-outline-none md:tw-text-xl lg:tw-text-2xl"
               type="text"
               name="email"
               id="email"
@@ -49,7 +49,7 @@
             />
             <label
               for="email"
-              class="tw-absolute tw-top-4 tw-left-0 tw-mb-5 tw-z-[2] tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4"
+              class="tw-absolute tw-left-0 tw-top-4 tw-z-[2] tw-mb-5 tw-origin-[0] tw--translate-y-4 tw-scale-75 tw-transform tw-text-[1rem] tw-leading-[1.1875rem] tw-text-white/[.6] tw-duration-300 peer-placeholder-shown:tw-translate-y-0 peer-placeholder-shown:tw-scale-100 peer-focus:tw--translate-y-4 peer-focus:tw-scale-75 peer-focus:tw-text-white md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem]"
               >Your email</label
             >
             <span
@@ -64,10 +64,10 @@
             >
           </div>
           <div
-            class="tw-relative md:tw-col-span-2 md:tw-mb-5 tw-pt-3 lg:tw-pt-10 tw-text-left"
+            class="tw-relative tw-pt-3 tw-text-left md:tw-col-span-2 md:tw-mb-5 lg:tw-pt-10"
           >
             <textarea
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-min-h-[50px] md:tw-min-h-[90px] tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
+              class="floating-input tw-peer tw-mx-0 tw-my-2 tw-block tw-min-h-[50px] tw-w-full tw-appearance-none tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-text-lg tw-text-white tw-placeholder-white/[.6] tw-transition tw-ease-in-out focus:tw-outline-none active:tw-outline-none md:tw-min-h-[90px] md:tw-text-xl lg:tw-text-2xl"
               id="project"
               name="project"
               rows="3"
@@ -83,7 +83,7 @@
             ></textarea>
             <label
               for="project"
-              class="tw-absolute tw-top-4 tw-left-0 tw-mb-5 tw-z-[2] tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4"
+              class="tw-absolute tw-left-0 tw-top-4 tw-z-[2] tw-mb-5 tw-origin-[0] tw--translate-y-4 tw-scale-75 tw-transform tw-text-[1rem] tw-leading-[1.1875rem] tw-text-white/[.6] tw-duration-300 peer-placeholder-shown:tw-translate-y-0 peer-placeholder-shown:tw-scale-100 peer-focus:tw--translate-y-4 peer-focus:tw-scale-75 peer-focus:tw-text-white md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem]"
               >Tell us about your project</label
             >
             <span
@@ -93,10 +93,10 @@
             >
           </div>
           <div
-            class="tw-relative md:tw-col-span-2 tw-pt-3 lg:tw-pt-10 tw-text-left"
+            class="tw-relative tw-pt-3 tw-text-left md:tw-col-span-2 lg:tw-pt-10"
           >
             <input
-              class="tw-block tw-peer tw-my-2 tw-mx-0 tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-transition tw-ease-in-out tw-appearance-none; tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-text-white tw-placeholder-white/[.6] floating-input focus:tw-outline-none active:tw-outline-none"
+              class="tw-appearance-none; floating-input tw-peer tw-mx-0 tw-my-2 tw-block tw-w-full tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-text-lg tw-text-white tw-placeholder-white/[.6] tw-transition tw-ease-in-out focus:tw-outline-none active:tw-outline-none md:tw-text-xl lg:tw-text-2xl"
               type="text"
               name="reference"
               id="reference"
@@ -112,7 +112,7 @@
             />
             <label
               for="reference"
-              class="tw-absolute tw-top-4 tw-left-0 tw-mb-5 tw-z-[2] tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw--translate-y-4 tw-origin-[0] tw-scale-75 tw-duration-300 peer-focus:tw-text-white peer-placeholder-shown:tw-scale-100 peer-placeholder-shown:tw-translate-y-0 peer-focus:tw-scale-75 peer-focus:tw--translate-y-4"
+              class="tw-absolute tw-left-0 tw-top-4 tw-z-[2] tw-mb-5 tw-origin-[0] tw--translate-y-4 tw-scale-75 tw-transform tw-text-[1rem] tw-leading-[1.1875rem] tw-text-white/[.6] tw-duration-300 peer-placeholder-shown:tw-translate-y-0 peer-placeholder-shown:tw-scale-100 peer-focus:tw--translate-y-4 peer-focus:tw-scale-75 peer-focus:tw-text-white md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem]"
               >How did you find us?</label
             >
             <span
@@ -122,11 +122,11 @@
             >
           </div>
           <div
-            class="tw-relative md:tw-col-span-2 md:tw-mt-5 lg:tw-mt-0 md:tw-mb-7 md:tw-pt-3 lg:tw-pt-10 tw-text-left"
+            class="tw-relative tw-text-left md:tw-col-span-2 md:tw-mb-7 md:tw-mt-5 md:tw-pt-3 lg:tw-mt-0 lg:tw-pt-10"
           >
             <div ref="invest-list" class="tw-flex">
               <button
-                class="tw-flex tw-items-center tw-justify-between tw-w-full tw-pt-3 lg:tw-pb-1 tw-px-0 tw-my-2 md:tw-mt-0 lg:tw-mt-2 tw-mx-0 tw-border-b tw-border-white/[.6] tw-bg-none tw-font-medium !tw-text-white tw-text-lg md:tw-text-xl lg:tw-text-2xl tw-whitespace-nowrap tw-transition tw-duration-150 tw-ease-in-out focus:tw-outline-0 active:tw-outline-0 focus:tw-shadow-none active:tw-shadow-none focus:tw-ring-0 active:tw-ring-0 focus:tw-bg-transparent active:tw-bg-transparent active:tw-text-white"
+                class="tw-mx-0 tw-my-2 tw-flex tw-w-full tw-items-center tw-justify-between tw-whitespace-nowrap tw-border-b tw-border-white/[.6] tw-bg-none tw-px-0 tw-pt-3 tw-text-lg tw-font-medium !tw-text-white tw-transition tw-duration-150 tw-ease-in-out focus:tw-bg-transparent focus:tw-shadow-none focus:tw-outline-0 focus:tw-ring-0 active:tw-bg-transparent active:tw-text-white active:tw-shadow-none active:tw-outline-0 active:tw-ring-0 md:tw-mt-0 md:tw-text-xl lg:tw-mt-2 lg:tw-pb-1 lg:tw-text-2xl"
                 type="button"
                 id="invest"
                 name="invest"
@@ -135,10 +135,10 @@
               >
                 <label
                   for="invest"
-                  class="tw-absolute tw-top-4 tw-left-0 lg:tw-mt-7 tw-z-[2] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem] tw-transform tw-duration-300"
+                  class="tw-absolute tw-left-0 tw-top-4 tw-z-[2] tw-transform tw-text-[1rem] tw-leading-[1.1875rem] tw-duration-300 md:tw-text-[1.375rem] md:tw-leading-[1.6875rem] lg:tw-mt-7 lg:tw-text-[1.75rem] lg:tw-leading-[2.125rem]"
                   :class="[
                     floatable
-                      ? 'tw--translate-y-4 tw-origin-[0] tw-scale-75 lg:tw-mt-[1rem]'
+                      ? 'tw-origin-[0] tw--translate-y-4 tw-scale-75 lg:tw-mt-[1rem]'
                       : 'tw-translate-y-0 tw-scale-100 ',
                     floatable && showList
                       ? 'tw-text-white'
@@ -149,13 +149,13 @@
                 >
                 <span class="tw-cursor-text">{{ invest }}</span>
                 <font-awesome-icon
-                  class="fab tw-mr-0 tw-mb-2 tw-w-[15px] lg:tw-w-[25px] tw-h-[15px] lg:tw-h-[25px]"
+                  class="fab tw-mb-2 tw-mr-0 tw-h-[15px] tw-w-[15px] lg:tw-h-[25px] lg:tw-w-[25px]"
                   :icon="showList ? faCaretUp : faCaretDown"
                 />
               </button>
               <ul
                 v-if="showList"
-                class="tw-absolute tw-mt-12 tw-m-0 tw-w-full tw-min-w-max tw-z-[5] tw-border-none tw-rounded-[10px] tw-shadow-[0px_5px_15px_rgba(0,0,0,0.5)] tw-bg-[#3D3D3D] tw-py-1 tw-list-none tw-text-left tw-text-base tw-transition-all tw-delay-150 tw-duration-300"
+                class="tw-absolute tw-z-[5] tw-m-0 tw-mt-12 tw-w-full tw-min-w-max tw-list-none tw-rounded-[10px] tw-border-none tw-bg-[#3D3D3D] tw-py-1 tw-text-left tw-text-base tw-shadow-[0px_5px_15px_rgba(0,0,0,0.5)] tw-transition-all tw-delay-150 tw-duration-300"
               >
                 <li
                   v-for="option in investOptions"
@@ -163,7 +163,7 @@
                   @click="setOption(option)"
                 >
                   <span
-                    class="tw-block tw-w-full tw-py-2 tw-px-4 tw-font-normal tw-whitespace-nowrap tw-text-white/[.6] tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.1875rem] md:tw-leading-[1.4375rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.6875rem] hover:tw-bg-[#000]/[.2] hover:tw-text-white"
+                    class="tw-block tw-w-full tw-whitespace-nowrap tw-px-4 tw-py-2 tw-text-[1rem] tw-font-normal tw-leading-[1.1875rem] tw-text-white/[.6] hover:tw-bg-[#000]/[.2] hover:tw-text-white md:tw-text-[1.1875rem] md:tw-leading-[1.4375rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.6875rem]"
                     >{{ option }}</span
                   >
                 </li>
@@ -176,29 +176,29 @@
             >
           </div>
           <div
-            class="tw-w-full tw-text-[1rem] xl:tw-text-[1.5rem] tw-leading-[1.5rem] xl:tw-leading-[1.875rem] tw-font-inter-regular tw-text-white/[.6] tw-text-left"
+            class="tw-w-full tw-text-left tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-white/[.6] xl:tw-text-[1.5rem] xl:tw-leading-[1.875rem]"
           >
             We sign NDA for all of our projects.
           </div>
         </div>
 
-        <div class="tw-flex tw-justify-center tw-mt-9 md:tw-mt-24">
+        <div class="tw-mt-9 tw-flex tw-justify-center md:tw-mt-24">
           <img
             v-if="showLoader"
             :src="loaderImage"
-            class="tw-w-[64px] tw-h-[64px]"
+            class="tw-h-[64px] tw-w-[64px]"
             alt="loader-image"
           />
           <div class="tw-relative" v-else>
             <div
-              class="tw-absolute -tw-top-[2rem] sm:-tw-top-[1.875rem] md:-tw-top-[2.875rem] tw-text-center -tw-right-[4rem] sm:-tw-right-[11rem] md:-tw-right-[15rem] lg:-tw-right-[18rem] xl:-tw-right-[18rem] 2xl:-tw-right-[20.5rem] tw-w-[190%] sm:tw-w-max"
+              class="tw-absolute -tw-right-[4rem] -tw-top-[2rem] tw-w-[190%] tw-text-center sm:-tw-right-[11rem] sm:-tw-top-[1.875rem] sm:tw-w-max md:-tw-right-[15rem] md:-tw-top-[2.875rem] lg:-tw-right-[18rem] xl:-tw-right-[18rem] 2xl:-tw-right-[20.5rem]"
             >
               <span
                 v-if="showErrorMessage"
-                class="tw-flex tw-text-center canopas-gradient-text sm:tw-mr-[4rem] md:tw-mr-[8rem] lg:tw-mr-[12rem] tw-text-[1.2rem] sm:tw-text-[1.5rem] tw-leading-[1.5rem] sm:tw-leading-[1.8rem]"
+                class="canopas-gradient-text tw-flex tw-text-center tw-text-[1.2rem] tw-leading-[1.5rem] sm:tw-mr-[4rem] sm:tw-text-[1.5rem] sm:tw-leading-[1.8rem] md:tw-mr-[8rem] lg:tw-mr-[12rem]"
                 :class="
                   errorMessage == 'Invalid Recaptcha score'
-                    ? 'sm:!tw-mr-[7rem] md:!tw-mr-[12rem] lg:!tw-mr-[15rem] xl:!tw-mr-[16rem] 2xl:!tw-mr-[17rem] !tw-text-[1.5rem] '
+                    ? '!tw-text-[1.5rem] sm:!tw-mr-[7rem] md:!tw-mr-[12rem] lg:!tw-mr-[15rem] xl:!tw-mr-[16rem] 2xl:!tw-mr-[17rem] '
                     : ''
                 "
                 >{{ errorMessage }}</span
@@ -207,11 +207,11 @@
             <button
               id="submit"
               ref="recaptcha"
-              class="tw-mt-[1rem] sm:tw-mt-0 tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
+              class="gradient-btn consultation-btn tw-mt-[1rem] tw-rounded-full tw-p-3 tw-text-center sm:tw-mt-0"
               @click.prevent="submitForm()"
             >
               <span
-                class="!tw-font-semibold tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
+                class="tw-mr-2.5 tw-font-inter-medium tw-text-[1rem] !tw-font-semibold tw-font-normal tw-leading-[1.1875rem] !tw-tracking-[0] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
                 >Send Message</span
               >
             </button>
@@ -255,7 +255,6 @@ export default {
       showInvestValidationError: false,
       errorMessage: "Something went wrong on our side",
       showLoader: false,
-      showSuccessMessage: false,
       showErrorMessage: false,
     };
   },
@@ -320,8 +319,6 @@ export default {
                 axios
                   .post(config.API_BASE + "/api/send-contact-mail", formData)
                   .then(() => {
-                    this.showSuccessMessage = true;
-                    this.$emit("showMessage", this.showSuccessMessage);
                     this.name = "";
                     this.email = "";
                     this.projectInfo = "";
@@ -329,11 +326,9 @@ export default {
                     this.invest = "";
                     this.floatable = false;
                     this.showLoader = false;
-
-                    setTimeout(() => {
-                      this.showSuccessMessage = false;
-                      this.$emit("showMessage", this.showSuccessMessage);
-                    }, 3000);
+                    this.$router.push({
+                      path: "/thank-you",
+                    });
                   })
                   .catch((err) => {
                     if (err.response.status == 401) {

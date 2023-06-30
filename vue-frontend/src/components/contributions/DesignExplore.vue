@@ -1,12 +1,12 @@
 <template>
-  <div class="xll:tw-container tw-my-20 md:tw-mb-12 xl:tw-mb-20">
+  <div class="tw-my-20 xll:tw-container md:tw-mb-12 xl:tw-mb-20">
     <div
-      class="tw-container tw-mb-20 tw-text-center tw-font-inter-bold tw-text-[1.875rem] lg:tw-text-[3.4375rem] tw-leading-[2.4375rem] lg:tw-leading-[5.15625rem] tw-text-black-core/[0.87]"
+      class="tw-container tw-mb-20 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem]"
     >
       Explore Our UI/UX Design
     </div>
     <!-- Mobile UI start -->
-    <div class="tw-block md:tw-hidden tw-my-10">
+    <div class="tw-my-10 tw-block md:tw-hidden">
       <div
         class="tw-animate-gridAnimationReverse"
         :class="[pausedId == 0 ? gridAnimation : 'animation-paused']"
@@ -15,11 +15,11 @@
           class="tw-animate-gridAnimation"
           :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
         >
-          <div class="tw-flex tw-ml-[160px]" v-if="mobileGrid.length > 0">
+          <div class="tw-ml-[160px] tw-flex" v-if="mobileGrid.length > 0">
             <div
               v-for="(item, index) in mobileGrid"
               :key="index"
-              class="tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-ml-[32px] tw-rounded-2xl tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
+              class="tw-ml-[32px] tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
               :class="
                 pausedId == index ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
@@ -36,7 +36,7 @@
                   :src="item.images[0]"
                   :srcset="`${item.images[0]} 400w, ${item.images[1]} 800w`"
                   alt="explore_uiux_design"
-                  class="tw-object-cover tw-h-full tw-w-full tw-rounded-lg"
+                  class="tw-h-full tw-w-full tw-rounded-lg tw-object-cover"
                   :class="item.classname"
                   loading="lazy"
                 />
@@ -49,10 +49,10 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
 
-    <div class="tw-hidden md:tw-block tw-mt-[3rem] xl:tw-mt-16">
-      <div class="xll:tw-container swiper-content tw--mt-6 tw-w-full">
+    <div class="tw-mt-[3rem] tw-hidden md:tw-block xl:tw-mt-16">
+      <div class="swiper-content tw--mt-6 tw-w-full xll:tw-container">
         <swiper
-          :slidesPerView="3.5"
+          :slidesPerView="3"
           :centeredSlides="true"
           :loop="true"
           :loopedSlides="50"
@@ -62,29 +62,29 @@
           }"
           :speed="3000"
           :zoom="true"
-          :spaceBetween="20"
+          :spaceBetween="0"
           :navigation="true"
           class="swiper-container !tw-pt-[30px]"
         >
-          <swiper-slide v-for="(item, index) in data" :key="index">
+          <swiper-slide v-for="(item, index) in data.slice(0, 5)" :key="index">
             <div
-              class="tw-cursor-pointer image-content swiper-zoom-container"
+              class="image-content swiper-zoom-container tw-cursor-pointer"
               @click="openBlog(item.link)"
             >
               <img
                 :src="item.images[0]"
                 :srcset="`${item.images[0]} 400w,${item.images[1]} 800w`"
-                class="tw-w-full tw-h-full lg:tw-w-fit lg:tw-h-fit tw-object-cover tw-drop-shadow-md tw-rounded-lg"
+                class="tw-h-full tw-w-full tw-rounded-lg tw-object-cover tw-drop-shadow-md lg:tw-h-fit lg:tw-w-fit"
                 alt="DesignImage"
               />
             </div>
           </swiper-slide>
         </swiper>
       </div>
-      <div class="xll:tw-container swiper-content tw-mt-[1rem]">
+      <div class="swiper-content tw-mt-[1rem] xll:tw-container xl:tw-mt-[2rem]">
         <swiper
           dir="rtl"
-          :slidesPerView="3.5"
+          :slidesPerView="4"
           :centeredSlides="true"
           :loop="true"
           :loopedSlides="50"
@@ -97,12 +97,12 @@
           :navigation="true"
           class="swiper-container"
         >
-          <swiper-slide v-for="(item, index) in data" :key="index">
+          <swiper-slide v-for="(item, index) in data.slice(5, 10)" :key="index">
             <div class="tw-cursor-pointer" @click="openBlog(item.link)">
               <img
                 :src="item.images[0]"
                 :srcset="`${item.images[0]} 400w,${item.images[1]} 800w`"
-                class="tw-w-full tw-h-full lg:tw-w-fit lg:tw-h-fit tw-object-cover tw-drop-shadow-md tw-rounded-lg"
+                class="tw-h-full tw-w-full tw-rounded-lg tw-object-cover tw-drop-shadow-md lg:tw-h-fit lg:tw-w-fit"
                 alt="DesignImage"
               />
             </div>
@@ -111,7 +111,6 @@
       </div>
     </div>
   </div>
-
   <!-- Desktop UI end -->
 </template>
 
@@ -317,16 +316,11 @@ export default {
 @import "swiper/css/pagination";
 @import "swiper/css/zoom";
 
-.swiper-slide-active .image-content {
-  @apply tw-scale-[1.05];
-}
 .swiper-slide:not(.swiper-slide-active) .image-content {
-  @apply tw-scale-[0.95];
+  @apply tw-scale-[0.8];
 }
-.swiper-slide:not(.swiper-slide-active) {
-  @apply tw-w-fit tw-h-fit;
-}
+
 .swiper-slide .swiper-zoom-container {
-  @apply tw-duration-[3000ms] tw-origin-bottom;
+  @apply tw-origin-bottom tw-duration-[3000ms];
 }
 </style>
