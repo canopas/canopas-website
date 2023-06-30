@@ -5,7 +5,7 @@
       :style="{ height: navContainerHeight + 'px' }"
     >
       <nav
-        class="tw-w-full tw-bg-white tw-z-[1] tw-py-5 md:tw-py-[1rem] md:tw-px-0 tw-text-black-core/[.87] tw-tracking-[0] tw-transition-all tw-ease tw-duration-500"
+        class="tw-ease tw-z-[1] tw-w-full tw-bg-white tw-py-5 tw-tracking-[0] tw-text-black-core/[.87] tw-transition-all tw-duration-500 md:tw-px-0 md:tw-py-[1rem]"
         :class="[
           showNavbar
             ? 'tw-fixed tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]'
@@ -23,20 +23,20 @@
         >
           <router-link to="/" replace>
             <div
-              class="tw-mt-2 tw-mr-4 tw-text-[1.25rem] tw-whitespace-nowrap tw-no-underline"
+              class="tw-mr-4 tw-mt-2 tw-whitespace-nowrap tw-text-[1.25rem] tw-no-underline"
             >
               <img
                 src="@/assets/images/logo/logo-header.svg"
-                class="tw-w-[205px] tw-h-[38.5px]"
+                class="tw-h-[38.5px] tw-w-[205px]"
                 alt="canopas-logo"
               />
             </div>
           </router-link>
           <div
-            class="tw-relative tw-flex tw-basis-[auto] tw-grow tw-items-center"
+            class="tw-relative tw-flex tw-grow tw-basis-[auto] tw-items-center"
           >
             <ul
-              class="tw-hidden lg:tw-flex lg:tw-flex-row tw-flex-wrap lg:tw-items-center tw-justify-evenly xl:tw-justify-end tw-w-full tw-text-[1rem] md:tw-text-[1.09375rem] xl:tw-text-[1.1875rem] tw-leading-[1.125rem] md:tw-leading-[1.28125rem] xl:tw-leading-[1.4375rem]"
+              class="tw-hidden tw-w-full tw-flex-wrap tw-justify-evenly tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-flex lg:tw-flex-row lg:tw-items-center xl:tw-justify-end xl:tw-text-[1.1875rem] xl:tw-leading-[1.4375rem]"
               @mouseleave="showContributionMenu = false"
             >
               <li
@@ -51,12 +51,12 @@
                   v-if="!navbar.target"
                   :to="navbar.url"
                   @click.native="mixpanel.track(navbar.event)"
-                  class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px] tw-group"
+                  class="tw-group tw-relative tw-mr-[20px] tw-inline-block sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px]"
                   :class="[
                     navbar.className
                       ? navbar.className
                       : navbar.class +
-                        ' after:tw-absolute after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[3px]  after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent ',
+                        ' after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[27px] after:tw-h-[3px] after:tw-w-full  after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100 ',
                   ]"
                 >
                   <span
@@ -68,15 +68,16 @@
                 </router-link>
                 <a
                   v-else
-                  class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px] after:tw-absolute after:tw-w-full after:tw-h-[3px] after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
+                  class="tw-relative tw-mr-[20px] tw-inline-block after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[27px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100 sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px]"
                   :href="navbar.url"
                   :target="navbar.target"
                   >{{ navbar.name }}</a
                 >
+
                 <ul
                   v-show="showContributionMenu"
                   @mouseleave="showContributionMenu = false"
-                  class="tw-absolute xl:tw-left-[296px] 2xl:tw-left-[475px] lg:tw-top-[4.5rem] tw-w-max tw-border tw-rounded-[5px] tw-bg-white tw-shadow-md tw-px-6 tw-py-[1.5rem] tw-flex-col tw-space-y-6"
+                  class="tw-absolute tw-w-max tw-flex-col tw-space-y-6 tw-rounded-[5px] tw-border tw-bg-white !tw-px-6 tw-py-[1.5rem] tw-shadow-md lg:tw-top-[4.5rem] xl:tw-left-[296px] 2xl:tw-left-[475px]"
                   :class="
                     subMenus.length == 2
                       ? 'lg:tw-left-[180px]'
@@ -86,12 +87,17 @@
                   <li
                     v-for="navbar in subMenus"
                     :key="navbar"
-                    class="tw-relative tw-group"
+                    class="tw-group tw-relative"
                   >
                     <a
-                      class="tw-group tw-relative tw-py-[1rem] tw-font-inter-medium tw-text-black-core/[0.6] tw-text-[1rem] md:tw-text-[1.09375rem] lg:tw-text-[1.188rem] tw-leading-[1.125rem] md:tw-leading-[1.28125rem] lg:tw-leading-[1.437rem] group-hover:tw-text-white group-hover:tw-z-[1]"
+                      class="tw-group tw-relative tw-py-[1rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] group-hover:tw-z-[1] group-hover:tw-text-white md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem]"
                       :href="navbar.url"
                       :target="navbar.target"
+                      :class="
+                        subMenus.length == 2
+                          ? 'group-hover:tw-w-[145px]'
+                          : 'group-hover:tw-w-[168px]'
+                      "
                       >{{ navbar.name }}
                       <div
                         :class="
@@ -99,7 +105,7 @@
                             ? 'group-hover:tw-w-[145px]'
                             : 'group-hover:tw-w-[168px]'
                         "
-                        class="tw-absolute tw-left-[-25px] tw-top-[0] tw-w-0 tw-h-[100%] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] tw-transition-all tw-duration-300 tw-ease group-hover:tw-h-[100%] tw-z-[-1]"
+                        class="tw-ease tw-absolute tw-left-[-25px] tw-top-[0] tw-z-[-1] tw-h-[100%] tw-w-0 tw-from-[#FF835B] tw-to-[#F2709C] tw-transition-all tw-duration-300 tw-bg-gradient-[180deg] group-hover:tw-h-[100%]"
                       ></div
                     ></a>
                   </li>
@@ -107,10 +113,10 @@
               </li>
             </ul>
           </div>
-          <div class="lg:tw-hidden tw-flex tw-items-end tw-w-6 tw-h-6">
+          <div class="tw-flex tw-h-6 tw-w-6 tw-items-end lg:tw-hidden">
             <font-awesome-icon
               :icon="faBars"
-              class="tw-ml-0 tw-mt-[0.20rem] tw-w-full tw-h-full"
+              class="tw-ml-0 tw-mt-[0.20rem] tw-h-full tw-w-full"
               @click="showMenu = true"
             />
           </div>
@@ -119,25 +125,25 @@
     </div>
     <div
       :class="showMenu ? 'tw-translate-x-0' : 'tw-translate-x-full'"
-      class="lg:tw-hidden tw-fixed tw-top-0 tw-right-0 tw-w-full tw-h-screen tw-bg-white tw-py-4 md:tw-py-2 tw-duration-500 tw-ease-in-out tw-overflow-y-hidden"
+      class="tw-fixed tw-right-0 tw-top-0 tw-h-screen tw-w-full tw-overflow-y-hidden tw-bg-white tw-py-4 tw-duration-500 tw-ease-in-out md:tw-py-2 lg:tw-hidden"
     >
       <div class="tw-container">
         <div class="tw-sticky tw-top-0 tw-w-full md:tw-pt-[0.75rem]">
-          <div class="tw-flex tw-justify-between tw-items-center">
-            <div class="tw-text-[1.25rem] tw-whitespace-nowrap">
+          <div class="tw-flex tw-items-center tw-justify-between">
+            <div class="tw-whitespace-nowrap tw-text-[1.25rem]">
               <router-link to="/" replace>
                 <div
-                  class="tw-mt-2 tw-mr-4 tw-text-[1.25rem] tw-whitespace-nowrap tw-no-underline"
+                  class="tw-mr-4 tw-mt-2 tw-whitespace-nowrap tw-text-[1.25rem] tw-no-underline"
                 >
                   <img
                     src="@/assets/images/logo/logo-header.svg"
-                    class="tw-w-[205px] tw-h-[38.5px]"
+                    class="tw-h-[38.5px] tw-w-[205px]"
                     alt="canopas-logo"
                   />
                 </div>
               </router-link>
             </div>
-            <div class="tw-w-6 tw-h-6 tw-mt-[-3px]">
+            <div class="tw-mt-[-3px] tw-h-6 tw-w-6">
               <font-awesome-icon
                 :icon="faXmark"
                 class="tw-h-full tw-w-full"
@@ -147,23 +153,23 @@
           </div>
         </div>
         <ul
-          class="tw-flex tw-flex-col lg:tw-items-center tw-justify-start tw-mt-8 lg:tw-ml-auto tw-h-[50%] sm:tw-h-[45%] tw-text-[1rem] md:tw-text-[1.09375rem] lg:tw-text-[1.1875rem] tw-leading-[1.125rem] md:tw-leading-[1.28125rem] lg:tw-leading-[1.4375rem] tw-overflow-y-scroll"
+          class="tw-mt-8 tw-flex tw-h-[50%] tw-flex-col tw-justify-start tw-overflow-y-scroll tw-text-[1rem] tw-leading-[1.125rem] sm:tw-h-[45%] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-ml-auto lg:tw-items-center lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
         >
           <li
             v-for="navbar in navbars.slice(0, navbars.length - 1)"
             :key="navbar"
-            class="tw-my-2 tw-py-2 tw-ml-1 lg:tw-ml-0"
+            class="tw-my-2 tw-ml-1 tw-py-2 lg:tw-ml-0"
           >
             <router-link
               v-if="!navbar.target"
               :to="navbar.url"
               @click.native="mixpanel.track(navbar.event)"
-              class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] lg:tw-mr-[20px] tw-group"
+              class="tw-group tw-relative tw-mr-[20px] tw-inline-block sm:tw-mr-[30px] lg:tw-mr-[20px]"
               :class="[
                 navbar.className
                   ? navbar.className
                   : navbar.class +
-                    ' after:tw-absolute after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[3px]  after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent',
+                    ' after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[27px] after:tw-h-[3px] after:tw-w-full  after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100',
               ]"
               @click="
                 navbar.name == 'Contribution'
@@ -176,7 +182,7 @@
 
             <a
               v-else
-              class="tw-inline-block tw-relative tw-mr-[20px] sm:tw-mr-[30px] after:tw-absolute after:tw-top-[27px] after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[3px] after:tw-bg-gradient-[90deg] after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-origin-bottom-left after:tw-duration-300 after:tw-scale-x-0 hover:after:tw-scale-x-100 hover:after:tw-origin-bottom-left hover:tw-bg-clip-text hover:tw-bg-gradient-[270.11deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-text-transparent"
+              class="tw-relative tw-mr-[20px] tw-inline-block after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[27px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100 sm:tw-mr-[30px]"
               :href="navbar.url"
               :target="navbar.target"
               >{{ navbar.name }}</a
@@ -184,7 +190,7 @@
             <ul
               :class="
                 showContributionMenu && navbar.name == 'Contribution'
-                  ? 'tw-mt-8 tw-w-full tw-px-6 tw-bg-white'
+                  ? 'tw-mt-8 tw-w-full tw-bg-white tw-px-6'
                   : 'tw-hidden tw-overflow-hidden'
               "
               class="tw-flex-col tw-space-y-6"
@@ -192,22 +198,22 @@
               <li
                 v-for="navbar in subMenus"
                 :key="navbar"
-                class="tw-relative tw-group"
+                class="tw-group tw-relative"
               >
                 <a
-                  class="tw-relative tw-group tw-py-[0.5rem] tw-font-inter-medium tw-text-black-core/[0.6] tw-text-[1rem] md:tw-text-[1.09375rem] lg:tw-text-[1.188rem] tw-leading-[1.125rem] md:tw-leading-[1.28125rem] lg:tw-leading-[1.437rem] group-hover:tw-text-white group-hover:tw-z-[1]"
+                  class="tw-group tw-relative tw-py-[0.5rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] group-hover:tw-z-[1] group-hover:tw-text-white md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem]"
                   :href="navbar.url"
                   :target="navbar.target"
                   >{{ navbar.name }}
                   <div
-                    class="tw-fixed tw-mt-[-31px] tw-left-0 tw-w-0 tw-from-[#F2709C] tw-to-[#FF835B] tw-bg-gradient-to-r tw-transition-all tw-duration-100 tw-ease group-hover:tw-w-screen group-hover:tw-h-[5%] tw-z-[-1]"
+                    class="tw-ease tw-fixed tw-left-0 tw-z-[-1] tw-mt-[-31px] tw-w-0 tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B] tw-transition-all tw-duration-100 group-hover:tw-h-[5%] group-hover:tw-w-screen"
                   ></div>
                 </a>
               </li>
             </ul>
           </li>
         </ul>
-        <div v-if="showMenu" class="tw-w-full tw-h-auto tw-bg-white tw-p-4">
+        <div v-if="showMenu" class="tw-h-auto tw-w-full tw-bg-white tw-p-4">
           <div className="tw-grid tw-p-3 tw-pb-5">
             <a
               href="/contact"

@@ -1,17 +1,17 @@
 <template>
   <div>
     <div
-      class="tw-container tw-flex tw-flex-col tw-items-center tw-gap-y-2.5 tw-mt-[3rem] lg:tw-mt-24"
+      class="tw-container tw-mt-[3rem] tw-flex tw-flex-col tw-items-center tw-gap-y-2.5 lg:tw-mt-24"
     >
       <div class="tw-text-center">
         <span
-          class="tw-text-[1.875rem] lg:tw-text-[3.4375rem] tw-leading-[2.4375rem] lg:tw-leading-[5.15625rem] tw-text-black-core/[.87] tw-font-inter-bold"
+          class="tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[.87] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem]"
         >
           Our Weekly Tech Updates</span
         >
       </div>
       <div
-        class="tw-mb-8 tw-mt-2.5 lg:tw-mt-6 tw-text-center tw-text-[1rem] lg:tw-text-[1.5rem] tw-leading-[1.5rem] lg:tw-leading-[2.25rem] tw-text-black-core/[0.87] lg:tw-text-black-core/[0.6] tw-font-inter-regular lg:tw-font-inter-medium"
+        class="tw-mb-8 tw-mt-2.5 tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] lg:tw-mt-6 lg:tw-font-inter-medium lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem] lg:tw-text-black-core/[0.6]"
       >
         Each week, we curate a hand-picked selection of the latest tech updates,
         delivering them straight to you. Immerse yourself in our weekly insights
@@ -19,7 +19,7 @@
       </div>
     </div>
     <!-- Mobile UI start -->
-    <div class="swiper-content tw-block md:tw-hidden tw-mb-10">
+    <div class="swiper-content tw-mb-10 tw-block md:tw-hidden">
       <swiper
         :slidesPerView="1.1"
         :spaceBetween="0"
@@ -29,15 +29,15 @@
       >
         <swiper-slide v-for="(weekly, index) in weeklies" :key="index">
           <div
-            class="tw-w-full tw-h-full tw-object-cover"
+            class="tw-h-full tw-w-full tw-object-cover"
             @click="openUrl(weekly.url)"
           >
             <img
               :src="[weekly.image]"
               alt="Weekly-stack-image"
-              class="tw-h-fit tw-w-fit tw-object-contain tw-rounded-t-lg"
+              class="tw-h-fit tw-w-fit tw-rounded-t-lg tw-object-contain"
             />
-            <div class="tw-bg-[#F2F2F2] !tw-rounded-b-lg tw-p-[2rem]">
+            <div class="!tw-rounded-b-lg tw-bg-[#F2F2F2] tw-p-[2rem]">
               <div class="tw-flex tw-flex-row tw-justify-between">
                 <span
                   class="v2-canopas-gradient-text tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem]"
@@ -48,9 +48,9 @@
                   >{{ weekly.readtime }}</span
                 >
               </div>
-              <div class="tw-flex tw-flex-col tw-mt-4">
+              <div class="tw-mt-4 tw-flex tw-flex-col">
                 <div
-                  class="tw-text-[1.25rem] tw-leading-[1.5rem] tw-font-inter-medium sm:tw-text-black-core/[0.87]"
+                  class="tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.5rem] sm:tw-text-black-core/[0.87]"
                 >
                   {{ weekly.title }}
                 </div>
@@ -66,13 +66,13 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-hidden md:tw-flex tw-justify-around tw-m-auto tw-mb-[7rem] tw-mt-8 md:tw-my-[3.75rem] md:tw-w-[95%] lg:tw-w-[77%] xl:tw-w-[65%] 2xl:tw-w-[55%] xll:tw-w-[30%] tw-rounded-[30px] tw-py-[5px]"
+      class="tw-m-auto tw-mb-[7rem] tw-mt-8 tw-hidden tw-justify-around tw-rounded-[30px] tw-py-[5px] md:tw-my-[3.75rem] md:tw-flex md:tw-w-[95%] lg:tw-w-[77%] xl:tw-w-[65%] 2xl:tw-w-[55%] xll:tw-w-[30%]"
     >
       <div
         v-for="(weekly, index) in weeklies"
         :key="index"
         target="_blank"
-        class="tw-hidden md:tw-block tw-flex-[16.66%] tw-gap-x-4 tw-m-0 tw-w-full tw-rounded-[25px] tw-px-[5px] tw-py-[0.7rem] md:tw-py-[15px] tw-text-center tw-tracking-[1px] tw-text-[0.75rem] sm:tw-text-[1rem] md:tw-text-[1.25rem] tw-leading-[0.938rem] md:tw-leading-[1.1875rem] tw-font-inter-regular md:hover:tw-bg-gradient-[270.11deg] md:hover:tw-from-[#ff835b] md:hover:tw-to-[#f2709c] md:hover:tw-text-white"
+        class="tw-m-0 tw-hidden tw-w-full tw-flex-[16.66%] tw-gap-x-4 tw-rounded-[25px] tw-px-[5px] tw-py-[0.7rem] tw-text-center tw-font-inter-regular tw-text-[0.75rem] tw-leading-[0.938rem] tw-tracking-[1px] sm:tw-text-[1rem] md:tw-block md:tw-py-[15px] md:tw-text-[1.25rem] md:tw-leading-[1.1875rem] md:hover:tw-from-[#ff835b] md:hover:tw-to-[#f2709c] md:hover:tw-text-white md:hover:tw-bg-gradient-[270.11deg]"
         :class="
           activeIndex == index
             ? 'gradient-border-btn tw-px-1.5 !tw-font-inter-bold !tw-text-[#f2709c] hover:!tw-text-white'
@@ -86,7 +86,7 @@
     <ul
       @scroll="handleScroll"
       id="scrollContainer"
-      class="tw-relative tw-hidden md:tw-block tw-h-[52vh] xl:tw-h-[65vh] 2xl:tw-h-[70vh] xll:tw-h-[37vh] tw-overflow-y-scroll hidden-scrollbar"
+      class="hidden-scrollbar tw-relative tw-hidden tw-h-[54.85vh] tw-overflow-y-scroll md:tw-block xl:tw-h-[65.5vh] 2xl:tw-h-[73vh] 2xll:tw-h-[76vh] xll:tw-h-[37vh]"
     >
       <li
         v-for="(weekly, index) in weeklies"
@@ -94,14 +94,14 @@
         :ref="'weekly-' + index"
         :id="'weekly-' + index"
         @click="openUrl(weekly.url)"
-        class="tw-sticky tw-top-[10px] tw-mx-[1%] xl:tw-mx-auto 2xl:tw-mt-[-3rem] lg:tw-container tw-h-[45vh] lg:tw-h-[45vh] xl:tw-h-[55vh] 2xl:tw-h-[65vh] xll:tw-h-[33vh] tw-overflow-hidden tw-origin-[center top] tw-cursor-pointer tw-drop-shadow-xl"
+        class="tw-origin-[center top] tw-sticky tw-top-[10px] tw-mx-[1%] tw-h-[45vh] tw-cursor-pointer tw-overflow-hidden tw-drop-shadow-xl lg:tw-container lg:tw-h-[45vh] xl:tw-mx-auto xl:tw-h-[55vh] 2xl:tw-h-[65vh] xll:tw-h-[33vh]"
         :style="{
           transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
         }"
       >
         <div
           :class="weekly.color"
-          class="tw-flex tw-flex-row tw-mx-auto tw-h-[350px] xl:tw-h-[450px] 2xl:tw-h-[515px]"
+          class="tw-mx-auto tw-flex tw-h-[350px] tw-flex-row xl:tw-h-[450px] 2xl:tw-h-[515px]"
         >
           <div class="tw-basis-1/2 tw-p-[20px]">
             <img
@@ -117,18 +117,18 @@
                 >{{ weekly.author }}</span
               >
               <span
-                class="tw-font-inter-semibold md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-[1.5rem] xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem] tw-text-black-core/[0.87]"
+                class="tw-font-inter-semibold tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-[1.5rem] xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
                 >{{ weekly.readtime }}</span
               >
             </div>
-            <div class="tw-flex tw-flex-col tw-mt-8 tw-mb-5">
+            <div class="tw-mb-5 tw-mt-8 tw-flex tw-flex-col">
               <div
-                class="md:tw-text-[1.125rem] md:tw-leading-[1.5rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.25rem] tw-font-inter-semibold tw-text-black-bore/[0.87]"
+                class="tw-text-black-bore/[0.87] tw-font-inter-semibold md:tw-text-[1.125rem] md:tw-leading-[1.5rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.25rem]"
               >
                 {{ weekly.title }}
               </div>
               <div
-                class="tw-mt-2.5 tw-text-black-core/[0.87] tw-font-inter-regular md:tw-text-[1rem] md:tw-leading-[1.5rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
+                class="tw-mt-2.5 tw-font-inter-regular tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-[1.5rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
               >
                 {{ weekly.content }}
               </div>
@@ -270,9 +270,8 @@ export default {
 @import "swiper/css/effect-cards";
 
 .swiper {
-  @apply tw-w-[380px] tw-h-[460px];
+  @apply tw-h-[460px] tw-w-[380px];
 }
-
 .swiper-slide {
   @apply tw-flex tw-items-center tw-justify-center;
 }

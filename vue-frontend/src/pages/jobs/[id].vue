@@ -14,23 +14,23 @@
     <div v-else-if="showErrorMessagePopup">
       <transition name="modal">
         <div
-          class="modal-mask tw-fixed tw-z-[1] tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-[#00000080] tw-table"
+          class="modal-mask tw-fixed tw-left-0 tw-top-0 tw-z-[1] tw-table tw-h-full tw-w-full tw-bg-[#00000080]"
         >
           <div
-            class="tw-mx-auto tw-left-auto sm:tw-my-7 sm:tw-mx-auto sm:tw-max-w-lg tw-h-full tw-flex tw-items-center"
+            class="tw-left-auto tw-mx-auto tw-flex tw-h-full tw-items-center sm:tw-mx-auto sm:tw-my-7 sm:tw-max-w-lg"
             role="document"
           >
             <div
-              class="tw-relative tw-flex tw-flex-col tw-w-full tw-bg-white tw-bg-clip-padding tw-rounded-md tw-outline-0 tw-border-1 tw-border-gray tw-border-solid"
+              class="tw-relative tw-flex tw-w-full tw-flex-col tw-rounded-md tw-border-1 tw-border-solid tw-border-gray tw-bg-white tw-bg-clip-padding tw-outline-0"
             >
-              <div class="tw-relative tw-p-4 tw-flex-auto">
+              <div class="tw-relative tw-flex-auto tw-p-4">
                 <div class="tw-p-[20px]">
-                  <div class="tw-text-2xl tw-mb-[30px] tw-text-center">
+                  <div class="tw-mb-[30px] tw-text-center tw-text-2xl">
                     Something went wrong on our side
                   </div>
                   <div class="tw-w-full">
                     <button
-                      class="gradient-btn tw-py-[16px] tw-px-[64px] tw-flex tw-items-center md:tw-py-[16px] md:tw-px-[80px] tw-float-right"
+                      class="gradient-btn tw-float-right tw-flex tw-items-center tw-px-[64px] tw-py-[16px] md:tw-px-[80px] md:tw-py-[16px]"
                       @click.prevent="closeErrorMessageModal()"
                     >
                       <span class="tw-tracking-[0.06rem]">Close</span>
@@ -44,17 +44,17 @@
       </transition>
     </div>
     <div v-else>
-      <div class="tw-py-0 tw-px-[0.75rem]">
+      <div class="tw-px-[0.75rem] tw-py-0">
         <div
-          class="tw-container tw-py-[48px] tw-px-[16px] tw-max-w-full sm:tw-max-w-[540px] md:tw-max-w-[720px] lg:tw-max-w-[960px] xl:tw-max-w-[1140px] 2xl:tw-max-w-[1320px] md:tw-pt-[96px] md:tw-px-[96px] md:tw-pb-[150px]"
+          class="tw-container tw-max-w-full tw-px-[16px] tw-py-[48px] sm:tw-max-w-[540px] md:tw-max-w-[720px] md:tw-px-[96px] md:tw-pb-[150px] md:tw-pt-[96px] lg:tw-max-w-[960px] xl:tw-max-w-[1140px] 2xl:tw-max-w-[1320px]"
         >
           <h1
-            class="canopas-gradient-text tw-font-bold tw-text-[1.75rem] tw-leading-8 tw-tracking-[0.1rem] md:tw-text-[2.25rem] md:tw-leading-[2.729rem] tw-text-center"
+            class="canopas-gradient-text tw-text-center tw-text-[1.75rem] tw-font-bold tw-leading-8 tw-tracking-[0.1rem] md:tw-text-[2.25rem] md:tw-leading-[2.729rem]"
           >
             {{ job.title }}
           </h1>
           <hr
-            class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-m-0 tw-mt-6"
+            class="tw-m-0 tw-mt-6 tw-border-[1px] tw-border-solid tw-border-[#e2e2e2]"
           />
           <div class="summary-text tw-mt-12">
             {{ job.summary }}
@@ -67,11 +67,11 @@
             ></div>
           </div>
           <div
-            class="tw-flex tw-justify-center tw-text-[1rem] md:tw-text-[1.125rem] tw-mt-12"
+            class="tw-mt-12 tw-flex tw-justify-center tw-text-[1rem] md:tw-text-[1.125rem]"
           >
             <router-link
               @click.native="mixpanel.track('tap_job_read_more_apply_now')"
-              class="gradient-btn tw-py-[16px] tw-px-[64px] tw-flex tw-items-center md:tw-py-[16px] md:tw-px-[80px]"
+              class="gradient-btn tw-flex tw-items-center tw-px-[64px] tw-py-[16px] md:tw-px-[80px] md:tw-py-[16px]"
               :to="jobLink"
             >
               <font-awesome-icon
@@ -364,32 +364,33 @@ export default {
 .summary-text,
 :deep(div > span *),
 :deep(ul:not(.header ul)) {
-  @apply tw-text-[1.1rem] tw-leading-[2rem] tw-text-left tw-text-[#3d3d3dcc] md:tw-text-[1.125rem] md:tw-leading-[2.5rem] lg:tw-text-[1.4rem];
+  @apply tw-text-left tw-text-[1.1rem] tw-leading-[2rem] tw-text-[#3d3d3dcc] md:tw-text-[1.125rem] md:tw-leading-[2.5rem] lg:tw-text-[1.4rem];
 }
 
-:deep(ul > li) {
+:deep(ul:not(.header ul) > li) {
   @apply tw-flex tw-items-baseline;
 }
-:deep(ul > li > a > svg) {
+:deep(ul:not(.header ul) > li > a > svg) {
   @apply tw-flex tw-items-center;
 }
 
 :deep(h2) {
-  @apply tw-flex tw-flex-row tw-mt-[48px] tw-mx-0 tw-mb-[16px];
+  @apply tw-mx-0 tw-mb-[16px] tw-mt-[48px] tw-flex tw-flex-row;
 }
 
 :deep(h2 *) {
-  @apply tw-text-2xl tw-tracking-[0.05rem] tw-py-[12px] tw-px-0 tw-text-[#3d3d3d] md:tw-text-[2rem] md:tw-leading-[2.5rem];
+  @apply tw-px-0 tw-py-[12px] tw-text-2xl tw-tracking-[0.05rem] tw-text-[#3d3d3d] md:tw-text-[2rem] md:tw-leading-[2.5rem];
 }
 
 :deep(h2 > .bullet) {
-  @apply tw-content-[''] tw-from-[#f2709c] tw-to-[#ff9472] tw-bg-gradient-180 tw-inline-block tw-leading-none tw-mt-[5px] tw-mr-[20px] tw-mb-[5px] tw-ml-0 tw-h-auto tw-w-[8px] tw-rounded-none;
+  @apply tw-mb-[5px] tw-ml-0 tw-mr-[20px] tw-mt-[5px] tw-inline-block tw-h-auto tw-w-[8px] tw-rounded-none tw-from-[#f2709c] tw-to-[#ff9472] tw-leading-none tw-content-[''] tw-bg-gradient-180;
 }
 
-:deep(ul) {
+:deep(ul:not(.header ul)) {
   @apply tw-list-none tw-pl-0;
 }
-:deep(ul > li > span) {
-  @apply tw-relative tw-inline-block tw-content-none tw-mr-[20px] tw-ml-[-5px] tw-w-[10px] md:tw-w-[13px] tw-h-[10px] md:tw-h-[12px] tw-border-solid tw-border-[#3d3d3dcc] tw-border-t-[3px] tw-border-r-[3px] tw-border-b-0 tw-border-l-0  tw-left-[0.15em] tw-rotate-[50deg] tw-align-top;
+
+:deep(ul:not(.header ul) > li > span) {
+  @apply tw-relative tw-left-[0.15em] tw-ml-[-5px] tw-mr-[20px] tw-inline-block tw-h-[10px] tw-w-[10px] tw-rotate-[50deg] tw-border-b-0 tw-border-l-0 tw-border-r-[3px] tw-border-t-[3px] tw-border-solid tw-border-[#3d3d3dcc] tw-align-top  tw-content-none md:tw-h-[12px] md:tw-w-[13px];
 }
 </style>
