@@ -1,6 +1,6 @@
 <template>
   <section
-    class="tw-relative tw-my-[50px] tw-bg-[#FDE0E2] tw-bg-gradient-background md:tw-bg-none"
+    class="tw-relative tw-my-[50px] tw-bg-[#FDE0E2] tw-bg-gradient-background md:tw-mt-0 md:tw-bg-none"
   >
     <!-- MOBILE UI START  -->
     <div class="md:tw-hidden">
