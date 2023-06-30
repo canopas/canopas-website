@@ -93,12 +93,5 @@ export default {
     ExploreDesign,
     NewFooter,
   },
-  beforeRouteEnter(to, from, next) {
-    if (!config.SHOW_CONTRIBUTION_PAGE) {
-      next({ name: "Error404Page", params: { pathMatch: "/contributions" } });
-    } else {
-      next();
-    }
-  },
 };
 </script>

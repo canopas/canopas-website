@@ -289,6 +289,12 @@ export default {
       ],
       subMenus: [
         {
+          name: "Open Source",
+          target: "_self",
+          url: "/contributions",
+          event: "tap_header_contributions",
+        },
+        {
           name: "Blog",
           url: Config.BLOG_URL,
           target: "_blank",
@@ -307,13 +313,6 @@ export default {
     FontAwesomeIcon,
   },
   mounted() {
-    if (Config.SHOW_CONTRIBUTION_PAGE) {
-      this.subMenus.splice(0, 0, {
-        name: "Open Source",
-        url: "/contributions",
-        event: "tap_header_contributions",
-      });
-    }
     if (
       this.currentRoutePath.includes("portfolio/") &&
       window.innerWidth > 992 &&
