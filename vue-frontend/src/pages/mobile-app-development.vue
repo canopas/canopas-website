@@ -9,6 +9,7 @@
 
     <div>
       <Services />
+      <Portfolio />
       <CTASection />
       <CTASection2 />
     </div>
@@ -23,7 +24,9 @@ import Services from "@/components/mobile-app-development/Services.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
-
+const Portfolio = defineAsyncComponent(() =>
+  import("@/components/mobile-app-development/Portfolio.vue")
+);
 const CTASection = defineAsyncComponent(() =>
   import("@/components/mobile-app-development/CTASection.vue")
 );
@@ -58,6 +61,7 @@ export default {
   components: {
     Header,
     Services,
+    Portfolio,
     CTASection,
     CTASection2,
     NewFooter,
