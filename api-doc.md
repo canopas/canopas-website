@@ -388,3 +388,31 @@
     - Headers : none
     - Message : Invitation mail has been sent successfully
 ```
+
+### 8. Send Acceptence Mail (Notification)
+
+```
+- Method : POST
+- Endpoint : /api/acceptence
+- Description : API for sending Accepted mail to the Company HR manager
+- Request:
+    - Headers : none
+    - Body :
+         {
+            "receiver": "hr@canopas.com",
+            "sender": "mansi@canopas.com", // accepter employee mail
+        }
+- Response :
+    - If API is not found,
+    - Status Code: 404 not found
+    - Data: no response data
+
+    - If any server error is there then,
+    - Status Code: 500 Internal server error
+    - Data: no response data
+
+    - If request will success ,
+    - Status Code: 200 Ok
+    - Headers : none
+    - Message : Acceptence mail has been sent successfully
+```

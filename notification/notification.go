@@ -18,10 +18,11 @@ const (
 	CHARSET = "utf-8"
 )
 
-type InvitationData struct {
+type NotificationData struct {
 	Receiver    string `json:"receiver" form:"receiver"`
 	CompanyName string `json:"companyname" form:"companyname"`
 	SpaceLink   string `json:"spacelink" form:"spacelink"`
+	Sender      string `json:"sender" form:"sender"`
 }
 
 type NotificationRepository struct {
@@ -38,7 +39,7 @@ func New(templateFs embed.FS, utilsRepo utils.UtilsRepository) *NotificationRepo
 }
 
 func (repository *NotificationRepository) SendInvitationMail(c *gin.Context) {
-	var input InvitationData
+	var input NotificationData
 
 	err := c.ShouldBindWith(&input, binding.JSON)
 	if err != nil {
@@ -59,7 +60,7 @@ func (repository *NotificationRepository) SendInvitationMail(c *gin.Context) {
 
 }
 
-func (repository *NotificationRepository) getInvitationEmailTemplate(input InvitationData) (template *ses.SendEmailInput) {
+func (repository *NotificationRepository) getInvitationEmailTemplate(input NotificationData) (template *ses.SendEmailInput) {
 
 	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "invitation-email-template.html")
 
@@ -70,7 +71,40 @@ func (repository *NotificationRepository) getInvitationEmailTemplate(input Invit
 	return
 }
 
-func (repository *NotificationRepository) getHTMLBodyOfEmailTemplate(input InvitationData, templateName string) string {
+func (repository *NotificationRepository) SendAcceptenceMail(c *gin.Context) {
+	var input NotificationData
+
+	err := c.ShouldBindWith(&input, binding.JSON)
+	if err != nil {
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": err.Error()})
+		return
+	}
+
+	emailTemplate := repository.getAcceptenceEmailTemplate(input)
+
+	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
+
+	if statusCode != 0 {
+		c.AbortWithStatus(statusCode)
+		return
+	}
+
+	c.JSON(http.StatusOK, "Acceptence mail has been sent successfully")
+
+}
+
+func (repository *NotificationRepository) getAcceptenceEmailTemplate(input NotificationData) (template *ses.SendEmailInput) {
+
+	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "acceptence-email-template.html")
+
+	subject := "Unity | Accepted the Invitation"
+
+	template = GetEmailTemplate(htmlBody, input, subject)
+
+	return
+}
+
+func (repository *NotificationRepository) getHTMLBodyOfEmailTemplate(input NotificationData, templateName string) string {
 
 	var templateBuffer bytes.Buffer
 
@@ -84,7 +118,7 @@ func (repository *NotificationRepository) getHTMLBodyOfEmailTemplate(input Invit
 	return templateBuffer.String()
 }
 
-func GetEmailTemplate(htmlBody string, data InvitationData, subject string) (template *ses.SendEmailInput) {
+func GetEmailTemplate(htmlBody string, data NotificationData, subject string) (template *ses.SendEmailInput) {
 
 	SENDER := "Unity <unity@canopas.com>"
 	RECEIVER := data.Receiver
