@@ -37,7 +37,7 @@ func NewSql() *sqlx.DB {
 	port := os.Getenv("DB_PORT")
 
 	if port == "" {
-		port = "9906"
+		port = "3306"
 	}
 
 	name := os.Getenv("DB_NAME")

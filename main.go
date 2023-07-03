@@ -27,7 +27,7 @@ func main() {
 
 	r := setupRouter(sqlDb)
 
-	_ = r.Run(":8081")
+	_ = r.Run(":8080")
 }
 
 func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
@@ -72,7 +72,7 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 		})
 	})
 
-	router.Run(":8081")
+	router.Run(":8080")
 
 	return router
 }
