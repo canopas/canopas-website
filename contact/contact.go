@@ -5,7 +5,6 @@ import (
 	"embed"
 	"html/template"
 	"net/http"
-	"os"
 	"utils"
 
 	log "github.com/sirupsen/logrus"
@@ -59,31 +58,31 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 		return
 	}
 
-	// success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
+	success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
 
-	// if err != nil || !success {
-	// 	c.AbortWithStatus(http.StatusUnauthorized)
-	// 	return
-	// }
+	if err != nil || !success {
+		c.AbortWithStatus(http.StatusUnauthorized)
+		return
+	}
 
-	// emailTemplate := repository.getEmailTemplate(input)
+	emailTemplate := repository.getEmailTemplate(input)
 
-	// statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
+	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
 
-	// if statusCode != 0 {
-	// 	c.AbortWithStatus(statusCode)
-	// 	return
-	// }
-	// if input.SendMailToClient {
-	// 	clientEmailTemplate := repository.getClientEmailTemplate(input)
+	if statusCode != 0 {
+		c.AbortWithStatus(statusCode)
+		return
+	}
+	if input.SendMailToClient {
+		clientEmailTemplate := repository.getClientEmailTemplate(input)
 
-	// 	statusCode = repository.UtilsRepo.SendEmail(clientEmailTemplate, nil)
+		statusCode = repository.UtilsRepo.SendEmail(clientEmailTemplate, nil)
 
-	// 	if statusCode != 0 {
-	// 		c.AbortWithStatus(statusCode)
-	// 		return
-	// 	}
-	// }
+		if statusCode != 0 {
+			c.AbortWithStatus(statusCode)
+			return
+		}
+	}
 	c.JSON(http.StatusOK, "Contact mail sent successfully")
 }
 
@@ -131,7 +130,8 @@ func (repository *Template) getHTMLBodyOfEmailTemplate(input ContactDetails, tem
 
 func GetEmailTemplate(htmlBody string, data ContactDetails, title string, receiver string) (template *ses.SendEmailInput) {
 
-	SENDER := os.Getenv("CONTACT_SENDER")
+	// SENDER := os.Getenv("CONTACT_SENDER")
+	SENDER := "hr@canopas.com"
 	RECEIVER := receiver
 	template = &ses.SendEmailInput{
 		Destination: &ses.Destination{
