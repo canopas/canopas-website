@@ -59,31 +59,31 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 		return
 	}
 
-	success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
+	// success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
 
-	if err != nil || !success {
-		c.AbortWithStatus(http.StatusUnauthorized)
-		return
-	}
+	// if err != nil || !success {
+	// 	c.AbortWithStatus(http.StatusUnauthorized)
+	// 	return
+	// }
 
-	emailTemplate := repository.getEmailTemplate(input)
+	// emailTemplate := repository.getEmailTemplate(input)
 
-	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
+	// statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
 
-	if statusCode != 0 {
-		c.AbortWithStatus(statusCode)
-		return
-	}
-	if input.SendMailToClient {
-		clientEmailTemplate := repository.getClientEmailTemplate(input)
+	// if statusCode != 0 {
+	// 	c.AbortWithStatus(statusCode)
+	// 	return
+	// }
+	// if input.SendMailToClient {
+	// 	clientEmailTemplate := repository.getClientEmailTemplate(input)
 
-		statusCode = repository.UtilsRepo.SendEmail(clientEmailTemplate, nil)
+	// 	statusCode = repository.UtilsRepo.SendEmail(clientEmailTemplate, nil)
 
-		if statusCode != 0 {
-			c.AbortWithStatus(statusCode)
-			return
-		}
-	}
+	// 	if statusCode != 0 {
+	// 		c.AbortWithStatus(statusCode)
+	// 		return
+	// 	}
+	// }
 	c.JSON(http.StatusOK, "Contact mail sent successfully")
 }
 
@@ -98,7 +98,8 @@ func (repository *Template) getEmailTemplate(input ContactDetails) (template *se
 
 	title := "Canopas Website - Contact Information " + extendedTitle
 
-	template = GetEmailTemplate(htmlBody, input, title, os.Getenv("CONTACT_RECEIVER"))
+	template = GetEmailTemplate(htmlBody, input, title, "mansi.d@canopas.com")
+	// template = GetEmailTemplate(htmlBody, input, title, os.Getenv("CONTACT_RECEIVER"))
 
 	return
 }
