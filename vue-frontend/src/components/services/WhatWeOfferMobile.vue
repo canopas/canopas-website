@@ -1,7 +1,7 @@
 <template>
-  <div class="sm:tw-container tw-text-center tw-text-black-core-900/[0.87]">
+  <div class="tw-text-black-core-900/[0.87] tw-text-center sm:tw-container">
     <div
-      class="tw-py-12 sm:tw-py-16 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem]"
+      class="tw-py-12 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem] sm:tw-py-16"
     >
       <span>What We Offer</span>
     </div>
@@ -10,27 +10,31 @@
       <div
         v-for="service in services"
         :key="service"
-        class="md:tw-w-[70%] tw-m-auto"
+        class="tw-m-auto md:tw-w-[70%]"
       >
         <div>
           <img
             :src="service.images[0]"
             :srcset="`${service.images[0]} 400w, ${service.images[1]} 800w`"
             alt="Service-images"
-            class="tw-w-full tw-h-full tw-object-cover"
+            class="tw-h-full tw-w-full tw-object-cover"
             loading="lazy"
           />
         </div>
 
         <div :class="service.class" class="tw-px-2.5 sm:tw-px-20">
-          <div class="tw-py-5 sm:tw-py-6">
+          <div
+            class="tw-py-5 sm:tw-py-6"
+            @click="showServices ? openUrl(service.url) : ''"
+            :class="showServices ? 'tw-cursor-pointer' : ''"
+          >
             <span
               class="tw-text-center tw-font-inter-semibold tw-text-[1.5rem] tw-leading-[2.25rem]"
               >{{ service.title }}</span
             >
           </div>
           <div
-            class="tw-mb-10 sm:tw-mb-14 tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem]"
+            class="tw-mb-10 tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] sm:tw-mb-14"
           >
             <p>{{ service.description }}</p>
           </div>
@@ -59,9 +63,12 @@ import uiuxdesign800w from "@/assets/images/services/service/uiuxdesign-800w.web
 import frontend400w from "@/assets/images/services/service/frontend-400w.webp";
 import frontend800w from "@/assets/images/services/service/frontend-800w.webp";
 
+import config from "@/config.js";
+
 export default {
   data() {
     return {
+      showServices: !config.IS_PROD,
       services: [
         {
           images: [androidApp400w, androidApp800w],
@@ -70,6 +77,7 @@ export default {
             "Take your business to new heights with an Android app! Tap into a global user base, boost customer engagement, communicate directly, and gather insightful data. Plus, enhance your visibility, add revenue streams, and provide top-notch customer service. With over a decade of expertise in Android app development, our team can help you craft high-quality, user-friendly apps that drive business growth and customer engagement. ",
           class:
             "tw-bg-gradient-to-b tw-from-[#EBF2FC]  via-[#EBF2FC]  tw-to-white tw-bg-gradient-[180deg] ",
+          url: "/android-app-development",
         },
         {
           images: [iosApp400w, iosApp800w],
@@ -114,6 +122,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    openUrl(url) {
+      window.open(url, "_self");
+    },
   },
 };
 </script>

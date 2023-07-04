@@ -142,10 +142,10 @@
 </template>
 
 <script>
-import android from "@/assets/images/ContributionPage/weekly/android.webp";
-import flutter from "@/assets/images/ContributionPage/weekly/flutter.webp";
-import ios from "@/assets/images/ContributionPage/weekly/ios.webp";
-import web from "@/assets/images/ContributionPage/weekly/web.webp";
+import android from "@/assets/images/contributions/weekly/android.webp";
+import flutter from "@/assets/images/contributions/weekly/flutter.webp";
+import ios from "@/assets/images/contributions/weekly/ios.webp";
+import web from "@/assets/images/contributions/weekly/web.webp";
 import { elementInViewPort } from "@/utils";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, { EffectCards } from "swiper";
