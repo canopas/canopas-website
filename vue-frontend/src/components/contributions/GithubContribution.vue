@@ -2,27 +2,27 @@
   <section class="lg:tw-my-[100px]">
     <div class="tw-container md:tw-mb-24 lg:tw-mb-0">
       <p
-        class="tw-text-center tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
+        class="tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.438rem] tw-text-black-core/[0.87] lg:tw-text-[3.438rem] lg:tw-leading-[5.156rem]"
       >
         GitHub Contributions
       </p>
       <p
-        class="tw-mt-4 lg:tw-mt-8 tw-text-center tw-text-[1rem] lg:tw-text-[1.5rem] tw-leading-[1.5rem] lg:tw-leading-[2.25rem] tw-font-inter-regular lg:tw-font-inter-medium tw-text-black-core/[0.87] lg:tw-text-black-core/[0.6]"
+        class="tw-mt-4 tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] lg:tw-mt-8 lg:tw-font-inter-medium lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem] lg:tw-text-black-core/[0.6]"
       >
         Explore our repositories and join us on this thrilling journey of
         creating code that fuels global innovation.
       </p>
       <div
-        class="tw-flex tw-justify-around tw-gap-4 tw-m-auto tw-mt-8 lg:tw-mt-[3.75rem] tw-w-[100%] sm:tw-w-[95%] lg:tw-w-[75%] tw-rounded-[30px] tw-bg-white tw-py-[5px] tw-drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)]"
+        class="tw-m-auto tw-mt-8 tw-flex tw-w-[100%] tw-justify-around tw-gap-4 tw-rounded-[30px] tw-bg-white tw-py-[5px] tw-drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)] sm:tw-w-[95%] lg:tw-mt-[3.75rem] lg:tw-w-[75%]"
       >
         <button
           v-for="(navbar, index) in navbars"
           :key="index"
-          class="tw-flex-[16.66%] tw-m-0 tw-w-full tw-rounded-[25px] tw-px-[5px] tw-py-2 md:tw-py-[13px] tw-text-center tw-tracking-[1px] tw-text-[0.75rem] tw-leading-[0.938rem] md:tw-text-[1rem] md:tw-leading-[1.1875rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.438rem] tw-font-inter-semibold active:tw-scale-[0.98] portfolio-nav lg:hover:tw-bg-gradient-[270.11deg] lg:hover:tw-from-[#ff835b] lg:hover:tw-to-[#f2709c] lg:hover:tw-text-white"
+          class="portfolio-nav tw-m-0 tw-w-full tw-flex-[16.66%] tw-rounded-[25px] tw-px-[5px] tw-py-2 tw-text-center tw-font-inter-semibold tw-text-[0.75rem] tw-leading-[0.938rem] tw-tracking-[1px] active:tw-scale-[0.98] md:tw-py-[13px] md:tw-text-[1rem] md:tw-leading-[1.1875rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.438rem] lg:hover:tw-from-[#ff835b] lg:hover:tw-to-[#f2709c] lg:hover:tw-text-white lg:hover:tw-bg-gradient-[270.11deg]"
           @click="slideTo(index), changeContributions(index)"
           :class="
             activeIndex == index
-              ? 'tw-bg-gradient-[270.11deg] tw-from-[#ff835b] tw-to-[#f2709c] tw-text-white '
+              ? 'tw-from-[#ff835b] tw-to-[#f2709c] tw-text-white tw-bg-gradient-[270.11deg] '
               : 'tw-border-[1px] tw-border-solid tw-border-transparent tw-text-black-core/[0.6]'
           "
         >
@@ -31,7 +31,7 @@
       </div>
     </div>
     <!-- Mobile UI start -->
-    <div class="sm:tw-container swiper-content !tw-mt-8 md:tw-hidden">
+    <div class="swiper-content !tw-mt-8 sm:tw-container md:tw-hidden">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
@@ -50,68 +50,68 @@
             v-if="contribution.image"
             :src="contribution.image[0]"
             :srcset="`${contribution.image[0]} 400w, ${contribution.image[1]} 800w`"
-            class="tw-w-full tw-h-full tw-object-cover tw-relative"
+            class="tw-relative tw-h-full tw-w-full tw-object-cover"
             alt="contribution-image"
           />
           <div
-            class="tw-flex tw-flex-col tw-mt-[-23px] tw-mb-10 tw-mx-auto tw-max-w-[95%] sm:tw-max-w-[85%] md:tw-max-w-[70%] tw-z-[1] tw-rounded-[10px] tw-bg-white tw-drop-shadow-2xl tw-py-4"
+            class="tw-z-[1] tw-mx-auto tw-mb-10 tw-mt-[-23px] tw-flex tw-max-w-[95%] tw-flex-col tw-rounded-[10px] tw-bg-white tw-py-4 tw-drop-shadow-2xl sm:tw-max-w-[85%] md:tw-max-w-[70%]"
           >
             <div
               class="tw-flex tw-flex-row tw-items-center tw-justify-start tw-gap-8 tw-px-4"
             >
               <div
-                class="tw-flex tw-items-center tw-justify-center tw-w-[4.75rem] tw-h-[1.875rem] tw-rounded-full tw-bg-gradient-[270.11deg] tw-from-[#ff835b] tw-to-[#f2709c] tw-px-2.5 tw-font-inter-semibold tw-text-[1rem] tw-text-white"
+                class="tw-flex tw-h-[1.875rem] tw-w-[4.75rem] tw-items-center tw-justify-center tw-rounded-full tw-from-[#ff835b] tw-to-[#f2709c] tw-px-2.5 tw-font-inter-semibold tw-text-[1rem] tw-text-white tw-bg-gradient-[270.11deg]"
               >
                 <span>
                   <font-awesome-icon
-                    class="fa tw-w-[18px] tw-h-[18px] tw-pr-[5px] tw-text-white"
+                    class="fa tw-h-[18px] tw-w-[18px] tw-pr-[5px] tw-text-white"
                     :icon="star"
                   />{{ contribution.stars }}</span
                 >
               </div>
               <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
                 <span
-                  class="tw-w-4 tw-h-4 tw-rounded-full"
+                  class="tw-h-4 tw-w-4 tw-rounded-full"
                   :class="contribution.color"
                 ></span
                 ><span
-                  class="tw-text-[1rem] tw-leading-[1rem] tw-font-inter-medium tw-text-black-core/[0.87]"
+                  class="tw-font-inter-medium tw-text-[1rem] tw-leading-[1rem] tw-text-black-core/[0.87]"
                   >{{ contribution.language }}</span
                 >
               </div>
               <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
                 <span>
                   <font-awesome-icon
-                    class="fa tw-w-4 tw-h-4"
+                    class="fa tw-h-4 tw-w-4"
                     :icon="fork" /></span
                 ><span
-                  class="tw-text-[1rem] tw-leading-[1rem] tw-font-inter-medium tw-text-black-core/[0.87]"
+                  class="tw-font-inter-medium tw-text-[1rem] tw-leading-[1rem] tw-text-black-core/[0.87]"
                   >{{ contribution.forks }}</span
                 >
               </div>
             </div>
             <p
-              class="tw-mt-2 tw-px-4 tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.6] tw-font-inter-regular"
+              class="tw-mt-2 tw-px-4 tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.6]"
             >
               <span
-                class="tw-text-[1.25rem] tw-leading-[1.875rem] tw-font-inter-medium tw-text-black-core/[0.87]"
+                class="tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-black-core/[0.87]"
                 >{{ contribution.title }}</span
               ><br />{{ contribution.description }}
             </p>
-            <div class="tw-flex tw-flex-row tw-items-center tw-mt-4 tw-px-4">
+            <div class="tw-mt-4 tw-flex tw-flex-row tw-items-center tw-px-4">
               <p
                 class="tw-mr-2 tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.5rem]"
               >
                 Contributors:
               </p>
               <div
-                class="tw-flex tw-flex-row tw-items-center tw-ml-2"
+                class="tw-ml-2 tw-flex tw-flex-row tw-items-center"
                 v-for="(contributor, index) in contribution.contributors"
                 :key="index"
               >
                 <img
                   :src="contributor"
-                  class="tw-w-9 tw-h-9 tw-object-cover"
+                  class="tw-h-9 tw-w-9 tw-object-cover"
                   alt="contribution-image"
                 />
               </div>
@@ -123,27 +123,27 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-container tw-hidden md:tw-flex tw-flex-wrap tw-justify-between tw-mx-auto tw-mt-[2rem] lg:tw-my-10"
+      class="tw-container tw-mx-auto tw-mt-[2rem] tw-hidden tw-flex-wrap tw-justify-between md:tw-flex lg:tw-my-10"
     >
       <div
         v-for="(contribution, index) in contributions"
-        class="flip-card tw-relative md:tw--mt-[3rem] lg:tw-mt-[1rem] xl:tw-mt-[2rem] tw-w-[48%] tw-h-[368px] lg:tw-h-[440px] xl:tw-h-[500px] 2xl:tw-h-[550px] tw--gap-y-8 tw-mx-auto tw-cursor-pointer"
+        class="flip-card tw--gap-y-8 tw-relative tw-mx-auto tw-h-[368px] tw-w-[48%] tw-cursor-pointer md:tw--mt-[3rem] lg:tw-mt-[1rem] lg:tw-h-[440px] xl:tw-mt-[2rem] xl:tw-h-[500px] 2xl:tw-h-[550px]"
         :key="index"
         @click="openContribution(contribution)"
       >
         <div
-          class="flip-card-inner tw-relative tw-w-full tw-h-[92%] lg:tw-h-full"
+          class="flip-card-inner tw-relative tw-h-[92%] tw-w-full lg:tw-h-full"
         >
           <div class="flip-card-front tw-overflow-hidden">
             <img
               :src="contribution.deskImage[1]"
               :srcset="`${contribution.deskImage[0]} 400w, ${contribution.deskImage[1]} 800w`"
-              class="tw-absolute tw-w-full lg:tw-h-full tw-object-cover tw-object-contain tw-rounded-[20px] card-image card-image-1"
+              class="card-image card-image-1 tw-absolute tw-w-full tw-rounded-[20px] tw-object-contain tw-object-cover lg:tw-h-full"
               alt="contribution-image"
             />
           </div>
           <div
-            class="flip-card-back tw-absolute tw-w-full tw-h-[92%] lg:tw-h-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] card-image back-card"
+            class="flip-card-back card-image back-card tw-absolute tw-h-[92%] tw-w-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] lg:tw-h-full"
           >
             <div
               class="tw-flex tw-flex-row tw-items-center tw-justify-between tw-pl-6 tw-pr-4 tw-pt-6"
@@ -153,16 +153,16 @@
               >
                 <span>
                   <font-awesome-icon
-                    class="fa tw-w-6 tw-h-6"
+                    class="fa tw-h-6 tw-w-6"
                     :icon="fork" /></span
                 ><span
-                  class="tw-text-[1.625rem] tw-leading-[1.625rem] tw-font-inter-semibold"
+                  class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem]"
                   >{{ contribution.forks }}</span
                 >
               </div>
               <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
                 <span
-                  class="tw-text-[1.625rem] tw-leading-[1.625rem] tw-font-inter-semibold tw-text-white"
+                  class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem] tw-text-white"
                   >{{ contribution.language }}</span
                 >
               </div>
@@ -170,27 +170,27 @@
                 class="tw-flex tw-flex-row tw-items-center tw-rounded-[30px] tw-bg-white tw-px-[1rem] tw-py-[0.5rem] xl:tw-px-[1.5rem]"
               >
                 <font-awesome-icon
-                  class="fab footer-icon tw-w-[26px] tw-h-[26px] tw-pr-[5px]"
+                  class="fab footer-icon tw-h-[26px] tw-w-[26px] tw-pr-[5px]"
                   :icon="star"
                 />
                 <span
-                  class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem] v2-canopas-gradient-text"
+                  class="v2-canopas-gradient-text tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem]"
                   >{{ contribution.stars }}</span
                 >
               </div>
             </div>
             <p
-              class="lg:tw-mt-[4rem] tw-ml-6 tw-mr-2 tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2rem] tw-leading-[3rem] tw-text-white"
+              class="tw-ml-6 tw-mr-2 tw-font-inter-semibold tw-text-[1rem] tw-leading-[3rem] tw-text-white lg:tw-mt-[4rem] lg:tw-text-[2rem]"
             >
               {{ contribution.title }}
             </p>
             <p
-              class="tw-ml-6 tw-mr-2 tw-font-inter-regular tw-text-[1.2rem] lg:tw-text-[1.75rem] tw-leading-[2.625rem] tw-text-white"
+              class="tw-ml-6 tw-mr-2 tw-font-inter-regular tw-text-[1.2rem] tw-leading-[2.625rem] tw-text-white lg:tw-text-[1.75rem]"
             >
               {{ contribution.description }}
             </p>
             <div
-              class="tw-flex tw-flex-row tw-items-center tw-mt-4 lg:tw-mt-8 tw-px-6"
+              class="tw-mt-4 tw-flex tw-flex-row tw-items-center tw-px-6 lg:tw-mt-8"
             >
               <p
                 class="tw-mr-2 tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[2.438rem] tw-text-white"
@@ -198,13 +198,13 @@
                 Contributors:
               </p>
               <div
-                class="tw-flex tw-flex-row tw-items-center tw-ml-2"
+                class="tw-ml-2 tw-flex tw-flex-row tw-items-center"
                 v-for="(contributor, index) in contribution.contributors"
                 :key="index"
               >
                 <img
                   :src="contributor"
-                  class="tw-w-9 tw-h-9 tw-object-cover tw-rounded-full"
+                  class="tw-h-9 tw-w-9 tw-rounded-full tw-object-cover"
                   alt="contribution-image"
                 />
               </div>
@@ -313,6 +313,7 @@ export default {
             "Intro showcase view in Jetpack compose. An implementation of Intro Showcase from ...",
           stars: "277",
           contributors: [contributor1, contributor2, contributor3],
+          event: "tap_contribution_intro_showcase",
         },
         {
           id: 2,
@@ -327,6 +328,7 @@ export default {
           description: "Cool animations implemented with Jetpack compose....",
           stars: "205",
           contributors: [contributor1, contributor2, contributor4],
+          event: "tap_contribution_jetpack_compose_animation",
         },
         {
           id: 3,
@@ -342,6 +344,7 @@ export default {
             "Country code bottomsheet picker in Jetpack Compose with Search functionality...",
           stars: "35",
           contributors: [contributor1, contributor2, contributor4],
+          event: "tap_contribution_jetcountry_picker",
         },
         {
           id: 4,
@@ -356,6 +359,7 @@ export default {
           description: "The missing typesafe SwiftUI navigation library.",
           stars: "229",
           contributors: [contributor1, contributor6, contributor2],
+          event: "tap_contribution_jetpack_compose_animation",
         },
         {
           id: 5,
@@ -370,6 +374,7 @@ export default {
           description: "Cool animations implemented with SwiftUI",
           stars: "37",
           contributors: [contributor1, contributor6],
+          event: "tab_contribution_swiftui_animation",
         },
         {
           id: 6,
@@ -385,6 +390,7 @@ export default {
             "iOS Developer Roadmap 2022 is a learning path to understand iOS development...",
           stars: "45",
           contributors: [contributor1, contributor6],
+          event: "tab_contribution_ios_roadmap",
         },
         {
           id: 7,
@@ -400,6 +406,7 @@ export default {
             "This repository contains different animations implemented using tailwind css...",
           stars: "62",
           contributors: [contributor8, contributor9],
+          event: "tab_contribution_tailwind_animation",
         },
         {
           id: 8,
@@ -415,6 +422,7 @@ export default {
             "Web Developer Roadmap is a path to understand web development including...",
           stars: "02",
           contributors: [contributor8, contributor10],
+          event: "tab_contribution_webdevelopment_roadmap",
         },
         {
           id: 9,
@@ -430,6 +438,7 @@ export default {
             "We intend to keep this open source. Plan is to keep the repository up to date with...",
           stars: "02",
           contributors: [contributor8, contributor11, contributor12],
+          event: "tab_contribution_canopas_blog",
         },
         {
           id: 10,
@@ -445,6 +454,7 @@ export default {
             "We intend to keep this open source. Plan is to keep the repository up to date with latest...",
           stars: "07",
           contributors: [contributor8, contributor14, contributor12],
+          event: "tap_contribution_canopas_website",
         },
       ],
     };
@@ -454,6 +464,7 @@ export default {
     SwiperSlide,
     FontAwesomeIcon,
   },
+  inject: ["mixpanel"],
   mounted() {
     this.contributions = this.allContributions.filter((obj) => {
       return obj.key === ANDROID;
@@ -462,6 +473,7 @@ export default {
   methods: {
     openContribution(contribution) {
       window.open(contribution.link, "_blank");
+      this.mixpanel.track(contribution.event);
     },
     onSlideChange() {
       this.activeIndex = this.allContributions[this.swiperRef.activeIndex].key;

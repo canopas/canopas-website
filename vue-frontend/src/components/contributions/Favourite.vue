@@ -265,6 +265,7 @@ export default {
   methods: {
     openBlog(link) {
       window.open(link, "_blank");
+      this.mixpanel.track("tap_contribution_favourite_section");
     },
   },
   components: {

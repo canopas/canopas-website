@@ -1,11 +1,11 @@
 <template>
-  <div class="lg:tw-mt-[5rem] tw-mx-auto tw-text-center">
+  <div class="tw-mx-auto tw-text-center lg:tw-mt-[5rem]">
     <span
-      class="tw-container tw-text-center tw-font-inter-bold tw-text-black-core/[0.8] tw-text-[1.875rem] lg:tw-text-[3.4375rem] tw-leading-[2.4375rem] lg:tw-leading-[5.15625rem]"
+      class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.8] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem]"
       >WHY and How to Write Unit Tests?</span
     >
     <div
-      class="tw-block md:tw-hidden swiper-content tw-mt-16 tw-h-full tw-pl-[5%]"
+      class="swiper-content tw-mt-16 tw-block tw-h-full tw-pl-[5%] md:tw-hidden"
     >
       <swiper
         :slidesPerView="1.1"
@@ -29,11 +29,11 @@
             <img
               :src="test.images[0]"
               :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
-              class="tw-w-fit tw-h-fit tw-object-contain tw-border-b-[0.5px] tw-rounded-t-lg tw-border-black-core/[0.87] tw-drop-shadow-md cover-image"
+              class="cover-image tw-h-fit tw-w-fit tw-rounded-t-lg tw-border-b-[0.5px] tw-border-black-core/[0.87] tw-object-contain tw-drop-shadow-md"
               alt="UnitTestImage"
             />
             <div
-              class="tw-mb-[2rem] tw-p-[20px] tw-bg-white tw-rounded-b-lg tw-drop-shadow-md content"
+              class="content tw-mb-[2rem] tw-rounded-b-lg tw-bg-white tw-p-[20px] tw-drop-shadow-md"
             >
               <span class="tw-font-inter-medium tw-text-black-core/[0.87]">{{
                 test.title
@@ -45,11 +45,11 @@
     </div>
     <!-- ************************Desktop View****************************** -->
     <div
-      class="tw-hidden md:tw-block tw-mt-[3rem] xl:tw-mt-16 tw-bg-gradient-to-t tw-from-[#FF835B]/[0.1] tw-via-[#F2709C]/[0.1] tw-to-[#FFFFFF]"
+      class="tw-mt-[3rem] tw-hidden tw-bg-gradient-to-t tw-from-[#FF835B]/[0.1] tw-via-[#F2709C]/[0.1] tw-to-[#FFFFFF] md:tw-block xl:tw-mt-16"
     >
-      <div class="tw-relative xll:tw-container swiper-content tw--mt-6">
+      <div class="swiper-content tw-relative tw--mt-6 xll:tw-container">
         <div
-          class="tw-absolute tw-top-[18px] tw-left-0 tw-mx-auto tw-w-full tw-h-full tw-z-0 tw-border-t-[0.5px] tw-border-black-core/[0.4]"
+          class="tw-absolute tw-left-0 tw-top-[18px] tw-z-0 tw-mx-auto tw-h-full tw-w-full tw-border-t-[0.5px] tw-border-black-core/[0.4]"
         ></div>
 
         <swiper
@@ -63,7 +63,7 @@
           }"
           :spaceBetween="20"
           :navigation="true"
-          class="swiper-container tw-absolute tw-top-[10px] tw-left-0 tw-mx-auto tw-w-full tw-h-full tw-z-30"
+          class="swiper-container tw-absolute tw-left-0 tw-top-[10px] tw-z-30 tw-mx-auto tw-h-full tw-w-full"
         >
           <swiper-slide v-for="(test, index) in unitTests" :key="index">
             <div class="tw-cursor-pointer" @click="openBlog(test.url)">
@@ -76,7 +76,7 @@
               <img
                 :src="test.images[0]"
                 :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
-                class="tw-w-fit tw-h-[80%] lg:tw-h-fit tw-object-cover tw-drop-shadow-md"
+                class="tw-h-[80%] tw-w-fit tw-object-cover tw-drop-shadow-md lg:tw-h-fit"
                 alt="UnitTestImage"
               />
             </div>
@@ -84,7 +84,7 @@
         </swiper>
       </div>
       <div
-        class="tw-bg-white tw-h-[100px] lg:tw-h-[135px] xll:tw-h-[220px] tw-skew-x-[-87deg] tw-origin-bottom-right"
+        class="tw-h-[100px] tw-origin-bottom-right tw-skew-x-[-87deg] tw-bg-white lg:tw-h-[135px] xll:tw-h-[220px]"
       ></div>
     </div>
   </div>
@@ -164,8 +164,9 @@ export default {
     SwiperSlide,
   },
   methods: {
-    openBlog(link) {
-      window.open(link, "_blank");
+    openBlog(url) {
+      window.open(url, "_blank");
+      this.mixpanel.track("tap_contribution_unit_test_section");
     },
   },
   inject: ["mixpanel"],
@@ -195,7 +196,7 @@ export default {
 }
 @screen md {
   .swiper-slide:not(.swiper-slide-active) {
-    @apply !tw-opacity-100 tw-mt-0;
+    @apply tw-mt-0 !tw-opacity-100;
   }
 }
 </style>
