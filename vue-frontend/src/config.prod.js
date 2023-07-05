@@ -95,8 +95,17 @@ export default Object.freeze({
     url: "https://canopas.com/mobile-app-development",
     image: "https://canopas.com/apple-touch-icon.png",
   },
+  ANDRIOD_APP_DEVELOPMENT_SEO_META_DATA: {
+    title: "Canopas Services -  Andriod App Development",
+    description:
+      "Explore Canopas' services for android app develeopment. Evaluate our exceptional work quality and experience for yourself.",
+    type: "Website",
+    url: "https://dev-stack.canopas.com/android-app-development",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
+  },
   IS_PROD: true,
   SHOW_MOBILE_APP_DEVELOPMENT_PAGE: false,
+  SHOW_ANDROID_APP_DEVELOPMENT_PAGE: false,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
   MIX_PANEL_TOKEN: "16b177c2cda3ec1fb11c63a07f27996c",

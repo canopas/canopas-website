@@ -1,14 +1,14 @@
 <template>
   <section>
     <div
-      class="tw-py-12 xl:tw-py-24 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem]"
+      class="tw-py-12 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem] xl:tw-py-24"
     >
       <span>What We Offer</span>
     </div>
     <div class="tw-container"></div>
-    <div class="tw-container tw-text-center tw-text-black-core-900/[0.87]">
-      <div class="tw-flex tw-justify-center tw-mb-16">
-        <div class="tw-flex tw-flex-col tw-justify-end tw-w-[50%] tw-text-left">
+    <div class="tw-text-black-core-900/[0.87] tw-container tw-text-center">
+      <div class="tw-mb-16 tw-flex tw-justify-center">
+        <div class="tw-flex tw-w-[50%] tw-flex-col tw-justify-end tw-text-left">
           <div
             v-for="(service, index) in services"
             :key="service"
@@ -19,14 +19,18 @@
             :ref="'image-' + index"
           >
             <div class="tw-absolute tw-top-[50%] tw-translate-y-[-50%]">
-              <div class="tw-py-5">
+              <div
+                class="tw-py-5"
+                @click="showServices ? openUrl(service.url) : ''"
+                :class="showServices ? 'tw-cursor-pointer' : ''"
+              >
                 <span
                   class="tw-font-inter-semibold tw-text-[1.5rem] tw-leading-[2.25rem] md:tw-text-[2.25rem] md:tw-leading-[3.43rem] xl:tw-text-[3.125rem] xl:tw-leading-[4.6875rem]"
                   >{{ service.title }}</span
                 >
               </div>
               <div
-                class="tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.094rem] xl:tw-text-[1.188rem] tw-leading-[1.5rem] md:tw-leading-[1.625rem] xl:tw-leading-[1.781rem]"
+                class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] md:tw-text-[1.094rem] md:tw-leading-[1.625rem] xl:tw-text-[1.188rem] xl:tw-leading-[1.781rem]"
               >
                 <p>{{ service.description }}</p>
               </div>
@@ -34,7 +38,7 @@
           </div>
         </div>
         <div
-          class="tw-sticky tw-flex tw-items-center tw-top-0 -tw-translate-[50%] tw-w-[50%]"
+          class="-tw-translate-[50%] tw-sticky tw-top-0 tw-flex tw-w-[50%] tw-items-center"
           :style="{
             height: `${height}px`,
           }"
@@ -50,7 +54,7 @@
             <img
               :src="service.image"
               alt="Service-images"
-              class="tw-absolute tw-top-0 tw-right-0 tw-w-[80%] tw-h-full tw-z-[1] tw-object-cover tw-ml-auto"
+              class="tw-absolute tw-right-0 tw-top-0 tw-z-[1] tw-ml-auto tw-h-full tw-w-[80%] tw-object-cover"
               loading="lazy"
             />
           </div>
@@ -68,10 +72,11 @@ import backend800w from "@/assets/images/services/service/backend-800w.webp";
 import uiuxdesign800w from "@/assets/images/services/service/uiuxdesign-800w.webp";
 import iosApp800w from "@/assets/images/services/service/iosapp-800w.webp";
 import { elementInViewPort } from "@/utils";
-
+import config from "@/config.js";
 export default {
   data() {
     return {
+      showServices: !config.IS_PROD,
       services: [
         {
           path: [0, 0],
@@ -79,6 +84,7 @@ export default {
           title: "Android App Development",
           description:
             "Take your business to new heights with an Android app! Tap into a global user base, boost customer engagement, communicate directly, and gather insightful data. Plus, enhance your visibility, add revenue streams, and provide top-notch customer service. With over a decade of expertise in Android app development, our team can help you craft high-quality, user-friendly apps that drive business growth and customer engagement. ",
+          url: "/android-app-development",
         },
         {
           path: [100, 100],
@@ -179,6 +185,9 @@ export default {
       }
 
       this.lastScrollY = scrollY;
+    },
+    openUrl(url) {
+      window.open(url, "_self");
     },
   },
   mounted() {
