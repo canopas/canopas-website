@@ -1,5 +1,7 @@
 <template>
-  <section class="tw-relative tw-bg-black-core/[0.85] tw-py-[50px]">
+  <section
+    class="tw-relative tw-pb-[50px] tw-pt-[370px] sm:tw-pt-[300px] md:tw-pt-[50px] 2xl:tw-mt-[-1px]"
+  >
     <div
       class="tw-absolute tw-right-0 tw-top-1 tw-hidden tw-h-[140px] tw-border-l-[20px] tw-border-[#F2709C] md:tw-block lg:tw-top-[2.25rem] xl:tw-h-[185px] 2xl:tw-top-[4.25rem]"
     ></div>

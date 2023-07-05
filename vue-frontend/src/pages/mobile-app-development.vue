@@ -11,7 +11,10 @@
       <Services />
       <Portfolio />
       <CTASection />
-      <CTASection2 />
+      <div class="tw-mb-[-15px] tw-bg-black-core/[0.85] md:tw-mb-0">
+        <ClientReview />
+        <CTASection2 />
+      </div>
     </div>
 
     <NewFooter />
@@ -29,6 +32,9 @@ const Portfolio = defineAsyncComponent(() =>
 );
 const CTASection = defineAsyncComponent(() =>
   import("@/components/mobile-app-development/CTASection.vue")
+);
+const ClientReview = defineAsyncComponent(() =>
+  import("@/components/mobile-app-development/ClientReview.vue")
 );
 const CTASection2 = defineAsyncComponent(() =>
   import("@/components/mobile-app-development/CTASection2.vue")
@@ -63,6 +69,7 @@ export default {
     Services,
     Portfolio,
     CTASection,
+    ClientReview,
     CTASection2,
     NewFooter,
   },

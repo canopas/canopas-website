@@ -54,7 +54,7 @@
         alt="background-image"
       />
       <div
-        class="tw-container tw-sticky tw-z-[1] tw-flex tw-flex-col tw-items-center tw-justify-center tw-py-[5rem]"
+        class="tw-container tw-sticky tw-z-[1] tw-flex tw-flex-col tw-items-center tw-justify-center tw-py-[5rem] xll:tw-py-[13rem]"
       >
         <p
           class="v2-canopas-gradient-text tw-text-center tw-font-inter-medium tw-text-[1.125rem] tw-leading-[1.375rem] xl:tw-text-[1.25rem] xl:tw-leading-[1.513rem]"
