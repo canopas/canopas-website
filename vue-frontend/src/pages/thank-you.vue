@@ -40,13 +40,6 @@ export default {
   setup() {
     var seoData = config.CLIENT_THANKYOU_SEO_META_DATA;
     useMeta({
-      meta: [
-        {
-          name: "robots",
-          content: "noindex, nofollow",
-          vmid: "robots",
-        },
-      ],
       title: seoData.title,
       description: seoData.description,
       og: {

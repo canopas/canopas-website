@@ -1,28 +1,28 @@
 <template>
   <section
-    class="tw-mb-[100px] tw-mt-[12%] sm:tw-mt-[7%] 2xll:tw-mt-[2%] 3xl:tw-mt-0 tw-overflow-hidden"
+    class="tw-mb-[100px] tw-mt-[12%] tw-overflow-hidden sm:tw-mt-[7%] 2xll:tw-mt-[2%] 3xl:tw-mt-0"
   >
     <p
-      class="tw-container tw-text-center tw-text-[1.875rem] lg:tw-text-[3.438rem] tw-leading-[2.438rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
+      class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.438rem] tw-text-black-core/[0.87] lg:tw-text-[3.438rem] lg:tw-leading-[5.156rem]"
     >
       DevOps: CI/CD and Auto Deployment
     </p>
     <!-- Mobile UI start -->
-    <div class="tw-block md:tw-hidden tw-mt-[3rem]">
+    <div class="tw-mt-[3rem] tw-block md:tw-hidden">
       <swiper :slidesPerView="1.325" :centeredSlides="true" :spaceBetween="0">
         <swiper-slide v-for="(blog, index) in devOps" :key="index">
           <div
-            class="tw-transition-all tw-duration-200 tw-ease-out tw-scale-[0.75]"
+            class="tw-scale-[0.75] tw-transition-all tw-duration-200 tw-ease-out"
           >
             <img
               @click="openBlog(blog.link)"
               :src="blog.image[0]"
               :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
-              class="tw-relative tw-w-full tw-h-full tw-object-cover tw-rounded-[10px]"
+              class="tw-relative tw-h-full tw-w-full tw-rounded-[10px] tw-object-cover"
               alt="devops"
             />
             <div
-              class="tw-absolute tw-top-0 tw-right-0 tw-rounded-bl-[5px] tw-bg-white tw-px-3 tw-py-1 tw-font-inter-medium tw-text-[0.875rem] tw-leading-[1.313rem]"
+              class="tw-absolute tw-right-0 tw-top-0 tw-rounded-bl-[5px] tw-bg-white tw-px-3 tw-py-1 tw-font-inter-medium tw-text-[0.875rem] tw-leading-[1.313rem]"
             >
               {{ blog.readTime }}
             </div>
@@ -33,26 +33,26 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-container tw-hidden md:tw-flex tw-flex-col tw-gap-10 tw-mt-16"
+      class="tw-container tw-mt-16 tw-hidden tw-flex-col tw-gap-10 md:tw-flex"
     >
       <div class="tw-flex tw-flex-row tw-gap-10 tw-overflow-hidden">
         <div v-for="blog in devOps.slice(0, 2)" :key="blog.id">
           <div
-            class="tw-relative tw-w-full tw-h-full tw-group tw-cursor-pointer"
+            class="tw-group tw-relative tw-h-full tw-w-full tw-cursor-pointer"
           >
             <img
               :src="blog.image[0]"
               :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
               alt="devops"
-              class="tw-w-full tw-h-full tw-object-cover tw-rounded-[20px]"
+              class="tw-h-full tw-w-full tw-rounded-[20px] tw-object-cover"
               loading="lazy"
             />
             <div @click="openBlog(blog.link)">
               <div
-                class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
+                class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-[100%] tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
               ></div>
               <div
-                class="tw-absolute tw-bottom-[-4rem] tw-p-[1rem] tw-opacity-1 tw-text-white tw-font-inter-medium tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 group-hover:tw-bottom-[-1rem] xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
+                class="tw-opacity-1 tw-absolute tw-bottom-[-4rem] tw-translate-y-[50%] tw-p-[1rem] tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:tw-bottom-[-1rem] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
               >
                 <p
                   class="tw-text-[1.1rem] tw-leading-[1.1875rem] xl:tw-text-[1.125rem] xl:tw-leading-[1.688rem]"
@@ -60,7 +60,7 @@
                   {{ blog.readTime }}
                 </p>
                 <p
-                  class="tw-mt-4 tw-w-[100%] 2xl:tw-w-[75%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
+                  class="tw-mt-4 tw-w-[100%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem] 2xl:tw-w-[75%]"
                 >
                   {{ blog.title }}
                 </p>
@@ -72,22 +72,22 @@
       <div
         v-for="blog in devOps.slice(2, 3)"
         :key="blog.id"
-        class="tw-w-[50%] tw-mx-auto tw-overflow-hidden"
+        class="tw-mx-auto tw-w-[50%] tw-overflow-hidden"
       >
-        <div class="tw-relative tw-w-full tw-h-full tw-group tw-cursor-pointer">
+        <div class="tw-group tw-relative tw-h-full tw-w-full tw-cursor-pointer">
           <img
             :src="blog.image[0]"
             :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
             alt="devops"
-            class="tw-w-full tw-h-full tw-object-cover tw-rounded-[20px]"
+            class="tw-h-full tw-w-full tw-rounded-[20px] tw-object-cover"
             loading="lazy"
           />
           <div @click="openBlog(blog.link)">
             <div
-              class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
+              class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-[100%] tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
             ></div>
             <div
-              class="tw-absolute tw-bottom-[-4rem] tw-p-[1rem] tw-opacity-1 tw-text-white tw-font-inter-medium tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 group-hover:tw-bottom-[-1rem] xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
+              class="tw-opacity-1 tw-absolute tw-bottom-[-4rem] tw-translate-y-[50%] tw-p-[1rem] tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:tw-bottom-[-1rem] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
             >
               <p
                 class="tw-text-[1.1rem] tw-leading-[1.1875rem] xl:tw-text-[1.125rem] xl:tw-leading-[1.688rem]"
@@ -95,7 +95,7 @@
                 {{ blog.readTime }}
               </p>
               <p
-                class="tw-mt-4 tw-w-[100%] 2xl:tw-w-[75%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
+                class="tw-mt-4 tw-w-[100%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem] 2xl:tw-w-[75%]"
               >
                 {{ blog.title }}
               </p>
@@ -106,21 +106,21 @@
       <div class="tw-flex tw-flex-row tw-gap-10 tw-overflow-hidden">
         <div v-for="blog in devOps.slice(3, 5)" :key="blog.id">
           <div
-            class="tw-relative tw-w-full tw-h-full tw-group tw-cursor-pointer"
+            class="tw-group tw-relative tw-h-full tw-w-full tw-cursor-pointer"
           >
             <img
               :src="blog.image[0]"
               :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
               alt="devops"
-              class="tw-w-full tw-h-full tw-object-cover tw-rounded-[20px] tw-cursor-pointer"
+              class="tw-h-full tw-w-full tw-cursor-pointer tw-rounded-[20px] tw-object-cover"
               loading="lazy"
             />
             <div @click="openBlog(blog.link)">
               <div
-                class="gradient-class tw-absolute tw-left-[0] tw-bottom-[0] tw-w-[100%] tw-h-[21%] tw-rounded-b-[20px] tw-opacity-1 tw-transition-all tw-duration-1000 tw-ease group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
+                class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-[100%] tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
               ></div>
               <div
-                class="tw-absolute tw-bottom-[-4rem] tw-p-[1rem] tw-text-white tw-font-inter-medium tw-transition-all tw-duration-1000 tw-translate-y-[50%] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 group-hover:tw-bottom-[-1rem] xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
+                class="tw-absolute tw-bottom-[-4rem] tw-translate-y-[50%] tw-p-[1rem] tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:tw-bottom-[-1rem] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
               >
                 <p
                   class="tw-text-[1.1rem] tw-leading-[1.1875rem] xl:tw-text-[1.125rem] xl:tw-leading-[1.688rem]"
@@ -128,7 +128,7 @@
                   {{ blog.readTime }}
                 </p>
                 <p
-                  class="tw-mt-4 tw-w-[100%] 2xl:tw-w-[75%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
+                  class="tw-mt-4 tw-w-[100%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem] 2xl:tw-w-[75%]"
                 >
                   {{ blog.title }}
                 </p>
@@ -201,6 +201,7 @@ export default {
   methods: {
     openBlog(link) {
       window.open(link, "_blank");
+      this.mixpanel.track("tap_contribution_Devops_section");
     },
   },
   components: {

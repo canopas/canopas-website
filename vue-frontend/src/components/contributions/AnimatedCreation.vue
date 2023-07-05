@@ -18,7 +18,7 @@
           >
             <div class="tw-flex-[39%] sm:tw-flex-[45%]">
               <img
-                @click="openBlog(animation)"
+                @click="openBlog(animation.link)"
                 :src="animation.image[0]"
                 :srcset="`${animation.image[0]} 400w, ${animation.image[1]} 800w`"
                 alt="animation"
@@ -44,7 +44,7 @@
         <div v-for="animation in animations.slice(0, 3)" :key="animation.id">
           <div
             class="tw-group tw-relative tw-cursor-pointer tw-overflow-hidden"
-            @click="openBlog(animation)"
+            @click="openBlog(animation.link)"
           >
             <img
               :src="animation.deskImages[0]"
@@ -68,10 +68,9 @@
         <div v-for="animation in animations.slice(3, 6)" :key="animation.id">
           <div
             class="tw-group tw-relative tw-cursor-pointer tw-overflow-hidden"
-            @click="openBlog(animation)"
+            @click="openBlog(animation.link)"
           >
             <img
-              @click.native="mixpanel.track('tap_whats_trending_blog')"
               :src="animation.deskImages[0]"
               :srcset="`${animation.deskImages[0]} 400w, ${animation.deskImages[1]} 800w`"
               alt="animation"
@@ -179,8 +178,9 @@ export default {
     SwiperSlide,
   },
   methods: {
-    openBlog(animation) {
-      window.open(animation.link, "_blank");
+    openBlog(link) {
+      window.open(link, "_blank");
+      this.mixpanel.track("tap_animation_creation_section");
     },
   },
 };

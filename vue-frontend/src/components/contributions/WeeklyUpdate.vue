@@ -30,7 +30,7 @@
         <swiper-slide v-for="(weekly, index) in weeklies" :key="index">
           <div
             class="tw-h-full tw-w-full tw-object-cover"
-            @click="openUrl(weekly.url)"
+            @click="openUrl(weekly)"
           >
             <img
               :src="[weekly.image]"
@@ -93,7 +93,7 @@
         :key="index"
         :ref="'weekly-' + index"
         :id="'weekly-' + index"
-        @click="openUrl(weekly.url)"
+        @click="openUrl(weekly)"
         class="tw-origin-[center top] tw-sticky tw-top-[10px] tw-mx-[1%] tw-h-[45vh] tw-cursor-pointer tw-overflow-hidden tw-drop-shadow-xl lg:tw-container lg:tw-h-[45vh] xl:tw-mx-auto xl:tw-h-[55vh] 2xl:tw-h-[65vh] xll:tw-h-[33vh]"
         :style="{
           transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
@@ -170,6 +170,7 @@ export default {
           url: "https://blog.canopas.com/tagged/canopas-android-weekly",
           translate: 0,
           scale: 1,
+          event: "tap_contribution_android_weekly",
         },
         {
           category: "iOS Weekly",
@@ -183,6 +184,7 @@ export default {
           url: "https://blog.canopas.com/tagged/canopas-ios-weekly",
           translate: 40,
           scale: 1,
+          event: "tap_contribution_ios_weekly",
         },
         {
           category: "Web Weekly",
@@ -196,6 +198,7 @@ export default {
           url: "https://blog.canopas.com/tagged/canopas-web-weekly",
           translate: 80,
           scale: 1,
+          event: "tap_contribution_web_weekly",
         },
         {
           category: "Flutter Weekly",
@@ -209,6 +212,7 @@ export default {
           url: "https://blog.canopas.com/tagged/canopas-flutter-weekly",
           translate: 120,
           scale: 1,
+          event: "tap_contribution_flutter_weekly",
         },
       ],
     };
@@ -217,6 +221,7 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  inject: ["mixpanel"],
   mounted() {
     if (window.innerWidth > 992) {
       window.addEventListener("scroll", this.handleScroll);
@@ -226,8 +231,9 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    openUrl(link) {
-      window.open(link, "_blank");
+    openUrl(weekly) {
+      window.open(weekly.url, "_blank");
+      this.mixpanel.track(weekly.event);
     },
     scrollToCard(index) {
       this.activeIndex = index;

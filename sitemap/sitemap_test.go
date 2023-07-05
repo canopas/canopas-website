@@ -138,6 +138,7 @@ func expectedURLData() []URL {
 		{Loc: baseUrl + "/jobs/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", Priority: `0.9`},
 		{Loc: baseUrl + "/jobs/apply/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", Priority: `0.9`},
 		{Loc: baseUrl + `/resources`, Priority: `0.9`},
+		{Loc: baseUrl + `/contributions`, Priority: `0.9`},
 	}
 
 	for i := range sitemapUrls {

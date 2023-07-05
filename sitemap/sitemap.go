@@ -97,6 +97,8 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
+	//add contribution
+	sitemapUrls = addcontributions(baseUrl, sitemapUrls)
 
 	//get first day of current month
 	year, month, _ := time.Now().Date()
@@ -133,6 +135,13 @@ func (repository *SitemapRepository) addJobs(baseUrl string, sitemapUrls []URL) 
 	}
 
 	return sitemapUrls, nil
+}
+func addcontributions(baseUrl string, sitemapUrls []URL) []URL {
+	contributionUrl := baseUrl + "/contributions"
+
+	sitemapUrls = append(sitemapUrls, URL{Loc: contributionUrl, Priority: `0.9`})
+
+	return sitemapUrls
 }
 
 func addPortfolios(baseUrl string, sitemapUrls []URL) []URL {

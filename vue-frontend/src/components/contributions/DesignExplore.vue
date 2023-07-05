@@ -236,6 +236,7 @@ export default {
   methods: {
     openBlog(link) {
       window.open(link, "_blank");
+      this.mixpanel.track("tap_contribution_ui/ux_design_explore");
     },
     handleScroll() {
       let scrollTop = window.scrollY;
