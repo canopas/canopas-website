@@ -100,6 +100,12 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	//add contribution
 	sitemapUrls = addcontributions(baseUrl, sitemapUrls)
 
+	//add service
+	sitemapUrls = addServices(baseUrl, sitemapUrls)
+
+	//add client-thankyou
+	sitemapUrls = addClientThankyou(baseUrl, sitemapUrls)
+
 	//get first day of current month
 	year, month, _ := time.Now().Date()
 	lastmod := time.Date(year, month, 1, 0, 0, 0, 0, time.UTC).Format("2006-01-02T00:00:00.000Z")
@@ -132,6 +138,7 @@ func (repository *SitemapRepository) addJobs(baseUrl string, sitemapUrls []URL) 
 	for i := range careers {
 		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
 		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/thank-you`, Priority: `0.9`})
 	}
 
 	return sitemapUrls, nil
@@ -143,7 +150,20 @@ func addcontributions(baseUrl string, sitemapUrls []URL) []URL {
 
 	return sitemapUrls
 }
+func addServices(baseUrl string, sitemapUrls []URL) []URL {
+	serviceUrl := baseUrl + "/services"
 
+	sitemapUrls = append(sitemapUrls, URL{Loc: serviceUrl, Priority: `0.9`})
+
+	return sitemapUrls
+}
+func addClientThankyou(baseUrl string, sitemapUrls []URL) []URL {
+	clientThankyouUrl := baseUrl + "/thank-you"
+
+	sitemapUrls = append(sitemapUrls, URL{Loc: clientThankyouUrl, Priority: `0.9`})
+
+	return sitemapUrls
+}
 func addPortfolios(baseUrl string, sitemapUrls []URL) []URL {
 	portfolioUrl := baseUrl + "/portfolio"
 
