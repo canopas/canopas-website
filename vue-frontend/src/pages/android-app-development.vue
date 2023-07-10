@@ -9,6 +9,7 @@
     <div class="xll:tw-bg-black-core/[90%]">
       <LandingSection ref="landing" />
     </div>
+    <DevelopmentSection ref="development" />
     <NewFooter ref="footer" />
   </div>
 </template>
@@ -19,7 +20,9 @@ import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
 import LandingSection from "@/components/android-app-development/LandingSection.vue";
+import DevelopmentSection from "@/components/android-app-development/DevelopmentSection.vue";
 import { elementInViewPort } from "@/utils.js";
+
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue")
 );
@@ -31,6 +34,7 @@ export default {
       events: {
         landing: "view_android_development_landing_section",
         footer: "view_android_development_footer",
+        development: "view_android_development_section",
       },
     };
   },
@@ -57,6 +61,7 @@ export default {
   components: {
     Header,
     LandingSection,
+    DevelopmentSection,
     NewFooter,
   },
   methods: {
