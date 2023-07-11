@@ -8,7 +8,10 @@
     <Header />
 
     <div>
-      <Services />
+      <div class="tw-bg-[#262626] md:tw-bg-[#1A1A1A]">
+        <LandingSection />
+        <Services />
+      </div>
       <Portfolio />
       <CTASection />
       <div class="tw-mb-[-15px] tw-bg-black-core/[0.85] md:tw-mb-0">
@@ -23,6 +26,7 @@
 
 <script>
 import Header from "@/components/partials/NewHeader.vue";
+import LandingSection from "@/components/mobile-app-development/LandingSection.vue";
 import Services from "@/components/mobile-app-development/Services.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
@@ -66,6 +70,7 @@ export default {
   },
   components: {
     Header,
+    LandingSection,
     Services,
     Portfolio,
     CTASection,

@@ -32,7 +32,7 @@
           Consultation Now.
         </p>
         <router-link
-          class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1.25rem] tw-text-center"
+          class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1rem] tw-text-center"
           :to="contactURL"
         >
           <span
@@ -74,11 +74,11 @@
           Consultation Now.
         </p>
         <router-link
-          class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1.25rem] tw-text-center"
+          class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1rem] tw-text-center"
           :to="contactURL"
         >
           <span
-            class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] xl:tw-text-[1.188rem] xl:tw-leading-[1.188rem]"
+            class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
             >Get Free Consultation
           </span>
         </router-link>
