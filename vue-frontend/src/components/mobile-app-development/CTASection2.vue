@@ -37,11 +37,11 @@
           strategic planning, and more.
         </p>
         <router-link
-          class="gradient-btn consultation-btn tw-mr-0 tw-mt-10 tw-hidden tw-w-max tw-items-end tw-rounded-full tw-py-[1.25rem] tw-text-right md:tw-flex"
+          class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1rem] tw-text-center md:tw-mr-0"
           :to="contactURL"
         >
           <span
-            class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.09375rem] tw-leading-[1.3125rem] xl:tw-text-[1.188rem] xl:tw-leading-[1.188rem]"
+            class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
             >Get Free Consultation
           </span>
         </router-link>
@@ -57,16 +57,6 @@
           class="gradient-border tw-absolute tw-bottom-4 tw-left-[0.5rem] tw-h-[55px] tw-border-l-[13px] md:tw-hidden"
         ></div>
       </div>
-
-      <router-link
-        class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1.25rem] tw-text-center md:tw-hidden"
-        :to="contactURL"
-      >
-        <span
-          class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.125rem] tw-leading-[1.125rem]"
-          >Get Free Consultation
-        </span>
-      </router-link>
     </div>
   </section>
 </template>
