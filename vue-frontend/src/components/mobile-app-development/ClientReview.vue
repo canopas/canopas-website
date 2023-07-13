@@ -16,30 +16,30 @@
         What our <br />
         Clients Says
       </p>
-      <div class="tw-relative">
-        <div
-          class="tw-absolute tw-mt-8 tw-flex tw-flex-col tw-items-center tw-px-4 sm:tw-px-0 md:tw-hidden"
-        >
-          <div class="tw-flex tw-flex-col tw-items-center">
-            <img :src="quote" alt="quote" class="tw-h-6 tw-w-6" />
-            <div
-              class="tw-text-center tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-white"
-            >
-              {{ filteredReview.review }}
-            </div>
+      <div
+        class="tw-mt-8 tw-flex tw-flex-col tw-items-center tw-px-4 sm:tw-px-0 md:tw-hidden"
+      >
+        <div class="tw-flex tw-flex-col tw-items-center">
+          <img :src="quote" alt="quote" class="tw-h-6 tw-w-6" />
+          <div
+            class="tw-text-center tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-white"
+          >
+            {{ filteredReview.review }}
           </div>
-
-          <span
-            class="v2-canopas-gradient-text tw-mt-8 tw-font-inter-bold tw-text-[1.25rem] tw-leading-[1.875rem]"
-            >{{ filteredReview.name }}</span
-          >
-          <span
-            class="tw-mt-1 tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.313rem] tw-text-white"
-            >{{ filteredReview.designation }}</span
-          >
         </div>
+
+        <span
+          class="v2-canopas-gradient-text tw-mt-8 tw-font-inter-bold tw-text-[1.25rem] tw-leading-[1.875rem]"
+          >{{ filteredReview.name }}</span
+        >
+        <span
+          class="tw-mt-1 tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.313rem] tw-text-white"
+          >{{ filteredReview.designation }}</span
+        >
       </div>
-      <div class="tw-hidden md:tw-flex md:tw-flex-row lg:tw-gap-[3rem]">
+      <div
+        class="tw-hidden tw-items-center md:tw-flex md:tw-flex-row lg:tw-gap-[3rem] xl:tw-items-start"
+      >
         <swiper
           :spaceBetween="30"
           :loop="true"
@@ -81,7 +81,7 @@
         </swiper>
 
         <div
-          class="tw-relative tw-hidden md:tw-block md:tw-w-[40%] lg:tw-w-[45%]"
+          class="tw-relative tw-hidden md:tw-mr-[-30px] md:tw-block md:tw-w-[40%] lg:tw-mr-auto lg:tw-w-[45%]"
         >
           <img
             :src="circle"
