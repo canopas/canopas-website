@@ -7,13 +7,14 @@
     </metainfo>
     <Header />
 
-    <div>
+    <div class="tw-overflow-x-hidden">
       <div class="tw-bg-[#262626] md:tw-bg-[#1A1A1A]">
         <LandingSection />
         <Services />
       </div>
       <Portfolio />
       <CTASection />
+      <DevelopmentProcess />
       <div class="tw-mb-[-15px] tw-bg-black-core/[0.85] md:tw-mb-0">
         <ClientReview />
         <CTASection2 />
@@ -37,6 +38,10 @@ const Portfolio = defineAsyncComponent(() =>
 const CTASection = defineAsyncComponent(() =>
   import("@/components/mobile-app-development/CTASection.vue")
 );
+const DevelopmentProcess = defineAsyncComponent(() =>
+  import("@/components/mobile-app-development/DevelopmentProcess.vue")
+);
+
 const ClientReview = defineAsyncComponent(() =>
   import("@/components/mobile-app-development/ClientReview.vue")
 );
@@ -74,6 +79,7 @@ export default {
     Services,
     Portfolio,
     CTASection,
+    DevelopmentProcess,
     ClientReview,
     CTASection2,
     NewFooter,
