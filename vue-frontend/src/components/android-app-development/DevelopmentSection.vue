@@ -21,7 +21,7 @@
         class="swiper-container"
         :breakpoints="{
           '768': {
-            slidesPerView: 1.3,
+            slidesPerView: 1.35,
           },
           '992': {
             slidesPerView: 1.5,
@@ -79,6 +79,7 @@
                 alt="development-icon"
                 :src="item.icon"
                 class="tw-h-[2.5rem] tw-w-[2.5rem] tw-object-contain md:tw-hidden"
+                loading="lazy"
               />
               <span
                 class="tw-font-inter-bold tw-text-[1.375rem] tw-leading-[1.7875rem] tw-text-black-core/[0.87] md:tw-text-[2rem] md:tw-leading-[3rem]"

@@ -17,7 +17,7 @@
     </aspect-ratio>
 
     <div
-      class="tw-container tw-absolute tw-left-0 tw-top-[8rem] tw-w-[75%] tw-flex-col tw-items-center tw-justify-center tw-p-4 tw-text-left tw-text-[#FFF] md:tw-left-1/2 md:tw-top-[38%] md:tw--translate-x-1/2 md:tw--translate-y-1/2 md:tw-transform md:tw-text-center lg:tw-top-1/2 xl:tw-w-[60%] 2xl:tw-top-[40%] 2xl:tw-w-[49%] xl2:tw-w-[55%] 2xll:tw-w-[45%] xll:tw-top-[45%] xll:tw-w-[61%]"
+      class="tw-container tw-absolute tw-left-0 tw-top-[8rem] tw-w-[75%] tw-flex-col tw-items-center tw-justify-center tw-p-4 tw-text-left tw-text-[#FFF] md:tw-left-[6rem] md:tw-top-1/2 md:tw-top-[10rem] md:tw-text-center lg:tw-left-1/2 lg:tw-top-1/2 lg:tw--translate-x-1/2 lg:tw--translate-y-1/2 lg:tw-transform xl:tw-w-[60%] 2xl:tw-top-[40%] 2xl:tw-w-[49%] xl2:tw-w-[55%] 2xll:tw-w-[45%] xll:tw-top-[45%] xll:tw-w-[61%]"
     >
       <h1
         class="tracking-[0.08rem] tw-mb-2 tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.6rem] tw-text-[#FFF] sm:tw-mb-[1.5rem] lg:tw-font-inter-bold lg:tw-text-[3.75rem] lg:tw-leading-[5.625rem]"
