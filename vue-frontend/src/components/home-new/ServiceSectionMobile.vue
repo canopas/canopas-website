@@ -40,7 +40,7 @@
           class="-tw-mr-[20px] tw-h-[50px] tw-w-[50px]"
         />
         <div
-          @click="!showServices ? openUrl(service.url) : ''"
+          @click="openUrl(service.url)"
           class="tw-py-[15px] tw-font-inter-bold tw-text-[1.5rem] tw-leading-[1.816rem]"
         >
           {{ service.title }}
@@ -77,7 +77,6 @@ export default {
   data() {
     return {
       ServiceBackgroundImage,
-      showServices: config.IS_PROD,
       services: [
         {
           title: "Mobile App Development",
