@@ -11,11 +11,20 @@ import {
   faArrowLeft,
   faStar,
   faThumbsUp,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { faMediumM, faGithub } from "@fortawesome/free-brands-svg-icons";
 import Config from "@/config.js";
 import { useMeta } from "vue-meta";
-library.add(faArrowRight, faStar, faArrowLeft, faThumbsUp, faMediumM, faGithub);
+library.add(
+  faTimes,
+  faArrowRight,
+  faStar,
+  faArrowLeft,
+  faThumbsUp,
+  faMediumM,
+  faGithub
+);
 export default {
   name: "App",
   components: {},

@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-relative tw-my-16 tw-h-80 xll:tw-h-[30rem]">
+  <div class="tw-relative tw-my-16 tw-h-48 md:tw-h-72 xll:tw-h-[30rem]">
     <img
       :src="BackgroundImage[0]"
       :srcset="`${BackgroundImage[0]} 400w, ${BackgroundImage[1]} 800w, ${BackgroundImage[2]} 1200w, ${BackgroundImage[3]} 2400w`"
@@ -8,7 +8,7 @@
       loading="lazy"
     />
     <div
-      class="tw-container tw-absolute tw-top-[5rem] tw-w-full tw-flex-col tw-items-center tw-justify-center tw-p-4 tw-text-center tw-text-[#FFF] md:tw-left-0 md:tw-top-1/2 md:tw-top-[5rem] md:tw--mt-6 md:tw-text-center lg:!tw-left-[50%] lg:!tw-top-[58%] lg:tw--translate-x-1/2 lg:tw--translate-y-1/2 lg:tw-transform xl:tw-w-[60%] 2xl:tw-w-[49%] xs:tw-left-[13%] xs:tw-top-[4rem] xs:tw-w-[75%] xl2:tw-w-[55%] 2xll:tw-w-[45%] xll:tw-w-[61%]"
+      class="tw-container tw-absolute tw-top-[1rem] tw-w-full tw-flex-col tw-items-center tw-justify-center tw-p-4 tw-text-center tw-text-[#FFF] md:tw-left-0 md:tw-top-1/2 md:tw-top-[4rem] md:tw--mt-6 md:tw-text-center lg:!tw-left-[50%] lg:!tw-top-[58%] lg:tw--translate-x-1/2 lg:tw--translate-y-1/2 lg:tw-transform xl:tw-w-[60%] 2xl:tw-w-[49%] xs:tw-left-[13%] xs:tw-w-[75%] xl2:tw-w-[55%] 2xll:tw-w-[45%] xll:tw-w-[61%]"
     >
       <div class="tw-flex tw-w-full">
         <div class="tw-m-auto tw-text-white">
@@ -27,7 +27,7 @@
       </div>
       <div class="tw-mx-auto tw-mt-4">
         <router-link
-          class="gradient-btn consultation-btn tw-m-0 tw-mx-auto tw-flex tw-w-max tw-items-center tw-rounded-full tw-p-3 tw-text-center"
+          class="gradient-btn consultation-btn tw-m-0 tw-mx-auto tw-flex tw-w-max tw-items-center tw-rounded-full tw-p-3 tw-px-7 tw-text-center"
           :to="contactURL"
           @click.native="mixpanel.track('tap_android_development_cta')"
         >
