@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="tw-pb-[115px] tw-pt-[100px] md:tw-pb-[150px] md:tw-pt-[200px]"
-  >
+  <section class="tw-pb-[50px] tw-pt-[100px] md:tw-pb-[150px] md:tw-pt-[200px]">
     <div class="tw-container">
       <div class="tw-hidden md:tw-block">
         <span
@@ -17,63 +15,44 @@
         Clients Says
       </p>
       <div
-        class="tw-mt-8 tw-flex tw-flex-col tw-items-center tw-px-4 sm:tw-px-0 md:tw-hidden"
-      >
-        <div class="tw-flex tw-flex-col tw-items-center">
-          <img :src="quote" alt="quote" class="tw-h-6 tw-w-6" />
-          <div
-            class="tw-text-center tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-white"
-          >
-            {{ filteredReview.review }}
-          </div>
-        </div>
-
-        <span
-          class="v2-canopas-gradient-text tw-mt-8 tw-font-inter-bold tw-text-[1.25rem] tw-leading-[1.875rem]"
-          >{{ filteredReview.name }}</span
-        >
-        <span
-          class="tw-mt-1 tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.313rem] tw-text-white"
-          >{{ filteredReview.designation }}</span
-        >
-      </div>
-      <div
-        class="tw-hidden tw-items-center md:tw-flex md:tw-flex-row lg:tw-gap-[3rem] xl:tw-items-start"
+        class="tw-flex tw-items-center md:tw-flex-row lg:tw-gap-[3rem] xl:tw-items-start"
       >
         <swiper
           :spaceBetween="30"
           :loop="true"
           :slidesPerView="1"
           :autoplay="{
-            delay: 3000,
+            delay: 5000,
           }"
           class="md:tw-w-[60%] lg:tw-w-[55%]"
         >
           <swiper-slide
             v-for="(review, index) in reviews"
             :key="index"
-            class="tw-mt-16 tw-cursor-pointer"
+            class="tw-mt-[2.57rem] tw-cursor-pointer md:tw-mt-16"
           >
-            <div class="tw-flex tw-flex-col tw-items-start">
-              <div class="tw-flex tw-flex-row tw-gap-1 xl:tw-gap-2">
+            <div class="tw-flex tw-flex-col tw-items-center md:tw-items-start">
+              <div
+                class="tw-flex tw-flex-col tw-items-center md:tw-flex-row md:tw-items-start md:tw-gap-1 xl:tw-gap-2"
+              >
                 <img
                   :src="quote"
                   alt="quote"
-                  class="tw-h-8 tw-w-8 xl:tw-h-10 xl:tw-w-10"
+                  class="tw-h-6 tw-w-6 md:tw-h-8 md:tw-w-8 xl:tw-h-10 xl:tw-w-10"
                 />
                 <div
-                  class="tw-text-center tw-font-inter-regular tw-text-white md:tw-text-left md:tw-text-[1.5rem] md:tw-leading-[2.188rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
+                  class="tw-mx-6 tw-text-center tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-white md:tw-mx-0 md:tw-text-left md:tw-text-[1.5rem] md:tw-leading-[2.188rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
                 >
                   {{ review.review }}
                 </div>
               </div>
 
               <span
-                class="v2-canopas-gradient-text tw-ml-9 tw-mt-8 tw-font-inter-bold md:tw-text-[1.5rem] md:tw-leading-[2.188rem] xl:tw-ml-[3.25rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
+                class="v2-canopas-gradient-text tw-mt-8 tw-font-inter-bold tw-text-[1.25rem] tw-leading-[1.875rem] md:tw-ml-9 md:tw-text-[1.5rem] md:tw-leading-[2.188rem] xl:tw-ml-[3.25rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
                 >━ {{ review.name }}</span
               >
               <span
-                class="tw-ml-9 tw-mt-1 tw-font-inter-regular tw-text-white md:tw-text-[0.938rem] md:tw-leading-[1.375rem] xl:tw-ml-[3.25rem] xl:tw-text-[1rem] xl:tw-leading-[1.5rem]"
+                class="tw-mt-1 tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.313rem] tw-text-white md:tw-ml-9 md:tw-text-[0.938rem] md:tw-leading-[1.375rem] xl:tw-ml-[3.25rem] xl:tw-text-[1rem] xl:tw-leading-[1.5rem]"
                 >{{ review.designation }}</span
               >
             </div>
@@ -109,7 +88,6 @@ SwiperCore.use([Autoplay]);
 export default {
   data() {
     return {
-      currentSlide: 0,
       quote,
       circle,
       rating,
@@ -148,22 +126,6 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-  },
-  computed: {
-    filteredReview() {
-      return this.reviews[this.currentSlide];
-    },
-  },
-
-  methods: {
-    startSlideTransition() {
-      setInterval(() => {
-        this.currentSlide = (this.currentSlide + 1) % this.reviews.length;
-      }, 5000);
-    },
-  },
-  mounted() {
-    this.startSlideTransition();
   },
 };
 </script>

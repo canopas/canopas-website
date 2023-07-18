@@ -1,7 +1,9 @@
 <template>
-  <section class="tw-py-[50px] md:tw-pb-[100px] xl:tw-pt-[100px]">
+  <section
+    class="tw-py-[50px] md:tw-pb-[100px] xl:tw-pt-[100px] md:tw-bg-light-pink-gradient-background"
+  >
     <!-- MOBILE UI START  -->
-    <div class="container tw-flex tw-flex-col tw-items-center md:tw-hidden">
+    <div class="tw-container tw-flex tw-flex-col tw-items-center md:tw-hidden">
       <p
         class="tw-w-[60%] tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.269rem] tw-text-black-core/[0.85] sm:tw-w-full"
       >
@@ -47,7 +49,9 @@
     <!-- MOBILE UI END  -->
 
     <!-- Desktop UI START -->
-    <div class="tw-container tw-hidden md:tw-block">
+    <div
+      class="tw-container tw-hidden tw-h-[985px] tw-overflow-hidden md:tw-block lg:tw-h-[925px] xl:tw-h-[1245px]"
+    >
       <p
         class="tw-text-center tw-font-inter-bold tw-text-[3.125rem] tw-leading-[3.625rem] tw-text-black-core/[0.85] xl:tw-text-[4.125rem] xl:tw-leading-[6.188rem]"
       >
@@ -58,44 +62,46 @@
       >
         <transition-group>
           <div class="tw-w-[60%] xl:tw-w-[50%]">
-            <div v-for="(process, index) in processes" :key="process">
-              <div class="tw-mt-12">
-                <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
-                  <div
-                    :class="
-                      activeIndex == index
-                        ? 'gradient-border-text'
-                        : 'border-text '
-                    "
-                    class="tw-font-futura-bold tw-text-[2.875rem] tw-leading-[3.375rem] xl:tw-text-[4.125rem] xl:tw-leading-[6.188rem]"
-                  >
-                    {{ process.id }}
-                  </div>
-                  <div
-                    @mouseover="
-                      (activeProcess = process), (activeIndex = index)
-                    "
-                    @touchstart.passive="
-                      (activeIndex = index), (activeProcess = process)
-                    "
-                    class="tw-relative tw-w-max tw-cursor-pointer tw-rounded-r-[15px] tw-bg-[#FFF1ED] tw-py-6 tw-pl-4 tw-pr-8 tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.625rem] tw-text-black-core xl:tw-py-9 xl:tw-pr-12 xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
-                    :class="process.className"
-                  >
-                    <span
-                      class="tw-absolute tw-right-0 tw-top-0 tw-h-3 tw-w-3 tw-rounded-full tw-bg-[#3D3D3D] xl:tw-h-5 xl:tw-w-5"
-                    ></span>
-                    {{ process.title }}
-                  </div>
+            <div
+              v-for="(process, index) in processes"
+              :key="process"
+              class="tw-flex tw-flex-col"
+            >
+              <div
+                class="tw-mb-4 tw-mt-12 tw-flex tw-flex-row tw-items-center tw-gap-2"
+              >
+                <div
+                  :class="
+                    activeIndex == index
+                      ? 'gradient-border-text'
+                      : 'border-text '
+                  "
+                  class="tw-font-futura-bold tw-text-[2.875rem] tw-leading-[3.375rem] xl:tw-text-[4.125rem] xl:tw-leading-[6.188rem]"
+                >
+                  {{ process.id }}
                 </div>
-                <collapse-transition>
-                  <div
-                    v-if="activeIndex == index"
-                    :key="process.description"
-                    class="tw-ml-12 tw-mt-[1rem] tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.625rem] tw-text-black-core/[0.70] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
-                    v-html="process.description"
-                  ></div>
-                </collapse-transition>
+                <div
+                  @mouseover="(activeProcess = process), (activeIndex = index)"
+                  @touchstart.passive="
+                    (activeIndex = index), (activeProcess = process)
+                  "
+                  class="tw-relative tw-w-max tw-cursor-pointer tw-rounded-r-[15px] tw-bg-[#FFF1ED] tw-py-6 tw-pl-4 tw-pr-8 tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.625rem] tw-text-black-core xl:tw-py-9 xl:tw-pr-12 xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
+                  :class="process.className"
+                >
+                  <span
+                    class="tw-absolute tw-right-0 tw-top-0 tw-h-3 tw-w-3 tw-rounded-full tw-bg-[#3D3D3D] xl:tw-h-5 xl:tw-w-5"
+                  ></span>
+                  {{ process.title }}
+                </div>
               </div>
+              <collapse-transition>
+                <div
+                  v-if="activeIndex == index"
+                  :key="process.description"
+                  class="tw-ml-[2.4rem] xl:tw-ml-[3.2rem] tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.625rem] tw-text-black-core/[0.70] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
+                  v-html="process.description"
+                ></div>
+              </collapse-transition>
             </div></div
         ></transition-group>
         <div class="tw-w-[40%] xl:tw-w-[50%]">
@@ -215,17 +221,26 @@ export default {
     nextCard() {
       if (this.activeCard < this.totalProcesses - 1) {
         const activeCard = this.$refs.cards.children[this.activeCard];
-        if (activeCard) activeCard.classList.add("go-away");
-        this.activeCard++;
-        this.arrangeCards();
+        if (activeCard) {
+          activeCard.style.transform =
+            "translate(-300px, -300px) rotate(-30deg)";
+          setTimeout(() => {
+            activeCard.classList.add("go-away");
+            this.activeCard++;
+            this.arrangeCards();
+          }, 300);
+        }
       }
     },
+
     prevCard() {
       if (this.activeCard > 0) {
-        this.activeCard--;
-        const activeCard = this.$refs.cards.children[this.activeCard];
-        if (activeCard) activeCard.classList.remove("go-away");
-        this.arrangeCards();
+        const activeCard = this.$refs.cards.children[this.activeCard - 1];
+        if (activeCard) {
+          activeCard.classList.remove("go-away");
+          this.activeCard--;
+          this.arrangeCards();
+        }
       }
     },
   },
@@ -244,6 +259,6 @@ export default {
 
 .cards div.go-away {
   opacity: 0;
-  left: -100px;
+  transition: transform 0.5s;
 }
 </style>

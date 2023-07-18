@@ -1,6 +1,6 @@
 <template>
   <section
-    class="tw-py-[50px] md:tw-mt-[-1px] md:tw-bg-multi-gradient-background md:tw-py-[150px]"
+    class="tw-py-[50px] md:tw-mt-[-1px] md:tw-bg-multi-gradient-background md:tw-pb-[200px] md:tw-pt-[150px]"
   >
     <!-- MOBILE UI START -->
     <div class="tw-container md:tw-hidden">
@@ -33,7 +33,7 @@
           </p>
         </div>
         <div
-          class="tw-mt-3 tw-font-inter-medium tw-text-[1rem] tw-leading-[1.21rem] tw-text-black-core/[0.60]"
+          class="tw-mt-3 tw-font-inter-medium tw-text-[1.2rem] tw-leading-[1.6rem] tw-text-black-core/[0.60]"
         >
           {{ portfolio.description }}
         </div>
@@ -41,7 +41,7 @@
           :src="portfolio.image[0]"
           :srcset="`${portfolio.image[0]} 400w, ${portfolio.image[1]} 600w,  ${portfolio.image[2]} 800w}`"
           alt="app-image"
-          class="tw-mt-8 tw-h-full tw-w-full tw-object-contain"
+          class="tw-mx-auto tw-mt-8 tw-h-full tw-max-w-[95%]"
           @click="openPortfolio(portfolio)"
         />
       </div>
@@ -202,6 +202,7 @@ export default {
             desktop_togness800w,
           ],
           url: "/portfolio/togness",
+          event: "tap_mobileapp_development_togness_portfolio",
         },
         {
           id: 2,
@@ -218,6 +219,7 @@ export default {
             desktop_justly800w,
           ],
           url: "/portfolio/justly",
+          event: "tap_mobileapp_development_justly_portfolio",
         },
         {
           id: 3,
@@ -234,6 +236,7 @@ export default {
             desktop_luxeradio800w,
           ],
           url: "/portfolio/luxeradio",
+          event: "tap_mobileapp_development_luxeradio_portfolio",
         },
         {
           id: 4,
@@ -250,10 +253,12 @@ export default {
           ],
           url: config.SMILEPLUS_URL,
           target: "_blank",
+          event: "tap_mobileapp_development_smile+_portfolio",
         },
       ],
     };
   },
+  inject: ["mixpanel"],
   methods: {
     openPortfolio(portfolio) {
       setTimeout(function () {
@@ -262,6 +267,7 @@ export default {
           portfolio.target ? portfolio.target : "_self"
         );
       }, 200);
+      this.mixpanel.track(portfolio.event);
     },
   },
 };
