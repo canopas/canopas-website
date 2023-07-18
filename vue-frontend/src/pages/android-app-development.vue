@@ -10,8 +10,10 @@
       <LandingSection ref="landing" />
     </div>
     <DevelopmentSection ref="development" />
+
     <PinkCtaSection ref="cta1" class="tw-hidden md:tw-block" />
     <BlackCtaSection ref="cta2" />
+    <FaqSection ref="faq" />
     <CtaSection ref="cta3" />
     <NewFooter ref="footer" />
   </div>
@@ -25,6 +27,11 @@ import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/android-app-development/LandingSection.vue";
 import DevelopmentSection from "@/components/android-app-development/DevelopmentSection.vue";
+
+const FaqSection = defineAsyncComponent(() =>
+  import("@/components/android-app-development/FaqSection.vue")
+);
+
 const PinkCtaSection = defineAsyncComponent(() =>
   import("@/components/android-app-development/PinkCtaSection.vue")
 );
@@ -46,6 +53,7 @@ export default {
         landing: "view_android_development_landing_section",
         footer: "view_android_development_footer",
         development: "view_android_development_section",
+        faq: "view_android_development_faq_section",
         cta1: "view_android_development_cta_section",
         cta2: "view_android_development_cta2_section",
         cta3: "view_android_development_cta3_section",
@@ -78,6 +86,7 @@ export default {
     DevelopmentSection,
     PinkCtaSection,
     BlackCtaSection,
+    FaqSection,
     CtaSection,
     NewFooter,
   },

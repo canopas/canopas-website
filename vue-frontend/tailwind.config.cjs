@@ -176,6 +176,8 @@ module.exports = {
           "linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 5%, #FFFFFF 51.63%)",
         "multi-gradient-background":
           "linear-gradient(180deg, #1A1A1A 11.98%, #A65B5F 36.02%, #F98188 55.21%, #9B565A 73.96%, #1A1A1A 91.67%)",
+        "pink-gradient-background":
+          "linear-gradient(to top , #FFDCE8 -36%, #F2709C 19.02%, #FF9472 38.21%, #FFFFFF 65.96%, #FFFFFF 91.67%)",
         "gradient-background":
           "linear-gradient(to bottom, #FFFFFF , #FDE0E2 23%, #FDE0E2 88%, #FFFFFF 100%);",
         "gradient-L": "linear-gradient(178deg, #FFFFFF  68%, #f77783 40%);",

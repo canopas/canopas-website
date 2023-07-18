@@ -87,7 +87,7 @@
               >
             </div>
             <div
-              class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] md:tw-p-[1rem] md:tw-text-[1.375rem] md:tw-leading-[2.0625rem]"
+              class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] md:tw-p-[1rem] md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
             >
               <ul class="tw-pl-[2rem] tw-pr-[1rem] md:tw-hidden">
                 <li
