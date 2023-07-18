@@ -48,6 +48,10 @@ type Portfolio struct {
 	Videos []Video
 }
 
+type UniqueService struct {
+	Name string
+}
+
 // resources structs
 type Attributes struct {
 	Slug string `json:"slug"`
@@ -102,6 +106,9 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 
 	//add service
 	sitemapUrls = addServices(baseUrl, sitemapUrls)
+
+	//add unique services
+	sitemapUrls = addUniqueServices(baseUrl, sitemapUrls)
 
 	//get first day of current month
 	year, month, _ := time.Now().Date()
@@ -184,7 +191,17 @@ func addPortfolios(baseUrl string, sitemapUrls []URL) []URL {
 
 	return sitemapUrls
 }
-
+func addUniqueServices(baseUrl string, sitemapUrls []URL) []URL {
+	services := []UniqueService{
+		{
+			Name: "mobile-app-development",
+		},
+	}
+	for i := range services {
+		sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + `/` + services[i].Name, Priority: `0.9`})
+	}
+	return sitemapUrls
+}
 func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
 	resourcesUrl := baseUrl + "/resources"
 	sitemapUrls = append(sitemapUrls, URL{Loc: resourcesUrl, Priority: `0.9`})
