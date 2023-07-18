@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-py-[100px]">
+  <section class="tw-py-[50px]">
     <p
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.813rem] tw-text-white md:tw-text-[4.125rem] md:tw-leading-[4.95rem]"
     >
@@ -12,7 +12,7 @@
       :key="index"
     >
       <div
-        class="tw-flex tw-flex-row tw-items-center tw-justify-center tw-gap-[1rem]"
+        class="tw-flex tw-flex-row tw-items-start tw-justify-center tw-gap-[1rem]"
       >
         <img
           :src="service.image"
@@ -29,20 +29,19 @@
         class="tw-mt-4 tw-flex tw-h-full tw-w-full tw-flex-col tw-rounded-[20px] tw-bg-[#3F3F3F] tw-px-[1rem] tw-py-[1.56rem]"
       >
         <div
-          class="tw-flex tw-flex-row tw-items-center tw-justify-center tw-gap-4"
+          class="tw-flex tw-flex-row tw-items-start tw-justify-center tw-gap-4"
         >
           <div v-for="(technology, index) in service.technologies" :key="index">
             <div class="tw-flex tw-flex-col tw-items-center tw-gap-1">
               <img
                 :src="technology.image"
                 alt="technology"
-                class="tw-h-[50px] tw-w-[50px] tw-object-contain"
+                class="tw-h-[60px] tw-w-[60px] tw-object-contain"
               />
               <p
-                class="tw-font-inter-semibold tw-text-[0.75rem] tw-leading-[1.125rem] tw-text-white/[0.76]"
-              >
-                {{ technology.name }}
-              </p>
+                class="tw-text-center tw-font-inter-semibold tw-text-[0.75rem] tw-leading-[1.125rem] tw-text-white/[0.76]"
+                v-html="technology.name"
+              ></p>
             </div>
           </div>
         </div>
@@ -57,7 +56,7 @@
 
     <!-- DESKTOP UI START  -->
     <div
-      class="tw-container tw-mt-16 tw-hidden tw-flex-col md:tw-flex"
+      class="tw-container tw-mt-[6.25rem] tw-hidden tw-flex-col md:tw-flex"
       v-for="(service, index) in services"
       :key="index"
     >
@@ -87,13 +86,12 @@
                 <img
                   :src="technology.image"
                   alt="technology"
-                  class="tw-h-[60px] tw-w-[60px] tw-object-contain"
+                  class="tw-h-[70px] tw-w-[70px] tw-object-contain"
                 />
                 <p
-                  class="tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.5rem] tw-text-white/[0.50]"
-                >
-                  {{ technology.name }}
-                </p>
+                  class="tw-text-center tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.5rem] tw-text-white/[0.50]"
+                  v-html="technology.name"
+                ></p>
               </div>
             </div>
           </div>
@@ -112,15 +110,15 @@
 import android from "@/assets/images/mobile-app-development/services/android/android.webp";
 import gradle from "@/assets/images/mobile-app-development/services/android/gradle.webp";
 import kotlin from "@/assets/images/mobile-app-development/services/android/kotlin.webp";
-import java from "@/assets/images/mobile-app-development/services/android/java.webp";
-import clang from "@/assets/images/mobile-app-development/services/android/C++.webp";
+import androidstudio from "@/assets/images/mobile-app-development/services/android/androidstudio.webp";
+import jetpackcompose from "@/assets/images/mobile-app-development/services/android/jetpackcompose.webp";
 import ios from "@/assets/images/mobile-app-development/services/ios/iOS.webp";
 import swift from "@/assets/images/mobile-app-development/services/ios/swift.webp";
-import javaScript from "@/assets/images/mobile-app-development/services/ios/javaScript.webp";
-import objectiveC from "@/assets/images/mobile-app-development/services/ios/objectiveC.webp";
-import cSharp from "@/assets/images/mobile-app-development/services/ios/cSharp.webp";
+import xcode from "@/assets/images/mobile-app-development/services/ios/xcode.webp";
+import cocoapods from "@/assets/images/mobile-app-development/services/ios/cocoapods.webp";
 import flutter from "@/assets/images/mobile-app-development/services/flutter/flutter.webp";
 import dart from "@/assets/images/mobile-app-development/services/flutter/dart.webp";
+import firebase from "@/assets/images/mobile-app-development/services/flutter/firebase.webp";
 
 export default {
   data() {
@@ -132,20 +130,22 @@ export default {
           image: android,
           technologies: [
             {
-              image: gradle,
-              name: "GRADLE",
-            },
-            {
               image: kotlin,
               name: "KOTLIN",
             },
             {
-              image: java,
-              name: "JAVA",
+              image: gradle,
+              name: "GRADLE",
             },
             {
-              image: clang,
-              name: "C++",
+              image: androidstudio,
+              name: `ANDROID <br>
+                     STUDIO`,
+            },
+            {
+              image: jetpackcompose,
+              name: `JETPACK <br>
+               COMPOSE`,
             },
           ],
           description:
@@ -161,16 +161,12 @@ export default {
               name: "SWIFT",
             },
             {
-              image: objectiveC,
-              name: "OBJECTIVE C",
+              image: xcode,
+              name: "XCODE",
             },
             {
-              image: javaScript,
-              name: "JAVASCRIPT",
-            },
-            {
-              image: cSharp,
-              name: "C#",
+              image: cocoapods,
+              name: "COCOAPODS",
             },
           ],
           description:
@@ -184,6 +180,10 @@ export default {
             {
               image: dart,
               name: "DART",
+            },
+            {
+              image: firebase,
+              name: "FIREBASE",
             },
           ],
           description:

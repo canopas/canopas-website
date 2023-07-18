@@ -88,9 +88,9 @@ export default Object.freeze({
     image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   MOBILE_APP_DEVELOPMENT_SEO_META_DATA: {
-    title: "Canopas Open Source Contributions - Web and Mobile App Development",
+    title: "Premiere Mobile App Development Company - Canopas",
     description:
-      "Explore Canopas' open-source contributions on GitHub and glean expert insights on Medium. Evaluate our exceptional work quality and experience for yourself.",
+      "Canopas - A mobile app development company revolutionizing businesses with bespoke Android, iOS, and Flutter applications.",
     type: "Website",
     url: "https://dev-stack.canopas.com/mobile-app-development",
     image: "https://dev-stack.canopas.com/apple-touch-icon.png",

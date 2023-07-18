@@ -34,6 +34,7 @@
         <router-link
           class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1rem] tw-text-center"
           :to="contactURL"
+          @click.native="mixpanel.track('tap_mobileapp_development_cta1')"
         >
           <span
             class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
@@ -54,7 +55,7 @@
         alt="background-image"
       />
       <div
-        class="tw-container tw-sticky tw-z-[1] tw-flex tw-flex-col tw-items-center tw-justify-center tw-py-[5rem] xll:tw-py-[13rem]"
+        class="tw-container tw-sticky tw-z-[1] tw-flex tw-flex-col tw-items-center tw-justify-center tw-py-[5rem] xll:tw-py-[8rem]"
       >
         <p
           class="v2-canopas-gradient-text tw-text-center tw-font-inter-medium tw-text-[1.125rem] tw-leading-[1.375rem] xl:tw-text-[1.25rem] xl:tw-leading-[1.513rem]"
@@ -76,6 +77,7 @@
         <router-link
           class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1rem] tw-text-center"
           :to="contactURL"
+          @click.native="mixpanel.track('tap_mobileapp_development_cta1')"
         >
           <span
             class="tw-mr-2.5 tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
@@ -107,5 +109,6 @@ export default {
       contactURL: "/contact",
     };
   },
+  inject: ["mixpanel"],
 };
 </script>

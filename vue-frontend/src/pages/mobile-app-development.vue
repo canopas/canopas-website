@@ -7,21 +7,21 @@
     </metainfo>
     <Header />
 
-    <div class="tw-overflow-x-hidden">
+    <div class="tw-overflow-hidden">
       <div class="tw-bg-[#262626] md:tw-bg-[#1A1A1A]">
-        <LandingSection />
-        <Services />
+        <LandingSection ref="landing" />
+        <Services ref="services" />
       </div>
-      <Portfolio />
-      <CTASection />
-      <DevelopmentProcess />
-      <div class="tw-mb-[-15px] tw-bg-black-core/[0.85] md:tw-mb-0">
-        <ClientReview />
-        <CTASection2 />
+      <Portfolio ref="portfolio" />
+      <CTASection ref="cta1" />
+      <DevelopmentProcess ref="developmentprocess" />
+      <div class="tw-bg-black-core/[0.85]">
+        <ClientReview ref="clientreview" />
+        <CTASection2 ref="cta2" />
       </div>
     </div>
 
-    <NewFooter />
+    <NewFooter class="tw-mt-[-15px] md:tw-mt-auto" />
   </div>
 </template>
 
@@ -32,6 +32,8 @@ import Services from "@/components/mobile-app-development/Services.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
+import { elementInViewPort } from "@/utils.js";
+
 const Portfolio = defineAsyncComponent(() =>
   import("@/components/mobile-app-development/Portfolio.vue")
 );
@@ -83,6 +85,39 @@ export default {
     ClientReview,
     CTASection2,
     NewFooter,
+  },
+  data() {
+    return {
+      event: "",
+      events: {
+        landing: "view_mobileapp_development_landing_section",
+        services: "view_mobileapp_development_services_section",
+        portfolio: "view_mobileapp_development_portfolio_section",
+        cta1: "view_mobileapp_development_cta_section",
+        developmentprocess:
+          "view_mobileapp_development_developmentprocess_section",
+        clientreview: "view_mobileapp_development_clientreview_section",
+        cta2: "view_mobileapp_development_cta2_section",
+        footer: "view_mobileapp_development_footer",
+      },
+    };
+  },
+  inject: ["mixpanel"],
+  mounted() {
+    window.addEventListener("scroll", this.sendEvent);
+    this.mixpanel.track("view_mobileapp_landing_section");
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = this.events[elementInViewPort(this.$refs)];
+      if (event && this.event !== event) {
+        this.event = event;
+        this.mixpanel.track(event);
+      }
+    },
   },
   beforeRouteEnter(to, from, next) {
     if (!config.SHOW_MOBILE_APP_DEVELOPMENT_PAGE) {
