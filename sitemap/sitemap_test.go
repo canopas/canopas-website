@@ -140,6 +140,7 @@ func expectedURLData() []URL {
 		{Loc: baseUrl + `/resources`, Priority: `0.9`},
 		{Loc: baseUrl + `/contributions`, Priority: `0.9`},
 		{Loc: baseUrl + `/services`, Priority: `0.9`},
+		{Loc: baseUrl + `/mobile-app-development`, Priority: `0.9`},
 	}
 
 	for i := range sitemapUrls {

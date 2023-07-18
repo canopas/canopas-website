@@ -58,13 +58,6 @@ export default {
   setup() {
     var seoData = config.MOBILE_APP_DEVELOPMENT_SEO_META_DATA;
     useMeta({
-      meta: [
-        {
-          name: "robots",
-          content: "noindex, nofollow",
-          vmid: "robots",
-        },
-      ],
       title: seoData.title,
       description: seoData.description,
       og: {
@@ -118,16 +111,6 @@ export default {
         this.mixpanel.track(event);
       }
     },
-  },
-  beforeRouteEnter(to, from, next) {
-    if (!config.SHOW_MOBILE_APP_DEVELOPMENT_PAGE) {
-      next({
-        name: "Error404Page",
-        params: { pathMatch: "/mobile-app-development" },
-      });
-    } else {
-      next();
-    }
   },
 };
 </script>
