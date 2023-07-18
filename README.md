@@ -1,4 +1,4 @@
-# canopas-website
+<h1 align="left"><strong>Repository of canopas website includes intuitive UI designs</strong></h1>
 
 Source code repository of [Canopas Software Website](https://canopas.com).
 
