@@ -16,7 +16,7 @@
       :key="service"
       @mouseover="activeIndex = index"
       @touchstart.passive="activeIndex = index"
-      @click="showServices ? openUrl(service.url) : ''"
+      @click="openUrl(service.url)"
       :class="[
         activeIndex === index
           ? 'tw-transform tw-transition-all tw-duration-500  tw-ease-in-out hover:tw-text-transparent'
@@ -67,7 +67,6 @@ export default {
   data() {
     return {
       activeIndex: null,
-      showServices: !config.IS_PROD,
       services: [
         {
           title: "Mobile app Development",
