@@ -202,7 +202,7 @@ export default {
           value: {
             "@type": "QuantitativeValue",
             minValue: parseInt(
-              career.base_salary ? career.base_salary : "10000"
+              career.base_salary ? career.base_salary : "10000",
             ),
             maxValue: 50000,
             unitText: "MONTH",
@@ -268,7 +268,7 @@ export default {
         if (i == descContent.length - 1) {
           descContent[i] = element.replace(
             element,
-            "<ul><li>" + element + "</li></ul>"
+            "<ul><li>" + element + "</li></ul>",
           );
         }
       });
@@ -301,7 +301,7 @@ export default {
       const startDateOfMonth = new Date(
         cDate.getFullYear(),
         cDate.getMonth(),
-        1
+        1,
       );
       startDateOfMonth.setDate(startDateOfMonth.getDate() - 2);
 
@@ -310,7 +310,7 @@ export default {
         currentDay <= maxDays
           ? startDateOfMonth
           : new Date(
-              startDateOfMonth.setDate(startDateOfMonth.getDate() + maxDays)
+              startDateOfMonth.setDate(startDateOfMonth.getDate() + maxDays),
             );
 
       const datePosted = jobPosted.toISOString().split("T")[0];
@@ -338,7 +338,7 @@ export default {
             descriptionTitles[i],
             '<h2><span class="bullet"></span><strong>' +
               title +
-              "</strong></h2>"
+              "</strong></h2>",
           );
         }
       }
@@ -351,7 +351,7 @@ export default {
           let list = descriptionLists[i].replace(/<(\/*).[^>]*>/g, "");
           this.job.description = this.job.description.replace(
             descriptionLists[i],
-            '<li><span class="chevron right tw-pr-2 "></span>' + list + "</li>"
+            '<li><span class="chevron right tw-pr-2 "></span>' + list + "</li>",
           );
         }
       }

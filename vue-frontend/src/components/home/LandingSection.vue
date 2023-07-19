@@ -136,7 +136,7 @@ export default {
           }
         }
       },
-      false
+      false,
     );
   },
 };

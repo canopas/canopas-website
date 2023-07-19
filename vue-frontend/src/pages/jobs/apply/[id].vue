@@ -412,7 +412,7 @@ export default {
     recaptchaScript.setAttribute(
       "src",
       "https://www.google.com/recaptcha/enterprise.js?render=" +
-        import.meta.env.VITE_RECAPTCHA_SITE_KEY
+        import.meta.env.VITE_RECAPTCHA_SITE_KEY,
     );
     recaptchaScript.setAttribute("async", "true");
     recaptchaScript.setAttribute("defer", "true");
@@ -541,7 +541,7 @@ export default {
             ? this.reference + " - " + this.referenceBy
             : this.reference && this.reference != ""
             ? this.reference
-            : "NA"
+            : "NA",
         );
 
         formData.append("file", this.file, fileName);
@@ -550,7 +550,7 @@ export default {
           "message",
           this.message
             ? this.message.replace(/\n/g, "<br>\n").replace(/\./g, ".\n")
-            : "NA"
+            : "NA",
         );
         formData.append("save_record_to_spreadsheet", config.IS_PROD);
         formData.append("save_data_to_database", config.IS_PROD);
@@ -574,7 +574,7 @@ export default {
                   });
                   localStorage.setItem(
                     "applicant-name",
-                    JSON.stringify(this.fullName)
+                    JSON.stringify(this.fullName),
                   );
                   this.fullName = "";
                   this.email = "";

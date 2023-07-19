@@ -137,7 +137,7 @@ export default {
       // check which element is in viewport
       const elementIdx = elementInViewPort(this.$refs);
       const index = parseInt(
-        elementIdx ? elementIdx.charAt(elementIdx.length - 1) : 0
+        elementIdx ? elementIdx.charAt(elementIdx.length - 1) : 0,
       );
 
       if (this.prevIndex != index) {

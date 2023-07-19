@@ -2,7 +2,7 @@
 import fs from "fs";
 import path from "path";
 import express from "express";
-import vite from "vite";
+import { createServer as createViteServer } from "vite";
 import serveStatic from "serve-static";
 import compression from "compression";
 import Cache from "./utils/cache.js";
@@ -15,7 +15,7 @@ const isTest = process.env.NODE_ENV === "test" || !!process.env.VITE_TEST_BUILD;
 
 async function createServer(
   root = process.cwd(),
-  isProd = process.env.NODE_ENV === "production"
+  isProd = process.env.NODE_ENV === "production",
 ) {
   const resolve = (p) => path.resolve(__dirname, p);
 
@@ -35,11 +35,12 @@ async function createServer(
    */
   let viteServer;
   if (!isProd) {
-    viteServer = await vite.createServer({
+    viteServer = await createViteServer({
       root,
       logLevel: isTest ? "error" : "info",
       server: {
-        middlewareMode: "ssr",
+        middlewareMode: "true",
+        appType: "custom",
         watch: {
           // During tests we edit the files too fast and sometimes chokidar
           // misses change events, so enforce polling for consistency
@@ -57,7 +58,7 @@ async function createServer(
         index: false,
         immutable: true,
         maxAge: "365d",
-      })
+      }),
     );
   }
 
@@ -109,7 +110,7 @@ if (!isTest) {
   createServer().then(({ app }) =>
     app.listen(3080, () => {
       console.log("http://localhost:3080");
-    })
+    }),
   );
 }
 

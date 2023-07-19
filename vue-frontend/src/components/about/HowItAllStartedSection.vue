@@ -138,7 +138,7 @@ export default {
       // space between list elements
       let space = Math.ceil(
         (totalWidth - listWidth * this.stories.length) /
-          (this.stories.length - 1)
+          (this.stories.length - 1),
       );
 
       // move left with total of li width and space

@@ -160,7 +160,7 @@ library.add(
   faF,
   faNodeJs,
   faGolang,
-  faVuejs
+  faVuejs,
 );
 
 export default {

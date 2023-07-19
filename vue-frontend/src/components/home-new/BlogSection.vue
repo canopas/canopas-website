@@ -207,7 +207,7 @@ export default {
              * get date in MMM DD, YYYY format
              */
             blogs[i].pubDate = new Date(
-              blogs[i].pubDate.replace(/-/g, "/")
+              blogs[i].pubDate.replace(/-/g, "/"),
             ).toLocaleDateString("en-US", {
               month: "long",
               day: "2-digit",

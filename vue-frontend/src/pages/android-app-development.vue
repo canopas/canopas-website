@@ -29,20 +29,20 @@ import LandingSection from "@/components/android-app-development/LandingSection.
 import DevelopmentSection from "@/components/android-app-development/DevelopmentSection.vue";
 
 const FaqSection = defineAsyncComponent(() =>
-  import("@/components/android-app-development/FaqSection.vue")
+  import("@/components/android-app-development/FaqSection.vue"),
 );
 
 const PinkCtaSection = defineAsyncComponent(() =>
-  import("@/components/android-app-development/PinkCtaSection.vue")
+  import("@/components/android-app-development/PinkCtaSection.vue"),
 );
 const CtaSection = defineAsyncComponent(() =>
-  import("@/components/android-app-development/CtaSection.vue")
+  import("@/components/android-app-development/CtaSection.vue"),
 );
 const BlackCtaSection = defineAsyncComponent(() =>
-  import("@/components/android-app-development/BlackCtaSection.vue")
+  import("@/components/android-app-development/BlackCtaSection.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 
 export default {

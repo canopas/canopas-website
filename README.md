@@ -7,7 +7,7 @@ We intend to keep this open source. Plan is to keep the repository up to date wi
 ## Requirements
 
 - Node18
-- Go 1.17
+- Go 1.20
 
 ### Note :
 
@@ -144,6 +144,10 @@ Following are dependencies used by the project
 #### [FontAwesome](https://github.com/FortAwesome/Font-Awesome)
 
 - Used for icons.
+
+#### [Swiper](https://github.com/nolimits4web/swiper)
+
+- Used for Animation.
 
 ## LICENSE
 

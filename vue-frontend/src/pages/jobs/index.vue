@@ -42,28 +42,28 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const VirtuesView = defineAsyncComponent(() =>
-  import("@/components/jobs/VirtuesView.vue")
+  import("@/components/jobs/VirtuesView.vue"),
 );
 const LifeAtCanopas = defineAsyncComponent(() =>
-  import("@/components/jobs/LifeAtCanopas.vue")
+  import("@/components/jobs/LifeAtCanopas.vue"),
 );
 const Career = defineAsyncComponent(() =>
-  import("@/components/jobs/CareerView.vue")
+  import("@/components/jobs/CareerView.vue"),
 );
 const PerksAndBenefits = defineAsyncComponent(() =>
-  import("@/components/jobs/PerksAndBenefits.vue")
+  import("@/components/jobs/PerksAndBenefits.vue"),
 );
 const WhyCanopas = defineAsyncComponent(() =>
-  import("@/components/jobs/WhyCanopas.vue")
+  import("@/components/jobs/WhyCanopas.vue"),
 );
 const WhyCanopasMobile = defineAsyncComponent(() =>
-  import("@/components/jobs/WhyCanopasMobile.vue")
+  import("@/components/jobs/WhyCanopasMobile.vue"),
 );
 const FaqSection = defineAsyncComponent(() =>
-  import("@/components/jobs/FaqSection.vue")
+  import("@/components/jobs/FaqSection.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 
 library.add(faAlignLeft, faCheckCircle, faMinus, faPlus);

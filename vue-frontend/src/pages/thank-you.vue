@@ -24,16 +24,16 @@ import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/contact/thank-you/LandingSection.vue";
 import BenefitSection from "@/components/contact/thank-you/BenefitSection.vue";
 const HappyClientSection = defineAsyncComponent(() =>
-  import("@/components/contact/thank-you/HappyClient.vue")
+  import("@/components/contact/thank-you/HappyClient.vue"),
 );
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
 const ScheduleMeeting = defineAsyncComponent(() =>
-  import("@/components/contact/thank-you/ScheduleMeeting.vue")
+  import("@/components/contact/thank-you/ScheduleMeeting.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 
 export default {

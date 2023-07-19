@@ -37,7 +37,7 @@ export function setGithubStars(contributions, githubRepos) {
       .filter(
         (repo) =>
           repo.name ==
-          contribution.link.slice(contribution.link.lastIndexOf("/") + 1)
+          contribution.link.slice(contribution.link.lastIndexOf("/") + 1),
       )
       .map((repo) => repo.stargazers_count.toString())[0];
   });

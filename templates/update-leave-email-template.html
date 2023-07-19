@@ -1,31 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="HandheldFriendly" content="true" />
-</head>
+  </head>
 
-<table>
+  <table>
     <tbody>
-        <tr class="review-application-div">
-            <p>
-                Hi {{.Name}},
-            </p>
-            <p>
-                We have received your leave request for {{.Date}} and I am writing to notify you that your leave request
-                has been <b>{{.StatusValue}}</b>.
-
-            </p>
-            <p>
-                <br />
-                Regards,<br />
-                HR Executive | Canopas
-            </p>
-        </tr>
+      <tr class="review-application-div">
+        <p>Hi {{.Name}},</p>
+        <p>
+          We have received your leave request for {{.Date}} and I am writing to
+          notify you that your leave request has been <b>{{.StatusValue}}</b>.
+        </p>
+        <p>
+          <br />
+          Regards,<br />
+          HR Executive | Canopas
+        </p>
+      </tr>
     </tbody>
-</table>
-
+  </table>
 </html>

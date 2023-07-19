@@ -1,31 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="HandheldFriendly" content="true" />
-</head>
+  </head>
 
-<table>
+  <table>
     <tbody>
-        <tr class="review-application-div">
-            <p>
-                There's a new leave request from {{.Name}}. Please check Unity for more information.
-            </p>
-            <p>
-                <span><b>Date : </b></span><span class="title-span"> {{.Date}}</span><br />
-                <span><b>Status:</b></span> <span class="title-span"> {{.StatusValue}}</span><br />
-                <span><b>Reason:</b></span> <span class="title-span"> {{.Reason}}</span>
-            </p>
-            <p>
-                --
-                <br />
-                <a href="https://unity.canopas.com/">Canopas Unity</a>
-            </p>
-        </tr>
+      <tr class="review-application-div">
+        <p>
+          There's a new leave request from {{.Name}}. Please check Unity for
+          more information.
+        </p>
+        <p>
+          <span><b>Date : </b></span><span class="title-span"> {{.Date}}</span
+          ><br />
+          <span><b>Status:</b></span>
+          <span class="title-span"> {{.StatusValue}}</span><br />
+          <span><b>Reason:</b></span>
+          <span class="title-span"> {{.Reason}}</span>
+        </p>
+        <p>
+          --
+          <br />
+          <a href="https://unity.canopas.com/">Canopas Unity</a>
+        </p>
+      </tr>
     </tbody>
-</table>
-
+  </table>
 </html>

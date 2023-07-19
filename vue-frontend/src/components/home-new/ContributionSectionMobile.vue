@@ -178,7 +178,7 @@ export default {
         () => this.cData,
         (data) => {
           setGithubStars(this.contributions, data);
-        }
+        },
       );
       if (this.cData != null) {
         setGithubStars(this.contributions, this.cData);

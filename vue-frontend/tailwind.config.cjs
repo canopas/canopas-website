@@ -214,7 +214,7 @@ module.exports = {
             120: "120deg",
             135: "135deg",
           }),
-        }
+        },
       );
     }),
     function ({ addComponents }) {

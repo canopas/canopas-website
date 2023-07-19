@@ -130,7 +130,7 @@ export default {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
-              }
+              },
             );
           }
 

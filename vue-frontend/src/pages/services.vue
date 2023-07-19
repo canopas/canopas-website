@@ -35,31 +35,31 @@ import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
 
 const SuccessStories = defineAsyncComponent(() =>
-  import("@/components/services/SuccessStories.vue")
+  import("@/components/services/SuccessStories.vue"),
 );
 const BlogSection = defineAsyncComponent(() =>
-  import("@/components/home-new/BlogSection.vue")
+  import("@/components/home-new/BlogSection.vue"),
 );
 const ContactUsToday = defineAsyncComponent(() =>
-  import("@/components/services/ContactUsToday.vue")
+  import("@/components/services/ContactUsToday.vue"),
 );
 const ContributionSection = defineAsyncComponent(() =>
-  import("@/components/home-new/ContributionSection.vue")
+  import("@/components/home-new/ContributionSection.vue"),
 );
 const ContributionSectionMobile = defineAsyncComponent(() =>
-  import("@/components/home-new/ContributionSectionMobile.vue")
+  import("@/components/home-new/ContributionSectionMobile.vue"),
 );
 const ClientReviewSection = defineAsyncComponent(() =>
-  import("@/components/home-new/ClientReviewSection.vue")
+  import("@/components/home-new/ClientReviewSection.vue"),
 );
 const CTASection = defineAsyncComponent(() =>
-  import("@/components/home-new/PortfolioPageCTASection.vue")
+  import("@/components/home-new/PortfolioPageCTASection.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 const TechnologyStack = defineAsyncComponent(() =>
-  import("@/components/services/TechnologyStack.vue")
+  import("@/components/services/TechnologyStack.vue"),
 );
 
 export default {

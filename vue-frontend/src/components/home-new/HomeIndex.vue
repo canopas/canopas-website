@@ -26,31 +26,31 @@ import { elementInViewPort } from "@/utils.js";
 import { defineAsyncComponent } from "vue";
 
 const CaseStudy = defineAsyncComponent(() =>
-  import("@/components/home-new/CaseStudy.vue")
+  import("@/components/home-new/CaseStudy.vue"),
 );
 const ServiceSection = defineAsyncComponent(() =>
-  import("@/components/home-new/ServiceSection.vue")
+  import("@/components/home-new/ServiceSection.vue"),
 );
 const ServiceSectionMobile = defineAsyncComponent(() =>
-  import("@/components/home-new/ServiceSectionMobile.vue")
+  import("@/components/home-new/ServiceSectionMobile.vue"),
 );
 const ContributionSection = defineAsyncComponent(() =>
-  import("@/components/home-new/ContributionSection.vue")
+  import("@/components/home-new/ContributionSection.vue"),
 );
 const ContributionSectionMobile = defineAsyncComponent(() =>
-  import("@/components/home-new/ContributionSectionMobile.vue")
+  import("@/components/home-new/ContributionSectionMobile.vue"),
 );
 const ClientReview = defineAsyncComponent(() =>
-  import("@/components/home-new/ClientReviewSection.vue")
+  import("@/components/home-new/ClientReviewSection.vue"),
 );
 const CTASection = defineAsyncComponent(() =>
-  import("@/components/home-new/CTASection.vue")
+  import("@/components/home-new/CTASection.vue"),
 );
 const BlogSection = defineAsyncComponent(() =>
-  import("@/components/home-new/BlogSection.vue")
+  import("@/components/home-new/BlogSection.vue"),
 );
 const FooterV3 = defineAsyncComponent(() =>
-  import("@/components/partials/FooterV3.vue")
+  import("@/components/partials/FooterV3.vue"),
 );
 
 library.add(faPlus);
