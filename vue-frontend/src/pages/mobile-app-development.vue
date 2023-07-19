@@ -35,23 +35,23 @@ import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 
 const Portfolio = defineAsyncComponent(() =>
-  import("@/components/mobile-app-development/Portfolio.vue")
+  import("@/components/mobile-app-development/Portfolio.vue"),
 );
 const CTASection = defineAsyncComponent(() =>
-  import("@/components/mobile-app-development/CTASection.vue")
+  import("@/components/mobile-app-development/CTASection.vue"),
 );
 const DevelopmentProcess = defineAsyncComponent(() =>
-  import("@/components/mobile-app-development/DevelopmentProcess.vue")
+  import("@/components/mobile-app-development/DevelopmentProcess.vue"),
 );
 
 const ClientReview = defineAsyncComponent(() =>
-  import("@/components/mobile-app-development/ClientReview.vue")
+  import("@/components/mobile-app-development/ClientReview.vue"),
 );
 const CTASection2 = defineAsyncComponent(() =>
-  import("@/components/mobile-app-development/CTASection2.vue")
+  import("@/components/mobile-app-development/CTASection2.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 
 export default {

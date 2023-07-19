@@ -264,7 +264,7 @@ export default {
       setTimeout(function () {
         window.open(
           portfolio.url,
-          portfolio.target ? portfolio.target : "_self"
+          portfolio.target ? portfolio.target : "_self",
         );
       }, 200);
       this.mixpanel.track(portfolio.event);

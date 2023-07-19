@@ -22,19 +22,19 @@ import InterviewProcess from "@/components/jobs/thank-you/InterviewProcess.vue";
 import { defineAsyncComponent } from "vue";
 
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 const VirtueView = defineAsyncComponent(() =>
-  import("@/components/jobs/VirtuesView.vue")
+  import("@/components/jobs/VirtuesView.vue"),
 );
 const LifeAtCanopasVue = defineAsyncComponent(() =>
-  import("@/components/jobs/PerksAndBenefits.vue")
+  import("@/components/jobs/PerksAndBenefits.vue"),
 );
 const LatestBlog = defineAsyncComponent(() =>
-  import("@/components/jobs/thank-you/LatestBlog.vue")
+  import("@/components/jobs/thank-you/LatestBlog.vue"),
 );
 const ContributionSection = defineAsyncComponent(() =>
-  import("@/components/jobs/thank-you/ContributionSection.vue")
+  import("@/components/jobs/thank-you/ContributionSection.vue"),
 );
 
 import config from "@/config.js";

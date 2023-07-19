@@ -23,7 +23,7 @@ library.add(
   faArrowLeft,
   faThumbsUp,
   faMediumM,
-  faGithub
+  faGithub,
 );
 export default {
   name: "App",

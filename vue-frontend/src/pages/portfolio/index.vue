@@ -24,13 +24,13 @@ import CaseStudy from "@/components/home-new/CaseStudy.vue";
 import { defineAsyncComponent } from "vue";
 
 const UserReview = defineAsyncComponent(() =>
-  import("@/components/home/UserReview.vue")
+  import("@/components/home/UserReview.vue"),
 );
 const CTASection = defineAsyncComponent(() =>
-  import("@/components/home-new/CTASection.vue")
+  import("@/components/home-new/CTASection.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 
 export default {

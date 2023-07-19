@@ -364,7 +364,7 @@ export default {
           found = true;
           styles[i].innerText = styles[i].innerText.replaceAll(
             this.lastWidth,
-            width
+            width,
           );
         }
       }

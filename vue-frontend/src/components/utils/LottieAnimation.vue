@@ -74,10 +74,16 @@ export default {
     },
     executeLoop() {
       this.anim.play();
-      setTimeout(() => {
-        this.anim.stop();
-        this.executeLoop();
-      }, this.getRandomInt(this.loopDelayMin, this.loopDelayMax == 0 ? this.loopDelayMin : this.loopDelayMax));
+      setTimeout(
+        () => {
+          this.anim.stop();
+          this.executeLoop();
+        },
+        this.getRandomInt(
+          this.loopDelayMin,
+          this.loopDelayMax == 0 ? this.loopDelayMin : this.loopDelayMax,
+        ),
+      );
     },
   },
   watch: {

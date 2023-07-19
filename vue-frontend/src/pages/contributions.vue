@@ -32,30 +32,30 @@ import DesktopLandingSection from "@/components/contributions/DesktopLanding.vue
 import GithubContribution from "@/components/contributions/GithubContribution.vue";
 import { elementInViewPort } from "@/utils.js";
 const WeeklyUpdateSection = defineAsyncComponent(() =>
-  import("@/components/contributions/WeeklyUpdate.vue")
+  import("@/components/contributions/WeeklyUpdate.vue"),
 );
 const WhatsTrending = defineAsyncComponent(() =>
-  import("@/components/contributions/WhatsTrending.vue")
+  import("@/components/contributions/WhatsTrending.vue"),
 );
 const Favourite = defineAsyncComponent(() =>
-  import("@/components/contributions/Favourite.vue")
+  import("@/components/contributions/Favourite.vue"),
 );
 const AnimatedCreation = defineAsyncComponent(() =>
-  import("@/components/contributions/AnimatedCreation.vue")
+  import("@/components/contributions/AnimatedCreation.vue"),
 );
 const UnitTest = defineAsyncComponent(() =>
-  import("@/components/contributions/UnitTest.vue")
+  import("@/components/contributions/UnitTest.vue"),
 );
 
 const DevOps = defineAsyncComponent(() =>
-  import("@/components/contributions/DevOps.vue")
+  import("@/components/contributions/DevOps.vue"),
 );
 const ExploreDesign = defineAsyncComponent(() =>
-  import("@/components/contributions/DesignExplore.vue")
+  import("@/components/contributions/DesignExplore.vue"),
 );
 
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 
 export default {

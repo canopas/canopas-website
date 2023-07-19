@@ -33,19 +33,19 @@ import { elementInViewPort } from "@/utils.js";
 import { defineAsyncComponent } from "vue";
 
 const HowItAllStartedSectionMobile = defineAsyncComponent(() =>
-  import("@/components/about/HowItAllStartedSectionMobile.vue")
+  import("@/components/about/HowItAllStartedSectionMobile.vue"),
 );
 const AboutusVirtue = defineAsyncComponent(() =>
-  import("@/components/about/AboutusVirtue.vue")
+  import("@/components/about/AboutusVirtue.vue"),
 );
 const WithCanopasSection = defineAsyncComponent(() =>
-  import("@/components/home/WithCanopas.vue")
+  import("@/components/home/WithCanopas.vue"),
 );
 const ClientReviewSection = defineAsyncComponent(() =>
-  import("@/components/home-new/ClientReviewSection.vue")
+  import("@/components/home-new/ClientReviewSection.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue")
+  import("@/components/partials/NewFooter.vue"),
 );
 
 export default {

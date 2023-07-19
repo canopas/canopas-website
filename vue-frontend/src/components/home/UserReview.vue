@@ -196,7 +196,7 @@ export default {
   components: {
     FontAwesomeIcon,
     LottieAnimation: defineAsyncComponent(() =>
-      import("@/components/utils/LottieAnimation.vue")
+      import("@/components/utils/LottieAnimation.vue"),
     ),
   },
   mounted() {

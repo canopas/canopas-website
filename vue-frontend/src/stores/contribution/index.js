@@ -31,8 +31,8 @@ export const useContributionStore = defineStore("github-list", {
 
         const worker = new Worker(
           URL.createObjectURL(
-            new Blob([eventData], { type: "text/javascript" })
-          )
+            new Blob([eventData], { type: "text/javascript" }),
+          ),
         );
         worker.postMessage("fetchContributionStars");
         worker.onmessage = (event) => {

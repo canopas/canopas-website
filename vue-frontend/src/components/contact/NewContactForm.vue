@@ -343,7 +343,7 @@ export default {
                   });
                   localStorage.setItem(
                     "client-name",
-                    JSON.stringify(formData.name)
+                    JSON.stringify(formData.name),
                   );
                   this.resetForm();
                 })
