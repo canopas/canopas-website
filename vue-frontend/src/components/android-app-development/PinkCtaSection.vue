@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-relative tw-my-16 tw-h-80 xll:tw-h-[30rem]">
+  <div class="tw-relative tw-mb-16 tw-h-80 xll:tw-h-[30rem]">
     <img
       :src="background"
       alt="Background-Image"
