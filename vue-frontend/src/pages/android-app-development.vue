@@ -13,6 +13,7 @@
     <CaseStudy ref="casestudy" />
     <PinkCtaSection ref="cta1" class="tw-hidden md:tw-block" />
     <BlackCtaSection ref="cta2" />
+    <BlogSection ref="blog" />
     <FaqSection ref="faq" />
     <CtaSection ref="cta3" />
     <NewFooter ref="footer" />
@@ -42,6 +43,9 @@ const CtaSection = defineAsyncComponent(() =>
 );
 const BlackCtaSection = defineAsyncComponent(() =>
   import("@/components/android-app-development/BlackCtaSection.vue"),
+);
+const BlogSection = defineAsyncComponent(() =>
+  import("@/components/android-app-development/BlogSection.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue"),
@@ -90,6 +94,7 @@ export default {
     CaseStudy,
     PinkCtaSection,
     BlackCtaSection,
+    BlogSection,
     FaqSection,
     CtaSection,
     NewFooter,
