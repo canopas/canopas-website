@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-mx-auto tw-text-center lg:tw-mt-[5rem]">
+  <div class="tw-mx-auto tw-text-center lg:tw-my-[14.063rem]">
     <span
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.8] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem]"
       >WHY and How to Write Unit Tests?</span
@@ -58,10 +58,12 @@
           :loop="true"
           :loopedSlides="50"
           :autoplay="{
-            delay: 3000,
+            delay: 2000,
             disableOnInteraction: false,
           }"
+          :speed="3000"
           :spaceBetween="20"
+          :zoom="true"
           :navigation="true"
           class="swiper-container tw-absolute tw-left-0 tw-top-[10px] tw-z-30 tw-mx-auto tw-h-full tw-w-full"
         >
@@ -76,7 +78,7 @@
               <img
                 :src="test.images[0]"
                 :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
-                class="tw-h-[80%] tw-w-fit tw-object-cover tw-drop-shadow-md lg:tw-h-fit"
+                class="image-content swiper-zoom-container tw-h-[80%] tw-w-fit tw-object-cover tw-drop-shadow-md lg:tw-h-fit"
                 alt="UnitTestImage"
               />
             </div>
@@ -91,7 +93,7 @@
 </template>
 
 <script>
-import SwiperCore, { Autoplay } from "swiper";
+import SwiperCore, { Zoom, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import unittest1_400w from "@/assets/images/contributions/unittest/unit_test_1-400w.webp";
 import unittest1_800w from "@/assets/images/contributions/unittest/unit_test_1-800w.webp";
@@ -109,7 +111,7 @@ import unittest7_400w from "@/assets/images/contributions/unittest/unit_test_7-4
 import unittest7_800w from "@/assets/images/contributions/unittest/unit_test_7-800w.webp";
 import dot from "@/assets/images/why/why-canopas-dot-3.svg";
 
-SwiperCore.use([Autoplay]);
+SwiperCore.use([Zoom, Autoplay]);
 
 export default {
   data() {
@@ -175,7 +177,12 @@ export default {
 
 <style lang="postcss" scoped>
 @import "swiper/css";
-
+.swiper-slide:not(.swiper-slide-active) .image-content {
+  @apply tw-scale-[0.8];
+}
+.swiper-slide .swiper-zoom-container {
+  @apply tw-origin-bottom tw-duration-[3000ms];
+}
 .swiper-wrapper {
   @apply !tw-items-center;
 }

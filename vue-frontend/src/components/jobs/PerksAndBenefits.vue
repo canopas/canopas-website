@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-container tw-my-[100px] tw-mx-auto tw-py-0 tw-px-[5%] sm:tw-px-[10%] only:md:tw-max-w-[760px] md:tw-p-0"
+    class="tw-container tw-my-[14.063rem] tw-mx-auto tw-py-0 tw-px-[5%] sm:tw-px-[10%] only:md:tw-max-w-[760px] md:tw-p-0"
   >
     <div class="tw-text-center">
       <div class="header-text canopas-gradient-text">

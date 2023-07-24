@@ -1,6 +1,6 @@
 <template>
   <div
-    class="sm:tw-container tw-relative tw-pt-[50px] tw-pb-20 sm:tw-pb-[5rem] md:tw-pt-[100px] md:tw-pb-[150px] lg:tw-pt-[150px] lg:tw-pb-[250px]"
+    class="sm:tw-container tw-relative tw-pt-[3.125rem] tw-pb-20 sm:tw-pb-[5rem] md:tw-pt-[6.25rem] md:tw-pb-[9.375rem] lg:tw-pt-[9.375rem]"
   >
     <div
       class="v2-header-3-text tw-m-auto tw-text-center tw-w-[80%] sm:tw-w-full lg:tw-w-[80%]"

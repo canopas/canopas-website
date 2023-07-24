@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="tw-my-[7.813rem]">
     <div
       class="tw-py-12 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem] xl:tw-py-24"
     >

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="tw-container normal-text tw-px-[20px] tw-pt-[50px] tw-pb-[30px] md:tw-px-[50px] md:tw-pt-[100px] md:tw-pb-[50px] lg:tw-pt-[150px] tw-text-center"
+      class="tw-container normal-text tw-px-[1.25rem] tw-pt-[3.125rem] tw-pb-[1.875rem] md:tw-px-[3.125rem] md:tw-pt-[6.25rem] md:tw-pb-[3.125rem] lg:tw-pt-[14.063rem] tw-text-center"
     >
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Life a</span>t Canopas

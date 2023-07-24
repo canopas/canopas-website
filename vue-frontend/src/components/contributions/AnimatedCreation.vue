@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-my-[60px] tw-overflow-hidden">
+  <section class="tw-my-[14.063rem] tw-overflow-hidden">
     <div
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.438rem] tw-text-black-core/[0.87] lg:tw-text-[3.438rem] lg:tw-leading-[5.156rem]"
     >

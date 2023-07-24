@@ -1,25 +1,21 @@
 <template>
   <div
-    class="tw-from-[#F98584] tw-to-[#F47695] tw-bg-gradient-[180deg] tw-font-inter-regular"
+    class="tw-from-[#F98584] tw-to-[#F47695] tw-bg-gradient-[180deg] tw-font-inter-regular tw-mt-[7.813rem]"
   >
-    <div
-      class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-max-w-[1878px]"
-    >
-      <div
-        class="tw-hidden lg:tw-block lg:tw-w-[45%] xl:tw-w-[40%] 2xl:tw-pl-[74px]"
-      >
+    <div class="tw-container tw-flex tw-flex-col lg:tw-flex-row">
+      <div class="tw-hidden lg:tw-block lg:tw-w-[45%] xl:tw-w-[50%]">
         <img
           :src="CTAImage[3]"
           :srcset="`${CTAImage[0]} 400w, ${CTAImage[1]} 800w, ${CTAImage[2]} 1600w, ${CTAImage[3]} 2400w`"
           alt="portfolio-cta-image"
-          class="tw-w-full tw-h-full tw-object-cover"
+          class="tw-w-full tw-h-full tw-object-fill xl:tw-object-contain"
           loading="lazy"
         />
       </div>
 
-      <div class="tw-flex lg:tw-w-[55%]">
+      <div class="tw-flex lg:tw-w-[55%] xl:tw-w-[50%]">
         <div
-          class="tw-m-auto lg:tw-ml-auto xl:tw-m-auto tw-w-[80%] sm:tw-w-[60%] md:tw-w-[50%] lg:tw-w-[90%] 2xl:tw-w-9/12 tw-py-[20px] tw-text-white"
+          class="tw-m-auto lg:tw-ml-auto xl:tw-m-auto tw-w-[80%] sm:tw-w-[85%] md:tw-w-[69%] lg:tw-w-[100%] xl:tw-w-[90%] 2xl:tw-w-[92%] tw-py-[20px] tw-text-white"
         >
           <p
             class="tw-text-[1.5rem] tw-leading-[1.813rem] md:tw-text-[2.188rem] md:tw-leading-[2.625rem] lg:tw-text-[3.125rem] lg:tw-leading-[3.813rem] tw-font-inter-bold"
@@ -35,7 +31,7 @@
             </li>
           </ul>
           <div
-            class="xl:tw-w-[85%] tw-pt-6 tw-pb-8 tw-text-[0.875rem] tw-leading-[1.125rem] md:tw-text-[1.125rem] md:tw-leading-[1.375rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.813rem]"
+            class="xl:tw-w-[100%] tw-pt-6 tw-pb-8 tw-text-[0.875rem] tw-leading-[1.125rem] md:tw-text-[1.125rem] md:tw-leading-[1.375rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.813rem]"
           >
             Bring us your toughest challenge and we'll show you the path to a
             sleek solution.

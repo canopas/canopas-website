@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-font-inter-regular md:tw-mt-[80px]">
+  <div class="tw-font-inter-regular md:tw-mt-[7.813rem]">
     <p
       class="tw-text-center tw-text-[3.75rem] tw-leading-[4.0625rem] tw-text-black-core/[.03] xl:tw-text-[5rem] xl:tw-leading-[5rem]"
     >
@@ -21,16 +21,15 @@
         activeIndex === index
           ? 'tw-transform tw-transition-all tw-duration-500  tw-ease-in-out hover:tw-text-transparent'
           : '',
-        showServices ? 'tw-cursor-pointer' : '',
       ]"
-      class="tw-relative tw-flex tw-h-36 tw-items-center tw-pl-16 xl:tw-pl-48 xll:tw-pl-[40rem]"
+      class="tw-cursor-pointer tw-relative tw-flex tw-h-36 tw-items-center tw-pl-16 xl:tw-pl-48 xll:tw-pl-[54rem] 3xl:tw-pl-[84rem]"
     >
       <div
         v-if="activeIndex === index || (activeIndex == null && index == 0)"
         class="tw-absolute tw-left-0 tw-top-0 tw-z-[2] tw-ml-0 tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center tw-pr-8 tw-shadow-[0px_2px_50px_4px_rgba(61,61,61,0.1)] xl:tw-pr-12"
       >
         <div
-          class="tw-flex tw-h-36 tw-basis-[44%] tw-items-center tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B] tw-pl-16 tw-font-inter-semibold tw-text-2xl tw-text-white lg:tw-basis-[49%] xl:tw-pl-48 xl:tw-text-[1.875rem] xl:tw-leading-[2.4375rem] xll:tw-pl-[40rem]"
+          class="tw-flex tw-h-36 tw-basis-[44%] tw-items-center tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B] tw-pl-16 tw-font-inter-semibold tw-text-2xl tw-text-white lg:tw-basis-[49%] xl:tw-pl-48 xl:tw-text-[1.875rem] xl:tw-leading-[2.4375rem] xll:tw-pl-[54rem] 3xl:tw-pl-[84rem]"
         >
           0{{ index + 1 }}
           <span class="tw-pl-[20px] xl:tw-pl-[62px]">
@@ -41,7 +40,7 @@
           class="tw-ml-[-1px] tw-basis-[1%] tw-border-r-[70px] tw-border-t-[144px] tw-border-transparent tw-border-t-[#ff835b]"
         ></div>
         <div
-          class="tw-flex tw-basis-[55%] tw-flex-col tw-items-start tw-justify-center tw-px-4 tw-font-inter-regular tw-text-base tw-text-black-core/[.8] lg:tw-basis-[50%] xl:tw-text-[1.25rem] xl:tw-leading-[1.775rem]"
+          class="tw-flex tw-basis-[55%] tw-flex-col tw-items-start tw-justify-center tw-px-4 xll:tw-pr-[49rem] 3xl:tw-pr-[78rem] tw-font-inter-regular tw-text-base tw-text-black-core/[.8] lg:tw-basis-[50%] xl:tw-text-[1.25rem] xl:tw-leading-[1.775rem]"
         >
           <p>
             {{ service.content }}

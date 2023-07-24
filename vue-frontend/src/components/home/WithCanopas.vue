@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-mb-11 md:tw-mb-24 tw-bg-gradient-to-t tw-from-orange-300/[0.15] tw-to-white"
+    class="tw-mt-[7.813rem] tw-mb-11 md:tw-mb-24 tw-bg-gradient-to-t tw-from-orange-300/[0.15] tw-to-white"
   >
     <div class="tw-container tw-pb-4 tw-pt-20 lg:tw-pt-32">
       <div
