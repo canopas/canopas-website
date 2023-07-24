@@ -79,107 +79,106 @@
           </div>
         </div>
       </div>
+
+      <!-- ------------------------ MobileUI END---------------------- -->
     </div>
-    <!-- ------------------------ MobileUI END---------------------- -->
     <div class="tw-hidden md:tw-block tw-bg-[#F6F6F6] tw-mt-14">
-      <div class="swiper-content tw-relative tw--mt-6 xll:tw-container">
-        <swiper
-          :slidesPerView="1"
-          :centeredSlides="true"
-          :loop="true"
-          :speed="4000"
-          :autoplay="{
-            delay: 4000,
-            disableOnInteraction: false,
-          }"
-          :loopedSlides="50"
-          :spaceBetween="20"
-          :navigation="true"
-          class="swiper-container tw-absolute tw-left-0 tw-top-[10px] tw-z-30 tw-mx-auto tw-h-full tw-w-full"
-        >
-          <swiper-slide v-for="item in cases" :key="item">
+      <swiper
+        :slidesPerView="1"
+        :centeredSlides="true"
+        :loop="true"
+        :speed="4000"
+        :autoplay="{
+          delay: 4000,
+          disableOnInteraction: false,
+        }"
+        :loopedSlides="50"
+        :spaceBetween="20"
+        :navigation="true"
+        class="swiper-container xll:tw-container"
+      >
+        <swiper-slide v-for="item in cases" :key="item">
+          <div
+            class="tw-flex tw-flex-row xl:tw-px-[4rem] tw-py-[6rem] tw-w-[91%] 2xl:tw-w-[77%] 2xll:tw-w-[72%] xll:tw-w-[91%] tw-mx-auto"
+          >
             <div
-              class="tw-flex tw-flex-row xl:tw-px-[4rem] tw-py-[6rem] tw-w-[91%] 2xl:tw-w-[77%] 2xll:tw-w-[72%] xll:tw-w-[91%] tw-mx-auto"
+              class="tw-flex tw-flex-col tw-w-[77%] xl:tw-w-[48%] 2xll:tw-w-[50%] lg:tw-mr-auto xll:tw-ml-auto"
             >
-              <div
-                class="tw-flex tw-flex-col tw-w-[77%] xl:tw-w-[48%] 2xll:tw-w-[50%] lg:tw-mr-auto xll:tw-ml-auto"
-              >
-                <div class="tw-mb-4">
-                  <span
-                    class="v2-canopas-gradient-text tw-text-left tw-font-inter-medium tw-text-[1.5rem] tw-leading-[1.816rem]"
-                  >
-                    {{ item.title }}
-                  </span>
-                </div>
+              <div class="tw-mb-4">
                 <span
-                  class="tw-mb-[1rem] tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.7375rem] lg:tw-text-[2.875rem] lg:tw-leading-[3.7375rem]"
-                  v-html="item.deskcontent"
-                ></span>
-                <span
-                  class="tw-text-black-core/[0.60] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.575rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem]"
-                  v-html="item.description"
-                ></span>
-                <img
-                  :src="resultsimage"
-                  class="tw-h-[3rem] tw-w-[3rem] lg:tw-h-[5rem] lg:tw-w-[5rem] tw-object-cover tw-ml-[60%] tw-mt-[2rem] tw-mb-[1rem] 2xll:tw-ml-[50%]"
-                  alt="case_study_result_image"
-                />
-                <div
-                  class="tw-bg-white tw-drop-shadow-md tw-rounded md:tw-w-[390px] lg:tw-w-[457px]"
+                  class="v2-canopas-gradient-text tw-text-left tw-font-inter-medium tw-text-[1.5rem] tw-leading-[1.816rem]"
                 >
-                  <div class="tw-inline-flex tw-p-[0.5rem] lg:tw-p-4">
-                    <div class="tw-p-[0.8rem]">
-                      <span
-                        class="tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
-                        >{{ item.resultcount[0] }}</span
-                      >
-                      <div
-                        class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
-                      >
-                        <span>Downloads</span>
-                      </div>
-                    </div>
-                    <div
-                      class="tw-border-l-[0.5px] tw-border-black-core/[0.6] tw-p-[0.8rem]"
+                  {{ item.title }}
+                </span>
+              </div>
+              <span
+                class="tw-mb-[1rem] tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.7375rem] lg:tw-text-[2.875rem] lg:tw-leading-[3.7375rem]"
+                v-html="item.deskcontent"
+              ></span>
+              <span
+                class="tw-text-black-core/[0.60] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.575rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem]"
+                v-html="item.description"
+              ></span>
+              <img
+                :src="resultsimage"
+                class="tw-h-[3rem] tw-w-[3rem] lg:tw-h-[5rem] lg:tw-w-[5rem] tw-object-cover tw-ml-[60%] tw-mt-[2rem] tw-mb-[1rem] 2xll:tw-ml-[50%]"
+                alt="case_study_result_image"
+              />
+              <div
+                class="tw-bg-white tw-drop-shadow-md tw-rounded md:tw-w-[390px] lg:tw-w-[457px]"
+              >
+                <div class="tw-inline-flex tw-p-[0.5rem] lg:tw-p-4">
+                  <div class="tw-p-[0.8rem]">
+                    <span
+                      class="tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
+                      >{{ item.resultcount[0] }}</span
                     >
-                      <span
-                        class="tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
-                        >{{ item.resultcount[1] }}</span
-                      >
-                      <div
-                        class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
-                      >
-                        <span>App Rating</span>
-                      </div>
-                    </div>
                     <div
-                      class="tw-border-l-[0.5px] tw-border-black-core/[0.6] tw-p-[0.8rem]"
+                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
                     >
-                      <span
-                        class="tw-font-inter-semibold lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
-                        >{{ item.resultcount[2] }}</span
-                      >
-                      <div
-                        class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
-                      >
-                        <span>Monthly Users</span>
-                      </div>
+                      <span>Downloads</span>
+                    </div>
+                  </div>
+                  <div
+                    class="tw-border-l-[0.5px] tw-border-black-core/[0.6] tw-p-[0.8rem]"
+                  >
+                    <span
+                      class="tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
+                      >{{ item.resultcount[1] }}</span
+                    >
+                    <div
+                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
+                    >
+                      <span>App Rating</span>
+                    </div>
+                  </div>
+                  <div
+                    class="tw-border-l-[0.5px] tw-border-black-core/[0.6] tw-p-[0.8rem]"
+                  >
+                    <span
+                      class="tw-font-inter-semibold lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
+                      >{{ item.resultcount[2] }}</span
+                    >
+                    <div
+                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
+                    >
+                      <span>Monthly Users</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div>
-                <img
-                  :src="item.images[2]"
-                  :srcset="`${item.images[2]} 400w,${item.images[3]} 800w`"
-                  class="tw-mt-[3rem] tw-h-[20rem] lg:tw-h-[24.75006rem] xl:tw-h-[29.75006rem] tw-w-[25.87525rem] lg:tw-w-[30.87525rem] xl:tw-w-[29.87525rem] tw-object-fit"
-                  alt="CaseStudyImage"
-                />
-              </div>
             </div>
-          </swiper-slide>
-        </swiper>
-      </div>
+            <div>
+              <img
+                :src="item.images[2]"
+                :srcset="`${item.images[2]} 400w,${item.images[3]} 800w`"
+                class="tw-mt-[3rem] tw-h-[20rem] lg:tw-h-[24.75006rem] xl:tw-h-[29.75006rem] tw-w-[25.87525rem] lg:tw-w-[30.87525rem] xl:tw-w-[29.87525rem] tw-object-fit"
+                alt="CaseStudyImage"
+              />
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
     </div>
   </section>
 </template>
