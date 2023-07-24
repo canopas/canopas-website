@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-my-20 tw-overflow-hidden md:tw-mt-16">
+  <section class="tw-my-20 tw-overflow-hidden md:tw-mt-[14.063rem]">
     <!-- Mobile UI start -->
     <p
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.438rem] tw-text-black-core/[0.87] md:tw-ml-[6%] md:tw-w-[39%] md:tw-text-left lg:tw-hidden lg:tw-text-[3.438rem] lg:tw-leading-[5.156rem]"
@@ -89,7 +89,7 @@
               class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-[0.9]"
             ></div>
             <div
-              class="tw-absolute tw-left-[4%] tw-top-[32%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-top-[35%] lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
+              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
             >
               {{ favourite.description }}
             </div>
@@ -130,7 +130,7 @@
               class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-[0.9]"
             ></div>
             <div
-              class="tw-absolute tw-left-[4%] tw-top-[32%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-top-[35%] lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
+              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
             >
               {{ favourite.description }}
             </div>
@@ -172,7 +172,7 @@
               class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-[0.9]"
             ></div>
             <div
-              class="tw-absolute tw-left-[4%] tw-top-[32%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-top-[35%] lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
+              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
             >
               {{ favourite.description }}
             </div>
@@ -272,6 +272,7 @@ export default {
     Swiper,
     SwiperSlide,
   },
+  inject: ["mixpanel"],
 };
 </script>
 <style lang="postcss">

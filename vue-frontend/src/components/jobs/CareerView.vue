@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-container tw-my-[100px] tw-mx-auto">
+  <div class="tw-container tw-my-[14.063rem] tw-mx-auto">
     <div class="tw-text-center">
       <p class="header-text canopas-gradient-text">
         <span class="underline-text">Find t</span>he career of your dreams

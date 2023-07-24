@@ -5,7 +5,7 @@
     <p
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.438rem] tw-text-black-core/[0.87] lg:tw-text-[3.438rem] lg:tw-leading-[5.156rem]"
     >
-      DevOps: CI/CD and Auto Deployment
+      DevOps - CI/CD and Auto Deployment
     </p>
     <!-- Mobile UI start -->
     <div class="tw-mt-[3rem] tw-block md:tw-hidden">

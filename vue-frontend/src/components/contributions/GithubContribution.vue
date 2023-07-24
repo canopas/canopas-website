@@ -1,5 +1,5 @@
 <template>
-  <section class="lg:tw-my-[100px]">
+  <section class="lg:tw-my-[14.063rem]">
     <div class="tw-container md:tw-mb-24 lg:tw-mb-0">
       <p
         class="tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.438rem] tw-text-black-core/[0.87] lg:tw-text-[3.438rem] lg:tw-leading-[5.156rem]"

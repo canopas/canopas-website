@@ -264,7 +264,7 @@ export default {
         },
         {
           name: "Contribution",
-          url: "",
+          url: "/contributions",
           event: "tap_header_contribution",
         },
         {

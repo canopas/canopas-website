@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-my-[2rem] lg:tw-my-[5rem] tw-text-black-core/[.87] tw-overflow-hidden"
+    class="tw-my-[2rem] lg:tw-my-[7.813rem] tw-text-black-core/[.87] tw-overflow-hidden"
   >
     <div
       class="tw-container tw-flex tw-flex-col tw-items-center tw-m-auto tw-w-full"

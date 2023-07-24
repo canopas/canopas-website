@@ -1,5 +1,7 @@
 <template>
-  <div class="tw-container tw-my-[1rem] lg:tw-mt-[5rem] tw-ml-auto tw-mx-auto">
+  <div
+    class="tw-container tw-my-[1rem] tw-mt-[6.25rem] md:tw-mt-[14.063rem] tw-ml-auto tw-mx-auto"
+  >
     <div class="swiper-content">
       <swiper
         :slidesPerView="1"
@@ -180,8 +182,4 @@ export default {
 
 <style lang="postcss">
 @import "swiper/css";
-
-.swiper-wrapper {
-  @apply !tw-items-center;
-}
 </style>

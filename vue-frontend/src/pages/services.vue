@@ -11,14 +11,14 @@
       <LandingSection />
       <WhatWeOfferMobile class="tw-block lg:tw-hidden" />
       <WhatWeOfferDesktop class="tw-hidden lg:tw-block" />
-      <ContactUsToday />
+      <CTASection class="!tw-mt-24 xl:!tw-mt-40" />
       <TechnologyStack />
       <BlogSection />
       <ContributionSection class="tw-hidden lg:tw-block" />
       <ContributionSectionMobile class="tw-block lg:tw-hidden" />
       <SuccessStories />
       <ClientReviewSection />
-      <CTASection />
+      <CTASection2 />
     </div>
 
     <NewFooter />
@@ -40,8 +40,8 @@ const SuccessStories = defineAsyncComponent(() =>
 const BlogSection = defineAsyncComponent(() =>
   import("@/components/home-new/BlogSection.vue"),
 );
-const ContactUsToday = defineAsyncComponent(() =>
-  import("@/components/services/ContactUsToday.vue"),
+const CTASection = defineAsyncComponent(() =>
+  import("@/components/home-new/PortfolioPageCTASection.vue"),
 );
 const ContributionSection = defineAsyncComponent(() =>
   import("@/components/home-new/ContributionSection.vue"),
@@ -52,8 +52,8 @@ const ContributionSectionMobile = defineAsyncComponent(() =>
 const ClientReviewSection = defineAsyncComponent(() =>
   import("@/components/home-new/ClientReviewSection.vue"),
 );
-const CTASection = defineAsyncComponent(() =>
-  import("@/components/home-new/PortfolioPageCTASection.vue"),
+const CTASection2 = defineAsyncComponent(() =>
+  import("@/components/services/CTASection.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue"),
@@ -82,14 +82,14 @@ export default {
     LandingSection,
     WhatWeOfferMobile,
     WhatWeOfferDesktop,
-    ContactUsToday,
+    CTASection,
     TechnologyStack,
     SuccessStories,
     BlogSection,
     ContributionSection,
     ContributionSectionMobile,
     ClientReviewSection,
-    CTASection,
+    CTASection2,
     NewFooter,
   },
   inject: ["mixpanel"],

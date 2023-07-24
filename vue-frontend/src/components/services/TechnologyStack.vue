@@ -1,8 +1,8 @@
 <template>
   <section
-    class="tw-flex tw-flex-col tw-items-center tw-mb-20 md:tw-mb-28 md:tw-mx-auto md:tw-w-8/12"
+    class="tw-flex tw-flex-col tw-mt-[7.813rem] tw-items-center tw-mb-20 md:tw-mb-[14.063rem] md:tw-mx-auto md:tw-w-8/12"
   >
-    <div class="tw-container tw-mt-20 lg:tw-mt-0 tw-text-center">
+    <div class="tw-container tw-mt-20 lg:tw-mt-32 tw-text-center">
       <span
         class="tw-font-inter-bold tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.25rem] md:tw-leading-[5.15625rem] tw-text-black-core/[0.87]"
         >Technology Stack</span

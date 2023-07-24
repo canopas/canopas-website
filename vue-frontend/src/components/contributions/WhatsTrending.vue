@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-mt-5 xll:tw-container md:tw-mt-20">
+  <div class="tw-mt-5 xll:tw-container md:tw-mt-[14.063rem]">
     <div
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem] lg:tw-text-[3.4375rem] lg:tw-leading-[5.1875rem]"
     >

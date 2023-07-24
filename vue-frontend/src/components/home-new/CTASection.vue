@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-relative tw-mt-[70px] md:tw-mt-[100px] tw-overflow-hidden tw-px-0 tw-font-inter-regular md:tw-font-inter-medium"
+    class="tw-relative tw-mt-[4.375rem] md:tw-mt-[14.063rem] tw-overflow-hidden tw-px-0 tw-font-inter-regular md:tw-font-inter-medium"
   >
     <img
       :src="bg2400"

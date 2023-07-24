@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-relative tw-bg-gradient-to-t tw-from-pink-300/[0.05] tw-to-white landing-bg-mobile-clip-path md:landing-bg-clip-path tw-overflow-hidden tw-px-0 tw-pb-[50px] md:tw-pb-[100px] tw-font-inter-regular"
+    class="tw-relative tw-bg-gradient-to-t tw-from-pink-300/[0.05] tw-to-white landing-bg-mobile-clip-path md:landing-bg-clip-path tw-overflow-hidden tw-px-0 tw-pb-[3.125rem] md:tw-pb-[6.25rem] tw-font-inter-regular"
   >
     <img
       :src="background2100"
@@ -10,10 +10,10 @@
     />
 
     <div
-      class="tw-container tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start tw-pb-[25px] md:tw-pb-[50px]"
+      class="tw-container tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start tw-pb-[1.563rem] md:tw-pb-[3.125rem]"
     >
       <aspect-ratio
-        class="tw-flex-[45%] lg:tw-block tw-hidden tw-mt-[40px]"
+        class="tw-flex-[45%] lg:tw-block tw-hidden tw-mt-[2.5rem]"
         height="66%"
       >
         <img
@@ -24,7 +24,7 @@
         />
       </aspect-ratio>
       <div
-        class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[40px] md:tw-mt-[20px] lg:tw-mt-[100px]"
+        class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[2.5rem] md:tw-mt-[1.25rem] lg:tw-mt-[6.25rem]"
       >
         <h1
           class="tw-w-[100%] sm:tw-w-[85%] tw-pb-5 lg:tw-pb-8 xl:tw-pb-10 v2-header-3-text tw-tracking-[0] tw-text-[2.1875rem] tw-leading-[2.8125rem] md:tw-text-[2.65625rem] md:tw-leading-[3.28125rem] lg:tw-text-[3.28125rem] lg:tw-leading-[3.70625rem] 2xl:tw-text-[4.0625rem] 2xl:tw-leading-[4.6875rem] tw-text-black-core/[.87] tw-font-roboto-bold"
@@ -87,7 +87,7 @@
                   alt="client-image"
                 />
               </div>
-              <div v-if="client.plusIcon">
+              <router-link v-if="client.plusIcon" :to="contactURL">
                 <div
                   class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-border-[3px] tw-border-white tw-rounded-full tw-bg-[#ffc4c0]"
                   :class="client.className"
@@ -97,7 +97,7 @@
                     icon="plus"
                   />
                 </div>
-              </div>
+              </router-link>
             </div>
             <div class="tw-pl-[10px] md:tw-pl-[6px]">
               <div class="tw-flex tw-justify-between tw-mt-[3px]">

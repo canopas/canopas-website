@@ -1,13 +1,15 @@
 <template>
   <div class="tw-mb-9 tw-font-inter-regular md:tw-mb-24">
     <form>
-      <div class="tw-px-8 tw-py-5 lg:tw-px-24">
+      <div
+        class="tw-px-8 tw-py-5 lg:tw-px-24 tw-flex tw-flex-col tw-items-center"
+      >
         <div class="tw-grid tw-grid-cols-1 tw-gap-4 md:tw-grid-cols-2">
           <div class="tw-relative tw-pt-3 tw-text-left md:tw-mb-5 lg:tw-pt-9">
             <input
               type="text"
               id="username"
-              class="floating-input tw-peer tw-mx-0 tw-my-2 tw-block tw-w-full tw-appearance-none tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-text-lg tw-text-white tw-placeholder-white/[.6] tw-transition tw-ease-in-out focus:tw-outline-none active:tw-outline-none md:tw-text-xl lg:tw-text-2xl"
+              class="floating-input tw-peer tw-mx-0 tw-my-2 tw-block tw-w-full md:tw-w-[95%] tw-appearance-none tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-text-lg tw-text-white tw-placeholder-white/[.6] tw-transition tw-ease-in-out focus:tw-outline-none active:tw-outline-none md:tw-text-xl lg:tw-text-2xl"
               name="username"
               required
               autocomplete="given-username"
@@ -32,7 +34,7 @@
           </div>
           <div class="tw-relative tw-pt-3 tw-text-left md:tw-mb-5 lg:tw-pt-9">
             <input
-              class="floating-input tw-peer tw-mx-0 tw-my-2 tw-block tw-w-full tw-appearance-none tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-text-lg tw-text-white tw-placeholder-white/[.6] tw-transition tw-ease-in-out focus:tw-outline-none active:tw-outline-none md:tw-text-xl lg:tw-text-2xl"
+              class="floating-input tw-peer tw-mx-0 tw-my-2 tw-block tw-w-full md:tw-w-[95%] tw-appearance-none tw-rounded-none tw-border-b tw-border-white/[.6] tw-bg-transparent tw-px-0 tw-text-lg tw-text-white tw-placeholder-white/[.6] tw-transition tw-ease-in-out focus:tw-outline-none active:tw-outline-none md:tw-text-xl lg:tw-text-2xl"
               type="text"
               name="email"
               id="email"
