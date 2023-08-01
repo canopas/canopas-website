@@ -12,10 +12,7 @@
           <div
             v-for="(service, index) in services"
             :key="service"
-            class="tw-relative"
-            :style="{
-              height: `${height}px`,
-            }"
+            class="tw-relative tw-h-[100vh]"
             :ref="'image-' + index"
           >
             <div class="tw-absolute tw-top-[50%] tw-translate-y-[-50%]">
@@ -38,10 +35,7 @@
           </div>
         </div>
         <div
-          class="-tw-translate-[50%] tw-sticky tw-top-0 tw-flex tw-w-[50%] tw-items-center"
-          :style="{
-            height: `${height}px`,
-          }"
+          class="-tw-translate-[50%] tw-sticky tw-top-0 tw-flex tw-w-[50%] tw-h-[100vh] tw-items-center"
         >
           <div
             v-for="service in services"

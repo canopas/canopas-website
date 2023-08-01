@@ -77,37 +77,15 @@
                 <ul
                   v-show="showContributionMenu"
                   @mouseleave="showContributionMenu = false"
-                  class="tw-absolute tw-w-max tw-flex-col tw-space-y-6 tw-rounded-[5px] tw-border tw-bg-white !tw-px-6 tw-py-[1.5rem] tw-shadow-md lg:tw-top-[4.5rem] xl:tw-left-[296px] 2xl:tw-left-[475px]"
-                  :class="
-                    subMenus.length == 2
-                      ? 'lg:tw-left-[180px]'
-                      : 'lg:tw-left-[169px]'
-                  "
+                  class="tw-absolute tw-w-max tw-flex-col tw-space-y-6 tw-rounded-[5px] tw-border tw-bg-white !tw-px-6 tw-py-[1.5rem] tw-shadow-md lg:tw-top-[4.5rem] lg:tw-left-[169px] xl:tw-left-[296px] 2xl:tw-left-[475px]"
                 >
-                  <li
-                    v-for="navbar in subMenus"
-                    :key="navbar"
-                    class="tw-group tw-relative"
-                  >
+                  <li v-for="navbar in subMenus" :key="navbar">
                     <a
-                      class="tw-group tw-relative tw-py-[1rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] group-hover:tw-z-[1] group-hover:tw-text-white md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem]"
+                      class="tw-relative tw-py-[1rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem] after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[42px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100"
                       :href="navbar.url"
                       :target="navbar.target"
-                      :class="
-                        subMenus.length == 2
-                          ? 'group-hover:tw-w-[145px]'
-                          : 'group-hover:tw-w-[168px]'
-                      "
                       >{{ navbar.name }}
-                      <div
-                        :class="
-                          subMenus.length == 2
-                            ? 'group-hover:tw-w-[145px]'
-                            : 'group-hover:tw-w-[168px]'
-                        "
-                        class="tw-ease tw-absolute tw-left-[-25px] tw-top-[0] tw-z-[-1] tw-h-[100%] tw-w-0 tw-from-[#FF835B] tw-to-[#F2709C] tw-transition-all tw-duration-300 tw-bg-gradient-[180deg] group-hover:tw-h-[100%]"
-                      ></div
-                    ></a>
+                    </a>
                   </li>
                 </ul>
               </li>
@@ -162,7 +140,7 @@
           >
             <router-link
               v-if="!navbar.target"
-              :to="navbar.url"
+              :to="navbar.url == '/contributions' ? '' : navbar.url"
               @click.native="mixpanel.track(navbar.event)"
               class="tw-group tw-relative tw-mr-[20px] tw-inline-block sm:tw-mr-[30px] lg:tw-mr-[20px]"
               :class="[
@@ -195,19 +173,12 @@
               "
               class="tw-flex-col tw-space-y-6"
             >
-              <li
-                v-for="navbar in subMenus"
-                :key="navbar"
-                class="tw-group tw-relative"
-              >
+              <li v-for="navbar in subMenus" :key="navbar">
                 <a
-                  class="tw-group tw-relative tw-py-[0.5rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] group-hover:tw-z-[1] group-hover:tw-text-white md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem]"
+                  class="tw-relative tw-py-[0.5rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] group-hover:tw-z-[1] group-hover:tw-text-white md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem] after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[30px] md:after:tw-top-[35px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100"
                   :href="navbar.url"
                   :target="navbar.target"
                   >{{ navbar.name }}
-                  <div
-                    class="tw-ease tw-fixed tw-left-0 tw-z-[-1] tw-mt-[-31px] tw-w-0 tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B] tw-transition-all tw-duration-100 group-hover:tw-h-[5%] group-hover:tw-w-screen"
-                  ></div>
                 </a>
               </li>
             </ul>

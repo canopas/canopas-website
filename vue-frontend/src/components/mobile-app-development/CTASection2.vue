@@ -8,7 +8,7 @@
     ></div>
 
     <div
-      class="tw-container tw-flex tw-flex-col tw-items-center md:tw-flex-row md:tw-flex-row-reverse"
+      class="tw-container xll:tw-max-w-[1640px] tw-flex tw-flex-col tw-items-center md:tw-flex-row md:tw-flex-row-reverse"
     >
       <div
         class="tw-flex tw-flex-col md:tw-relative md:tw-items-end lg:tw-flex-[55%]"
@@ -29,7 +29,7 @@
           >ogether
         </p>
         <p
-          class="tw-mt-6 tw-w-[385px] tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-white md:tw-text-right md:tw-text-[1.4rem] md:tw-leading-[2rem] md:tw-text-white/[0.75] xl:tw-w-[82%] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem] 2xl:tw-w-[68%]"
+          class="tw-mt-6 tw-w-[385px] tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-white md:tw-text-right md:tw-text-[1.4rem] md:tw-leading-[2rem] md:tw-text-white/[0.75] xl:tw-w-[82%] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem] 2xl:tw-w-[68%] xll:tw-w-[55%]"
         >
           Not sure where to start? We also offer code and architecture reviews,
           strategic planning, and more.

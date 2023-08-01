@@ -12,8 +12,11 @@
       class="tw-block lg:tw-hidden"
       ref="contributions"
     />
-    <CTASection ref="cta" />
-    <FooterV3 ref="footer" />
+    <CTASection
+      ref="cta"
+      class="!tw-mt-[100px] md:!tw-mt-[220px] tw-pt-10 tw-bg-black-core/[0.85] tw-mb-[-15px]"
+    />
+    <NewFooter ref="footer" />
   </div>
 </template>
 
@@ -44,13 +47,13 @@ const ClientReview = defineAsyncComponent(() =>
   import("@/components/home-new/ClientReviewSection.vue"),
 );
 const CTASection = defineAsyncComponent(() =>
-  import("@/components/home-new/CTASection.vue"),
+  import("@/components/mobile-app-development/CTASection2.vue"),
 );
 const BlogSection = defineAsyncComponent(() =>
   import("@/components/home-new/BlogSection.vue"),
 );
-const FooterV3 = defineAsyncComponent(() =>
-  import("@/components/partials/FooterV3.vue"),
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue"),
 );
 
 library.add(faPlus);
@@ -67,7 +70,7 @@ export default {
     ContributionSectionMobile,
     CTASection,
     BlogSection,
-    FooterV3,
+    NewFooter,
   },
   data() {
     return {

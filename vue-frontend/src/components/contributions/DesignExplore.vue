@@ -68,7 +68,7 @@
           :navigation="true"
           class="swiper-container !tw-pt-[30px]"
         >
-          <swiper-slide v-for="(item, index) in data.slice(0, 5)" :key="index">
+          <swiper-slide v-for="(item, index) in data" :key="index">
             <div
               class="image-content swiper-zoom-container tw-cursor-pointer"
               @click="openBlog(item.link)"
@@ -99,7 +99,13 @@
           :navigation="true"
           class="swiper-container"
         >
-          <swiper-slide v-for="(item, index) in data.slice(5, 10)" :key="index">
+          <swiper-slide
+            v-for="(item, index) in [
+              ...this.data.slice(4, 8),
+              ...this.data.slice(0, 4),
+            ]"
+            :key="index"
+          >
             <div class="tw-cursor-pointer" @click="openBlog(item.link)">
               <img
                 :src="item.images[0]"
@@ -123,29 +129,23 @@ import chatapp800w from "@/assets/images/contributions/explore/1-800w.webp";
 import elearningapp from "@/assets/images/contributions/explore/2-400w.webp";
 import elearningapp800w from "@/assets/images/contributions/explore/2-800w.webp";
 
-import fitnessapp from "@/assets/images/contributions/explore/3-400w.webp";
-import fitnessapp800w from "@/assets/images/contributions/explore/3-800w.webp";
+import foodorderingapp from "@/assets/images/contributions/explore/3-400w.webp";
+import foodorderingapp800w from "@/assets/images/contributions/explore/3-800w.webp";
 
-import foodorderingapp from "@/assets/images/contributions/explore/4-400w.webp";
-import foodorderingapp800w from "@/assets/images/contributions/explore/4-800w.webp";
+import irctcapp from "@/assets/images/contributions/explore/4-400w.webp";
+import irctcapp800w from "@/assets/images/contributions/explore/4-800w.webp";
 
-import irctcapp from "@/assets/images/contributions/explore/5-400w.webp";
-import irctcapp800w from "@/assets/images/contributions/explore/5-800w.webp";
+import meditationapp from "@/assets/images/contributions/explore/5-400w.webp";
+import meditationapp800w from "@/assets/images/contributions/explore/5-800w.webp";
 
-import meditationapp from "@/assets/images/contributions/explore/6-400w.webp";
-import meditationapp800w from "@/assets/images/contributions/explore/6-800w.webp";
+import moviestreamingapp from "@/assets/images/contributions/explore/6-400w.webp";
+import moviestreamingapp800w from "@/assets/images/contributions/explore/6-800w.webp";
 
-import moviestreamingapp from "@/assets/images/contributions/explore/7-400w.webp";
-import moviestreamingapp800w from "@/assets/images/contributions/explore/7-800w.webp";
+import shoppingapp from "@/assets/images/contributions/explore/7-400w.webp";
+import shoppingapp800w from "@/assets/images/contributions/explore/7-800w.webp";
 
-import musicapp from "@/assets/images/contributions/explore/8-400w.webp";
-import musicapp800w from "@/assets/images/contributions/explore/8-800w.webp";
-
-import shoppingapp from "@/assets/images/contributions/explore/9-400w.webp";
-import shoppingapp800w from "@/assets/images/contributions/explore/9-800w.webp";
-
-import socialnetworkingapp from "@/assets/images/contributions/explore/10-400w.webp";
-import socialnetworkingapp800w from "@/assets/images/contributions/explore/10-800w.webp";
+import socialnetworkingapp from "@/assets/images/contributions/explore/8-400w.webp";
+import socialnetworkingapp800w from "@/assets/images/contributions/explore/8-800w.webp";
 
 import AspectRatio from "@/components/utils/AspectRatio.vue";
 import SwiperCore, { Zoom, Pagination, Autoplay } from "swiper";
@@ -177,33 +177,23 @@ export default {
           classname: "tw--rotate-6",
         },
         {
-          images: [fitnessapp, fitnessapp800w],
-          link: "https://dribbble.com/shots/20682872-Fitness-App",
-          classname: "tw-rotate-6",
-        },
-        {
           images: [foodorderingapp, foodorderingapp800w],
           link: "https://dribbble.com/shots/20513671-Food-Delivery-App",
-          classname: "tw--rotate-6",
+          classname: "tw-rotate-6",
         },
         {
           images: [irctcapp, irctcapp800w],
           link: "https://dribbble.com/shots/20455362-Journey-Booking-App",
-          classname: "tw-rotate-6",
+          classname: "tw--rotate-6",
         },
         {
           images: [meditationapp, meditationapp800w],
           link: "https://dribbble.com/shots/20749246-Meditation-app",
-          classname: "tw--rotate-6",
+          classname: "tw-rotate-6",
         },
         {
           images: [moviestreamingapp, moviestreamingapp800w],
           link: "https://dribbble.com/shots/20597815-Movie-Streaming-app",
-          classname: "tw-rotate-6",
-        },
-        {
-          images: [musicapp, musicapp800w],
-          link: "https://dribbble.com/shots/20781387-Music-Streaming-app",
           classname: "tw--rotate-6",
         },
         {

@@ -67,12 +67,14 @@
               Canopas - A mobile app development company revolutionizing
               businesses with bespoke Android, iOS, and Flutter applications.
             </p>
-            <div class="tw-mt-0 tw-flex tw-justify-end">
+            <div
+              class="tw-mt-0 tw-flex tw-justify-end xll:tw-mr-[-9.5rem] 3xl:tw-mr-[-5.5rem]"
+            >
               <img
                 :src="card_400w"
                 :srcset="`${card_400w} 400w, ${card_800w} 800w`"
                 alt="landing"
-                class="tw-h-[40%] tw-w-[40%] tw-object-contain xl:tw-w-[33%] 2xl:tw-w-[26%] xll:tw-w-[45%]"
+                class="tw-h-[40%] tw-w-[40%] tw-object-contain xl:tw-w-[33%] 2xl:tw-w-[26%] xll:tw-w-[37%]"
               />
             </div>
           </div>
