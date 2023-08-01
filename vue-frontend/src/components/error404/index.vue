@@ -7,7 +7,7 @@
     </metainfo>
     <Header />
     <div
-      class="tw-container tw-flex tw-items-center tw-justify-center tw-flex-col tw-my-0 tw-mx-auto tw-py-[150px] tw-px-[5%] tw-min-h-[50vh]"
+      class="tw-container tw-flex tw-items-center tw-justify-center tw-flex-col tw-my-0 tw-mx-auto tw-py-[150px] tw-px-[5%] tw-min-h-[50vh] xll:tw-min-h-[79vh]"
     >
       <div class="tw-flex tw-flex-row tw-my-0 tw-mx-auto tw-text-center">
         <img :src="firstErrorLetter" alt="404" />

@@ -123,91 +123,89 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-container tw-mx-auto tw-mt-[2rem] tw-hidden tw-flex-wrap tw-justify-between md:tw-flex lg:tw-my-10"
+      class="tw-container tw-mx-auto tw-mt-[2rem] tw-hidden xl:tw-gap-12 tw-flex-wrap tw-justify-between md:tw-flex lg:tw-my-10"
     >
       <div
         v-for="(contribution, index) in contributions"
-        class="flip-card tw--gap-y-8 tw-relative tw-mx-auto tw-h-[368px] tw-w-[48%] tw-cursor-pointer md:tw--mt-[3rem] lg:tw-mt-[1rem] lg:tw-h-[440px] xl:tw-mt-[2rem] xl:tw-h-[500px] 2xl:tw-h-[550px]"
         :key="index"
+        class="flip-card-inner tw-mx-auto tw-relative tw-h-[368px] tw-w-[48%] tw-cursor-pointer md:tw--mt-[3rem] lg:tw-mt-[1rem] lg:tw-h-[440px] xl:tw-mt-[2rem] xl:tw-h-[500px] 2xl:tw-h-[550px]"
         @click="openContribution(contribution)"
       >
         <div
-          class="flip-card-inner tw-relative tw-h-[92%] tw-w-full lg:tw-h-full"
+          class="flip-card-front tw-absolute tw-w-full tw-h-full tw-overflow-hidden"
         >
-          <div class="flip-card-front tw-overflow-hidden">
-            <img
-              :src="contribution.deskImage[1]"
-              :srcset="`${contribution.deskImage[0]} 400w, ${contribution.deskImage[1]} 800w`"
-              class="card-image card-image-1 tw-absolute tw-w-full tw-rounded-[20px] tw-object-contain tw-object-cover lg:tw-h-full"
-              alt="contribution-image"
-            />
-          </div>
+          <img
+            :src="contribution.deskImage[1]"
+            :srcset="`${contribution.deskImage[0]} 400w, ${contribution.deskImage[1]} 800w`"
+            class="tw-absolute tw-w-full tw-rounded-[20px] tw-object-cover lg:tw-h-full"
+            alt="contribution-image"
+          />
+        </div>
+        <div
+          class="flip-card-back tw-absolute tw-h-[92%] tw-w-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] lg:tw-h-full"
+        >
           <div
-            class="flip-card-back card-image back-card tw-absolute tw-h-[92%] tw-w-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] lg:tw-h-full"
+            class="tw-flex tw-flex-row tw-items-center tw-justify-between tw-pl-6 tw-pr-4 tw-pt-6 xl:tw-px-[3rem] xl:tw-pt-[2.5rem]"
           >
             <div
-              class="tw-flex tw-flex-row tw-items-center tw-justify-between tw-pl-6 tw-pr-4 tw-pt-6"
+              class="tw-flex tw-flex-row tw-items-center tw-gap-2 tw-text-white"
             >
-              <div
-                class="tw-flex tw-flex-row tw-items-center tw-gap-2 tw-text-white"
-              >
-                <span>
-                  <font-awesome-icon
-                    class="fa tw-h-6 tw-w-6"
-                    :icon="fork" /></span
-                ><span
-                  class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem]"
-                  >{{ contribution.forks }}</span
-                >
-              </div>
-              <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
-                <span
-                  class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem] tw-text-white"
-                  >{{ contribution.language }}</span
-                >
-              </div>
-              <div
-                class="tw-flex tw-flex-row tw-items-center tw-rounded-[30px] tw-bg-white tw-px-[1rem] tw-py-[0.5rem] xl:tw-px-[1.5rem]"
-              >
+              <span>
                 <font-awesome-icon
-                  class="fab footer-icon tw-h-[26px] tw-w-[26px] tw-pr-[5px]"
-                  :icon="star"
-                />
-                <span
-                  class="v2-canopas-gradient-text tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem]"
-                  >{{ contribution.stars }}</span
-                >
-              </div>
+                  class="fa tw-h-6 tw-w-6"
+                  :icon="fork" /></span
+              ><span
+                class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem]"
+                >{{ contribution.forks }}</span
+              >
             </div>
-            <p
-              class="tw-ml-6 tw-mr-2 tw-font-inter-semibold tw-text-[1rem] tw-leading-[3rem] tw-text-white lg:tw-mt-[4rem] lg:tw-text-[2rem]"
+            <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
+              <span
+                class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem] tw-text-white"
+                >{{ contribution.language }}</span
+              >
+            </div>
+            <div
+              class="tw-flex tw-flex-row tw-items-center tw-rounded-[30px] tw-bg-white tw-px-[1rem] tw-py-[0.5rem] xl:tw-px-[1.5rem]"
             >
-              {{ contribution.title }}
-            </p>
+              <font-awesome-icon
+                class="fab footer-icon tw-h-[26px] tw-w-[26px] tw-pr-[5px]"
+                :icon="star"
+              />
+              <span
+                class="v2-canopas-gradient-text tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[1.625rem]"
+                >{{ contribution.stars }}</span
+              >
+            </div>
+          </div>
+          <p
+            class="tw-ml-6 tw-mr-2 xl:tw-ml-12 xl:tw-mr-4 tw-font-inter-semibold tw-text-[1rem] tw-leading-[3rem] tw-text-white lg:tw-mt-[4rem] lg:tw-text-[2rem]"
+          >
+            {{ contribution.title }}
+          </p>
+          <p
+            class="tw-ml-6 tw-mr-2 xl:tw-ml-12 xl:tw-mr-12 tw-font-inter-regular tw-text-[1.2rem] tw-leading-[2.625rem] tw-text-white lg:tw-text-[1.75rem]"
+          >
+            {{ contribution.description }}
+          </p>
+          <div
+            class="tw-mt-4 tw-flex tw-flex-row tw-items-center tw-px-6 xl:tw-px-12 lg:tw-mt-8"
+          >
             <p
-              class="tw-ml-6 tw-mr-2 tw-font-inter-regular tw-text-[1.2rem] tw-leading-[2.625rem] tw-text-white lg:tw-text-[1.75rem]"
+              class="tw-mr-2 tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[2.438rem] tw-text-white"
             >
-              {{ contribution.description }}
+              Contributors:
             </p>
             <div
-              class="tw-mt-4 tw-flex tw-flex-row tw-items-center tw-px-6 lg:tw-mt-8"
+              class="tw-ml-2 tw-flex tw-flex-row tw-items-center"
+              v-for="(contributor, index) in contribution.contributors"
+              :key="index"
             >
-              <p
-                class="tw-mr-2 tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[2.438rem] tw-text-white"
-              >
-                Contributors:
-              </p>
-              <div
-                class="tw-ml-2 tw-flex tw-flex-row tw-items-center"
-                v-for="(contributor, index) in contribution.contributors"
-                :key="index"
-              >
-                <img
-                  :src="contributor"
-                  class="tw-h-9 tw-w-9 tw-rounded-full tw-object-cover"
-                  alt="contribution-image"
-                />
-              </div>
+              <img
+                :src="contributor"
+                class="tw-h-9 tw-w-9 tw-rounded-full tw-object-cover"
+                alt="contribution-image"
+              />
             </div>
           </div>
         </div>
@@ -494,7 +492,7 @@ export default {
   },
 };
 </script>
-<style lang="postcss">
+<style lang="postcss" scoped>
 @import "swiper/css";
 @import "swiper/css/pagination";
 
@@ -506,27 +504,43 @@ export default {
   @apply tw-z-0;
 }
 
-.flip-card {
-  background-color: transparent;
-  perspective: 1000px;
-}
-
 .flip-card-inner {
-  transition: transform 0.6s;
   transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+  perspective: 1000px;
 }
 
 .flip-card-front,
 .flip-card-back {
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease 0.1s;
 }
-
 .flip-card-back {
   transform: rotateY(180deg);
+  box-shadow: 0 27px 80px 0 #f2709c;
+}
+.flip-card-front {
+  transform: rotateY(0deg);
+}
+.flip-card-inner:hover .flip-card-back {
+  transform: rotateY(0deg);
+}
+.flip-card-inner:hover .flip-card-front {
+  transform: rotateY(-180deg);
+}
+
+.flip-card-back p,
+div,
+img,
+span {
+  transform: translateZ(80px);
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .flip-card-back p,
+  div,
+  img,
+  span {
+    transform: translateZ(40px);
+  }
 }
 </style>

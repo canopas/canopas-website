@@ -39,12 +39,12 @@
           loading="lazy"
           class="-tw-mr-[20px] tw-h-[50px] tw-w-[50px]"
         />
-        <div
-          @click="openUrl(service.url)"
+        <a
+          :href="service.url"
           class="tw-py-[15px] tw-font-inter-bold tw-text-[1.5rem] tw-leading-[1.816rem]"
         >
           {{ service.title }}
-        </div>
+        </a>
         <div
           class="tw-py-[15px] tw-font-inter-regular tw-text-[1rem] tw-leading-[1.25rem] sm:tw-w-[70%]"
         >
@@ -116,11 +116,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    openUrl(url) {
-      window.open(url, "_self");
-    },
   },
 };
 </script>

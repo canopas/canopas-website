@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-from-[#F98584] tw-to-[#F47695] tw-bg-gradient-[180deg] tw-font-inter-regular tw-mt-[7.813rem]"
+    class="tw-from-[#F98584] tw-to-[#F47695] tw-bg-gradient-[180deg] tw-font-inter-regular tw-mt-[2.813rem] lg:tw-mt-[7.813rem]"
   >
     <div class="tw-container tw-flex tw-flex-col lg:tw-flex-row">
       <div class="tw-hidden lg:tw-block lg:tw-w-[45%] xl:tw-w-[50%]">

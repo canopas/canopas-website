@@ -65,28 +65,10 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <div
-      class="tw-m-auto tw-mb-[7rem] tw-mt-8 tw-hidden tw-justify-around tw-rounded-[30px] tw-py-[5px] md:tw-my-[3.75rem] md:tw-flex md:tw-w-[95%] lg:tw-w-[77%] xl:tw-w-[65%] 2xl:tw-w-[55%] xll:tw-w-[30%]"
-    >
-      <div
-        v-for="(weekly, index) in weeklies"
-        :key="index"
-        target="_blank"
-        class="tw-m-0 tw-hidden tw-w-full tw-flex-[16.66%] tw-gap-x-4 tw-rounded-[25px] tw-px-[5px] tw-py-[0.7rem] tw-text-center tw-font-inter-regular tw-text-[0.75rem] tw-leading-[0.938rem] tw-tracking-[1px] sm:tw-text-[1rem] md:tw-block md:tw-py-[15px] md:tw-text-[1.25rem] md:tw-leading-[1.1875rem] md:hover:tw-from-[#ff835b] md:hover:tw-to-[#f2709c] md:hover:tw-text-white md:hover:tw-bg-gradient-[270.11deg]"
-        :class="
-          activeIndex == index
-            ? 'gradient-border-btn tw-px-1.5 !tw-font-inter-bold !tw-text-[#f2709c] hover:!tw-text-white'
-            : 'tw-border-[1px] tw-border-solid tw-border-transparent tw-text-black-core/[0.6]'
-        "
-        @click="scrollToCard(index)"
-      >
-        {{ weekly.category }}
-      </div>
-    </div>
     <ul
       @scroll="handleScroll"
       id="scrollContainer"
-      class="hidden-scrollbar tw-relative tw-hidden tw-h-[54.85vh] tw-overflow-y-scroll md:tw-block xl:tw-h-[65.5vh] 2xl:tw-h-[73vh] 2xll:tw-h-[76vh] xll:tw-h-[37vh]"
+      class="hidden-scrollbar tw-mt-8 tw-relative tw-hidden tw-h-[400px] lg:tw-h-[480px] tw-overflow-y-scroll md:tw-block xl:tw-h-[580px] 2xl:tw-h-[695px] xll:tw-h-[644px]"
     >
       <li
         v-for="(weekly, index) in weeklies"
@@ -94,7 +76,7 @@
         :ref="'weekly-' + index"
         :id="'weekly-' + index"
         @click="openUrl(weekly)"
-        class="tw-origin-[center top] tw-sticky tw-top-[10px] tw-mx-[1%] tw-h-[45vh] tw-cursor-pointer tw-overflow-hidden tw-drop-shadow-xl lg:tw-container lg:tw-h-[45vh] xl:tw-mx-auto xl:tw-h-[55vh] 2xl:tw-h-[65vh] xll:tw-h-[33vh]"
+        class="tw-origin-[center top] tw-sticky tw-top-[10px] tw-mx-[1%] tw-h-[270px] lg:tw-h-[390px] tw-cursor-pointer tw-overflow-hidden tw-drop-shadow-xl lg:tw-container lg:tw-h-[365px] xl:tw-mx-auto xl:tw-h-[480px] 2xl:tw-h-[590px] xll:tw-h-[546px]"
         :style="{
           transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
         }"
@@ -107,7 +89,7 @@
             <img
               :src="[weekly.image]"
               alt="Weekly-stack-image"
-              class="tw-h-full tw-w-fit tw-object-cover"
+              class="tw-h-[72%] lg:tw-h-full tw-w-fit tw-object-cover"
             />
           </div>
           <div class="tw-basis-1/2 tw-p-5 sm:tw-p-9">

@@ -185,6 +185,8 @@ module.exports = {
         "gradient-T": "linear-gradient(540deg, #FFFFFF  30%, #f77783 10%);",
         "multiple-underline-out":
           "linear-gradient(transparent calc(100% - 5px), white 1px)",
+        "gradient-underline-out":
+          "linear-gradient(transparent calc(100% - 5px), #f2709c 9.6%, #ff835b 93.6%)",
         "light-pink-gradient-background":
           "linear-gradient(180deg, #FFFEFE 3.13%, #FFF6F0 47.54%, #FFF 95.59%)",
       },

@@ -12,7 +12,7 @@
         class="tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.269rem] tw-text-white md:tw-text-left md:tw-font-inter-semibold md:tw-text-[3.125rem] md:tw-leading-[3.625rem] xl:tw-text-[4.125rem] xl:tw-leading-[4.993rem]"
       >
         What our <br />
-        Clients Says
+        Clients Say
       </p>
       <div
         class="tw-flex tw-items-center md:tw-flex-row lg:tw-gap-[3rem] xl:tw-items-start"
