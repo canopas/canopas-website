@@ -15,10 +15,10 @@
       alt="android-landing"
     />
     <div
-      class="tw-container tw-absolute tw-left-0 tw-top-0 tw-p-4 tw-text-center tw-text-[#FFF] sm:tw-left-[10%] sm:tw--translate-y-[-6%] sm:tw-transform md:tw-left-1/2 md:tw-top-1/2 md:tw-w-[95%] md:tw--translate-x-1/2 md:tw--translate-y-1/2 xl:tw-w-[72%] 2xl:tw-top-[50%] 2xl:tw-w-[49%] xl2:tw-w-[55%] 2xll:tw-w-[45%] xll:tw-top-[45%] xll:tw-w-[61%]"
+      class="tw-container tw-absolute tw-p-4 tw-w-full tw-text-center tw-text-[#FFF] tw-transform tw-left-1/2 tw-top-1/2 tw--translate-x-1/2 tw--translate-y-1/2 xl:tw-w-[80%] md:tw-top-[49%] lg:tw-top-[48%] 2xl:tw-w-[49%] xl2:tw-w-[60%] 2xll:tw-w-[50%] xll:tw-w-[65%]"
     >
       <h1
-        class="tracking-[0.08rem] tw-mb-2 tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.6rem] tw-text-[#FFF] sm:tw-mb-[1.5rem] md:tw-font-inter-bold md:tw-text-[3.75rem] md:tw-leading-[5.625rem]"
+        class="tracking-[0.08rem] tw-mb-2 tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.6rem] tw-text-[#FFF] sm:tw-mb-[1.5rem] md:tw-font-inter-bold md:tw-text-[3.75rem] lg:tw-text-[3.75rem] md:tw-leading-[4.625rem] lg:tw-leading-[5.625rem]"
       >
         Android App<br />
         Development Company
@@ -33,7 +33,7 @@
       </p>
 
       <div
-        class="tw-mt-[1rem] tw-flex tw-flex-wrap tw-justify-center md:tw-justify-center xs:tw-my-[2rem]"
+        class="tw-mt-[1rem] tw-flex tw-flex-wrap tw-justify-center md:tw-justify-center"
       >
         <router-link
           class="white-btn gradient-border-btn tw-flex tw-h-[3.3rem] tw-w-max tw-items-center tw-rounded-full tw-border-none"

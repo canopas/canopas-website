@@ -1,5 +1,7 @@
 <template>
-  <section class="section tw-my-20 md:tw-mt-16">
+  <section
+    class="section tw-my-20 md:tw-my-24 lg:tw-mb-40 lg:tw-mt-44 xll:tw-my-52"
+  >
     <!-- Mobile UI start -->
     <div
       class="tw-relative tw-z-[1] tw-h-[27rem] tw-overflow-hidden tw-py-[3rem] sm:tw-py-[2rem] md:tw-hidden"
@@ -74,38 +76,20 @@
           @click="openBlog(blog.link)"
           v-for="blog in blogs.slice(0, 1)"
           :key="blog"
-          class="content tw-group tw-relative tw-mt-[1.5rem] tw-flex tw-basis-[65%] tw-cursor-pointer tw-flex-col tw-rounded-[20px]"
+          class="content tw-group tw-relative tw-mt-[1.3rem] tw-flex tw-basis-[55%] lg:tw-basis-[54.3%] xl:tw-basis-[53.6%] tw-cursor-pointer tw-flex-col tw-rounded-[20px]"
         >
-          <img
-            :src="blog.image[1]"
-            :srcset="`${blog.image[1]} 800w`"
-            class="tw-object-fit tw-h-full tw-w-full tw-cursor-pointer tw-rounded-t-[20px]"
-            loading="lazy"
-            :alt="blog.title"
-          />
+          <aspect-ratio height="96%">
+            <img
+              :src="blog.image[2]"
+              :srcset="`${blog.image[2]} 800w`"
+              class="tw-object-fill tw-h-full tw-w-full tw-cursor-pointer tw-rounded-[20px]"
+              loading="lazy"
+              :alt="blog.title"
+            />
+          </aspect-ratio>
 
           <div
-            class="tw-rounded-b-[20px] tw-bg-gradient-to-b tw-from-[#DADADA]/[10%] tw-to-[#E7E7E7]/[100%] tw-px-8 tw-pb-[0.5rem]"
-          >
-            <div
-              class="tw-my-[0.5rem] tw-flex tw-flex-row tw-justify-between tw-font-inter-regular tw-text-[1rem] tw-leading-[1.6875rem] tw-text-black-core/[0.6] lg:tw-text-[1.125rem] lg:tw-leading-[1.6875rem] 2xl:tw-my-5"
-            >
-              <span class="tw-w-auto">
-                {{ blog.publishDate }}
-              </span>
-              <span class="tw-w-auto"> 3 min read</span>
-            </div>
-            <div class="tw-my-[10px]">
-              <span
-                @click="openBlog(blog)"
-                class="tw-cursor-pointer tw-text-black-core[0.87] tw-cursor-pointer tw-font-inter-semibold tw-text-[1.125rem] tw-leading-[2.1875rem] lg:tw-text-[1.5rem] lg:tw-leading-[3.1875rem] 2xl:tw-text-[2.125rem]"
-              >
-                {{ blog.title }}</span
-              >
-            </div>
-          </div>
-          <div
-            class="overlay tw-rounded-[20px] tw-duration-700 tw-ease-in tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 tw-opacity-0 group-hover:tw-opacity-[0.9]"
+            class="overlay tw-rounded-[20px] tw-duration-700 tw-ease-in tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 tw-opacity-0 group-hover:tw-opacity-100"
             :class="blog.bgColor"
           >
             <div
@@ -134,7 +118,7 @@
               :alt="blog.title"
             />
             <div
-              class="overlay tw-rounded-[20px] tw-duration-700 tw-ease-in tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 tw-opacity-0 group-hover:tw-opacity-[0.9]"
+              class="overlay tw-rounded-[20px] tw-duration-700 tw-ease-in tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 tw-opacity-0 group-hover:tw-opacity-100"
               :class="blog.bgColor"
             >
               <div
@@ -166,7 +150,7 @@
             :alt="blog.title"
           />
           <div
-            class="overlay tw-rounded-[18px] tw-duration-700 tw-ease-in tw-opacity-0 tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 group-hover:tw-opacity-[0.9]"
+            class="overlay tw-rounded-[18px] tw-duration-700 tw-ease-in tw-opacity-0 tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 group-hover:tw-opacity-100"
             :class="blog.bgColor"
           >
             <div
@@ -188,7 +172,9 @@
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
+import AspectRatio from "@/components/utils/AspectRatio.vue";
 
+import jacoco_desktop_400w from "@/assets/images/andriod-app-development/blog/desk-800w.webp";
 import jacoco_400w from "@/assets/images/andriod-app-development/blog/1-400w.webp";
 import jacoco_800w from "@/assets/images/andriod-app-development/blog/1-800w.webp";
 import mvvm_400w from "@/assets/images/andriod-app-development/blog/2-400w.webp";
@@ -206,13 +192,12 @@ export default {
       blogs: [
         {
           id: 1,
-          image: [jacoco_400w, jacoco_800w],
+          image: [jacoco_400w, jacoco_800w, jacoco_desktop_400w],
           publishDate: "Sep 27, 2021",
           title: "Android code coverage using JaCoCo",
-          hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-black-core/[0.87]">Android code<span><br><span class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1.5rem] tw-leading-[2.25rem] tw-text-black-core/[0.87]">coverage using JaCoCo</span>`,
+          hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-black-core/[0.87]">Android<span><br><span class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1.5rem] tw-leading-[2.25rem] tw-text-black-core/[0.87]">code coverage using JaCoCo</span>`,
           link: "https://blog.canopas.com/android-code-coverage-using-jacoco-6639a1fc4293",
-          bgColor:
-            "tw-bg-gradient-to-b tw-from-[#E7E7E7]/[0.9] tw-to-[#DADADA]/[0.9]",
+          bgColor: "tw-bg-gradient-to-b tw-from-[#E7E7E7] tw-to-[#DADADA]",
         },
         {
           id: 2,
@@ -221,8 +206,7 @@ export default {
           title: "Jetpack Compose: MVVM State management in a simple way",
           hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] xl:tw-text-[2.125rem] xl:tw-leading-[3.1875rem] tw-text-white">Jetpack Compose</span><br> MVVM State management in a simple way`,
           link: "https://blog.canopas.com/jetpack-compose-mvvm-state-management-in-a-simple-way-4c632fa6f554",
-          bgColor:
-            "tw-bg-gradient-to-b tw-from-[#282828]/[0.9] tw-to-[#282828]/[0.9]",
+          bgColor: "tw-bg-gradient-to-b tw-from-[#282828] tw-to-[#282828]",
         },
         {
           id: 3,
@@ -242,8 +226,7 @@ export default {
           hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-white">Retrofit</span> <br><span class="tw-text-white">Effective error handling with Kotlin Coroutine and Result API</span>`,
           link: "https://blog.canopas.com/retrofit-effective-error-handling-with-kotlin-coroutine-and-result-api-405217e9a73d",
           className: "tw-basis-[54%]",
-          bgColor:
-            "tw-bg-gradient-to-b tw-from-[#282828]/[0.9] tw-to-[#282828]/[0.9]",
+          bgColor: "tw-bg-gradient-to-b tw-from-[#282828] tw-to-[#282828]",
         },
         {
           id: 5,
@@ -254,8 +237,7 @@ export default {
           hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-black-core/[0.80]">Android</span><br>Send live audio stream from client to server using WebSocket and OkHttp client`,
           link: "https://blog.canopas.com/android-send-live-audio-stream-from-client-to-server-using-websocket-and-okhttp-client-ecc9f28118d9",
           className: "tw-basis-[60%] ",
-          bgColor:
-            "tw-bg-gradient-to-b tw-from-[#FEE4DF]/[0.9] tw-to-[#FDCCBC]/[0.9]",
+          bgColor: "tw-bg-gradient-to-b tw-from-[#FEE4DF] tw-to-[#FDCCBC]",
         },
       ],
     };
@@ -269,6 +251,7 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
+    AspectRatio,
   },
   inject: ["mixpanel"],
 };

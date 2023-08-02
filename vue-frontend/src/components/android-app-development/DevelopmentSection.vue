@@ -18,10 +18,16 @@
         :slidesPerView="1.1"
         :centeredSlides="true"
         :spaceBetween="10"
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: false,
+        }"
+        :loopedSlides="50"
+        :loop="true"
         class="swiper-container"
         :breakpoints="{
           '768': {
-            slidesPerView: 1.35,
+            slidesPerView: 1.3,
           },
           '992': {
             slidesPerView: 1.5,
@@ -59,7 +65,7 @@
             ></div>
           </div>
           <div
-            class="tw-mr-[1rem] tw-rounded-[1.25rem] tw-px-[0.5rem] tw-py-8 md:tw-w-[35.7rem] lg:tw-w-[41.75rem] xl:!tw-w-[45.75rem]"
+            class="tw-mr-[1rem] tw-rounded-[1.25rem] tw-px-[0.5rem] tw-py-8 md:tw-w-[34.7rem] lg:tw-w-[40.75rem] xl:!tw-w-[45.75rem]"
             :class="[item.bgColor]"
           >
             <div
@@ -114,6 +120,7 @@
 </template>
 
 <script type="module">
+import SwiperCore, { Autoplay } from "swiper";
 import consultation from "@/assets/images/andriod-app-development/development/1.webp";
 import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
@@ -121,7 +128,7 @@ import app from "@/assets/images/andriod-app-development/development/4.webp";
 import maintenance from "@/assets/images/andriod-app-development/development/5.webp";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
-
+SwiperCore.use([Autoplay]);
 export default {
   data() {
     return {

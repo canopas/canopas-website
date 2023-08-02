@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="tw-mt-32 xll:tw-mt-44">
     <div class="tw-container">
       <div class="tw-flex tw-flex-col tw-text-center">
         <span
@@ -19,26 +19,34 @@
         class="tw-mt-7 tw-relative md:tw-hidden"
         :class="item.className"
       >
-        <img
-          :src="item.images[0]"
-          :srcset="`${item.images[0]} 400w, ${item.images[1]} 800w,`"
-          alt="casestudy-image"
-          class="tw-w-full tw-h-full tw-object-cover tw-mt-7"
-          loading="lazy"
-        />
-        <div
-          :class="item.textalign"
-          class="tw-absolute tw-bottom-[10%] tw-flex tw-flex-col tw-text-black-core/[0.87]"
+        <a
+          class="tw-cursor-pointer"
+          :href="item.url"
+          @click.native="mixpanel.track('tap_android_app_portfolio')"
+          :target="item.target"
         >
-          <span
-            class="tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[1.7875rem]"
-            >{{ item.title }}</span
+          <img
+            :src="item.images[0]"
+            :srcset="`${item.images[0]} 400w, ${item.images[1]} 800w,`"
+            alt="casestudy-image"
+            class="tw-w-full tw-h-full tw-object-cover tw-mt-7"
+            loading="lazy"
+          />
+
+          <div
+            :class="item.textalign"
+            class="tw-absolute tw-bottom-[10%] tw-flex tw-flex-col tw-text-black-core/[0.87]"
           >
-          <span
-            class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.4rem]"
-            v-html="item.content"
-          ></span>
-        </div>
+            <span
+              class="tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[1.7875rem]"
+              >{{ item.title }}</span
+            >
+            <span
+              class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.4rem]"
+              v-html="item.content"
+            ></span>
+          </div>
+        </a>
       </div>
       <div
         v-for="item in cta"
@@ -111,19 +119,28 @@
                   {{ item.title }}
                 </span>
               </div>
-              <span
-                class="tw-mb-[1rem] tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.7375rem] lg:tw-text-[2.875rem] lg:tw-leading-[3.7375rem]"
-                v-html="item.deskcontent"
-              ></span>
+              <a
+                class="tw-cursor-pointer"
+                :href="item.url"
+                @click.native="mixpanel.track('tap_android_app_portfolio')"
+                :target="item.target"
+              >
+                <h2
+                  class="tw-mb-[1rem] tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.7375rem] lg:tw-text-[2.875rem] lg:tw-leading-[3.7375rem]"
+                  v-html="item.deskcontent"
+                ></h2
+              ></a>
               <span
                 class="tw-text-black-core/[0.60] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.575rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem]"
                 v-html="item.description"
               ></span>
+
               <img
                 :src="resultsimage"
-                class="tw-h-[3rem] tw-w-[3rem] lg:tw-h-[5rem] lg:tw-w-[5rem] tw-object-cover tw-ml-[60%] tw-mt-[2rem] tw-mb-[1rem] 2xll:tw-ml-[50%]"
+                class="tw-cursor-pointer tw-h-[3rem] tw-w-[3rem] lg:tw-h-[5rem] lg:tw-w-[5rem] tw-object-cover tw-ml-[60%] tw-mt-[2rem] tw-mb-[1rem] 2xll:tw-ml-[50%]"
                 alt="case_study_result_image"
               />
+
               <div
                 class="tw-bg-white tw-drop-shadow-md tw-rounded md:tw-w-[390px] lg:tw-w-[457px]"
               >
@@ -169,12 +186,18 @@
               </div>
             </div>
             <div>
-              <img
-                :src="item.images[2]"
-                :srcset="`${item.images[2]} 400w,${item.images[3]} 800w`"
-                class="tw-mt-[3rem] tw-h-[20rem] lg:tw-h-[24.75006rem] xl:tw-h-[29.75006rem] tw-w-[25.87525rem] lg:tw-w-[30.87525rem] xl:tw-w-[29.87525rem] tw-object-fit"
-                alt="CaseStudyImage"
-              />
+              <a
+                class="tw-cursor-pointer"
+                :href="item.url"
+                @click.native="mixpanel.track('tap_android_app_portfolio')"
+                :target="item.target"
+              >
+                <img
+                  :src="item.images[2]"
+                  :srcset="`${item.images[2]} 400w,${item.images[3]} 800w`"
+                  class="tw-mt-[3rem] tw-h-[20rem] lg:tw-h-[24.75006rem] xl:tw-h-[29.75006rem] tw-w-[25.87525rem] lg:tw-w-[30.87525rem] xl:tw-w-[29.87525rem] tw-object-fit"
+                  alt="CaseStudyImage"
+              /></a>
             </div>
           </div>
         </swiper-slide>
@@ -205,6 +228,7 @@ import smileplus_400w from "@/assets/images/andriod-app-development/casestudy/de
 import smileplus_800w from "@/assets/images/andriod-app-development/casestudy/desktop/p4-800w.webp";
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import config from "@/config.js";
 SwiperCore.use([Autoplay]);
 export default {
   data() {
@@ -213,6 +237,8 @@ export default {
       cases: [
         {
           title: "Justly",
+          url: "/portfolio/justly",
+          target: "_self",
           content: "Create systems to build your dream life",
           deskcontent: `Overcome depression <br>by building habits`,
           resultcount: ["5k+", "4.9", "100"],
@@ -228,6 +254,8 @@ export default {
         },
         {
           title: "Luxeradio",
+          url: "/portfolio/luxeradio",
+          target: "_self",
           content: "Radio, music and podcast",
           deskcontent: `A radio, music and <br> podcast platform`,
           resultcount: ["100k+", "5", "15k+"],
@@ -243,6 +271,8 @@ export default {
         },
         {
           title: "Togness",
+          url: "/portfolio/togness",
+          target: "_self",
           content: "Create your life’s most memorable events",
           deskcontent: `Photo editor and <br> video maker app`,
           resultcount: ["10k+", "4.7 ", "1200+"],
@@ -258,6 +288,8 @@ export default {
         },
         {
           title: "Smile+",
+          url: config.SMILEPLUS_URL,
+          target: "_blank",
           content: "Create systems to build your dream life",
           deskcontent: `For Dentists and <br>Dental labs`,
           resultcount: ["5k+", "4.9", "350+"],
