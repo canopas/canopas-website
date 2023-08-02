@@ -94,6 +94,7 @@
       class="lg:tw--pr-[1rem] tw-container tw--mt-[2rem] tw-pr-4 tw-text-right md:tw-pr-6 md:tw-pt-4 xl:tw-pr-[5rem] 2xl:tw-pr-[11rem]"
     >
       <button
+        v-if="isActivePrev"
         type="button"
         :disabled="!isActivePrev"
         class="clients-indicators tw-mx-[4px] tw-my-0 tw-cursor-pointer tw-drop-shadow-md sm:tw-mx-[8px]"
@@ -102,13 +103,14 @@
         aria-label="leftArrow"
       >
         <font-awesome-icon
-          :class="!isActivePrev ? 'footer-icon' : ''"
+          :class="isActivePrev ? 'footer-icon' : ''"
           class="arrow tw-h-[14px] tw-w-[14px] tw-rounded-full tw-border-[#3d3d3d26] tw-bg-white tw-p-[10px] tw-drop-shadow-md md:tw-h-[20px] md:tw-w-[20px]"
           icon="arrow-left"
           id="leftArrow"
         />
       </button>
       <button
+        v-else
         type="button"
         :disabled="!isActiveNext"
         class="clients-indicators tw-mx-[4px] tw-my-0 tw-cursor-pointer tw-drop-shadow-md tw-drop-shadow-md sm:tw-mx-[8px]"
@@ -117,7 +119,7 @@
         aria-label="rightArrow"
       >
         <font-awesome-icon
-          :class="!isActiveNext ? 'footer-icon' : ''"
+          :class="isActiveNext ? 'footer-icon' : ''"
           class="arrow tw-h-[14px] tw-w-[14px] tw-rounded-full tw-bg-white tw-p-[10px] tw-drop-shadow-md md:tw-h-[20px] md:tw-w-[20px]"
           icon="arrow-right"
           id="rightArrow"

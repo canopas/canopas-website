@@ -133,6 +133,14 @@ module.exports = {
             opacity: 1,
           },
         },
+        slideLeft: {
+          "0%": {
+            transform: "translateX(0)",
+          },
+          "100%": {
+            transform: "translateX(40%)",
+          },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",
@@ -149,6 +157,7 @@ module.exports = {
         fadeUp: "fadeUp 4s ease-in",
         fadeSlide: "fadeIn 4s ease-in-out",
         fadeSlideOut: "fadeOut 2.5s ease-in-out",
+        slideLeft: "slideLeft 0.5s ease forwards",
       },
       zIndex: {
         "-1": "-1",
@@ -185,8 +194,6 @@ module.exports = {
         "gradient-T": "linear-gradient(540deg, #FFFFFF  30%, #f77783 10%);",
         "multiple-underline-out":
           "linear-gradient(transparent calc(100% - 5px), white 1px)",
-        "gradient-underline-out":
-          "linear-gradient(transparent calc(100% - 5px), #f2709c 9.6%, #ff835b 93.6%)",
         "light-pink-gradient-background":
           "linear-gradient(180deg, #FFFEFE 3.13%, #FFF6F0 47.54%, #FFF 95.59%)",
       },
