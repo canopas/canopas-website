@@ -123,7 +123,7 @@
 
 ```
 - Method : POST
-- Endpoint : /api/send-career-mail
+- Endpoint : /api/send-jobs-applications
 - Description : API for sending mail to the company after applying for jobs
 - Request:
     - Headers : none
@@ -136,7 +136,7 @@
             "place": "surat",
             "references" : "From canopas",
             "message"  : I'm a very good programer,
-            "file" : resume.pdf,
+            "file" : resume.pdf
         }
 
 
@@ -313,7 +313,7 @@
             "date": "3 jan 2023",  // OR if you want to add multiple dates, you can add like this : "3 jan 2023 to 5 jan 2023"
             "status": 1,  // you can use 1 for request
             "reason": "Casual Leave",
-            "receiver": "hr@canopas.com",
+            "receiver": "hr@canopas.com"
         }
 - Response :
     - If API is not found,
@@ -343,7 +343,7 @@
             "name": "mansi dhameliya",
             "date": "3 jan 2023", // OR if you want to add multiple dates, you can add like this : "3 jan 2023 to 5 jan 2023"
             "status": 2 OR 3 , // you can use 2 for approved and 3 for rejected
-            "receiver": "mansi@canopas.com",
+            "receiver": "mansi@canopas.com"
         }
 - Response :
     - If API is not found,
@@ -372,7 +372,7 @@
          {
             "receiver": "mansi@canopas.com",
             "companyname" : "canopas"
-            "spacelink": "https://unity.canopas.com/home",
+            "spacelink": "https://unity.canopas.com/home"
         }
 - Response :
     - If API is not found,
@@ -389,7 +389,7 @@
     - Message : Invitation mail has been sent successfully
 ```
 
-### 8. Send Acceptence Mail (Notification)
+### 9. Send Acceptence Mail (Notification)
 
 ```
 - Method : POST
@@ -400,7 +400,7 @@
     - Body :
          {
             "receiver": "hr@canopas.com",
-            "sender": "mansi@canopas.com", // accepter employee mail
+            "sender": "mansi@canopas.com" // accepter employee mail
         }
 - Response :
     - If API is not found,

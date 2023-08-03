@@ -8,9 +8,9 @@ import (
 	"testing"
 	"utils"
 
-	"github.com/aws/aws-sdk-go/service/ses"
+	"github.com/canopas/go-reusables/email"
 	"github.com/gin-gonic/gin"
-	"github.com/tj/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 //go:embed templates/invitation-email-template.html
@@ -23,7 +23,7 @@ var testRequests []utils.TestRequest
 // stubUtilsRepo is a mock Utils Service Interface
 type stubUtilsRepo struct{}
 
-func (faker *stubUtilsRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
+func (faker *stubUtilsRepo) SendEmail(data *email.EmailData) int {
 	return 0
 }
 
@@ -43,7 +43,7 @@ func (faker *stubUtilsRepo) getAcceptenceEmailTemplate(input []string) string {
 	return ""
 }
 
-func Test_SendNotificationMail(t *testing.T) {
+func TestSendNotificationMail(t *testing.T) {
 	w := httptest.NewRecorder()
 	req, err := http.NewRequest("POST", "/api/invitation", bytes.NewBuffer([]byte(`{"Receiver":"test@canopas.com","CompanyName":"Canopas","SpaceLink":"https://test.com"}`)))
 	assert.NoError(t, err)
@@ -54,7 +54,7 @@ func Test_SendNotificationMail(t *testing.T) {
 
 	assert.Equal(t, http.StatusOK, w.Code)
 }
-func Test_SendAcceptenceMail(t *testing.T) {
+func TestSendAcceptenceMail(t *testing.T) {
 	w := httptest.NewRecorder()
 	req, err := http.NewRequest("POST", "/api/acceptence", bytes.NewBuffer([]byte(`{"Receiver":"hr@canopas.com","Sender":"test@canopas.com"}`)))
 	assert.NoError(t, err)

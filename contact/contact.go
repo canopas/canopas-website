@@ -1,17 +1,13 @@
 package contact
 
 import (
-	"bytes"
 	"embed"
-	"html/template"
 	"net/http"
 	"os"
 	"utils"
 
-	log "github.com/sirupsen/logrus"
+	"github.com/canopas/go-reusables/email"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
 )
@@ -34,15 +30,13 @@ type ContactDetails struct {
 }
 
 type Template struct {
-	templates *template.Template
-	UtilsRepo utils.UtilsRepository
+	templateFs embed.FS
+	UtilsRepo  utils.UtilsRepository
 }
 
 func New(templateFs embed.FS, utilsRepo utils.UtilsRepository) *Template {
-	templates := template.Must(template.ParseFS(templateFs, "templates/*.html"))
-
 	return &Template{
-		templates: templates, UtilsRepo: utilsRepo,
+		templateFs: templateFs, UtilsRepo: utilsRepo,
 	}
 }
 func (repository *Template) SendContactMail(c *gin.Context) {
@@ -66,96 +60,28 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 		return
 	}
 
-	emailTemplate := repository.getEmailTemplate(input)
+	repository.sendEmail(input, "Canopas Website - Contact Information", os.Getenv("RECEIVER"), "contact-email-template.html")
 
-	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
-
-	if statusCode != 0 {
-		c.AbortWithStatus(statusCode)
-		return
-	}
 	if input.SendMailToClient {
-		clientEmailTemplate := repository.getClientEmailTemplate(input)
 
-		statusCode = repository.UtilsRepo.SendEmail(clientEmailTemplate, nil)
-
-		if statusCode != 0 {
-			c.AbortWithStatus(statusCode)
-			return
-		}
+		repository.sendEmail(input, "Thank you "+input.Name+" for choosing Canopas!", input.Email, "client-thankyou-email-template.html")
 	}
+
 	c.JSON(http.StatusOK, "Contact mail sent successfully")
 }
 
-func (repository *Template) getEmailTemplate(input ContactDetails) (template *ses.SendEmailInput) {
+func (repository *Template) sendEmail(input ContactDetails, title string, receiver string, templateName string) int {
 
-	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "contact-email-template.html")
-
-	extendedTitle := ""
-	if input.ContactType != "" {
-		extendedTitle = "(By " + input.ContactType + ")"
+	data := &email.EmailData{
+		Title:            title,
+		Sender:           os.Getenv("SENDER"),
+		Receiver:         receiver,
+		Charset:          CHARSET,
+		TemplateFs:       repository.templateFs,
+		TemplatePatterns: "templates/*.html",
+		TemplateName:     templateName,
+		Input:            input,
 	}
 
-	title := "Canopas Website - Contact Information " + extendedTitle
-
-	template = GetEmailTemplate(htmlBody, input, title, os.Getenv("CONTACT_RECEIVER"))
-
-	return
-}
-
-func (repository *Template) getClientEmailTemplate(input ContactDetails) (template *ses.SendEmailInput) {
-
-	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "client-thankyou-email-template.html")
-
-	title := "Thank you " + input.Name + " for choosing Canopas!"
-
-	template = GetEmailTemplate(htmlBody, input, title, input.Email)
-
-	return
-}
-
-func (repository *Template) getHTMLBodyOfEmailTemplate(input ContactDetails, templateName string) string {
-
-	var templateBuffer bytes.Buffer
-
-	err := repository.templates.ExecuteTemplate(&templateBuffer, templateName, input)
-
-	if err != nil {
-		log.Error(err)
-		return ""
-	}
-
-	return templateBuffer.String()
-}
-
-func GetEmailTemplate(htmlBody string, data ContactDetails, title string, receiver string) (template *ses.SendEmailInput) {
-
-	SENDER := os.Getenv("CONTACT_SENDER")
-	RECEIVER := receiver
-	template = &ses.SendEmailInput{
-		Destination: &ses.Destination{
-			CcAddresses: []*string{},
-			ToAddresses: []*string{
-				aws.String(RECEIVER),
-			},
-		},
-		Message: &ses.Message{
-			Body: &ses.Body{
-				Html: &ses.Content{
-					Charset: aws.String(CHARSET),
-					Data:    aws.String(htmlBody),
-				},
-				Text: &ses.Content{
-					Charset: aws.String(CHARSET),
-					Data:    aws.String("Contact Info"),
-				},
-			},
-			Subject: &ses.Content{
-				Charset: aws.String(CHARSET),
-				Data:    aws.String(title),
-			},
-		},
-		Source: aws.String(SENDER),
-	}
-	return
+	return repository.UtilsRepo.SendEmail(data)
 }

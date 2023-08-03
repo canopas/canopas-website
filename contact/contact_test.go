@@ -9,7 +9,7 @@ import (
 	"testing"
 	"utils"
 
-	"github.com/aws/aws-sdk-go/service/ses"
+	"github.com/canopas/go-reusables/email"
 	"github.com/gin-gonic/gin"
 	"github.com/stretchr/testify/assert"
 )
@@ -37,7 +37,7 @@ var contactDetailInput = ContactDetails{
 // stubUtilsRepo is a mock Utils Service Interface
 type stubUtilsRepo struct{}
 
-func (faker *stubUtilsRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
+func (faker *stubUtilsRepo) SendEmail(data *email.EmailData) int {
 	return 0
 }
 
@@ -49,7 +49,7 @@ func (faker *stubUtilsRepo) SaveJobsToSpreadSheet(input []string) {
 	/** this is stub method for adding jobs details in google spreadsheet */
 }
 
-func Test_init(t *testing.T) {
+func TestInit(t *testing.T) {
 	repo, err = initializeRepo()
 	assert.Nil(t, err)
 	testRequests = []utils.TestRequest{

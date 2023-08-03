@@ -1,17 +1,13 @@
 package leave
 
 import (
-	"bytes"
 	"embed"
-	"html/template"
 	"net/http"
 	"utils"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/ses"
+	"github.com/canopas/go-reusables/email"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
-	log "github.com/sirupsen/logrus"
 )
 
 const (
@@ -28,15 +24,13 @@ type LeaveData struct {
 }
 
 type LeaveRepository struct {
-	templates *template.Template
+	templates embed.FS
 	UtilsRepo utils.UtilsRepository
 }
 
 func New(templateFs embed.FS, utilsRepo utils.UtilsRepository) *LeaveRepository {
-	templates, _ := template.ParseFS(templateFs, "templates/*.html")
-
 	return &LeaveRepository{
-		templates: templates, UtilsRepo: utilsRepo,
+		templates: templateFs, UtilsRepo: utilsRepo,
 	}
 }
 
@@ -49,9 +43,9 @@ func (repository *LeaveRepository) SendLeaveRequest(c *gin.Context) {
 		return
 	}
 
-	emailTemplate := repository.getNewLeaveEmailTemplate(input)
+	input.StatusValue = utils.GetStatusValue(input.Status)
 
-	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
+	statusCode := repository.sendEmail(input, "New leave request", "new-leave-email-template.html")
 
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)
@@ -59,20 +53,6 @@ func (repository *LeaveRepository) SendLeaveRequest(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, "Leave request has been sent successfully")
-
-}
-
-func (repository *LeaveRepository) getNewLeaveEmailTemplate(input LeaveData) (template *ses.SendEmailInput) {
-
-	input.StatusValue = utils.GetStatusValue(input.Status)
-
-	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "new-leave-email-template.html")
-
-	subject := "New leave request"
-
-	template = GetEmailTemplate(htmlBody, input, subject)
-
-	return
 }
 
 func (repository *LeaveRepository) SendUpdateLeaveMail(c *gin.Context) {
@@ -84,9 +64,9 @@ func (repository *LeaveRepository) SendUpdateLeaveMail(c *gin.Context) {
 		return
 	}
 
-	emailTemplate := repository.getUpdateLeaveEmailTemplate(input)
+	input.StatusValue = utils.GetStatusValue(input.Status)
 
-	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
+	statusCode := repository.sendEmail(input, "Leave request update", "update-leave-email-template.html")
 
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)
@@ -94,61 +74,20 @@ func (repository *LeaveRepository) SendUpdateLeaveMail(c *gin.Context) {
 	}
 
 	c.JSON(http.StatusOK, "Update leave request has been sent successfully")
-
 }
 
-func (repository *LeaveRepository) getUpdateLeaveEmailTemplate(input LeaveData) (template *ses.SendEmailInput) {
+func (repository *LeaveRepository) sendEmail(data LeaveData, title string, templateName string) int {
 
-	input.StatusValue = utils.GetStatusValue(input.Status)
-
-	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "update-leave-email-template.html")
-
-	subject := "Leave request update"
-
-	template = GetEmailTemplate(htmlBody, input, subject)
-
-	return
-}
-
-func (repository *LeaveRepository) getHTMLBodyOfEmailTemplate(input LeaveData, templateName string) string {
-
-	var templateBuffer bytes.Buffer
-
-	err := repository.templates.ExecuteTemplate(&templateBuffer, templateName, input)
-
-	if err != nil {
-		log.Error(err)
-		return ""
+	emailData := &email.EmailData{
+		Title:            title,
+		Sender:           "Unity <unity@canopas.com>",
+		Receiver:         data.Receiver,
+		Charset:          CHARSET,
+		TemplateFs:       repository.templates,
+		TemplatePatterns: "templates/*.html",
+		TemplateName:     templateName,
+		Input:            data,
 	}
 
-	return templateBuffer.String()
-}
-
-func GetEmailTemplate(htmlBody string, data LeaveData, subject string) (template *ses.SendEmailInput) {
-
-	SENDER := "Unity <unity@canopas.com>"
-	RECEIVER := data.Receiver
-	template = &ses.SendEmailInput{
-		Destination: &ses.Destination{
-			CcAddresses: []*string{},
-			ToAddresses: []*string{
-				aws.String(RECEIVER),
-			},
-		},
-		Message: &ses.Message{
-			Body: &ses.Body{
-				Html: &ses.Content{
-					Charset: aws.String(CHARSET),
-					Data:    aws.String(htmlBody),
-				},
-			},
-			Subject: &ses.Content{
-				Charset: aws.String(CHARSET),
-				Data:    aws.String(subject),
-			},
-		},
-		Source: aws.String(SENDER),
-	}
-
-	return
+	return repository.UtilsRepo.SendEmail(emailData)
 }

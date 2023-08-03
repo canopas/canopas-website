@@ -7,22 +7,22 @@ import (
 	"utils"
 
 	"github.com/gin-gonic/gin"
-	"github.com/tj/assert"
+	"github.com/stretchr/testify/assert"
 )
 
-func Test_Unique_Int_Success(t *testing.T) {
+func TestUniqueIntSuccess(t *testing.T) {
 	got := utils.Unique([]int{1, 1, 2, 2, 3, 3})
 	expected := []int{1, 2, 3}
 	assert.Equal(t, got, expected)
 }
 
-func Test_Unique_String_Fail(t *testing.T) {
+func TestUniqueStringFail(t *testing.T) {
 	got := utils.Unique([]string{"apple", "has", "apple", "logo"})
 	expected := []string{"apple", "has", "apple", "logo"}
 	assert.NotEqual(t, got, expected)
 }
 
-func Test_Unique_Struct_Success(t *testing.T) {
+func TestUniqueStructSuccess(t *testing.T) {
 	got := utils.Unique([]Item{{
 		Title: "test1",
 	}, {
@@ -38,19 +38,19 @@ func Test_Unique_Struct_Success(t *testing.T) {
 	assert.Equal(t, got, expected)
 }
 
-func Test_ReadFile_Empty_Filepath(t *testing.T) {
+func TestReadFileEmptyFilepath(t *testing.T) {
 	got := utils.ReadSliceFromFile("", []Item{})
 	expected := []Item{}
 	assert.Equal(t, got, expected)
 }
 
-func Test_ReadFile_Wrong_Filepath(t *testing.T) {
+func TestReadFileWrongFilepath(t *testing.T) {
 	got := utils.ReadSliceFromFile("test.json", []Item{})
 	expected := []Item{}
 	assert.Equal(t, got, expected)
 }
 
-func Test_GetBlogs_Integration(t *testing.T) {
+func TestGetBlogsIntegration(t *testing.T) {
 	w := httptest.NewRecorder()
 	req, err := http.NewRequest("GET", "/api/blogs", nil)
 

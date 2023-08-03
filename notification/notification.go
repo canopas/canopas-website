@@ -1,17 +1,13 @@
 package notification
 
 import (
-	"bytes"
 	"embed"
-	"html/template"
 	"net/http"
 	"utils"
 
-	"github.com/aws/aws-sdk-go/aws"
-	"github.com/aws/aws-sdk-go/service/ses"
+	"github.com/canopas/go-reusables/email"
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"
-	log "github.com/sirupsen/logrus"
 )
 
 const (
@@ -26,15 +22,13 @@ type NotificationData struct {
 }
 
 type NotificationRepository struct {
-	templates *template.Template
+	templates embed.FS
 	UtilsRepo utils.UtilsRepository
 }
 
 func New(templateFs embed.FS, utilsRepo utils.UtilsRepository) *NotificationRepository {
-	templates, _ := template.ParseFS(templateFs, "templates/*.html")
-
 	return &NotificationRepository{
-		templates: templates, UtilsRepo: utilsRepo,
+		templates: templateFs, UtilsRepo: utilsRepo,
 	}
 }
 
@@ -47,10 +41,7 @@ func (repository *NotificationRepository) SendInvitationMail(c *gin.Context) {
 		return
 	}
 
-	emailTemplate := repository.getInvitationEmailTemplate(input)
-
-	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
-
+	statusCode := repository.sendEmail(input, "Join Unity!", "invitation-email-template.html")
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)
 		return
@@ -58,17 +49,6 @@ func (repository *NotificationRepository) SendInvitationMail(c *gin.Context) {
 
 	c.JSON(http.StatusOK, "Invitation mail has been sent successfully")
 
-}
-
-func (repository *NotificationRepository) getInvitationEmailTemplate(input NotificationData) (template *ses.SendEmailInput) {
-
-	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "invitation-email-template.html")
-
-	subject := "Join Unity!"
-
-	template = GetEmailTemplate(htmlBody, input, subject)
-
-	return
 }
 
 func (repository *NotificationRepository) SendAcceptenceMail(c *gin.Context) {
@@ -80,9 +60,7 @@ func (repository *NotificationRepository) SendAcceptenceMail(c *gin.Context) {
 		return
 	}
 
-	emailTemplate := repository.getAcceptenceEmailTemplate(input)
-
-	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
+	statusCode := repository.sendEmail(input, "Unity | Accepted the Invitation", "acceptence-email-template.html")
 
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)
@@ -93,56 +71,18 @@ func (repository *NotificationRepository) SendAcceptenceMail(c *gin.Context) {
 
 }
 
-func (repository *NotificationRepository) getAcceptenceEmailTemplate(input NotificationData) (template *ses.SendEmailInput) {
+func (repository *NotificationRepository) sendEmail(data NotificationData, title string, templateName string) int {
 
-	htmlBody := repository.getHTMLBodyOfEmailTemplate(input, "acceptence-email-template.html")
-
-	subject := "Unity | Accepted the Invitation"
-
-	template = GetEmailTemplate(htmlBody, input, subject)
-
-	return
-}
-
-func (repository *NotificationRepository) getHTMLBodyOfEmailTemplate(input NotificationData, templateName string) string {
-
-	var templateBuffer bytes.Buffer
-
-	err := repository.templates.ExecuteTemplate(&templateBuffer, templateName, input)
-
-	if err != nil {
-		log.Error(err)
-		return ""
+	emailData := &email.EmailData{
+		Title:            title,
+		Sender:           "Unity <unity@canopas.com>",
+		Receiver:         data.Receiver,
+		Charset:          CHARSET,
+		TemplateFs:       repository.templates,
+		TemplatePatterns: "templates/*.html",
+		TemplateName:     templateName,
+		Input:            data,
 	}
 
-	return templateBuffer.String()
-}
-
-func GetEmailTemplate(htmlBody string, data NotificationData, subject string) (template *ses.SendEmailInput) {
-
-	SENDER := "Unity <unity@canopas.com>"
-	RECEIVER := data.Receiver
-	template = &ses.SendEmailInput{
-		Destination: &ses.Destination{
-			CcAddresses: []*string{},
-			ToAddresses: []*string{
-				aws.String(RECEIVER),
-			},
-		},
-		Message: &ses.Message{
-			Body: &ses.Body{
-				Html: &ses.Content{
-					Charset: aws.String(CHARSET),
-					Data:    aws.String(htmlBody),
-				},
-			},
-			Subject: &ses.Content{
-				Charset: aws.String(CHARSET),
-				Data:    aws.String(subject),
-			},
-		},
-		Source: aws.String(SENDER),
-	}
-
-	return
+	return repository.UtilsRepo.SendEmail(emailData)
 }

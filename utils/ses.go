@@ -3,13 +3,13 @@ package utils
 import (
 	"net/http"
 
+	"github.com/canopas/go-reusables/email"
 	log "github.com/sirupsen/logrus"
 
 	"github.com/aws/aws-sdk-go/aws/awserr"
-	"github.com/aws/aws-sdk-go/service/ses"
 )
 
-func (repo *utilsRepository) SendEmail(emailTemplate *ses.SendEmailInput, jobsTemplate *ses.SendRawEmailInput) int {
+func (repo *utilsRepository) SendEmail(data *email.EmailData) int {
 
 	sess, err := GetAWSIAMUserSession()
 
@@ -18,15 +18,8 @@ func (repo *utilsRepository) SendEmail(emailTemplate *ses.SendEmailInput, jobsTe
 		return http.StatusInternalServerError
 	}
 
-	service := ses.New(sess)
-
 	// Attempt to send the email.
-	if emailTemplate != nil {
-		_, err = service.SendEmail(emailTemplate)
-	} else {
-		_, err = service.SendRawEmail(jobsTemplate)
-
-	}
+	_, err = email.SendAWSSESEmail(sess, data)
 
 	if err != nil {
 		if aerr, ok := err.(awserr.Error); ok {

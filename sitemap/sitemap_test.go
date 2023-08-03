@@ -30,7 +30,7 @@ const (
 	GET_SITEMAP_API_URL = "/sitemap?baseUrl=http://localhost:8080"
 )
 
-func Test_init(t *testing.T) {
+func TestInit(t *testing.T) {
 	repo, err = initializeRepo()
 	assert.Nil(t, err)
 	testRequests = []utils.TestRequest{

@@ -8,6 +8,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/canopas/go-reusables/email"
 	log "github.com/sirupsen/logrus"
 
 	b64 "encoding/base64"
@@ -16,14 +17,13 @@ import (
 	"github.com/aws/aws-sdk-go/aws"
 	"github.com/aws/aws-sdk-go/aws/credentials"
 	"github.com/aws/aws-sdk-go/aws/session"
-	"github.com/aws/aws-sdk-go/service/ses"
 	"google.golang.org/api/option"
 	recaptchapb "google.golang.org/genproto/googleapis/cloud/recaptchaenterprise/v1"
 )
 
 type utilsRepository struct{}
 type UtilsRepository interface {
-	SendEmail(*ses.SendEmailInput, *ses.SendRawEmailInput) int
+	SendEmail(*email.EmailData) int
 	VerifyRecaptcha(string) (bool, error)
 	SaveJobsToSpreadSheet([]string)
 }

@@ -10,7 +10,7 @@ import (
 
 	"github.com/aws/aws-sdk-go/service/ses"
 	"github.com/gin-gonic/gin"
-	"github.com/tj/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 //go:embed templates/new-leave-email-template.html
@@ -39,7 +39,7 @@ func (faker *stubUtilsRepo) getNewLeaveEmailTemplate(input []string) string {
 	return ""
 }
 
-func Test_SendLeaveRequest(t *testing.T) {
+func TestSendLeaveRequest(t *testing.T) {
 	w := httptest.NewRecorder()
 	req, err := http.NewRequest("POST", "/api/leave/new", bytes.NewBuffer([]byte(`{"Name":"test","Date":"3 jan 2023","Status":1,"Reason":"Casual Leave","Receiver":"test@canopas.com"}`)))
 	assert.NoError(t, err)
@@ -51,7 +51,7 @@ func Test_SendLeaveRequest(t *testing.T) {
 	assert.Equal(t, http.StatusOK, w.Code)
 }
 
-func Test_SendUpdateLeaveMail(t *testing.T) {
+func TestSendUpdateLeaveMail(t *testing.T) {
 	w := httptest.NewRecorder()
 	req, err := http.NewRequest("POST", "/api/leave/update", bytes.NewBuffer([]byte(`{"Name":"test","Date":"3 jan 2023","Status":2,"Receiver":"test@canopas.com"}`)))
 	assert.NoError(t, err)

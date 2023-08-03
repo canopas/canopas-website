@@ -137,17 +137,12 @@ func UploadResumeToS3(fileHeader *multipart.FileHeader) (string, error) {
 }
 
 func GetStatusValue(status int) string {
-	var StatusValue string
-	switch status {
-	case REQUEST:
-		StatusValue = "request"
-	case APPROVED:
-		StatusValue = "approved"
-	case REJECTED:
-		StatusValue = "rejected"
-	case CANCELLED:
-		StatusValue = "cancelled"
+	statusMap := map[int]string{
+		REQUEST:   "Request",
+		APPROVED:  "Approved",
+		REJECTED:  "Rejected",
+		CANCELLED: "Cancelled",
 	}
 
-	return StatusValue
+	return statusMap[status]
 }
