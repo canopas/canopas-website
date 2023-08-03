@@ -87,7 +87,7 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 	}
 
 	// Interpret and verify assessment response
-	if response.TokenProperties.Action == "verify" && response.TokenProperties.Valid && response.RiskAnalysis.Score >= 0.9 {
+	if response.TokenProperties.Action == "verify" && response.TokenProperties.Valid {
 		return true, nil
 	}
 
