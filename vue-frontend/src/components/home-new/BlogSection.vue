@@ -91,8 +91,8 @@
                     @click="width > 768 ? openBlog(blog) : ''"
                     :class="
                       activeIndex == index
-                        ? 'tw-bg-gradient-underline-out tw-box-decoration-clone tw-bg-[length:0%] tw-bg-no-repeat tw-pb-[5px] tw-transition-all tw-duration-500 hover:tw-bg-[length:100%]'
-                        : ''
+                        ? 'tw-bg-gradient-underline-out tw-box-decoration-clone tw-bg-no-repeat tw-pb-[5px] tw-transition-all tw-duration-500 tw-bg-[length:100%] hover:tw-bg-gradient-underline-out'
+                        : 'tw-bg-[length:0%]'
                     "
                     class="tw-font-inter-semibold tw-text-[1.125rem] md:tw-text-[1.688rem] 2xl:tw-text-[2.125rem] tw-leading-[1.575rem] md:tw-leading-[2.313rem] 2xl:tw-leading-[3.188rem] tw-cursor-pointer"
                   >
