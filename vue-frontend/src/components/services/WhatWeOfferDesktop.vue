@@ -86,6 +86,7 @@ export default {
           title: "iPhone/iOS App Development",
           description:
             "Our seasoned iOS developers specialize in creating aesthetically pleasing, intuitive, and user-friendly apps that seamlessly function across all Apple devices. We leverage the latest iOS technologies to deliver solutions that give you an edge in the competitive Apple app market. Plus, our team follows Human Interface Guidelines defined by Apple to deliver exceptional user experience.",
+          url: "/ios-app-development",
         },
         {
           path: [100, 100],

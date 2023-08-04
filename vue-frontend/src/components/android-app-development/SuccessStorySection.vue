@@ -31,7 +31,7 @@
             <swiper-slide
               v-for="(client, index) in clients"
               :key="index"
-              class="tw-cursor-pointer !tw-mb-0 !tw-h-[auto]"
+              class="tw-pointer-events-none !tw-mb-0 !tw-h-[auto]"
             >
               <div
                 v-for="(client, index) in clients"
@@ -112,6 +112,8 @@
                 >
                   <img
                     @click="slideTo(index), (activeIndex = index)"
+                    @touchstart.passive="slideTo(index), (activeIndex = index)"
+                    @touchmove.passive="slideTo(index), (activeIndex = index)"
                     :class="
                       activeIndex == index
                         ? 'lg:tw-h-[50px] lg:tw-w-[50px]'

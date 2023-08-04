@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-relative tw-z-[5] tw-font-inter-medium">
+  <div class="tw-relative tw-z-10 tw-font-inter-medium">
     <div
       class="tw-sticky tw-top-0"
       :style="{ height: navContainerHeight + 'px' }"
