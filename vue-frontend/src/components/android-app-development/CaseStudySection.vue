@@ -63,7 +63,7 @@
         />
         <div
           :class="item.textalign"
-          class="tw-absolute tw-bottom-[10%] tw-flex tw-flex-col tw-text-black-core/[0.87]"
+          class="tw-absolute tw--mt-3 xs:tw-mt-0 tw-bottom-[10%] tw-flex tw-flex-col tw-text-black-core/[0.87]"
         >
           <span
             class="tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[1.7875rem]"
@@ -73,7 +73,7 @@
             class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.4rem]"
             v-html="item.content"
           ></span>
-          <div class="tw-mt-[1rem] tw-flex tw-flex-wrap tw-justify-center">
+          <div class="tw-mt-4 tw-flex tw-flex-wrap tw-justify-center">
             <router-link
               class="white-btn gradient-border-btn tw-flex tw-h-[2.8125rem] tw-w-max tw-items-center tw-rounded-full tw-border-none"
               to="/contact"

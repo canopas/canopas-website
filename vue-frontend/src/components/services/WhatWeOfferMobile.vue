@@ -86,6 +86,7 @@ export default {
             "Our seasoned iOS developers specialize in creating aesthetically pleasing, intuitive, and user-friendly apps that seamlessly function across all Apple devices. We leverage the latest iOS technologies to deliver solutions that give you an edge in the competitive Apple app market. Plus, our team follows Human Interface Guidelines defined by Apple to deliver exceptional user experience.",
           class:
             "tw-bg-gradient-to-b tw-from-[#FADFB7]  via-[#FADFB7]  tw-to-white tw-bg-gradient-[180deg] ",
+          url: "/ios-app-development",
         },
         {
           images: [flutterApp400w, flutterApp800w],

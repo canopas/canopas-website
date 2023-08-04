@@ -18,10 +18,6 @@
         :slidesPerView="1.1"
         :centeredSlides="true"
         :spaceBetween="10"
-        :autoplay="{
-          delay: 3000,
-          disableOnInteraction: false,
-        }"
         :loopedSlides="50"
         :loop="true"
         class="swiper-container"
