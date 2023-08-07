@@ -83,12 +83,15 @@
         <div
           class="tw-mx-auto tw-hidden tw-container md:tw-flex tw-flex-row sm:tw-text-black-core/[0.87] tw-text-black-900 md:tw-px-6 lg:tw-px-4 xl:tw-px-24"
         >
-          <div class="tw-basis-[130%] xl:tw-basis-[85%] tw-pointer-events-none">
+          <div
+            class="tw-basis-[95%] xl:tw-basis-[85%] tw-pointer-events-none lg:tw-mt-[7%]"
+          >
             <swiper
               :slidesPerView="5"
               :centeredSlides="true"
               :centeredSlidesBounds="true"
               :spaceBetween="10"
+              :allowTouchMove="false"
               :slideToClickedSlide="true"
               :direction="'vertical'"
               :autoplay="{
@@ -97,17 +100,17 @@
               }"
               :loop="true"
               :loopedSlides="50"
-              class="swiper-container tw-h-[600px] lg:tw-h-[700px] tw-px-2"
+              class="swiper-container tw-h-[600px] tw-px-2"
               @swiper="setSwiperRef"
               @slideChange="onSlideChange"
             >
               <swiper-slide v-for="(client, index) in clients" :key="index">
                 <div
-                  class="tw-my-10"
+                  class="tw-my-10 tw-flex tw-flex-col tw-items-center tw-justify-center"
                   :class="
                     activeIndex == index || activeindex == 0
-                      ? 'tw-grayscale-0 tw-animate-slideLeft'
-                      : 'tw-grayscale'
+                      ? 'tw-animate-zoomEffect'
+                      : ''
                   "
                 >
                   <img
@@ -115,21 +118,22 @@
                     @touchstart.passive="slideTo(index), (activeIndex = index)"
                     @touchmove.passive="slideTo(index), (activeIndex = index)"
                     :class="
-                      activeIndex == index
+                      activeIndex == index || activeindex == 0
                         ? 'lg:tw-h-[50px] lg:tw-w-[50px]'
-                        : ''
+                        : 'tw-grayscale'
                     "
-                    :src="usericon"
+                    :src="getImageUrl(index)"
                     :alt="client.name"
                     class="tw-pointer-events-auto tw-cursor-pointer tw-h-[40px] tw-w-[40px] tw-mb-2"
                   />
+
                   <span
                     :class="
                       activeIndex == index
-                        ? 'tw-text-black-core/[0.87] tw-text-[1rem] tw-leading-[1.2rem] tw-font-inter-semibold'
+                        ? 'tw-text-black-core/[0.87] tw-text-[1rem] tw-leading-[1.2rem] tw-font-inter-semibold tw-animate-zoomEffect'
                         : ''
                     "
-                    class="tw-text-black-core/[0.60] tw-text-[0.875rem] tw-leading-[1.05rem] tw-font-inter-regular"
+                    class="tw-text-black-core/[0.60] tw-text-[0.875rem] tw-text-center tw-leading-[1.05rem] tw-font-inter-regular"
                   >
                     {{ getFirstWord(client.name) }}</span
                   >
@@ -152,18 +156,16 @@
               :slideToClickedSlide="true"
               :loop="true"
               :loopedSlides="50"
-              class="swiper-container tw-h-[600px] lg:tw-h-[700px] tw-flex"
+              class="swiper-container tw-h-[600px] lg:tw-h-[700px] tw-mt-[4%] tw-flex"
               @swiper="setSwiperRef"
               @slideChange="onSlideChange"
             >
               <swiper-slide
                 v-for="(client, index) in clients"
                 :key="index"
-                class="xl:tw-p-12 tw-flex tw-justify-center tw-flex-col"
+                class="tw-pl-8 tw-flex tw-justify-center tw-flex-col"
               >
-                <div
-                  class="tw-ml-[-1rem] md:tw-pr-6 lg:tw-px-4 xl:tw-px-24"
-                ></div>
+                <div class="tw-ml-[-1rem] md:tw-pr-6"></div>
                 <div class="tw-flex tw-gap-x-4 tw-my-5">
                   <span class="tw-flex tw-flex-row">
                     <font-awesome-icon
@@ -207,14 +209,17 @@ import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import usericon from "@/assets/images/andriod-app-development/icon.webp";
+import userinactiveicon from "@/assets/images/andriod-app-development/inactive-icon.webp";
 SwiperCore.use([Autoplay]);
 
 export default {
   data() {
     return {
       usericon,
+      userinactiveicon,
       swiper: null,
       activeIndex: 0,
+      imageUrl: "",
       clients: [
         {
           id: 1,
@@ -259,6 +264,10 @@ export default {
       ],
     };
   },
+  mounted() {
+    this.imageUrl = this.getImageUrl();
+  },
+
   methods: {
     getFirstWord(str) {
       const words = str.trim().split(" ");
@@ -274,6 +283,13 @@ export default {
     slideTo(index) {
       this.activeIndex = index;
       this.swiperRef.slideTo(index);
+    },
+    getImageUrl(index) {
+      if (this.activeIndex == index) {
+        return usericon;
+      } else {
+        return userinactiveicon;
+      }
     },
   },
   components: {

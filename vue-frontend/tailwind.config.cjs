@@ -133,12 +133,12 @@ module.exports = {
             opacity: 1,
           },
         },
-        slideLeft: {
+        zoomEffect: {
           "0%": {
-            transform: "translateX(0)",
+            transform: " scale(1)",
           },
           "100%": {
-            transform: "translateX(40%)",
+            transform: " scale(1.2)",
           },
         },
       },
@@ -157,7 +157,7 @@ module.exports = {
         fadeUp: "fadeUp 4s ease-in",
         fadeSlide: "fadeIn 4s ease-in-out",
         fadeSlideOut: "fadeOut 2.5s ease-in-out",
-        slideLeft: "slideLeft 0.5s ease forwards",
+        zoomEffect: "zoomEffect 0.5s ease forwards",
       },
       zIndex: {
         "-1": "-1",
