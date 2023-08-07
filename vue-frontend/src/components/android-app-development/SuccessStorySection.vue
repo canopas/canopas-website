@@ -12,7 +12,7 @@
         class="md:tw-hidden tw-container tw-my-[2rem] tw-h-[700px] tw-relative tw-overflow-hidden"
       >
         <div
-          class="tw-w-full tw--mt-4 tw-overflow-y-scroll hidden-scrollbar before:tw-z-20 before:tw-blur-lg before:tw-absolute before:tw-left-0 before:tw-h-[8%] before:tw-w-full before:tw-bg-white-gradient"
+          class="tw-w-full tw--mt-4 tw-overflow-y-scroll hidden-scrollbar before:tw-z-[9] before:tw-blur-lg before:tw-absolute before:tw-left-0 before:tw-h-[8%] before:tw-w-full before:tw-bg-white-gradient"
         ></div>
         <div class="swiper-content">
           <swiper
