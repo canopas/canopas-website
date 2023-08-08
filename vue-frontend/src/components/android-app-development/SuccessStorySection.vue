@@ -68,7 +68,7 @@
         </div>
 
         <div
-          class="tw--mt-4 tw-w-full tw-h-12 after:tw-absolute after:tw-z-20 after:tw-left-0 after:tw-h-[5%] after:tw-w-full after:tw-blur-lg after:tw-bg-white-gradient-bottom"
+          class="tw--mt-4 tw-w-full tw-h-12 after:tw-absolute after:tw-z-[9] after:tw-left-0 after:tw-h-[5%] after:tw-w-full after:tw-blur-lg after:tw-bg-white-gradient-bottom"
         ></div>
       </div>
 
@@ -219,6 +219,7 @@ export default {
       userinactiveicon,
       swiper: null,
       activeIndex: 0,
+      swiperRef: 0,
       imageUrl: "",
       clients: [
         {
