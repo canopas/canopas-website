@@ -15,7 +15,7 @@
         />
       </div>
       <div
-        class="tw-flex tw-flex-col tw-items-center lg:tw-items-start lg:tw-mt-[5.5rem] xl:tw-mt-[2.5rem] lg:tw-w-[52%] xl:tw-w-[45%] 2xl:tw-w-[50%]"
+        class="tw-flex tw-flex-col tw-items-center lg:tw-items-start lg:tw-mt-[5.5rem] xl:tw-mt-10 lg:tw-w-[52%] xl:tw-w-[45%] 2xl:tw-w-[50%]"
       >
         <div
           class="md:tw-w-[70%] lg:tw-w-full tw-text-center lg:tw-text-left tw-text-[1.875rem] md:tw-text-[2.5rem] 2xl:tw-text-[3.125rem] tw-leading-[2.813rem] md:tw-leading-[3.438rem] 2xl:tw-leading-[4.688rem] tw-font-inter-bold tw-text-black-core/[0.87]"
@@ -23,7 +23,7 @@
           Ready to take the next step and work together?
         </div>
         <div
-          class="md:tw-w-[70%] lg:tw-w-full tw-pt-4 lg:tw-text-left tw-text-center tw-text-[1rem] md:tw-text-[1.125rem] 2xl:tw-text-[1.188rem] tw-leading-[1.5rem] md:tw-leading-[1.656rem] 2xl:tw-leading-[1.781rem] tw-font-inter-medium tw-text-black-core/[0.87]"
+          class="md:tw-w-[70%] lg:tw-w-full tw-pt-4 lg:tw-text-left tw-text-center tw-text-[1rem] md:tw-text-[1.125rem] 2xl:tw-text-[1.188rem] tw-leading-6 md:tw-leading-[1.656rem] 2xl:tw-leading-[1.781rem] tw-font-inter-medium tw-text-black-core/[0.87]"
         >
           We'd love to ask some questions, learn a little more about what you do
           and who you serve and kick around some ideas for you.
@@ -35,7 +35,7 @@
             @click.native="mixpanel.track('tap_about_cta_contact')"
           >
             <span
-              class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0]"
+              class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium"
               >Talk to our experts
             </span>
           </router-link>

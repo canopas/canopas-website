@@ -9,8 +9,11 @@
         Latest Blogs
       </h2>
     </div>
+
+    <!-- MOBILE UI START  -->
+
     <div
-      class="tw-block lg:tw-hidden tw-flex tw-flex-col md:tw-flex-row md:tw-mt-[4rem]"
+      class="tw-block lg:tw-hidden tw-flex tw-flex-col md:tw-flex-row md:tw-mt-16"
     >
       <div
         class="tw-relative tw-flex tw-flex-col tw-items-center md:tw-items-start md:tw-justify-center md:tw-flex-[60%] md:tw-ml-[5%]"
@@ -21,14 +24,13 @@
           @mouseover="activeIndex = index"
           @mouseleave="activeIndex = index"
           @touchstart.passive="activeIndex = index"
-          @click.native="mixpanel.track('tap_blog_post')"
-          class="tw-block tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4"
+          class="tw-block tw-mb-5 tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4"
         >
-          <div class="tw-flex tw-flex-col tw-w-full">
-            <div
-              @click="openBlog(blog)"
-              class="tw-block tw-mt-[1rem] tw-w-full"
-            >
+          <div
+            class="tw-flex tw-flex-col tw-w-full"
+            @click="openBlog(blog.link, 'tap_blog_post')"
+          >
+            <div class="tw-block tw-mt-4 tw-w-full">
               <img
                 :src="blog.thumbnail"
                 class="tw-object-cover tw-rounded-lg tw-cursor-pointer"
@@ -37,15 +39,14 @@
               />
             </div>
             <div
-              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem] tw-text-black-core/[0.6]"
+              class="tw-flex tw-flex-row tw-justify-between tw-my-2.5 tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem] tw-text-black-core/[0.6]"
             >
               <span class="tw-w-auto">
                 {{ blog.author }}
               </span>
             </div>
-            <div class="tw-my-[10px]">
+            <div class="tw-my-2.5">
               <span
-                @click="openBlog(blog)"
                 class="tw-font-inter-semibold tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-black-core[0.87] tw-cursor-pointer"
               >
                 {{ blog.title }}</span
@@ -55,6 +56,10 @@
         </div>
       </div>
     </div>
+
+    <!-- MOBILE UI END -->
+
+    <!-- DESKTOP UI START  -->
     <div
       class="tw-hidden lg:tw-block tw-flex tw-flex-col lg:tw-min-h-[580px] lg:tw-py-0"
     >
@@ -65,15 +70,11 @@
           @mouseover="activeIndex = index"
           @mouseleave="activeIndex = index"
           @touchstart.passive="activeIndex = index"
-          @click.native="mixpanel.track('tap_blog_post')"
-          @click="openBlog(blog)"
-          class="tw-block tw-grow-[2] tw-basis-[70%] xl:tw-basis-[70%] tw-content-stretch tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4 tw-cursor-pointer"
+          @click="openBlog(blog.link, 'tap_blog_post')"
+          class="tw-block tw-grow-[2] tw-basis-[70%] xl:tw-basis-[70%] tw-content-stretch tw-mb-5 tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4 tw-cursor-pointer"
         >
           <div class="tw-flex tw-flex-col tw-w-full">
-            <div
-              @click="openBlog(blog)"
-              class="tw-block tw-mt-[1rem] tw-w-full"
-            >
+            <div class="tw-block tw-mt-4 tw-w-full">
               <img
                 :src="blog.thumbnail"
                 class="tw-object-cover tw-rounded-lg tw-cursor-pointer"
@@ -82,23 +83,21 @@
               />
             </div>
             <div
-              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem] tw-text-black-core/[0.6]"
+              class="tw-flex tw-flex-row tw-justify-between tw-my-2.5 tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem] tw-text-black-core/[0.6]"
             >
               <span class="tw-w-auto">
                 {{ blog.author }}
               </span>
             </div>
-            <div class="tw-my-[10px]">
+            <div class="tw-my-2.5">
               <span
-                @click="openBlog(blog)"
                 class="tw-font-inter-semibold tw-text-[1.625rem] tw-leading-[2.438rem] tw-text-black-core[0.87] tw-cursor-pointer"
               >
                 {{ blog.title }}</span
               >
             </div>
             <div
-              @click="openBlog(blog)"
-              class="tw-flex tw-flex-row tw-justify-between tw-my-[10px] tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-black-core/[0.6] tw-cursor-pointer"
+              class="tw-flex tw-flex-row tw-justify-between tw-my-2.5 tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-black-core/[0.6] tw-cursor-pointer"
             >
               <p class="tw-line-clamp-3">
                 {{ blog.description }}
@@ -113,15 +112,11 @@
             @mouseover="activeIndex = index"
             @mouseleave="activeIndex = index"
             @touchstart.passive="activeIndex = index"
-            @click.native="mixpanel.track('tap_blog_post')"
-            @click="openBlog(blog)"
-            class="tw-block tw-mb-[20px] tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4 tw-cursor-pointer"
+            @click="openBlog(blog.link, 'tap_blog_post')"
+            class="tw-block tw-mb-5 tw-w-full tw-border tw-border-black-core/[0.6] tw-rounded-[20px] tw-box-border tw-p-4 tw-cursor-pointer"
           >
             <div class="tw-flex tw-flex-col tw-w-full">
-              <div
-                @click="openBlog(blog)"
-                class="tw-block tw-mt-[1rem] tw-w-full"
-              >
+              <div class="tw-block tw-mt-4 tw-w-full">
                 <img
                   :src="blog.thumbnail"
                   class="tw-object-cover tw-rounded-lg tw-cursor-pointer"
@@ -130,15 +125,14 @@
                 />
               </div>
               <div
-                class="tw-flex tw-flex-row tw-justify-between tw-my-[8px] tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem] tw-text-black-core/[0.6]"
+                class="tw-flex tw-flex-row tw-justify-between tw-my-2 tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem] tw-text-black-core/[0.6]"
               >
                 <span class="tw-w-auto">
                   {{ blog.author }}
                 </span>
               </div>
-              <div class="tw-my-[10px]">
+              <div class="tw-my-2.5">
                 <span
-                  @click="openBlog(blog)"
                   class="tw-font-inter-semibold tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-black-core[0.87] tw-cursor-pointer"
                 >
                   {{ blog.title }}</span
@@ -149,6 +143,8 @@
         </div>
       </div>
     </div>
+
+    <!-- DESKTOP UI END  -->
 
     <div class="tw-flex tw-justify-center tw-mx-auto lg:tw-mt-[30px]">
       <a
@@ -169,10 +165,12 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import axios from "axios";
 import Config from "@/config.js";
+import { openBlog } from "@/utils.js";
 
 export default {
   data() {
     return {
+      openBlog,
       activeIndex: 0,
       blogsURL: Config.BLOG_URL,
       blogs: [],
@@ -183,10 +181,6 @@ export default {
   },
   inject: ["mixpanel"],
   methods: {
-    openBlog(blog) {
-      window.open(blog.link, "_blank");
-      this.mixpanel.track("tap_blog_post");
-    },
     getBlogs() {
       axios
         .get(Config.API_BASE + "/api/blogs")

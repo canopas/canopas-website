@@ -10,11 +10,7 @@
       />
       <div
         class="tw-flex tw-flex-col tw-justify-between tw-py-20 lg:tw-flex-row lg:tw-py-80"
-        :class="[
-          id == 'justly'
-            ? '!tw-pt-[4rem] xl:!tw-pt-[11rem] xl:!tw-pb-[14rem]'
-            : '',
-        ]"
+        :class="[id == 'justly' ? '!tw-pt-16 xl:!tw-pt-44 xl:!tw-pb-56' : '']"
       >
         <div class="v2-normal-text tw-font-bold">{{ response.title }}</div>
         <div class="tw-pt-5 lg:tw-pl-16 lg:tw-w-4/5 lg:tw-pt-0">
@@ -79,7 +75,7 @@
         muted
         playsinline
         v-if="response.animation"
-        class="tw-absolute tw-right-0 tw-bottom-0 tw-left-0 tw-top-[10px] sm:tw-top-[18px] md:tw-top-[20px] xl:tw-top-[35px] tw-m-auto tw-h-3/3 tw-w-[19%] tw-rounded-md md:tw-rounded-xl lg:tw-rounded-3xl"
+        class="tw-absolute tw-right-0 tw-bottom-0 tw-left-0 tw-top-2.5 sm:tw-top-[18px] md:tw-top-5 xl:tw-top-[35px] tw-m-auto tw-h-3/3 tw-w-[19%] tw-rounded-md md:tw-rounded-xl lg:tw-rounded-3xl"
       >
         <source :src="response.animation" type="video/mp4" />
       </video>
@@ -87,13 +83,13 @@
   </section>
   <section v-if="response.features" class="tw-bg-white tw-mt-20 lg:tw-mt-0">
     <div
-      class="tw-container tw-flex tw-flex-col md:tw-flex-row md:tw-pr-[1.5rem] lg:tw-pr-[2.5rem] xl:tw-pr-[3.5rem]"
+      class="tw-container tw-flex tw-flex-col md:tw-flex-row md:tw-pr-6 lg:tw-pr-10 xl:tw-pr-14"
     >
       <div v-if="response.features.gridData1" class="tw-basis-1/2">
         <div v-for="data in response.features.gridData1" :key="data">
           <aspect-ratio
             :height="data.aspectRatio"
-            class="tw-mb-4 md:tw-mb-[1.5rem] lg:tw-mb-[2rem] xl:tw-mb-[2.5rem] 2xl:tw-mb-[3rem]"
+            class="tw-mb-4 md:tw-mb-6 lg:tw-mb-8 xl:tw-mb-10 2xl:tw-mb-12"
             :class="data.id == 1 ? 'md:tw-w-[92%]' : 'md:tw-w-[110%]'"
           >
             <img
@@ -110,11 +106,11 @@
         <div v-for="data in response.features.gridData2" :key="data">
           <aspect-ratio
             :height="data.aspectRatio"
-            class="tw-mb-4 md:tw-mb-[1.5rem] lg:tw-mb-[2rem] xl:tw-mb-[2.5rem] 2xl:tw-mb-[3rem]"
+            class="tw-mb-4 md:tw-mb-6 lg:tw-mb-8 xl:tw-mb-10 2xl:tw-mb-12"
             :class="
               data.id == 3
                 ? 'md:tw-w-[110%]'
-                : 'md:tw-w-[92%] md:tw-ml-[3.8rem] lg:tw-ml-[5rem] xl:tw-ml-[6rem] 2xl:tw-ml-[7rem]'
+                : 'md:tw-w-[92%] md:tw-ml-[3.8rem] lg:tw-ml-20 xl:tw-ml-24 2xl:tw-ml-28'
             "
           >
             <img

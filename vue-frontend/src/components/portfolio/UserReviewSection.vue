@@ -9,7 +9,7 @@
       say about us...
     </div>
     <div
-      class="tw-mt-[32px] tw-text-left tw-overflow-x-hidden tw-overflow-y-auto tw-scrollbar-0"
+      class="tw-mt-8 tw-text-left tw-overflow-x-hidden tw-overflow-y-auto tw-scrollbar-0"
     >
       <div
         class="tw-animate-gridAnimationReverse"
@@ -19,11 +19,11 @@
           class="tw-animate-gridAnimation"
           :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
         >
-          <div class="tw-flex tw-ml-[160px]" v-if="grid1.length > 0">
+          <div class="tw-flex tw-ml-40" v-if="grid1.length > 0">
             <div
               v-for="element in grid1"
               :key="element.id"
-              class="tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-mt-[32px] tw-ml-[32px] tw-rounded-2xl tw-border-[1px] tw-border-solid tw-border-transparent tw-shadow-[inset_2px_1000px_1px_#fff] tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-bg-gradient-to-r tw-p-[16px] lg:tw-p-[20px] tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
+              class="tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-mt-8 tw-ml-8 tw-rounded-2xl tw-border tw-border-solid tw-border-transparent tw-shadow-[inset_2px_1000px_1px_#fff] tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-bg-gradient-to-r tw-p-[16px] lg:tw-p-[20px] tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-6 lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
               :class="
                 pausedId == element.id
                   ? 'tw-scale-[0.97] tw-cursor-pointer'
@@ -46,11 +46,11 @@
               </div>
             </div>
           </div>
-          <div class="tw-flex tw-mb-[10px]" v-if="grid2.length > 0">
+          <div class="tw-flex tw-mb-2.5" v-if="grid2.length > 0">
             <div
               v-for="element in grid2"
               :key="element.id"
-              class="tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-mt-[32px] tw-ml-[32px] tw-rounded-2xl tw-border-[1px] tw-border-solid tw-border-transparent tw-shadow-[inset_2px_1000px_1px_#fff] tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-bg-gradient-to-r tw-p-[16px] lg:tw-p-[20px] tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
+              class="tw-flex tw-flex-col tw-justify-center tw-flex-[0_0_320px] sm:tw-flex-[0_0_480px] lg:tw-flex-[0_0_528px] tw-mt-8 tw-ml-8 tw-rounded-2xl tw-border tw-border-solid tw-border-transparent tw-shadow-[inset_2px_1000px_1px_#fff] tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-bg-gradient-to-r tw-p-4 lg:tw-p-5 tw-text-[1rem] tw-leading-[1.125rem] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem] tw-text-left"
               :class="
                 pausedId == element.id
                   ? 'tw-scale-[0.97] tw-cursor-pointer'

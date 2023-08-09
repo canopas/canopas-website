@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-text-center tw-container tw-max-w-[687px] tw-mt-[1.875rem] tw-mb-[14.063rem] tw-mx-auto tw-py-0 tw-px-[1.25rem] sm:tw-px-[6.25rem] lg:tw-px-0"
+    class="tw-text-center tw-container tw-max-w-[687px] tw-mt-[1.875rem] tw-mb-[14.063rem] tw-mx-auto tw-py-0 tw-px-5 sm:tw-px-[6.25rem] lg:tw-px-0"
   >
     <div class="header-2-text tw-mt-12 animate__animated animate__fadeInDown">
       <h1>

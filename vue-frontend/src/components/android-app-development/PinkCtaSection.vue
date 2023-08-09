@@ -7,11 +7,11 @@
       loading="lazy"
     />
     <div
-      class="tw-container tw-absolute tw-left-1/2 tw-flex tw-w-full tw--translate-x-1/2 tw--translate-y-[100%] tw-transform tw-flex-row tw-items-center lg:tw-mt-4 xll:!tw--mt-[4rem]"
+      class="tw-container tw-absolute tw-left-1/2 tw-flex tw-w-full tw--translate-x-1/2 tw--translate-y-[100%] tw-transform tw-flex-row tw-items-center lg:tw-mt-4 xll:!tw--mt-16"
     >
       <div class="tw-flex tw-w-[66%]">
         <div
-          class="tw-w-[80%] tw-py-[20px] tw-text-white lg:tw-w-[90%] xl:tw-m-auto 2xl:tw-w-9/12"
+          class="tw-w-[80%] tw-py-5 tw-text-white lg:tw-w-[90%] xl:tw-m-auto 2xl:tw-w-9/12"
         >
           <p
             class="tw-font-inter-bold tw-text-[2.188rem] tw-leading-[2.625rem] lg:tw-text-[3.4375rem] lg:tw-leading-[3.4375rem]"
@@ -19,7 +19,7 @@
             Whether you need...
           </p>
           <ul
-            class="tw-pt-6 tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.25rem] md:tw-text-[1.188rem] md:tw-leading-[1.5rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.8125rem]"
+            class="tw-pt-6 tw-font-inter-semibold tw-text-[1rem] tw-leading-5 md:tw-text-[1.188rem] md:tw-leading-[1.5rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.8125rem]"
           >
             <li v-for="reason in reasons" :key="reason" class="tw-flex">
               <span class="tw-pr-1">*</span>
@@ -36,7 +36,7 @@
       </div>
       <div class="tw-ml-auto xl:tw-mx-auto">
         <router-link
-          class="cta-button tw-p-y-[0.8125rem] tw-mx-auto tw-flex tw-w-max tw-items-center tw-rounded-full tw-border-[1px] tw-border-solid tw-border-white tw-bg-white tw-p-3 tw-px-[1.875rem] tw-text-center tw-font-inter-medium tw-font-inter-medium tw-text-[1rem] tw-font-normal tw-leading-[1.1875rem] !tw-tracking-[0] hover:tw-bg-transparent hover:tw-text-white active:tw-scale-[0.98] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-mx-0 lg:tw-text-[1.1875rem] lg:tw-leading-[1.436875rem]"
+          class="cta-button tw-mx-auto tw-flex tw-w-max tw-items-center tw-rounded-full tw-border tw-border-solid tw-border-white tw-bg-white tw-p-3 tw-px-[1.875rem] tw-text-center tw-font-inter-medium tw-font-inter-medium tw-text-[1rem] tw-font-normal tw-leading-[1.1875rem] !tw-tracking-[0] hover:tw-bg-transparent hover:tw-text-white active:tw-scale-[0.98] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-mx-0 lg:tw-text-[1.1875rem] lg:tw-leading-[1.436875rem]"
           to="/contact"
           @click.native="mixpanel.track('tap_android_development_cta')"
         >

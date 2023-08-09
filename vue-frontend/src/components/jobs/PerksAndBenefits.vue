@@ -7,7 +7,7 @@
         <span class="underline-text">Perks</span> and Benefits
       </div>
       <div
-        class="description tw-my-[30px] tw-mx-[10px] md:tw-my-[50px] md:tw-mx-[80px] normal-text"
+        class="description tw-my-[30px] tw-mx-2.5 md:tw-my-[50px] md:tw-mx-20 normal-text"
       >
         Whether it's about your learning, well being, or competitive
         compensation, we've got you covered. Check out all perks and benefits
@@ -20,8 +20,8 @@
       <div
         v-for="perk in perks"
         :key="perk.id"
-        class="flex-elements tw-p-[20px] even:tw-px-[30px] sm:even:tw-px-[40px] md:tw-flex-[30%] md:tw-p-[10px] md:even:tw-py-[10px] md:even:tw-px-[10px] lg:tw-p-[20px] lg:even:tw-p-[20px]"
-        :class="isMobile ? 'even:tw-py-[10px] even:tw-px-[40px]' : ''"
+        class="flex-elements tw-p-5 even:tw-px-[30px] sm:even:tw-px-10 md:tw-flex-[30%] md:tw-p-2.5 md:even:tw-py-2.5 md:even:tw-px-2.5 lg:tw-p-5 lg:even:tw-p-5"
+        :class="isMobile ? 'even:tw-py-2.5 even:tw-px-10' : ''"
       >
         <aspect-ratio
           height="120%"
@@ -29,7 +29,7 @@
           class="tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px]"
         >
           <img
-            class="image tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-w-full tw-h-full tw-object-cover tw-ease-in-out tw-duration-300 hover:tw-scale-110"
+            class="image tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-2.5 tw-w-full tw-h-full tw-object-cover tw-ease-in-out tw-duration-300 hover:tw-scale-110"
             :src="perk.image[0]"
             :srcset="`${perk.image[0]} 400w, ${perk.image[1]} 800w`"
             loading="lazy"
@@ -43,8 +43,8 @@
           class="tw-rounded-[10px]"
         >
           <div
-            class="details tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-p-[16px] sm:tw-p-[30px] md:tw-p-[2px] lg:tw-p-[30px] xl:tw-p-[40px]"
-            :class="isMobile ? 'tw-p-[40px]' : ''"
+            class="details tw-shadow-[0_4px_4px_rgba(0,0,0,0.25)] tw-rounded-[10px] tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-full tw-p-4 sm:tw-p-[30px] md:tw-p-0.5 lg:tw-p-[30px] xl:tw-p-10"
+            :class="isMobile ? 'tw-p-10' : ''"
           >
             <div
               class="normal-2-text tw-flex-none title tw-inline-flex tw-items-center tw-text-black-900 tw-font-bold"
@@ -55,11 +55,11 @@
                 class="tw-w-[1.875rem] tw-h-[1.875rem]"
                 :alt="perk.alt"
               />
-              <span class="tw-ml-[10px] tw-text-[1.3rem] lg:tw-text-[1.5rem]">{{
+              <span class="tw-ml-2.5 tw-text-[1.3rem] lg:tw-text-[1.5rem]">{{
                 perk.title
               }}</span>
             </div>
-            <div class="normal-2-text tw-text-center tw-flex-none tw-mt-[10px]">
+            <div class="normal-2-text tw-text-center tw-flex-none tw-mt-2.5">
               <div
                 v-html="perk.description"
                 @click="scrollToCareer"

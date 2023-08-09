@@ -22,12 +22,12 @@
                 :class="showServices ? 'tw-cursor-pointer' : ''"
               >
                 <span
-                  class="tw-font-inter-semibold tw-text-[1.5rem] tw-leading-[2.25rem] md:tw-text-[2.25rem] md:tw-leading-[3.43rem] xl:tw-text-[3.125rem] xl:tw-leading-[4.6875rem]"
+                  class="tw-font-inter-semibold tw-text-[1.5rem] tw-leading-9 md:tw-text-[2.25rem] md:tw-leading-[3.43rem] xl:tw-text-[3.125rem] xl:tw-leading-[4.6875rem]"
                   >{{ service.title }}</span
                 >
               </div>
               <div
-                class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] md:tw-text-[1.094rem] md:tw-leading-[1.625rem] xl:tw-text-[1.188rem] xl:tw-leading-[1.781rem]"
+                class="tw-font-inter-regular tw-text-base md:tw-text-[1.094rem] md:tw-leading-[1.625rem] xl:tw-text-[1.188rem] xl:tw-leading-[1.781rem]"
               >
                 <p>{{ service.description }}</p>
               </div>

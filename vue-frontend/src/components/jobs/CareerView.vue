@@ -5,7 +5,7 @@
         <span class="underline-text">Find t</span>he career of your dreams
       </p>
       <div
-        class="tw-my-[30px] tw-mx-[2%] md:tw-my-[50px] md:tw-mx-[80px] normal-text"
+        class="tw-my-[30px] tw-mx-[2%] md:tw-my-[50px] md:tw-mx-20 normal-text"
       >
         <div class="tw-font-bold">
           When was the last time you did something for the first time?
@@ -25,11 +25,11 @@
     </div>
     <div
       v-else
-      class="tw-rounded-[14px] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-my-0 tw-mx-[2%] tw-mt-12 md:tw-mx-[6%] normal-text"
+      class="tw-rounded-[14px] tw-border tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-my-0 tw-mx-[2%] tw-mt-12 md:tw-mx-[6%] normal-text"
     >
       <div
         v-if="careers.length == 0"
-        class="tw-text-center tw-py-[14px] tw-px-0 normal-text"
+        class="tw-text-center tw-py-3.5 tw-px-0 normal-text"
       >
         No matching jobs found
       </div>
@@ -40,7 +40,7 @@
           class="tw-flex tw-flex-col"
         >
           <div
-            class="tw-flex tw-flex-row tw-w-full tw-items-center tw-p-[30px] tw-cursor-pointer md:tw-py-[32px] md:tw-px-[48px] lg:tw-py-[40px] lg:tw-px-[48px] normal-text"
+            class="tw-flex tw-flex-row tw-w-full tw-items-center tw-p-[30px] tw-cursor-pointer md:tw-py-8 md:tw-px-12 lg:tw-py-10 lg:tw-px-12 normal-text"
             @click="expandListItem(career.id, index)"
           >
             <div class="career-icon tw-w-[50px] sm:tw-w-[60px]">
@@ -73,13 +73,13 @@
               ]"
             >
               <div
-                class="tw-p-[30px] tw-text-[#3d3d3dcc] md:tw-py-[32px] md:tw-px-[48px] lg:tw-py-[40px] lg:tw-px-[48px] lg:tw-leading-8"
+                class="tw-p-[30px] tw-text-[#3d3d3dcc] md:tw-py-8 md:tw-px-12 lg:tw-py-10 lg:tw-px-12 lg:tw-leading-8"
               >
                 {{ career.summary }}
               </div>
 
               <div
-                class="tw-flex tw-flex-row tw-justify-center tw-pt-0 tw-pr-0 tw-pb-[30px] tw-pl-0 sm:tw-justify-end sm:tw-pt-0 sm:tw-pr-[20px] sm:tw-pb-[30px] sm:tw-pl-[20px]"
+                class="tw-flex tw-flex-row tw-justify-center tw-pt-0 tw-pr-0 tw-pb-[30px] tw-pl-0 sm:tw-justify-end sm:tw-pt-0 sm:tw-pr-5 sm:tw-pb-[30px] sm:tw-pl-5"
               >
                 <router-link
                   @click.native="mixpanel.track('tap_read_more_job')"

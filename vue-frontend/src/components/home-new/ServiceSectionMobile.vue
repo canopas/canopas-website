@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-container tw-relative tw-m-0 tw-mt-[40px] tw-max-w-full tw-p-0 tw-text-center"
+    class="tw-container tw-relative tw-m-0 tw-mt-10 tw-max-w-full tw-p-0 tw-text-center"
   >
     <div>
       <p
@@ -9,7 +9,7 @@
         Services
       </p>
       <p
-        class="tw-mt-[-20px] tw-pb-8 tw-text-center tw-font-roboto-bold tw-text-[1.875rem] tw-leading-[2.198rem]"
+        class="-tw-mt-5 tw-pb-8 tw-text-center tw-font-roboto-bold tw-text-[1.875rem] tw-leading-[2.198rem]"
       >
         How We Can Help You
       </p>
@@ -23,7 +23,7 @@
     <div
       v-for="(service, index) in services"
       :key="index"
-      class="tw-relative tw-flex tw-px-0 tw-py-[20px] even:tw-flex-row-reverse"
+      class="tw-relative tw-flex tw-px-0 tw-py-5 even:tw-flex-row-reverse"
     >
       <div
         :class="
@@ -31,13 +31,13 @@
             ? 'tw-items-end tw-text-right'
             : 'tw-items-start tw-text-left'
         "
-        class="tw-mx-[20px] tw-flex tw-flex-[70%] tw-flex-col tw-text-black-900"
+        class="tw-mx-5 tw-flex tw-flex-[70%] tw-flex-col tw-text-black-900"
       >
         <img
           :src="service.bullet"
           alt="service-bullet"
           loading="lazy"
-          class="-tw-mr-[20px] tw-h-[50px] tw-w-[50px]"
+          class="-tw-mr-5 tw-h-[50px] tw-w-[50px]"
         />
         <a
           :href="service.url"
@@ -46,7 +46,7 @@
           {{ service.title }}
         </a>
         <div
-          class="tw-py-[15px] tw-font-inter-regular tw-text-[1rem] tw-leading-[1.25rem] sm:tw-w-[70%]"
+          class="tw-py-[15px] tw-font-inter-regular tw-text-[1rem] tw-leading-5 sm:tw-w-[70%]"
         >
           {{ service.content }}
         </div>

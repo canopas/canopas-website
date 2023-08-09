@@ -25,7 +25,10 @@
           :key="index"
           class="tw-cursor-pointer"
         >
-          <div class="tw-cursor-pointer" @click="openBlog(test.url)">
+          <div
+            class="tw-cursor-pointer"
+            @click="openBlog(test.url, 'tap_contribution_unit_test_section')"
+          >
             <img
               :src="test.images[0]"
               :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
@@ -33,7 +36,7 @@
               alt="UnitTestImage"
             />
             <div
-              class="content tw-mb-[2rem] tw-rounded-b-lg tw-bg-white tw-p-[20px] tw-drop-shadow-md"
+              class="content tw-mb-8 tw-rounded-b-lg tw-bg-white tw-p-5 tw-drop-shadow-md"
             >
               <span class="tw-font-inter-medium tw-text-black-core/[0.87]">{{
                 test.title
@@ -45,7 +48,7 @@
     </div>
     <!-- ************************Desktop View****************************** -->
     <div
-      class="tw-mt-[3rem] tw-hidden tw-bg-gradient-to-t tw-from-[#FF835B]/[0.1] tw-via-[#F2709C]/[0.1] tw-to-[#FFFFFF] md:tw-block xl:tw-mt-16"
+      class="tw-mt-12 tw-hidden tw-bg-gradient-to-t tw-from-[#FF835B]/[0.1] tw-via-[#F2709C]/[0.1] tw-to-[#FFFFFF] md:tw-block xl:tw-mt-16"
     >
       <div class="swiper-content tw-relative tw--mt-6 xll:tw-container">
         <div
@@ -65,10 +68,13 @@
           :spaceBetween="20"
           :zoom="true"
           :navigation="true"
-          class="swiper-container tw-absolute tw-left-0 tw-top-[10px] tw-z-30 tw-mx-auto tw-h-full tw-w-full"
+          class="swiper-container tw-absolute tw-left-0 tw-top-2.5 tw-z-30 tw-mx-auto tw-h-full tw-w-full"
         >
           <swiper-slide v-for="(test, index) in unitTests" :key="index">
-            <div class="tw-cursor-pointer" @click="openBlog(test.url)">
+            <div
+              class="tw-cursor-pointer"
+              @click="openBlog(test.url, 'tap_contribution_unit_test_section')"
+            >
               <img
                 :src="dot"
                 alt="dot-image"
@@ -110,12 +116,14 @@ import unittest6_800w from "@/assets/images/contributions/unittest/unit_test_6-8
 import unittest7_400w from "@/assets/images/contributions/unittest/unit_test_7-400w.webp";
 import unittest7_800w from "@/assets/images/contributions/unittest/unit_test_7-800w.webp";
 import dot from "@/assets/images/why/why-canopas-dot-3.svg";
+import { openBlog } from "@/utils.js";
 
 SwiperCore.use([Zoom, Autoplay]);
 
 export default {
   data() {
     return {
+      openBlog,
       swiper: null,
       dot,
       unitTests: [
@@ -165,13 +173,6 @@ export default {
     Swiper,
     SwiperSlide,
   },
-  methods: {
-    openBlog(url) {
-      window.open(url, "_blank");
-      this.mixpanel.track("tap_contribution_unit_test_section");
-    },
-  },
-  inject: ["mixpanel"],
 };
 </script>
 

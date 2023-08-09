@@ -2,12 +2,12 @@
   <section>
     <div class="tw-container tw-mt-10 tw-mb-20">
       <h1
-        class="tw-pt-5 sm:tw-pt-10 tw-text-center tw-text-[1.875rem] md:tw-text-[2.813rem] tw-leading-[2.25rem] md:tw-leadig-[3.875rem] tw-font-inter-bold tw-text-black-core/[0.87]"
+        class="tw-pt-5 sm:tw-pt-10 tw-text-center tw-text-[1.875rem] md:tw-text-[2.813rem] tw-leading-9 md:tw-leadig-[3.875rem] tw-font-inter-bold tw-text-black-core/[0.87]"
       >
         How it all started?
       </h1>
       <div
-        class="tw-container tw-flex tw-flex-col tw-items-center tw-w-full md:tw-w-[82%] tw-h-[24.25rem] tw-mt-[5rem] tw-overflow-y-scroll hidden-scrollbar before:tw--mt-5 before:tw-blur-lg before:tw-absolute before:tw-left-0 before:tw-h-[6%] before:tw-w-full before:tw-bg-white-gradient"
+        class="tw-container tw-flex tw-flex-col tw-items-center tw-w-full md:tw-w-[82%] tw-h-[24.25rem] tw-mt-20 tw-overflow-y-scroll hidden-scrollbar before:tw--mt-5 before:tw-blur-lg before:tw-absolute before:tw-left-0 before:tw-h-[6%] before:tw-w-full before:tw-bg-white-gradient"
       >
         <div
           v-for="(event, index) in events"
@@ -17,17 +17,17 @@
           <div :class="[event.className]" class="tw-flex tw-flex-row">
             <div class="tw-flex tw-flex-col">
               <h1
-                class="tw-text-[1.5rem] tw-leading-[2.25rem] tw-font-inter-semibold v2-canopas-gradient-text"
+                class="tw-text-[1.5rem] tw-leading-9 tw-font-inter-semibold v2-canopas-gradient-text"
               >
                 {{ event.year }}
               </h1>
               <div
                 :class="index == events.length - 1 ? 'tw-hidden' : ''"
-                class="tw-ml-[1.5rem] tw-h-60 sm:tw-h-40 md:tw-h-48 tw-border-dotted tw-border-l-2 tw-border-[#000000]/[0.87]"
+                class="tw-ml-6 tw-h-60 sm:tw-h-40 md:tw-h-48 tw-border-dotted tw-border-l-2 tw-border-[#000000]/[0.87]"
               ></div>
             </div>
             <div
-              class="tw-ml-[1.5rem] tw-text-[1rem] md:tw-text-[1.125rem] tw-leading-[1.5rem] md:tw-leading-[1.625rem] tw-font-inter-medium tw-text-black-core/[0.87]"
+              class="tw-ml-6 tw-text-[1rem] md:tw-text-[1.125rem] tw-leading-6 md:tw-leading-[1.625rem] tw-font-inter-medium tw-text-black-core/[0.87]"
             >
               {{ event.description }}
             </div>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div
-        class="tw-mt-[-1.5rem] tw-w-full tw-h-12 after:tw-absolute after:tw-left-0 after:tw-h-[5%] after:tw-w-full after:tw-blur-lg after:tw-bg-white-gradient-bottom"
+        class="tw--mt-6 tw-w-full tw-h-12 after:tw-absolute after:tw-left-0 after:tw-h-[5%] after:tw-w-full after:tw-blur-lg after:tw-bg-white-gradient-bottom"
       ></div>
     </div>
   </section>

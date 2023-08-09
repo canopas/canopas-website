@@ -1,10 +1,10 @@
 <template>
   <section>
     <div
-      class="tw-mb-[1rem] tw-bg-pink-gradient-background md:tw-container md:tw-bg-none"
+      class="tw-mb-4 tw-bg-pink-gradient-background md:tw-container md:tw-bg-none"
     >
       <div
-        class="tw-mx-[2%] tw-my-0 tw-flex tw-flex-col tw-gap-4 md:tw-my-0 md:-tw-ml-[32px]"
+        class="tw-mx-[2%] tw-my-0 tw-flex tw-flex-col tw-gap-4 md:tw-my-0 md:-tw-ml-8"
       >
         <div class="tw-mb-4 tw-text-center">
           <span
@@ -17,7 +17,7 @@
             :src="faqImage"
             loading="lazy"
             alt="frequently-asked-questions-image"
-            class="tw-h-full tw-w-[20.25rem] tw-object-cover md:tw--mb-[2.5rem] md:tw-w-[25.75rem] md:tw-w-[412px]"
+            class="tw-h-full tw-w-[20.25rem] tw-object-cover md:-tw-mb-10 md:tw-w-[25.75rem] md:tw-w-[412px]"
           />
         </div>
         <div
@@ -76,7 +76,7 @@
                         :key="faq.answer"
                       >
                         <div
-                          class="faq-answer tw-mt-[1rem] tw-w-[90%] tw-animate-fadeIn tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
+                          class="faq-answer tw-mt-4 tw-w-[90%] tw-animate-fadeIn tw-font-inter-regular tw-text-base tw-text-black-core/[0.87] md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
                           v-html="faq.answer"
                         ></div>
                       </div>
@@ -91,20 +91,20 @@
       </div>
     </div>
     <div
-      class="lg:tw--pr-[1rem] tw-container tw--mt-[2rem] tw-pr-4 tw-text-right md:tw-pr-6 md:tw-pt-4 xl:tw-pr-[5rem] 2xl:tw-pr-[11rem]"
+      class="tw-container tw--mt-8 tw-pr-4 tw-text-right md:tw-pr-6 md:tw-pt-4 xl:tw-pr-20 2xl:tw-pr-44"
     >
       <button
         v-if="isActivePrev"
         type="button"
         :disabled="!isActivePrev"
-        class="clients-indicators tw-mx-[4px] tw-my-0 tw-cursor-pointer tw-drop-shadow-md sm:tw-mx-[8px]"
+        class="clients-indicators tw-mx-1 tw-my-0 tw-cursor-pointer tw-drop-shadow-md sm:tw-mx-2"
         @click="slide(-1)"
         @click.native="mixpanel.track('tap_android_app_faq_previous_arrow')"
         aria-label="leftArrow"
       >
         <font-awesome-icon
           :class="isActivePrev ? 'footer-icon' : ''"
-          class="arrow tw-h-[14px] tw-w-[14px] tw-rounded-full tw-border-[#3d3d3d26] tw-bg-white tw-p-[10px] tw-drop-shadow-md md:tw-h-[20px] md:tw-w-[20px]"
+          class="arrow tw-h-3.5 tw-w-3.5 tw-rounded-full tw-border-[#3d3d3d26] tw-bg-white tw-p-2.5 tw-drop-shadow-md md:tw-h-5 md:tw-w-5"
           icon="arrow-left"
           id="leftArrow"
         />
@@ -113,14 +113,14 @@
         v-else
         type="button"
         :disabled="!isActiveNext"
-        class="clients-indicators tw-mx-[4px] tw-my-0 tw-cursor-pointer tw-drop-shadow-md tw-drop-shadow-md sm:tw-mx-[8px]"
+        class="clients-indicators tw-mx-1 tw-my-0 tw-cursor-pointer tw-drop-shadow-md tw-drop-shadow-md sm:tw-mx-2"
         @click="slide(1)"
         @click.native="mixpanel.track('tap_android_app_faq_next_arrow')"
         aria-label="rightArrow"
       >
         <font-awesome-icon
           :class="isActiveNext ? 'footer-icon' : ''"
-          class="arrow tw-h-[14px] tw-w-[14px] tw-rounded-full tw-bg-white tw-p-[10px] tw-drop-shadow-md md:tw-h-[20px] md:tw-w-[20px]"
+          class="arrow tw-h-3.5 tw-w-3.5 tw-rounded-full tw-bg-white tw-p-2.5 tw-drop-shadow-md md:tw-h-5 md:tw-w-5"
           icon="arrow-right"
           id="rightArrow"
         />

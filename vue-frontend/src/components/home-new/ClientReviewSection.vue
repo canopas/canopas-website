@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-container tw-my-[1rem] tw-mt-[6.25rem] md:tw-mt-[14.063rem] tw-ml-auto tw-mx-auto"
+    class="tw-container tw-my-4 tw-mt-[6.25rem] md:tw-mt-[14.063rem] tw-ml-auto tw-mx-auto"
   >
     <div class="swiper-content">
       <swiper
@@ -58,7 +58,7 @@
                   class="tw-flex tw-flex-row sm:tw-justify-end tw-w-[132px] sm:tw-w-fit"
                 >
                   <div
-                    class="tw-flex tw-flex-col sm:tw-justify-center tw-mt-[4px] sm:tw-mt-[7px]"
+                    class="tw-flex tw-flex-col sm:tw-justify-center tw-mt-1 sm:tw-mt-[7px]"
                   >
                     <span
                       class="sm:tw-justify-between tw-mr-1 md:tw-mr-2 tw-text-[0.5rem] md:tw-text-[0.625rem] tw-leading-[1.375rem] tw-text-black-core/[0.87]"
@@ -79,7 +79,7 @@
                       <font-awesome-icon
                         v-for="i in 5"
                         :key="i"
-                        class="fa-star tw-w-[11px] md:tw-w-[16px] tw-h-[11px] md:tw-h-[16px] tw-text-[#FF3D2E]"
+                        class="fa-star tw-w-[11px] md:tw-w-4 tw-h-[11px] md:tw-h-4 tw-text-[#FF3D2E]"
                         icon="star"
                     /></span>
 

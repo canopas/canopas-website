@@ -11,7 +11,7 @@
           portfolio.id != 8 ? 'tw-p-4 sm:tw-p-8' : '',
           portfolio.id == 4 ? 'sm:!tw-pb-12' : '',
           activeIndex == portfolio.id
-            ? 'tw-scale-[1.05] md:tw-scale-[1.2] tw-z-[2] '
+            ? 'tw-scale-105 md:tw-scale-[1.2] tw-z-[2] '
             : '',
         ]"
         class="tw-relative tw-transition-all tw-duration-500 tw-ease-in-out tw-transform tw-cursor-pointer"
@@ -21,7 +21,7 @@
         @click="openPortfolio(portfolio)"
       >
         <div
-          class="tw-absolute tw-top-[18px] sm:tw-top-[13px] md:tw-top-[20px] xl:tw-top-[30px] tw-inset-x-0 tw-z-[2] tw-text-[1.375rem] tw-leading-[2rem] lg:tw-text-[2rem] lg:tw-leading-[2rem] xl:tw-text-[2.5rem] xl:tw-leading-[2rem] tw-text-center tw-font-inter-bold"
+          class="tw-absolute tw-top-[18px] sm:tw-top-[13px] md:tw-top-5 xl:tw-top-[30px] tw-inset-x-0 tw-z-[2] tw-text-[1.375rem] tw-leading-8 lg:tw-text-[2rem] lg:tw-leading-8 xl:tw-text-[2.5rem] xl:tw-leading-8 tw-text-center tw-font-inter-bold"
           :class="[
             activeIndex == portfolio.id
               ? 'tw-text-black-core/[0.87] tw-scale-[0.7] sm:tw-scale-[0.8]'
@@ -58,16 +58,14 @@
         </div>
         <div
           v-if="portfolio.description"
-          class="tw-absolute tw-inset-x-0 tw--mt-[50px] sm:tw--mt-[20px] tw-z-[2] tw-text-[1rem] tw-leading-[1.25rem] md:tw-text-[0.875rem] lg:tw-text-[1rem] md:tw-leading-[1rem] lg:tw-leading-[1.25rem] tw-text-center tw-font-inter-medium"
+          class="tw-absolute tw-inset-x-0 tw--mt-[50px] sm:-tw-mt-5 tw-z-[2] tw-text-[1rem] tw-leading-5 md:tw-text-[0.875rem] lg:tw-text-[1rem] md:tw-leading-4 lg:tw-leading-5 tw-text-center tw-font-inter-medium"
           :class="[
             activeIndex == portfolio.id
               ? 'tw-text-black-core/[0.87] tw-scale-[0.7] sm:tw-scale-[0.8]'
               : 'tw-text-transparent',
             portfolio.id == 7 ? 'lg:tw-px-2.5' : '',
             portfolio.id == 5 ? '!tw--mt-[50px]' : '',
-            portfolio.video
-              ? 'tw--mt-[40px] sm:!tw--mt-[20px] lg:!tw--mt-[30px]'
-              : '',
+            portfolio.video ? '-tw-mt-10 sm:!-tw-mt-5 lg:!tw--mt-[30px]' : '',
           ]"
         >
           {{ portfolio.description }}

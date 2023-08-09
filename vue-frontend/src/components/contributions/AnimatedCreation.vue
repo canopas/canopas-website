@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-my-[14.063rem] tw-overflow-hidden">
+  <section class="tw-mb-[6.063rem] lg:tw-my-[14.063rem] tw-overflow-hidden">
     <div
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.438rem] tw-text-black-core/[0.87] lg:tw-text-[3.438rem] lg:tw-leading-[5.156rem]"
     >
@@ -11,14 +11,16 @@
         <swiper-slide
           v-for="(animation, index) in animations"
           :key="index"
-          class="tw-pl-[1rem] tw-pr-[1rem] sm:tw-pl-[2rem]"
+          class="tw-pl-4 tw-pr-4 sm:tw-pl-8"
         >
           <div
             class="tw-flex tw-items-center tw-justify-center tw-rounded-[20px] tw-border-1 tw-bg-white tw-drop-shadow-md"
           >
             <div class="tw-flex-[39%] sm:tw-flex-[45%]">
               <img
-                @click="openBlog(animation.link)"
+                @click="
+                  openBlog(animation.link, 'tap_animation_creation_section')
+                "
                 :src="animation.image[0]"
                 :srcset="`${animation.image[0]} 400w, ${animation.image[1]} 800w`"
                 alt="animation"
@@ -27,7 +29,7 @@
               />
             </div>
             <div
-              class="tw-flex-[50%] tw-px-[0.5rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] sm:tw-text-[1.25rem] sm:tw-leading-[1.688rem]"
+              class="tw-flex-[50%] tw-px-2 tw-font-inter-medium tw-text-base tw-text-black-core/[0.87] sm:tw-text-[1.25rem] sm:tw-leading-[1.688rem]"
             >
               {{ animation.title }}
             </div>
@@ -44,7 +46,7 @@
         <div v-for="animation in animations.slice(0, 3)" :key="animation.id">
           <div
             class="tw-group tw-relative tw-cursor-pointer tw-overflow-hidden"
-            @click="openBlog(animation.link)"
+            @click="openBlog(animation.link, 'tap_animation_creation_section')"
           >
             <img
               :src="animation.deskImages[0]"
@@ -54,10 +56,10 @@
               loading="lazy"
             />
             <div
-              class="tw-ease tw-absolute tw-left-[50%] tw-top-[50%] tw-h-[0%] tw-w-[0%] tw--translate-x-1/2 tw--translate-y-1/2 tw-rounded-bl-[50px] tw-rounded-tr-[50px] tw-bg-black-900 tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-h-[100%] group-hover:tw-w-[100%] group-hover:tw-opacity-[1]"
+              class="tw-ease tw-absolute tw-left-[50%] tw-top-[50%] tw-h-[0%] tw-w-[0%] tw--translate-x-1/2 tw--translate-y-1/2 tw-rounded-bl-[50px] tw-rounded-tr-[50px] tw-bg-black-900 tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-[1]"
             ></div>
             <div
-              class="tw-absolute tw-inset-x-0 tw-top-[40%] tw-m-auto tw-h-full tw-translate-y-[-50%] tw-px-4 tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.5rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-text-[1.75rem] lg:tw-leading-[2.625rem]"
+              class="tw-absolute tw-inset-x-0 tw-top-[40%] tw-m-auto tw-h-full tw-translate-y-[-50%] tw-px-4 tw-text-center tw-font-inter-bold tw-text-base tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-text-[1.75rem] lg:tw-leading-[2.625rem]"
             >
               {{ animation.title }}
             </div>
@@ -68,7 +70,7 @@
         <div v-for="animation in animations.slice(3, 6)" :key="animation.id">
           <div
             class="tw-group tw-relative tw-cursor-pointer tw-overflow-hidden"
-            @click="openBlog(animation.link)"
+            @click="openBlog(animation.link, 'tap_animation_creation_section')"
           >
             <img
               :src="animation.deskImages[0]"
@@ -78,10 +80,10 @@
               loading="lazy"
             />
             <div
-              class="tw-ease tw-absolute tw-left-[50%] tw-top-[50%] tw-h-0 tw-w-0 tw--translate-x-1/2 tw--translate-y-1/2 tw-rounded-bl-[50px] tw-rounded-tr-[50px] tw-bg-black-900 tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-h-[100%] group-hover:tw-w-[100%] group-hover:tw-opacity-[1]"
+              class="tw-ease tw-absolute tw-left-[50%] tw-top-[50%] tw-h-0 tw-w-0 tw--translate-x-1/2 tw--translate-y-1/2 tw-rounded-bl-[50px] tw-rounded-tr-[50px] tw-bg-black-900 tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-[1]"
             ></div>
             <div
-              class="tw-absolute tw-inset-x-0 tw-top-[40%] tw-m-auto tw-h-full tw-translate-y-[-50%] tw-px-4 tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.5rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-text-[1.75rem] lg:tw-leading-[2.625rem]"
+              class="tw-absolute tw-inset-x-0 tw-top-[40%] tw-m-auto tw-h-full tw-translate-y-[-50%] tw-px-4 tw-text-center tw-font-inter-bold tw-text-base tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-text-[1.75rem] lg:tw-leading-[2.625rem]"
             >
               {{ animation.title }}
             </div>
@@ -94,6 +96,8 @@
 </template>
 
 <script>
+import { openBlog } from "@/utils.js";
+
 import { Swiper, SwiperSlide } from "swiper/vue";
 import animation1_400w from "@/assets/images/contributions/animations/mobile/animation-1-400w.webp";
 import animation1_800w from "@/assets/images/contributions/animations/mobile/animation-1-800w.webp";
@@ -124,6 +128,7 @@ import desktop_animation6_800w from "@/assets/images/contributions/animations/de
 export default {
   data() {
     return {
+      openBlog,
       animations: [
         {
           id: 1,
@@ -176,12 +181,6 @@ export default {
   components: {
     Swiper,
     SwiperSlide,
-  },
-  methods: {
-    openBlog(link) {
-      window.open(link, "_blank");
-      this.mixpanel.track("tap_animation_creation_section");
-    },
   },
 };
 </script>

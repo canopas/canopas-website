@@ -15,7 +15,7 @@
         Clients Say
       </p>
       <div
-        class="tw-flex tw-items-center md:tw-flex-row lg:tw-gap-[3rem] xl:tw-items-start"
+        class="tw-flex tw-items-center md:tw-flex-row lg:tw-gap-12 xl:tw-items-start"
       >
         <swiper
           :spaceBetween="30"
@@ -65,12 +65,12 @@
           <img
             :src="circle"
             alt="circle"
-            class="tw-h-[25rem] tw-w-[20rem] tw-object-contain lg:tw-w-[25rem] xl:tw-w-[35rem] 2xl:tw-h-[28rem]"
+            class="tw-h-[25rem] tw-w-80 tw-object-contain lg:tw-w-[25rem] xl:tw-w-[35rem] 2xl:tw-h-[28rem]"
           />
           <img
             :src="rating"
             alt="rating"
-            class="tw-absolute tw-top-[-38px] tw-h-[10rem] tw-w-[10rem] lg:tw-top-[-110px] lg:tw-h-[12rem] lg:tw-w-[12rem] xl:tw-top-[-140px] xl:tw-h-[15rem] xl:tw-w-[15rem] 2xl:tw-top-[-135px]"
+            class="tw-absolute tw-top-[-38px] tw-h-40 tw-w-40 lg:tw-top-[-110px] lg:tw-h-48 lg:tw-w-48 xl:tw-top-[-140px] xl:tw-h-60 xl:tw-w-60 2xl:tw-top-[-135px]"
           />
         </div>
       </div>

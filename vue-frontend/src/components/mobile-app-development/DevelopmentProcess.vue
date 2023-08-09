@@ -14,7 +14,7 @@
         ref="cards"
       >
         <div
-          class="tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-top-0 tw-m-auto tw-h-[22.80088rem] tw-w-[22.625rem] tw-rounded-[1.25rem] tw-border tw-border-[#f77881] tw-bg-[#3d3d3d] tw-pt-[20px] tw-transition-all tw-duration-500 sm:tw-w-[24.625rem]"
+          class="tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-top-0 tw-m-auto tw-h-[22.80088rem] tw-w-[22.625rem] tw-rounded-[1.25rem] tw-border tw-border-[#f77881] tw-bg-[#3d3d3d] tw-pt-5 tw-transition-all tw-duration-500 sm:tw-w-[24.625rem]"
           :style="{ zIndex: process.zIndex }"
           v-for="(process, index) in processes"
           :key="index"
@@ -38,7 +38,7 @@
               </p>
             </div>
             <p
-              class="tw-mt-[1.25rem] tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-white"
+              class="tw-mt-5 tw-text-center tw-font-inter-regular tw-text-base tw-text-white"
             >
               {{ process.description }}
             </p>
@@ -57,9 +57,7 @@
       >
         Development Process
       </p>
-      <div
-        class="tw-flex tw-flex-row-reverse tw-items-center 2xl:tw-gap-[7rem]"
-      >
+      <div class="tw-flex tw-flex-row-reverse tw-items-center 2xl:tw-gap-28">
         <transition-group>
           <div class="tw-w-[60%] xl:tw-w-[50%]">
             <div
@@ -85,7 +83,7 @@
                   @touchstart.passive="
                     (activeIndex = index), (activeProcess = process)
                   "
-                  class="tw-relative tw-w-max tw-cursor-pointer tw-rounded-r-[15px] tw-bg-[#FFF1ED] tw-py-6 tw-pl-4 tw-pr-8 tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.625rem] tw-text-black-core xl:tw-py-9 xl:tw-pr-12 xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
+                  class="tw-relative tw-w-max tw-cursor-pointer tw-rounded-r-[15px] tw-bg-[#FFF1ED] tw-py-6 tw-pl-4 tw-pr-8 tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.625rem] tw-text-black-core xl:tw-py-9 xl:tw-pr-12 xl:tw-text-[1.5rem] xl:tw-leading-9"
                   :class="process.className"
                 >
                   <span
@@ -98,7 +96,7 @@
                 <div
                   v-if="activeIndex == index"
                   :key="process.description"
-                  class="tw-ml-[2.4rem] xl:tw-ml-[3.2rem] tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.625rem] tw-text-black-core/[0.70] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem]"
+                  class="tw-ml-[2.4rem] xl:tw-ml-[3.2rem] tw-font-inter-regular tw-text-[1.25rem] tw-leading-[1.625rem] tw-text-black-core/[0.70] xl:tw-text-[1.5rem] xl:tw-leading-9"
                   v-html="process.description"
                 ></div>
               </collapse-transition>

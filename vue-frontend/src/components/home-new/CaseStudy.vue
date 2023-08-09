@@ -13,7 +13,7 @@
         Our Portfolio
       </p>
       <h2
-        class="tw-container tw-mt-[-20px] md:tw-mt-[-50px] tw-pb-9 md:tw-pb-12 tw-text-[1.875rem] tw-leading-[2.438rem] md:tw-text-[2.65rem] md:tw-leading-[3.218rem] lg:tw-text-[3.438rem] lg:tw-leading-[4rem] tw-text-center tw-text-black-core/[0.87] tw-font-roboto-bold"
+        class="tw-container -tw-mt-5 md:tw-mt-[-50px] tw-pb-9 md:tw-pb-12 tw-text-[1.875rem] tw-leading-[2.438rem] md:tw-text-[2.65rem] md:tw-leading-[3.218rem] lg:tw-text-[3.438rem] lg:tw-leading-[4rem] tw-text-center tw-text-black-core/[0.87] tw-font-roboto-bold"
       >
         Case Studies
       </h2>
@@ -28,7 +28,7 @@
         :class="[
           currentRoutePath == navbar.url
             ? 'gradient-btn hover:tw-text-[#f2709c]'
-            : 'tw-border-[1px] tw-border-solid tw-border-transparent hover:tw-from-[#ff835b] hover:tw-to-[#f2709c] hover:tw-bg-gradient-[270.11deg] tw-text-black-core/[0.6] hover:tw-text-white',
+            : 'tw-border tw-border-solid tw-border-transparent hover:tw-from-[#ff835b] hover:tw-to-[#f2709c] hover:tw-bg-gradient-[270.11deg] tw-text-black-core/[0.6] hover:tw-text-white',
 
           index == navbars.length - 1 ? '' : 'sm:tw-mr-2.5',
         ]"
@@ -44,7 +44,7 @@
       class="tw-container tw-py-12 md:tw-py-20 lg:tw-py-28 tw-text-[1.375rem] tw-leading-[1.625rem] md:tw-text-[1.9375rem] md:tw-leading-[1.812rem] lg:tw-text-[2.5rem] lg:tw-leading-[2rem] tw-text-black-core/[0.87] tw-text-center tw-font-inter-medium"
     >
       <span
-        class="tw-relative after:tw-absolute after:-tw-bottom-[2px] after:tw-right-0 after:tw-content-[''] after:tw-w-[116px] md:after:tw-w-[152px] lg:after:tw-w-[205px] after:tw-h-[10px] md:after:tw-h-[14px] after:tw-bg-[#FFF3F7] after:-tw-z-[1] v2-canopas-gradient-text"
+        class="tw-relative after:tw-absolute after:-tw-bottom-0.5 after:tw-right-0 after:tw-content-[''] after:tw-w-[116px] md:after:tw-w-[152px] lg:after:tw-w-[205px] after:tw-h-2.5 md:after:tw-h-3.5 after:tw-bg-[#FFF3F7] after:-tw-z-[1] v2-canopas-gradient-text"
         >1M+ users</span
       >
       use our apps every day

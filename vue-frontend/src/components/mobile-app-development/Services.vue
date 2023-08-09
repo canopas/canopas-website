@@ -12,7 +12,7 @@
       :key="index"
     >
       <div
-        class="tw-flex tw-flex-row tw-items-start tw-justify-center tw-gap-[1rem]"
+        class="tw-flex tw-flex-row tw-items-start tw-justify-center tw-gap-4"
       >
         <img
           :src="service.image"
@@ -26,7 +26,7 @@
         </p>
       </div>
       <div
-        class="tw-mt-4 tw-flex tw-h-full tw-w-full tw-flex-col tw-rounded-[20px] tw-bg-[#3F3F3F] tw-px-[1rem] tw-py-[1.56rem]"
+        class="tw-mt-4 tw-flex tw-h-full tw-w-full tw-flex-col tw-rounded-[20px] tw-bg-[#3F3F3F] tw-px-4 tw-py-[1.56rem]"
       >
         <div
           class="tw-flex tw-flex-row tw-items-start tw-justify-center tw-gap-4"
@@ -46,7 +46,7 @@
           </div>
         </div>
         <p
-          class="tw-mt-6 tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-[#F5F5F5]/[0.85]"
+          class="tw-mt-6 tw-text-center tw-font-inter-regular tw-text-base tw-text-[#F5F5F5]/[0.85]"
         >
           {{ service.description }}
         </p>
@@ -62,7 +62,7 @@
     >
       <div class="tw-flex tw-flex-row">
         <div
-          class="tw-mb-auto tw-mt-[1.5rem] tw-flex tw-flex-row tw-items-center tw-gap-4"
+          class="tw-mb-auto tw-mt-6 tw-flex tw-flex-row tw-items-center tw-gap-4"
         >
           <img
             :src="service.image"
@@ -70,12 +70,12 @@
             class="tw-h-[33px] tw-w-[33px]"
           />
           <p
-            class="v2-canopas-gradient-text tw-font-inter-semibold tw-text-[1.5rem] tw-leading-[1.75rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.1rem]"
+            class="v2-canopas-gradient-text tw-font-inter-semibold tw-text-[1.5rem] tw-leading-7 xl:tw-text-[1.75rem] xl:tw-leading-[2.1rem]"
           >
             {{ service.title }}
           </p>
         </div>
-        <div class="gradient-border tw-ml-16 tw-h-auto tw-border-l-[1px]"></div>
+        <div class="gradient-border tw-ml-16 tw-h-auto tw-border-l"></div>
         <div class="tw-ml-4 tw-flex tw-flex-col tw-gap-6 xl:tw-ml-8">
           <div class="tw-ml-4 tw-flex tw-flex-row tw-justify-start tw-gap-8">
             <div
@@ -89,14 +89,14 @@
                   class="tw-h-[70px] tw-w-[70px] tw-object-contain"
                 />
                 <p
-                  class="tw-text-center tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.5rem] tw-text-white/[0.50]"
+                  class="tw-text-center tw-font-inter-semibold tw-text-base tw-text-white/[0.50]"
                   v-html="technology.name"
                 ></p>
               </div>
             </div>
           </div>
           <div
-            class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-white/[0.85] xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
+            class="tw-font-inter-regular tw-text-base tw-text-white/[0.85] xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
           >
             {{ service.description }}
           </div>

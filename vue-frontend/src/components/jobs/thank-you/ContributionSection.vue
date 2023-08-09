@@ -17,7 +17,7 @@
         <br />
         <span>
           <a
-            class="tw-relative tw-bg-gradient-[1deg] tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l after:tw-to-pink-300 after:tw-from-orange-300"
+            class="tw-relative tw-bg-gradient-[1deg] tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-0.5 after:tw-bg-gradient-to-l after:tw-to-pink-300 after:tw-from-orange-300"
             :href="websiteOpenSourceUrl"
             target="_blank"
             @click.native="mixpanel.track('tap_canopas_website_github')"
@@ -40,7 +40,7 @@
       </div>
     </div>
     <div
-      class="swiper-content tw-mt-[3rem] lg:tw-mt-0 lg:tw-w-[50%] 2xl:tw-w-[60%] tw-pl-4 md:tw-pl-0"
+      class="swiper-content tw-mt-12 lg:tw-mt-0 lg:tw-w-[50%] 2xl:tw-w-[60%] tw-pl-4 md:tw-pl-0"
     >
       <swiper
         :slidesPerView="1.1"
@@ -79,7 +79,9 @@
           @touchmove.passive="playSwiper(true)"
           @touchend="playSwiper(true)"
           class="tw-cursor-pointer"
-          @click="openPortfolio(contribution)"
+          @click="
+            openBlog(contribution.link, 'tap_jobs_thankyou_contributions')
+          "
         >
           <img
             v-if="contribution.image"
@@ -112,11 +114,11 @@
           </div>
           <div
             @touchstart.passive="activeIndex = index"
-            class="tw-flex tw-flex-row tw-justify-between tw-font-inter-regular tw-text-black-core/[0.60] tw-text-[0.875rem] md:tw-text-[1rem] tw-leading-[1.3125rem] md:tw-leading-[1.5rem]"
+            class="tw-flex tw-flex-row tw-justify-between tw-font-inter-regular tw-text-black-core/[0.60] tw-text-[0.875rem] md:tw-text-[1rem] tw-leading-[1.3125rem] md:tw-leading-6"
           >
             <span>by {{ contribution.author }}</span>
             <a
-              class="tw-duration-300 tw-ease-in-out hover:tw-scale-[1.1]"
+              class="tw-duration-300 tw-ease-in-out hover:tw-scale-110"
               :href="contribution.link"
               :aria-label="contribution.title"
               target="_blank"
@@ -159,12 +161,15 @@ import jcAnimationsMp4 from "@/assets/images/jobsthankyou/contribution/JetpackCo
 import jcAnimationsWebm from "@/assets/images/jobsthankyou/contribution/JetpackComposeAnimations.webm";
 import Config from "@/config.js";
 import lozad from "lozad";
+import { openBlog } from "@/utils.js";
+
 library.add(faGithub);
 SwiperCore.use([Pagination, Autoplay]);
 
 export default {
   data() {
     return {
+      openBlog,
       swiper: null,
       contributionURL: Config.GITHUB_URL,
       icon: faGithub,
@@ -204,9 +209,6 @@ export default {
     lozad().observe(); // lazy loads videos with default selector as '.lozad'
   },
   methods: {
-    openLink(contributions) {
-      window.open(contributions.link, "_blank");
-    },
     onSwiper(swiper) {
       this.swiper = swiper;
     },
@@ -231,7 +233,7 @@ export default {
 }
 
 .swiper-pagination-bullet {
-  @apply !tw-w-[12px] !tw-h-[12px] !tw-rounded-full !tw-bg-transparent !tw-border-[1px] !tw-border-solid !tw-border-[#3d3d3d];
+  @apply !tw-w-3 !tw-h-3 !tw-rounded-full !tw-bg-transparent !tw-border !tw-border-solid !tw-border-[#3d3d3d];
 }
 
 .swiper-pagination-bullet-active {

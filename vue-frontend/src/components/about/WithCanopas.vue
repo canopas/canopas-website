@@ -28,7 +28,7 @@
               />
             </aspect-ratio>
             <div
-              class="md:tw-mt-[-20px] tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
+              class="md:-tw-mt-5 tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
               :class="phase.className"
             >
               <div
@@ -37,7 +37,7 @@
                 {{ phase.title }}
               </div>
               <div
-                class="md:tw-p-2 tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] md:tw-leading-[2rem] tw-text-black-900"
+                class="md:tw-p-2 tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] md:tw-leading-8 tw-text-black-900"
               >
                 {{ phase.description }}
               </div>
@@ -65,7 +65,7 @@
               />
             </aspect-ratio>
             <div
-              class="md:tw--mt-[40px] tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
+              class="md:-tw-mt-10 tw-p-4 sm:tw-py-4 sm:tw-px-12 md:tw-py-4 md:tw-pr-12 md:tw-pl-6 lg:tw-py-4 lg:tw-px-6"
               :class="phase.className"
             >
               <div
@@ -74,7 +74,7 @@
                 {{ phase.title }}
               </div>
               <div
-                class="md:tw-p-2 tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] md:tw-leading-[2rem] tw-text-black-900"
+                class="md:tw-p-2 tw-font-inter-regular tw-text-[1rem] md:tw-text-[1.375rem] md:tw-leading-8 tw-text-black-900"
               >
                 {{ phase.description }}
               </div>
@@ -93,7 +93,6 @@ import designing from "@/assets/images/phases/canopas_phases_designing.gif";
 import development from "@/assets/images/phases/canopas_phases_development.gif";
 import marketing from "@/assets/images/phases/canopas_phases_marketing.gif";
 import support from "@/assets/images/phases/canopas_phases_support.gif";
-import { elementInViewPort } from "@/utils.js";
 
 export default {
   data() {
@@ -140,31 +139,10 @@ export default {
           className: "tw--mt-[15px] md:tw-ml-[25px] 2xl:tw-ml-[35px]",
         },
       ],
-      event: "",
-      events: {
-        service1: "view_service_section_first_row",
-        service2: "view_service_section_second_row",
-      },
     };
-  },
-  mounted() {
-    window.addEventListener("scroll", this.sendEvent);
   },
   components: {
     AspectRatio,
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.sendEvent);
-  },
-  inject: ["mixpanel"],
-  methods: {
-    sendEvent() {
-      const event = this.events[elementInViewPort(this.$refs)];
-      if (event && this.event !== event) {
-        this.event = event;
-        this.mixpanel.track(event);
-      }
-    },
   },
 };
 </script>

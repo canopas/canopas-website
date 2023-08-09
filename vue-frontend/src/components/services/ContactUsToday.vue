@@ -1,6 +1,6 @@
 <template>
   <section
-    class="lg:tw-relative tw-mt-10 lg:tw-mb-[10%] xll:tw-mb-[5%] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.08] tw-to-[#F2709C]/[0.08] tw-pt-[2rem] tw-pb-[2rem] lg:tw-bg-none"
+    class="lg:tw-relative tw-mt-10 lg:tw-mb-[10%] xll:tw-mb-[5%] tw-bg-gradient-to-t tw-from-[#FF835B]/[0.08] tw-to-[#F2709C]/[0.08] tw-pt-8 tw-pb-8 lg:tw-bg-none"
   >
     <div class="tw-w-full tw-h-full">
       <img
@@ -13,7 +13,7 @@
       />
     </div>
     <div
-      class="tw-container tw-flex tw-flex-col lg:tw-flex-row-reverse tw-items-center lg:tw-gap-[1.5rem]"
+      class="tw-container tw-flex tw-flex-col lg:tw-flex-row-reverse tw-items-center lg:tw-gap-6"
     >
       <div class="tw-flex tw-flex-col lg:tw-w-[59%] xl:tw-w-[50%]">
         <h2
@@ -30,10 +30,10 @@
             >their fingertips?</span
           >
         </h2>
-        <div class="tw-hidden lg:tw-block tw-mt-[1.5rem]">
+        <div class="tw-hidden lg:tw-block tw-mt-6">
           <router-link
-            class="tw-relative tw-inline-block animation-underline tw-cursor-pointer tw-bg-gradient-[1deg] tw-pb-[12px] tw-text-[2.5rem] tw-leading-[3.75rem] v2-canopas-gradient-text tw-font-inter-bold gradient-underline tw-no-underline tw-cursor-pointer after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[5px] after:tw-bg-gradient-to-l after:tw-to-[#F2709C] after:tw-from-[#FF835B] after:tw-origin-bottom-left after:tw-scale-x-100 after:tw-duration-500 after:tw-delay-150 hover:after:tw-animate-underlineOut"
-            :to="contactURL"
+            class="tw-relative tw-inline-block animation-underline tw-cursor-pointer tw-bg-gradient-[1deg] tw-pb-3 tw-text-[2.5rem] tw-leading-[3.75rem] v2-canopas-gradient-text tw-font-inter-bold gradient-underline tw-no-underline tw-cursor-pointer after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[5px] after:tw-bg-gradient-to-l after:tw-to-[#F2709C] after:tw-from-[#FF835B] after:tw-origin-bottom-left after:tw-scale-x-100 after:tw-duration-500 after:tw-delay-150 hover:after:tw-animate-underlineOut"
+            to="/contact"
             @click.native="mixpanel.track('tap_services_contact')"
             ><span> Contact Us Today</span></router-link
           >
@@ -52,11 +52,11 @@
         <div class="tw-mt-[-35px] lg:tw-hidden">
           <router-link
             class="tw-flex tw-items-center tw-w-max tw-rounded-full tw-py-3 tw-px-3 gradient-btn consultation-btn"
-            :to="contactURL"
+            to="/contact"
             @click.native="mixpanel.track('tap_services_contact')"
           >
             <span
-              class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.5rem] md:tw-leading-[2rem] tw-font-inter-semibold"
+              class="tw-mr-2.5 tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.5rem] md:tw-leading-8 tw-font-inter-semibold"
               >Contact Us Today</span
             >
           </router-link>
@@ -78,7 +78,6 @@ export default {
       width: 991,
       contactImages: [contact400w, contact800w],
       contactbgImages: [contactbg1200w, contactbg1600w],
-      contactURL: "/contact",
     };
   },
   inject: ["mixpanel"],

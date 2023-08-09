@@ -106,7 +106,7 @@ export default {
   inject: ["mixpanel"],
   mounted() {
     window.addEventListener("scroll", this.sendEvent);
-    this.mixpanel.track("view_contribution_landing_section");
+    this.mixpanel.track("view_contribution_page");
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);

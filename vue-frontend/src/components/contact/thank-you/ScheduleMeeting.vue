@@ -70,7 +70,7 @@
         </p>
 
         <ul
-          class="tw-mt-8 tw-mx-2 tw-pl-[2rem] tw-list-disc tw-list-inside tw--indent-[2em] xl:tw--indent-[1.2em] tw-space-y-4 tw-text-[1rem] md:tw-text-[1.125rem] xl:tw-text-[1.75rem] tw-leading-[1.5rem] md:tw-leading-[1.688rem] xl:tw-leading-[2.625rem] tw-text-black-core/[0.87] tw-font-inter-regular"
+          class="tw-mt-8 tw-mx-2 tw-pl-8 tw-list-disc tw-list-inside tw--indent-[2em] xl:tw--indent-[1.2em] tw-space-y-4 tw-text-[1rem] md:tw-text-[1.125rem] xl:tw-text-[1.75rem] tw-leading-6 md:tw-leading-[1.688rem] xl:tw-leading-[2.625rem] tw-text-black-core/[0.87] tw-font-inter-regular"
         >
           <li class="">
             <span class="tw-font-inter-bold">
@@ -96,7 +96,7 @@
             class="tw-text-left v2-canopas-gradient-text tw-font-inter-bold tw-text-[1.5rem] md:tw-text-[1.688rem] xl:tw-text-[1.875rem] tw-leading-[1.8rem] md:tw-leading-[1.9rem] xl:tw-leading-[2.3rem]"
           >
             Thanks, <br /><span
-              class="tw-mt-0 tw-font-inter-medium tw-text-[1.125rem] md:tw-text-[1.25rem] xl:tw-text-[1.5rem] tw-leading-[1.688rem] md:tw-leading-[2rem] xl:tw-leading-[2.25rem] tw-text-black-core/[0.87]"
+              class="tw-mt-0 tw-font-inter-medium tw-text-[1.125rem] md:tw-text-[1.25rem] xl:tw-text-[1.5rem] tw-leading-[1.688rem] md:tw-leading-8 xl:tw-leading-[2.25rem] tw-text-black-core/[0.87]"
             >
               Jimmy</span
             >

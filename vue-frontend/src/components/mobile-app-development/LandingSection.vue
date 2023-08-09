@@ -3,7 +3,7 @@
     <!-- MOBILE UI START -->
     <div class="tw-container tw-flex tw-flex-col tw-pt-10 md:tw-hidden">
       <div class="tw-flex tw-flex-row tw-gap-4">
-        <p class="gradient-border tw-h-auto tw-border-l-[1px]"></p>
+        <p class="gradient-border tw-h-auto tw-border-l"></p>
         <div>
           <h1
             class="tw-w-[75%] tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.625rem] tw-text-white sm:tw-w-[80%]"
@@ -34,12 +34,12 @@
     <!-- DESKTOP UI START -->
     <div class="tw-container tw-hidden md:tw-flex">
       <div
-        class="tw-relative tw-mx-auto tw-flex tw-flex-row tw-gap-[6rem] xl:tw-gap-[10rem] 2xl:tw-gap-[12rem]"
+        class="tw-relative tw-mx-auto tw-flex tw-flex-row tw-gap-24 xl:tw-gap-40 2xl:tw-gap-48"
         v-for="index in 6"
         :key="index"
       >
         <p
-          class="tw-h-[35rem] tw-border-l-[1px] tw-border-[#434343]/[0.4] lg:tw-h-[45rem] xl:tw-h-[50rem]"
+          class="tw-h-[35rem] tw-border-l tw-border-[#434343]/[0.4] lg:tw-h-[45rem] xl:tw-h-[50rem]"
         ></p>
       </div>
       <div
@@ -48,9 +48,7 @@
         <div
           class="tw-relative tw-flex tw-flex-[55%] tw-flex-row tw-gap-4 lg:tw-flex-[55%] xll:tw-max-w-[38%]"
         >
-          <p
-            class="gradient-border tw-h-[58%] tw-border-l-[1px] xll:tw-h-[48%]"
-          ></p>
+          <p class="gradient-border tw-h-[58%] tw-border-l xll:tw-h-[48%]"></p>
           <div>
             <h1
               class="tw-w-[98%] tw-font-inter-bold tw-text-[2rem] tw-leading-[3rem] tw-text-white lg:tw-w-[77%] xl:tw-w-[100%] xl:tw-text-[3.125rem] xl:tw-leading-[4.375rem] 2xl:tw-w-[80%] xll:tw-w-[100%] 3xl:tw-w-[72%]"

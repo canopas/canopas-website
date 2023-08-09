@@ -35,7 +35,7 @@
           We Build Products that Customers can't Help but Love.
         </h1>
         <div
-          class="tw-mt-5 tw-w-full sm:tw-w-[85%] md:tw-w-[76%] lg:tw-w-full tw-text-left tw-text-[1rem] md:tw-text-[1.094rem] xl:tw-text-[1.188rem] tw-leading-[1.5rem] md:tw-leading-[1.625rem] xl:tw-leading-[1.781rem] tw-font-inter-medium tw-text-black-core/[0.87]"
+          class="tw-mt-5 tw-w-full sm:tw-w-[85%] md:tw-w-[76%] lg:tw-w-full tw-text-left tw-text-[1rem] md:tw-text-[1.094rem] xl:tw-text-[1.188rem] tw-leading-6 md:tw-leading-[1.625rem] xl:tw-leading-[1.781rem] tw-font-inter-medium tw-text-black-core/[0.87]"
         >
           <p>
             At Canopas, we combine expert engineering with a touch of magic.

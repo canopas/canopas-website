@@ -9,7 +9,7 @@
     <CaseStudy ref="newPortfolio" />
     <UserReview
       ref="userReview"
-      class="tw-pb-0 sm:tw-pb-10 md:tw-pb-8 lg:tw-pb-20 sm:tw-top-[40px]"
+      class="tw-pb-0 sm:tw-pb-10 md:tw-pb-8 lg:tw-pb-20 sm:tw-top-10"
     />
     <CTASection ref="cta" />
     <NewFooter />
@@ -22,9 +22,10 @@ import config from "@/config.js";
 import Header from "@/components/partials/NewHeader.vue";
 import CaseStudy from "@/components/home-new/CaseStudy.vue";
 import { defineAsyncComponent } from "vue";
+import { elementInViewPort } from "@/utils.js";
 
 const UserReview = defineAsyncComponent(() =>
-  import("@/components/home/UserReview.vue"),
+  import("@/components/home-new/UserReview.vue"),
 );
 const CTASection = defineAsyncComponent(() =>
   import("@/components/home-new/CTASection.vue"),
@@ -66,7 +67,20 @@ export default {
   },
   inject: ["mixpanel"],
   mounted() {
+    window.addEventListener("scroll", this.sendEvent);
     this.mixpanel.track("view_portfolio_page");
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = this.events[elementInViewPort(this.$refs)];
+      if (event && this.event !== event) {
+        this.event = event;
+        this.mixpanel.track(event);
+      }
+    },
   },
 };
 </script>

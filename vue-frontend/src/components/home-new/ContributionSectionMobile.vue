@@ -2,7 +2,7 @@
   <div class="tw-container tw-justify-center tw-mt-20 tw-text-center">
     <div class="tw-m-auto tw-w-[290px] sm:tw-w-full tw-pb-14 md:tw-pb-20">
       <span
-        class="tw-font-inter-bold tw-text-black-core/[.87] tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.5rem] md:tw-leading-[5.5625rem]"
+        class="tw-font-inter-bold tw-text-black-core/[.87] tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-10 md:tw-leading-[5.5625rem]"
       >
         We are here to Contribute
       </span>
@@ -13,7 +13,7 @@
         <br />
         <span>
           <a
-            class="tw-relative tw-bg-gradient-[1deg] tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l after:tw-to-pink-300 after:tw-from-orange-300"
+            class="tw-relative tw-bg-gradient-[1deg] tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-0.5 after:tw-bg-gradient-to-l after:tw-to-pink-300 after:tw-from-orange-300"
             :href="websiteOpenSourceUrl"
             target="_blank"
             @click.native="mixpanel.track('tap_canopas_website_github')"
@@ -37,7 +37,9 @@
         </div>
 
         <div
-          @click="openLink(contribution)"
+          @click="
+            openBlog(contribution.link, 'tap_home_github_contribution_section')
+          "
           class="tw-absolute tw-top-[50%] tw-flex tw-flex-col tw-w-[50%] tw-translate-y-[-50%] tw-bg-[#FFFFFF] tw-p-2.5 sm:tw-p-4 tw-shadow-[0_0px_10px_rgba(0,0,0,0.1)] active:tw-scale-[0.98]"
           :class="[index % 2 == 0 ? 'tw-left-[50%]' : 'tw-right-[50%]']"
         >
@@ -52,7 +54,7 @@
               >
                 <span>
                   <font-awesome-icon
-                    class="fa tw-w-[10px] md:tw-w-[18px] tw-h-[10px] md:tw-h-[18px] tw-pr-[5px] tw-text-white"
+                    class="fa tw-w-2.5 md:tw-w-[18px] tw-h-[10px] md:tw-h-2.5 tw-pr-[5px] tw-text-white"
                     icon="star"
                   />{{ contribution.stars }}</span
                 >
@@ -66,7 +68,7 @@
                     @click.native="mixpanel.track('tap_library')"
                   >
                     <font-awesome-icon
-                      class="tw-mr-1 md:tw-mr-2.5 tw-w-[1rem] md:tw-w-[1.75rem] tw-h-[1rem] md:tw-h-[1.75rem] tw-text-pink-300"
+                      class="tw-mr-1 md:tw-mr-2.5 tw-w-4 md:tw-w-[1.75rem] tw-h-4 md:tw-h-7 tw-text-pink-300"
                       :icon="icon"
                     />
                     <div class="v2-canopas-gradient-text">GitHub</div>
@@ -76,7 +78,7 @@
             </div>
             <div>
               <p
-                class="md:tw-mt-[41px] tw-font-inter-semibold tw-text-black-core/[0.87] tw-text-[1rem] md:tw-text-[1.875rem] tw-leading-[1.3rem] md:tw-leading-[2rem]"
+                class="md:tw-mt-[41px] tw-font-inter-semibold tw-text-black-core/[0.87] tw-text-[1rem] md:tw-text-[1.875rem] tw-leading-[1.3rem] md:tw-leading-8"
               >
                 {{ contribution.title }}
               </p>
@@ -89,7 +91,7 @@
             </div>
             <div
               @touchstart.passive="activeIndex = index"
-              class="tw-flex tw-flex-row tw-justify-between tw-mt-[10px] md:tw-mt-[30px] tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[0.625rem] md:tw-text-[1rem] tw-leading-[0.9375rem] md:tw-leading-[1.5rem]"
+              class="tw-flex tw-flex-row tw-justify-between tw-mt-2.5 md:tw-mt-[30px] tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[0.625rem] md:tw-text-[1rem] tw-leading-[0.9375rem] md:tw-leading-[1.5rem]"
             >
               <span>by {{ contribution.author }}</span>
               <a
@@ -128,6 +130,7 @@ import lozad from "lozad";
 import { setGithubStars } from "@/utils.js";
 import { mapState } from "pinia";
 import { useContributionStore } from "@/stores/contribution";
+import { openBlog } from "@/utils.js";
 
 library.add(faGithub);
 
@@ -139,6 +142,7 @@ export default {
   },
   data() {
     return {
+      openBlog,
       icon: faGithub,
       rightArrow: faArrowRightLong,
       websiteOpenSourceUrl: config.WEBSITE_OPEN_SOURCE_URL,
@@ -185,11 +189,6 @@ export default {
       }
     }
     lozad().observe(); // lazy loads videos with default selector as '.lozad'
-  },
-  methods: {
-    openLink(contributions) {
-      window.open(contributions.link, "_blank");
-    },
   },
   components: {
     FontAwesomeIcon,

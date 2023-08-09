@@ -14,12 +14,12 @@
         class="tw-flex tw-flex-col tw-items-center xl:tw-items-start xl:tw-mb-20 xl:tw-w-[60%] 2xl:tw-w-[50%]"
       >
         <p
-          class="tw-font-inter-bold tw-text-center xl:tw-text-left tw-text-[1.875rem] md:tw-text-[2.813rem] lg:tw-text-[3.438rem] tw-leading-[2.5rem] md:tw-leading-[3.75rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
+          class="tw-font-inter-bold tw-text-center xl:tw-text-left tw-text-[1.875rem] md:tw-text-[2.813rem] lg:tw-text-[3.438rem] tw-leading-9 md:tw-leading-[3.75rem] lg:tw-leading-[5.156rem] tw-font-inter-bold tw-text-black-core/[0.87]"
         >
           Want to build a new version of your existing app or add new features?
         </p>
         <p
-          class="tw-mt-4 tw-text-[1rem] md:tw-text-[1.25rem] tw-leading-[1.5rem] md:tw-leading-[1.875rem] tw-font-inter-medium tw-text-center xl:tw-text-left tw-text-black-core/[0.87] lg:tw-text-black-core/[0.60]"
+          class="tw-mt-4 tw-text-[1rem] md:tw-text-[1.25rem] tw-leading-6 md:tw-leading-[1.875rem] tw-font-inter-medium tw-text-center xl:tw-text-left tw-text-black-core/[0.87] lg:tw-text-black-core/[0.60]"
         >
           Not sure where to start? We also offer code and architecture reviews,
           strategic planning, and more.
@@ -77,10 +77,10 @@
                 :class="
                   slide.hasStar ? 'tw-justify-between' : 'tw-justify-center'
                 "
-                class="tw-flex tw-flex-col tw-items-center tw-rounded-[16px] tw-bg-gradient-to-r tw-from-[#FF835B]/[0.3] tw-to-[#F2709C]/[0.3] tw-w-[50%] tw-p-[20px] tw-h-[140px]"
+                class="tw-flex tw-flex-col tw-items-center tw-rounded-2xl tw-bg-gradient-to-r tw-from-[#FF835B]/[0.3] tw-to-[#F2709C]/[0.3] tw-w-[50%] tw-p-5 tw-h-[140px]"
               >
                 <span
-                  class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.25rem]"
+                  class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-9"
                   >{{ slide.title }}</span
                 >
                 <span

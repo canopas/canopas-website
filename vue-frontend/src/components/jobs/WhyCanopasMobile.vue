@@ -17,18 +17,18 @@
       <div
         v-for="reason in reasons"
         :key="reason"
-        class="reason tw-flex tw-justify-end tw-relative tw-py-[20px] tw-px-0 even:tw-flex-row-reverse animate__animated"
+        class="reason tw-flex tw-justify-end tw-relative tw-py-5 tw-px-0 even:tw-flex-row-reverse animate__animated"
         ref="whyCanopasMobile"
       >
         <div
           :class="reason.class"
-          class="content tw-my-auto tw-mx-[20px] tw-flex-[70%] tw-flex tw-flex-col"
+          class="content tw-my-auto tw-mx-5 tw-flex-[70%] tw-flex tw-flex-col"
         >
           <img
             :src="reason.bullet"
             alt="why-canopas-image"
             loading="lazy"
-            class="bullets tw-w-[50px] tw-h-[50px] -tw-mr-[20px]"
+            class="bullets tw-w-[50px] tw-h-[50px] -tw-mr-5"
           />
           <div class="header-text tw-py-[15px] tw-px-0">{{ reason.title }}</div>
           <div

@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-my-20 xll:tw-container md:tw-mt-[14.063rem] md:tw-mb-12 xl:tw-mb-20"
+    class="tw-my-20 xll:tw-container md:tw-mt-[8.063rem] lg:tw-mt-[14.063rem] md:tw-mb-12 xl:tw-mb-20"
   >
     <div
       class="tw-container tw-mb-20 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem]"
@@ -17,11 +17,11 @@
           class="tw-animate-gridAnimation"
           :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
         >
-          <div class="tw-ml-[160px] tw-flex" v-if="mobileGrid.length > 0">
+          <div class="tw-ml-40 tw-flex" v-if="mobileGrid.length > 0">
             <div
               v-for="(item, index) in mobileGrid"
               :key="index"
-              class="tw-ml-[32px] tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
+              class="tw-ml-8 tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
               :class="
                 pausedId == index ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
@@ -30,9 +30,11 @@
               @touchstart.passive="pausedId = index"
               @touchend="pausedId = 0"
               :ref="'card-1-' + index"
-              @click="openBlog(item.link)"
+              @click="
+                openBlog(item.link, 'tap_contribution_ui/ux_design_explore')
+              "
             >
-              <div class="image-container sm:tw-px-[20px]">
+              <div class="image-container sm:tw-px-5">
                 <img
                   @click.native="mixpanel.track('tap_explore_design')"
                   :src="item.images[0]"
@@ -51,7 +53,7 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
 
-    <div class="tw-mt-[3rem] tw-hidden md:tw-block xl:tw-mt-16">
+    <div class="tw-mt-12 tw-hidden md:tw-block xl:tw-mt-16">
       <div class="swiper-content tw--mt-6 tw-w-full xll:tw-container">
         <swiper
           :slidesPerView="3"
@@ -71,7 +73,9 @@
           <swiper-slide v-for="(item, index) in data" :key="index">
             <div
               class="image-content swiper-zoom-container tw-cursor-pointer"
-              @click="openBlog(item.link)"
+              @click="
+                openBlog(item.link, 'tap_contribution_ui/ux_design_explore')
+              "
             >
               <img
                 :src="item.images[0]"
@@ -83,7 +87,7 @@
           </swiper-slide>
         </swiper>
       </div>
-      <div class="swiper-content tw-mt-[1rem] xll:tw-container xl:tw-mt-[2rem]">
+      <div class="swiper-content tw-mt-4 xll:tw-container xl:tw-mt-8">
         <swiper
           dir="rtl"
           :slidesPerView="4"
@@ -106,7 +110,12 @@
             ]"
             :key="index"
           >
-            <div class="tw-cursor-pointer" @click="openBlog(item.link)">
+            <div
+              class="tw-cursor-pointer"
+              @click="
+                openBlog(item.link, 'tap_contribution_ui/ux_design_explore')
+              "
+            >
               <img
                 :src="item.images[0]"
                 :srcset="`${item.images[0]} 400w,${item.images[1]} 800w`"
@@ -123,6 +132,8 @@
 </template>
 
 <script>
+import { openBlog } from "@/utils.js";
+
 import chatapp from "@/assets/images/contributions/explore/1-400w.webp";
 import chatapp800w from "@/assets/images/contributions/explore/1-800w.webp";
 
@@ -155,6 +166,7 @@ SwiperCore.use([Zoom, Pagination, Autoplay]);
 export default {
   data() {
     return {
+      openBlog,
       activeIndex: 0,
       gridAnimation: "animation-paused",
       gridAnimationReverse: "animation-running",
@@ -226,10 +238,6 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    openBlog(link) {
-      window.open(link, "_blank");
-      this.mixpanel.track("tap_contribution_ui/ux_design_explore");
-    },
     handleScroll() {
       let scrollTop = window.scrollY;
       if (scrollTop < this.lastScrollY) {

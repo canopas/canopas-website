@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-my-16 tw-flex tw-flex-col xll:tw-container xll:tw-mt-[4rem]">
+  <div class="tw-my-16 tw-flex tw-flex-col xll:tw-container xll:tw-mt-16">
     <div class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center">
       <span
         class="tw-mb-2.5 tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-[100%] md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
@@ -7,13 +7,13 @@
         Android App Development Services</span
       >
       <span
-        class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.60] md:tw-font-inter-medium md:tw-text-[1.5rem] md:tw-leading-[2.25rem] lg:tw-px-20 2xl:tw-px-56"
+        class="tw-font-inter-regular tw-text-base tw-text-black-core/[0.60] md:tw-font-inter-medium md:tw-text-[1.5rem] md:tw-leading-9 lg:tw-px-20 2xl:tw-px-56"
         >With over a decade of expertise in Android app development, our team
         can help you craft high- quality, user-friendly apps that drive business
         growth and customer engagement.</span
       >
     </div>
-    <div class="swiper-content tw-mt-[1rem]">
+    <div class="swiper-content tw-mt-4">
       <swiper
         :slidesPerView="1.1"
         :centeredSlides="true"
@@ -54,18 +54,18 @@
           class="tw-cursor-pointer"
         >
           <div
-            class="tw-relative !tw-mr-[-8px] tw-mb-[2rem] tw-mt-[3rem] tw-hidden md:tw-block"
+            class="tw-relative !-tw-mr-2 tw-mb-8 tw-mt-12 tw-hidden md:tw-block"
           >
             <div
               class="tw-border-b-2 tw-border-dotted tw-border-[#000000]/[0.87] tw-text-center"
             ></div>
           </div>
           <div
-            class="tw-mr-[1rem] tw-rounded-[1.25rem] tw-px-[0.5rem] tw-py-8 md:tw-w-[34.7rem] lg:tw-w-[40.75rem] xl:!tw-w-[45.75rem]"
+            class="tw-mr-4 tw-rounded-[1.25rem] tw-px-2 tw-py-8 md:tw-w-[34.7rem] lg:tw-w-[40.75rem] xl:!tw-w-[45.75rem]"
             :class="[item.bgColor]"
           >
             <div
-              class="tw-absolute tw-left-[38%] tw-top-0 tw-hidden tw-h-[80px] tw-bg-white tw-text-center md:tw-block lg:tw-left-[40%]"
+              class="tw-absolute tw-left-[38%] tw-top-0 tw-hidden tw-h-20 tw-bg-white tw-text-center md:tw-block lg:tw-left-[40%]"
             >
               <span
                 class="tw-text-center tw-font-inter-bold tw-text-[3.75rem] tw-leading-[5.625rem]"
@@ -75,12 +75,12 @@
             </div>
 
             <div
-              class="tw-justify-left tw-mb-[1.25rem] tw-flex tw-flex-row tw-items-center tw-space-x-[1rem]"
+              class="tw-justify-left tw-mb-5 tw-flex tw-flex-row tw-items-center tw-space-x-4"
             >
               <img
                 alt="development-icon"
                 :src="item.icon"
-                class="tw-h-[2.5rem] tw-w-[2.5rem] tw-object-contain md:tw-hidden"
+                class="tw-h-10 tw-w-10 tw-object-contain md:tw-hidden"
                 loading="lazy"
               />
               <span
@@ -89,9 +89,9 @@
               >
             </div>
             <div
-              class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] md:tw-p-[1rem] md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
+              class="tw-font-inter-regular tw-text-base tw-text-black-core/[0.87] md:tw-p-4 md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
             >
-              <ul class="tw-pl-[2rem] tw-pr-[1rem] md:tw-hidden">
+              <ul class="tw-pl-8 tw-pr-4 md:tw-hidden">
                 <li
                   v-for="list in item.description"
                   :key="list"
@@ -103,7 +103,7 @@
               <p
                 v-for="list in item.description"
                 :key="list"
-                class="tw-mb-[1rem] tw-hidden md:tw-block"
+                class="tw-mb-4 tw-hidden md:tw-block"
               >
                 {{ list }}
               </p>

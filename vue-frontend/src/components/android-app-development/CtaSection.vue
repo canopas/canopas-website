@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-container tw-relative tw-flex tw-flex-row tw-py-[2rem]">
+  <div class="tw-container tw-relative tw-flex tw-flex-row tw-py-8">
     <div class="tw-relative tw-z-[1]">
       <img
         :src="CtaBoyImage"
@@ -9,7 +9,7 @@
       />
     </div>
     <div
-      class="tw-border-[#00000]/[0.6] tw-absolute tw-left-[10%] tw-z-0 tw-mr-[0.2rem] tw-mt-[2rem] tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-lg tw-border-2 tw-py-[0.5rem] md:!tw-mt-[3.7rem] lg:!tw-mt-[5.7rem] lg:!tw-py-[3rem] xl:!tw-mt-[7.8rem] xl:!tw-py-[1rem] 2xl:!tw-pb-[4rem] 2xl:!tw-pt-[3rem] 2xl:tw-pr-[2rem] xs:tw-mt-[2.8rem] xs:tw-py-4"
+      class="tw-border-[#00000]/[0.6] tw-absolute tw-left-[10%] tw-z-0 tw-mr-[0.2rem] tw-mt-8 tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-lg tw-border-2 tw-py-2 md:!tw-mt-[3.7rem] lg:!tw-mt-[5.7rem] lg:!tw-py-12 xl:!tw-mt-[7.8rem] xl:!tw-py-4 2xl:!tw-pb-16 2xl:!tw-pt-12 2xl:tw-pr-8 xs:tw-mt-[2.8rem] xs:tw-py-4"
     >
       <div
         class="tw-ml-auto tw-w-[38%] tw-font-inter-semibold tw-text-[1.125rem] tw-leading-[1.4625rem] tw-text-black-core/[0.87] md:tw-text-[2.4375rem] md:tw-leading-[3.15625rem] lg:!tw-w-[47%] lg:tw-text-[2.935rem] lg:tw-leading-[4.15625rem] xl:tw-text-[3.4375rem] xl:tw-leading-[5.15625rem] 2xl:!tw-w-[60%] xs:tw-w-[50%]"
@@ -21,7 +21,7 @@
       >
         <router-link
           class="gradient-btn consultation-btn tw-m-0 tw-mx-auto tw-flex tw-w-max tw-items-center tw-rounded-full tw-p-3 tw-text-center"
-          :to="contactURL"
+          to="/contact"
           @click.native="mixpanel.track('tap_android_development_cta')"
         >
           <span
@@ -40,7 +40,6 @@ export default {
   data() {
     return {
       CtaBoyImage,
-      contactURL: "/contact",
     };
   },
 

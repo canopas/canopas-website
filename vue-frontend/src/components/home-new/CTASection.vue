@@ -26,7 +26,7 @@
         <div class="tw-flex tw-flex-wrap tw-justify-center">
           <router-link
             class="tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-3 tw-px-3 gradient-btn consultation-btn"
-            :to="contactURL"
+            to="/contact"
             @click.native="mixpanel.track('tap_home_touch_cta')"
           >
             <span
@@ -51,7 +51,7 @@
             class="tw-flex tw-py-[7.5px] md:tw-py-[17.5px] tw-px-0"
           >
             <span
-              class="tw-inline-block tw-mt-[5px] tw-mr-[15px] md:tw-mr-[18px] tw-w-[12px] tw-h-[12px] md:tw-w-[15px] md:tw-h-[15px] tw-rounded-[2px] md:tw-rounded-[5px] tw-bg-gradient-to-b tw-from-[#F2709C] tw-to-[#FF9472] tw-content-none"
+              class="tw-inline-block tw-mt-[5px] tw-mr-[15px] md:tw-mr-[18px] tw-w-3 tw-h-3 md:tw-w-[15px] md:tw-h-[15px] tw-rounded-[2px] md:tw-rounded-[5px] tw-bg-gradient-to-b tw-from-[#F2709C] tw-to-[#FF9472] tw-content-none"
             ></span>
             <div class="tw-w-[90%]">
               {{ reason }}
@@ -78,7 +78,6 @@ export default {
         "Sometimes, you want to check the feasibility of your idea. We will give you honest feedback based on our industry experience.",
         "We offer 100% Money-back guarantee. so, there’s no risk to you.",
       ],
-      contactURL: "/contact",
       bg400,
       bg800,
       bg1200,

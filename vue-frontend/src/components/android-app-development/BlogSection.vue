@@ -4,7 +4,7 @@
   >
     <!-- Mobile UI start -->
     <div
-      class="tw-relative tw-z-[1] tw-h-[27rem] tw-overflow-hidden tw-py-[3rem] sm:tw-py-[2rem] md:tw-hidden"
+      class="tw-relative tw-z-[1] tw-h-[27rem] tw-overflow-hidden tw-py-12 sm:tw-py-8 md:tw-hidden"
     >
       <p
         class="tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87]"
@@ -16,7 +16,7 @@
           :slidesPerView="2"
           :spaceBetween="10"
           :centeredSlides="true"
-          class="tw-p-[1rem]"
+          class="tw-p-4"
         >
           <swiper-slide
             v-for="(blog, index) in blogs"
@@ -26,7 +26,7 @@
             <div class="tw-overflow-hidden">
               <div class="tw-h-full tw-w-full tw-cursor-pointer">
                 <img
-                  @click="openBlog(blog.link)"
+                  @click="openBlog(blog.link, 'tap_android_app_blog_section')"
                   :src="blog.image[0]"
                   :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
                   :alt="blog.title"
@@ -73,7 +73,7 @@
       </p>
       <div class="tw-flex tw-flex-row tw-space-x-5 tw-space-y-1">
         <div
-          @click="openBlog(blog.link)"
+          @click="openBlog(blog.link, 'tap_android_app_blog_section')"
           v-for="blog in blogs.slice(0, 1)"
           :key="blog"
           class="content tw-group tw-relative tw-mt-[1.3rem] tw-flex tw-basis-[55%] lg:tw-basis-[54.3%] xl:tw-basis-[53.6%] tw-cursor-pointer tw-flex-col tw-rounded-[20px]"
@@ -97,17 +97,17 @@
             >
               <span
                 v-html="blog.hovertitle"
-                @click="openBlog(blog.link)"
+                @click="openBlog(blog.link, 'tap_android_app_blog_section')"
               ></span>
             </div>
           </div>
         </div>
         <div class="tw-mt-[0.3rem] tw-flex tw-basis-[45%] tw-flex-col">
           <div
-            class="tw-cursor-pointer tw-group content tw-relative tw-mt-[1rem]"
+            class="tw-cursor-pointer tw-group content tw-relative tw-mt-4"
             v-for="blog in blogs.slice(1, 3)"
             :key="blog"
-            @click="openBlog(blog.link)"
+            @click="openBlog(blog.link, 'tap_android_app_blog_section')"
             :class="blog.className"
           >
             <img
@@ -125,8 +125,8 @@
                 class="tw-absolute tw-top-1/2 tw-left-1/2 tw-text-center tw--translate-x-1/2 tw--translate-y-1/2 tw-w-[75%]"
               >
                 <span
-                  @click="openBlog(blog.link)"
-                  class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1] tw-leading-[1.5rem] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem] tw-text-white"
+                  @click="openBlog(blog.link, 'tap_android_app_blog_section')"
+                  class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-base lg:tw-text-[1.5rem] lg:tw-leading-9 tw-text-white"
                   v-html="blog.hovertitle"
                 ></span>
               </div>
@@ -136,10 +136,10 @@
       </div>
       <div class="tw-mt-[0.3rem] tw-flex tw-gap-x-[1.3rem]">
         <div
-          class="tw-cursor-pointer tw-group content tw-relative tw-mt-[1rem] tw-flex-col"
+          class="tw-cursor-pointer tw-group content tw-relative tw-mt-4 tw-flex-col"
           v-for="blog in blogs.slice(3, 5)"
           :key="blog"
-          @click="openBlog(blog.link)"
+          @click="openBlog(blog.link, 'tap_android_app_blog_section')"
           :class="blog.className"
         >
           <img
@@ -154,11 +154,11 @@
             :class="blog.bgColor"
           >
             <div
-              class="tw-absolute tw-top-1/2 tw-left-1/2 tw-text-center tw--translate-x-1/2 tw--translate-y-1/2 tw-opacity-1"
+              class="tw-absolute tw-top-1/2 tw-left-1/2 tw-text-center tw--translate-x-1/2 tw--translate-y-1/2"
             >
               <span
-                @click="openBlog(blog.link)"
-                class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1rem] lg:tw-text-[1.5rem] tw-leading-[1.5rem] lg:tw-leading-[2.25rem] tw-text-black-core/[0.87]"
+                @click="openBlog(blog.link, 'tap_android_app_blog_section')"
+                class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1rem] lg:tw-text-[1.5rem] tw-leading-6 lg:tw-leading-9 tw-text-black-core/[0.87]"
                 v-html="blog.hovertitle"
               ></span>
             </div>
@@ -173,7 +173,7 @@
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-
+import { openBlog } from "@/utils.js";
 import jacoco_desktop_400w from "@/assets/images/andriod-app-development/blog/desk-800w.webp";
 import jacoco_400w from "@/assets/images/andriod-app-development/blog/1-400w.webp";
 import jacoco_800w from "@/assets/images/andriod-app-development/blog/1-800w.webp";
@@ -189,6 +189,7 @@ import websocket_800w from "@/assets/images/andriod-app-development/blog/5-800w.
 export default {
   data() {
     return {
+      openBlog,
       blogs: [
         {
           id: 1,
@@ -241,12 +242,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    openBlog(link) {
-      window.open(link, "_blank");
-      this.mixpanel.track("tap_android_app_blog_section");
-    },
   },
   components: {
     Swiper,

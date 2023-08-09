@@ -6,13 +6,13 @@
       </template>
     </metainfo>
     <Header />
-    <LandingSection :name="applicantName" />
-    <InterviewProcess />
-    <VirtueView />
-    <LifeAtCanopasVue />
-    <LatestBlog />
-    <ContributionSection />
-    <NewFooter />
+    <LandingSection ref="landing" :name="applicantName" />
+    <InterviewProcess ref="process" />
+    <VirtueView ref="virtues" />
+    <LifeAtCanopasVue ref="lifeatcanopas" />
+    <LatestBlog ref="blogs" />
+    <ContributionSection ref="contributions" />
+    <NewFooter ref="footer" />
   </div>
 </template>
 <script>
@@ -20,10 +20,8 @@ import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/contact/thank-you/LandingSection.vue";
 import InterviewProcess from "@/components/jobs/thank-you/InterviewProcess.vue";
 import { defineAsyncComponent } from "vue";
+import { elementInViewPort } from "@/utils.js";
 
-const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue"),
-);
 const VirtueView = defineAsyncComponent(() =>
   import("@/components/jobs/VirtuesView.vue"),
 );
@@ -35,6 +33,10 @@ const LatestBlog = defineAsyncComponent(() =>
 );
 const ContributionSection = defineAsyncComponent(() =>
   import("@/components/jobs/thank-you/ContributionSection.vue"),
+);
+
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue"),
 );
 
 import config from "@/config.js";
@@ -67,7 +69,25 @@ export default {
   data() {
     return {
       applicantName: "",
+      event: "",
+      events: {
+        landing: "view_jobs_thankyou_landing_section",
+        process: "view_jobs_thankyou_process_section",
+        virtues: "view_jobs_thankyou_virtues_section",
+        lifeatcanopas: "view_jobs_thankyou_lifeatcanopas_section",
+        blogs: "view_jobs_thankyou_blogs_section",
+        contributions: "view_jobs_thankyou_contributions_section",
+        footer: "view_mobileapp_development_footer",
+      },
     };
+  },
+  inject: ["mixpanel"],
+  mounted() {
+    window.addEventListener("scroll", this.sendEvent);
+    this.mixpanel.track("view_jobs_thankyou_page");
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
   },
   beforeMount() {
     if (localStorage.getItem("applicant-name")) {
@@ -78,6 +98,15 @@ export default {
         params: { pathMatch: ["jobs", "thank-you"] },
       });
     }
+  },
+  methods: {
+    sendEvent() {
+      const event = this.events[elementInViewPort(this.$refs)];
+      if (event && this.event !== event) {
+        this.event = event;
+        this.mixpanel.track(event);
+      }
+    },
   },
 };
 </script>

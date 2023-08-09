@@ -1,7 +1,7 @@
 <template>
   <div class="tw-text-black-core-900/[0.87] tw-text-center sm:tw-container">
     <div
-      class="tw-py-12 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem] sm:tw-py-16"
+      class="tw-py-12 tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-9 sm:tw-py-16"
     >
       <span>What We Offer</span>
     </div>
@@ -29,12 +29,12 @@
             :class="showServices ? 'tw-cursor-pointer' : ''"
           >
             <span
-              class="tw-text-center tw-font-inter-semibold tw-text-[1.5rem] tw-leading-[2.25rem]"
+              class="tw-text-center tw-font-inter-semibold tw-text-[1.5rem] tw-leading-9"
               >{{ service.title }}</span
             >
           </div>
           <div
-            class="tw-mb-10 tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] sm:tw-mb-14"
+            class="tw-mb-10 tw-text-center tw-font-inter-regular tw-text-base sm:tw-mb-14"
           >
             <p>{{ service.description }}</p>
           </div>

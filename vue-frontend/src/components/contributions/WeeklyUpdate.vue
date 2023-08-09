@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <section>
     <div
-      class="tw-container tw-mt-[3rem] tw-flex tw-flex-col tw-items-center tw-gap-y-2.5 lg:tw-mt-24"
+      class="tw-container tw-mt-12 tw-flex tw-flex-col tw-items-center tw-gap-y-2.5 lg:tw-mt-24"
     >
       <div class="tw-text-center">
         <span
@@ -11,7 +11,7 @@
         >
       </div>
       <div
-        class="tw-mb-8 tw-mt-2.5 tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] lg:tw-mt-6 lg:tw-font-inter-medium lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem] lg:tw-text-black-core/[0.6]"
+        class="tw-mb-8 tw-mt-2.5 tw-text-center tw-font-inter-regular tw-text-base tw-text-black-core/[0.87] lg:tw-mt-6 lg:tw-font-inter-medium lg:tw-text-[1.5rem] lg:tw-leading-9 lg:tw-text-black-core/[0.6]"
       >
         Each week, we curate a hand-picked selection of the latest tech updates,
         delivering them straight to you. Immerse yourself in our weekly insights
@@ -30,14 +30,14 @@
         <swiper-slide v-for="(weekly, index) in weeklies" :key="index">
           <div
             class="tw-h-full tw-w-full tw-object-cover"
-            @click="openUrl(weekly)"
+            @click="openBlog(weekly.url, weekly.event)"
           >
             <img
               :src="[weekly.image]"
               alt="Weekly-stack-image"
               class="tw-h-fit tw-w-fit tw-rounded-t-lg tw-object-contain"
             />
-            <div class="!tw-rounded-b-lg tw-bg-[#F2F2F2] tw-p-[2rem]">
+            <div class="!tw-rounded-b-lg tw-bg-[#F2F2F2] tw-p-8">
               <div class="tw-flex tw-flex-row tw-justify-between">
                 <span
                   class="v2-canopas-gradient-text tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem]"
@@ -50,7 +50,7 @@
               </div>
               <div class="tw-mt-4 tw-flex tw-flex-col">
                 <div
-                  class="tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.5rem] sm:tw-text-black-core/[0.87]"
+                  class="tw-font-inter-medium tw-text-[1.25rem] tw-leading-6 sm:tw-text-black-core/[0.87]"
                 >
                   {{ weekly.title }}
                 </div>
@@ -65,62 +65,64 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <ul
-      @scroll="handleScroll"
-      id="scrollContainer"
-      class="hidden-scrollbar tw-mt-8 tw-relative tw-hidden tw-h-[400px] lg:tw-h-[480px] tw-overflow-y-scroll md:tw-block xl:tw-h-[580px] 2xl:tw-h-[695px] xll:tw-h-[644px]"
-    >
-      <li
-        v-for="(weekly, index) in weeklies"
-        :key="index"
-        :ref="'weekly-' + index"
-        :id="'weekly-' + index"
-        @click="openUrl(weekly)"
-        class="tw-origin-[center top] tw-sticky tw-top-[10px] tw-mx-[1%] tw-h-[270px] lg:tw-h-[390px] tw-cursor-pointer tw-overflow-hidden tw-drop-shadow-xl lg:tw-container lg:tw-h-[365px] xl:tw-mx-auto xl:tw-h-[480px] 2xl:tw-h-[590px] xll:tw-h-[546px]"
-        :style="{
-          transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
-        }"
+    <div class="tw-sticky">
+      <ul
+        @scroll="handleScroll"
+        id="scrollContainer"
+        class="tw-w-full tw-mt-8 tw-hidden tw-h-[400px] lg:tw-h-[480px] tw-overflow-y-scroll md:tw-block xl:tw-h-[580px] 2xl:tw-h-[695px] xll:tw-h-[644px]"
       >
-        <div
-          :class="weekly.color"
-          class="tw-mx-auto tw-flex tw-h-[350px] tw-flex-row xl:tw-h-[450px] 2xl:tw-h-[515px]"
+        <li
+          v-for="(weekly, index) in weeklies"
+          :key="index"
+          :ref="'weekly-' + index"
+          :id="'weekly-' + index"
+          @click="openBlog(weekly.url, weekly.event)"
+          class="tw-origin-[center top] tw-sticky tw-top-2.5 tw-mx-[1%] tw-h-[270px] lg:tw-h-[390px] tw-cursor-pointer tw-overflow-hidden tw-drop-shadow-xl lg:tw-container lg:tw-h-[365px] xl:tw-mx-auto xl:tw-h-[480px] 2xl:tw-h-[590px] xll:tw-h-[546px]"
+          :style="{
+            transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
+          }"
         >
-          <div class="tw-basis-1/2 tw-p-[20px]">
-            <img
-              :src="[weekly.image]"
-              alt="Weekly-stack-image"
-              class="tw-h-[72%] lg:tw-h-full tw-w-fit tw-object-cover"
-            />
-          </div>
-          <div class="tw-basis-1/2 tw-p-5 sm:tw-p-9">
-            <div class="tw-flex tw-flex-row tw-justify-between">
-              <span
-                class="v2-canopas-gradient-text tw-font-inter-semibold md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-[1.5rem] xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
-                >{{ weekly.author }}</span
-              >
-              <span
-                class="tw-font-inter-semibold tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-[1.5rem] xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
-                >{{ weekly.readtime }}</span
-              >
+          <div
+            :class="weekly.color"
+            class="tw-mx-auto tw-flex tw-h-[350px] tw-flex-row xl:tw-h-[450px] 2xl:tw-h-[515px]"
+          >
+            <div class="tw-basis-1/2 tw-p-5">
+              <img
+                :src="[weekly.image]"
+                alt="Weekly-stack-image"
+                class="tw-h-[72%] lg:tw-h-full tw-w-fit tw-object-cover"
+              />
             </div>
-            <div class="tw-mb-5 tw-mt-8 tw-flex tw-flex-col">
-              <div
-                class="tw-text-black-bore/[0.87] tw-font-inter-semibold md:tw-text-[1.125rem] md:tw-leading-[1.5rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.875rem] xl:tw-leading-[2.25rem]"
-              >
-                {{ weekly.title }}
+            <div class="tw-basis-1/2 tw-p-5 sm:tw-p-9">
+              <div class="tw-flex tw-flex-row tw-justify-between">
+                <span
+                  class="v2-canopas-gradient-text tw-font-inter-semibold md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-6 xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
+                  >{{ weekly.author }}</span
+                >
+                <span
+                  class="tw-font-inter-semibold tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-6 xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
+                  >{{ weekly.readtime }}</span
+                >
               </div>
-              <div
-                class="tw-mt-2.5 tw-font-inter-regular tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-[1.5rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
-              >
-                {{ weekly.content }}
+              <div class="tw-mb-5 tw-mt-8 tw-flex tw-flex-col">
+                <div
+                  class="tw-text-black-bore/[0.87] tw-font-inter-semibold md:tw-text-[1.125rem] md:tw-leading-6 lg:tw-text-[1.5rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.875rem] xl:tw-leading-9"
+                >
+                  {{ weekly.title }}
+                </div>
+                <div
+                  class="tw-mt-2.5 tw-font-inter-regular tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-6 lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
+                >
+                  {{ weekly.content }}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </li>
-    </ul>
-    <!-- Desktop UI end -->
-  </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+  <!-- Desktop UI end -->
 </template>
 
 <script>
@@ -131,12 +133,14 @@ import web from "@/assets/images/contributions/weekly/web.webp";
 import { elementInViewPort } from "@/utils";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, { EffectCards } from "swiper";
+import { openBlog } from "@/utils.js";
 
 SwiperCore.use([EffectCards]);
 
 export default {
   data() {
     return {
+      openBlog,
       swiper: null,
       activeIndex: 0,
       weeklies: [
@@ -203,7 +207,6 @@ export default {
     Swiper,
     SwiperSlide,
   },
-  inject: ["mixpanel"],
   mounted() {
     if (window.innerWidth > 992) {
       window.addEventListener("scroll", this.handleScroll);
@@ -213,10 +216,6 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    openUrl(weekly) {
-      window.open(weekly.url, "_blank");
-      this.mixpanel.track(weekly.event);
-    },
     scrollToCard(index) {
       this.activeIndex = index;
       document.getElementById("scrollContainer").scrollTo({

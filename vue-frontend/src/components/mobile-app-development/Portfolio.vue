@@ -1,11 +1,11 @@
 <template>
   <section
-    class="tw-py-[50px] md:tw-mt-[-1px] md:tw-bg-multi-gradient-background md:tw-pb-[200px] md:tw-pt-[150px]"
+    class="tw-py-[50px] md:-tw-mt-1px md:tw-bg-multi-gradient-background md:tw-pb-[200px] md:tw-pt-[150px]"
   >
     <!-- MOBILE UI START -->
     <div class="tw-container md:tw-hidden">
       <p
-        class="tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem]"
+        class="tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-9"
       >
         CASE STUDIES
       </p>
@@ -27,7 +27,7 @@
             :class="index == 3 ? 'tw-w-[75px]' : ''"
           />
           <p
-            class="tw-font-inter-bold tw-text-[1.25rem] tw-leading-[1.5rem] tw-text-black-core/[0.87]"
+            class="tw-font-inter-bold tw-text-[1.25rem] tw-leading-6 tw-text-black-core/[0.87]"
           >
             {{ portfolio.name }}
           </p>
@@ -57,7 +57,7 @@
           Our portfolios
         </p>
         <p
-          class="v2-canopas-gradient-text tw-mt-1 tw-text-center tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.5rem] xl:tw-text-[1.5rem] xl:tw-leading-[1.8rem]"
+          class="v2-canopas-gradient-text tw-mt-1 tw-text-center tw-font-inter-medium tw-text-[1.25rem] tw-leading-6 xl:tw-text-[1.5rem] xl:tw-leading-[1.8rem]"
         >
           1M+ users use our apps everyday
         </p>
@@ -110,7 +110,7 @@
               </p>
             </div>
             <p
-              class="tw-mt-2 tw-w-[90%] tw-cursor-pointer tw-font-inter-semibold tw-text-[2.063rem] tw-leading-[2.5rem] tw-text-white xl:tw-text-[3rem] xl:tw-leading-[3.631rem]"
+              class="tw-mt-2 tw-w-[90%] tw-cursor-pointer tw-font-inter-semibold tw-text-[2.063rem] tw-leading-10 tw-text-white xl:tw-text-[3rem] xl:tw-leading-[3.631rem]"
               :class="
                 portfolio.id == 1 || portfolio.id == 3
                   ? 'lg:tw-w-[67%] xl:tw-w-[81%] 2xl:tw-w-[83%]'

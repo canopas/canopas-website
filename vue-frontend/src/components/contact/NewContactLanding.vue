@@ -12,17 +12,17 @@
     </div>
 
     <div
-      class="lg:tw-my-10 tw-font-inter-medium tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.5rem] md:tw-leading-[2.0625rem] tw-text-black-core/[0.87]"
+      class="lg:tw-my-10 tw-font-inter-medium tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-6 md:tw-leading-[2.0625rem] tw-text-black-core/[0.87]"
     >
       Thanks for reaching out to us. This form requires
       <span
-        class="tw-font-inter-bold tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.5rem] md:tw-leading-[2.0625rem] canopas-gradient-text"
+        class="tw-font-inter-bold tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-6 md:tw-leading-[2.0625rem] canopas-gradient-text"
         >less than 60 seconds</span
       >
       to fill up.
     </div>
     <div
-      class="tw-mt-7 tw-font-inter-medium tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.5rem] md:tw-leading-[2.0625rem] tw-text-black-core/[0.87]"
+      class="tw-mt-7 tw-font-inter-medium tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-6 md:tw-leading-[2.0625rem] tw-text-black-core/[0.87]"
     >
       Here's what you will get by filling out this form.
     </div>
@@ -34,10 +34,10 @@
           class="tw-flex tw-items-start tw-px-0 tw-py-3"
         >
           <span
-            class="tw-mt-2 md:tw-mt-3 tw-mr-[15px] tw-w-[6px] md:tw-w-[8.81px] tw-h-[6px] md:tw-h-[9px] tw-rounded-full tw-bg-gradient-to-b tw-from-pink-300 tw-to-orange-300"
+            class="tw-mt-2 md:tw-mt-3 tw-mr-[15px] tw-w-1.5 md:tw-w-[8.81px] tw-h-1.5 md:tw-h-[9px] tw-rounded-full tw-bg-gradient-to-b tw-from-pink-300 tw-to-orange-300"
           ></span>
           <div
-            class="tw-w-11/12 lg:tw-w-10/12 tw-font-inter-medium tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-[1.5rem] md:tw-leading-[2.0625rem] tw-text-black-core/[0.87]"
+            class="tw-w-11/12 lg:tw-w-10/12 tw-font-inter-medium tw-text-[1rem] md:tw-text-[1.375rem] tw-leading-6 md:tw-leading-[2.0625rem] tw-text-black-core/[0.87]"
           >
             {{ reasons.title }}
           </div>

@@ -8,14 +8,14 @@
       DevOps - CI/CD and Auto Deployment
     </p>
     <!-- Mobile UI start -->
-    <div class="tw-mt-[3rem] tw-block md:tw-hidden">
+    <div class="tw-mt-12 tw-block md:tw-hidden">
       <swiper :slidesPerView="1.325" :centeredSlides="true" :spaceBetween="0">
         <swiper-slide v-for="(blog, index) in devOps" :key="index">
           <div
-            class="tw-scale-[0.75] tw-transition-all tw-duration-200 tw-ease-out"
+            class="tw-scale-75 tw-transition-all tw-duration-200 tw-ease-out"
           >
             <img
-              @click="openBlog(blog.link)"
+              @click="openBlog(blog.link, 'tap_contribution_Devops_section')"
               :src="blog.image[0]"
               :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
               class="tw-relative tw-h-full tw-w-full tw-rounded-[10px] tw-object-cover"
@@ -47,12 +47,14 @@
               class="tw-h-full tw-w-full tw-rounded-[20px] tw-object-cover"
               loading="lazy"
             />
-            <div @click="openBlog(blog.link)">
+            <div
+              @click="openBlog(blog.link, 'tap_contribution_Devops_section')"
+            >
               <div
-                class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-[100%] tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
+                class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-full tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
               ></div>
               <div
-                class="tw-opacity-1 tw-absolute tw-bottom-[-4rem] tw-translate-y-[50%] tw-p-[1rem] tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:tw-bottom-[-1rem] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
+                class="tw-opacity-1 tw-absolute -tw-bottom-16 tw-translate-y-[50%] tw-p-4 tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:tw-bottom-[-1rem] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
               >
                 <p
                   class="tw-text-[1.1rem] tw-leading-[1.1875rem] xl:tw-text-[1.125rem] xl:tw-leading-[1.688rem]"
@@ -60,7 +62,7 @@
                   {{ blog.readTime }}
                 </p>
                 <p
-                  class="tw-mt-4 tw-w-[100%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem] 2xl:tw-w-[75%]"
+                  class="tw-mt-4 tw-w-full tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-9 2xl:tw-w-[75%]"
                 >
                   {{ blog.title }}
                 </p>
@@ -79,15 +81,15 @@
             :src="blog.image[0]"
             :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
             alt="devops"
-            class="tw-h-full tw-w-full tw-rounded-[20px] tw-object-cover"
+            class="tw-h-full tw-w-full tw-rounded-5 tw-object-cover"
             loading="lazy"
           />
-          <div @click="openBlog(blog.link)">
+          <div @click="openBlog(blog.link, 'tap_contribution_Devops_section')">
             <div
-              class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-[100%] tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
+              class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-full tw-rounded-b-5 tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
             ></div>
             <div
-              class="tw-opacity-1 tw-absolute tw-bottom-[-4rem] tw-translate-y-[50%] tw-p-[1rem] tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:tw-bottom-[-1rem] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
+              class="tw-opacity-1 tw-absolute -tw-bottom-16 tw-translate-y-[50%] tw-p-4 tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:-tw-bottom-4 group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
             >
               <p
                 class="tw-text-[1.1rem] tw-leading-[1.1875rem] xl:tw-text-[1.125rem] xl:tw-leading-[1.688rem]"
@@ -95,7 +97,7 @@
                 {{ blog.readTime }}
               </p>
               <p
-                class="tw-mt-4 tw-w-[100%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem] 2xl:tw-w-[75%]"
+                class="tw-mt-4 tw-w-full tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-9 2xl:tw-w-[75%]"
               >
                 {{ blog.title }}
               </p>
@@ -115,12 +117,14 @@
               class="tw-h-full tw-w-full tw-cursor-pointer tw-rounded-[20px] tw-object-cover"
               loading="lazy"
             />
-            <div @click="openBlog(blog.link)">
+            <div
+              @click="openBlog(blog.link, 'tap_contribution_Devops_section')"
+            >
               <div
-                class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-[100%] tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
+                class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-full tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
               ></div>
               <div
-                class="tw-absolute tw-bottom-[-4rem] tw-translate-y-[50%] tw-p-[1rem] tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:tw-bottom-[-1rem] group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
+                class="tw-absolute -tw-bottom-16 tw-translate-y-[50%] tw-p-4 tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:-tw-bottom-4 group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
               >
                 <p
                   class="tw-text-[1.1rem] tw-leading-[1.1875rem] xl:tw-text-[1.125rem] xl:tw-leading-[1.688rem]"
@@ -128,7 +132,7 @@
                   {{ blog.readTime }}
                 </p>
                 <p
-                  class="tw-mt-4 tw-w-[100%] tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-[2.25rem] 2xl:tw-w-[75%]"
+                  class="tw-mt-4 tw-w-full tw-text-[1.1rem] tw-leading-[1.875rem] xl:tw-text-[1.5rem] xl:tw-leading-9 2xl:tw-w-[75%]"
                 >
                   {{ blog.title }}
                 </p>
@@ -142,6 +146,8 @@
   </section>
 </template>
 <script>
+import { openBlog } from "@/utils.js";
+
 import { Swiper, SwiperSlide } from "swiper/vue";
 import devops1_400w from "@/assets/images/contributions/devops/1-400w.webp";
 import devops1_800w from "@/assets/images/contributions/devops/1-800w.webp";
@@ -157,6 +163,8 @@ import devops5_800w from "@/assets/images/contributions/devops/5-800w.webp";
 export default {
   data() {
     return {
+      openBlog,
+
       devOps: [
         {
           id: 1,
@@ -197,12 +205,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    openBlog(link) {
-      window.open(link, "_blank");
-      this.mixpanel.track("tap_contribution_Devops_section");
-    },
   },
   components: {
     Swiper,

@@ -11,7 +11,7 @@
         Our Success Stories
       </p>
       <p
-        class="tw-mt-[1rem] tw-text-center lg:tw-text-left tw-font-inter-regular tw-text-[1.2rem] md:tw-text-[1.25rem] lg:tw-text-[1.5rem] tw-leading-[1.575rem] md:tw-leading-[1.875rem] lg:tw-leading-[2.25rem] tw-text-black-core/[0.6]"
+        class="tw-mt-4 tw-text-center lg:tw-text-left tw-font-inter-regular tw-text-[1.2rem] md:tw-text-[1.25rem] lg:tw-text-[1.5rem] tw-leading-[1.575rem] md:tw-leading-[1.875rem] lg:tw-leading-9 tw-text-black-core/[0.6]"
       >
         Check out the best from our vault of<br />
         50+ projects.
@@ -28,7 +28,7 @@
       </router-link>
     </div>
     <div
-      class="swiper-content tw-mt-[3rem] lg:tw-w-[50%] 2xl:tw-w-[60%] tw-pl-4 md:tw-pl-0"
+      class="swiper-content tw-mt-12 lg:tw-w-[50%] 2xl:tw-w-[60%] tw-pl-4 md:tw-pl-0"
     >
       <swiper
         :slidesPerView="1.1"
@@ -72,7 +72,7 @@
           <img
             :src="story.image[0]"
             :srcset="`${story.image[0]} 400w, ${story.image[1]} 800w`"
-            class="tw-mb-[0.5rem] tw-w-full tw-h-[600px] lg:tw-h-full tw-object-cover"
+            class="tw-mb-2 tw-w-full tw-h-[600px] lg:tw-h-full tw-object-cover"
             alt="story-image"
           />
         </swiper-slide>
@@ -164,9 +164,9 @@ export default {
 .swiper-horizontal > .swiper-pagination-progressbar,
 .swiper-pagination-horizontal,
 .swiper-pagination-progressbar-fill {
-  @apply lg:tw-hidden !tw-bottom-0 !tw-top-auto !tw-left-auto md:!tw-left-[0.2rem] !tw-right-4 tw-w-[99%] !tw-h-[6px] !tw-rounded-[18px] !tw-bg-neutral-100;
+  @apply lg:tw-hidden !tw-bottom-0 !tw-top-auto !tw-left-auto md:!tw-left-[0.2rem] !tw-right-4 tw-w-[99%] !tw-h-1.5 !tw-rounded-[18px] !tw-bg-neutral-100;
 }
 .swiper-pagination-progressbar-fill {
-  @apply !tw-right-0  md:!tw-left-[0.2rem]  !tw-h-[6px] !tw-rounded-[18px]  !tw-bg-gradient-to-r !tw-from-[#FF835B] !tw-to-[#F2709C];
+  @apply !tw-right-0  md:!tw-left-[0.2rem]  !tw-h-1.5 !tw-rounded-[18px]  !tw-bg-gradient-to-r !tw-from-[#FF835B] !tw-to-[#F2709C];
 }
 </style>

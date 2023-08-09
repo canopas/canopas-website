@@ -5,7 +5,7 @@
       :style="{ height: navContainerHeight + 'px' }"
     >
       <nav
-        class="tw-ease tw-z-[1] tw-w-full tw-bg-white tw-py-5 tw-tracking-[0] tw-text-black-core/[.87] tw-transition-all tw-duration-500 md:tw-px-0 md:tw-py-[1rem]"
+        class="tw-ease tw-z-[1] tw-w-full tw-bg-white tw-py-5 tw-tracking-[0] tw-text-black-core/[.87] tw-transition-all tw-duration-500 md:tw-px-0 md:tw-py-4"
         :class="[
           showNavbar
             ? 'tw-fixed tw-shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]'
@@ -51,7 +51,7 @@
                   v-if="!navbar.target"
                   :to="navbar.url"
                   @click.native="mixpanel.track(navbar.event)"
-                  class="tw-group tw-relative tw-mr-[20px] tw-inline-block sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px]"
+                  class="tw-group tw-relative tw-mr-5 tw-inline-block sm:tw-mr-[30px] lg:tw-mr-2 xl:tw-mr-[30px]"
                   :class="[
                     navbar.className
                       ? navbar.className
@@ -68,7 +68,7 @@
                 </router-link>
                 <a
                   v-else
-                  class="tw-relative tw-mr-[20px] tw-inline-block after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[27px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100 sm:tw-mr-[30px] lg:tw-mr-[8px] xl:tw-mr-[30px]"
+                  class="tw-relative tw-mr-5 tw-inline-block after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[27px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100 sm:tw-mr-[30px] lg:tw-mr-2 xl:tw-mr-[30px]"
                   :href="navbar.url"
                   :target="navbar.target"
                   >{{ navbar.name }}</a
@@ -81,7 +81,7 @@
                 >
                   <li v-for="navbar in subMenus" :key="navbar">
                     <a
-                      class="tw-relative tw-py-[1rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem] after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[42px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100"
+                      class="tw-relative tw-py-4 tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem] after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[42px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100"
                       :href="navbar.url"
                       :target="navbar.target"
                       >{{ navbar.name }}
@@ -106,7 +106,7 @@
       class="tw-fixed tw-right-0 tw-top-0 tw-h-screen tw-w-full tw-overflow-y-hidden tw-bg-white tw-py-4 tw-duration-500 tw-ease-in-out md:tw-py-2 lg:tw-hidden"
     >
       <div class="tw-container">
-        <div class="tw-sticky tw-top-0 tw-w-full md:tw-pt-[0.75rem]">
+        <div class="tw-sticky tw-top-0 tw-w-full md:tw-pt-3">
           <div class="tw-flex tw-items-center tw-justify-between">
             <div class="tw-whitespace-nowrap tw-text-[1.25rem]">
               <router-link to="/" replace>
@@ -142,7 +142,7 @@
               v-if="!navbar.target"
               :to="navbar.url == '/contributions' ? '' : navbar.url"
               @click.native="mixpanel.track(navbar.event)"
-              class="tw-group tw-relative tw-mr-[20px] tw-inline-block sm:tw-mr-[30px] lg:tw-mr-[20px]"
+              class="tw-group tw-relative tw-mr-5 tw-inline-block sm:tw-mr-[30px] lg:tw-mr-5"
               :class="[
                 navbar.className
                   ? navbar.className
@@ -160,7 +160,7 @@
 
             <a
               v-else
-              class="tw-relative tw-mr-[20px] tw-inline-block after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[27px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100 sm:tw-mr-[30px]"
+              class="tw-relative tw-mr-5 tw-inline-block after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[27px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100 sm:tw-mr-[30px]"
               :href="navbar.url"
               :target="navbar.target"
               >{{ navbar.name }}</a
@@ -175,7 +175,7 @@
             >
               <li v-for="navbar in subMenus" :key="navbar">
                 <a
-                  class="tw-relative tw-py-[0.5rem] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] group-hover:tw-z-[1] group-hover:tw-text-white md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem] after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[30px] md:after:tw-top-[35px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100"
+                  class="tw-relative tw-py-2 tw-font-inter-medium tw-text-[1rem] tw-leading-[1.125rem] tw-text-black-core/[0.6] group-hover:tw-z-[1] group-hover:tw-text-white md:tw-text-[1.09375rem] md:tw-leading-[1.28125rem] lg:tw-text-[1.188rem] lg:tw-leading-[1.437rem] after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-top-[30px] md:after:tw-top-[35px] after:tw-h-[3px] after:tw-w-full after:tw-origin-bottom-left after:tw-scale-x-0 after:tw-from-[#f2709c] after:tw-to-[#ff9472] after:tw-duration-300 after:tw-bg-gradient-[90deg] hover:tw-from-[#ff9472] hover:tw-to-[#f2709c] hover:tw-bg-clip-text hover:tw-text-transparent hover:tw-bg-gradient-[270.11deg] hover:after:tw-origin-bottom-left hover:after:tw-scale-x-100"
                   :href="navbar.url"
                   :target="navbar.target"
                   >{{ navbar.name }}
@@ -191,7 +191,7 @@
               className="tw-relative tw-justify-self-center tw-rounded-full tw-border-[1px] tw-border-solid tw-border-transparent tw-bg-gradient-to-r tw-from-[#f2709c] tw-to-[#ff9472] hover:tw-shadow-[inset_2px_1000px_1px_#fff] tw-font-bold tw-text-white "
             >
               <div
-                className="tw-py-[0.8rem] tw-px-[2.5rem] tw-text-lg hover:tw-bg-clip-text hover:tw-bg-gradient-to-r hover:tw-from-[#f2709c] hover:tw-via-[#ff909c] hover:tw-to-[#ff9472] hover:tw-text-transparent tw-inline-block"
+                className="tw-py-[0.8rem] tw-px-10 tw-text-lg hover:tw-bg-clip-text hover:tw-bg-gradient-to-r hover:tw-from-[#f2709c] hover:tw-via-[#ff909c] hover:tw-to-[#ff9472] hover:tw-text-transparent tw-inline-block"
               >
                 Get Free Consultation
               </div>

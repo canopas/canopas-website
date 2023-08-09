@@ -12,7 +12,7 @@
             >Join our happy Clients!</span
           >
           <span
-            class="tw-mt-5 tw-text-[1rem] md:tw-text-[1.5rem] tw-leading-[1.5rem] md:tw-leading-[2.25rem] tw-text-center lg:tw-text-left tw-font-inter-medium tw-text-black-core/[0.60]"
+            class="tw-mt-5 tw-text-[1rem] md:tw-text-[1.5rem] tw-leading-6 md:tw-leading-9 tw-text-center lg:tw-text-left tw-font-inter-medium tw-text-black-core/[0.60]"
           >
             The best products start with a foundation of great planning and are
             built through collaboration.
@@ -60,7 +60,7 @@
                       class="tw-flex tw-flex-row tw--mt-[0.15rem] sm:tw--mt-3 md:tw--mt-2 lg:tw-mt-[0.1rem] tw-w-[132px] sm:tw-w-fit"
                     >
                       <div
-                        class="tw-flex tw-flex-col sm:tw-justify-center tw-mt-[4px] sm:tw-mt-[7px]"
+                        class="tw-flex tw-flex-col sm:tw-justify-center tw-mt-1 sm:tw-mt-[7px]"
                       >
                         <span
                           class="sm:tw-justify-between tw-mr-1 md:tw-mr-2 tw-text-[0.625rem] md:tw-text-[0.625rem] tw-leading-[1.375rem] tw-text-black-core/[0.87]"
@@ -81,7 +81,7 @@
                           <font-awesome-icon
                             v-for="i in 5"
                             :key="i"
-                            class="fa-star tw-w-[11px] md:tw-w-[16px] tw-h-[11px] md:tw-h-[16px] tw-text-[#FF3D2E]"
+                            class="fa-star tw-w-[11px] md:tw-w-4 tw-h-[11px] md:tw-h-4 tw-text-[#FF3D2E]"
                             icon="star"
                         /></span>
 
