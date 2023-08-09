@@ -7,13 +7,13 @@
         GitHub Contributions
       </p>
       <p
-        class="tw-mt-4 tw-text-center tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] lg:tw-mt-8 lg:tw-font-inter-medium lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem] lg:tw-text-black-core/[0.6]"
+        class="tw-mt-4 tw-text-center tw-font-inter-regular tw-text-base tw-text-black-core/[0.87] lg:tw-mt-8 lg:tw-font-inter-medium lg:tw-text-[1.5rem] lg:tw-leading-9 lg:tw-text-black-core/[0.6]"
       >
         Explore our repositories and join us on this thrilling journey of
         creating code that fuels global innovation.
       </p>
       <div
-        class="tw-m-auto tw-mt-8 tw-flex tw-w-[100%] tw-justify-around tw-gap-4 tw-rounded-[30px] tw-bg-white tw-py-[5px] tw-drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)] sm:tw-w-[95%] lg:tw-mt-[3.75rem] lg:tw-w-[75%]"
+        class="tw-m-auto tw-mt-8 tw-flex tw-w-full tw-justify-around tw-gap-4 tw-rounded-[30px] tw-bg-white tw-py-[5px] tw-drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)] sm:tw-w-[95%] lg:tw-mt-[3.75rem] lg:tw-w-[75%]"
       >
         <button
           v-for="(navbar, index) in navbars"
@@ -23,7 +23,7 @@
           :class="
             activeIndex == index
               ? 'tw-from-[#ff835b] tw-to-[#f2709c] tw-text-white tw-bg-gradient-[270.11deg] '
-              : 'tw-border-[1px] tw-border-solid tw-border-transparent tw-text-black-core/[0.6]'
+              : 'tw-border tw-border-solid tw-border-transparent tw-text-black-core/[0.6]'
           "
         >
           {{ navbar }}
@@ -43,7 +43,7 @@
         <swiper-slide
           v-for="(contribution, index) in allContributions"
           :key="index"
-          @click="openContribution(contribution)"
+          @click="openBlog(contribution.link, contribution.event)"
           class="tw-cursor-pointer"
         >
           <img
@@ -75,7 +75,7 @@
                   :class="contribution.color"
                 ></span
                 ><span
-                  class="tw-font-inter-medium tw-text-[1rem] tw-leading-[1rem] tw-text-black-core/[0.87]"
+                  class="tw-font-inter-medium tw-text-[1rem] tw-leading-4 tw-text-black-core/[0.87]"
                   >{{ contribution.language }}</span
                 >
               </div>
@@ -85,13 +85,13 @@
                     class="fa tw-h-4 tw-w-4"
                     :icon="fork" /></span
                 ><span
-                  class="tw-font-inter-medium tw-text-[1rem] tw-leading-[1rem] tw-text-black-core/[0.87]"
+                  class="tw-font-inter-medium tw-text-[1rem] tw-leading-4 tw-text-black-core/[0.87]"
                   >{{ contribution.forks }}</span
                 >
               </div>
             </div>
             <p
-              class="tw-mt-2 tw-px-4 tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.6]"
+              class="tw-mt-2 tw-px-4 tw-font-inter-regular tw-text-base tw-text-black-core/[0.6]"
             >
               <span
                 class="tw-font-inter-medium tw-text-[1.25rem] tw-leading-[1.875rem] tw-text-black-core/[0.87]"
@@ -99,9 +99,7 @@
               ><br />{{ contribution.description }}
             </p>
             <div class="tw-mt-4 tw-flex tw-flex-row tw-items-center tw-px-4">
-              <p
-                class="tw-mr-2 tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.5rem]"
-              >
+              <p class="tw-mr-2 tw-font-inter-semibold tw-text-base">
                 Contributors:
               </p>
               <div
@@ -123,13 +121,13 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-container tw-mx-auto tw-mt-[2rem] tw-hidden xl:tw-gap-12 tw-flex-wrap tw-justify-between md:tw-flex lg:tw-my-10"
+      class="tw-container tw-mx-auto tw-mt-8 tw-hidden xl:tw-gap-12 tw-flex-wrap tw-justify-between md:tw-flex lg:tw-my-10"
     >
       <div
         v-for="(contribution, index) in contributions"
         :key="index"
-        class="flip-card-inner tw-mx-auto tw-relative tw-h-[368px] tw-w-[48%] tw-cursor-pointer md:tw--mt-[3rem] lg:tw-mt-[1rem] lg:tw-h-[440px] xl:tw-mt-[2rem] xl:tw-h-[500px] 2xl:tw-h-[550px]"
-        @click="openContribution(contribution)"
+        class="flip-card-inner tw-mx-auto tw-relative tw-h-[368px] tw-w-[48%] tw-cursor-pointer md:-tw-mt-12 lg:tw-mt-4 lg:tw-h-[440px] xl:tw-mt-8 xl:tw-h-[500px] 2xl:tw-h-[550px]"
+        @click="openBlog(contribution.link, contribution.event)"
       >
         <div
           class="flip-card-front tw-absolute tw-w-full tw-h-full tw-overflow-hidden"
@@ -145,7 +143,7 @@
           class="flip-card-back tw-absolute tw-h-[92%] tw-w-full tw-rounded-[20px] tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-gradient-[180deg] lg:tw-h-full"
         >
           <div
-            class="tw-flex tw-flex-row tw-items-center tw-justify-between tw-pl-6 tw-pr-4 tw-pt-6 xl:tw-px-[3rem] xl:tw-pt-[2.5rem]"
+            class="tw-flex tw-flex-row tw-items-center tw-justify-between tw-pl-6 tw-pr-4 tw-pt-6 xl:tw-px-12 xl:tw-pt-10"
           >
             <div
               class="tw-flex tw-flex-row tw-items-center tw-gap-2 tw-text-white"
@@ -166,7 +164,7 @@
               >
             </div>
             <div
-              class="tw-flex tw-flex-row tw-items-center tw-rounded-[30px] tw-bg-white tw-px-[1rem] tw-py-[0.5rem] xl:tw-px-[1.5rem]"
+              class="tw-flex tw-flex-row tw-items-center tw-rounded-[30px] tw-bg-white tw-px-4 tw-py-2 xl:tw-px-6"
             >
               <font-awesome-icon
                 class="fab footer-icon tw-h-[26px] tw-w-[26px] tw-pr-[5px]"
@@ -179,7 +177,7 @@
             </div>
           </div>
           <p
-            class="tw-ml-6 tw-mr-2 xl:tw-ml-12 xl:tw-mr-4 tw-font-inter-semibold tw-text-[1rem] tw-leading-[3rem] tw-text-white lg:tw-mt-[4rem] lg:tw-text-[2rem]"
+            class="tw-ml-6 tw-mr-2 xl:tw-ml-12 xl:tw-mr-4 tw-font-inter-semibold tw-text-[1rem] tw-leading-[3rem] tw-text-white lg:tw-mt-16 lg:tw-text-[2rem]"
           >
             {{ contribution.title }}
           </p>
@@ -218,6 +216,7 @@
 <script>
 import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { openBlog } from "@/utils.js";
 
 import android1_400w from "@/assets/images/contributions/github/mobile/android-1-400w.webp";
 import android1_800w from "@/assets/images/contributions/github/mobile/android-1-800w.webp";
@@ -290,6 +289,7 @@ const WEB = 2;
 export default {
   data() {
     return {
+      openBlog,
       navbars: ["Android", "iOS", "Web"],
       contributions: [],
       activeIndex: 0,
@@ -462,7 +462,6 @@ export default {
     SwiperSlide,
     FontAwesomeIcon,
   },
-  inject: ["mixpanel"],
   mounted() {
     this.contributions = this.allContributions.filter((obj) => {
       return obj.key === ANDROID;

@@ -1,5 +1,5 @@
 import { useElementVisibility } from "@vueuse/core";
-
+import mixpanel from "mixpanel-browser";
 export function elementInViewPort(refs) {
   var element;
   Object.keys(refs).forEach((key) => {
@@ -41,4 +41,9 @@ export function setGithubStars(contributions, githubRepos) {
       )
       .map((repo) => repo.stargazers_count.toString())[0];
   });
+}
+
+export function openBlog(link, event) {
+  window.open(link, "_blank");
+  mixpanel.track(event);
 }

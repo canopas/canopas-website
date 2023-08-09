@@ -66,7 +66,7 @@ a {
 }
 
 .normal-text {
-  @apply tw-text-[1.15rem] tw-font-normal tw-not-italic tw-leading-[1.5rem] tw-tracking-[0.3px] tw-text-[#3d3d3dcc] md:tw-text-[1.2rem] md:tw-leading-[1.375rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8rem];
+  @apply tw-text-[1.15rem] tw-font-normal tw-not-italic tw-leading-6 tw-tracking-[0.3px] tw-text-[#3d3d3dcc] md:tw-text-[1.2rem] md:tw-leading-[1.375rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8rem];
 }
 
 .normal-2-text {
@@ -74,11 +74,11 @@ a {
 }
 
 .header-text {
-  @apply tw-text-[1.5rem] tw-font-bold tw-leading-[1.813rem] md:tw-text-[1.875rem] md:tw-leading-[2rem] lg:tw-text-[3rem] lg:tw-leading-[3.6rem];
+  @apply tw-text-[1.5rem] tw-font-bold tw-leading-[1.813rem] md:tw-text-[1.875rem] md:tw-leading-8 lg:tw-text-[3rem] lg:tw-leading-[3.6rem];
 }
 
 .header-2-text {
-  @apply tw-text-[1.25rem] tw-font-bold tw-leading-[1.6rem] tw-tracking-[0.5px] tw-text-[#3d3d3d] md:tw-text-[1.75rem] md:tw-leading-[2rem] lg:tw-text-[2.25rem] lg:tw-leading-[2.729rem];
+  @apply tw-text-[1.25rem] tw-font-bold tw-leading-[1.6rem] tw-tracking-[0.5px] tw-text-[#3d3d3d] md:tw-text-[1.75rem] md:tw-leading-8 lg:tw-text-[2.25rem] lg:tw-leading-[2.729rem];
 }
 
 .grecaptcha-badge {
@@ -112,22 +112,22 @@ a {
 
 /* 24px/29px - 20px/24px - 16px/20px */
 .v2-title-3-text {
-  @apply tw-text-[1rem] tw-font-medium tw-leading-[1.25rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.25rem] md:tw-leading-[1.5rem] lg:tw-text-[1.5rem] lg:tw-leading-[1.8125rem];
+  @apply tw-text-[1rem] tw-font-medium tw-leading-[1.25rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.25rem] md:tw-leading-6 lg:tw-text-[1.5rem] lg:tw-leading-[1.8125rem];
 }
 
 /* 27px/43px - 22px/32px - 19px/30px */
 .v2-normal-text {
-  @apply tw-text-[1.1875rem] tw-font-normal tw-leading-[1.875rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.375rem] md:tw-leading-[2rem] lg:tw-text-[1.6875rem] lg:tw-leading-[2.6875rem];
+  @apply tw-text-[1.1875rem] tw-font-normal tw-leading-[1.875rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.375rem] md:tw-leading-8 lg:tw-text-[1.6875rem] lg:tw-leading-[2.6875rem];
 }
 
 /* 22px/32px - 19px/30px - 17px/19px */
 .v2-normal-2-text {
-  @apply tw-text-[1.0625rem] tw-font-normal tw-leading-[1.1875rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.1875rem] md:tw-leading-[1.875rem] lg:tw-text-[1.375rem] lg:tw-leading-[2rem];
+  @apply tw-text-[1.0625rem] tw-font-normal tw-leading-[1.1875rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.1875rem] md:tw-leading-[1.875rem] lg:tw-text-[1.375rem] lg:tw-leading-8;
 }
 
 /* 18px/30px - 17px/24px - 16px/18px */
 .v2-normal-3-text {
-  @apply tw-text-[1rem] tw-font-normal tw-leading-[1.125rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-text-[1.125rem] lg:tw-leading-[1.875rem];
+  @apply tw-text-[1rem] tw-font-normal tw-leading-[1.125rem] tw-tracking-[1px] tw-text-[#3d3d3d] md:tw-text-[1.0625rem] md:tw-leading-6 lg:tw-text-[1.125rem] lg:tw-leading-[1.875rem];
 }
 
 .border-text {
@@ -144,7 +144,7 @@ a {
 }
 
 .v2-button > span {
-  @apply tw-mr-[10px];
+  @apply tw-mr-2.5;
 }
 
 .v2-button:hover > .fa,
@@ -154,11 +154,11 @@ a {
 }
 
 .gradient-btn {
-  @apply tw-mb-0 tw-ml-auto tw-mr-auto tw-mt-[1.25rem] tw-rounded-[0.6rem] tw-border-[1px] tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-p-[1rem] tw-text-center tw-text-white tw-bg-gradient-[270.11deg] hover:tw-bg-gradient-to-r hover:tw-from-[#ff9472] hover:tw-via-[#ff909c] hover:tw-to-[#f2709c] hover:tw-shadow-[inset_2px_1000px_1px_#fff] active:tw-scale-[0.98] lg:tw-mb-0 lg:tw-ml-[0.5rem] lg:tw-mr-[0.5rem] lg:tw-mt-[1.25rem] lg:tw-px-[1rem] lg:tw-py-[1rem];
+  @apply tw-mb-0 tw-ml-auto tw-mr-auto tw-mt-5 tw-rounded-[0.6rem] tw-border tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-p-4 tw-text-center tw-text-white tw-bg-gradient-[270.11deg] hover:tw-bg-gradient-to-r hover:tw-from-[#ff9472] hover:tw-via-[#ff909c] hover:tw-to-[#f2709c] hover:tw-shadow-[inset_2px_1000px_1px_#fff] active:tw-scale-[0.98] lg:tw-mb-0 lg:tw-ml-2 lg:tw-mr-2 lg:tw-mt-5 lg:tw-px-4 lg:tw-py-4;
 }
 
 .gradient-btn > span {
-  @apply tw-mx-[6px] tw-my-0 tw-font-bold;
+  @apply tw-mx-1.5 tw-my-0 tw-font-bold;
 }
 
 .gradient-btn:hover > span,
@@ -177,7 +177,7 @@ a {
 }
 
 .gradient-border-btn {
-  @apply tw-m-[5px] tw-rounded-[0.6rem] tw-border-[1px] tw-border-solid tw-border-transparent tw-bg-gradient-to-r tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-p-[1rem] tw-text-center tw-shadow-[inset_2px_1000px_1px_#fff] hover:tw-border-[1px] hover:tw-border-solid hover:tw-border-transparent hover:tw-from-[#f2709c] hover:tw-to-[#ff9472] hover:tw-shadow-none hover:tw-bg-gradient-[91.53deg] active:tw-scale-[0.98];
+  @apply tw-m-[5px] tw-rounded-[0.6rem] tw-border tw-border-solid tw-border-transparent tw-bg-gradient-to-r tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-p-[1rem] tw-text-center tw-shadow-[inset_2px_1000px_1px_#fff] hover:tw-border hover:tw-border-solid hover:tw-border-transparent hover:tw-from-[#f2709c] hover:tw-to-[#ff9472] hover:tw-shadow-none hover:tw-bg-gradient-[91.53deg] active:tw-scale-[0.98];
 }
 
 .gradient-border-btn > a > .fab {

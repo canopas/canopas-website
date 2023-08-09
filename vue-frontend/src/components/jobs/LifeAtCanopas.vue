@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="tw-container normal-text tw-px-[1.25rem] tw-pt-[3.125rem] tw-pb-[1.875rem] md:tw-px-[3.125rem] md:tw-pt-[6.25rem] md:tw-pb-[3.125rem] lg:tw-pt-[14.063rem] tw-text-center"
+      class="tw-container normal-text tw-px-5 tw-pt-[3.125rem] tw-pb-[1.875rem] md:tw-px-[3.125rem] md:tw-pt-[6.25rem] md:tw-pb-[3.125rem] lg:tw-pt-[14.063rem] tw-text-center"
     >
       <div class="header-text canopas-gradient-text">
         <span class="underline-text">Life a</span>t Canopas
@@ -43,7 +43,7 @@
         <swiper-slide v-for="(sider, index) in slides" :key="index">
           <aspect-ratio
             height="66%"
-            class="tw-mb-[80px] tw-border-solid tw-border-transparent tw-border-[1px]"
+            class="tw-mb-[80px] tw-border-solid tw-border-transparent tw-border"
           >
             <img
               @click.native="mixpanel.track('click_life_photo')"
@@ -194,7 +194,7 @@ export default {
 }
 
 .swiper-pagination-bullet {
-  @apply !tw-w-[15px] !tw-h-[15px] !tw-rounded-[3px] !tw-bg-transparent !tw-border-[1px] !tw-border-solid !tw-border-[#3d3d3d];
+  @apply !tw-w-[15px] !tw-h-[15px] !tw-rounded-[3px] !tw-bg-transparent !tw-border !tw-border-solid !tw-border-[#3d3d3d];
 }
 
 .swiper-pagination-bullet-active {

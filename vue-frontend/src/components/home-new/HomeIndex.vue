@@ -4,7 +4,7 @@
     <LandingSection ref="landing" />
     <ServiceSection class="tw-hidden md:tw-block" ref="service" />
     <ServiceSectionMobile class="tw-block md:tw-hidden" ref="service" />
-    <CaseStudy />
+    <CaseStudy ref="casestudies" />
     <ClientReview ref="clientReview" />
     <BlogSection ref="blogs" />
     <ContributionSection class="tw-hidden lg:tw-block" ref="contributions" />
@@ -78,6 +78,7 @@ export default {
       events: {
         landing: "view_landing_section",
         service: "view_service_section",
+        casestudies: "view_casestudies_section",
         clientReview: "view_client_review_section",
         blogs: "view_blog_post_section",
         contributions: "view_open_source_contribution",

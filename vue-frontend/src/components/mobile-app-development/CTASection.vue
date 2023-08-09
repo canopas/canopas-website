@@ -12,7 +12,7 @@
         alt="background-image"
       />
       <div
-        class="tw-container tw-sticky tw-flex tw-flex-col tw-items-center tw-justify-center tw-py-[5rem]"
+        class="tw-container tw-sticky tw-flex tw-flex-col tw-items-center tw-justify-center tw-py-20"
       >
         <p
           class="v2-canopas-gradient-text tw-flex tw-text-center tw-font-inter-medium tw-text-[1rem] tw-leading-[1.21rem]"
@@ -32,8 +32,8 @@
           Consultation Now.
         </p>
         <router-link
-          class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1rem] tw-text-center"
-          :to="contactURL"
+          class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-4 tw-text-center"
+          to="/contact"
           @click.native="mixpanel.track('tap_mobileapp_development_cta1')"
         >
           <span
@@ -55,7 +55,7 @@
         alt="background-image"
       />
       <div
-        class="tw-container tw-sticky tw-z-[1] tw-flex tw-flex-col tw-items-center tw-justify-center tw-py-[5rem] xll:tw-py-[8rem]"
+        class="tw-container tw-sticky tw-z-[1] tw-flex tw-flex-col tw-items-center tw-justify-center tw-py-20 xll:tw-py-32"
       >
         <p
           class="v2-canopas-gradient-text tw-text-center tw-font-inter-medium tw-text-[1.125rem] tw-leading-[1.375rem] xl:tw-text-[1.25rem] xl:tw-leading-[1.513rem]"
@@ -76,7 +76,7 @@
         </p>
         <router-link
           class="gradient-btn consultation-btn tw-mt-10 tw-flex tw-w-max tw-items-center tw-rounded-full tw-py-[1rem] tw-text-center"
-          :to="contactURL"
+          to="/contact"
           @click.native="mixpanel.track('tap_mobileapp_development_cta1')"
         >
           <span
@@ -106,7 +106,6 @@ export default {
       desktop_background1200w,
       desktop_background1600w,
       desktop_background2400w,
-      contactURL: "/contact",
     };
   },
   inject: ["mixpanel"],

@@ -6,15 +6,14 @@
       </template>
     </metainfo>
     <Header />
-    <SuccessMessage v-if="showSuccessMessage" />
     <ScreenLoader v-if="isLoading || job == null" />
 
     <div v-else>
       <div
-        class="tw-container tw-mt-[30px] lg:tw-mt-[80px] tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-[160px] tw-overflow-hidden"
+        class="tw-container tw-mt-[30px] lg:tw-mt-20 tw-mx-auto tw-mb-[150px] lg:tw-py-0 lg:tw-px-40 tw-overflow-hidden"
       >
         <div
-          class="tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[15px] tw-py-[32px] tw-px-[24px] md:tw-pt-[48px] md:tw-px-[48px] md:tw-pb-0"
+          class="tw-border tw-border-solid tw-border-[#e2e2e2] tw-rounded-[15px] tw-py-8 tw-px-6 md:tw-pt-12 md:tw-px-12 md:tw-pb-0"
         >
           <div class="header-2-text tw-text-center tw-pb-4">
             <h1 class="canopas-gradient-text">Applying For {{ job.title }}</h1>
@@ -24,12 +23,12 @@
             class="tw-text-[#3d3d3dcc] tw-text-[1rem] md:tw-text-[1.125rem] tw-pt-12 tw-pb-12"
           >
             <div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
-              <div class="tw-mb-[0.5rem]">
+              <div class="tw-mb-2">
                 <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
                   >Full Name</label
                 >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
+                  class="tw-block tw-w-full tw-border tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-2.5 tw-px-4 focus:tw-border focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-80 disabled:tw-cursor-not-allowed"
                   type="text"
                   name="fullname"
                   autocomplete="given-name"
@@ -48,12 +47,12 @@
                 >
               </div>
 
-              <div class="tw-mb-[0.5rem]">
+              <div class="tw-mb-2">
                 <label class="after:tw-content-['*'] after:tw-text-[#ff0000]"
                   >Email</label
                 >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
+                  class="tw-block tw-w-full tw-border tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-4 focus:tw-border focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-80 disabled:tw-cursor-not-allowed"
                   type="text"
                   name="email"
                   id="email"
@@ -84,7 +83,7 @@
                   >Phone Number</label
                 >
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
+                  class="tw-block tw-w-full tw-border tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-2.5 tw-px-4 focus:tw-border focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-80 disabled:tw-cursor-not-allowed"
                   type="tel"
                   name="phonenumber"
                   autocomplete="tel"
@@ -110,10 +109,10 @@
                 >
               </div>
 
-              <div class="tw-mb-[0.5rem]">
+              <div class="tw-mb-2">
                 <label>City</label>
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
+                  class="tw-block tw-w-full tw-border tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-2.5 tw-px-4 focus:tw-border focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed"
                   type="text"
                   name="city"
                   autocomplete="address-level2"
@@ -122,10 +121,10 @@
                 />
               </div>
 
-              <div class="tw-mb-[0.5rem]">
+              <div class="tw-mb-2">
                 <label class="">How did you find Canopas?</label>
                 <div
-                  class="tw-relative tw-mt-[5px] tw-w-full tw-h-[50px] tw-outline-hidden tw-outline-0 before:tw-content-[''] before:tw-absolute before:tw-top-[20px] before:tw-right-[20px] before:tw-z-[1] before:tw-w-[8px] before:tw-h-[8px] before:tw-border-2 before:tw-border-solid before:tw-border-[#00000080] before:tw-border-t-2 before:tw-border-t-[#fff] before:tw-border-r-2 before:tw-border-r-[#fff] before:tw-rotate-[-45deg] before:tw-duration-[0.5s] before:tw-pointer-events-none"
+                  class="tw-relative tw-mt-[5px] tw-w-full tw-h-[50px] tw-outline-hidden tw-outline-0 before:tw-content-[''] before:tw-absolute before:tw-top-5 before:tw-right-5 before:tw-z-[1] before:tw-w-2 before:tw-h-2 before:tw-border-2 before:tw-border-solid before:tw-border-[#00000080] before:tw-border-t-2 before:tw-border-t-[#fff] before:tw-border-r-2 before:tw-border-r-[#fff] before:tw-rotate-[-45deg] before:tw-duration-[0.5s] before:tw-pointer-events-none"
                   v-on:click.stop="
                     isShowReferenceOption = !isShowReferenceOption
                   "
@@ -133,7 +132,7 @@
                 >
                   <div>
                     <input
-                      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-cursor-pointer tw-bg-[#fff] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-outline-hidden tw-outline-0 tw-py-[12px] tw-px-[16px] tw-rounded-[10px]"
+                      class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-cursor-pointer tw-bg-[#fff] tw-border tw-border-solid tw-border-[#e2e2e2] tw-outline-hidden tw-outline-0 tw-py-3 tw-px-4 tw-rounded-[10px]"
                       name="howdidyoufindcanopas"
                       type="text"
                       placeholder="Choose any option"
@@ -147,10 +146,10 @@
                     :style="{
                       display: isShowReferenceOption ? 'block' : 'none',
                     }"
-                    class="tw-absolute tw-top-[50px] tw-z-[1] tw-w-full tw-bg-[#fff] tw-overflow-hidden tw-hidden tw-shadow-[0_5px_20px_rgba(0,0,0,0.1)] tw-rounded-[10px] tw-border-[1px] tw-border-solid tw-border-[#0000000d]"
+                    class="tw-absolute tw-top-[50px] tw-z-[1] tw-w-full tw-bg-[#fff] tw-overflow-hidden tw-hidden tw-shadow-[0_5px_20px_rgba(0,0,0,0.1)] tw-rounded-[10px] tw-border tw-border-solid tw-border-[#0000000d]"
                   >
                     <div
-                      class="tw-py-[12px] tw-px-[12px] tw-cursor-pointer hover:tw-bg-[#e2e2e280]"
+                      class="tw-py-3 tw-px-3 tw-cursor-pointer hover:tw-bg-[#e2e2e280]"
                       v-for="reference in references"
                       :key="reference"
                       @click="showOptions(reference)"
@@ -167,7 +166,7 @@
               >
                 <label class="">Reference</label>
                 <input
-                  class="tw-block tw-w-full tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed reference-by-input"
+                  class="tw-block tw-w-full tw-border tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-2.5 tw-px-4 focus:tw-border focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-80 disabled:tw-cursor-not-allowed reference-by-input"
                   type="text"
                   name="referenceby"
                   autocomplete="given-reference-name"
@@ -177,11 +176,11 @@
                 />
               </div>
 
-              <div class="md:tw-col-span-2 tw-mb-[0.5rem]">
+              <div class="md:tw-col-span-2 tw-mb-2">
                 <label
                   >Message
                   <textarea
-                    class="tw-block tw-w-full tw-min-h-[100px] tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-[10px] tw-px-[16px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed hidden-scrollbar tw-whitespace-pre-wrap"
+                    class="tw-block tw-w-full tw-min-h-[100px] tw-border tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[5px] tw-py-2.5 tw-px-4 focus:tw-border focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-80 disabled:tw-cursor-not-allowed hidden-scrollbar tw-whitespace-pre-wrap"
                     name="message"
                     rows="4"
                     v-model="message"
@@ -198,14 +197,14 @@
                 <br />
                 <label class="tw-text-[#999]">
                   <i>Supported formats:</i
-                  ><span class="black tw-pl-[8px]">PDF and Docs </span>
+                  ><span class="black tw-pl-2">PDF and Docs </span>
                   <i>only</i>
                 </label>
               </div>
               <div class="tw-flex">
                 <button
                   type="button"
-                  class="resume-upload-btns tw-bg-[#fff] tw-text-[#3d3d3d] tw-truncate tw-border-[1px] tw-break-normal tw-border-solid tw-border-[#e2e2e2] tw-shadow-none tw-outline-hidden tw-outline-0 tw-py-[10px] tw-px-[48px] tw-rounded-[10px] tw-h-[50px] focus:tw-outline-hidden focus:tw-outline-0"
+                  class="resume-upload-btns tw-bg-[#fff] tw-text-[#3d3d3d] tw-truncate tw-border tw-break-normal tw-border-solid tw-border-[#e2e2e2] tw-shadow-none tw-outline-hidden tw-outline-0 tw-py-2.5 tw-px-12 tw-rounded-[10px] tw-h-[50px] focus:tw-outline-hidden focus:tw-outline-0"
                   @click="chooseFiles()"
                 >
                   {{ fileButtonName }}
@@ -214,7 +213,7 @@
                   id="fileUpload"
                   ref="fileUpload"
                   type="file"
-                  class="tw-block tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] focus:tw-border-[1px] focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-[0.8] disabled:tw-cursor-not-allowed custom-file-input tw-w-0 tw-opacity-0 tw-p-0 tw-pr-[10px]"
+                  class="tw-block tw-border tw-border-solid tw-border-[#e2e2e2] tw-rounded-[10px] tw-text-[#3d3d3d] tw-text-[1.125rem] tw-mt-[15px] focus:tw-border focus:tw-border-solid focus:tw-border-[#e2e2e2] focus:tw-outline-hidden focus:tw-outline-0 disabled:tw-opacity-80 disabled:tw-cursor-not-allowed custom-file-input tw-w-0 tw-opacity-0 tw-p-0 tw-pr-2.5"
                   name="resume"
                   accept="application/pdf,.doc,.docx"
                   @change="previewFiles"
@@ -238,13 +237,13 @@
                 and does not offer remote job positions.
                 <input type="checkbox" id="checkbox" checked />
                 <span
-                  class="tw-absolute tw-top-0 tw-left-0 tw-mt-[5px] tw-h-[1.5rem] tw-w-[1.5rem] tw-border-2 tw-border-solid tw-border-[#999999] tw-rounded after:tw-absolute after:tw-hidden after:tw-content-[''] mark after:tw-left-[9px] after:tw-bottom-[7px] after:tw-w-[6px] after:tw-h-[14px] after:tw-border-solid after:tw-border-[#fff] after:tw-border-t-0 after:tw-border-r-[3px] after:tw-border-b-[3px] after:tw-border-l-0 after:tw-rotate-[45deg]"
+                  class="tw-absolute tw-top-0 tw-left-0 tw-mt-[5px] tw-h-6 tw-w-6 tw-border-2 tw-border-solid tw-border-[#999999] tw-rounded after:tw-absolute after:tw-hidden after:tw-content-[''] mark after:tw-left-[9px] after:tw-bottom-[7px] after:tw-w-1.5 after:tw-h-3.5 after:tw-border-solid after:tw-border-[#fff] after:tw-border-t-0 after:tw-border-r-[3px] after:tw-border-b-[3px] after:tw-border-l-0 after:tw-rotate-[45deg]"
                 ></span>
               </label>
             </div>
             <div class="tw-flex tw-justify-center tw-mt-4">
               <img
-                class="tw-mt-[1.25rem] tw-mx-auto tw-mb-0 tw-py-0 tw-px-[64px] md:tw-px-[80px] lg:tw-mt-[1.25rem] lg:tw-mx-[0.5rem] lg:tw-mb-0"
+                class="tw-mt-5 tw-mx-auto tw-mb-0 tw-py-0 tw-px-16 md:tw-px-20 lg:tw-mt-5 lg:tw-mx-2 lg:tw-mb-0"
                 :src="loaderImage"
                 v-if="showLoader"
                 alt="loader-image"
@@ -254,21 +253,21 @@
                 v-else
               >
                 <div
-                  class="tw-absolute tw-text-center -tw-top-[2.5rem] sm:-tw-top-[1.875rem] tw-right-0 sm:-tw-right-[7rem] lg:-tw-right-[6rem] xl:-tw-right-[10rem] 2xl:-tw-right-[13.5rem] sm:tw-w-max"
+                  class="tw-absolute tw-text-center -tw-top-10 sm:-tw-top-[1.875rem] tw-right-0 sm:-tw-right-28 lg:-tw-right-24 xl:-tw-right-40 2xl:-tw-right-[13.5rem] sm:tw-w-max"
                 >
                   <span
                     v-if="showErrorMessage"
-                    class="tw-flex tw-mr-0 sm:tw-mr-[2.5rem] md:tw-mr-[3.5rem] xl:tw-mr-[8.5rem] 2xl:tw-mr-[11.5rem] tw-text-center tw-text-red-600 tw-text-[1.3rem] sm:tw-text-[1.5rem]"
+                    class="tw-flex tw-mr-0 sm:tw-mr-10 md:tw-mr-14 xl:tw-mr-[8.5rem] 2xl:tw-mr-[11.5rem] tw-text-center tw-text-red-600 tw-text-[1.3rem] sm:tw-text-[1.5rem]"
                     :class="
                       errorMessage == 'Invalid Recaptcha score'
-                        ? '!tw-text-[1.5rem] tw-leading-[2rem] sm:!tw-mr-[6.5rem] md:!tw-mr-[8rem] lg:!tw-mr-[7.5rem] xl:!tw-mr-[12rem] 2xl:!tw-mr-[15rem]'
+                        ? '!tw-text-[1.5rem] tw-leading-8 sm:!tw-mr-[6.5rem] md:!tw-mr-32 lg:!tw-mr-[7.5rem] xl:!tw-mr-48 2xl:!tw-mr-60'
                         : ''
                     "
                     >{{ errorMessage }}</span
                   >
                 </div>
                 <button
-                  class="gradient-btn tw-rounded-full tw-px-[64px] md:tw-px-[80px]"
+                  class="gradient-btn tw-rounded-full tw-px-16 md:tw-px-20"
                   @click.prevent="submitApplication()"
                 >
                   <font-awesome-icon
@@ -292,7 +291,6 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
-import SuccessMessage from "@/components/contact/SuccessMessage.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { useJobDetailStore } from "@/stores/jobs";
@@ -388,7 +386,6 @@ export default {
       showValidPhoneError: false,
       showFileValidationError: false,
       fileButtonName: "Upload",
-      showSuccessMessage: false,
       showErrorMessage: false,
       errorMessage: "Something went wrong on our side",
       showLoader: false,
@@ -401,7 +398,6 @@ export default {
     NewFooter,
     FontAwesomeIcon,
     ScreenLoader,
-    SuccessMessage,
   },
   async serverPrefetch() {
     await this.setCareerDetails();

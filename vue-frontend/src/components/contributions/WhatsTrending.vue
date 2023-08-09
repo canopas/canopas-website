@@ -1,5 +1,7 @@
 <template>
-  <div class="tw-mt-5 xll:tw-container md:tw-mt-[14.063rem]">
+  <div
+    class="tw-mt-5 xll:tw-container md:tw-mt-[8.063rem] lg:tw-mt-[14.063rem]"
+  >
     <div
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.25rem] lg:tw-text-[3.4375rem] lg:tw-leading-[5.1875rem]"
     >
@@ -15,14 +17,11 @@
           class="tw-animate-gridAnimation"
           :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
         >
-          <div
-            class="tw-ml-[160px] tw-flex tw-pb-2.5"
-            v-if="mobileGrid.length > 0"
-          >
+          <div class="tw-ml-40 tw-flex tw-pb-2.5" v-if="mobileGrid.length > 0">
             <div
               v-for="(post, index) in mobileGrid"
               :key="index"
-              class="tw-ml-[32px] tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
+              class="tw-ml-8 tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
               :class="
                 pausedId == post.id ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
@@ -31,7 +30,7 @@
               @touchstart.passive="pausedId = post.id"
               @touchend="pausedId = 0"
               :ref="'card-1-' + index"
-              @click="openBlog(post.link)"
+              @click="openBlog(post.link, 'tap_contribution_trending_section')"
             >
               <div
                 class="tw-overflow-hidden tw-rounded-3xl tw-border-1 tw-border-[#000000]/[0.6]"
@@ -46,7 +45,7 @@
                     loading="lazy"
                   />
                 </div>
-                <div class="tw-flex tw-flex-col tw-gap-1 tw-p-[1rem]">
+                <div class="tw-flex tw-flex-col tw-gap-1 tw-p-4">
                   <div
                     class="tw-min-h-[5.625rem] tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.875rem]"
                   >
@@ -54,7 +53,7 @@
                   </div>
                   <div class="tw-w-fit tw-self-end">
                     <div
-                      class="tw-rounded-full tw-border-[1px] tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-px-[1.5rem] tw-py-[0.7rem] tw-text-center tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.25rem] tw-tracking-normal tw-text-white tw-bg-gradient-[270.11deg]"
+                      class="tw-rounded-full tw-border tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-px-6 tw-py-[0.7rem] tw-text-center tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.25rem] tw-tracking-normal tw-text-white tw-bg-gradient-[270.11deg]"
                     >
                       {{ post.views }} Views
                     </div>
@@ -78,13 +77,13 @@
           :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
         >
           <div
-            class="tw-mb-[64px] tw-ml-[160px] tw-mt-[32px] tw-flex"
+            class="tw-mb-16 tw-ml-40 tw-mt-8 tw-flex"
             v-if="grid1.length > 0"
           >
             <div
               v-for="(post, index) in grid1"
               :key="index"
-              class="tw-relative tw-ml-[32px] tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
+              class="tw-relative tw-ml-8 tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-6 lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
               :class="
                 pausedId == post.id ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
@@ -93,20 +92,20 @@
               @touchstart.passive="pausedId = post.id"
               @touchend="pausedId = 0"
               :ref="'card-2-' + index"
-              @click="openBlog(post.link)"
+              @click="openBlog(post.link, 'tap_contribution_trending_section')"
             >
               <div
                 :ref="'view-2-' + index"
                 :style="{
                   top: `-${viewTop}px`,
                 }"
-                class="tw-absolute tw-inset-x-0 tw-z-10 tw-m-auto tw-w-fit tw-rounded-full tw-border-[1px] tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-px-[1.5rem] tw-py-[0.3rem] tw-text-center tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.25rem] tw-tracking-normal tw-text-white tw-bg-gradient-[270.11deg] xl:tw-text-[1.625rem] xl:tw-leading-[2.4375rem]"
+                class="tw-absolute tw-inset-x-0 tw-z-10 tw-m-auto tw-w-fit tw-rounded-full tw-border tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-px-6 tw-py-[0.3rem] tw-text-center tw-font-inter-semibold tw-text-[1rem] tw-leading-5 tw-tracking-normal tw-text-white tw-bg-gradient-[270.11deg] xl:tw-text-[1.625rem] xl:tw-leading-[2.4375rem]"
               >
                 {{ post.views }} Views
               </div>
               <aspect-ratio
                 height="50%"
-                class="tw-border-[1px] tw-border-solid tw-border-transparent"
+                class="tw-border tw-border-solid tw-border-transparent"
               >
                 <img
                   @click.native="mixpanel.track('tap_whats_trending_blog')"
@@ -131,11 +130,11 @@
           class="tw-animate-gridAnimationReverse2"
           :class="[pauseId == 0 ? gridAnimationReverse : 'animation-paused']"
         >
-          <div class="tw-mb-[64px] tw-flex" v-if="grid2.length > 0">
+          <div class="tw-mb-16 tw-flex" v-if="grid2.length > 0">
             <div
               v-for="(post, index) in grid2"
               :key="index"
-              class="tw-relative tw-ml-[32px] tw-mt-[32px] tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-[1.5rem] lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
+              class="tw-relative tw-ml-8 tw-mt-8 tw-flex tw-flex-[0_0_320px] tw-flex-col tw-justify-center tw-rounded-2xl tw-text-left tw-text-[1rem] tw-leading-[1.125rem] sm:tw-flex-[0_0_480px] md:tw-text-[1.0625rem] md:tw-leading-6 lg:tw-flex-[0_0_528px] lg:tw-text-[1.1875rem] lg:tw-leading-[1.875rem]"
               :class="
                 pauseId == post.id ? 'tw-scale-[0.97] tw-cursor-pointer' : ''
               "
@@ -144,19 +143,19 @@
               @touchstart.passive="pauseId = post.id"
               @touchend="pauseId = 0"
               :ref="'card-3-' + index"
-              @click="openBlog(post.link)"
+              @click="openBlog(post.link, 'tap_contribution_trending_section')"
             >
               <div
                 :style="{
                   top: `-${viewTop}px`,
                 }"
-                class="tw-absolute tw-inset-x-0 tw-z-10 tw-m-auto tw-w-fit tw-rounded-full tw-border-[1px] tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-px-[1.5rem] tw-py-[0.3rem] tw-text-center tw-font-inter-semibold tw-text-[1rem] tw-leading-[1.25rem] tw-tracking-normal tw-text-white tw-bg-gradient-[270.11deg] xl:tw-text-[1.625rem] xl:tw-leading-[2.4375rem]"
+                class="tw-absolute tw-inset-x-0 tw-z-10 tw-m-auto tw-w-fit tw-rounded-full tw-border tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-px-6 tw-py-[0.3rem] tw-text-center tw-font-inter-semibold tw-text-[1rem] tw-leading-5 tw-tracking-normal tw-text-white tw-bg-gradient-[270.11deg] xl:tw-text-[1.625rem] xl:tw-leading-[2.4375rem]"
               >
                 {{ post.views }} Views
               </div>
               <aspect-ratio
                 height="50%"
-                class="tw-border-[1px] tw-border-solid tw-border-transparent"
+                class="tw-border tw-border-solid tw-border-transparent"
               >
                 <img
                   @click.native="mixpanel.track('tap_whats_trending_blog')"
@@ -177,6 +176,8 @@
 </template>
 
 <script>
+import { openBlog } from "@/utils.js";
+
 import retrofit from "@/assets/images/contributions/trending/1-400w.webp";
 import retrofit600w from "@/assets/images/contributions/trending/1-600w.webp";
 
@@ -212,6 +213,7 @@ import AspectRatio from "@/components/utils/AspectRatio.vue";
 export default {
   data() {
     return {
+      openBlog,
       gridAnimation: "animation-paused",
       gridAnimationReverse: "animation-running",
       pausedId: 0,

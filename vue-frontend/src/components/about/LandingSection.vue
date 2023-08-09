@@ -1,18 +1,18 @@
 <template>
   <section
-    class="tw-opacity-80 tw-bg-gradient-to-b tw-from-[#FFFFFF]/[0.1] tw-via-[#FF835B]/[0.1] tw-to-[#F2709C]/[0.1] tw-pb-[2.5rem] lg:tw-pb-[5.5rem]"
+    class="tw-opacity-80 tw-bg-gradient-to-b tw-from-[#FFFFFF]/[0.1] tw-via-[#FF835B]/[0.1] tw-to-[#F2709C]/[0.1] tw-pb-10 lg:tw-pb-[5.5rem]"
   >
     <div
       class="tw-container tw-flex tw-flex-col lg:tw-flex-row tw-items-center tw-mt-[2.313rem] 2xl:tw-mt-[5.313rem]"
     >
       <h1
-        class="2xl:tw-mt-[2rem] lg:tw-w-[55%] xl:tw-w-[50%] 2xl:tw-w-[58%] tw-text-center lg:tw-text-left tw-text-[2.5rem] md:tw-text-[3.75rem] lg:tw-text-[4rem] 2xl:tw-text-[5rem] tw-leading-[3.25rem] md:tw-leading-[4.5rem] lg:tw-leading-[5rem] 2xl:tw-leading-[6rem] tw-font-inter-semibold tw-text-black-core/[0.87]"
+        class="2xl:tw-mt-8 lg:tw-w-[55%] xl:tw-w-[50%] 2xl:tw-w-[58%] tw-text-center lg:tw-text-left tw-text-[2.5rem] md:tw-text-[3.75rem] lg:tw-text-[4rem] 2xl:tw-text-[5rem] tw-leading-[3.25rem] md:tw-leading-[4.5rem] lg:tw-leading-[5rem] 2xl:tw-leading-[6rem] tw-font-inter-semibold tw-text-black-core/[0.87]"
       >
         Expertise and experience you can count on
       </h1>
 
       <ul
-        class="tw-mt-6 tw-w-full sm:tw-w-[85%] md:tw-w-[70%] lg:tw-w-[45%] 2xl:tw-w-[42%] tw-text-left tw-text-[1rem] md:tw-text-[1.125rem] 2xl:tw-text-[1.188rem] tw-leading-[1.5rem] md:tw-leading-[1.625rem] 2xl:tw-leading-[1.781rem] tw-text-black-core/[.87] tw-font-inter-medium"
+        class="tw-mt-6 tw-w-full sm:tw-w-[85%] md:tw-w-[70%] lg:tw-w-[45%] 2xl:tw-w-[42%] tw-text-left tw-text-[1rem] md:tw-text-[1.125rem] 2xl:tw-text-[1.188rem] tw-leading-6 md:tw-leading-[1.625rem] 2xl:tw-leading-[1.781rem] tw-text-black-core/[.87] tw-font-inter-medium"
       >
         <li
           v-for="experience in experiences"

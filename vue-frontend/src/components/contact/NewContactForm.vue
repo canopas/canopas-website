@@ -178,7 +178,7 @@
               >
             </div>
             <div
-              class="tw-mt-[2rem] tw-text-[1rem] tw-leading-[1.5rem] tw-font-inter-regular tw-text-black-core/[0.87]"
+              class="tw-mt-8 tw-text-base tw-font-inter-regular tw-text-black-core/[0.87]"
             >
               We sign NDA for all of our projects.
             </div>
@@ -187,7 +187,7 @@
             <img
               v-if="showLoader"
               :src="loaderImage"
-              class="tw-w-[64px] tw-h-[64px]"
+              class="tw-w-16 tw-h-16"
               alt="loader-image"
             />
             <div v-else>
@@ -195,14 +195,14 @@
                 class="tw-relative tw-font-inter-semibold tw-text-[1.1875rem] tw-leading-[1.436875rem] md:tw-leading-[1.386875rem] tw-text-center"
               >
                 <div
-                  class="tw-absolute -tw-top-[2.5rem] sm:-tw-top-[2rem] xl:-tw-top-[1.875rem] 2xl:-tw-top-[1.875rem] tw-text-center -tw-right-[8rem] sm:-tw-right-[10.5rem] md:-tw-right-[11rem] lg:-tw-right-[10rem] 2xl:-tw-right-[10.5rem] tw-w-[250px] sm:tw-w-max"
+                  class="tw-absolute -tw-top-10 sm:-tw-top-8 xl:-tw-top-[1.875rem] 2xl:-tw-top-[1.875rem] tw-text-center -tw-right-32 sm:-tw-right-[10.5rem] md:-tw-right-44 lg:-tw-right-40 2xl:-tw-right-[10.5rem] tw-w-[250px] sm:tw-w-max"
                 >
                   <span
                     v-if="showErrorMessage"
                     class="tw-flex tw-text-center tw-text-red-600"
                     :class="
                       errorMessage == 'Invalid Recaptcha score'
-                        ? '!tw-mt-[0.5rem] md:!-tw-mt-[0.5rem] !tw-mr-[1rem] sm:!tw-mr-[4rem] md:!tw-mr-[3rem] lg:!tw-mr-[2.5rem] xl:!tw-mr-[2.8rem] 2xl:!tw-mr-[3.5rem] '
+                        ? '!tw-mt-2 md:!-tw-mt-2 !tw-mr-4 sm:!tw-mr-16 md:!tw-mr-12 lg:!tw-mr-10 xl:!tw-mr-[2.8rem] 2xl:!tw-mr-14 '
                         : ''
                     "
                     >{{ errorMessage }}</span
@@ -211,7 +211,7 @@
                 <button
                   id="submit"
                   ref="recaptcha"
-                  class="tw-absolute tw-top-[-13px] sm:tw-top-[-20px] tw-right-[-122px] md:tw-right-[-170px] tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 tw-px-20 md:tw-px-28 tw-text-center gradient-btn consultation-btn"
+                  class="tw-absolute tw-top-[-13px] sm:-tw-top-5 tw-right-[-122px] md:tw-right-[-170px] tw-w-max tw-rounded-full tw-py-2.5 md:tw-py-5 tw-px-20 md:tw-px-28 tw-text-center gradient-btn consultation-btn"
                   @click.prevent="submitForm()"
                 >
                   <font-awesome-icon
@@ -272,7 +272,6 @@ export default {
       openCalendlyIframeModal: false,
       errorMessage: "Something went wrong on our side",
       showLoader: false,
-      showSuccessMessage: false,
       showErrorMessage: false,
       contactType: 1,
     };

@@ -1,7 +1,7 @@
 <template>
-  <div class="tw-container tw-mb-[10rem]">
+  <div class="tw-container tw-mb-40">
     <div
-      class="row tw-flex tw-flex-col md:tw-flex-row tw-gap-4 tw-my-0 tw-mx-[2%] md:tw-my-0 md:tw-mx-[6%] md:-tw-ml-[32px]"
+      class="row tw-flex tw-flex-col md:tw-flex-row tw-gap-4 tw-my-0 tw-mx-[2%] md:tw-my-0 md:tw-mx-[6%] md:-tw-ml-8"
     >
       <div
         class="tw-text-center header-text canopas-gradient-text title-mobile tw-block md:tw-hidden tw-mb-12"
@@ -44,7 +44,7 @@
                 :key="faq"
               >
                 <div
-                  class="faq-container tw-border-[1px] tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-bg-[#3d3d3d08] tw-shadow-[0px_1px_6px_1px_rgba(0,0,0,0.25)] tw-rounded-[15px] tw-p-[15px] tw-cursor-pointer sm:tw-p-[25px] normal-text"
+                  class="faq-container tw-border tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-bg-[#3d3d3d08] tw-shadow-[0px_1px_6px_1px_rgba(0,0,0,0.25)] tw-rounded-[15px] tw-p-[15px] tw-cursor-pointer sm:tw-p-[25px] normal-text"
                   @click="expandListItem(faq.id)"
                 >
                   <div class="faq-header tw-flex tw-flex-row tw-items-center">
@@ -70,7 +70,7 @@
                     >
                       <div class="faq-icon tw-w-[10%]"></div>
                       <div
-                        class="normal-2-text faq-answer tw-w-[90%] tw-mt-[1rem]"
+                        class="normal-2-text faq-answer tw-w-[90%] tw-mt-4"
                         v-html="faq.answer"
                       ></div>
                     </div>
@@ -85,13 +85,13 @@
               type="button"
               :disabled="!isActivePrev"
               :class="!isActivePrev ? 'tw-opacity-20' : ''"
-              class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
+              class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-2 tw-cursor-pointer"
               @click="slide(-1)"
               @click.native="mixpanel.track('tap_faq_previous_arrow')"
               aria-label="leftArrow"
             >
               <font-awesome-icon
-                class="arrow tw-border-[1px] tw-border-solid tw-border-[#3d3d3d26] tw-rounded-[15px] tw-h-[25px] tw-w-[25px] tw-p-[10px] tw-text-[#fff] tw-bg-black-900"
+                class="arrow tw-border tw-border-solid tw-border-[#3d3d3d26] tw-rounded-[15px] tw-h-[25px] tw-w-[25px] tw-p-2.5 tw-text-[#fff] tw-bg-black-900"
                 icon="arrow-left"
                 id="leftArrow"
               />
@@ -100,13 +100,13 @@
               type="button"
               :disabled="!isActiveNext"
               :class="!isActiveNext ? 'tw-opacity-20' : ''"
-              class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-[8px] tw-cursor-pointer"
+              class="clients-indicators tw-bg-none tw-border-none tw-my-0 tw-mx-2 tw-cursor-pointer"
               @click="slide(1)"
               @click.native="mixpanel.track('tap_faq_next_arrow')"
               aria-label="rightArrow"
             >
               <font-awesome-icon
-                class="arrow tw-border-[1px] tw-border-solid tw-border-[#3d3d3d26] tw-rounded-[15px] tw-h-[25px] tw-w-[25px] tw-p-[10px] tw-text-[#fff] tw-bg-black-900"
+                class="arrow tw-border tw-border-solid tw-border-[#3d3d3d26] tw-rounded-[15px] tw-h-[25px] tw-w-[25px] tw-p-2.5 tw-text-[#fff] tw-bg-black-900"
                 icon="arrow-right"
                 id="rightArrow"
               />

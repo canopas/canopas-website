@@ -15,7 +15,7 @@
 
       <div class="tw-flex lg:tw-w-[55%] xl:tw-w-[50%]">
         <div
-          class="tw-m-auto lg:tw-ml-auto xl:tw-m-auto tw-w-[80%] sm:tw-w-[85%] md:tw-w-[69%] lg:tw-w-[100%] xl:tw-w-[90%] 2xl:tw-w-[92%] tw-py-[20px] tw-text-white"
+          class="tw-m-auto lg:tw-ml-auto xl:tw-m-auto tw-w-[80%] sm:tw-w-[85%] md:tw-w-[69%] lg:tw-w-[100%] xl:tw-w-[90%] 2xl:tw-w-[92%] tw-py-5 tw-text-white"
         >
           <p
             class="tw-text-[1.5rem] tw-leading-[1.813rem] md:tw-text-[2.188rem] md:tw-leading-[2.625rem] lg:tw-text-[3.125rem] lg:tw-leading-[3.813rem] tw-font-inter-bold"
@@ -23,7 +23,7 @@
             Whether you need...
           </p>
           <ul
-            class="tw-pt-6 tw-text-[1rem] tw-leading-[1.25rem] md:tw-text-[1.188rem] md:tw-leading-[1.5rem] lg:tw-text-[1.375rem] lg:tw-leading-[1.8125rem] tw-font-inter-semibold"
+            class="tw-pt-6 tw-text-[1rem] tw-leading-5 md:tw-text-[1.188rem] md:tw-leading-6 lg:tw-text-[1.375rem] lg:tw-leading-[1.8125rem] tw-font-inter-semibold"
           >
             <li v-for="reason in reasons" :key="reason" class="tw-flex">
               <span class="tw-pr-1">*</span>
@@ -37,7 +37,7 @@
             sleek solution.
           </div>
           <router-link
-            class="tw-flex tw-items-center tw-mx-auto lg:tw-mx-0 tw-w-max tw-rounded-full tw-p-3 tw-text-center tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] tw-border-[1px] tw-border-solid tw-border-white tw-bg-white hover:tw-bg-transparent hover:tw-text-white active:tw-scale-[0.98] cta-button"
+            class="tw-flex tw-items-center tw-mx-auto lg:tw-mx-0 tw-w-max tw-rounded-full tw-p-3 tw-text-center tw-font-normal tw-text-[1rem] tw-leading-[1.1875rem] md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem] tw-font-inter-medium !tw-tracking-[0] tw-border tw-border-solid tw-border-white tw-bg-white hover:tw-bg-transparent hover:tw-text-white active:tw-scale-[0.98] cta-button"
             to="/contact"
             @click.native="mixpanel.track('tap_home_portfolio_cta')"
           >

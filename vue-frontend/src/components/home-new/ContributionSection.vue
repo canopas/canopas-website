@@ -7,7 +7,7 @@
         class="tw-flex tw-flex-col tw-justify-center tw-w-[30%] tw-h-full tw-float-right"
       >
         <span
-          class="tw-font-inter-bold tw-text-black-core/[.87] tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.5rem] md:tw-leading-[5.5625rem]"
+          class="tw-font-inter-bold tw-text-black-core/[.87] tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-10 md:tw-leading-[5.5625rem]"
         >
           We are here to Contribute
         </span>
@@ -17,7 +17,7 @@
           <span>and that starts with the site itself, </span>
           <br />
           <a
-            class="tw-relative tw-bg-gradient-[1deg] tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline tw-cursor-pointer after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-[2px] after:tw-bg-gradient-to-l after:tw-to-pink-300 after:tw-from-orange-300"
+            class="tw-relative tw-bg-gradient-[1deg] tw-pb-[5px] v2-canopas-gradient-text tw-font-inter-medium gradient-underline tw-no-underline tw-cursor-pointer after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-w-full after:tw-h-0.5 after:tw-bg-gradient-to-l after:tw-to-pink-300 after:tw-from-orange-300"
             :href="websiteOpenSourceUrl"
             target="_blank"
             @click.native="mixpanel.track('tap_canopas_website_github')"
@@ -50,7 +50,9 @@
         </div>
 
         <div
-          @click="openLink(contribution)"
+          @click="
+            openBlog(contribution.link, 'tap_home_github_contribution_section')
+          "
           class="tw-absolute xl:tw-relative lg:tw-top-[50%] tw-flex tw-flex-col tw-basis-[40%] lg:tw-basis-[43%] xl:tw-basis-[50%] 2xl:tw-basis-[40%] tw-my-auto lg:tw-w-[60%] xl:tw-w-[100%] lg:tw-translate-y-[-50%] xl:tw-translate-y-0 tw-bg-[#FFFFFF] tw-p-4 xl:tw-p-8 tw-shadow-[0_0px_10px_rgba(0,0,0,0.1)] active:tw-scale-[0.98]"
           :class="[
             index % 2 == 0
@@ -93,7 +95,7 @@
             </div>
             <div>
               <p
-                class="tw-mt-[41px] tw-font-inter-semibold tw-text-black-core/[0.87] tw-text-[1.875rem] tw-leading-[2rem]"
+                class="tw-mt-[41px] tw-font-inter-semibold tw-text-black-core/[0.87] tw-text-[1.875rem] tw-leading-8"
               >
                 {{ contribution.title }}
               </p>
@@ -106,7 +108,7 @@
             </div>
             <div
               @touchstart.passive="activeIndex = index"
-              class="tw-flex tw-flex-row tw-justify-between tw-mt-[30px] tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1rem] tw-leading-[1.5rem]"
+              class="tw-flex tw-flex-row tw-justify-between tw-mt-[30px] tw-font-inter-regular tw-text-black-core/[0.87] tw-text-base"
             >
               <span>by {{ contribution.author }}</span>
               <a
@@ -145,6 +147,7 @@ import lozad from "lozad";
 import { setGithubStars } from "@/utils.js";
 import { mapState } from "pinia";
 import { useContributionStore } from "@/stores/contribution";
+import { openBlog } from "@/utils.js";
 
 library.add(faGithub);
 
@@ -156,6 +159,7 @@ export default {
   },
   data() {
     return {
+      openBlog,
       icon: faGithub,
       rightArrow: faArrowRightLong,
       websiteOpenSourceUrl: config.WEBSITE_OPEN_SOURCE_URL,
@@ -202,11 +206,6 @@ export default {
     }
 
     lozad().observe(); // lazy loads videos with default selector as '.lozad'
-  },
-  methods: {
-    openLink(contributions) {
-      window.open(contributions.link, "_blank");
-    },
   },
   components: {
     FontAwesomeIcon,

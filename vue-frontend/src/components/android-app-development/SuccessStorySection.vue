@@ -9,7 +9,7 @@
       <!-- Mobile UI -->
 
       <div
-        class="md:tw-hidden tw-container tw-my-[2rem] tw-h-[700px] tw-relative tw-overflow-hidden"
+        class="md:tw-hidden tw-container tw-my-8 tw-h-[700px] tw-relative tw-overflow-hidden"
       >
         <div
           class="tw-w-full tw--mt-4 tw-overflow-y-scroll hidden-scrollbar before:tw-z-[9] before:tw-blur-lg before:tw-absolute before:tw-left-0 before:tw-h-[8%] before:tw-w-full before:tw-bg-white-gradient"
@@ -36,7 +36,7 @@
               <div
                 v-for="(client, index) in clients"
                 :key="index"
-                class="tw-mb-[2rem] tw-mx-auto tw-rounded-[5px] sm:tw-px-10 md:tw-px-6 lg:tw-px-4 xl:tw-px-24 tw-text-black-core/[0.87] tw-p-5 tw-bg-gradient-to-l tw-from-[#FF835B]/[0.10] tw-to-[#F2709C]/[0.10]"
+                class="tw-mb-8 tw-mx-auto tw-rounded-[5px] sm:tw-px-10 md:tw-px-6 lg:tw-px-4 xl:tw-px-24 tw-text-black-core/[0.87] tw-p-5 tw-bg-gradient-to-l tw-from-[#FF835B]/[0.10] tw-to-[#F2709C]/[0.10]"
                 :class="[client.className]"
               >
                 <div
@@ -49,7 +49,7 @@
                       <font-awesome-icon
                         v-for="i in 5"
                         :key="i"
-                        class="fa-star tw-w-[20px] tw-h-[20px] tw-text-[#FF3D2E]"
+                        class="fa-star tw-w-5 tw-h-5 tw-text-[#FF3D2E]"
                         icon="star"
                     /></span>
                     <span
@@ -124,7 +124,7 @@
                     "
                     :src="getImageUrl(index)"
                     :alt="client.name"
-                    class="tw-pointer-events-auto tw-cursor-pointer tw-h-[40px] tw-w-[40px] tw-mb-2"
+                    class="tw-pointer-events-auto tw-cursor-pointer tw-h-10 tw-w-10 tw-mb-2"
                   />
 
                   <span
@@ -165,13 +165,13 @@
                 :key="index"
                 class="tw-pl-8 tw-flex tw-justify-center tw-flex-col"
               >
-                <div class="tw-ml-[-1rem] md:tw-pr-6"></div>
+                <div class="-tw-ml-4 md:tw-pr-6 lg:tw-px-4 xl:tw-px-24"></div>
                 <div class="tw-flex tw-gap-x-4 tw-my-5">
                   <span class="tw-flex tw-flex-row">
                     <font-awesome-icon
                       v-for="i in 5"
                       :key="i"
-                      class="fa-star tw-w-[1.5rem] tw-h-[1.5rem] footer-icon"
+                      class="fa-star tw-w-6 tw-h-6 footer-icon"
                       icon="star"
                   /></span>
                   <span
@@ -298,7 +298,6 @@ export default {
     SwiperSlide,
     FontAwesomeIcon,
   },
-  inject: ["mixpanel"],
 };
 </script>
 

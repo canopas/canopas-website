@@ -7,7 +7,7 @@
           >Case Studies</span
         >
         <span
-          class="tw-py-4 tw-font-inter-regular tw-text-[1rem] tw-leading-[1.5rem] tw-mx-auto md:tw-text-[1.5rem] md:tw-leading-[2.25rem] tw-text-black-core/[0.60] lg:tw-w-[80%] xl:tw-w-[61%]"
+          class="tw-py-4 tw-font-inter-regular tw-text-base tw-mx-auto md:tw-text-[1.5rem] md:tw-leading-9 tw-text-black-core/[0.60] lg:tw-w-[80%] xl:tw-w-[61%]"
           >Explore our case studies to witness how we've transformed our
           client's ideas into successful Android apps.</span
         >
@@ -137,21 +137,21 @@
 
               <img
                 :src="resultsimage"
-                class="tw-cursor-pointer tw-h-[3rem] tw-w-[3rem] lg:tw-h-[5rem] lg:tw-w-[5rem] tw-object-cover tw-ml-[60%] tw-mt-[2rem] tw-mb-[1rem] 2xll:tw-ml-[50%]"
+                class="tw-h-12 tw-w-12 lg:tw-h-20 lg:tw-w-20 tw-object-cover tw-ml-[60%] tw-mt-8 tw-mb-4 2xll:tw-ml-[50%]"
                 alt="case_study_result_image"
               />
 
               <div
                 class="tw-bg-white tw-drop-shadow-md tw-rounded md:tw-w-[390px] lg:tw-w-[457px]"
               >
-                <div class="tw-inline-flex tw-p-[0.5rem] lg:tw-p-4">
+                <div class="tw-inline-flex tw-p-2 lg:tw-p-4">
                   <div class="tw-p-[0.8rem]">
                     <span
                       class="tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
                       >{{ item.resultcount[0] }}</span
                     >
                     <div
-                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
+                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-4 lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
                     >
                       <span>Downloads</span>
                     </div>
@@ -164,7 +164,7 @@
                       >{{ item.resultcount[1] }}</span
                     >
                     <div
-                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
+                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-4 lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
                     >
                       <span>App Rating</span>
                     </div>
@@ -177,7 +177,7 @@
                       >{{ item.resultcount[2] }}</span
                     >
                     <div
-                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-[1rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
+                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-4 lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
                     >
                       <span>Monthly Users</span>
                     </div>
@@ -195,7 +195,7 @@
                 <img
                   :src="item.images[2]"
                   :srcset="`${item.images[2]} 400w,${item.images[3]} 800w`"
-                  class="tw-mt-[3rem] tw-h-[20rem] lg:tw-h-[24.75006rem] xl:tw-h-[29.75006rem] tw-w-[25.87525rem] lg:tw-w-[30.87525rem] xl:tw-w-[29.87525rem] tw-object-fit"
+                  class="tw-mt-12 tw-h-80 lg:tw-h-[24.75006rem] xl:tw-h-[29.75006rem] tw-w-[25.87525rem] lg:tw-w-[30.87525rem] xl:tw-w-[29.87525rem] tw-object-fit"
                   alt="CaseStudyImage"
               /></a>
             </div>

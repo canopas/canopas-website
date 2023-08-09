@@ -19,8 +19,6 @@ import featureRank400w from "@/assets/images/portfolio/justly/features/justly-ra
 import featureRank800w from "@/assets/images/portfolio/justly/features/justly-rank-800w.webp";
 import featureRank1200w from "@/assets/images/portfolio/justly/features/justly-rank-1200w.webp";
 
-import videoBackgroundImage from "@/assets/images/portfolio/justly/swiper/mobile.webp";
-
 import brandingBackground400w from "@/assets/images/portfolio/justly/branding/background-400w.webp";
 import brandingBackground800w from "@/assets/images/portfolio/justly/branding/background-800w.webp";
 import brandingBackground1400w from "@/assets/images/portfolio/justly/branding/background-1400w.webp";
@@ -102,7 +100,6 @@ export default {
         },
       ],
       backgroundImage: "",
-      videoBackgroundImage: videoBackgroundImage,
       alt: "justly-background-image",
       features: {
         gridData1: [

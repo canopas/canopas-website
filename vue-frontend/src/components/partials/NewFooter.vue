@@ -15,19 +15,19 @@
           Follow us on
         </div>
         <ul
-          class="tw-flex tw-flex-wrap tw-justify-center tw-w-full tw-m-auto tw-mt-[0.5rem] xl:tw-mt-[1.5rem] tw-cursor-pointer tw-list-none"
+          class="tw-flex tw-flex-wrap tw-justify-center tw-w-full tw-m-auto tw-mt-2 xl:tw-mt-6 tw-cursor-pointer tw-list-none"
         >
           <li
             v-for="icon in socialMediaIcons"
             :key="icon"
-            class="tw-flex tw-justify-center !tw-items-center tw-w-[40px] tw-h-[40px] md:tw-w-[62px] md:tw-h-[62px] tw-rounded-[50%] tw-text-center tw-cursor-pointer"
+            class="tw-flex tw-justify-center !tw-items-center tw-w-10 tw-h-10 md:tw-w-[62px] md:tw-h-[62px] tw-rounded-[50%] tw-text-center tw-cursor-pointer"
             :class="
               icon.image ? 'tw-m-[5px]' : 'gradient-border-btn tw-border-0'
             "
           >
             <a :href="icon.url" target="_blank" aria-label="footerLink">
               <font-awesome-icon
-                class="fab footer-icon tw-w-[20px] tw-h-[20px] md:tw-w-[32px] md:tw-h-[32px] tw-pt-[5px]"
+                class="fab footer-icon tw-w-5 tw-h-5 md:tw-w-8 md:tw-h-8 tw-pt-[5px]"
                 :icon="icon.icon"
               />
             </a>

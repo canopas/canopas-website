@@ -6,20 +6,22 @@
       </template>
     </metainfo>
     <Header />
-    <SuccessMessage v-if="message" />
     <ScreenLoader v-if="isLoading" v-bind:loader="true" />
 
     <div
       class="tw-container lg:tw-flex lg:tw-flex-row tw-mt-10 md:tw-mt-0 lg:tw-mt-20"
     >
-      <NewContactLanding class="tw-basis-3/6 2xl:tw-basis-[40%]" />
+      <NewContactLanding
+        class="tw-basis-3/6 2xl:tw-basis-[40%]"
+        ref="landing"
+      />
       <NewContactForm
-        @showMessage="showSuccessMessage"
+        ref="contactform"
         v-on:isLoading="setLoader"
         class="tw-basis-3/6 lg:tw-basis-[70%] 2xl:tw-basis-[60%] lg:tw--mr-14 xl:tw--mr-24"
       />
     </div>
-    <NewFooter />
+    <NewFooter ref="footer" />
   </div>
 </template>
 
@@ -29,7 +31,6 @@ import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import NewContactLanding from "@/components/contact/NewContactLanding.vue";
 import NewContactForm from "@/components/contact/NewContactForm.vue";
-import SuccessMessage from "@/components/contact/SuccessMessage.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 
@@ -55,15 +56,19 @@ export default {
   components: {
     Header,
     ScreenLoader,
-    NewFooter,
     NewContactLanding,
     NewContactForm,
-    SuccessMessage,
+    NewFooter,
   },
   data() {
     return {
       isLoading: false,
-      message: false,
+      event: "",
+      events: {
+        landing: "view_contact_landing_section",
+        contactform: "view_contact_form",
+        footer: "view_contact_footer",
+      },
     };
   },
   inject: ["mixpanel"],
@@ -77,14 +82,22 @@ export default {
     recaptchaScript.setAttribute("async", "true");
     recaptchaScript.setAttribute("defer", "true");
     document.head.appendChild(recaptchaScript);
+    window.addEventListener("scroll", this.sendEvent);
     this.mixpanel.track("view_contact_page");
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
   },
   methods: {
     setLoader(loading) {
       this.isLoading = loading;
     },
-    showSuccessMessage(data) {
-      this.message = data;
+    sendEvent() {
+      const event = this.events[elementInViewPort(this.$refs)];
+      if (event && this.event !== event) {
+        this.event = event;
+        this.mixpanel.track(event);
+      }
     },
   },
 };

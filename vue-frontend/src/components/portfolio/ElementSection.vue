@@ -2,9 +2,7 @@
   <section class="tw-bg-white tw-relative">
     <div class="tw-relative tw-container">
       <div v-if="response.title">
-        <div
-          class="lg:tw-pt-40 tw-pb-[3rem] lg:tw-pb-80 tw-pt-0 md:tw-pt-[7rem]"
-        >
+        <div class="lg:tw-pt-40 tw-pb-12 lg:tw-pb-80 tw-pt-0 md:tw-pt-28">
           <div
             :class="
               response.class

@@ -26,7 +26,6 @@
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/about/LandingSection.vue";
 import HowItAllStartedSection from "@/components/about/HowItAllStartedSection.vue";
-import CTASection from "@/components/about/CTASection.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { elementInViewPort } from "@/utils.js";
@@ -39,11 +38,15 @@ const AboutusVirtue = defineAsyncComponent(() =>
   import("@/components/about/AboutusVirtue.vue"),
 );
 const WithCanopasSection = defineAsyncComponent(() =>
-  import("@/components/home/WithCanopas.vue"),
+  import("@/components/about/WithCanopas.vue"),
 );
 const ClientReviewSection = defineAsyncComponent(() =>
   import("@/components/home-new/ClientReviewSection.vue"),
 );
+const CTASection = defineAsyncComponent(() =>
+  import("@/components/about/CTASection.vue"),
+);
+
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue"),
 );
@@ -75,6 +78,7 @@ export default {
   },
   data() {
     return {
+      event: "",
       events: {
         landing: "view_about_landing",
         howstarted: "view_about_how_all_started",

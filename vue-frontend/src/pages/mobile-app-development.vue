@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <NewFooter class="tw-mt-[-15px] md:tw-mt-auto" />
+    <NewFooter ref="footer" class="tw-mt-[-15px] md:tw-mt-auto" />
   </div>
 </template>
 
@@ -98,7 +98,7 @@ export default {
   inject: ["mixpanel"],
   mounted() {
     window.addEventListener("scroll", this.sendEvent);
-    this.mixpanel.track("view_mobileapp_landing_section");
+    this.mixpanel.track("view_mobileapp_development_page");
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);

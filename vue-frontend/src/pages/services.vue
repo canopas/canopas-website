@@ -8,17 +8,20 @@
     <Header />
 
     <div>
-      <LandingSection />
-      <WhatWeOfferMobile class="tw-block lg:tw-hidden" />
-      <WhatWeOfferDesktop class="tw-hidden lg:tw-block" />
-      <CTASection class="!tw-mt-24 xl:!tw-mt-40" />
-      <TechnologyStack />
-      <BlogSection />
-      <ContributionSection class="tw-hidden lg:tw-block" />
-      <ContributionSectionMobile class="tw-block lg:tw-hidden" />
-      <SuccessStories />
-      <ClientReviewSection />
-      <CTASection2 />
+      <LandingSection ref="landing" />
+      <WhatWeOfferMobile class="tw-block lg:tw-hidden" ref="whatweoffer" />
+      <WhatWeOfferDesktop class="tw-hidden lg:tw-block" ref="whatweoffer" />
+      <CTASection class="!tw-mt-24 xl:!tw-mt-40" ref="cta" />
+      <TechnologyStack ref="technologystack" />
+      <BlogSection ref="blogs" />
+      <ContributionSection class="tw-hidden lg:tw-block" ref="contributions" />
+      <ContributionSectionMobile
+        class="tw-block lg:tw-hidden"
+        ref="contributions"
+      />
+      <SuccessStories ref="successstories" />
+      <ClientReviewSection ref="clientreview" />
+      <CTASection2 ref="cta2" />
     </div>
 
     <NewFooter />
@@ -33,6 +36,7 @@ import WhatWeOfferDesktop from "@/components/services/WhatWeOfferDesktop.vue";
 import config from "@/config.js";
 import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
+import { elementInViewPort } from "@/utils.js";
 
 const SuccessStories = defineAsyncComponent(() =>
   import("@/components/services/SuccessStories.vue"),
@@ -55,11 +59,11 @@ const ClientReviewSection = defineAsyncComponent(() =>
 const CTASection2 = defineAsyncComponent(() =>
   import("@/components/services/CTASection.vue"),
 );
-const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue"),
-);
 const TechnologyStack = defineAsyncComponent(() =>
   import("@/components/services/TechnologyStack.vue"),
+);
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue"),
 );
 
 export default {
@@ -76,7 +80,6 @@ export default {
       },
     });
   },
-
   components: {
     Header,
     LandingSection,
@@ -92,9 +95,38 @@ export default {
     CTASection2,
     NewFooter,
   },
+  data() {
+    return {
+      event: "",
+      events: {
+        landing: "view_services_landing_section",
+        whatweoffer: "view_services_whatweoffer_section",
+        cta: "view_services_cta_section",
+        technologystack: "view_services_technologystack_section",
+        blogs: "view_services_blogs_section",
+        contributions: "view_services_contributions_section",
+        successstories: "view_services_successstories_section",
+        clientreview: "view_services_clientreview_section",
+        footer: "view_mobileapp_development_footer",
+      },
+    };
+  },
   inject: ["mixpanel"],
   mounted() {
+    window.addEventListener("scroll", this.sendEvent);
     this.mixpanel.track("view_services_page");
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = this.events[elementInViewPort(this.$refs)];
+      if (event && this.event !== event) {
+        this.event = event;
+        this.mixpanel.track(event);
+      }
+    },
   },
 };
 </script>

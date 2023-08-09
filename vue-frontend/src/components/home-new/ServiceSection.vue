@@ -6,7 +6,7 @@
       Services
     </p>
     <p
-      class="tw-mt-[-40px] tw-pb-16 tw-text-center tw-font-roboto-bold tw-text-[3.438rem] tw-leading-[4.4375rem] tw-text-black-core/[.87] md:tw-pb-24 xl:tw-mt-[-50px]"
+      class="-tw-mt-10 tw-pb-16 tw-text-center tw-font-roboto-bold tw-text-[3.438rem] tw-leading-[4.4375rem] tw-text-black-core/[.87] md:tw-pb-24 xl:tw-mt-[-50px]"
     >
       How We Can Help You
     </p>
@@ -32,12 +32,12 @@
           class="tw-flex tw-h-36 tw-basis-[44%] tw-items-center tw-bg-gradient-to-r tw-from-[#F2709C] tw-to-[#FF835B] tw-pl-16 tw-font-inter-semibold tw-text-2xl tw-text-white lg:tw-basis-[49%] xl:tw-pl-48 xl:tw-text-[1.875rem] xl:tw-leading-[2.4375rem] xll:tw-pl-[39rem] 3xl:tw-pl-[84rem]"
         >
           0{{ index + 1 }}
-          <span class="tw-pl-[20px] xl:tw-pl-[62px]">
+          <span class="tw-pl-5 xl:tw-pl-[62px]">
             {{ service.title }}
           </span>
         </div>
         <div
-          class="tw-ml-[-1px] tw-basis-[1%] tw-border-r-[70px] tw-border-t-[144px] tw-border-transparent tw-border-t-[#ff835b]"
+          class="-tw-ml-px tw-basis-[1%] tw-border-r-[70px] tw-border-t-[144px] tw-border-transparent tw-border-t-[#ff835b]"
         ></div>
         <div
           class="tw-flex tw-basis-[55%] tw-flex-col tw-items-start tw-justify-center tw-px-4 xll:tw-pr-[29rem] 3xl:tw-pr-[78rem] tw-font-inter-regular tw-text-base tw-text-black-core/[.8] lg:tw-basis-[50%] xl:tw-text-[1.25rem] xl:tw-leading-[1.775rem]"
@@ -49,7 +49,7 @@
       </div>
       <div
         v-else
-        class="tw-ml-0 tw-text-xl xl:tw-text-[1.5625rem] xl:tw-leading-[2rem]"
+        class="tw-ml-0 tw-text-xl xl:tw-text-[1.5625rem] xl:tw-leading-8"
       >
         0{{ index + 1 }}
         <span class="tw-pl-[25px] xl:tw-pl-[70px]">

@@ -35,7 +35,7 @@
     </div>
     <div
       v-if="response.title"
-      class="tw-container tw-pt-0 tw-pb-20 md:tw-pt-[4rem] lg:tw-pb-80 tw-relative"
+      class="tw-container tw-pt-0 tw-pb-20 md:tw-pt-16 lg:tw-pb-80 tw-relative"
     >
       <div class="v2-header-3-text tw-pt-20" v-html="response.title"></div>
     </div>
@@ -61,7 +61,7 @@
     :ref="response.details ? response.details.ref : ''"
   >
     <div
-      class="tw-container tw-flex tw-flex-col md:tw-flex-row md:tw-gap-x-16 tw-pt-[6rem] md:tw-pt-48 xl:tw-pt-80"
+      class="tw-container tw-flex tw-flex-col md:tw-flex-row md:tw-gap-x-16 tw-pt-24 md:tw-pt-48 xl:tw-pt-80"
     >
       <div v-if="gridData1" class="tw-basis-1/2">
         <div v-for="data in gridData1" :key="data">
@@ -113,13 +113,13 @@
             class="v2-normal-text tw-bg-white tw-font-light ... tw-px-6 sm:tw-px-8 lg:tw-px-12 xl:tw-px-20 tw-py-12 xl:tw-py-20 tw-text-center"
             :class="[
               response.details.ref == 'justlyui1'
-                ? ' tw-pb-[2rem] sm:tw-pb-[3rem] xl:tw-pb-[2rem]  2xl:tw-pb-[3rem] tw-text-[1.188rem] tw-leading-[1.781rem] md:tw-text-[1.281rem] md:tw-leading-[1.875rem] xl:tw-text-[1.375rem] xl:tw-leading-[2rem] tw-font-inter-regular tw-text-black-core/[0.87] '
+                ? ' tw-pb-8 sm:tw-pb-12 xl:tw-pb-8  2xl:tw-pb-12 tw-text-[1.188rem] tw-leading-[1.781rem] md:tw-text-[1.281rem] md:tw-leading-[1.875rem] xl:tw-text-[1.375rem] xl:tw-leading-8 tw-font-inter-regular tw-text-black-core/[0.87] '
                 : '',
               response.details.ref == 'justlyui1' && data.id == 2
-                ? 'tw-pt-[8rem] sm:tw-pt-[7rem] md:tw-pt-[5rem] lg:tw-pt-[7rem] xl:tw-pt-[7rem] 2xl:tw-pt-[9rem] md:!tw-pb-0'
+                ? 'tw-pt-32 sm:tw-pt-28 md:tw-pt-20 lg:tw-pt-28 xl:tw-pt-28 2xl:tw-pt-36 md:!tw-pb-0'
                 : '',
               response.details.ref == 'justlyui1' && data.id == 1
-                ? 'tw-pt-[10rem] sm:tw-pt-[10rem] md:tw-pt-[7rem] lg:tw-pt-[9rem] xl:tw-pt-[10rem] 2xl:tw-pt-[12rem]'
+                ? 'tw-pt-40 sm:tw-pt-40 md:tw-pt-28 lg:tw-pt-36 xl:tw-pt-40 2xl:tw-pt-48'
                 : '',
             ]"
           >
@@ -182,13 +182,13 @@
             class="v2-normal-text tw-bg-white tw-font-light ... tw-px-6 sm:tw-px-8 lg:tw-px-12 xl:tw-px-20 tw-py-12 xl:tw-py-20 tw-text-center"
             :class="[
               response.details.ref == 'justlyui1'
-                ? 'tw-px-6  sm:tw-px-8 lg:tw-px-12  2xl:tw-px-20 tw-pb-[2rem] sm:tw-pb-[3rem] md:tw-pb-[11rem] lg:tw-pb-[13rem] xl:tw-pb-[13.5rem]  2xl:tw-pb-[14.8rem] tw-text-[1.188rem] tw-leading-[1.781rem] md:tw-text-[1.281rem] md:tw-leading-[1.875rem] xl:tw-text-[1.375rem] xl:tw-leading-[2rem] tw-font-inter-regular tw-text-center tw-text-black-core/[0.87] '
+                ? 'tw-px-6  sm:tw-px-8 lg:tw-px-12  2xl:tw-px-20 tw-pb-8 sm:tw-pb-12 md:tw-pb-44 lg:tw-pb-52 xl:tw-pb-[13.5rem]  2xl:tw-pb-[14.8rem] tw-text-[1.188rem] tw-leading-[1.781rem] md:tw-text-[1.281rem] md:tw-leading-[1.875rem] xl:tw-text-[1.375rem] xl:tw-leading-8 tw-font-inter-regular tw-text-center tw-text-black-core/[0.87] '
                 : '',
               response.details.ref == 'justlyui1' && data.id == 4
-                ? 'tw-pt-[1rem] md:tw-pt-[1rem] xl:tw-pt-0  md:!tw-pb-0'
+                ? 'tw-pt-4 md:tw-pt-4 xl:tw-pt-0  md:!tw-pb-0'
                 : '',
               response.details.ref == 'justlyui1' && data.id == 3
-                ? 'tw-pt-[14rem] sm:tw-pt-[13rem] md:tw-pt-[9rem] lg:tw-pt-[12rem] xl:tw-pt-[14rem] 2xl:tw-pt-[16rem]'
+                ? 'tw-pt-56 sm:tw-pt-52 md:tw-pt-36 lg:tw-pt-48 xl:tw-pt-56 2xl:tw-pt-64'
                 : '',
               response.details.ref == 'tognessui1' && data.title == 'togness'
                 ? 'tw-hidden'

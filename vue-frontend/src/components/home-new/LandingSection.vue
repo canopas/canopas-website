@@ -13,7 +13,7 @@
       class="tw-container tw-flex tw-flex-col tw-items-center lg:tw-flex-row-reverse lg:tw-items-start tw-pb-[1.563rem] md:tw-pb-[3.125rem]"
     >
       <aspect-ratio
-        class="tw-flex-[45%] lg:tw-block tw-hidden tw-mt-[2.5rem]"
+        class="tw-flex-[45%] lg:tw-block tw-hidden tw-mt-10"
         height="66%"
       >
         <img
@@ -24,7 +24,7 @@
         />
       </aspect-ratio>
       <div
-        class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-[2.5rem] md:tw-mt-[1.25rem] lg:tw-mt-[6.25rem]"
+        class="tw-flex-[55%] tw-flex tw-flex-col tw-mt-10 md:tw-mt-5 lg:tw-mt-[6.25rem]"
       >
         <h1
           class="tw-w-[100%] sm:tw-w-[85%] tw-pb-5 lg:tw-pb-8 xl:tw-pb-10 v2-header-3-text tw-tracking-[0] tw-text-[2.1875rem] tw-leading-[2.8125rem] md:tw-text-[2.65625rem] md:tw-leading-[3.28125rem] lg:tw-text-[3.28125rem] lg:tw-leading-[3.70625rem] 2xl:tw-text-[4.0625rem] 2xl:tw-leading-[4.6875rem] tw-text-black-core/[.87] tw-font-roboto-bold"
@@ -35,7 +35,7 @@
           </div>
         </h1>
         <div
-          class="tw-w-[85%] md:tw-w-[65%] tw-pb-[29.5px] md:tw-pb-[47px] v2-normal-text tw-tracking-[0] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.09375rem] md:tw-leading-[1.53125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.75rem] tw-text-black-core/[0.6] tw-font-inter-regular"
+          class="tw-w-[85%] md:tw-w-[65%] tw-pb-[29.5px] md:tw-pb-[47px] v2-normal-text tw-tracking-[0] tw-text-[1rem] tw-leading-[1.375rem] md:tw-text-[1.09375rem] md:tw-leading-[1.53125rem] lg:tw-text-[1.1875rem] lg:tw-leading-7 tw-text-black-core/[0.6] tw-font-inter-regular"
         >
           We develop Mobile and Web apps that help you
           <span
@@ -57,7 +57,7 @@
           <div class="tw-text-center">
             <router-link
               class="tw-flex tw-items-center tw-w-max tw-m-0 tw-rounded-full tw-p-3 tw-text-center gradient-btn consultation-btn"
-              :to="contactURL"
+              to="/contact"
               @click.native="mixpanel.track('tap_landing_cta')"
             >
               <span
@@ -82,29 +82,29 @@
               >
                 <img
                   :src="client.image"
-                  class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-object-cover"
+                  class="tw-w-10 md:tw-w-[50px] tw-h-10 md:tw-h-[50px] tw-object-cover"
                   loading="lazy"
                   alt="client-image"
                 />
               </div>
-              <router-link v-if="client.plusIcon" :to="contactURL">
+              <router-link v-if="client.plusIcon" to="/contact">
                 <div
-                  class="tw-w-[40px] md:tw-w-[50px] tw-h-[40px] md:tw-h-[50px] tw-border-[3px] tw-border-white tw-rounded-full tw-bg-[#ffc4c0]"
+                  class="tw-w-10 md:tw-w-[50px] tw-h-10 md:tw-h-[50px] tw-border-[3px] tw-border-white tw-rounded-full tw-bg-[#ffc4c0]"
                   :class="client.className"
                 >
                   <font-awesome-icon
-                    class="fa tw-w-[35px] md:tw-w-[45px] tw-h-[23px] tw-pt-[5px] md:tw-pt-[10px] tw-text-white"
+                    class="fa tw-w-[35px] md:tw-w-[45px] tw-h-[23px] tw-pt-[5px] md:tw-pt-2.5 tw-text-white"
                     icon="plus"
                   />
                 </div>
               </router-link>
             </div>
-            <div class="tw-pl-[10px] md:tw-pl-[6px]">
+            <div class="tw-pl-2.5 md:tw-pl-1.5">
               <div class="tw-flex tw-justify-between tw-mt-[3px]">
                 <font-awesome-icon
                   v-for="i in 5"
                   :key="i"
-                  class="fas tw-w-[14px] tw-h-[14px] tw-p-[1px] tw-text-[#FF3D2E]"
+                  class="fas tw-w-3.5 tw-h-3.5 tw-p-px tw-text-[#FF3D2E]"
                   icon="star"
                 />
               </div>
@@ -154,7 +154,6 @@ export default {
       background800,
       background1200,
       background2100,
-      contactURL: "/contact",
       clients: [
         {
           className: "tw-z-0",

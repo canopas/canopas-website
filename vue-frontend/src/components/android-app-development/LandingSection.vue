@@ -18,13 +18,13 @@
       class="tw-container tw-absolute tw-p-4 tw-w-full tw-text-center tw-text-[#FFF] tw-transform tw-left-1/2 tw-top-1/2 tw--translate-x-1/2 tw--translate-y-1/2 xl:tw-w-[80%] md:tw-top-[49%] lg:tw-top-[48%] 2xl:tw-w-[49%] xl2:tw-w-[60%] 2xll:tw-w-[50%] xll:tw-w-[65%]"
     >
       <h1
-        class="tracking-[0.08rem] tw-mb-2 tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.6rem] tw-text-[#FFF] sm:tw-mb-[1.5rem] md:tw-font-inter-bold md:tw-text-[3.75rem] lg:tw-text-[3.75rem] md:tw-leading-[4.625rem] lg:tw-leading-[5.625rem]"
+        class="tracking-[0.08rem] tw-mb-2 tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.6rem] tw-text-[#FFF] sm:tw-mb-6 md:tw-font-inter-bold md:tw-text-[3.75rem] lg:tw-text-[3.75rem] md:tw-leading-[4.625rem] lg:tw-leading-[5.625rem]"
       >
         Android App<br />
         Development Company
       </h1>
       <p
-        class="tw-font-inter-medium tw-text-[1rem] tw-text-[1rem] tw-leading-[1.5rem] tw-text-[#FFF] md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
+        class="tw-font-inter-medium tw-text-[1rem] tw-text-base tw-text-[#FFF] md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
       >
         We create bespoke Android applications known for their supreme
         performance, unwavering security, and utmost reliability. With an
@@ -33,7 +33,7 @@
       </p>
 
       <div
-        class="tw-mt-[1rem] tw-flex tw-flex-wrap tw-justify-center md:tw-justify-center"
+        class="tw-mt-4 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-center"
       >
         <router-link
           class="white-btn gradient-border-btn tw-flex tw-h-[3.3rem] tw-w-max tw-items-center tw-rounded-full tw-border-none"

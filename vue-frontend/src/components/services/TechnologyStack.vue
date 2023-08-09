@@ -4,11 +4,11 @@
   >
     <div class="tw-container tw-mt-20 lg:tw-mt-32 tw-text-center">
       <span
-        class="tw-font-inter-bold tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-[2.25rem] md:tw-leading-[5.15625rem] tw-text-black-core/[0.87]"
+        class="tw-font-inter-bold tw-text-[1.875rem] md:tw-text-[3.4375rem] tw-leading-9 md:tw-leading-[5.15625rem] tw-text-black-core/[0.87]"
         >Technology Stack</span
       >
       <p
-        class="tw-mt-5 tw-font-inter-medium tw-text-black-core/[0.87] md:tw-text-black-core/[0.6] tw-text-[1rem] md:tw-text-[1.5rem] tw-leading-[1.5rem] md:tw-leading-[2.25rem]"
+        class="tw-mt-5 tw-font-inter-medium tw-text-black-core/[0.87] md:tw-text-black-core/[0.6] tw-text-[1rem] md:tw-text-[1.5rem] tw-leading-6 md:tw-leading-9"
       >
         The products we build are typically deployed to mobile and web. Web and
         mobile are our bread and butter. From native to hybrid, frontend to
@@ -49,7 +49,7 @@
         <div class="tw-row-start-2 tw-row-span-1 tw--mt-40">
           <div v-for="stack in stack1" :key="stack" class="tw-flex">
             <div
-              class="tw-mt-[3.5rem] tw-h-auto tw-w-[368px] tw-rounded-2xl tw-bg-white tw-drop-shadow-md"
+              class="tw-mt-14 tw-h-auto tw-w-[368px] tw-rounded-2xl tw-bg-white tw-drop-shadow-md"
             >
               <span
                 class="tw-flex tw-items-center tw-mx-auto tw-mt-[-23px] tw-w-max tw-rounded-full tw-py-3 tw-px-5 tw-text-center gradient-btn tw-pointer-events-none"
@@ -65,7 +65,7 @@
                 <div
                   v-for="techs in stack.icons"
                   :key="techs"
-                  class="tw-flex tw-flex-col tw-items-center tw-my-5 tw-ml-[0.5rem] tw-w-[30%]"
+                  class="tw-flex tw-flex-col tw-items-center tw-my-5 tw-ml-2 tw-w-[30%]"
                 >
                   <img
                     class="tw-mb-4 tw-h-[30px] tw-w-[30px]"
@@ -104,7 +104,7 @@
                 <div
                   v-for="techs in stack.icons"
                   :key="techs"
-                  class="tw-flex tw-flex-col tw-items-center tw-my-5 tw-ml-[0.5rem] tw-w-[30%]"
+                  class="tw-flex tw-flex-col tw-items-center tw-my-5 tw-ml-2 tw-w-[30%]"
                 >
                   <img
                     class="tw-mb-4 tw-h-[30px] tw-w-[30px]"
@@ -144,7 +144,7 @@
                 <div
                   v-for="techs in stack.icons"
                   :key="techs"
-                  class="tw-flex tw-flex-col tw-items-center tw-my-5 tw-ml-[0.5rem] tw-w-[30%]"
+                  class="tw-flex tw-flex-col tw-items-center tw-my-5 tw-ml-2 tw-w-[30%]"
                 >
                   <img
                     class="tw-mb-4 tw-h-[30px] tw-w-[30px]"

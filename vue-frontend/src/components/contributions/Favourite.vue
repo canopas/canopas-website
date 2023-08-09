@@ -1,5 +1,7 @@
 <template>
-  <section class="tw-my-20 tw-overflow-hidden md:tw-mt-[14.063rem]">
+  <section
+    class="tw-my-20 tw-overflow-hidden md:tw-mt-[8.063rem] lg:tw-mt-[14.063rem]"
+  >
     <!-- Mobile UI start -->
     <p
       class="tw-container tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.438rem] tw-text-black-core/[0.87] md:tw-ml-[6%] md:tw-w-[39%] md:tw-text-left lg:tw-hidden lg:tw-text-[3.438rem] lg:tw-leading-[5.156rem]"
@@ -7,11 +9,11 @@
       The Favorites You Can't Miss
     </p>
     <div class="tw-mt-8 tw-block md:tw-hidden">
-      <swiper :slidesPerView="1.2" :spaceBetween="0" class="tw-p-[1rem]">
+      <swiper :slidesPerView="1.2" :spaceBetween="0" class="tw-p-4">
         <swiper-slide
           v-for="(favourite, index) in favourites"
           :key="index"
-          class="tw-relative tw-flex tw-flex-col tw-pl-[1rem] sm:tw-pl-[2rem]"
+          class="tw-relative tw-flex tw-flex-col tw-pl-4 sm:tw-pl-8"
         >
           <div
             class="tw-mb-2 tw-flex tw-flex-row tw-items-center tw-justify-end tw-gap-2"
@@ -22,14 +24,16 @@
               class="tw-h-7 tw-w-7 tw-object-cover"
               loading="lazy"
             /><span
-              class="v2-canopas-gradient-text tw-font-inter-bold tw-text-[1rem] tw-leading-[1.25rem]"
+              class="v2-canopas-gradient-text tw-font-inter-bold tw-text-[1rem] tw-leading-9"
               >{{ favourite.likes }}</span
             >
           </div>
           <div class="tw-overflow-hidden">
             <div class="tw-h-full tw-w-full">
               <img
-                @click="openBlog(favourite.link)"
+                @click="
+                  openBlog(favourite.link, 'tap_contribution_favourite_section')
+                "
                 :src="favourite.image[0]"
                 :srcset="`${favourite.image[0]} 400w, ${favourite.image[1]} 800w`"
                 alt="favourite"
@@ -38,7 +42,7 @@
               />
             </div>
             <p
-              class="tw-mt-2 tw-pl-2 tw-font-inter-medium tw-text-[1rem] tw-leading-[1.5rem] tw-text-black-core/[0.87] sm:tw-text-[1.25rem]"
+              class="tw-mt-2 tw-pl-2 tw-font-inter-medium tw-text-[1rem] tw-leading-9 tw-text-black-core/[0.87] sm:tw-text-[1.25rem]"
             >
               {{ favourite.description }}
             </p>
@@ -62,7 +66,7 @@
           :key="favourite.id"
         >
           <div
-            class="tw-mb-2 tw-mr-6 tw-flex tw-flex-row tw-items-center tw-justify-end tw-gap-2 lg:tw-mr-[2rem] xl:tw-mr-[2.5rem] 2xl:tw-mr-[3rem]"
+            class="tw-mb-2 tw-mr-6 tw-flex tw-flex-row tw-items-center tw-justify-end tw-gap-2 lg:tw-mr-8 xl:tw-mr-[2.5rem] 2xl:tw-mr-12"
           >
             <img
               :src="like_100w"
@@ -70,13 +74,15 @@
               class="tw-h-7 tw-w-7 tw-object-cover"
               loading="lazy"
             /><span
-              class="v2-canopas-gradient-text tw-font-inter-bold tw-text-[1rem] tw-leading-[1.25rem] md:tw-text-[1.375rem] md:tw-leading-[1.375rem]"
+              class="v2-canopas-gradient-text tw-font-inter-bold tw-text-[1rem] tw-leading-9 md:tw-text-[1.375rem] md:tw-leading-[1.375rem]"
               >{{ favourite.likes }}</span
             >
           </div>
           <div
             class="tw-group tw-relative tw-h-full tw-w-full tw-cursor-pointer tw-overflow-hidden"
-            @click="openBlog(favourite.link)"
+            @click="
+              openBlog(favourite.link, 'tap_contribution_favourite_section')
+            "
           >
             <img
               :src="favourite.deskImage[0]"
@@ -86,10 +92,10 @@
               loading="lazy"
             />
             <div
-              class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-[0.9]"
+              class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-90"
             ></div>
             <div
-              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
+              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-9"
             >
               {{ favourite.description }}
             </div>
@@ -103,7 +109,7 @@
           :key="favourite.id"
         >
           <div
-            class="tw-mb-2 tw-mr-6 tw-flex tw-flex-row tw-items-center tw-justify-end tw-gap-2 lg:tw-mr-[2rem] xl:tw-mr-[2.5rem] 2xl:tw-mr-[3rem]"
+            class="tw-mb-2 tw-mr-6 tw-flex tw-flex-row tw-items-center tw-justify-end tw-gap-2 lg:tw-mr-8 xl:tw-mr-[2.5rem] 2xl:tw-mr-12"
           >
             <img
               :src="like_100w"
@@ -111,13 +117,15 @@
               class="tw-h-7 tw-w-7 tw-object-cover"
               loading="lazy"
             /><span
-              class="v2-canopas-gradient-text tw-font-inter-bold tw-text-[1rem] tw-leading-[1.25rem] md:tw-text-[1.375rem] md:tw-leading-[1.375rem]"
+              class="v2-canopas-gradient-text tw-font-inter-bold tw-text-[1rem] tw-leading-9 md:tw-text-[1.375rem] md:tw-leading-[1.375rem]"
               >{{ favourite.likes }}</span
             >
           </div>
           <div
             class="tw-group tw-relative tw-h-full tw-w-full tw-cursor-pointer tw-overflow-hidden"
-            @click="openBlog(favourite.link)"
+            @click="
+              openBlog(favourite.link, 'tap_contribution_favourite_section')
+            "
           >
             <img
               :src="favourite.deskImage[0]"
@@ -127,25 +135,25 @@
               loading="lazy"
             />
             <div
-              class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-[0.9]"
+              class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-90"
             ></div>
             <div
-              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
+              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-9"
             >
               {{ favourite.description }}
             </div>
           </div>
         </div>
       </div>
-      <div class="tw-mt-[-5rem] tw-flex tw-flex-col lg:tw-mt-[-8rem]">
+      <div class="-tw-mt-20 tw-flex tw-flex-col lg:-tw-mt-32">
         <div
           class="tw-flex tw-flex-col"
           v-for="favourite in favourites.slice(3, 5)"
           :key="favourite.id"
-          :class="favourite.id == 5 ? 'tw-mt-[2rem]' : ''"
+          :class="favourite.id == 5 ? 'tw-mt-8' : ''"
         >
           <div
-            class="tw-mb-2 tw-mr-6 tw-flex tw-flex-row tw-items-center tw-justify-end tw-gap-2 lg:tw-mr-[2rem] xl:tw-mr-[2.5rem] 2xl:tw-mr-[3rem]"
+            class="tw-mb-2 tw-mr-6 tw-flex tw-flex-row tw-items-center tw-justify-end tw-gap-2 lg:tw-mr-8 xl:tw-mr-10 2xl:tw-mr-12"
           >
             <img
               :src="like_100w"
@@ -153,13 +161,15 @@
               class="tw-h-7 tw-w-7 tw-object-cover"
               loading="lazy"
             /><span
-              class="v2-canopas-gradient-text tw-font-inter-bold tw-text-[1rem] tw-leading-[1.25rem] md:tw-text-[1.375rem] md:tw-leading-[1.375rem]"
+              class="v2-canopas-gradient-text tw-font-inter-bold tw-text-[1rem] tw-leading-5 md:tw-text-[1.375rem] md:tw-leading-[1.375rem]"
               >{{ favourite.likes }}</span
             >
           </div>
           <div
             class="tw-group tw-relative tw-h-full tw-w-full tw-cursor-pointer tw-overflow-hidden"
-            @click="openBlog(favourite.link)"
+            @click="
+              openBlog(favourite.link, 'tap_contribution_favourite_section')
+            "
           >
             <img
               :src="favourite.deskImage[0]"
@@ -169,10 +179,10 @@
               loading="lazy"
             />
             <div
-              class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-[0.9]"
+              class="tw-ease tw-absolute tw-left-[0] tw-top-[0] tw-h-[0] tw-w-[0] tw-rounded-[10px] tw-from-[#FF835B] tw-to-[#F2709C] tw-opacity-0 tw-transition-all tw-duration-1000 tw-bg-gradient-[180deg] group-hover:tw-h-full group-hover:tw-w-full group-hover:tw-opacity-90"
             ></div>
             <div
-              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-[2.25rem]"
+              class="tw-absolute tw-left-[8%] lg:tw-left-[10%] xl:tw-left-[8%] tw-top-[25%] xl:tw-top-[32%] 2xl:tw-top-[35%] 2xl:tw-left-[9%] tw-h-full tw-w-[82%] tw-translate-y-[50%] tw-text-center tw-font-inter-bold tw-text-[1rem] tw-leading-[1.8rem] tw-text-white tw-opacity-0 tw-transition-all tw-duration-1000 group-hover:tw-translate-y-[0%] group-hover:tw-opacity-[1] group-hover:tw-transition-all group-hover:tw-duration-1000 lg:tw-w-[80%] lg:tw-text-[1.5rem] lg:tw-leading-9"
             >
               {{ favourite.description }}
             </div>
@@ -186,6 +196,7 @@
 
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { openBlog } from "@/utils.js";
 
 import golang_400w from "@/assets/images/contributions/favourites/mobile/golang-400w.webp";
 import golang_800w from "@/assets/images/contributions/favourites/mobile/golang-800w.webp";
@@ -213,6 +224,7 @@ import like_100w from "@/assets/images/contributions/favourites/like-100w.webp";
 export default {
   data() {
     return {
+      openBlog,
       like_100w,
       favourites: [
         {
@@ -262,12 +274,7 @@ export default {
       ],
     };
   },
-  methods: {
-    openBlog(link) {
-      window.open(link, "_blank");
-      this.mixpanel.track("tap_contribution_favourite_section");
-    },
-  },
+
   components: {
     Swiper,
     SwiperSlide,

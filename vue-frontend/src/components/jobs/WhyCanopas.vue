@@ -34,7 +34,7 @@
               :src="reason.bullet"
               alt="why-canopas-image"
               loading="lazy"
-              class="bullets tw-w-[50px] tw-h-[50px] -tw-mr-[20px]"
+              class="bullets tw-w-[50px] tw-h-[50px] -tw-mr-5"
             />
             <div
               class="normal-text even:tw-w-[70%] tw-py-[15px] tw-px-0 tw-w-full tw-text-black-900 tw-font-bold 2xl:tw-w-[65%]"

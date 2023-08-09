@@ -1,5 +1,5 @@
 <template>
-  <div class="tw-w-full tw-h-[550px] tw-border-0 tw-pt-[20px] md:tw-h-screen">
+  <div class="tw-w-full tw-h-[550px] tw-border-0 tw-pt-5 md:tw-h-screen">
     <div v-if="isLoading" class="iframe-loader">
       <img
         :src="loader"

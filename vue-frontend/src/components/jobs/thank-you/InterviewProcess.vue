@@ -7,7 +7,7 @@
       </span>
     </div>
     <div
-      v-for="interview in interviews.splice(3, 5)"
+      v-for="interview in interviews"
       :key="interview"
       class="tw-block md:tw-hidden tw--mb-7"
     >
@@ -19,19 +19,24 @@
 
       <span
         :class="interview.class"
+        v-html="interview.content"
         class="tw-absolute tw-w-44 tw-text-center tw-text-black-core/[0.87] tw-font-inter-semibold tw-text-[1.25rem] tw-leading-[1.875rem] tw-left-1/2 tw-transform tw--translate-x-1/2"
-        >{{ interview.content }}</span
-      >
+      ></span>
     </div>
     <div
       class="tw-hidden md:tw-flex md:tw-flex-wrap md:tw-items-center md:tw-justify-center md:tw-mb-28"
     >
-      <div v-for="interview in interviews.splice(0, 3)" :key="interview">
+      <div v-for="interview in interviews" :key="interview">
         <img
           alt="numeric-block-image"
-          :src="interview.image"
+          :src="interview.desktopImage"
           class="tw-relative tw-mx-auto tw-w-[232px] lg:tw-w-[225px] xl:tw-w-[320px] tw-h-[200px] xl:tw-h-[237px] tw-object-contain"
         />
+        <span
+          v-html="interview.content"
+          :class="interview.desktopClass"
+          class="tw-absolute tw-w-[10rem] xl:tw-w-[12.5rem] tw-text-center tw-text-black-core/[0.87] tw-font-inter-semibold tw-text-[1.3rem] xl:tw-text-[1.625rem] tw-leading-[1.75rem] xl:tw-leading-[2.438rem] tw-left-1/2 tw-transform"
+        ></span>
       </div>
     </div>
   </section>
@@ -49,29 +54,28 @@ export default {
       width: 0,
       interviews: [
         {
-          image: DesktopOne,
-        },
-        {
-          image: Desktoptwo,
-        },
-        {
-          image: Desktopthree,
-        },
-
-        {
           image: MobileOne,
-          content: "Registration and Aptitude test",
+          content: `Registration and <br>Aptitude test`,
           class: "tw--translate-y-[260%]",
+          desktopClass:
+            "tw--translate-y-[170%] xl:tw--translate-y-[153%] tw--translate-x-[195%] lg:tw--translate-x-[191%] xl:tw--translate-x-[211%]",
+          desktopImage: DesktopOne,
         },
         {
           image: MobileTwo,
-          content: "Technical or Non-technical Interview",
+          content: `Technical or Non-technical Interview`,
           class: "tw--translate-y-[185%]",
+          desktopClass:
+            "tw--translate-y-[168%] xl:tw--translate-y-[153%] tw--translate-x-[47%]",
+          desktopImage: Desktoptwo,
         },
         {
           image: MobileThree,
-          content: "If selected,You will be called for an HR Interview",
-          class: "tw-w-36 tw--translate-y-[180%]",
+          content: `If selected, <br>You will be called for an HR Interview`,
+          class: "!tw-w-40 tw--translate-y-[142%]",
+          desktopClass:
+            "tw--translate-y-[139%] xl:tw--translate-y-[127%] tw-translate-x-[107%]  lg:tw-translate-x-[102%] xl:tw-translate-x-[123%]",
+          desktopImage: Desktopthree,
         },
       ],
     };
