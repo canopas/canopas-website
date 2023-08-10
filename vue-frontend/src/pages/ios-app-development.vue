@@ -8,7 +8,7 @@
     <Header />
 
     <LandingSection ref="landing" />
-
+    <DevelopmentSection ref="development" />
     <NewFooter ref="footer" />
   </div>
 </template>
@@ -20,7 +20,7 @@ import { useMeta } from "vue-meta";
 import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/ios-app-development/LandingSection.vue";
-
+import DevelopmentSection from "@/components/ios-app-development/DevelopmentSection.vue";
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue"),
 );
@@ -31,6 +31,7 @@ export default {
       event: "",
       events: {
         landing: "view_ios_development_landing_section",
+        development: "view_ios_app_development_section",
       },
     };
   },
@@ -57,7 +58,7 @@ export default {
   components: {
     Header,
     LandingSection,
-
+    DevelopmentSection,
     NewFooter,
   },
   methods: {
