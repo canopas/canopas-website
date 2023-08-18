@@ -7,7 +7,6 @@
         Success Stories
       </h2>
       <!-- Mobile UI -->
-
       <div
         class="md:tw-hidden tw-container tw-my-8 tw-h-[700px] tw-relative tw-overflow-hidden"
       >
@@ -66,25 +65,22 @@
             </swiper-slide>
           </swiper>
         </div>
-
         <div
           class="tw--mt-4 tw-w-full tw-h-12 after:tw-absolute after:tw-z-[9] after:tw-left-0 after:tw-h-[5%] after:tw-w-full after:tw-blur-lg after:tw-bg-white-gradient-bottom"
         ></div>
       </div>
-
       <!-- Mobile UI End-->
-      <div class="tw-hidden md:tw-block lg:tw-mt-20">
+      <div class="tw-hidden md:tw-block">
         <h2
           class="testimonial tw-opacity-[5%] tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2 tw-absolute tw-tracking-wide tw-font-black tw-font-inter-bold tw-text-[7.5rem] lg:tw-text-[9.5rem] xl:tw-text-[11.75rem] 2xl:tw-text-[13.75rem] xl:tw-leading-[20.625rem] tw-text-black-core/[0.4] tw-text-center"
         >
           Testimonials
         </h2>
-
         <div
           class="tw-mx-auto tw-hidden tw-container md:tw-flex tw-flex-row sm:tw-text-black-core/[0.87] tw-text-black-900 md:tw-px-6 lg:tw-px-4 xl:tw-px-24"
         >
           <div
-            class="tw-basis-[95%] xl:tw-basis-[85%] tw-pointer-events-none lg:tw-mt-[7%]"
+            class="tw-basis-[190%] xl:tw-basis-[150%] tw-pointer-events-none lg:tw-mt-[7%]"
           >
             <swiper
               :slidesPerView="5"
@@ -94,29 +90,27 @@
               :allowTouchMove="false"
               :slideToClickedSlide="true"
               :direction="'vertical'"
+              :speed="800"
               :autoplay="{
                 delay: 4000,
                 disableOnInteraction: false,
               }"
               :loop="true"
-              :loopedSlides="50"
               class="swiper-container tw-h-[600px] tw-px-2"
               @swiper="setSwiperRef"
               @slideChange="onSlideChange"
             >
-              <swiper-slide v-for="(client, index) in clients" :key="index">
+              <swiper-slide v-for="(client, index) in client" :key="index">
                 <div
                   class="tw-my-10 tw-flex tw-flex-col tw-items-center tw-justify-center"
                   :class="
                     activeIndex == index || activeindex == 0
-                      ? 'tw-animate-zoomEffect'
+                      ? 'tw-animate-zoomEffect tw-mt-8 '
                       : ''
                   "
                 >
                   <img
                     @click="slideTo(index), (activeIndex = index)"
-                    @touchstart.passive="slideTo(index), (activeIndex = index)"
-                    @touchmove.passive="slideTo(index), (activeIndex = index)"
                     :class="
                       activeIndex == index || activeindex == 0
                         ? 'lg:tw-h-[50px] lg:tw-w-[50px]'
@@ -126,11 +120,10 @@
                     :alt="client.name"
                     class="tw-pointer-events-auto tw-cursor-pointer tw-h-10 tw-w-10 tw-mb-2"
                   />
-
                   <span
                     :class="
                       activeIndex == index
-                        ? 'tw-text-black-core/[0.87] tw-text-[1rem] tw-leading-[1.2rem] tw-font-inter-semibold tw-animate-zoomEffect'
+                        ? 'tw--ml-2 tw-text-black-core/[0.87] tw-text-[0.5rem] lg:tw-text-[1rem] tw-leading-[1.2rem] tw-font-inter-semibold tw-animate-zoomEffect'
                         : ''
                     "
                     class="tw-text-black-core/[0.60] tw-text-[0.875rem] tw-text-center tw-leading-[1.05rem] tw-font-inter-regular"
@@ -141,58 +134,57 @@
               </swiper-slide></swiper
             >
           </div>
-
           <div class="swiper-content">
             <swiper
               :slidesPerView="1"
               :centeredSlides="true"
               :spaceBetween="10"
+              :speed="800"
               :direction="'vertical'"
               :allowTouchMove="false"
               :autoplay="{
                 delay: 4000,
                 disableOnInteraction: false,
               }"
-              :slideToClickedSlide="true"
               :loop="true"
-              :loopedSlides="50"
               class="swiper-container tw-h-[600px] lg:tw-h-[700px] tw-mt-[4%] tw-flex"
               @swiper="setSwiperRef"
               @slideChange="onSlideChange"
             >
               <swiper-slide
-                v-for="(client, index) in clients"
+                v-for="(client, index) in client"
                 :key="index"
-                class="tw-pl-8 tw-flex tw-justify-center tw-flex-col"
+                class="tw-pl-8 xl:tw-pl-0 tw-flex tw-justify-center tw-flex-col"
               >
-                <div class="-tw-ml-4 md:tw-pr-6 lg:tw-px-4 xl:tw-px-24"></div>
-                <div class="tw-flex tw-gap-x-4 tw-my-5">
-                  <span class="tw-flex tw-flex-row">
-                    <font-awesome-icon
-                      v-for="i in 5"
-                      :key="i"
-                      class="fa-star tw-w-6 tw-h-6 footer-icon"
-                      icon="star"
-                  /></span>
-                  <span
-                    class="tw-font-inter-regular tw-text-[1.125rem] tw-leading-[1.6875rem] tw-text-black-core/[0.87]"
-                    >(5.0)</span
-                  >
-                </div>
-                <div
-                  class="tw-font-inter-semibold tw-text-[1.5rem] lg:tw-text-[2.125rem] tw-leading-[2.5rem] lg:tw-leading-[3.1875rem]"
-                  v-html="client.review"
-                ></div>
-                <div class="tw-flex tw-flex-row tw-justify-between tw-my-5">
-                  <div class="tw-flex tw-flex-col">
+                <div class="-tw-ml-4 md:tw-pr-6 lg:tw-px-4 xl:tw-px-24">
+                  <div class="tw-flex tw-gap-x-4 tw-my-5">
+                    <span class="tw-flex tw-flex-row">
+                      <font-awesome-icon
+                        v-for="i in 5"
+                        :key="i"
+                        class="fa-star tw-w-6 tw-h-6 footer-icon"
+                        icon="star"
+                    /></span>
                     <span
-                      class="tw-mt-3 v2-canopas-gradient-text tw-font-inter-semibold tw-text-[1.25rem] tw-leading-[1.5rem]"
-                      >{{ client.name }}</span
+                      class="tw-font-inter-regular tw-text-[1.125rem] tw-leading-[1.6875rem] tw-text-black-core/[0.87]"
+                      >(5.0)</span
                     >
-                    <span
-                      class="tw-mt-4 tw-font-inter-regular tw-text-[1.125rem] tw-leading-[1.35rem] tw-text-black-core/[0.60]"
-                      v-html="client.desktop_designation"
-                    ></span>
+                  </div>
+                  <div
+                    class="tw-font-inter-semibold tw-text-[1.5rem] lg:tw-text-[2.125rem] tw-leading-[2.5rem] lg:tw-leading-[3.1875rem]"
+                    v-html="client.review"
+                  ></div>
+                  <div class="tw-flex tw-flex-row tw-justify-between tw-my-5">
+                    <div class="tw-flex tw-flex-col">
+                      <span
+                        class="tw-mt-3 v2-canopas-gradient-text tw-font-inter-semibold tw-text-[1.25rem] tw-leading-[1.5rem]"
+                        >{{ client.name }}</span
+                      >
+                      <span
+                        class="tw-mt-4 tw-font-inter-regular tw-text-[1.125rem] tw-leading-[1.35rem] tw-text-black-core/[0.60]"
+                        v-html="client.desktop_designation"
+                      ></span>
+                    </div>
                   </div>
                 </div>
               </swiper-slide>
@@ -211,7 +203,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import usericon from "@/assets/images/andriod-app-development/icon.webp";
 import userinactiveicon from "@/assets/images/andriod-app-development/inactive-icon.webp";
 SwiperCore.use([Autoplay]);
-
 export default {
   data() {
     return {
@@ -221,6 +212,7 @@ export default {
       activeIndex: 0,
       swiperRef: 0,
       imageUrl: "",
+
       clients: [
         {
           id: 1,
@@ -265,10 +257,14 @@ export default {
       ],
     };
   },
+  computed: {
+    client() {
+      return Array(50).fill(this.clients).flat();
+    },
+  },
   mounted() {
     this.imageUrl = this.getImageUrl();
   },
-
   methods: {
     getFirstWord(str) {
       const words = str.trim().split(" ");
@@ -282,8 +278,7 @@ export default {
       this.activeIndex = this.swiperRef.realIndex;
     },
     slideTo(index) {
-      this.activeIndex = index;
-      this.swiperRef.slideTo(index);
+      this.swiperRef.slideToLoop(index);
     },
     getImageUrl(index) {
       if (this.activeIndex == index) {
@@ -300,10 +295,8 @@ export default {
   },
 };
 </script>
-
 <style lang="postcss" scoped>
 @import "swiper/css";
-
 .swiper-wrapper {
   @apply tw-ease-linear;
 }

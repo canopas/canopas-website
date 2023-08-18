@@ -19,6 +19,10 @@
         :slidesPerView="1"
         :centeredSlides="true"
         :spaceBetween="10"
+        :autoplay="{
+          delay: 4000,
+          disableOnInteraction: false,
+        }"
         :breakpoints="{
           '540': {
             slidesPerView: 1.2,
@@ -70,17 +74,18 @@
     </div>
 
     <div
-      class="tw-hidden md:tw-flex tw-flex-row tw-container tw-mt-16 tw-bg-[#FFF] tw-drop-shadow-[0px_20px_20px_rgba(0,0,0,0.10)]"
+      class="tw-rounded-[20px] tw-hidden md:tw-flex tw-flex-row tw-container tw-mt-16 tw-bg-[#FFF] tw-drop-shadow-[0px_20px_20px_rgba(0,0,0,0.10)]"
     >
       <div class="tw--ml-4">
         <div
           v-for="(item, index) in items"
           :key="index"
-          :class="
-            activeIndex == index ? 'tw-border-r-[#ff835b] tw-bg-[#FFF]' : ''
-          "
-          class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-[7.5rem] lg:tw-h-36 tw-w-36 lg:tw-w-60 tw-bg-[#F5F5F5] tw-border-b tw-border-[#E3E3E3] tw-border-r-[5px]"
-          @click="slideTo(index), (activeIndex = index)"
+          :class="[
+            activeIndex == index ? 'tw-border-r-[#ff835b] tw-bg-[#FFF]' : '',
+            index == 4 || index == 0 ? item.className : '',
+          ]"
+          class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-[7.5rem] lg:tw-h-[6.8rem] tw-w-40 xl:tw-w-60 xl:tw-h-[6.2rem] tw-bg-[#F5F5F5] tw-border-b tw-border-[#E3E3E3] tw-border-r-[5px]"
+          @mouseover="slideTo(index), (activeIndex = index)"
           @touchstart.passive="slideTo(index), (activeIndex = index)"
           @touchmove.passive="slideTo(index), (activeIndex = index)"
         >
@@ -88,13 +93,13 @@
             v-if="activeIndex != index"
             :src="item.image[0]"
             alt="development-service-image"
-            class="tw-h-16 tw-w-16 tw-object-cover"
+            class="tw-h-12 lg:tw-h-[45.6px] xl:tw-h-12 tw-w-12 lg:tw-w-[45.6px] xl:tw-w-12 tw-object-cover"
           />
           <img
             v-else
             :src="item.image[1]"
             alt="development-service-image"
-            class="tw-h-16 tw-w-16 tw-object-cover"
+            class="tw-h-12 lg:tw-h-[45.6px] xl:tw-h-12 tw-w-12 lg:tw-w-[45.6px] xl:tw-w-12 tw-object-cover"
           />
         </div>
       </div>
@@ -103,24 +108,22 @@
           :slidesPerView="1"
           :spaceBetween="20"
           :direction="'vertical'"
+          :speed="3000"
           :autoplay="{
-            delay: 1000,
+            delay: 4000,
             disableOnInteraction: false,
           }"
-          :loopedSlides="100"
-          :speed="4000"
-          :loop="true"
-          class="swiper-container tw-h-[600px] lg:tw-h-[700px] tw-flex"
+          class="swiper-container tw-h-[600px] lg:tw-h-[540px] xl:tw-h-[495px] tw-flex"
           @swiper="setSwiperRef"
           @slideChange="onSlideChange"
         >
           <swiper-slide
             v-for="(item, index) in items"
             :key="index"
-            class="lg:tw-p-8 2xl:tw-p-11"
+            class="lg:tw-px-8 lg:tw-pt-2 2xl:tw-px-11"
           >
             <div
-              class="tw-justify-start tw-px-5 tw-h-16 tw-mb-5 tw-flex tw-flex-row"
+              class="tw-justify-start tw-px-5 tw-mt-3 lg:tw-my-3 tw-flex tw-flex-row"
             >
               <span
                 class="tw-font-inter-semibold tw-text-[1.5625rem] tw-leading-[4.03125rem] lg:tw-text-[1.625rem] lg:tw-leading-[2.4375rem] v2-canopas-gradient-text tw-mr-1.5"
@@ -176,6 +179,7 @@ export default {
 
             "We offer insights into market trends, technical feasibility, user behavior, and monetization strategies, aiming to ensure your app idea's transformation into a successful application.",
           ],
+          className: "tw-rounded-tl-[20px]",
         },
         {
           title: "iOS UI/UX Design",
@@ -226,6 +230,7 @@ export default {
 
             "Moreover, we believe in proactive communication, providing you with regular reports and insights into your app's performance and user feedback, while being readily available to answer any queries or concerns. With our ongoing maintenance and support, you can focus on your business, knowing your app's functionality and relevance are in expert hands.",
           ],
+          className: "tw-rounded-bl-[20px]",
         },
       ],
     };

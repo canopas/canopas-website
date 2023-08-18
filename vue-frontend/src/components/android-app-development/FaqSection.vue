@@ -39,7 +39,7 @@
                   >
                     <div class="faq-header tw-flex tw-flex-row tw-items-center">
                       <div
-                        class="faq-question tw-w-[90%] tw-font-inter-semibold tw-text-[1.125rem] tw-leading-[1.6875rem] md:tw-text-[1.75rem] md:tw-leading-[2.625rem]"
+                        class="faq-question tw-w-[90%] tw-font-inter-semibold tw-text-[1.125rem] tw-leading-[1.6875rem] md:tw-text-[1.5rem] lg:tw-text-[1.75rem] md:tw-leading-[2rem] lg:tw-leading-[2.625rem]"
                         :class="
                           openList && faq.id == currentIndex
                             ? 'v2-canopas-gradient-text footer-icon'

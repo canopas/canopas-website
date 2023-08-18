@@ -196,7 +196,7 @@ export default {
           image: [jacoco_400w, jacoco_800w, jacoco_desktop_400w],
           publishDate: "Sep 27, 2021",
           title: "Android code coverage using JaCoCo",
-          hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-black-core/[0.87]">Android<span><br><span class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1.5rem] tw-leading-[2.25rem] tw-text-black-core/[0.87]">code coverage using JaCoCo</span>`,
+          hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-black-core/[0.87]">Android<span><br><span class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1.5rem] tw-leading-[2.25rem] tw-text-black-core/[0.87]">Code coverage using JaCoCo</span>`,
           link: "https://blog.canopas.com/android-code-coverage-using-jacoco-6639a1fc4293",
           bgColor: "tw-bg-gradient-to-b tw-from-[#E7E7E7] tw-to-[#DADADA]",
         },

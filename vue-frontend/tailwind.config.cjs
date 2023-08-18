@@ -135,10 +135,10 @@ module.exports = {
         },
         zoomEffect: {
           "0%": {
-            transform: " scale(1)",
+            transform: " scale(1) translateX(0)",
           },
           "100%": {
-            transform: " scale(1.2)",
+            transform: " scale(1.2) translateX(15%)",
           },
         },
       },
