@@ -5,7 +5,7 @@
     <div class="tw-container tw-p-4 tw-text-left md:tw-flex xl:tw-my-8">
       <div class="md:tw-flex-1 lg:tw-mt-16">
         <h1
-          class="tracking-[0.08rem] tw-pr-2 tw-mb-2 sm:tw-mb-0 tw-font-inter-semibold md:tw-font-inter-bold md:tw-text-[2.75rem] xl:tw-text-[3.75rem] tw-text-[2rem] md:tw-leading-[3.625rem] xl:tw-leading-[5.625rem] tw-leading-[2.6rem] tw-text-black-core/[0.87] md:tw-font-inter-bold"
+          class="md:!tw--tracking-[2.4px] tw-pr-2 tw-mb-2 lg:tw-w-2/4 sm:tw-mb-0 tw-font-inter-semibold md:tw-font-inter-bold md:tw-text-[2.75rem] xl:tw-text-[3.75rem] tw-text-[2rem] md:tw-leading-[3.625rem] xl:tw-leading-[5.625rem] tw-leading-[2.6rem] tw-text-black-core/[0.87] md:tw-font-inter-bold"
         >
           iOS App Development Company
         </h1>
