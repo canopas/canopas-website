@@ -40,17 +40,22 @@
         }"
         class="swiper-container"
       >
-        <swiper-slide v-for="(sider, index) in slides" :key="index">
+        <swiper-slide v-for="(slider, index) in slides" :key="index">
           <aspect-ratio
             height="66%"
             class="tw-mb-[80px] tw-border-solid tw-border-transparent tw-border"
           >
             <img
               @click.native="mixpanel.track('click_life_photo')"
-              :src="sider.image[0]"
-              :srcset="`${sider.image[0]} 400w, ${sider.image[1]} 800w, ${sider.image[2]} 1600w`"
+              :src="slider.image[0]"
+              :srcset="`${slider.image[0]} 400w, ${slider.image[1]} 800w, ${slider.image[2]} 1600w`"
               alt="Life at canopas"
-              class="swiper-slide tw-h-full tw-w-full tw-object-cover"
+              class="tw-h-full tw-w-full"
+              :class="
+                slider.id == 7 || slider.id == 6
+                  ? 'tw-object-fill'
+                  : 'tw-object-cover'
+              "
               loading="lazy"
             />
           </aspect-ratio>
