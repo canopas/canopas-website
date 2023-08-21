@@ -3,7 +3,7 @@
     class="tw-mt-16 tw-bg-white tw-h-[70%]"
     ref="stickyHeader"
     :class="
-      isSticky ? 'md:!tw-sticky md:!tw-top-0 md:!tw-z-[9] tw-h-screen' : ''
+      isSticky ? 'md:!tw-sticky md:!tw-top-0 md:!tw-z-[9] md:tw-h-screen' : ''
     "
   >
     <div class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center">
@@ -32,7 +32,6 @@
         :centeredSlides="true"
         :spaceBetween="10"
         class="swiper-container hidden-scrollbar tw-overflow-x-scroll tw-max-w-full"
-        :loop="true"
         :modules="modules"
         :breakpoints="{
           '768': {
@@ -127,17 +126,21 @@
 </template>
 
 <script type="module">
-import { Autoplay } from "swiper/modules";
 import consultation from "@/assets/images/andriod-app-development/development/1.webp";
 import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
 import app from "@/assets/images/andriod-app-development/development/4.webp";
 import maintenance from "@/assets/images/andriod-app-development/development/5.webp";
-
 import { Swiper, SwiperSlide } from "swiper/vue";
+
 export default {
   data() {
     return {
+      isSticky: false,
+      stickyOffsetTop: 0,
+      isScrolling: false,
+      startX: 0,
+      scrollLeft: 0,
       modules: [Autoplay],
       items: [
         {
@@ -204,25 +207,9 @@ export default {
     };
   },
   methods: {
-    handleSticky() {
+    myFunction() {
       this.isSticky = window.pageYOffset > this.stickyOffsetTop;
-
-      const scrollContainer = document.querySelector("#container");
-      this.stickyOffsetTop = this.$refs.stickyHeader.offsetTop;
-      console.log("Sticky mounted", this.isSticky);
-      const scrollLeft = scrollContainer.scrollLeft;
-      const maxScroll =
-        scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-      if (scrollLeft === 0) {
-        // Reached the beginning of the scroll
-        this.isSticky = false;
-      } else if (scrollLeft >= maxScroll) {
-        // Reached the end of the scroll
-        this.isSticky = false;
-      } else {
-        console.log("Reached the between");
-      }
+      console.log("Sticky", this.isSticky);
     },
   },
   mounted() {
@@ -232,40 +219,43 @@ export default {
       element.scrollBy({
         left: event.deltaY < 0 ? -30 : 30,
       });
-      window.addEventListener("scroll", this.handleSticky);
     });
-
     // Get the offset position of the header
+
     const scrollContainer = document.querySelector("#container");
+
     scrollContainer.addEventListener("scroll", () => {
-      this.stickyOffsetTop = this.$refs.stickyHeader.offsetTop;
-      //   console.log("Sticky mounted", this.isSticky);
-      //   const scrollLeft = scrollContainer.scrollLeft;
-      // const maxScroll =
-      //   scrollContainer.scrollWidth - scrollContainer.clientWidth;
+      this.stickyOffsetTop = this.$refs.myHeader.offsetTop;
+
+      console.log("Sticky", this.isSticky);
+      const scrollLeft = scrollContainer.scrollLeft;
+      const maxScroll =
+        scrollContainer.scrollWidth - scrollContainer.clientWidth;
 
       if (scrollLeft === 0) {
         // Reached the beginning of the scroll
-        this.isSticky = false;
+        // this.isSticky = false;
+        // console.log("Updated sticky", this.isSticky);
+        console.log("Reached the beginning");
       } else if (scrollLeft >= maxScroll) {
         // Reached the end of the scroll
+
         this.isSticky = false;
+        console.log("Reached the end");
+        console.log("Updated sticky", this.isSticky);
       } else {
-        //     console.log("Reached the between");
+        console.log("Reached the between");
       }
     }),
+      // Check if scroll position is at the end of container
+
       // Attach scroll listener
       this.$nextTick(() => {
-        if (window.pageYOffset > this.stickyOffsetTop)
-          window.addEventListener("scroll", this.handleSticky);
+        window.addEventListener("scroll", this.myFunction);
       });
   },
-  beforeDestroy() {
-    this.$nextTick(() => {
-      window.removeEventListener("scroll", this.handleSticky);
-      this.isSticky = false;
-      console.log("listener destroy");
-    });
+  unmounted() {
+    window.removeEventListener("scroll", this.myFunction);
   },
   components: {
     Swiper,
