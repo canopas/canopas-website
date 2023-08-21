@@ -29,7 +29,7 @@
               disableOnInteraction: false,
             }"
             :loop="true"
-            :loopedSlides="50"
+            :modules="modules"
             class="swiper-container tw-h-[500px] md:tw-h-[700px]"
           >
             <swiper-slide
@@ -114,15 +114,15 @@
 </template>
 
 <script>
-import SwiperCore, { Pagination, Autoplay } from "swiper";
+import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import reviewImage from "@/assets/images/clients/v3-client/ReviewImage.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-SwiperCore.use([Pagination, Autoplay]);
 import Config from "@/config.js";
 export default {
   data() {
     return {
+      modules: [Pagination, Autoplay],
       reviewImage: reviewImage,
       clutchLink: Config.CLUTCH_URL,
       clients: [

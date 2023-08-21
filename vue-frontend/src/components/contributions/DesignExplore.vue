@@ -59,7 +59,6 @@
           :slidesPerView="3"
           :centeredSlides="true"
           :loop="true"
-          :loopedSlides="50"
           :autoplay="{
             delay: 2000,
             disableOnInteraction: false,
@@ -67,6 +66,7 @@
           :speed="3000"
           :zoom="true"
           :spaceBetween="0"
+          :modules="modules"
           :navigation="true"
           class="swiper-container !tw-pt-[30px]"
         >
@@ -93,23 +93,17 @@
           :slidesPerView="4"
           :centeredSlides="true"
           :loop="true"
-          :loopedSlides="50"
           :autoplay="{
             delay: 2000,
             disableOnInteraction: false,
           }"
           :speed="3000"
           :spaceBetween="20"
+          :modules="modules"
           :navigation="true"
           class="swiper-container"
         >
-          <swiper-slide
-            v-for="(item, index) in [
-              ...this.data.slice(4, 8),
-              ...this.data.slice(0, 4),
-            ]"
-            :key="index"
-          >
+          <swiper-slide v-for="(item, index) in data2" :key="index">
             <div
               class="tw-cursor-pointer"
               @click="
@@ -159,13 +153,15 @@ import socialnetworkingapp from "@/assets/images/contributions/explore/8-400w.we
 import socialnetworkingapp800w from "@/assets/images/contributions/explore/8-800w.webp";
 
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import SwiperCore, { Zoom, Pagination, Autoplay } from "swiper";
+import { Zoom, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
-SwiperCore.use([Zoom, Pagination, Autoplay]);
-
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/zoom";
 export default {
   data() {
     return {
+      modules: [Zoom, Pagination, Autoplay],
       openBlog,
       activeIndex: 0,
       gridAnimation: "animation-paused",
@@ -177,6 +173,7 @@ export default {
       mobileGrid: [],
       grid1: [],
       grid2: [],
+      data2: [],
       data: [
         {
           images: [chatapp, chatapp800w],
@@ -229,6 +226,7 @@ export default {
   inject: ["mixpanel"],
   created() {
     this.setGrid();
+    this.setData();
   },
   mounted() {
     this.appendKeyframes();
@@ -249,7 +247,10 @@ export default {
       }
       this.lastScrollY = scrollTop;
     },
-
+    setData() {
+      this.data2 = [...this.data.slice(4, 8), ...this.data.slice(0, 4)];
+      this.data2 = new Array(50).fill(this.data2).flat();
+    },
     setGrid() {
       var length = this.data.length;
       this.grid1 = new Array(3).fill(this.data.slice(0, length / 2)).flat();

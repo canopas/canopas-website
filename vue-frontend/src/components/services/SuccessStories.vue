@@ -38,10 +38,10 @@
           disableOnInteraction: false,
         }"
         :loop="true"
-        :loopedSlides="50"
         :spaceBetween="20"
         :pagination="{ type: 'progressbar' }"
         :navigation="true"
+        :modules="modules"
         :breakpoints="{
           '576': {
             slidesPerView: 1.2,
@@ -83,7 +83,7 @@
 </template>
 
 <script>
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import justly400w from "@/assets/images/services/success-stories/justly-400w.webp";
@@ -96,10 +96,10 @@ import smile400w from "@/assets/images/services/success-stories/smile+400w.webp"
 import smile800w from "@/assets/images/services/success-stories/smile+800w.webp";
 import config from "@/config.js";
 
-SwiperCore.use([Pagination, Navigation, Autoplay]);
 export default {
   data() {
     return {
+      modules: [Pagination, Navigation, Autoplay],
       swiper: null,
       reading: false,
       portfolioURL: "/portfolio",
@@ -132,6 +132,11 @@ export default {
       },
     };
   },
+  computed: {
+    stories() {
+      return Array(50).fill(this.stories).flat();
+    },
+  },
   components: {
     Swiper,
     SwiperSlide,
@@ -157,7 +162,6 @@ export default {
 <style lang="postcss">
 @import "swiper/css";
 @import "swiper/css/pagination";
-
 .swiper-wrapper {
   @apply !tw-items-center;
 }

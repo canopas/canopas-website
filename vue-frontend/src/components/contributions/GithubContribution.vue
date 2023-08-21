@@ -121,7 +121,7 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="tw-container tw-mx-auto tw-mt-8 tw-hidden xl:tw-gap-12 tw-flex-wrap tw-justify-between md:tw-flex lg:tw-my-10"
+      class="tw-container tw-mx-auto tw-mt-8 tw-hidden 2xl:tw-gap-12 tw-flex-wrap tw-justify-between md:tw-flex lg:tw-my-10"
     >
       <div
         v-for="(contribution, index) in contributions"
@@ -214,7 +214,7 @@
 </template>
 
 <script>
-import SwiperCore, { Pagination, Autoplay } from "swiper";
+import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { openBlog } from "@/utils.js";
 
@@ -280,8 +280,6 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { faCodeFork } from "@fortawesome/free-solid-svg-icons";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
-SwiperCore.use([Pagination, Autoplay]);
-
 const ANDROID = 0;
 const IOS = 1;
 const WEB = 2;
@@ -289,6 +287,7 @@ const WEB = 2;
 export default {
   data() {
     return {
+      modules: [Pagination],
       openBlog,
       navbars: ["Android", "iOS", "Web"],
       contributions: [],
