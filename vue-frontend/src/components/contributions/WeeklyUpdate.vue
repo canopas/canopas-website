@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="tw-mb-[200px]">
     <div
       class="tw-container tw-mt-12 tw-flex tw-flex-col tw-items-center tw-gap-y-2.5 lg:tw-mt-24"
     >
@@ -25,6 +25,7 @@
         :spaceBetween="0"
         :effect="'cards'"
         :grabCursor="true"
+        :modules="modules"
         class="swiper-container"
       >
         <swiper-slide v-for="(weekly, index) in weeklies" :key="index">
@@ -65,62 +66,59 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <div class="tw-sticky">
-      <ul
-        @scroll="handleScroll"
-        id="scrollContainer"
-        class="tw-w-full tw-mt-8 tw-hidden tw-h-[400px] lg:tw-h-[480px] tw-overflow-y-scroll md:tw-block xl:tw-h-[580px] 2xl:tw-h-[695px] xll:tw-h-[644px]"
+    <ul
+      id="scrollContainer"
+      class="tw-w-full tw-mt-20 lg:tw-mt-28 tw-hidden md:tw-block"
+    >
+      <li
+        v-for="(weekly, index) in weeklies"
+        :key="index"
+        :ref="'weekly-' + index"
+        :id="'weekly-' + index"
+        @click="openBlog(weekly.url, weekly.event)"
+        class="tw-origin-[center top] tw-sticky tw-top-[8.625rem] xll:tw-top-[15.625rem] 3xl:tw-top-[20.625rem] tw-mx-[1%] tw-h-[270px] lg:tw-h-[390px] tw-cursor-pointer tw-overflow-hidden tw-drop-shadow-xl md:tw-container lg:tw-h-[365px] xl:tw-mx-auto xl:tw-h-[480px] 2xl:tw-h-[590px] xll:tw-h-[546px]"
+        :style="{
+          transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
+        }"
       >
-        <li
-          v-for="(weekly, index) in weeklies"
-          :key="index"
-          :ref="'weekly-' + index"
-          :id="'weekly-' + index"
-          @click="openBlog(weekly.url, weekly.event)"
-          class="tw-origin-[center top] tw-sticky tw-top-2.5 tw-mx-[1%] tw-h-[270px] lg:tw-h-[390px] tw-cursor-pointer tw-overflow-hidden tw-drop-shadow-xl lg:tw-container lg:tw-h-[365px] xl:tw-mx-auto xl:tw-h-[480px] 2xl:tw-h-[590px] xll:tw-h-[546px]"
-          :style="{
-            transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
-          }"
+        <div
+          :class="weekly.color"
+          class="tw-mx-auto tw-flex tw-h-[350px] tw-flex-row xl:tw-h-[450px] 2xl:tw-h-[515px]"
         >
-          <div
-            :class="weekly.color"
-            class="tw-mx-auto tw-flex tw-h-[350px] tw-flex-row xl:tw-h-[450px] 2xl:tw-h-[515px]"
-          >
-            <div class="tw-basis-1/2 tw-p-5">
-              <img
-                :src="[weekly.image]"
-                alt="Weekly-stack-image"
-                class="tw-h-[72%] lg:tw-h-full tw-w-fit tw-object-cover"
-              />
+          <div class="tw-basis-1/2 tw-p-5">
+            <img
+              :src="[weekly.image]"
+              alt="Weekly-stack-image"
+              class="tw-h-[72%] lg:tw-h-full tw-w-fit tw-object-cover"
+            />
+          </div>
+          <div class="tw-basis-1/2 tw-p-5 sm:tw-p-9">
+            <div class="tw-flex tw-flex-row tw-justify-between">
+              <span
+                class="v2-canopas-gradient-text tw-font-inter-semibold md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-6 xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
+                >{{ weekly.author }}</span
+              >
+              <span
+                class="tw-font-inter-semibold tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-6 xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
+                >{{ weekly.readtime }}</span
+              >
             </div>
-            <div class="tw-basis-1/2 tw-p-5 sm:tw-p-9">
-              <div class="tw-flex tw-flex-row tw-justify-between">
-                <span
-                  class="v2-canopas-gradient-text tw-font-inter-semibold md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-6 xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
-                  >{{ weekly.author }}</span
-                >
-                <span
-                  class="tw-font-inter-semibold tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-[1.125rem] lg:tw-text-[1.125rem] lg:tw-leading-6 xl:tw-text-[1.25rem] xl:tw-leading-[1.875rem]"
-                  >{{ weekly.readtime }}</span
-                >
+            <div class="tw-mb-5 tw-mt-8 tw-flex tw-flex-col">
+              <div
+                class="tw-text-black-bore/[0.87] tw-font-inter-semibold md:tw-text-[1.125rem] md:tw-leading-6 lg:tw-text-[1.5rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.875rem] xl:tw-leading-9"
+              >
+                {{ weekly.title }}
               </div>
-              <div class="tw-mb-5 tw-mt-8 tw-flex tw-flex-col">
-                <div
-                  class="tw-text-black-bore/[0.87] tw-font-inter-semibold md:tw-text-[1.125rem] md:tw-leading-6 lg:tw-text-[1.5rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.875rem] xl:tw-leading-9"
-                >
-                  {{ weekly.title }}
-                </div>
-                <div
-                  class="tw-mt-2.5 tw-font-inter-regular tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-6 lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
-                >
-                  {{ weekly.content }}
-                </div>
+              <div
+                class="tw-mt-2.5 tw-font-inter-regular tw-text-black-core/[0.87] md:tw-text-[1rem] md:tw-leading-6 lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem] xl:tw-text-[1.75rem] xl:tw-leading-[2.625rem]"
+              >
+                {{ weekly.content }}
               </div>
             </div>
           </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
   </section>
   <!-- Desktop UI end -->
 </template>
@@ -132,10 +130,9 @@ import ios from "@/assets/images/contributions/weekly/ios.webp";
 import web from "@/assets/images/contributions/weekly/web.webp";
 import { elementInViewPort } from "@/utils";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import SwiperCore, { EffectCards } from "swiper";
+import { EffectCards } from "swiper/modules";
 import { openBlog } from "@/utils.js";
-
-SwiperCore.use([EffectCards]);
+import "swiper/css";
 
 export default {
   data() {
@@ -143,6 +140,7 @@ export default {
       openBlog,
       swiper: null,
       activeIndex: 0,
+      modules: [EffectCards],
       weeklies: [
         {
           category: "Android Weekly",
@@ -208,12 +206,9 @@ export default {
     SwiperSlide,
   },
   mounted() {
-    if (window.innerWidth > 992) {
+    if (window.innerWidth > 767) {
       window.addEventListener("scroll", this.handleScroll);
     }
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     scrollToCard(index) {
@@ -225,35 +220,24 @@ export default {
     },
     handleScroll() {
       const elementIdx = elementInViewPort(this.$refs);
-      if (!elementIdx) {
-        return;
-      }
-
       const index = elementIdx
         ? parseInt(elementIdx.charAt(elementIdx.length - 1))
         : 0;
 
-      for (var j = index; j >= 0; j--) {
-        this.weeklies[j].scale =
-          1 -
-          (document.getElementById("scrollContainer").scrollTop * (index - j)) /
-            (index * 10000);
-      }
-
-      // get current active element from offset
-      const counts = {};
-      this.weeklies.forEach((_, index) => {
-        var offsetTop = this.$refs["weekly-" + index][0].offsetTop;
-        counts[offsetTop] = (counts[offsetTop] || 0) + 1;
+      this.weeklies.forEach((weekly, j) => {
+        if (j === index) {
+          weekly.scale = 1;
+          weekly.translate = 0;
+        } else {
+          weekly.scale = 1 - (index - j) * 0.03;
+          weekly.translate = (index - j) * -40;
+        }
       });
-
-      this.activeIndex = this.weeklies.length - Object.keys(counts).length;
     },
   },
 };
 </script>
 <style lang="postcss" scoped>
-@import "swiper/css";
 @import "swiper/css/effect-cards";
 
 .swiper {

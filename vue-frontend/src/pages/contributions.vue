@@ -10,13 +10,18 @@
       <MobileLandingSection ref="landing" class="tw-block md:tw-hidden" />
       <DesktopLandingSection ref="landing" class="tw-hidden md:tw-block" />
       <GithubContribution ref="contribution" />
-      <WeeklyUpdateSection ref="weeklyupdate" />
-      <WhatsTrending ref="whatstrending" />
+    </div>
+    <div>
+      <WeeklyUpdateSection
+        ref="weeklyupdate"
+        class="tw-overflow-hidden md:tw-overflow-visible"
+      />
+      <WhatsTrending ref="whatstrending" class="tw-overflow-hidden" />
       <Favourite ref="favourite" />
       <AnimatedCreation ref="animationcreation" />
-      <UnitTest ref="unittest" />
+      <UnitTest ref="unittest" class="md:tw-overflow-hidden" />
       <DevOps ref="devops" />
-      <ExploreDesign ref="exploredesign" />
+      <ExploreDesign ref="exploredesign" class="tw-overflow-hidden" />
     </div>
     <NewFooter ref="footer" />
   </div>

@@ -50,10 +50,10 @@
           disableOnInteraction: false,
         }"
         :loop="true"
-        :loopedSlides="50"
         :spaceBetween="20"
         :pagination="pagination"
         :navigation="true"
+        :modules="modules"
         :breakpoints="{
           '576': {
             slidesPerView: 1.2,
@@ -147,7 +147,7 @@
   </div>
 </template>
 <script type="module">
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -164,13 +164,13 @@ import lozad from "lozad";
 import { openBlog } from "@/utils.js";
 
 library.add(faGithub);
-SwiperCore.use([Pagination, Autoplay]);
 
 export default {
   data() {
     return {
       openBlog,
       swiper: null,
+      modules: [Autoplay, Pagination, Navigation],
       contributionURL: Config.GITHUB_URL,
       icon: faGithub,
       rightArrow: faArrowRightLong,
@@ -204,7 +204,11 @@ export default {
       },
     };
   },
-
+  computed: {
+    contributions() {
+      return Array(50).fill(this.contributions).flat();
+    },
+  },
   mounted() {
     lozad().observe(); // lazy loads videos with default selector as '.lozad'
   },

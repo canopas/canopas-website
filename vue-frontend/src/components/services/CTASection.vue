@@ -57,9 +57,9 @@
               disableOnInteraction: false,
             }"
             :loop="true"
-            :loopedSlides="50"
             :spaceBetween="20"
             :navigation="true"
+            :modules="modules"
             @swiper="onSwiper"
             class="swiper-container"
           >
@@ -107,7 +107,7 @@
   </section>
 </template>
 <script>
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import ctabg400w from "@/assets/images/services/cta/cta-bg-400w.webp";
 import ctabg800w from "@/assets/images/services/cta/cta-bg-800w.webp";
@@ -115,12 +115,11 @@ import cta400w from "@/assets/images/services/cta/cta-400w.webp";
 import cta800w from "@/assets/images/services/cta/cta-800w.webp";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-SwiperCore.use([Pagination, Navigation, Autoplay]);
-
 export default {
   data() {
     return {
       swiper: null,
+      modules: [Navigation, Pagination, Autoplay],
       ctabgImages: [ctabg400w, ctabg800w],
       ctaImages: [cta400w, cta800w],
       slides: [
