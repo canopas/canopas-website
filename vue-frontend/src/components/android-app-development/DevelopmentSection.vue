@@ -1,5 +1,11 @@
 <template>
-  <div class="tw-my-16 tw-flex tw-flex-col xll:tw-container xll:tw-mt-16">
+  <div
+    class="tw-mt-16 tw-bg-white tw-h-[70%]"
+    ref="stickyHeader"
+    :class="
+      isSticky ? 'md:!tw-sticky md:!tw-top-0 md:!tw-z-[9] tw-h-screen' : ''
+    "
+  >
     <div class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center">
       <span
         class="tw-mb-2.5 tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-[100%] md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
@@ -13,14 +19,19 @@
         growth and customer engagement.</span
       >
     </div>
-    <div class="swiper-content tw-mt-4">
+    <div
+      class="tw-mt-16"
+      ref="stickyHeader"
+      :class="
+        isSticky ? 'md:!tw-sticky md:!tw-top-0 md:!tw-z-[9] md:tw-h-screen' : ''
+      "
+    >
       <swiper
+        id="container"
         :slidesPerView="1.1"
         :centeredSlides="true"
         :spaceBetween="10"
-        :loopedSlides="50"
-        :loop="true"
-        class="swiper-container"
+        class="swiper-container hidden-scrollbar tw-overflow-x-scroll tw-max-w-full"
         :breakpoints="{
           '768': {
             slidesPerView: 1.3,
@@ -41,14 +52,12 @@
             slidesPerView: 2.4,
           },
           '2200': {
-            slidesPerView: 2.8,
-          },
-          '2450': {
-            slidesPerView: 1.6,
+            slidesPerView: 3.25,
           },
         }"
       >
         <swiper-slide
+          ref="scrollContainer"
           v-for="(item, index) in items"
           :key="index"
           class="tw-cursor-pointer"
@@ -128,6 +137,9 @@ SwiperCore.use([Autoplay]);
 export default {
   data() {
     return {
+      isSticky: false,
+      stickyOffsetTop: 0,
+      scrollLeft: 0,
       items: [
         {
           title: "Android App Development Consultation",
@@ -192,13 +204,76 @@ export default {
       ],
     };
   },
+  methods: {
+    handleSticky() {
+      this.isSticky = window.pageYOffset > this.stickyOffsetTop;
+
+      const scrollContainer = document.querySelector("#container");
+      this.stickyOffsetTop = this.$refs.stickyHeader.offsetTop;
+      console.log("Sticky mounted", this.isSticky);
+      const scrollLeft = scrollContainer.scrollLeft;
+      const maxScroll =
+        scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      if (scrollLeft === 0) {
+        // Reached the beginning of the scroll
+        this.isSticky = false;
+      } else if (scrollLeft >= maxScroll) {
+        // Reached the end of the scroll
+        this.isSticky = false;
+      } else {
+        console.log("Reached the between");
+      }
+    },
+  },
+  mounted() {
+    const element = document.querySelector("#container");
+    element.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      element.scrollBy({
+        left: event.deltaY < 0 ? -30 : 30,
+      });
+      window.addEventListener("scroll", this.handleSticky);
+    });
+
+    // Get the offset position of the header
+    const scrollContainer = document.querySelector("#container");
+    scrollContainer.addEventListener("scroll", () => {
+      this.stickyOffsetTop = this.$refs.stickyHeader.offsetTop;
+      //   console.log("Sticky mounted", this.isSticky);
+      //   const scrollLeft = scrollContainer.scrollLeft;
+      // const maxScroll =
+      //   scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+      if (scrollLeft === 0) {
+        // Reached the beginning of the scroll
+        this.isSticky = false;
+      } else if (scrollLeft >= maxScroll) {
+        // Reached the end of the scroll
+        this.isSticky = false;
+      } else {
+        //     console.log("Reached the between");
+      }
+    }),
+      // Attach scroll listener
+      this.$nextTick(() => {
+        if (window.pageYOffset > this.stickyOffsetTop)
+          window.addEventListener("scroll", this.handleSticky);
+      });
+  },
+  beforeDestroy() {
+    this.$nextTick(() => {
+      window.removeEventListener("scroll", this.handleSticky);
+      this.isSticky = false;
+      console.log("listener destroy");
+    });
+  },
   components: {
     Swiper,
     SwiperSlide,
   },
 };
 </script>
-
-<style lang="postcss">
+<style lang="postcss" scoped>
 @import "swiper/css";
 </style>
