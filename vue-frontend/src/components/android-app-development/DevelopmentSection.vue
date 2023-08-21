@@ -18,8 +18,8 @@
         :slidesPerView="1.1"
         :centeredSlides="true"
         :spaceBetween="10"
-        :loopedSlides="50"
         :loop="true"
+        :modules="modules"
         class="swiper-container"
         :breakpoints="{
           '768': {
@@ -116,7 +116,7 @@
 </template>
 
 <script type="module">
-import SwiperCore, { Autoplay } from "swiper";
+import { Autoplay } from "swiper/modules";
 import consultation from "@/assets/images/andriod-app-development/development/1.webp";
 import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
@@ -124,10 +124,10 @@ import app from "@/assets/images/andriod-app-development/development/4.webp";
 import maintenance from "@/assets/images/andriod-app-development/development/5.webp";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
-SwiperCore.use([Autoplay]);
 export default {
   data() {
     return {
+      modules: [Autoplay],
       items: [
         {
           title: "Android App Development Consultation",
