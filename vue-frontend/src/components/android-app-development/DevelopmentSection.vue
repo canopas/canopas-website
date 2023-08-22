@@ -31,6 +31,8 @@
         :slidesPerView="1.1"
         :centeredSlides="true"
         :spaceBetween="10"
+        :parallax="true"
+        :mousewheel="true"
         class="swiper-container hidden-scrollbar tw-overflow-x-scroll tw-max-w-full"
         :breakpoints="{
           '768': {
@@ -125,7 +127,7 @@
 </template>
 
 <script type="module">
-import SwiperCore, { Autoplay } from "swiper";
+import SwiperCore, { Mousewheel, Autoplay, Parallax } from "swiper";
 import consultation from "@/assets/images/andriod-app-development/development/1.webp";
 import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
@@ -133,7 +135,7 @@ import app from "@/assets/images/andriod-app-development/development/4.webp";
 import maintenance from "@/assets/images/andriod-app-development/development/5.webp";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
-SwiperCore.use([Autoplay]);
+SwiperCore.use([Autoplay, Mousewheel, Parallax]);
 export default {
   data() {
     return {
@@ -211,46 +213,9 @@ export default {
     },
   },
   mounted() {
-    const element = document.querySelector("#container");
-    element.addEventListener("wheel", (event) => {
-      event.preventDefault();
-      element.scrollBy({
-        left: event.deltaY < 0 ? -30 : 30,
-      });
+    this.$nextTick(() => {
+      window.addEventListener("scroll", this.myFunction);
     });
-    // Get the offset position of the header
-
-    const scrollContainer = document.querySelector("#container");
-
-    scrollContainer.addEventListener("scroll", () => {
-      this.stickyOffsetTop = this.$refs.myHeader.offsetTop;
-
-      console.log("Sticky", this.isSticky);
-      const scrollLeft = scrollContainer.scrollLeft;
-      const maxScroll =
-        scrollContainer.scrollWidth - scrollContainer.clientWidth;
-
-      if (scrollLeft === 0) {
-        // Reached the beginning of the scroll
-        // this.isSticky = false;
-        console.log("Updated sticky", this.isSticky);
-        console.log("Reached the beginning");
-      } else if (scrollLeft >= maxScroll) {
-        // Reached the end of the scroll
-
-        this.isSticky = false;
-        console.log("Reached the end");
-        console.log("Updated sticky", this.isSticky);
-      } else {
-        console.log("Reached the between");
-      }
-    }),
-      // Check if scroll position is at the end of container
-
-      // Attach scroll listener
-      this.$nextTick(() => {
-        window.addEventListener("scroll", this.myFunction);
-      });
   },
   unmounted() {
     window.removeEventListener("scroll", this.myFunction);
@@ -264,4 +229,5 @@ export default {
 </script>
 <style lang="postcss" scoped>
 @import "swiper/css";
+@import "swiper/css/free-mode";
 </style>
