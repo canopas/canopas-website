@@ -126,13 +126,14 @@
 </template>
 
 <script type="module">
+import { Autoplay } from "swiper/modules";
 import consultation from "@/assets/images/andriod-app-development/development/1.webp";
 import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
 import app from "@/assets/images/andriod-app-development/development/4.webp";
 import maintenance from "@/assets/images/andriod-app-development/development/5.webp";
-import { Swiper, SwiperSlide } from "swiper/vue";
 
+import { Swiper, SwiperSlide } from "swiper/vue";
 export default {
   data() {
     return {
@@ -235,7 +236,7 @@ export default {
       if (scrollLeft === 0) {
         // Reached the beginning of the scroll
         // this.isSticky = false;
-        // console.log("Updated sticky", this.isSticky);
+        console.log("Updated sticky", this.isSticky);
         console.log("Reached the beginning");
       } else if (scrollLeft >= maxScroll) {
         // Reached the end of the scroll
@@ -257,6 +258,7 @@ export default {
   unmounted() {
     window.removeEventListener("scroll", this.myFunction);
   },
+
   components: {
     Swiper,
     SwiperSlide,
