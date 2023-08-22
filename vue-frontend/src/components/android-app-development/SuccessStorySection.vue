@@ -18,7 +18,6 @@
             :slidesPerView="1.2"
             :spaceBetween="20"
             :direction="'vertical'"
-            :modules="modules"
             :autoplay="{
               delay: 1000,
               disableOnInteraction: false,
@@ -86,6 +85,7 @@
             <swiper
               :slidesPerView="5"
               :centeredSlides="true"
+              :centeredSlidesBounds="true"
               :spaceBetween="10"
               :allowTouchMove="false"
               :slideToClickedSlide="true"
@@ -96,7 +96,6 @@
                 disableOnInteraction: false,
               }"
               :loop="true"
-              :modules="modules"
               class="swiper-container tw-h-[600px] tw-px-2"
               @swiper="setSwiperRef"
               @slideChange="onSlideChange"
@@ -148,7 +147,6 @@
                 disableOnInteraction: false,
               }"
               :loop="true"
-              :modules="modules"
               class="swiper-container tw-h-[600px] lg:tw-h-[700px] tw-mt-[4%] tw-flex"
               @swiper="setSwiperRef"
               @slideChange="onSlideChange"
@@ -156,7 +154,7 @@
               <swiper-slide
                 v-for="(client, index) in client"
                 :key="index"
-                class="tw-pl-8 xl:tw-pl-0 !tw-flex tw-justify-center tw-flex-col"
+                class="tw-pl-8 xl:tw-pl-0 tw-flex tw-justify-center tw-flex-col"
               >
                 <div class="-tw-ml-4 md:tw-pr-6 lg:tw-px-4 xl:tw-px-24">
                   <div class="tw-flex tw-gap-x-4 tw-my-5">
@@ -199,15 +197,15 @@
 </template>
 
 <script>
-import { Autoplay } from "swiper/modules";
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import usericon from "@/assets/images/andriod-app-development/icon.webp";
 import userinactiveicon from "@/assets/images/andriod-app-development/inactive-icon.webp";
+SwiperCore.use([Autoplay]);
 export default {
   data() {
     return {
-      modules: [Autoplay],
       usericon,
       userinactiveicon,
       swiper: null,

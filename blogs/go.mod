@@ -7,7 +7,6 @@ replace db => ../db
 replace utils => ../utils
 
 require (
-	github.com/aws/aws-sdk-go v1.44.83
 	github.com/gin-gonic/gin v1.9.0
 	github.com/sirupsen/logrus v1.9.0
 	github.com/tj/assert v0.0.3
@@ -19,6 +18,7 @@ require (
 	cloud.google.com/go/recaptchaenterprise v1.3.1 // indirect
 	cloud.google.com/go/recaptchaenterprise/v2 v2.0.1 // indirect
 	db v0.0.0-00010101000000-000000000000 // indirect
+	github.com/aws/aws-sdk-go v1.44.83 // indirect
 	github.com/bytedance/sonic v1.8.0 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect

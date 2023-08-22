@@ -24,7 +24,6 @@
           :autoplay="{
             delay: 5000,
           }"
-          :modules="modules"
           class="md:tw-w-[60%] lg:tw-w-[55%]"
         >
           <swiper-slide
@@ -79,19 +78,19 @@
   </section>
 </template>
 <script>
-import { Autoplay } from "swiper/modules";
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import quote from "@/assets/images/mobile-app-development/client-review/quote.webp";
 import circle from "@/assets/images/mobile-app-development/client-review/circle.gif";
 import rating from "@/assets/images/mobile-app-development/client-review/rating-star.gif";
 
+SwiperCore.use([Autoplay]);
 export default {
   data() {
     return {
       quote,
       circle,
       rating,
-      modules: [Autoplay],
       reviews: [
         {
           id: 1,

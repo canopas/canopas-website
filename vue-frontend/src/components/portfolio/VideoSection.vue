@@ -164,16 +164,17 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import { Autoplay, Pagination } from "swiper/modules";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { elementInViewPort } from "@/utils.js";
+
+SwiperCore.use([Pagination, Autoplay]);
 
 export default {
   props: ["json"],
 
   data() {
     return {
-      modules: [Pagination, Autoplay],
       id: this.$route.params.id,
       portfolioRef: null,
       backgroundColor: "",

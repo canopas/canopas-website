@@ -32,7 +32,6 @@
         :centeredSlides="true"
         :spaceBetween="10"
         class="swiper-container hidden-scrollbar tw-overflow-x-scroll tw-max-w-full"
-        :modules="modules"
         :breakpoints="{
           '768': {
             slidesPerView: 1.3,
@@ -126,7 +125,7 @@
 </template>
 
 <script type="module">
-import { Autoplay } from "swiper/modules";
+import SwiperCore, { Autoplay } from "swiper";
 import consultation from "@/assets/images/andriod-app-development/development/1.webp";
 import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
@@ -134,15 +133,13 @@ import app from "@/assets/images/andriod-app-development/development/4.webp";
 import maintenance from "@/assets/images/andriod-app-development/development/5.webp";
 
 import { Swiper, SwiperSlide } from "swiper/vue";
+SwiperCore.use([Autoplay]);
 export default {
   data() {
     return {
       isSticky: false,
       stickyOffsetTop: 0,
-      isScrolling: false,
-      startX: 0,
       scrollLeft: 0,
-      modules: [Autoplay],
       items: [
         {
           title: "Android App Development Consultation",

@@ -18,7 +18,6 @@
         :loop="true"
         :loopedSlides="50"
         :spaceBetween="10"
-        :modules="modules"
         class="swiper-container"
       >
         <swiper-slide
@@ -60,6 +59,7 @@
           :slidesPerView="3"
           :centeredSlides="true"
           :loop="true"
+          :loopedSlides="50"
           :autoplay="{
             delay: 2000,
             disableOnInteraction: false,
@@ -67,7 +67,7 @@
           :speed="3000"
           :spaceBetween="20"
           :zoom="true"
-          :modules="modules"
+          :navigation="true"
           class="swiper-container tw-absolute tw-left-0 tw-top-2.5 tw-z-30 tw-mx-auto tw-h-full tw-w-full"
         >
           <swiper-slide v-for="(test, index) in unitTests" :key="index">
@@ -99,7 +99,7 @@
 </template>
 
 <script>
-import { Zoom, Autoplay } from "swiper/modules";
+import SwiperCore, { Zoom, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import unittest1_400w from "@/assets/images/contributions/unittest/unit_test_1-400w.webp";
 import unittest1_800w from "@/assets/images/contributions/unittest/unit_test_1-800w.webp";
@@ -118,11 +118,13 @@ import unittest7_800w from "@/assets/images/contributions/unittest/unit_test_7-8
 import dot from "@/assets/images/why/why-canopas-dot-3.svg";
 import { openBlog } from "@/utils.js";
 
+SwiperCore.use([Zoom, Autoplay]);
+
 export default {
   data() {
     return {
-      modules: [Zoom, Autoplay],
       openBlog,
+      swiper: null,
       dot,
       unitTests: [
         {

@@ -24,9 +24,9 @@
           disableOnInteraction: false,
         }"
         :loop="true"
+        :loopedSlides="50"
         :spaceBetween="20"
         :pagination="pagination"
-        :modules="modules"
         :breakpoints="{
           '768': {
             slidesPerView: 1.125,
@@ -50,12 +50,12 @@
               :src="slider.image[0]"
               :srcset="`${slider.image[0]} 400w, ${slider.image[1]} 800w, ${slider.image[2]} 1600w`"
               alt="Life at canopas"
+              class="tw-h-full tw-w-full"
               :class="
                 slider.id == 7 || slider.id == 6
                   ? 'tw-object-fill'
                   : 'tw-object-cover'
               "
-              class="tw-h-full tw-w-full"
               loading="lazy"
             />
           </aspect-ratio>
@@ -68,7 +68,7 @@
 
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import { Autoplay, Pagination } from "swiper/modules";
+import SwiperCore, { Pagination, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
 import life1_400w from "@/assets/images/life/jobs_canopas_life_1-400w.webp";
@@ -119,10 +119,11 @@ import life12_400w from "@/assets/images/life/jobs_canopas_life_12-400w.webp";
 import life12_800w from "@/assets/images/life/jobs_canopas_life_12-800w.webp";
 import life12_1600w from "@/assets/images/life/jobs_canopas_life_12-1600w.webp";
 
+SwiperCore.use([Pagination, Autoplay]);
+
 export default {
   data() {
     return {
-      modules: [Pagination, Autoplay],
       slides: [
         {
           id: 2,

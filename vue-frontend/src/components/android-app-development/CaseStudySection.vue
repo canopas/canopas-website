@@ -100,9 +100,9 @@
           delay: 4000,
           disableOnInteraction: false,
         }"
+        :loopedSlides="50"
         :spaceBetween="20"
         :navigation="true"
-        :modules="modules"
         class="swiper-container xll:tw-container"
       >
         <swiper-slide v-for="item in cases" :key="item">
@@ -226,14 +226,14 @@ import togness_400w from "@/assets/images/andriod-app-development/casestudy/desk
 import togness_800w from "@/assets/images/andriod-app-development/casestudy/desktop/p3-800w.webp";
 import smileplus_400w from "@/assets/images/andriod-app-development/casestudy/desktop/p4-400w.webp";
 import smileplus_800w from "@/assets/images/andriod-app-development/casestudy/desktop/p4-800w.webp";
-import { Autoplay } from "swiper/modules";
+import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import config from "@/config.js";
+SwiperCore.use([Autoplay]);
 export default {
   data() {
     return {
       resultsimage,
-      modules: [Autoplay],
       cases: [
         {
           title: "Justly",
