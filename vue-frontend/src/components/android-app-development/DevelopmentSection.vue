@@ -2,7 +2,7 @@
   <div
     class="tw-mt-16 tw-bg-white tw-h-[70%]"
     :class="
-      isSticky ? 'md:!tw-sticky md:!tw-top-0 md:!tw-z-[9] md:tw-h-screen ' : ''
+      isSticky ? 'xl:!tw-sticky xl:!tw-top-0 xl:!tw-z-[9] xl:tw-h-screen' : ''
     "
   >
     <div class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center">
