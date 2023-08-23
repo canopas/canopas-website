@@ -3,6 +3,7 @@ package notification
 import (
 	"bytes"
 	"embed"
+	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
@@ -18,7 +19,16 @@ var templateFS embed.FS
 
 var repo *NotificationRepository
 var err error
-var testRequests []utils.TestRequest
+
+var invitationRequest = NotificationData{
+	Receiver:    "test@canopas.com",
+	CompanyName: "Canopas",
+	SpaceLink:   "https://test.com",
+}
+
+func TestInit(t *testing.T) {
+	repo = New(templateFS, &stubUtilsRepo{})
+}
 
 // stubUtilsRepo is a mock Utils Service Interface
 type stubUtilsRepo struct{}
@@ -35,39 +45,36 @@ func (faker *stubUtilsRepo) SaveJobsToSpreadSheet(input []string) {
 	/** this is stub method for adding jobs details in google spreadsheet */
 }
 
-func (faker *stubUtilsRepo) getInvitationEmailTemplate(input []string) string {
-	return ""
-}
-
-func (faker *stubUtilsRepo) getAcceptenceEmailTemplate(input []string) string {
-	return ""
-}
-
-func Test_SendNotificationMail(t *testing.T) {
-	w := httptest.NewRecorder()
-	req, err := http.NewRequest("POST", "/api/invitation", bytes.NewBuffer([]byte(`{"Receiver":"test@canopas.com","CompanyName":"Canopas","SpaceLink":"https://test.com"}`)))
-	assert.NoError(t, err)
-
+func TestSendNotificationMail(t *testing.T) {
 	engine := gin.New()
-	setUpRouter(engine)
-	engine.ServeHTTP(w, req)
-
-	assert.Equal(t, http.StatusOK, w.Code)
-}
-func Test_SendAcceptenceMail(t *testing.T) {
-	w := httptest.NewRecorder()
-	req, err := http.NewRequest("POST", "/api/acceptence", bytes.NewBuffer([]byte(`{"Receiver":"hr@canopas.com","Sender":"test@canopas.com"}`)))
-	assert.NoError(t, err)
-
-	engine := gin.New()
-	setUpRouter(engine)
-	engine.ServeHTTP(w, req)
-
-	assert.Equal(t, http.StatusOK, w.Code)
-}
-
-// configure api you want to test
-func setUpRouter(engine *gin.Engine) {
 	engine.POST("/api/invitation", repo.SendInvitationMail)
+	requestByte, _ := json.Marshal(invitationRequest)
+	reqBodyData := bytes.NewReader(requestByte)
+	req, err := http.NewRequest("POST", "/api/invitation", reqBodyData)
+	assert.NoError(t, err)
+	w := httptest.NewRecorder()
+	engine.ServeHTTP(w, req)
+	assert.EqualValues(t, http.StatusOK, w.Code)
+	got := utils.GotData(w, t)
+
+	expected := "Invitation mail has been sent successfully"
+
+	assert.Equal(t, expected, got)
+}
+
+func TestSendAcceptenceMail(t *testing.T) {
+	engine := gin.New()
 	engine.POST("/api/acceptence", repo.SendAcceptenceMail)
+	requestByte, _ := json.Marshal(invitationRequest)
+	reqBodyData := bytes.NewReader(requestByte)
+	req, err := http.NewRequest("POST", "/api/acceptence", reqBodyData)
+	assert.NoError(t, err)
+	w := httptest.NewRecorder()
+	engine.ServeHTTP(w, req)
+	assert.EqualValues(t, http.StatusOK, w.Code)
+	got := utils.GotData(w, t)
+
+	expected := "Acceptence mail has been sent successfully"
+
+	assert.Equal(t, expected, got)
 }
