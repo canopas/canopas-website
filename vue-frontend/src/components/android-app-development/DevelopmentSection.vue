@@ -225,6 +225,12 @@ export default {
       } else if (activeIndex == 4) {
         this.isSticky = false;
       }
+      if (activeIndex === 4) {
+        this.handleReachEnd();
+      }
+    },
+    handleReachEnd() {
+      this.isSticky = false;
     },
   },
   mounted() {
