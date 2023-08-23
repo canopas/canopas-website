@@ -1,5 +1,10 @@
 <template>
-  <div class="tw-my-16 tw-flex tw-flex-col xll:tw-container xll:tw-mt-16">
+  <div
+    class="tw-mt-16 tw-bg-white tw-h-[70%]"
+    :class="
+      isSticky ? 'xl:!tw-sticky xl:!tw-top-0 xl:!tw-z-[9] xl:tw-h-screen' : ''
+    "
+  >
     <div class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center">
       <span
         class="tw-mb-2.5 tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-[100%] md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
@@ -13,14 +18,16 @@
         growth and customer engagement.</span
       >
     </div>
-    <div class="swiper-content tw-mt-4">
+    <div class="swiper-content tw-mt-8">
       <swiper
         :slidesPerView="1.1"
         :centeredSlides="true"
         :spaceBetween="10"
-        :loop="true"
+        :mousewheel="true"
         :modules="modules"
         class="swiper-container"
+        @reachEnd="handleReachEnd"
+        @swiper="setSwiperRef"
         :breakpoints="{
           '768': {
             slidesPerView: 1.3,
@@ -40,11 +47,20 @@
           '1800': {
             slidesPerView: 2.4,
           },
+          '2000': {
+            slidesPerView: 2.6,
+          },
           '2200': {
             slidesPerView: 2.8,
           },
-          '2450': {
-            slidesPerView: 1.6,
+          '2500': {
+            slidesPerView: 3.2,
+          },
+          '2800': {
+            slidesPerView: 3.8,
+          },
+          '3500': {
+            slidesPerView: 4.5,
           },
         }"
       >
@@ -116,7 +132,7 @@
 </template>
 
 <script type="module">
-import { Autoplay } from "swiper/modules";
+import { Mousewheel } from "swiper/modules";
 import consultation from "@/assets/images/andriod-app-development/development/1.webp";
 import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
@@ -127,7 +143,11 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 export default {
   data() {
     return {
-      modules: [Autoplay],
+      modules: [Mousewheel],
+      isSticky: false,
+      activeIndex: 0,
+      swiperRef: 0,
+      swiper: null,
       items: [
         {
           title: "Android App Development Consultation",
@@ -192,6 +212,30 @@ export default {
       ],
     };
   },
+  methods: {
+    setSwiperRef(swiper) {
+      this.swiperRef = swiper;
+      this.activeIndex = this.swiperRef.realIndex;
+    },
+    handleSticky() {
+      const activeIndex = this.swiperRef.realIndex;
+
+      if (activeIndex == 0) {
+        this.isSticky = true;
+      } else if (activeIndex == 4) {
+        this.isSticky = false;
+      }
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      window.addEventListener("scroll", this.handleSticky);
+    });
+  },
+  unmounted() {
+    window.removeEventListener("scroll", this.handleSticky);
+  },
+
   components: {
     Swiper,
     SwiperSlide,

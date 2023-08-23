@@ -37,7 +37,6 @@
                 v-for="(client, index) in clients"
                 :key="index"
                 class="tw-mb-8 tw-mx-auto tw-rounded-[5px] sm:tw-px-10 md:tw-px-6 lg:tw-px-4 xl:tw-px-24 tw-text-black-core/[0.87] tw-p-5 tw-bg-gradient-to-l tw-from-[#FF835B]/[0.10] tw-to-[#F2709C]/[0.10]"
-                :class="[client.className]"
               >
                 <div
                   class="tw-font-inter-medium tw-text-[1.125rem] md:tw-text-[2.25rem] lg:tw-text-[3.125rem] tw-leading-[1.6875rem] md:tw-leading-[2.75rem] lg:tw-leading-[3.75rem] tw-transition-all tw-ease tw-duration-500"
@@ -90,7 +89,7 @@
               :allowTouchMove="false"
               :slideToClickedSlide="true"
               :direction="'vertical'"
-              :speed="800"
+              :speed="950"
               :autoplay="{
                 delay: 4000,
                 disableOnInteraction: false,
@@ -122,11 +121,14 @@
                     class="tw-pointer-events-auto tw-cursor-pointer tw-h-10 tw-w-10 tw-mb-2"
                   />
                   <span
-                    :class="
+                    :class="[
+                      client.className && activeIndex == index
+                        ? 'tw--ml-6'
+                        : '',
                       activeIndex == index
                         ? 'tw--ml-2 tw-text-black-core/[0.87] tw-text-[0.5rem] lg:tw-text-[1rem] tw-leading-[1.2rem] tw-font-inter-semibold tw-animate-zoomEffect'
-                        : ''
-                    "
+                        : '',
+                    ]"
                     class="tw-text-black-core/[0.60] tw-text-[0.875rem] tw-text-center tw-leading-[1.05rem] tw-font-inter-regular"
                   >
                     {{ getFirstWord(client.name) }}</span
@@ -140,7 +142,7 @@
               :slidesPerView="1"
               :centeredSlides="true"
               :spaceBetween="10"
-              :speed="800"
+              :speed="950"
               :direction="'vertical'"
               :allowTouchMove="false"
               :autoplay="{
@@ -223,6 +225,7 @@ export default {
           desktop_designation: `Founder at Togness,<span class="tw-font-inter-medium tw-text-black-core/[0.87]"> Australia</span>`,
           review:
             "There was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they understood the first time.",
+          className: "tw--ml-8",
         },
         {
           id: 2,
