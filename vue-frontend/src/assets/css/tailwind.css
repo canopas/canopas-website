@@ -1,127 +1,109 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 @font-face {
-  font-family: "Product Sans";
+  font-display: swap;
+  font-family: Product Sans;
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
-  src: url(./../fonts/ProductSans-Regular-Subset.woff2) format("woff2");
+  src: url(../fonts/ProductSans-Regular-Subset.woff2) format("woff2");
 }
-
 @font-face {
-  font-family: "FuturaLT-Bold";
+  font-display: swap;
+  font-family: FuturaLT-Bold;
   font-style: bold;
   font-weight: 700;
-  font-display: swap;
-  src: url(./../fonts/FuturaLT-Bold-Subset.woff2);
+  src: url(../fonts/FuturaLT-Bold-Subset.woff2);
 }
-
 @font-face {
-  font-family: "Inter-Bold";
+  font-display: swap;
+  font-family: Inter-Bold;
   font-style: bold;
   font-weight: 700;
-  font-display: swap;
-  src: url(./../fonts/Inter-Bold-Subset.woff2) format("woff2");
+  src: url(../fonts/Inter-Bold-Subset.woff2) format("woff2");
 }
-
 @font-face {
-  font-family: "Inter-SemiBold";
+  font-display: swap;
+  font-family: Inter-SemiBold;
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
-  src: url(./../fonts/Inter-SemiBold-Subset.woff2) format("woff2");
+  src: url(../fonts/Inter-SemiBold-Subset.woff2) format("woff2");
 }
-
 @font-face {
-  font-family: "Inter-Medium";
+  font-display: swap;
+  font-family: Inter-Medium;
   font-style: medium;
   font-weight: 500;
-  font-display: swap;
-  src: url(./../fonts/Inter-Medium-Subset.woff2) format("woff2");
+  src: url(../fonts/Inter-Medium-Subset.woff2) format("woff2");
 }
-
 @font-face {
-  font-family: "Inter-Regular";
+  font-display: swap;
+  font-family: Inter-Regular;
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
-  src: url(./../fonts/Inter-Regular-Subset.woff2) format("woff2");
+  src: url(../fonts/Inter-Regular-Subset.woff2) format("woff2");
 }
-
 @font-face {
-  font-family: "Inter-Light";
+  font-display: swap;
+  font-family: Inter-Light;
   font-style: normal;
   font-weight: 300;
-  font-display: swap;
-  src: url(./../fonts/Inter-Light-Subset.woff2) format("woff2");
+  src: url(../fonts/Inter-Light-Subset.woff2) format("woff2");
 }
-
 @font-face {
-  font-family: "Roboto-Bold";
+  font-display: swap;
+  font-family: Roboto-Bold;
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
-  src: url(./../fonts/Roboto-Bold-Subset.woff2);
+  src: url(../fonts/Roboto-Bold-Subset.woff2);
 }
-
 @font-face {
-  font-family: "Roboto-Medium";
+  font-display: swap;
+  font-family: Roboto-Medium;
   font-style: normal;
   font-weight: 500;
-  font-display: swap;
-  src: url(./../fonts/Roboto-Medium-Subset.woff2);
+  src: url(../fonts/Roboto-Medium-Subset.woff2);
 }
-
 @layer utilities {
   input:-webkit-autofill,
-  input:-webkit-autofill:hover,
+  input:-webkit-autofill:active,
   input:-webkit-autofill:focus,
-  input:-webkit-autofill:active {
+  input:-webkit-autofill:hover {
     transition: background-color 5000s !important;
   }
-
   .floating-input:-webkit-autofill,
-  .floating-input:-webkit-autofill:hover,
+  .floating-input:-webkit-autofill:active,
   .floating-input:-webkit-autofill:focus,
-  .floating-input:-webkit-autofill:active {
-    -webkit-text-fill-color: #ffffff !important;
+  .floating-input:-webkit-autofill:hover {
+    -webkit-text-fill-color: #fff !important;
   }
-
   * {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   }
-
   .footer-icon > path {
-    fill: url("#lgrad");
+    fill: url(#lgrad);
   }
-
   .gradient-border-btn:hover > a > .footer-icon > path {
-    fill: #ffffff;
+    fill: #fff;
   }
-
   .landing-bg-clip-path {
-    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
-    clip-path: polygon(50% 0%, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
+    -webkit-clip-path: polygon(50% 0, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
+    clip-path: polygon(50% 0, 100% 0, 100% 84%, 30% 100%, 0 84%, 0 0);
   }
-
   .landing-bg-mobile-clip-path {
     -webkit-clip-path: polygon(
-      50% 0%,
+      50% 0,
       100% 0,
       150% 84%,
       30% 100%,
       -25% 84%,
       0 0
     );
-    clip-path: polygon(50% 0%, 100% 0, 150% 84%, 30% 100%, -25% 84%, 0 0);
+    clip-path: polygon(50% 0, 100% 0, 150% 84%, 30% 100%, -25% 84%, 0 0);
   }
-
   .animation-paused {
     animation-play-state: paused;
   }
-
   .animation-running {
     animation-play-state: running;
   }
