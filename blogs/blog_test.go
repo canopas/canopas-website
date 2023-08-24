@@ -51,17 +51,11 @@ func Test_ReadFile_Wrong_Filepath(t *testing.T) {
 }
 
 func Test_GetBlogs_Integration(t *testing.T) {
-	w := httptest.NewRecorder()
-	req, err := http.NewRequest("GET", "/api/blogs", nil)
-
-	assert.NoError(t, err)
-
 	engine := gin.New()
-	setUpRouter(engine)
+	engine.GET("/api/blogs", Get)
+	req, err := http.NewRequest("GET", "/api/blogs", nil)
+	assert.NoError(t, err)
+	w := httptest.NewRecorder()
 	engine.ServeHTTP(w, req)
 	assert.Equal(t, http.StatusOK, w.Code)
-}
-
-func setUpRouter(engine *gin.Engine) {
-	engine.GET("/api/blogs", Get)
 }

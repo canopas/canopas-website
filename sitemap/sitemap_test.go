@@ -1,20 +1,18 @@
 package sitemap
 
 import (
-	"bytes"
 	"embed"
-	"encoding/json"
 	"encoding/xml"
+	"github.com/aws/aws-sdk-go/service/ses"
+	"github.com/gin-gonic/gin"
+	"github.com/jmoiron/sqlx"
+	"github.com/stretchr/testify/assert"
 	"jobs"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 	"time"
 	"utils"
-
-	"github.com/gin-gonic/gin"
-	"github.com/jmoiron/sqlx"
-	"github.com/stretchr/testify/assert"
 )
 
 //go:embed templates/career-email-template.html
@@ -24,85 +22,47 @@ var repo *SitemapRepository
 var careerRepo *jobs.CareerRepository
 var err error
 var testDB *sqlx.DB
-var testRequests []utils.TestRequest
 
-const (
-	GET_SITEMAP_API_URL = "/sitemap?baseUrl=http://localhost:8080"
-)
-
-func Test_init(t *testing.T) {
-	repo, err = initializeRepo()
-	assert.Nil(t, err)
-	testRequests = []utils.TestRequest{
-		{
-			Url:               GET_SITEMAP_API_URL,
-			Method:            "GET",
-			Headers:           nil,
-			Body:              nil,
-			ResponseCode:      http.StatusOK,
-			ResponseTypeArray: false,
-			ExpectedData:      expectedSitemapData(),
-		},
-	}
-}
-
-func TestAllAPIs(t *testing.T) {
-
-	asserts := assert.New(t)
-	engine := gin.New()
-
-	setUpRouter(engine)
-
-	for _, testData := range testRequests {
-
-		w := httptest.NewRecorder()
-		var req *http.Request
-
-		if testData.Body != nil {
-			requestByte, _ := json.Marshal(testData.Body)
-			reqBodyData := bytes.NewReader(requestByte)
-			req, err = http.NewRequest(testData.Method, testData.Url, reqBodyData)
-		} else {
-			req, err = http.NewRequest(testData.Method, testData.Url, nil)
-		}
-
-		asserts.NoError(err)
-
-		engine.ServeHTTP(w, req)
-		assert.Equal(t, testData.ResponseCode, w.Code)
-
-		var urlset URLset
-
-		err = xml.Unmarshal(w.Body.Bytes(), &urlset)
-
-		assert.Equal(t, testData.ExpectedData, urlset)
-
-	}
-}
-
-func initializeRepo() (*SitemapRepository, error) {
-
+func TestInit(t *testing.T) {
 	testDB, err = utils.TestDB()
 	if err != nil {
-		return nil, err
+		t.Errorf("Error in initializing test DB: %v", err)
 	}
 
-	err = utils.CreateTables(testDB)
-	if err != nil {
-		return nil, err
-	}
-
-	utils.TruncateTables(testDB)
-	utils.PrepareTablesData(testDB)
-
-	careerRepo = jobs.New(testDB, templateFS, nil)
+	careerRepo = jobs.New(testDB, templateFS, &stubUtilsRepo{})
 	repo = New(careerRepo)
-
-	return repo, err
 }
 
-func setUpRouter(engine *gin.Engine) {
-	engine.GET("/sitemap", repo.GenerateSitemap)
+func TestSitemap(t *testing.T) {
+	engine := gin.New()
+	engine.GET("/api/sitemap", repo.GenerateSitemap)
+	req, err := http.NewRequest("GET", "/api/sitemap?baseUrl=http://localhost:8080", nil)
+	assert.NoError(t, err)
+	w := httptest.NewRecorder()
+	engine.ServeHTTP(w, req)
+
+	assert.EqualValues(t, http.StatusOK, w.Code)
+	var response URLset
+	err = xml.Unmarshal(w.Body.Bytes(), &response)
+	if err != nil {
+		t.Fatalf("Error decoding response XML: %v", err)
+	}
+	assert.Equal(t, expectedSitemapData(), response)
+}
+
+// stubUtilsRepo is a mock Utils Service Interface
+type stubUtilsRepo struct{}
+
+func (faker *stubUtilsRepo) SendEmail(emailInput *ses.SendEmailInput, jobsInput *ses.SendRawEmailInput) int {
+	return 0
+}
+
+func (faker *stubUtilsRepo) VerifyRecaptcha(token string) (bool, error) {
+	return true, nil
+}
+
+func (faker *stubUtilsRepo) SaveJobsToSpreadSheet(input []string) {
+	/** this is stub method for adding jobs details in google spreadsheet */
 }
 
 func expectedSitemapData() URLset {

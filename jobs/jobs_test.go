@@ -1,7 +1,6 @@
 package jobs
 
 import (
-	"bytes"
 	"embed"
 	"io"
 	"net/http"
@@ -17,18 +16,75 @@ import (
 
 //go:embed templates/career-email-template.html
 var templateFS embed.FS
-
-var contentType string
 var repo *CareerRepository
 var err error
 var testDB *sqlx.DB
-var testRequests []utils.TestRequest
 
-const (
-	GET_ALL_JOBS_API_URL   = "/api/careers"
-	GET_JOBS_BY_ID_API_URL = "/api/careers/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d"
-	SAVE_APPLICATIONS_DATA = "/api/send-jobs-applications"
-)
+func TestInit(t *testing.T) {
+	testDB, err = utils.TestDB()
+	if err != nil {
+		t.Errorf("Error in initializing test DB: %v", err)
+	}
+
+	repo = New(testDB, templateFS, &stubUtilsRepo{})
+}
+
+func TestGetAllJobs(t *testing.T) {
+	err = utils.CreateTables(testDB)
+	if err != nil {
+		t.Errorf("Error in initializing test DB: %v", err)
+	}
+	utils.TruncateTables(testDB)
+	utils.PrepareTablesData(testDB)
+	engine := gin.New()
+	engine.GET("/api/careers", repo.Careers)
+	req, err := http.NewRequest("GET", "/api/careers", nil)
+	if err != nil {
+		t.Errorf("Error in creating request: %v", err)
+	}
+	w := httptest.NewRecorder()
+	engine.ServeHTTP(w, req)
+
+	assert.EqualValues(t, http.StatusOK, w.Code)
+	got := utils.GotArrayData(w, t)
+	expected := []interface{}{expectedJobsData()}
+	assert.Equal(t, expected, got)
+}
+
+func TestGetJobById(t *testing.T) {
+	engine := gin.New()
+	engine.GET("/api/careers/:unique_id", repo.CareerById)
+	req, err := http.NewRequest("GET", "/api/careers/ios-developer-a9b45f34-a1a5-419f-b536-b7c290925d6d", nil)
+	if err != nil {
+		t.Errorf("Error in creating request: %v", err)
+	}
+	w := httptest.NewRecorder()
+	engine.ServeHTTP(w, req)
+
+	assert.EqualValues(t, http.StatusOK, w.Code)
+	got := utils.GotData(w, t)
+	assert.Equal(t, expectedJobsData(), got)
+}
+
+func TestSaveApplicationsData(t *testing.T) {
+	engine := gin.New()
+	engine.POST("/api/send-jobs-applications", repo.SaveApplicationsData)
+	contentType, fileBody := utils.PrepareTextFileFormData()
+	req, err := http.NewRequest("POST", "/api/send-jobs-applications", io.NopCloser(fileBody))
+	if err != nil {
+		t.Errorf("Error in creating request: %v", err)
+	}
+	req.Header.Set("Content-Type", contentType)
+	w := httptest.NewRecorder()
+	engine.ServeHTTP(w, req)
+
+	assert.EqualValues(t, http.StatusOK, w.Code)
+	got := utils.GotData(w, t)
+
+	expected := "Job application received successfully"
+
+	assert.Equal(t, expected, got)
+}
 
 // stubUtilsRepo is a mock Utils Service Interface
 type stubUtilsRepo struct{}
@@ -43,106 +99,6 @@ func (faker *stubUtilsRepo) VerifyRecaptcha(token string) (bool, error) {
 
 func (faker *stubUtilsRepo) SaveJobsToSpreadSheet(input []string) {
 	/** this is stub method for adding jobs details in google spreadsheet */
-}
-
-func Test_init(t *testing.T) {
-	repo, err = initializeRepo()
-	assert.Nil(t, err)
-	testRequests = []utils.TestRequest{
-		{
-			Url:               GET_ALL_JOBS_API_URL,
-			Method:            "GET",
-			Headers:           nil,
-			Body:              nil,
-			ResponseCode:      http.StatusOK,
-			ResponseTypeArray: true,
-			ExpectedData:      []interface{}{expectedJobsData()},
-		},
-		{
-			Url:               GET_JOBS_BY_ID_API_URL,
-			Method:            "GET",
-			Headers:           nil,
-			Body:              nil,
-			ResponseCode:      http.StatusOK,
-			ResponseTypeArray: false,
-			ExpectedData:      expectedJobsData(),
-		},
-		{
-			Url:               SAVE_APPLICATIONS_DATA,
-			Method:            "POST",
-			Headers:           map[string]interface{}{"Content-Type": contentType},
-			Body:              prepareRequestBody(),
-			ResponseCode:      http.StatusOK,
-			ResponseTypeArray: false,
-			ExpectedData:      "Job application received successfully",
-		},
-	}
-}
-
-func TestAllAPIs(t *testing.T) {
-
-	asserts := assert.New(t)
-	engine := gin.New()
-
-	setUpRouter(engine)
-
-	for _, testData := range testRequests {
-
-		w := httptest.NewRecorder()
-		var req *http.Request
-		var got interface{}
-
-		if testData.Body != nil {
-			req, err = http.NewRequest(testData.Method, testData.Url, testData.Body.(io.Reader))
-		} else {
-			req, err = http.NewRequest(testData.Method, testData.Url, nil)
-		}
-
-		asserts.NoError(err)
-
-		// set headers if present in request
-		utils.SetRequestHeaders(req, testData.Headers, contentType)
-
-		engine.ServeHTTP(w, req)
-		assert.Equal(t, testData.ResponseCode, w.Code)
-		if testData.ResponseTypeArray {
-			got = utils.GotArrayData(w, t)
-		} else {
-			got = utils.GotData(w, t)
-		}
-
-		assert.Equal(t, testData.ExpectedData, got)
-
-	}
-}
-
-func initializeRepo() (*CareerRepository, error) {
-
-	testDB, err = utils.TestDB()
-	if err != nil {
-		return nil, err
-	}
-
-	err = utils.CreateTables(testDB)
-	if err != nil {
-		return nil, err
-	}
-
-	utils.TruncateTables(testDB)
-	utils.PrepareTablesData(testDB)
-
-	var utilsRepo stubUtilsRepo
-
-	repo = New(testDB, templateFS, &utilsRepo)
-
-	return repo, err
-}
-
-// configure api you want to test
-func setUpRouter(engine *gin.Engine) {
-	engine.GET(GET_ALL_JOBS_API_URL, repo.Careers)
-	engine.GET("/api/careers/:unique_id", repo.CareerById)
-	engine.POST(SAVE_APPLICATIONS_DATA, repo.SaveApplicationsData)
 }
 
 func expectedJobsData() map[string]interface{} {
@@ -168,13 +124,4 @@ func expectedJobsData() map[string]interface{} {
 	jobs["apply_seo_description"] = "Apply for iOS developer job at Canopas and be part of a dynamic and versatile iOS app development team."
 	jobs["index"] = 0.0
 	return jobs
-}
-
-func prepareRequestBody() *bytes.Buffer {
-
-	content_type, body := utils.PrepareTextFileFormData()
-
-	contentType = content_type
-
-	return body
 }
