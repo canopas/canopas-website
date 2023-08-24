@@ -87,7 +87,7 @@
                   alt="client-image"
                 />
               </div>
-              <router-link v-if="client.plusIcon" to="/contact">
+              <a v-if="client.plusIcon" href="/contact" aria-label="contact">
                 <div
                   class="tw-w-10 md:tw-w-[50px] tw-h-10 md:tw-h-[50px] tw-border-[3px] tw-border-white tw-rounded-full tw-bg-[#ffc4c0]"
                   :class="client.className"
@@ -97,7 +97,7 @@
                     icon="plus"
                   />
                 </div>
-              </router-link>
+              </a>
             </div>
             <div class="tw-pl-2.5 md:tw-pl-1.5">
               <div class="tw-flex tw-justify-between tw-mt-[3px]">
