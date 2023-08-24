@@ -224,10 +224,10 @@ performance testing to ensure your app runs smoothly under varying loads.",
     FontAwesomeIcon,
   },
   mounted() {
-    window.addEventListener("scroll", this.handleScroll);
+    window.addEventListener("scroll", this.handleScroll, { passive: false });
   },
   unmounted() {
-    window.removeEventListener("scroll", this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll, { passive: false });
   },
   inject: ["mixpanel"],
   methods: {
