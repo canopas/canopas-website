@@ -81,12 +81,12 @@
             :src="blog.image[0]"
             :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
             alt="devops"
-            class="tw-h-full tw-w-full tw-rounded-5 tw-object-cover"
+            class="tw-h-full tw-w-full tw-rounded-[20px] tw-object-cover"
             loading="lazy"
           />
           <div @click="openBlog(blog.link, 'tap_contribution_Devops_section')">
             <div
-              class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-full tw-rounded-b-5 tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
+              class="gradient-class tw-opacity-1 tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-h-[21%] tw-w-full tw-rounded-b-[20px] tw-transition-all tw-duration-1000 group-hover:tw-h-full lg:group-hover:tw-h-[85%]"
             ></div>
             <div
               class="tw-opacity-1 tw-absolute -tw-bottom-16 tw-translate-y-[50%] tw-p-4 tw-font-inter-medium tw-text-white tw-transition-all tw-duration-1000 group-hover:-tw-bottom-4 group-hover:tw-translate-y-[0%] group-hover:tw-transition-all group-hover:tw-duration-1000 xl:group-hover:tw-bottom-0 2xl:group-hover:tw-bottom-8"
