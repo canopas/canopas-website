@@ -7,6 +7,7 @@
       :srcset="`${background400} 400w, ${background800} 800w, ${background1200} 1200w, ${background2100} 2100w`"
       class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw--z-[1] tw-object-contain"
       alt="canopas-landing"
+      loading="eager"
     />
 
     <div
