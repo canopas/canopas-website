@@ -1,37 +1,27 @@
 import { useElementVisibility } from "@vueuse/core";
 import mixpanel from "mixpanel-browser";
-export function elementInViewPort(refs) {
+function elementInViewPort(refs) {
   var element;
-  Object.keys(refs).forEach((key) => {
-    if (refs[key] && refs[key].length > 0) {
-      refs[key].forEach((ref, index) => {
-        if (useElementVisibility(refs[key][index]).value) {
-          element = key;
-          return;
-        }
-      });
-    } else {
-      if (useElementVisibility(refs[key]).value) {
-        element = key;
-        return;
-      }
-    }
-  });
-  return element;
+  return (
+    Object.keys(refs).forEach((key) => {
+      refs[key] && 0 < refs[key].length
+        ? refs[key].forEach((ref, index) => {
+            useElementVisibility(refs[key][index]).value && (element = key);
+          })
+        : useElementVisibility(refs[key]).value && (element = key);
+    }),
+    element
+  );
 }
-
-export function handleAnimationOnScroll(data) {
-  if (data) {
-    let { top, bottom } = data.name.getBoundingClientRect();
-    let height = document.documentElement.clientHeight;
-
-    if (top < height && bottom > 0) {
-      data.name.classList.add(data.animation);
-    }
-  }
+function handleAnimationOnScroll(data) {
+  var n, t;
+  data &&
+    (({ top: n, bottom: t } = data.name.getBoundingClientRect()),
+    n < document.documentElement.clientHeight) &&
+    0 < t &&
+    data.name.classList.add(data.animation);
 }
-
-export function setGithubStars(contributions, githubRepos) {
+function setGithubStars(contributions, githubRepos) {
   return contributions.forEach((contribution) => {
     contribution.stars = githubRepos
       .filter(
@@ -42,8 +32,7 @@ export function setGithubStars(contributions, githubRepos) {
       .map((repo) => repo.stargazers_count.toString())[0];
   });
 }
-
-export function openBlog(link, event) {
-  window.open(link, "_blank");
-  mixpanel.track(event);
+function openBlog(link, event) {
+  window.open(link, "_blank"), mixpanel.track(event);
 }
+export { elementInViewPort, handleAnimationOnScroll, setGithubStars, openBlog };

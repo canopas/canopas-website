@@ -50,6 +50,7 @@
           :srcset="`${ctaImage400w} 400w, ${ctaImage800w} 800w`"
           class="tw-mt-8 tw-h-full tw-w-full md:tw-mt-0"
           alt="cta-image"
+          loading="lazy"
         />
         <div
           class="gradient-border tw-absolute tw-bottom-4 tw-left-[0.5rem] tw-h-[55px] tw-border-l-[13px] md:tw-hidden"
