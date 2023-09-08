@@ -1,13 +1,10 @@
 <template>
-  <div
-    class="tw-mt-16 tw-bg-white tw-h-[70%]"
-    :class="
-      isSticky ? 'xl:!tw-sticky xl:!tw-top-0 xl:!tw-z-[9] xl:tw-h-screen' : ''
-    "
-  >
-    <div class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center">
+  <div class="tw-mt-16 tw-bg-white tw-h-[70%]">
+    <div
+      class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center xll:tw--mb-[18rem]"
+    >
       <span
-        class="tw-mb-2.5 tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-[100%] md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
+        class="tw-mb-2.5 tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
       >
         Android App Development Services</span
       >
@@ -18,7 +15,78 @@
         growth and customer engagement.</span
       >
     </div>
-    <div class="swiper-content tw-mt-8">
+    <!-- Desktop UI -->
+    <div class="sticky-parent tw-hidden md:tw-block">
+      <div class="sticky tw-sticky tw-top-0 tw-max-h-screen tw-overflow-hidden">
+        <div class="tw-flex">
+          <div
+            v-for="(item, index) in items"
+            :key="index"
+            class="tw-cursor-pointer tw-mt-32 xll:tw-mt-[36rem] tw-min-w-[100vw] md:tw-h-[70vh] xl:tw-h-screen"
+          >
+            <div class="tw-relative !-tw-mr-2 tw-mb-8 tw-mt-12">
+              <div
+                class="tw-border-b-2 tw-border-dotted tw-border-[#000000]/[0.87] tw-text-center"
+              ></div>
+            </div>
+            <div
+              class="tw-absolute tw-top-[15.5%] xl:tw-top-[13.4%] xll:tw-top-[32.4%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center md:tw-block 2xll:tw-ml-[47%] xll:tw-ml-[48%]"
+            >
+              <span
+                class="tw-text-center tw-font-inter-bold tw-text-[3.75rem] tw-leading-[5.625rem] !tw-bg-white"
+              >
+                0{{ index + 1 }}</span
+              >
+            </div>
+            <div
+              class="tw-ml-auto xll:tw-ml-[12%] xll:tw-ml-auto tw-rounded-[1.25rem] tw-px-2 tw-py-8 !tw-w-[45.75rem] tw-mx-auto"
+              :class="[item.bgColor]"
+            >
+              <div
+                class="tw-justify-left tw-mb-5 tw-flex tw-flex-row tw-items-center tw-space-x-4"
+              >
+                <img
+                  alt="development-icon"
+                  :src="item.icon"
+                  class="tw-h-10 tw-w-10 tw-object-contain md:tw-hidden"
+                  loading="lazy"
+                />
+                <span
+                  class="tw-font-inter-bold tw-text-[1.375rem] tw-leading-[1.7875rem] tw-text-black-core/[0.87] md:tw-text-[2rem] md:tw-leading-[3rem]"
+                  >{{ item.title }}</span
+                >
+              </div>
+              <div
+                class="tw-font-inter-regular tw-text-base tw-text-black-core/[0.87] md:tw-p-4 md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
+              >
+                <ul class="tw-pl-8 tw-pr-4 md:tw-hidden">
+                  <li
+                    v-for="list in item.description"
+                    :key="list"
+                    class="tw-mb-3.5 tw-list-disc"
+                  >
+                    {{ list }}
+                  </li>
+                </ul>
+                <p
+                  v-for="list in item.description"
+                  :key="list"
+                  class="tw-mb-4 tw-hidden md:tw-block"
+                >
+                  {{ list }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Desktop UI End -->
+    <div
+      class="tw-h-[25vh] xl:tw-h-[50vh] 2xl:tw-h-[60vh] xll:tw-h-screen tw-w-screen"
+    ></div>
+
+    <div class="swiper-content tw-mt-8 md:tw-hidden">
       <swiper
         :slidesPerView="1.1"
         :centeredSlides="true"
@@ -132,7 +200,6 @@
 </template>
 
 <script type="module">
-import { Mousewheel } from "swiper/modules";
 import consultation from "@/assets/images/andriod-app-development/development/1.webp";
 import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
@@ -143,11 +210,6 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 export default {
   data() {
     return {
-      modules: [Mousewheel],
-      isSticky: false,
-      activeIndex: 0,
-      swiperRef: 0,
-      swiper: null,
       items: [
         {
           title: "Android App Development Consultation",
@@ -212,36 +274,28 @@ export default {
       ],
     };
   },
-  methods: {
-    setSwiperRef(swiper) {
-      this.swiperRef = swiper;
-      this.activeIndex = this.swiperRef.realIndex;
-    },
-    handleSticky() {
-      const activeIndex = this.swiperRef.realIndex;
-
-      if (activeIndex == 0) {
-        this.isSticky = true;
-      } else if (activeIndex == 4) {
-        this.isSticky = false;
-      }
-      if (activeIndex === 4) {
-        this.handleReachEnd();
-      }
-    },
-    handleReachEnd() {
-      this.isSticky = false;
-    },
-  },
   mounted() {
-    this.$nextTick(() => {
-      window.addEventListener("scroll", this.handleSticky);
-    });
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.handleSticky);
-  },
+    document.addEventListener("scroll", horizontalScroll);
 
+    let sticky = document.querySelector(".sticky");
+    let stickyParent = document.querySelector(".sticky-parent");
+
+    let scrollWidth = sticky.scrollWidth;
+    let verticalScrollHeight =
+      stickyParent.getBoundingClientRect().height -
+      sticky.getBoundingClientRect().height;
+
+    function horizontalScroll() {
+      let stickyPosition = sticky.getBoundingClientRect().top;
+      if (stickyPosition > 1) {
+        return;
+      } else {
+        let scrolled = stickyParent.getBoundingClientRect().top;
+        sticky.scrollLeft =
+          (scrollWidth / verticalScrollHeight) * -scrolled * 0.85;
+      }
+    }
+  },
   components: {
     Swiper,
     SwiperSlide,
@@ -249,6 +303,9 @@ export default {
 };
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 @import "swiper/css";
+.sticky-parent {
+  @apply tw-h-[700vh] xll:!tw-h-[400vh];
+}
 </style>

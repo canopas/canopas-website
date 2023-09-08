@@ -19,7 +19,7 @@
         </p>
 
         <router-link
-          class="tw-relative tw-z-10 tw-ml-0 xl:tw-w-[290px] tw-hidden md:tw-block tw-my-8 lg:tw-mt-8 lg:tw-mb-4 xl:tw-my-8 gradient-btn consultation-btn tw-h-[3.3rem] tw-w-max tw-items-left tw-rounded-full"
+          class="tw-relative tw-z-9 tw-ml-0 xl:tw-w-[290px] tw-hidden md:tw-block tw-my-8 lg:tw-mt-8 lg:tw-mb-4 xl:tw-my-8 gradient-btn consultation-btn tw-h-[3.3rem] tw-w-max tw-items-left tw-rounded-full"
           to="/contact"
           @click.native="mixpanel.track('tap_ios_development_cta')"
         >
