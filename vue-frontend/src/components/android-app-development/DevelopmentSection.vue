@@ -1,7 +1,7 @@
 <template>
   <div class="tw-mt-16 tw-bg-white tw-h-[70%]">
     <div
-      class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center xll:tw-mt-[15rem]"
+      class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center xll:tw--mb-[18rem]"
     >
       <span
         class="tw-mb-2.5 tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
@@ -24,13 +24,13 @@
             :key="index"
             class="tw-cursor-pointer tw-mt-32 xll:tw-mt-[36rem] tw-min-w-[100vw] md:tw-h-[70vh] xl:tw-h-screen"
           >
-            <div class="tw-relative !-tw-mr-[14.5rem] tw-mb-8 tw-mt-12">
+            <div class="tw-relative !-tw-mr-2 tw-mb-8 tw-mt-12">
               <div
                 class="tw-border-b-2 tw-border-dotted tw-border-[#000000]/[0.87] tw-text-center"
               ></div>
             </div>
             <div
-              class="tw-absolute tw-top-[15.5%] xl:tw-top-[13.4%] xll:tw-top-[32.4%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center md:tw-block"
+              class="tw-absolute tw-top-[15.5%] xl:tw-top-[13.4%] xll:tw-top-[32.4%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center md:tw-block 2xll:tw-ml-[47%] xll:tw-ml-[48%]"
             >
               <span
                 class="tw-text-center tw-font-inter-bold tw-text-[3.75rem] tw-leading-[5.625rem] !tw-bg-white"
@@ -83,7 +83,7 @@
     </div>
     <!-- Desktop UI End -->
     <div
-      class="tw-hidden lg:tw-block tw-h-[25vh] xl:tw-h-[50vh] 2xl:tw-h-[60vh] xll:tw-h-screen tw-w-screen"
+      class="tw-h-[25vh] xl:tw-h-[50vh] 2xl:tw-h-[60vh] xll:tw-h-screen tw-w-screen"
     ></div>
 
     <div class="swiper-content tw-mt-8 md:tw-hidden">
