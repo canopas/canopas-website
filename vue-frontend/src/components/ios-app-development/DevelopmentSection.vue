@@ -7,7 +7,7 @@
         iOS App Development Services</span
       >
       <span
-        class="tw-font-inter-regular tw-text-base md:tw-text-xl tw-leading-6 md:tw-leading-[1.875rem] tw-text-black-core/[0.87] md:tw-opacity-[0.60] md:tw-font-inter-medium lg:tw-text-2xl lg:tw-leading-9 tw-w-11/12 2xl:tw-w-9/12 tw-mx-auto"
+        class="tw-font-inter-regular tw-text-base md:tw-text-xl tw-leading-6 md:tw-leading-[1.875rem] tw-text-black-core/[0.87] md:tw-font-inter-medium lg:tw-text-2xl lg:tw-leading-9 tw-w-11/12 2xl:tw-w-9/12 tw-mx-auto"
         >With a blend of robust technology, intuitive designs, and innovative
         strategies, our team can help you craft high-quality, standout
         user-friendly apps that drive business growth and customer
@@ -79,7 +79,7 @@
     >
       <div class="tw--ml-4">
         <div
-          v-for="(item, index) in items"
+          v-for="(item, index) in item"
           :key="index"
           :class="[
             activeIndex == index ? 'tw-border-r-[#ff835b] tw-bg-[#FFF]' : '',
@@ -109,9 +109,9 @@
           :slidesPerView="1"
           :spaceBetween="20"
           :direction="'vertical'"
-          :speed="3000"
+          :speed="1500"
           :autoplay="{
-            delay: 4000,
+            delay: 3000,
             disableOnInteraction: false,
           }"
           :modules="modules"
@@ -120,7 +120,7 @@
           @slideChange="onSlideChange"
         >
           <swiper-slide
-            v-for="(item, index) in items"
+            v-for="(item, index) in item"
             :key="index"
             class="lg:tw-px-8 lg:tw-pt-2 2xl:tw-px-11"
           >
@@ -237,6 +237,11 @@ export default {
       ],
     };
   },
+  computed: {
+    item() {
+      return Array(1).fill(this.items).flat();
+    },
+  },
   methods: {
     onSlideChange() {
       this.activeIndex = this.swiperRef.realIndex;
@@ -247,7 +252,7 @@ export default {
     },
     slideTo(index) {
       this.activeIndex = index;
-      this.swiperRef.slideTo(index);
+      this.swiperRef.slideToLoop(index);
     },
   },
   components: {
