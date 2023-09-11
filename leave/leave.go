@@ -21,6 +21,7 @@ const (
 type LeaveData struct {
 	Name        string `json:"name" form:"name"`
 	Date        string `json:"date" form:"date"`
+	Duration    string `json:"duration" form:"duration"`
 	Status      int    `json:"status" form:"status"`
 	Reason      string `json:"reason" form:"reason"`
 	Receiver    string `json:"receiver" form:"receiver"`
