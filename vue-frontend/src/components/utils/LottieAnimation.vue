@@ -42,11 +42,25 @@ export default {
       progressiveLoad: true,
     },
     anim: null,
+    animationInViewport: false,
   }),
   mounted() {
-    this.init();
+    // Initialize the Intersection Observer
+    const observer = new IntersectionObserver(this.handleIntersection, {
+      threshold: 0.5, // Adjust as needed based on when you want to trigger loading
+    });
+
+    // Observe the animation container
+    observer.observe(this.$refs.lavContainer);
   },
   methods: {
+    handleIntersection(entries) {
+      const entry = entries[0];
+      if (entry.isIntersecting && !this.animationInViewport) {
+        this.animationInViewport = true;
+        this.init();
+      }
+    },
     async init() {
       if (this.anim) {
         this.anim.destroy(); // Releases resources. The DOM element will be emptied.

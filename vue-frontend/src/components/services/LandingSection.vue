@@ -9,6 +9,7 @@
         :srcset="`${bgImages[0]} 400w, ${bgImages[1]} 800w, ${bgImages[2]} 1200w, ${bgImages[2]} 1600w`"
         class="lg:tw-hidden tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw--z-[1] tw-object-cover"
         alt="background-image"
+        loading="eager"
       />
     </div>
     <div
@@ -23,7 +24,6 @@
           :src="landingImages[0]"
           :srcset="`${landingImages[0]} 400w, ${landingImages[1]} 800w, ${landingImages[2]} 1200w, ${landingImages[2]} 1400w`"
           alt="landing-view-image"
-          loading="lazy"
         />
       </aspect-ratio>
       <div

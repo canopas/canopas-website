@@ -59,6 +59,7 @@
         <img
           :src="image1"
           alt="workspace-image-1"
+          loading="lazy"
           class="tw-absolute tw-bottom-[8.5rem] xl:tw-bottom-[9.5rem] 2xl:tw-bottom-[12.5rem] xll:tw-bottom-[12.5rem] tw-left-[1.5rem] xll:tw-left-[-2.5rem] tw-w-[60%] xll:tw-w-[80%] tw-z-[3]"
         />
         <img

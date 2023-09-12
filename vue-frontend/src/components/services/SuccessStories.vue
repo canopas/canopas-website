@@ -74,6 +74,7 @@
             :srcset="`${story.image[0]} 400w, ${story.image[1]} 800w`"
             class="tw-mb-2 tw-w-full tw-h-[600px] lg:tw-h-full tw-object-cover"
             alt="story-image"
+            loading="lazy"
           />
         </swiper-slide>
         <div class="swiper-pagination"></div>
