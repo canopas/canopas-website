@@ -309,10 +309,11 @@
     - Headers : none
     - Body :
         {
-            "name": "mansi dhameliya",
-            "date": "3 jan 2023",  // OR if you want to add multiple dates, you can add like this : "3 jan 2023 to 5 jan 2023"
-            "status": 1,  // you can use 1 for request
-            "reason": "Casual Leave",
+            "name":     "mansi dhameliya",
+            "date":     "3 jan 2023",  // OR if you want to add multiple dates, you can add like this : "3 jan 2023 to 5 jan 2023"
+            "duration": "first-half" // You can add first-half or second-half or 3 days as you want
+            "status":   1,  // you can use 1 for request
+            "reason":   "Casual Leave",
             "receiver": "hr@canopas.com",
         }
 - Response :
