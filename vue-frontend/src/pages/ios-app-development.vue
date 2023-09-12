@@ -8,6 +8,7 @@
     <Header />
     <LandingSection ref="landing" />
     <DevelopmentSection ref="development" />
+    <FaqSection ref="faq" />
     <CtaSection ref="cta1" />
     <CtaSection2 ref="cta2" />
     <NewFooter ref="footer" />
@@ -22,6 +23,9 @@ import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/ios-app-development/LandingSection.vue";
 import DevelopmentSection from "@/components/ios-app-development/DevelopmentSection.vue";
+const FaqSection = defineAsyncComponent(() =>
+  import("@/components/ios-app-development/FaqSection.vue"),
+);
 const CtaSection = defineAsyncComponent(() =>
   import("@/components/ios-app-development/CtaSection.vue"),
 );
@@ -39,6 +43,7 @@ export default {
       events: {
         landing: "view_ios_development_landing_section",
         development: "view_ios_app_development_section",
+        faq: "view_ios_development_faq_section",
         cta1: "view_cta_1_ios_app_development_section",
         cta2: "view_cta_2_ios_app_development_section",
       },
@@ -68,6 +73,7 @@ export default {
     Header,
     LandingSection,
     DevelopmentSection,
+    FaqSection,
     CtaSection,
     CtaSection2,
     NewFooter,
