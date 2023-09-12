@@ -12,6 +12,10 @@ import {
   faStar,
   faThumbsUp,
   faTimes,
+  faAngleUp,
+  faAngleDown,
+  faAngleRight,
+  faAngleLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { faMediumM, faGithub } from "@fortawesome/free-brands-svg-icons";
 import Config from "@/config.js";
@@ -22,6 +26,10 @@ library.add(
   faStar,
   faArrowLeft,
   faThumbsUp,
+  faAngleUp,
+  faAngleDown,
+  faAngleRight,
+  faAngleLeft,
   faMediumM,
   faGithub,
 );
