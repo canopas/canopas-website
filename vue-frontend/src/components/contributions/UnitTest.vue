@@ -35,6 +35,7 @@
               :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
               class="cover-image tw-h-fit tw-w-fit tw-rounded-t-lg tw-border-b-[0.5px] tw-border-black-core/[0.87] tw-object-contain tw-drop-shadow-md"
               alt="UnitTestImage"
+              loading="lazy"
             />
             <div
               class="content tw-mb-8 tw-rounded-b-lg tw-bg-white tw-p-5 tw-drop-shadow-md"
@@ -86,6 +87,7 @@
                 :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
                 class="image-content swiper-zoom-container tw-h-[80%] tw-w-fit tw-object-cover tw-drop-shadow-md lg:tw-h-fit"
                 alt="UnitTestImage"
+                loading="lazy"
               />
             </div>
           </swiper-slide>

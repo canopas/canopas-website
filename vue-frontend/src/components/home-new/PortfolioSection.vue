@@ -53,7 +53,7 @@
                 : '',
             ]"
             :alt="portfolio.title + `-image`"
-            loading="lazy"
+            loading="eager"
           />
         </div>
         <div

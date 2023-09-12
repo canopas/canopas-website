@@ -52,6 +52,7 @@
             :srcset="`${contribution.image[0]} 400w, ${contribution.image[1]} 800w`"
             class="tw-relative tw-h-full tw-w-full tw-object-cover"
             alt="contribution-image"
+            loading="lazy"
           />
           <div
             class="tw-z-[1] tw-mx-auto tw-mb-10 tw-mt-[-23px] tw-flex tw-max-w-[95%] tw-flex-col tw-rounded-[10px] tw-bg-white tw-py-4 tw-drop-shadow-2xl sm:tw-max-w-[85%] md:tw-max-w-[70%]"
@@ -62,12 +63,10 @@
               <div
                 class="tw-flex tw-h-[1.875rem] tw-w-[4.75rem] tw-items-center tw-justify-center tw-rounded-full tw-from-[#ff835b] tw-to-[#f2709c] tw-px-2.5 tw-font-inter-semibold tw-text-[1rem] tw-text-white tw-bg-gradient-[270.11deg]"
               >
-                <span>
-                  <font-awesome-icon
-                    class="fa tw-h-[18px] tw-w-[18px] tw-pr-[5px] tw-text-white"
-                    :icon="star"
-                  />{{ contribution.stars }}</span
-                >
+                <font-awesome-icon
+                  class="fa tw-h-[18px] tw-w-[18px] tw-pr-[5px] tw-text-white"
+                  :icon="star"
+                />{{ contribution.stars }}
               </div>
               <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
                 <span
@@ -80,14 +79,10 @@
                 >
               </div>
               <div class="tw-flex tw-flex-row tw-items-center tw-gap-2">
-                <span>
-                  <font-awesome-icon
-                    class="fa tw-h-4 tw-w-4"
-                    :icon="fork" /></span
-                ><span
-                  class="tw-font-inter-medium tw-text-[1rem] tw-leading-4 tw-text-black-core/[0.87]"
-                  >{{ contribution.forks }}</span
-                >
+                <font-awesome-icon
+                  class="fa tw-h-4 tw-w-4 tw-font-inter-medium tw-text-[1rem] tw-leading-4 tw-text-black-core/[0.87]"
+                  :icon="fork"
+                />{{ contribution.forks }}
               </div>
             </div>
             <p

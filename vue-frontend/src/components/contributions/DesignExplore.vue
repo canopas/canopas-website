@@ -82,6 +82,7 @@
                 :srcset="`${item.images[0]} 400w,${item.images[1]} 800w`"
                 class="tw-h-full tw-w-full tw-rounded-lg tw-object-cover tw-drop-shadow-md lg:tw-h-fit lg:tw-w-fit"
                 alt="DesignImage"
+                loading="lazy"
               />
             </div>
           </swiper-slide>
@@ -115,6 +116,7 @@
                 :srcset="`${item.images[0]} 400w,${item.images[1]} 800w`"
                 class="tw-h-full tw-w-full tw-rounded-lg tw-object-cover tw-drop-shadow-md lg:tw-h-fit lg:tw-w-fit"
                 alt="DesignImage"
+                loading="lazy"
               />
             </div>
           </swiper-slide>

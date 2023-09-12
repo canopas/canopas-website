@@ -334,9 +334,6 @@ export default {
               axios
                 .post(config.API_BASE + "/api/send-contact-mail", formData)
                 .then(() => {
-                  gtag("event", "conversion", {
-                    send_to: "AW-11157168108/OpYlCPjY4poYEOy_k8gp",
-                  });
                   this.$router.push({
                     path: "/thank-you",
                   });

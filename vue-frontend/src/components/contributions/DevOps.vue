@@ -20,6 +20,7 @@
               :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
               class="tw-relative tw-h-full tw-w-full tw-rounded-[10px] tw-object-cover"
               alt="devops"
+              loading="lazy"
             />
             <div
               class="tw-absolute tw-right-0 tw-top-0 tw-rounded-bl-[5px] tw-bg-white tw-px-3 tw-py-1 tw-font-inter-medium tw-text-[0.875rem] tw-leading-[1.313rem]"
