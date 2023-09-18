@@ -3,41 +3,58 @@ package main
 import (
 	"blogs"
 	"contact"
+	"context"
 	"contribution"
 	"db"
 	"embed"
 	"jobs"
 	"leave"
+	"net/http"
 	"notification"
+	"os"
 	"sitemap"
 	"utils"
 
+	"github.com/aws/aws-lambda-go/events"
+	"github.com/aws/aws-lambda-go/lambda"
+
+	ginadapter "github.com/awslabs/aws-lambda-go-api-proxy/gin"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-contrib/gzip"
 	"github.com/gin-gonic/gin"
-	"github.com/jmoiron/sqlx"
+	log "github.com/sirupsen/logrus"
 )
 
 //go:embed templates/*.html
 var templateFS embed.FS
 
-func main() {
-	sqlDb := db.NewSql()
-	defer sqlDb.Close()
+var router *gin.Engine
+var ginLambda *ginadapter.GinLambda
 
-	r := setupRouter(sqlDb)
-
-	_ = r.Run(":8080")
+func inLambda() bool {
+	log.Info("LAMBDA_TASK_ROOT: ", os.Getenv("LAMBDA_TASK_ROOT"))
+	if lambdaTaskRoot := os.Getenv("LAMBDA_TASK_ROOT"); lambdaTaskRoot != "" {
+		return true
+	}
+	return false
 }
 
-func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
+func LambdaHandler(ctx context.Context, req events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	log.Info("In Lambda Handler...")
+	// If no name is provided in the HTTP request body, throw an error
+	return ginLambda.ProxyWithContext(ctx, req)
+}
+
+func setupRouter() *gin.Engine {
+
+	sqlDb := db.NewSql()
+
 	router := gin.Default()
 
 	router.Use(cors.New(corsConfig()))
 	router.Use(gzip.Gzip(gzip.DefaultCompression))
 
 	utilsRepo := utils.NewEmail()
-
 	contactRepo := contact.New(templateFS, utilsRepo)
 	jobsRepo := jobs.New(sqlDb, templateFS, utilsRepo)
 	sitemapRepo := sitemap.New(jobsRepo)
@@ -72,8 +89,6 @@ func setupRouter(sqlDb *sqlx.DB) *gin.Engine {
 		})
 	})
 
-	router.Run(":8080")
-
 	return router
 }
 
@@ -81,4 +96,20 @@ func corsConfig() cors.Config {
 	defaultCors := cors.DefaultConfig()
 	defaultCors.AllowAllOrigins = true
 	return defaultCors
+}
+
+func main() {
+	log.Info("router: ", router)
+	router = setupRouter()
+	log.Info("router: ", router)
+	ginLambda = ginadapter.New(router)
+	inLambda := inLambda()
+	log.Info("inLambda: ", inLambda)
+	if inLambda {
+		log.Info("running aws lambda in aws")
+		lambda.Start(LambdaHandler)
+	} else {
+		log.Info("running aws lambda in local")
+		log.Fatal(http.ListenAndServe(":8082", router))
+	}
 }

@@ -7,7 +7,7 @@ import (
 	"utils"
 
 	"github.com/gin-gonic/gin"
-	"github.com/tj/assert"
+	"github.com/stretchr/testify/assert"
 )
 
 func Test_Unique_Int_Success(t *testing.T) {

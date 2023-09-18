@@ -1,11 +1,12 @@
-name: DeployProd
+name: DeployBackendDev
+
 on:
   push:
     branches:
       - "master"
-      
+
 jobs:
-  deploy-prod:
+  deploy-dev:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -21,47 +22,34 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-actions-frontend-access
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-actions-backend-access
           aws-region: ap-south-1
 
-      - name: Build nginx and push on ECR
-        run: |
-          cd nginx 
-          sed -i "s|WEBSITE_URL|canopas.com|g" conf.d/default.conf
-          sed -i "s|API_URL|prod-stack-api.canopas.com|g" conf.d/default.conf
-          sed -i "s|ARTICLES_URL|articles.canopas.com|g" conf.d/default.conf
-          bash ./../deploy/deploy-ecr-image.sh prod-nginx ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-nginx
-
-      - name: Build frontend and push on ECR
-        run: |
-          cd vue-frontend
-          echo VITE_RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }} >> .env
-          mv src/config.prod.js src/config.js
-          sh ./../deploy/generate-sitemap.sh https://canopas.com https://prod-stack-api.canopas.com
-          bash ./../deploy/deploy-ecr-image.sh prod-frontend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-frontend
-  
       - name: Checkout
         uses: actions/checkout@v2.3.3
 
       - uses: actions/setup-go@v2
         with:
-          go-version: "^1.17.5"
+          go-version: "^1.20"
 
-      - name: Build backend and push on ECR
+      - name: Build backend and deploy to S3
         run: |
-          bash ./deploy/deploy-ecr-image.sh prod-backend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-backend
+          apt-get update && apt-get install -y zip
+          GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o main main.go
+          zip canopas_serverless_dev.zip main
+          aws s3 cp canopas_serverless_dev.zip s3://canopas-dev-lambda-handlers
 
       - name: Deploy cloudformation stack
-        id: canopas-website-prod-ECS-EC2-stack
+        id: canopas-website-dev-lambda-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
-          name: canopas-website-prod-ECS-EC2-stack
-          template: infrastructure/template.yml
+          name: canopas-website-dev-lambda-stack
+          template: infrastructure/backend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "10"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-            EnvName=prod,
+            EnvName=dev,
             Sender=${{ secrets.SENDER }},
             ContactSender=${{ secrets.CONTACT_SENDER }},
             JobsReceiver=${{ secrets.JOBS_RECEIVER }},
@@ -78,10 +66,14 @@ jobs:
             RecaptchaSiteKey=${{ secrets.RECAPTCHA_SITE_KEY }},
             RecaptchaProjectId=${{ secrets.RECAPTCHA_PROJECT_ID }},
             JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
-            JobsSheetId=${{ secrets.JOBS_SHEET_ID }},
             GithubAccessToken=${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }},
             ResourcesURL=${{secrets.RESOURCES_URL}},
-            ClusterName=canopas-website-prod,
-            ImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-frontend,
-            BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-backend,
-            NginxImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-nginx
+            LambdaBucket=canopas-dev-lambda-handlers, 
+            LambdaUrl=canopas_serverless_dev.zip,
+            LambdaTimeout=10, 
+            LambdaRoleArnName=${{ secrets.LAMBDA_ROLE_ARN_NAME }},
+            LambdaFunctionArnName=${{ secrets.DEV_LAMBDA_FUNCTION_ARN_NAME }},
+            LambdaRoleName=canopas-dev-lambda-role,
+            LambdaName=canopas-dev-lambda-function, 
+            ApiGatewayName=canopas-dev-lambda-api,
+            CustomDomainName=test-api.canopas.com

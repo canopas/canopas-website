@@ -40,48 +40,17 @@ jobs:
           sh ./../deploy/generate-sitemap.sh https://dev-stack.canopas.com https://dev-stack-api.canopas.com
           bash ./../deploy/deploy-ecr-image.sh dev-frontend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-frontend
 
-      - name: Checkout
-        uses: actions/checkout@v2.3.3
-
-      - uses: actions/setup-go@v2
-        with:
-          go-version: "^1.17.5"
-
-      - name: Build backend and push on ECR
-        run: |
-          bash ./deploy/deploy-ecr-image.sh dev-backend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-backend
-
       - name: Deploy cloudformation stack
         id: canopas-website-dev-ECS-EC2-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: canopas-website-dev-ECS-EC2-stack
-          template: infrastructure/template.yml
+          template: infrastructure/frontend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "10"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
             EnvName=dev,
-            Sender=${{ secrets.SENDER }},
-            ContactSender=${{ secrets.CONTACT_SENDER }},
-            JobsReceiver=${{ secrets.JOBS_RECEIVER }},
-            ContactReceiver=${{ secrets.CONTACT_RECEIVER }},
-            AccessKeyId=${{ secrets.ACCESS_KEY_ID }},
-            SecretAccessKey=${{ secrets.SECRET_ACCESS_KEY }},
-            Region=${{ secrets.AWS_REGION }},
-            DbUsername=${{ secrets.DB_USERNAME }},
-            DbPassword=${{ secrets.DB_PASSWORD }},
-            DbHost=${{ secrets.DB_HOST }},
-            DbPort=${{ secrets.DB_PORT }},
-            DbName=${{ secrets.DB_NAME }},
-            RecaptchaConfigJSONBase64=${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }},
-            RecaptchaSiteKey=${{ secrets.RECAPTCHA_SITE_KEY }},
-            RecaptchaProjectId=${{ secrets.RECAPTCHA_PROJECT_ID }},
-            JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
-            JobsSheetId=${{ secrets.JOBS_SHEET_ID }},
-            GithubAccessToken=${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }},
-            ResourcesURL=${{secrets.RESOURCES_URL}},
             ClusterName=canopas-website-dev,
             ImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-frontend,
-            BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-backend,
             NginxImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-nginx

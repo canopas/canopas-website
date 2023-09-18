@@ -10,7 +10,7 @@ require (
 	github.com/aws/aws-sdk-go v1.44.83
 	github.com/gin-gonic/gin v1.9.0
 	github.com/sirupsen/logrus v1.9.0
-	github.com/tj/assert v0.0.3
+	github.com/stretchr/testify v1.8.1
 	utils v0.0.0-00010101000000-000000000000
 )
 
@@ -44,7 +44,6 @@ require (
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/stretchr/testify v1.8.1 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.9 // indirect
 	go.opencensus.io v0.23.0 // indirect
