@@ -79,12 +79,6 @@ Parameters:
   LambdaTimeout:
     Type: Number
     Description: Timeout for lambda function
-  LambdaRoleArnName:
-    Type: String
-    Description: ARN Name of the role attached with lambda function
-  LambdaFunctionArnName:
-    Type: String
-    Description: Name of the lambda function ARN
   LambdaRoleName:
     Type: String
     Description: Name of the lambda role

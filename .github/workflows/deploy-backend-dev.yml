@@ -35,7 +35,7 @@ jobs:
           apt-get update && apt-get install -y zip
           GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o main main.go
           zip canopas_serverless_dev.zip main
-          aws s3 cp canopas_serverless_dev.zip s3://canopas-dev-lambda-handlers
+          aws s3 sync canopas_serverless_dev.zip s3://canopas-lambda-handlers
 
       - name: Deploy cloudformation stack
         id: canopas-website-dev-lambda-stack
@@ -66,11 +66,9 @@ jobs:
             JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
             GithubAccessToken=${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }},
             ResourcesURL=${{secrets.RESOURCES_URL}},
-            LambdaBucket=canopas-dev-lambda-handlers, 
+            LambdaBucket=canopas-lambda-handlers, 
             LambdaUrl=canopas_serverless_dev.zip,
             LambdaTimeout=10, 
-            LambdaRoleArnName=${{ secrets.LAMBDA_ROLE_ARN_NAME }},
-            LambdaFunctionArnName=${{ secrets.DEV_LAMBDA_FUNCTION_ARN_NAME }},
             LambdaRoleName=canopas-dev-lambda-role,
             LambdaName=canopas-dev-lambda-function, 
             ApiGatewayName=canopas-dev-lambda-api,

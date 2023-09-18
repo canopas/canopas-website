@@ -1,4 +1,4 @@
-name: DeployProd
+name: DeployFrontendProd
 on:
   push:
     branches:
