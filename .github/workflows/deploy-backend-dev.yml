@@ -1,0 +1,70 @@
+name: DeployBackendDev
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  deploy-backend-dev:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.3
+
+      - uses: actions/setup-go@v2
+        with:
+          go-version: "^1.20"
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-actions-backend-access
+          aws-region: ap-south-1
+
+      - name: Build backend and deploy to S3
+        run: |
+          apt-get update && apt-get install -y zip
+          GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o main main.go
+          zip canopas_serverless_dev_${{ github.sha }}.zip main
+          aws s3 cp canopas_serverless_dev_${{ github.sha }}.zip s3://canopas-lambda-handlers
+
+      - name: Deploy cloudformation stack
+        id: canopas-website-dev-lambda-stack
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with:
+          name: canopas-website-dev-lambda-stack
+          template: infrastructure/backend.yml
+          capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
+          timeout-in-minutes: "10"
+          no-fail-on-empty-changeset: "1"
+          parameter-overrides: >-
+            EnvName=dev,
+            Sender=${{ secrets.SENDER }},
+            ContactSender=${{ secrets.CONTACT_SENDER }},
+            JobsReceiver=${{ secrets.JOBS_RECEIVER }},
+            ContactReceiver=${{ secrets.CONTACT_RECEIVER }},
+            AccessKeyId=${{ secrets.ACCESS_KEY_ID }},
+            SecretAccessKey=${{ secrets.SECRET_ACCESS_KEY }},
+            Region=${{ secrets.AWS_REGION }},
+            DbUsername=${{ secrets.DB_USERNAME }},
+            DbPassword=${{ secrets.DB_PASSWORD }},
+            DbHost=${{ secrets.DB_HOST }},
+            DbPort=${{ secrets.DB_PORT }},
+            DbName=${{ secrets.DB_NAME }},
+            RecaptchaConfigJSONBase64=${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }},
+            RecaptchaSiteKey=${{ secrets.RECAPTCHA_SITE_KEY }},
+            RecaptchaProjectId=${{ secrets.RECAPTCHA_PROJECT_ID }},
+            JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
+            GithubAccessToken=${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }},
+            ResourcesURL=${{secrets.RESOURCES_URL}},
+            LambdaBucket=canopas-lambda-handlers, 
+            LambdaUrl=canopas_serverless_dev_${{ github.sha }}.zip,
+            LambdaTimeout=10, 
+            LambdaRoleName=canopas-dev-lambda-role,
+            LambdaName=canopas-dev-lambda-function, 
+            ApiGatewayName=canopas-dev-lambda-api,
+            CustomDomainName=${{ secrets.DEV_SERVERLESS_DOMAIN }}

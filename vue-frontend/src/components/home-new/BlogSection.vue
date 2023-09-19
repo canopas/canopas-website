@@ -202,17 +202,17 @@ export default {
         .then((blogs) => {
           blogs = blogs.data;
 
-          for (let i = 0; i < blogs.length; i++) {
+          for (const element of blogs) {
             /** replace - to / in date as safari is not supporting this date format.
              * get date in MMM DD, YYYY format
              */
-            blogs[i].pubDate = new Date(
-              blogs[i].pubDate.replace(/-/g, "/"),
+            element.pubDate = new Date(
+              element.pubDate.replace(/-/g, "/"),
             ).toLocaleDateString("en-US", {
               month: "long",
               day: "2-digit",
             });
-            blogs[i].pubDate = blogs[i].pubDate.split(" ", 2);
+            element.pubDate = element.pubDate.split(" ", 2);
           }
           this.activeBlog = blogs[0];
           this.blogs = blogs;

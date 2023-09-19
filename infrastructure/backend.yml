@@ -1,0 +1,288 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Canopas website microservices using AWS Lambda.
+
+Parameters:
+  EnvName:
+    Type: String
+    Description: Name of an environment.
+    AllowedPattern: ^.*[^0-9]$
+    ConstraintDescription: Must end with non-numeric character.
+    AllowedValues:
+      - dev
+      - prod
+  Sender:
+    Type: String
+    Description: Email address of sender.
+  ContactSender:
+    Type: String
+    Description: Email address of contact sender.
+  JobsReceiver:
+    Type: String
+    Description: Email address of jobs receiver.
+  ContactReceiver:
+    Type: String
+    Description: Email address of conatct receiver.
+  AccessKeyId:
+    Type: String
+    Description: access-key-id.
+  SecretAccessKey:
+    Type: String
+    Description: secret-access-key.
+  Region:
+    Type: String
+    Description: aws-region.
+  DbUsername:
+    Type: String
+    Description: Mysql database username.
+  DbPassword:
+    Type: String
+    Description: Mysql database password.
+  DbHost:
+    Type: String
+    Description: Mysql database host.
+  DbPort:
+    Type: String
+    Description: Mysql database port.
+  DbName:
+    Type: String
+    Description: Mysql database name.
+  RecaptchaConfigJSONBase64:
+    Type: String
+    Description: Recaptcha enterprise credentials in base64 format
+  RecaptchaSiteKey:
+    Type: String
+    Description: Use to verify recpatcha token.
+  RecaptchaProjectId:
+    Type: String
+    Description: Recaptcha project ID.
+  JobsSpreadsheetId:
+    Type: String
+    Description: Spread sheet ID.
+  GithubAccessToken:
+    Type: String
+    Description: Github's personal access token.
+  ResourcesURL:
+    Type: String
+    Description: Resources URL.
+  ApiGatewayName:
+    Type: String
+    Description: ApiGateway name
+  CustomDomainName:
+    Type: String
+    Description: Name of the custom domain
+  LambdaBucket:
+    Type: String
+    Description: AWS bucket, where lambda function is stored
+  LambdaUrl:
+    Type: String
+    Description: Path of lambda
+  LambdaTimeout:
+    Type: Number
+    Description: Timeout for lambda function
+  LambdaRoleName:
+    Type: String
+    Description: Name of the lambda role
+  LambdaName:
+    Type: String
+    Description: Name of the lambda function
+
+Outputs:
+  LambdaFunctionName:
+    Value:
+      Ref: LambdaFunction
+  ApiGatewayInvokeURL:
+    Value:
+      Fn::Sub: https://${ApiGateway}.execute-api.${AWS::Region}.amazonaws.com/${EnvName}
+
+Resources:
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName:
+        Fn::Sub: ${LambdaRoleName}
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: "Allow"
+            Principal:
+              Service:
+                - "lambda.amazonaws.com"
+            Action: "sts:AssumeRole"
+      ManagedPolicyArns:
+        - "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+        - "arn:aws:iam::aws:policy/AWSLambdaExecute"
+        - "arn:aws:iam::aws:policy/AmazonS3FullAccess"
+      Path: "/"
+
+  LambdaFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName:
+        Fn::Sub: ${LambdaName}
+      Description: LambdaFunction for canopas website api
+      Runtime: "go1.x"
+      Code:
+        S3Bucket:
+          Fn::Sub: ${LambdaBucket}
+        S3Key:
+          Fn::Sub: ${LambdaUrl}
+      Handler: main
+      MemorySize: 256
+      Timeout:
+        Fn::Sub: ${LambdaTimeout}
+      Role:
+        Fn::GetAtt: "LambdaExecutionRole.Arn"
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-01eb8e7db438ab2de
+        SubnetIds:
+          - subnet-0e96e50eab80a254f
+          - subnet-0e3df6dacf201528d
+      Environment:
+        Variables:
+          ENV:
+            Fn::Sub: ${EnvName}
+          SENDER:
+            Fn::Sub: ${Sender}
+          CONTACT_SENDER:
+            Fn::Sub: ${ContactSender}
+          CONTACT_RECEIVER:
+            Fn::Sub: ${ContactReceiver}
+          JOBS_RECEIVER:
+            Fn::Sub: ${JobsReceiver}
+          ACCESS_KEY_ID:
+            Fn::Sub: ${AccessKeyId}
+          SECRET_ACCESS_KEY:
+            Fn::Sub: ${SecretAccessKey}
+          REGION:
+            Fn::Sub: ${Region}
+          DB_USERNAME:
+            Fn::Sub: ${DbUsername}
+          DB_PASSWORD:
+            Fn::Sub: ${DbPassword}
+          DB_HOST:
+            Fn::Sub: ${DbHost}
+          DB_PORT:
+            Fn::Sub: ${DbPort}
+          DB_NAME:
+            Fn::Sub: ${DbName}
+          RECAPTCHA_CONFIG_JSON_BASE64:
+            Fn::Sub: ${RecaptchaConfigJSONBase64}
+          RECAPTCHA_SITE_KEY:
+            Fn::Sub: ${RecaptchaSiteKey}
+          RECAPTCHA_PROJECT_ID:
+            Fn::Sub: ${RecaptchaProjectId}
+          JOBS_SPREADSHEET_ID:
+            Fn::Sub: ${JobsSpreadsheetId}
+          PERSONAL_ACCESS_TOKEN_GITHUB:
+            Fn::Sub: ${GithubAccessToken}
+          RESOURCES_URL:
+            Fn::Sub: ${ResourcesURL}
+          TZ: UTC
+          GIN_MODE: release
+    DependsOn:
+      - LambdaLogGroup
+
+  LambdaLogGroup:
+    Type: AWS::Logs::LogGroup
+    Properties:
+      LogGroupName:
+        Fn::Sub: /aws/lambda/${LambdaName}
+      RetentionInDays: 30
+
+  ApiGateway:
+    Type: AWS::ApiGateway::RestApi
+    Properties:
+      Description: Canopas Website API Gateway
+      EndpointConfiguration:
+        Types:
+          - REGIONAL
+      BinaryMediaTypes: ["*/*"]
+      DisableExecuteApiEndpoint: false
+      MinimumCompressionSize: 100
+      Name:
+        Fn::Sub: ${ApiGatewayName}
+
+  ApiGatewayRootMethod:
+    Type: AWS::ApiGateway::Method
+    Properties:
+      AuthorizationType: NONE
+      HttpMethod: ANY
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        Uri:
+          Fn::Sub:
+            - arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${lambdaArn}/invocations
+            - lambdaArn:
+                Fn::GetAtt: LambdaFunction.Arn
+      ResourceId:
+        Fn::GetAtt: ApiGateway.RootResourceId
+      RestApiId:
+        Ref: ApiGateway
+
+  ApiGatewayRootResource:
+    Type: AWS::ApiGateway::Resource
+    DependsOn:
+      - ApiGatewayRootMethod
+    Properties:
+      RestApiId:
+        Ref: ApiGateway
+      ParentId:
+        Fn::GetAtt: ApiGateway.RootResourceId
+      PathPart: "{proxy+}"
+
+  ApiGatewayResourceProxyMethod:
+    Type: AWS::ApiGateway::Method
+    DependsOn:
+      - ApiGatewayRootResource
+    Properties:
+      AuthorizationType: NONE
+      HttpMethod: ANY
+      Integration:
+        IntegrationHttpMethod: POST
+        Type: AWS_PROXY
+        Uri:
+          Fn::Sub:
+            - arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${lambdaArn}/invocations
+            - lambdaArn:
+                Fn::GetAtt: LambdaFunction.Arn
+      ResourceId:
+        Ref: ApiGatewayRootResource
+      RestApiId:
+        Ref: ApiGateway
+
+  LambdaApiGatewayInvoke:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Fn::GetAtt: LambdaFunction.Arn
+      Principal: apigateway.amazonaws.com
+      SourceArn:
+        Fn::Sub: arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ApiGateway}/*/*/*
+
+  ApiGatewayDeployment:
+    Type: AWS::ApiGateway::Deployment
+    DependsOn:
+      - ApiGatewayResourceProxyMethod
+    Properties:
+      RestApiId:
+        Ref: ApiGateway
+      StageName:
+        Fn::Sub: ${EnvName}
+      StageDescription:
+        ThrottlingBurstLimit: 500
+        ThrottlingRateLimit: 1000
+
+  ApiGatewayCustomDomainMapping:
+    Type: AWS::ApiGateway::BasePathMapping
+    DependsOn:
+      - ApiGatewayDeployment
+    Properties:
+      DomainName:
+        Fn::Sub: ${CustomDomainName}
+      RestApiId:
+        Ref: ApiGateway
+      Stage:
+        Fn::Sub: ${EnvName}
