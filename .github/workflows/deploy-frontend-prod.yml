@@ -1,11 +1,14 @@
-name: DeployProd
+name: DeployFrontendProd
+
 on:
+  repository_dispatch:
+    types: [deploy-blog-prod]
   push:
     branches:
       - "master"
-      
+
 jobs:
-  deploy-prod:
+  deploy-frontend-prod:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
@@ -16,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: "18"
+          node-version: "20"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -29,7 +32,6 @@ jobs:
           cd nginx 
           sed -i "s|WEBSITE_URL|canopas.com|g" conf.d/default.conf
           sed -i "s|API_URL|prod-stack-api.canopas.com|g" conf.d/default.conf
-          sed -i "s|ARTICLES_URL|articles.canopas.com|g" conf.d/default.conf
           bash ./../deploy/deploy-ecr-image.sh prod-nginx ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-nginx
 
       - name: Build frontend and push on ECR
@@ -39,49 +41,25 @@ jobs:
           mv src/config.prod.js src/config.js
           sh ./../deploy/generate-sitemap.sh https://canopas.com https://prod-stack-api.canopas.com
           bash ./../deploy/deploy-ecr-image.sh prod-frontend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-frontend
-  
-      - name: Checkout
-        uses: actions/checkout@v2.3.3
 
-      - uses: actions/setup-go@v2
-        with:
-          go-version: "^1.17.5"
-
-      - name: Build backend and push on ECR
+      - name: Get latest blog image tag
+        id: get_blog_image_tag
         run: |
-          bash ./deploy/deploy-ecr-image.sh prod-backend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-backend
+          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.ap-south-1.amazonaws.com
+          echo "::set-output name=blogImageTag::$(aws ecr describe-images --repository-name canopas-blog --output text --query 'sort_by(imageDetails,& imagePushedAt)[*].imageTags[*]' | grep -w 'prod' | tr '\t' '\n' | tail -1)"
 
       - name: Deploy cloudformation stack
         id: canopas-website-prod-ECS-EC2-stack
         uses: aws-actions/aws-cloudformation-github-deploy@v1
         with:
           name: canopas-website-prod-ECS-EC2-stack
-          template: infrastructure/template.yml
+          template: infrastructure/frontend.yml
           capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
           timeout-in-minutes: "10"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
             EnvName=prod,
-            Sender=${{ secrets.SENDER }},
-            ContactSender=${{ secrets.CONTACT_SENDER }},
-            JobsReceiver=${{ secrets.JOBS_RECEIVER }},
-            ContactReceiver=${{ secrets.CONTACT_RECEIVER }},
-            AccessKeyId=${{ secrets.ACCESS_KEY_ID }},
-            SecretAccessKey=${{ secrets.SECRET_ACCESS_KEY }},
-            Region=${{ secrets.AWS_REGION }},
-            DbUsername=${{ secrets.DB_USERNAME }},
-            DbPassword=${{ secrets.DB_PASSWORD }},
-            DbHost=${{ secrets.DB_HOST }},
-            DbPort=${{ secrets.DB_PORT }},
-            DbName=${{ secrets.DB_NAME }},
-            RecaptchaConfigJSONBase64=${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }},
-            RecaptchaSiteKey=${{ secrets.RECAPTCHA_SITE_KEY }},
-            RecaptchaProjectId=${{ secrets.RECAPTCHA_PROJECT_ID }},
-            JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
-            JobsSheetId=${{ secrets.JOBS_SHEET_ID }},
-            GithubAccessToken=${{ secrets.PERSONAL_ACCESS_TOKEN_GITHUB }},
-            ResourcesURL=${{secrets.RESOURCES_URL}},
             ClusterName=canopas-website-prod,
             ImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-frontend,
-            BackendImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-backend,
-            NginxImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-nginx
+            NginxImageTag=${{ github.sha }}-${{ github.run_attempt }}-prod-nginx,
+            BlogImageTag=${{steps.get_blog_image_tag.outputs.blogImageTag}}
