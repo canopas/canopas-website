@@ -59,7 +59,7 @@ func DownloadFileFromS3(fileName string, sess *session.Session) {
 	_, err = downloader.Download(file,
 		&s3.GetObjectInput{
 			Bucket: aws.String("canopas-blogs"),
-			Key:    aws.String(fileName),
+			Key:    aws.String("blogs.json"),
 		})
 
 	if err != nil {
@@ -84,7 +84,7 @@ func UploadFileToS3(fileName string, sess *session.Session) {
 
 	_, err = s3.New(sess).PutObject(&s3.PutObjectInput{
 		Bucket:             aws.String("canopas-blogs"),
-		Key:                aws.String("/" + fileName),
+		Key:                aws.String("/blogs.json"),
 		ACL:                aws.String("public-read"),
 		Body:               bytes.NewReader(fileBuffer),
 		ContentLength:      aws.Int64(fileSize),
