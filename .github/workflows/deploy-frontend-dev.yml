@@ -4,6 +4,8 @@ on:
   repository_dispatch:
     types: [deploy-blog-dev]
   push:
+    branches:
+      - "master"
 
 jobs:
   deploy-frontend-dev:

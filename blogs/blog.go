@@ -36,7 +36,7 @@ type Blog struct {
 
 func Get(c *gin.Context) {
 
-	fileName := "./blogs.json"
+	fileName := "/tmp/blogs.json"
 
 	// check if file is present or not
 	_, err := os.Stat(fileName)
@@ -51,7 +51,7 @@ func Get(c *gin.Context) {
 		}
 
 		//read file from AWS S3
-		utils.DownloadFileFromS3("./blogs.json", sess)
+		utils.DownloadFileFromS3(fileName, sess)
 	}
 
 	// get blogs from API
