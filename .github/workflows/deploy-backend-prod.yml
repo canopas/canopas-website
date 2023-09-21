@@ -2,8 +2,6 @@ name: DeployBackendProd
 
 on:
   push:
-    branches:
-      - "master"
 
 jobs:
   deploy-backend-prod:

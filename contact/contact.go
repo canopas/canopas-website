@@ -70,6 +70,8 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 
 	statusCode := repository.UtilsRepo.SendEmail(emailTemplate, nil)
 
+	log.Debug("Send mail to company statuscode: ", statusCode)
+
 	if statusCode != 0 {
 		c.AbortWithStatus(statusCode)
 		return
@@ -78,6 +80,8 @@ func (repository *Template) SendContactMail(c *gin.Context) {
 		clientEmailTemplate := repository.getClientEmailTemplate(input)
 
 		statusCode = repository.UtilsRepo.SendEmail(clientEmailTemplate, nil)
+
+		log.Debug("Send mail to client statuscode: ", statusCode)
 
 		if statusCode != 0 {
 			c.AbortWithStatus(statusCode)

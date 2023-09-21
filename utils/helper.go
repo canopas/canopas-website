@@ -57,13 +57,13 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 
 	credBytes, err := b64.StdEncoding.DecodeString(os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
 	if err != nil {
-		log.Error(err)
+		log.Error("credBytes err: ", err)
 		return false, err
 	}
 
 	client, err := recaptcha.NewClient(ctx, option.WithCredentialsJSON(credBytes))
 	if err != nil {
-		log.Error(err)
+		log.Error("client err: ", err)
 		return false, err
 	}
 	defer client.Close()
@@ -82,16 +82,16 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 	response, err := client.CreateAssessment(ctx, request)
 
 	if err != nil {
-		log.Error(err)
+		log.Error("response err: ", err)
 		return false, err
 	}
 
-	// Interpret and verify assessment response
-	if response.TokenProperties.Action == "verify" && response.TokenProperties.Valid {
-		return true, nil
-	}
+	log.Debug(response)
 
-	return false, nil
+	// Interpret and verify assessment response
+	isValid := response.TokenProperties.Action == "verify" && response.TokenProperties.Valid
+
+	return isValid, nil
 }
 
 // make array or slice unique
