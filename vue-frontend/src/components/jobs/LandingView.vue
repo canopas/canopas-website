@@ -18,7 +18,7 @@
     <button
       class="gradient-btn tw-rounded-[15px] sm:tw-m-auto tw-p-3 normal-text animate__animated animate__fadeInUp"
       @click="$emit('scroll-to-career')"
-      @click.native="mixpanel.track('tap_see_all_positions')"
+      @click.native="trackSeeAllPositionsClick"
     >
       <span>SEE ALL POSITIONS</span>
     </button>
@@ -28,5 +28,10 @@
 <script>
 export default {
   inject: ["mixpanel"],
+  methods: {
+    trackSeeAllPositionsClick() {
+      this.mixpanel.track("tap_see_all_positions");
+    },
+  },
 };
 </script>

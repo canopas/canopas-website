@@ -38,11 +38,7 @@
             <div
               class="tw-mt-12 faq-section tw-min-h-[28rem] tw-h-auto sm:tw-min-h-[33rem]"
             >
-              <div
-                class="tw-mt-6"
-                v-for="faq in faqs.slice(sliceFrom, sliceTo)"
-                :key="faq"
-              >
+              <div class="tw-mt-6" v-for="faq in visibleFaqs" :key="faq.id">
                 <div
                   class="faq-container tw-border tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-bg-[#3d3d3d08] tw-shadow-[0px_1px_6px_1px_rgba(0,0,0,0.25)] tw-rounded-[15px] tw-p-[15px] tw-cursor-pointer sm:tw-p-[25px] normal-text"
                   @click="expandListItem(faq.id)"
@@ -75,7 +71,10 @@
                       ></div>
                     </div>
                   </collapse-transition>
-                  <div class="faq-divider" v-if="faq.id != faq.length"></div>
+                  <div
+                    class="faq-divider"
+                    v-if="faq.id != visibleFaqs[visibleFaqs.length - 1].id"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -216,6 +215,12 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   inject: ["mixpanel"],
+  computed: {
+    visibleFaqs() {
+      // Calculate the range of visible FAQ items based on sliceFrom and sliceTo.
+      return this.faqs.slice(this.sliceFrom, this.sliceTo);
+    },
+  },
   methods: {
     expandListItem(index) {
       if (this.previousIndex == index && this.openList) {
