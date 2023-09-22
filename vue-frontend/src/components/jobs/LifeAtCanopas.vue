@@ -40,17 +40,22 @@
         }"
         class="swiper-container"
       >
-        <swiper-slide v-for="slider in slides" :key="slider.id">
+        <swiper-slide v-for="(slider, index) in slides" :key="index">
           <aspect-ratio
             height="66%"
             class="tw-mb-[80px] tw-border-solid tw-border-transparent tw-border"
           >
             <img
-              @click.native="trackLifePhotoClick"
+              @click.native="mixpanel.track('click_life_photo')"
               :src="slider.image[0]"
               :srcset="`${slider.image[0]} 400w, ${slider.image[1]} 800w, ${slider.image[2]} 1600w`"
-              alt="Life at Canopas"
-              class="tw-h-full tw-w-full tw-object-cover"
+              alt="Life at canopas"
+              :class="
+                slider.id == 7 || slider.id == 6
+                  ? 'tw-object-fill'
+                  : 'tw-object-cover'
+              "
+              class="tw-h-full tw-w-full"
               loading="lazy"
             />
           </aspect-ratio>
@@ -66,44 +71,53 @@ import AspectRatio from "@/components/utils/AspectRatio.vue";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 
-import {
-  life1_400w,
-  life1_800w,
-  life1_1600w,
-  life2_400w,
-  life2_800w,
-  life2_1600w,
-  life3_400w,
-  life3_800w,
-  life3_1600w,
-  life4_400w,
-  life4_800w,
-  life4_1600w,
-  life5_400w,
-  life5_800w,
-  life5_1600w,
-  life6_400w,
-  life6_800w,
-  life6_1600w,
-  life7_400w,
-  life7_800w,
-  life7_1600w,
-  life8_400w,
-  life8_800w,
-  life8_1600w,
-  life9_400w,
-  life9_800w,
-  life9_1600w,
-  life10_400w,
-  life10_800w,
-  life10_1600w,
-  life11_400w,
-  life11_800w,
-  life11_1600w,
-  life12_400w,
-  life12_800w,
-  life12_1600w,
-} from "@/assets/images/life";
+import life1_400w from "@/assets/images/life/jobs_canopas_life_1-400w.webp";
+import life1_800w from "@/assets/images/life/jobs_canopas_life_1-800w.webp";
+import life1_1600w from "@/assets/images/life/jobs_canopas_life_1-1600w.webp";
+
+import life2_400w from "@/assets/images/life/jobs_canopas_life_2-400w.webp";
+import life2_800w from "@/assets/images/life/jobs_canopas_life_2-800w.webp";
+import life2_1600w from "@/assets/images/life/jobs_canopas_life_2-1600w.webp";
+
+import life3_400w from "@/assets/images/life/jobs_canopas_life_3-400w.webp";
+import life3_800w from "@/assets/images/life/jobs_canopas_life_3-800w.webp";
+import life3_1600w from "@/assets/images/life/jobs_canopas_life_3-1600w.webp";
+
+import life4_400w from "@/assets/images/life/jobs_canopas_life_4-400w.webp";
+import life4_800w from "@/assets/images/life/jobs_canopas_life_4-800w.webp";
+import life4_1600w from "@/assets/images/life/jobs_canopas_life_4-1600w.webp";
+
+import life5_400w from "@/assets/images/life/jobs_canopas_life_5-400w.webp";
+import life5_800w from "@/assets/images/life/jobs_canopas_life_5-800w.webp";
+import life5_1600w from "@/assets/images/life/jobs_canopas_life_5-1600w.webp";
+
+import life6_400w from "@/assets/images/life/jobs_canopas_life_6-400w.webp";
+import life6_800w from "@/assets/images/life/jobs_canopas_life_6-800w.webp";
+import life6_1600w from "@/assets/images/life/jobs_canopas_life_6-1600w.webp";
+
+import life7_400w from "@/assets/images/life/jobs_canopas_life_7-400w.webp";
+import life7_800w from "@/assets/images/life/jobs_canopas_life_7-800w.webp";
+import life7_1600w from "@/assets/images/life/jobs_canopas_life_7-1600w.webp";
+
+import life8_400w from "@/assets/images/life/jobs_canopas_life_8-400w.webp";
+import life8_800w from "@/assets/images/life/jobs_canopas_life_8-800w.webp";
+import life8_1600w from "@/assets/images/life/jobs_canopas_life_8-1600w.webp";
+
+import life9_400w from "@/assets/images/life/jobs_canopas_life_9-400w.webp";
+import life9_800w from "@/assets/images/life/jobs_canopas_life_9-800w.webp";
+import life9_1600w from "@/assets/images/life/jobs_canopas_life_9-1600w.webp";
+
+import life10_400w from "@/assets/images/life/jobs_canopas_life_10-400w.webp";
+import life10_800w from "@/assets/images/life/jobs_canopas_life_10-800w.webp";
+import life10_1600w from "@/assets/images/life/jobs_canopas_life_10-1600w.webp";
+
+import life11_400w from "@/assets/images/life/jobs_canopas_life_11-400w.webp";
+import life11_800w from "@/assets/images/life/jobs_canopas_life_11-800w.webp";
+import life11_1600w from "@/assets/images/life/jobs_canopas_life_11-1600w.webp";
+
+import life12_400w from "@/assets/images/life/jobs_canopas_life_12-400w.webp";
+import life12_800w from "@/assets/images/life/jobs_canopas_life_12-800w.webp";
+import life12_1600w from "@/assets/images/life/jobs_canopas_life_12-1600w.webp";
 
 export default {
   data() {
@@ -172,11 +186,6 @@ export default {
     AspectRatio,
   },
   inject: ["mixpanel"],
-  methods: {
-    trackLifePhotoClick() {
-      this.mixpanel.track("click_life_photo");
-    },
-  },
 };
 </script>
 
