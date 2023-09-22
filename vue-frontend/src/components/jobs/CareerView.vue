@@ -143,7 +143,7 @@ library.add(
   faF,
   faNodeJs,
   faGolang,
-  faVuejs
+  faVuejs,
 );
 
 export default {
@@ -183,7 +183,7 @@ export default {
         this.currentIndex = id;
       }
       this.mixpanel.track(
-        this.openList ? "tap_job_expand" : "tap_job_collapse"
+        this.openList ? "tap_job_expand" : "tap_job_collapse",
       );
     },
     trackJobAction(action, career) {
