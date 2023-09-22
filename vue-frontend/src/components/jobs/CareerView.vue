@@ -20,28 +20,23 @@
       </div>
     </div>
 
-    <div v-if="careers == null" class="tw-flex tw-justify-center">
+    <div v-if="!careers" class="tw-flex tw-justify-center">
       <img :src="loader" alt="loader-image" />
     </div>
-    <div
-      v-else
-      class="tw-rounded-[14px] tw-border tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-my-0 tw-mx-[2%] tw-mt-12 md:tw-mx-[6%] normal-text"
-    >
+    <div v-else>
       <div
-        v-if="careers.length == 0"
+        v-if="!careers.length"
         class="tw-text-center tw-py-3.5 tw-px-0 normal-text"
       >
         No matching jobs found
       </div>
-      <div v-else class="tw-flex tw-flex-col">
-        <div
-          v-for="(career, index) in careers"
-          :key="career"
-          class="tw-flex tw-flex-col"
-        >
+      <div
+        class="tw-rounded-[14px] tw-border tw-border-solid tw-border-[#e2e2e2] tw-overflow-hidden tw-my-0 tw-mx-[2%] tw-mt-12 md:tw-mx-[6%] normal-text"
+      >
+        <div v-for="career in careers" :key="career.id">
           <div
             class="tw-flex tw-flex-row tw-w-full tw-items-center tw-p-[30px] tw-cursor-pointer md:tw-py-8 md:tw-px-12 lg:tw-py-10 lg:tw-px-12 normal-text"
-            @click="expandListItem(career.id, index)"
+            @click="expandListItem(career.id)"
           >
             <div class="career-icon tw-w-[50px] sm:tw-w-[60px]">
               <font-awesome-icon
@@ -54,35 +49,27 @@
             </div>
             <font-awesome-icon
               class="career-plus-icon tw-ml-auto tw-order-2 tw-text-[#3d3d3dcc]"
-              :icon="openList && career.id == currentIndex ? 'minus' : 'plus'"
+              :icon="openList && currentIndex === career.id ? 'minus' : 'plus'"
             />
           </div>
           <collapse-transition>
             <div
-              ref="careerDetails"
               class="tw-overflow-hidden tw-ease-out tw-duration-300"
-              :key="career.summary"
-              :style="[
-                openList && career.id == currentIndex
-                  ? {
-                      maxHeight: `1000px`,
-                    }
-                  : {
-                      maxHeight: `0`,
-                    },
-              ]"
+              :style="{
+                maxHeight:
+                  openList && currentIndex === career.id ? '1000px' : '0',
+              }"
             >
               <div
                 class="tw-p-[30px] tw-text-[#3d3d3dcc] md:tw-py-8 md:tw-px-12 lg:tw-py-10 lg:tw-px-12 lg:tw-leading-8"
               >
                 {{ career.summary }}
               </div>
-
               <div
                 class="tw-flex tw-flex-row tw-justify-center tw-pt-0 tw-pr-0 tw-pb-[30px] tw-pl-0 sm:tw-justify-end sm:tw-pt-0 sm:tw-pr-5 sm:tw-pb-[30px] sm:tw-pl-5"
               >
                 <router-link
-                  @click.native="mixpanel.track('tap_read_more_job')"
+                  @click.native="trackJobAction('tap_read_more_job', career)"
                   class="tw-flex tw-items-center gradient-border-btn tw-p-3"
                   :to="'/jobs/' + career.unique_id"
                   :aria-label="'Get more details about ' + career.title"
@@ -97,9 +84,8 @@
                     >Read More</span
                   >
                 </router-link>
-
                 <router-link
-                  @click.native="mixpanel.track('tap_apply_job')"
+                  @click.native="trackJobAction('tap_apply_job', career)"
                   class="tw-flex tw-items-center tw-m-[5px] gradient-btn tw-p-3"
                   :to="'/jobs/apply/' + career.unique_id"
                 >
@@ -116,17 +102,14 @@
               </div>
             </div>
           </collapse-transition>
-          <div
-            class="tw-bg-[#e2e2e2] tw-h-px"
-            v-if="index <= careers.length"
-          ></div>
+          <div class="tw-bg-[#e2e2e2] tw-h-px" />
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script type="module">
+<script>
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import loader from "@/assets/images/theme/loader.svg";
@@ -134,6 +117,7 @@ import { useJobListStore } from "@/stores/jobs";
 import { mapState } from "pinia";
 import { mapActions } from "pinia";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faApple,
   faAndroid,
@@ -141,7 +125,6 @@ import {
   faGolang,
   faVuejs,
 } from "@fortawesome/free-brands-svg-icons";
-import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faGlobe,
   faBullhorn,
@@ -160,15 +143,14 @@ library.add(
   faF,
   faNodeJs,
   faGolang,
-  faVuejs,
+  faVuejs
 );
 
 export default {
   data() {
     return {
-      currentIndex: 0,
-      openList: true,
-      previousIndex: 0,
+      currentIndex: -1, // Initialize to -1 to ensure no item is expanded initially
+      openList: false, // Initialize to false
       loader: loader,
     };
   },
@@ -191,17 +173,21 @@ export default {
   inject: ["mixpanel"],
   methods: {
     ...mapActions(useJobListStore, ["loadJobs"]),
-    expandListItem(id, index) {
-      if (this.previousIndex == id && this.openList) {
-        this.openList = false;
-        this.mixpanel.track("tap_job_collapse");
+    expandListItem(id) {
+      if (this.currentIndex === id) {
+        // Toggle openList if clicking the same item
+        this.openList = !this.openList;
       } else {
+        // Expand a different item
         this.openList = true;
-        this.mixpanel.track("tap_job_expand");
+        this.currentIndex = id;
       }
-
-      this.currentIndex = id;
-      this.previousIndex = this.currentIndex;
+      this.mixpanel.track(
+        this.openList ? "tap_job_expand" : "tap_job_collapse"
+      );
+    },
+    trackJobAction(action, career) {
+      this.mixpanel.track(action, { career });
     },
   },
 };
