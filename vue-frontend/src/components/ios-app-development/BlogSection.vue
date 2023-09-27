@@ -16,26 +16,13 @@
           limitProgress: 5,
           loop: false,
           next: {
-            translate: [360, 0, 0],
+            translate: [400, 0, 0],
           },
           prev: {
-            translate: [0, 0, -100],
+            translate: [0, 0, -10],
           },
         }"
-        :breakpoints="{
-          '450': {
-            creativeEffect: {
-              limitProgress: 5,
-              next: {
-                translate: [400, 0, 0],
-              },
-              prev: {
-                translate: [0, 0, -100],
-              },
-            },
-          },
-        }"
-        :slidesPerView="1.7"
+        :slidesPerView="1"
         :spaceBetween="10"
         :modules="modules"
       >
@@ -46,7 +33,7 @@
         >
           <div
             :class="blog.className"
-            class="tw-w-80 tw-h-[350px] tw-drop-shadow-md tw-text-left tw-cursor-pointer content"
+            class="tw-w-80 tw-h-[350px] tw-drop-shadow-md tw-text-left tw-cursor-pointer tw-mx-auto"
           >
             <img
               @click="openBlog(blog.link, 'tap_ios_blog_section')"
@@ -234,8 +221,5 @@ export default {
 @import "swiper/css/effect-creative";
 .swiper-slide {
   @apply !tw-overflow-visible;
-}
-.content {
-  @apply tw--ml-[22%] sm:tw--ml-0;
 }
 </style>
