@@ -114,6 +114,7 @@
             delay: 3000,
             disableOnInteraction: false,
           }"
+          :loop="true"
           :modules="modules"
           class="swiper-container tw-h-[600px] lg:tw-h-[540px] xl:tw-h-[495px] tw-flex"
           @swiper="setSwiperRef"
@@ -150,7 +151,7 @@
   </div>
 </template>
 
-<script type="module" scoped>
+<script type="module">
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import consultation from "@/assets/images/ios-app-development/development/consultation.webp";
