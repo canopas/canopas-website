@@ -86,10 +86,12 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 		return false, err
 	}
 
-	log.Debug(response)
+	log.Error("recapatcha response: ", response)
 
 	// Interpret and verify assessment response
 	isValid := response.TokenProperties.Action == "verify" && response.TokenProperties.Valid
+
+	log.Error("isValid: ", isValid)
 
 	return isValid, nil
 }

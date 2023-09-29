@@ -138,7 +138,7 @@ func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
 
 	err := c.Bind(&input)
 	if err != nil {
-		log.Error(err)
+		log.Error("Bad input error: ", err)
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{"message": "Invalid data"})
 		return
 	}
@@ -151,7 +151,7 @@ func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
 	}
 	success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
 	if err != nil || !success {
-		log.Error(err)
+		log.Error("Invalid recaptcha error: ", err, success)
 		c.AbortWithStatus(http.StatusUnauthorized)
 		return
 	}
