@@ -50,12 +50,7 @@
               :src="slider.image[0]"
               :srcset="`${slider.image[0]} 400w, ${slider.image[1]} 800w, ${slider.image[2]} 1600w`"
               alt="Life at canopas"
-              :class="
-                slider.id == 7 || slider.id == 6
-                  ? 'tw-object-fill'
-                  : 'tw-object-cover'
-              "
-              class="tw-h-full tw-w-full"
+              class="tw-h-full tw-w-full tw-object-cover"
               loading="lazy"
             />
           </aspect-ratio>
