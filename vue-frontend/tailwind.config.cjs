@@ -69,6 +69,7 @@ module.exports = {
         "inter-medium": ["Inter-Medium"],
         "inter-semibold": ["Inter-SemiBold"],
         "inter-regular": ["Inter-Regular"],
+        "opensans-bold": ["Opensans-Bold"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",
