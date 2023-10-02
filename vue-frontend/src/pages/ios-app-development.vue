@@ -6,13 +6,14 @@
       </template>
     </metainfo>
     <Header />
-    <LandingSection ref="landing" />
-    <DevelopmentSection ref="development" />
-    <CtaSection ref="cta1" />
-    <BlogSection ref="blog" />
-    <CtaSection2 ref="cta2" />
-    <FaqSection ref="faq" />
-    <NewFooter ref="footer" />
+    <LandingSection ref="iosLanding" />
+    <DevelopmentSection ref="iosDevelopment" />
+    <CtaSection ref="iosCta1" />
+    <SuccessStorySection ref="iosSuccessstory" />
+    <BlogSection ref="iosblog" />
+    <CtaSection2 ref="iosCta2" />
+    <FaqSection ref="iosFaq" />
+    <NewFooter ref="iosFooter" />
   </div>
 </template>
 
@@ -24,6 +25,9 @@ import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/ios-app-development/LandingSection.vue";
 import DevelopmentSection from "@/components/ios-app-development/DevelopmentSection.vue";
+const SuccessStorySection = defineAsyncComponent(() =>
+  import("@/components/ios-app-development/SuccessStory.vue"),
+);
 const BlogSection = defineAsyncComponent(() =>
   import("@/components/ios-app-development/BlogSection.vue"),
 );
@@ -45,12 +49,13 @@ export default {
     return {
       event: "",
       events: {
-        landing: "view_ios_development_landing_section",
-        development: "view_ios_app_development_section",
-        blog: "view_ios_app_blog_section",
-        faq: "view_ios_development_faq_section",
-        cta1: "view_cta_1_ios_app_development_section",
-        cta2: "view_cta_2_ios_app_development_section",
+        iosLanding: "view_ios_development_landing_section",
+        iosDevelopment: "view_ios_app_development_section",
+        iosSuccessstory: "view_ios_app_development_section",
+        iosFaq: "view_ios_development_faq_section",
+        iosCta1: "view_cta_1_ios_app_development_section",
+        iosblog: "view_ios_app_blog_section",
+        iosCta2: "view_cta_2_ios_app_development_section",
       },
     };
   },
@@ -78,6 +83,7 @@ export default {
     Header,
     LandingSection,
     DevelopmentSection,
+    SuccessStorySection,
     BlogSection,
     FaqSection,
     CtaSection,
