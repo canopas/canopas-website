@@ -216,10 +216,13 @@ export default {
   inject: ["mixpanel"],
 };
 </script>
-<style lang="postcss" scoped>
+<style lang="postcss">
 @import "swiper/css";
 @import "swiper/css/effect-creative";
 .swiper-slide {
   @apply !tw-overflow-visible;
+}
+.swiper-wrapper {
+  @apply !tw-items-start;
 }
 </style>

@@ -38,17 +38,17 @@
     </div>
     <!-- Desktop view start -->
     <div
-      class="tw-relative tw-mb-16 tw-h-80 xll:tw-h-[30rem] tw-hidden md:tw-block"
+      class="tw-relative tw-mb-16 tw-h-80 lg:tw-h-[476px] tw-hidden md:tw-block"
     >
       <img
         :src="BackgroundImage[1]"
         :srcset="`${BackgroundImage[1]} 800w,${BackgroundImage[2]} 1200w,${BackgroundImage[3]} 2400w`"
         alt="Background-Image"
-        class="tw-h-full lg:tw-h-[22.5rem] xll:tw-h-full tw-w-full tw-object-cover"
+        class="tw-h-full tw-w-full tw-object-cover"
         loading="lazy"
       />
       <div
-        class="tw-container tw-absolute tw-left-1/2 tw-flex tw-w-full tw--translate-x-1/2 tw--translate-y-[150%] lg:tw--translate-y-[114%] xll:tw--translate-y-[134%] tw-transform tw-flex-row tw-items-center"
+        class="tw-container tw-absolute tw-left-1/2 tw-flex tw-w-full tw--translate-x-1/2 tw--translate-y-[15.55rem] lg:tw--translate-y-[24rem] tw-transform tw-flex-row tw-items-center"
       >
         <div class="tw-flex tw-w-[66%]">
           <div
