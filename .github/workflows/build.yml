@@ -5,13 +5,14 @@ jobs:
   run_tests:
     runs-on: ubuntu-latest
     services:
-      mysql:
-        image: mysql:8.0
+      postgres:
+        image: postgres:15
         ports:
-          - 3306:3306
+          - 5432:5432
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: website_admin_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: website_admin_test
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.3

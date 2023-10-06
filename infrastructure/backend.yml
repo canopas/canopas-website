@@ -33,19 +33,19 @@ Parameters:
     Description: aws-region.
   DbUsername:
     Type: String
-    Description: Mysql database username.
+    Description: Postgres database username.
   DbPassword:
     Type: String
-    Description: Mysql database password.
+    Description: Postgres database password.
   DbHost:
     Type: String
-    Description: Mysql database host.
+    Description: Postgres database host.
   DbPort:
     Type: String
-    Description: Mysql database port.
+    Description: Postgres database port.
   DbName:
     Type: String
-    Description: Mysql database name.
+    Description: Postgres database name.
   RecaptchaConfigJSONBase64:
     Type: String
     Description: Recaptcha enterprise credentials in base64 format

@@ -30,11 +30,11 @@ func TestInit(t *testing.T) {
 }
 
 func TestGetAllJobs(t *testing.T) {
+	utils.TruncateTables(testDB)
 	err = utils.CreateTables(testDB)
 	if err != nil {
 		t.Errorf("Error in initializing test DB: %v", err)
 	}
-	utils.TruncateTables(testDB)
 	utils.PrepareTablesData(testDB)
 	engine := gin.New()
 	engine.GET("/api/careers", repo.Careers)

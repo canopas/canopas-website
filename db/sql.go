@@ -5,9 +5,9 @@ import (
 	"strings"
 	"time"
 
-	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
 	"github.com/jmoiron/sqlx/reflectx"
+	_ "github.com/lib/pq"
 	log "github.com/sirupsen/logrus"
 )
 
@@ -19,13 +19,13 @@ func NewSql() *sqlx.DB {
 	username := os.Getenv("DB_USERNAME")
 
 	if username == "" {
-		username = "root"
+		username = "postgres"
 	}
 
 	password := os.Getenv("DB_PASSWORD")
 
 	if password == "" {
-		password = "root"
+		password = "postgres"
 	}
 
 	host := os.Getenv("DB_HOST")
@@ -37,16 +37,21 @@ func NewSql() *sqlx.DB {
 	port := os.Getenv("DB_PORT")
 
 	if port == "" {
-		port = "3306"
+		port = "5432"
 	}
 
 	name := os.Getenv("DB_NAME")
 
 	if name == "" {
-		name = "website_admin"
+		name = "postgres"
 	}
 
-	db = sqlx.MustConnect("mysql", username+":"+password+"@("+host+":"+port+")/"+name)
+	sslmode := "require"
+	if os.Getenv("DB_ENV") == "test" {
+		sslmode = "disable"
+	}
+
+	db = sqlx.MustConnect("postgres", "postgres://"+username+":"+password+"@"+host+":"+port+"?sslmode="+sslmode)
 
 	db.Mapper = reflectx.NewMapperFunc("json", strings.ToLower)
 	db.SetConnMaxLifetime(time.Minute * 1)
