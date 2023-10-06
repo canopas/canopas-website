@@ -96,11 +96,14 @@ func (repository *CareerRepository) GetCareers() ([]Career, error) {
 
 	careers := []Career{}
 
-	err := repository.Db.Select(&careers, "SELECT id, title, summary, description, button_name, qualification, employment_type,"+
-		"base_salary, experience, is_active, skills, total_openings,"+
-		"responsibilities, icon_name, unique_id, seo_title, seo_description,"+
-		"apply_seo_title, apply_seo_description, `index` "+
-		"FROM jobs WHERE is_active = 1 ORDER BY `index`")
+	err := repository.Db.Select(&careers, "SELECT j.id, j.title, j.summary, j.description, j.button_name, j.qualification, "+
+		"j.employment_type, j.base_salary, j.experience, j.is_active, j.skills, "+
+		"j.total_openings, j.responsibilities, i.value as icon_name, "+
+		"j.unique_id, j.seo_title, j.seo_description, "+
+		"j.apply_seo_title, j.apply_seo_description, j.index "+
+		"FROM jobs j JOIN job_icons i ON j.icon_name = i.id "+
+		"WHERE j.is_active = true "+
+		"ORDER BY j.index")
 
 	return careers, err
 }
@@ -111,14 +114,14 @@ func (repository *CareerRepository) CareerById(c *gin.Context) {
 
 	id := c.Param("unique_id")
 
-	err := repository.Db.Get(&career, "SELECT id, title, summary, description, button_name, qualification, "+
-		"employment_type, base_salary, experience, is_active, skills, "+
-		"total_openings, responsibilities, icon_name, "+
-		"unique_id, seo_title, seo_description, "+
-		"apply_seo_title, apply_seo_description, `index` "+
-		"FROM jobs "+
-		"WHERE unique_id = ? AND is_active = 1 "+
-		"ORDER BY `index`", id)
+	err := repository.Db.Get(&career, "SELECT j.id, j.title, j.summary, j.description, j.button_name, j.qualification, "+
+		"j.employment_type, j.base_salary, j.experience, j.is_active, j.skills, "+
+		"j.total_openings, j.responsibilities, i.value as icon_name, "+
+		"j.unique_id, j.seo_title, j.seo_description, "+
+		"j.apply_seo_title, j.apply_seo_description, j.index "+
+		"FROM jobs j JOIN job_icons i ON j.icon_name = i.id "+
+		"WHERE j.unique_id = '"+id+"' AND j.is_active = true "+
+		"ORDER BY j.index")
 
 	if err != nil {
 		log.Error(err)
@@ -189,32 +192,20 @@ func (repository *CareerRepository) InsertJobApplication(input JobsApplicationsD
 		return err
 	}
 
-	stmt, err := repository.Db.Prepare(`INSERT INTO job_applications (name, email, phone, place, reference, resumeURL, position, message, status, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`)
+	var responseID int
+	err = repository.Db.QueryRow("INSERT INTO job_applications (name, email, phone, place, reference, resumeurl, position, message, status, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING id", input.Name, input.Email, input.Phone, input.Place, input.References, resumeURL, input.JobTitle, input.Message, 1, time.Now(), time.Now()).Scan(&responseID)
 	if err != nil {
-		log.Error(err)
+		log.Error("responseID: ", err)
 		return err
 	}
 
-	defer stmt.Close()
-	query, err := repository.Db.Prepare(`INSERT INTO job_applicant_statuses (applicant_id, status, ` + "`index`" + `, rejection_with_mail, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)`)
+	query, err := repository.Db.Prepare("INSERT INTO job_applicant_statuses (applicant_id, status, index, rejection_with_mail, created_at, updated_at) VALUES ($1, $2, $3, $4, $5, $6)")
 
 	if err != nil {
-		log.Error(err)
+		log.Error("query: ", err)
 		return err
 	}
 	defer query.Close()
-
-	result, err := stmt.Exec(input.Name, input.Email, input.Phone, input.Place, input.References, resumeURL, input.JobTitle, input.Message, 1, time.Now(), time.Now())
-	if err != nil {
-		log.Error(err)
-		return err
-	}
-
-	responseID, err := result.LastInsertId()
-	if err != nil {
-		log.Error(err)
-		return err
-	}
 
 	_, err = query.Exec(responseID, 1, 0, false, time.Now(), time.Now())
 	if err != nil {
