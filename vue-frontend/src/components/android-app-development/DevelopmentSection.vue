@@ -1,100 +1,36 @@
 <template>
-  <div class="tw-mt-16 tw-bg-white tw-h-[70%]">
+  <div class="tw-mt-16 md:tw-mt-40 xl:tw-mt-60 tw-bg-white tw-h-[70%]">
     <div
-      class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center xll:tw--mb-[18rem]"
+      class="xl:tw-h-[0vh] xl:!tw-sticky"
+      :class="{
+        'xl:!tw-top-0': lastSlideReached && !isScrollingUp,
+        'xl:!tw-top-[7.5rem]': lastSlideReached && isScrollingUp,
+      }"
     >
-      <span
-        class="tw-mb-2.5 tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
+      <div
+        class="tw-container tw-flex tw-flex-col tw-text-center xll:tw--mb-72"
       >
-        Android App Development Services</span
-      >
-      <span
-        class="tw-font-inter-regular tw-text-base tw-text-black-core/[0.60] md:tw-font-inter-medium md:tw-text-[1.5rem] md:tw-leading-9 lg:tw-px-20 2xl:tw-px-56"
-        >With over a decade of expertise in Android app development, our team
-        can help you craft high- quality, user-friendly apps that drive business
-        growth and customer engagement.</span
-      >
-    </div>
-    <!-- Desktop UI -->
-    <div class="sticky-parent tw-hidden md:tw-block">
-      <div class="sticky tw-sticky tw-top-0 tw-max-h-screen tw-overflow-hidden">
-        <div class="tw-flex">
-          <div
-            v-for="(item, index) in items"
-            :key="index"
-            class="tw-cursor-pointer tw-mt-32 xll:tw-mt-[36rem] tw-min-w-[100vw] md:tw-h-[70vh] xl:tw-h-screen"
-          >
-            <div class="tw-relative !-tw-mr-2 tw-mb-8 tw-mt-12">
-              <div
-                class="tw-border-b-2 tw-border-dotted tw-border-[#000000]/[0.87] tw-text-center"
-              ></div>
-            </div>
-            <div
-              class="tw-absolute tw-top-[15.5%] xl:tw-top-[13.4%] xll:tw-top-[32.4%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center md:tw-block 2xll:tw-ml-[47%] xll:tw-ml-[48%]"
-            >
-              <span
-                class="tw-text-center tw-font-inter-bold tw-text-[3.75rem] tw-leading-[5.625rem] !tw-bg-white"
-              >
-                0{{ index + 1 }}</span
-              >
-            </div>
-            <div
-              class="tw-ml-auto xll:tw-ml-[12%] xll:tw-ml-auto tw-rounded-[1.25rem] tw-px-2 tw-py-8 !tw-w-[45.75rem] tw-mx-auto"
-              :class="[item.bgColor]"
-            >
-              <div
-                class="tw-justify-left tw-mb-5 tw-flex tw-flex-row tw-items-center tw-space-x-4"
-              >
-                <img
-                  alt="development-icon"
-                  :src="item.icon"
-                  class="tw-h-10 tw-w-10 tw-object-contain md:tw-hidden"
-                  loading="lazy"
-                />
-                <span
-                  class="tw-font-inter-bold tw-text-[1.375rem] tw-leading-[1.7875rem] tw-text-black-core/[0.87] md:tw-text-[2rem] md:tw-leading-[3rem]"
-                  >{{ item.title }}</span
-                >
-              </div>
-              <div
-                class="tw-font-inter-regular tw-text-base tw-text-black-core/[0.87] md:tw-p-4 md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
-              >
-                <ul class="tw-pl-8 tw-pr-4 md:tw-hidden">
-                  <li
-                    v-for="list in item.description"
-                    :key="list"
-                    class="tw-mb-3.5 tw-list-disc"
-                  >
-                    {{ list }}
-                  </li>
-                </ul>
-                <p
-                  v-for="list in item.description"
-                  :key="list"
-                  class="tw-mb-4 tw-hidden md:tw-block"
-                >
-                  {{ list }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <span
+          class="header-2 tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full xs:tw-mx-auto xs:tw-w-[71%]"
+        >
+          Android app development services</span
+        >
+        <span
+          class="tw-mt-4 md:tw-mt-6 sub-h1-regular tw-text-black-core/[0.60]"
+          >With over a decade of expertise in Android app development, our team
+          can help you craft high- quality, user-friendly apps that drive
+          business growth and customer engagement.</span
+        >
       </div>
     </div>
-    <!-- Desktop UI End -->
-    <div
-      class="tw-h-[25vh] xl:tw-h-[50vh] 2xl:tw-h-[60vh] xll:tw-h-screen tw-w-screen"
-    ></div>
-
-    <div class="swiper-content tw-mt-8 md:tw-hidden">
+    <!-- ---------------------MOBILE UI START------------------ -->
+    <div class="swiper-content !tw-mt-6 md:tw-hidden">
       <swiper
         :slidesPerView="1.1"
         :centeredSlides="true"
         :spaceBetween="10"
-        :mousewheel="true"
         :modules="modules"
         class="swiper-container"
-        @reachEnd="handleReachEnd"
         @swiper="setSwiperRef"
         :breakpoints="{
           '768': {
@@ -138,26 +74,9 @@
           class="tw-cursor-pointer"
         >
           <div
-            class="tw-relative !-tw-mr-2 tw-mb-8 tw-mt-12 tw-hidden md:tw-block"
-          >
-            <div
-              class="tw-border-b-2 tw-border-dotted tw-border-[#000000]/[0.87] tw-text-center"
-            ></div>
-          </div>
-          <div
-            class="tw-mr-4 tw-rounded-[1.25rem] tw-px-2 tw-py-8 md:tw-w-[34.7rem] lg:tw-w-[40.75rem] xl:!tw-w-[45.75rem]"
+            class="tw-mr-4 tw-rounded-[1.25rem] tw-px-4 tw-py-6 md:tw-w-[34.7rem] lg:tw-w-[40.75rem] xl:!tw-w-[45.75rem]"
             :class="[item.bgColor]"
           >
-            <div
-              class="tw-absolute tw-left-[38%] tw-top-0 tw-hidden tw-h-20 tw-bg-white tw-text-center md:tw-block lg:tw-left-[40%]"
-            >
-              <span
-                class="tw-text-center tw-font-inter-bold tw-text-[3.75rem] tw-leading-[5.625rem]"
-              >
-                0{{ index + 1 }}</span
-              >
-            </div>
-
             <div
               class="tw-justify-left tw-mb-5 tw-flex tw-flex-row tw-items-center tw-space-x-4"
             >
@@ -167,14 +86,11 @@
                 class="tw-h-10 tw-w-10 tw-object-contain md:tw-hidden"
                 loading="lazy"
               />
-              <span
-                class="tw-font-inter-bold tw-text-[1.375rem] tw-leading-[1.7875rem] tw-text-black-core/[0.87] md:tw-text-[2rem] md:tw-leading-[3rem]"
-                >{{ item.title }}</span
-              >
+              <span class="header-3 tw-text-black-core/[0.87]">{{
+                item.title
+              }}</span>
             </div>
-            <div
-              class="tw-font-inter-regular tw-text-base tw-text-black-core/[0.87] md:tw-p-4 md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
-            >
+            <div class="sub-h3-regular tw-text-black-core/[0.60] md:tw-p-4">
               <ul class="tw-pl-8 tw-pr-4 md:tw-hidden">
                 <li
                   v-for="list in item.description"
@@ -184,18 +100,82 @@
                   {{ list }}
                 </li>
               </ul>
-              <p
-                v-for="list in item.description"
-                :key="list"
-                class="tw-mb-4 tw-hidden md:tw-block"
-              >
-                {{ list }}
-              </p>
             </div>
           </div>
         </swiper-slide>
       </swiper>
     </div>
+    <!-- ---------------------MOBILE UI END------------------ -->
+
+    <!-- ---------------------DESKTOP UI START------------------ -->
+    <div class="sticky-parent tw-hidden md:tw-block">
+      <div
+        class="sticky tw-sticky tw-top-[92px] xl:!tw-top-0 xl:tw-max-h-full main tw-overflow-hidden"
+        :class="{ 'xl:!tw-top-[95px]': isScrollingUp }"
+      >
+        <div class="tw-flex">
+          <div
+            v-for="(item, index) in items"
+            :key="index"
+            class="tw-cursor-pointer tw-mt--48 xl:tw-mt-32 xll:tw-mt-[36rem] tw-min-w-[100vw] tw-h-[900px] xl:tw-h-full"
+          >
+            <div
+              class="tw-relative !-tw-mr-2 tw-mb-12 tw-mt-[6rem] xl:tw-mt-[6.5rem] xll:tw-mt-[-15rem]"
+            >
+              <div
+                class="tw-border-b-2 tw-border-dotted tw-border-[#000000]/[0.6] tw-text-center"
+              ></div>
+            </div>
+            <div
+              class="tw-absolute tw-top-[6%] xl:tw-top-[23%] xll:tw-top-[31.5%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center md:tw-block 2xll:tw-ml-[47%] xll:tw-ml-[48%]"
+            >
+              <span class="tw-text-center header-1 tw-text-black-core/[0.87]">
+                0{{ index + 1 }}</span
+              >
+            </div>
+            <div
+              class="tw-ml-auto xll:tw-ml-[12%] xll:tw-ml-auto tw-rounded-[1.25rem] tw-p-[1.88rem] !tw-w-[39.75rem] xl:!tw-w-[45rem] tw-mx-auto"
+              :class="[item.bgColor]"
+            >
+              <div class="tw-justify-left tw-flex tw-flex-row tw-items-center">
+                <img
+                  alt="development-icon"
+                  :src="item.icon"
+                  class="tw-h-10 tw-w-10 tw-object-contain md:tw-hidden"
+                  loading="lazy"
+                />
+                <span
+                  class="tw-font-opensans-semibold tw-text-black-core/[0.87] header-3"
+                  >{{ item.title }}</span
+                >
+              </div>
+              <div class="tw-text-black-core/[0.6] sub-h3-medium">
+                <ul class="tw-pl-8 tw-pr-4 md:tw-hidden">
+                  <li
+                    v-for="list in item.description"
+                    :key="list"
+                    class="tw-mb-3.5 tw-list-disc"
+                  >
+                    {{ list }}
+                  </li>
+                </ul>
+                <p
+                  v-for="list in item.description"
+                  :key="list"
+                  class="tw-mt-4 tw-hidden md:tw-block"
+                >
+                  {{ list }}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="tw-hidden md:tw-block tw-h-[25vh] xl:tw-h-[70vh] xll:tw-h-[60vh] tw-w-screen"
+    ></div>
+    <!-- ---------------------DESKTOP UI END------------------ -->
   </div>
 </template>
 
@@ -205,15 +185,18 @@ import design from "@/assets/images/andriod-app-development/development/2.webp";
 import custom from "@/assets/images/andriod-app-development/development/3.webp";
 import app from "@/assets/images/andriod-app-development/development/4.webp";
 import maintenance from "@/assets/images/andriod-app-development/development/5.webp";
-
 import { Swiper, SwiperSlide } from "swiper/vue";
 export default {
   data() {
     return {
+      isScrollingUp: false,
+      currentCardIndex: 0,
+      scrollPosition: 0,
+      lastSlideReached: false,
       items: [
         {
           title: "Android App Development Consultation",
-          bgColor: "tw-bg-[#FFEFEF]",
+          bgColor: "tw-bg-[#F2709C]/[0.04]",
           icon: consultation,
           description: [
             "At Canopas, we believe that a successful project begins with a thorough understanding of your vision, goals, and market dynamics.",
@@ -225,7 +208,7 @@ export default {
         },
         {
           title: "Android UI/UX Design",
-          bgColor: "tw-bg-[#EFF7FF]",
+          bgColor: "tw-bg-[#F8F8F8]",
           icon: design,
           description: [
             "At Canopas, our design philosophy is centered on creating intuitive, user-friendly, and visually stunning interfaces that resonate with your target audience.",
@@ -237,7 +220,7 @@ export default {
         },
         {
           title: "Custom Android Application Development",
-          bgColor: "tw-bg-[#EEFAF0]",
+          bgColor: "tw-bg-[#F2709C]/[0.04]",
           icon: custom,
           description: [
             "Our approach to development is rooted in agility and focused collaboration.  We build in two-week sprints where our team devotes their complete energy and attention to sculpting the foundation of your app.",
@@ -249,7 +232,7 @@ export default {
         },
         {
           title: "Android App Deployment",
-          bgColor: "tw-bg-[#F4F1FC]",
+          bgColor: "tw-bg-[#F8F8F8]",
           icon: app,
           description: [
             "Launching your Android app into the marketplace involves more than just hitting 'publish'. At Canopas, we'll guide you through this crucial deployment phase with careful planning, meticulous testing, and comprehensive support.",
@@ -261,7 +244,7 @@ export default {
         },
         {
           title: "Maintenance and Support",
-          bgColor: "tw-bg-[#FDF9ED]",
+          bgColor: "tw-bg-[#F2709C]/[0.04]",
           icon: maintenance,
           description: [
             "Post-deployment, we monitor the app's performance and user feedback closely, ready to make quick updates or fixes if needed. Our maintenance and support services ensure your app stays relevant, competitive, and effective in the face of new devices, OS updates, and emerging user expectations.",
@@ -275,7 +258,7 @@ export default {
     };
   },
   mounted() {
-    document.addEventListener("scroll", horizontalScroll);
+    document.addEventListener("scroll", this.handleScroll);
 
     let sticky = document.querySelector(".sticky");
     let stickyParent = document.querySelector(".sticky-parent");
@@ -286,15 +269,39 @@ export default {
       sticky.getBoundingClientRect().height;
 
     function horizontalScroll() {
-      let stickyPosition = sticky.getBoundingClientRect().top;
-      if (stickyPosition > 1) {
-        return;
+      let scrolled = stickyParent.getBoundingClientRect().top;
+
+      if (scrolled > 0) {
+        sticky.scrollLeft = 0;
       } else {
-        let scrolled = stickyParent.getBoundingClientRect().top;
         sticky.scrollLeft =
           (scrollWidth / verticalScrollHeight) * -scrolled * 0.85;
       }
+      requestAnimationFrame(horizontalScroll);
     }
+
+    // Attach the existing horizontalScroll function separately
+    document.addEventListener("scroll", horizontalScroll);
+  },
+  beforeDestroy() {
+    document.removeEventListener("scroll", this.handleScroll);
+
+    document.removeEventListener("scroll", this.horizontalScroll);
+  },
+  methods: {
+    handleScroll() {
+      const windowHeight = window.innerHeight;
+      const lastSlide = document.querySelector(".main:last-child");
+      const lastSlidePosition = lastSlide.getBoundingClientRect().top;
+
+      if (lastSlidePosition <= windowHeight && lastSlidePosition >= 0) {
+        this.lastSlideReached = true;
+        this.isScrollingUp = window.scrollY < this.scrollPosition;
+      } else {
+        this.lastSlideReached = false;
+      }
+      this.scrollPosition = window.scrollY;
+    },
   },
   components: {
     Swiper,

@@ -70,6 +70,7 @@ module.exports = {
         "inter-semibold": ["Inter-SemiBold"],
         "inter-regular": ["Inter-Regular"],
         "opensans-bold": ["Opensans-Bold"],
+        "opensans-semibold": ["Opensans-SemiBold"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",
@@ -187,7 +188,7 @@ module.exports = {
         "multi-gradient-background":
           "linear-gradient(180deg, #1A1A1A 11.98%, #A65B5F 36.02%, #F98188 55.21%, #9B565A 73.96%, #1A1A1A 91.67%)",
         "pink-gradient-background":
-          "linear-gradient(to top , #FFDCE8 -36%, #F2709C 19.02%, #FF9472 38.21%, #FFFFFF 65.96%, #FFFFFF 91.67%)",
+          "linear-gradient(183deg, #FFF 36.43%, rgba(249, 133, 132, 0.50) 58.99%, #F47695 79.68%);",
         "gradient-background":
           "linear-gradient(to bottom, #FFFFFF , #FDE0E2 23%, #FDE0E2 88%, #FFFFFF 100%);",
         "gradient-L": "linear-gradient(178deg, #FFFFFF  68%, #f77783 40%);",

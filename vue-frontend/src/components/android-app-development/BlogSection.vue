@@ -1,20 +1,14 @@
 <template>
-  <section
-    class="section tw-my-20 md:tw-my-24 lg:tw-mb-40 lg:tw-mt-44 xll:tw-my-52"
-  >
-    <!-- Mobile UI start -->
+  <section class="section tw-mt-16 md:tw-mt-40 xl:tw-mt-60">
+    <!-- ---------------------MOBILE UI START------------------ -->
     <div
-      class="tw-relative tw-z-[1] tw-h-[27rem] tw-overflow-hidden tw-py-12 sm:tw-py-8 md:tw-hidden"
+      class="tw-relative tw-z-[1] tw-h-[27rem] sm:tw-h-[30rem] tw-overflow-hidden md:tw-hidden"
     >
-      <p
-        class="tw-text-center tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87]"
-      >
-        Our Blogs
-      </p>
-      <div class="blog tw-mt-8 tw-block md:tw-hidden">
+      <p class="tw-text-center header-2 tw-text-black-core/[0.87]">Our blogs</p>
+      <div class="blog tw-mt-6 tw-block md:tw-hidden">
         <swiper
-          :slidesPerView="2"
-          :spaceBetween="10"
+          :slidesPerView="1.425"
+          :spaceBetween="0"
           :centeredSlides="true"
           class="tw-p-4"
         >
@@ -24,20 +18,20 @@
             class="tw-relative tw-flex tw-flex-col"
           >
             <div class="tw-overflow-hidden">
-              <div class="tw-h-full tw-w-full tw-cursor-pointer">
+              <div
+                class="tw-scale-75 tw-transition-all tw-duration-200 tw-ease-out"
+              >
                 <img
                   @click="openBlog(blog.link, 'tap_android_app_blog_section')"
                   :src="blog.image[0]"
                   :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
                   :alt="blog.title"
-                  class="tw-h-full tw-w-full tw-rounded-[10px] tw-object-cover"
+                  class="tw-h-full tw-w-full tw-rounded-lg tw-object-cover"
                   loading="lazy"
                 />
               </div>
               <div class="title tw-hidden">
-                <p
-                  class="tw-mt-2 tw-pl-2 tw-font-inter-regular tw-text-[0.875rem] tw-leading-[1.3125rem] tw-text-black-core/[0.6]"
-                >
+                <p class="tw-mt-3 tw-text-black-core/[0.60]">
                   {{ blog.publishDate }}
                 </p>
                 <a
@@ -46,7 +40,7 @@
                   target="_blank"
                 >
                   <p
-                    class="tw-mt-2 tw-cursor-pointer tw-pl-2 tw-font-inter-semibold tw-text-[1.125rem] tw-leading-[1.6875rem] tw-text-black-core/[0.87]"
+                    class="tw-mt-2 tw-cursor-pointer sub-h1-semibold tw-text-black-core/[0.87]"
                   >
                     {{ blog.title }}
                   </p>
@@ -56,20 +50,15 @@
           </swiper-slide>
         </swiper>
       </div>
-      <div
-        class="tw-absolute tw-inset-0 tw-z-[0] tw-mx-auto tw-h-full tw-w-[60%] tw-rounded-[10px] tw-border tw-border-black-core/[0.60]"
-      ></div>
     </div>
+    <!-- ---------------------MOBILE UI END------------------ -->
 
-    <!-- Mobile UI end -->
-    <!-- Desktop UI start -->
+    <!-- ---------------------DSKTOP UI START------------------ -->
     <div
       class="tw-container tw-flex tw-hidden tw-flex-col md:tw-block md:tw-min-h-[580px] lg:tw-py-0"
     >
-      <p
-        class="tw-mb-8 tw-text-center tw-font-inter-bold tw-text-[3.4375rem] tw-leading-[5.15625rem] tw-text-black-core/[0.87]"
-      >
-        Our Blogs
+      <p class="tw-mb-8 tw-text-center header-2 tw-text-black-core/[0.87]">
+        Our blogs
       </p>
       <div class="tw-flex tw-flex-row tw-space-x-5 tw-space-y-1">
         <div
@@ -89,7 +78,7 @@
           </aspect-ratio>
 
           <div
-            class="overlay tw-rounded-[20px] tw-duration-700 tw-ease-in tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 tw-opacity-0 group-hover:tw-opacity-100"
+            class="tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-right-[0] tw-rounded-[18px] tw-transition-all tw-duration-700 tw-opacity-0 tw-overflow-hidden tw-w-full tw-h-0 group-hover:tw-opacity-100 group-hover:tw-h-full"
             :class="blog.bgColor"
           >
             <div
@@ -118,7 +107,7 @@
               :alt="blog.title"
             />
             <div
-              class="overlay tw-rounded-[20px] tw-duration-700 tw-ease-in tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 tw-opacity-0 group-hover:tw-opacity-100"
+              class="tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-right-[0] tw-rounded-[18px] tw-transition-all tw-duration-700 tw-opacity-0 tw-overflow-hidden tw-w-full tw-h-0 group-hover:tw-opacity-100 group-hover:tw-h-full"
               :class="blog.bgColor"
             >
               <div
@@ -150,7 +139,7 @@
             :alt="blog.title"
           />
           <div
-            class="overlay tw-rounded-[18px] tw-duration-700 tw-ease-in tw-opacity-0 tw-absolute tw-bottom-0 tw-left-0 tw-right-0 tw-overflow-hidden tw-w-full tw-h-0 group-hover:tw-opacity-100"
+            class="tw-ease tw-absolute tw-bottom-[0] tw-left-[0] tw-right-[0] tw-rounded-[18px] tw-transition-all tw-duration-700 tw-opacity-0 tw-overflow-hidden tw-w-full tw-h-0 group-hover:tw-opacity-100 group-hover:tw-h-full"
             :class="blog.bgColor"
           >
             <div
@@ -166,7 +155,7 @@
         </div>
       </div>
     </div>
-    <!-- Desktop UI end -->
+    <!-- ---------------------DESKTOP UI END------------------ -->
   </section>
 </template>
 
@@ -196,7 +185,7 @@ export default {
           image: [jacoco_400w, jacoco_800w, jacoco_desktop_400w],
           publishDate: "Sep 27, 2021",
           title: "Android code coverage using JaCoCo",
-          hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-black-core/[0.87]">Android<span><br><span class="tw-font-inter-regular tw-text-black-core/[0.87] tw-text-[1.5rem] tw-leading-[2.25rem] tw-text-black-core/[0.87]">Code coverage using JaCoCo</span>`,
+          hovertitle: `<span class="header-3 tw-text-black-core/[0.87]">Android<span><br><span class="sub-h1-regular tw-text-black-core/[0.87]">Code coverage using JaCoCo</span>`,
           link: "https://blog.canopas.com/android-code-coverage-using-jacoco-6639a1fc4293",
           bgColor: "tw-bg-gradient-to-b tw-from-[#E7E7E7] tw-to-[#DADADA]",
         },
@@ -205,7 +194,7 @@ export default {
           image: [mvvm_400w, mvvm_800w],
           publishDate: "Dec 3, 2021",
           title: "Jetpack Compose: MVVM State management in a simple way",
-          hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] xl:tw-text-[2.125rem] xl:tw-leading-[3.1875rem] tw-text-white">Jetpack Compose</span><br> MVVM State management in a simple way`,
+          hovertitle: `<span class="header-3 tw-text-white">Jetpack Compose</span><br><span class="tw-text-white sub-h1-regular">MVVM State management in a simple way</span>`,
           link: "https://blog.canopas.com/jetpack-compose-mvvm-state-management-in-a-simple-way-4c632fa6f554",
           bgColor: "tw-bg-gradient-to-b tw-from-[#282828] tw-to-[#282828]",
         },
@@ -214,7 +203,7 @@ export default {
           image: [keyboard_400w, keyboard_800w],
           publishDate: "Apr 26, 2022",
           title: "Keyboard Handling In Jetpack Compose — All You Need To Know",
-          hovertitle: `<span >Keyboard Handling In<br> <span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] xl:tw-text-[2.125rem] xl:tw-leading-[3.1875rem] tw-text-white">Jetpack Compose</span><br>All You Need To Know</span>`,
+          hovertitle: `<span class="tw-text-white sub-h1-regular">Keyboard Handling In<br> <span class="header-3 tw-text-white">Jetpack Compose</span><br><span class="tw-text-white sub-h1-regular">All You Need To Know</span></span>`,
           link: "https://blog.canopas.com/keyboard-handling-in-jetpack-compose-all-you-need-to-know-3e6fddd30d9a",
           bgColor: "tw-bg-gradient-to-b tw-from-[#070710] tw-to-[#222241]",
         },
@@ -224,7 +213,7 @@ export default {
           publishDate: "Feb 17, 2022",
           title:
             "Retrofit — Effective error handling with Kotlin Coroutine and Result API",
-          hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-white">Retrofit</span> <br><span class="tw-text-white">Effective error handling with Kotlin Coroutine and Result API</span>`,
+          hovertitle: `<span class="header-3 tw-text-white">Retrofit</span> <br><span class="tw-text-white sub-h1-regular">Effective error handling with Kotlin Coroutine and Result API</span>`,
           link: "https://blog.canopas.com/retrofit-effective-error-handling-with-kotlin-coroutine-and-result-api-405217e9a73d",
           className: "tw-basis-[54%]",
           bgColor: "tw-bg-gradient-to-b tw-from-[#282828] tw-to-[#282828]",
@@ -235,7 +224,7 @@ export default {
           publishDate: "Mar 10, 2022",
           title:
             "Android — Send live audio stream from client to server using WebSocket and OkHttp client",
-          hovertitle: `<span class="tw-font-inter-bold tw-text-[1.5rem] tw-leading-[2.1875rem] lg:tw-text-[2.125rem] lg:tw-leading-[3.1875rem] tw-text-black-core/[0.80]">Android</span><br>Send live audio stream from client to server using WebSocket and OkHttp client`,
+          hovertitle: `<span class="header-3 tw-text-black-core/[0.87]">Android</span><br><span class=" tw-text-black-core/[0.87] sub-h1-regular">Send live audio stream from client to server using WebSocket and OkHttp client</span>`,
           link: "https://blog.canopas.com/android-send-live-audio-stream-from-client-to-server-using-websocket-and-okhttp-client-ecc9f28118d9",
           className: "tw-basis-[60%] ",
           bgColor: "tw-bg-gradient-to-b tw-from-[#FEE4DF] tw-to-[#FDCCBC]",
@@ -256,12 +245,10 @@ export default {
 .swiper-slide-active .title {
   @apply tw-block tw-animate-fadeIn tw-delay-500;
 }
-
+.swiper-slide-active div {
+  @apply tw-scale-[1];
+}
 .section .blog:not(.blog) {
   @apply tw-container;
-}
-
-.content:hover .overlay {
-  @apply tw-h-full;
 }
 </style>

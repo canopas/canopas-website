@@ -1,40 +1,31 @@
 <template>
-  <div class="tw-relative tw-mb-16 tw-h-48 md:tw-h-72 xll:tw-h-[30rem]">
+  <div
+    class="tw-relative tw-mt-16 md:tw-mt-40 xl:tw-mt-16 tw-h-[217px] md:tw-h-[376px] xl:tw-h-[476px]"
+  >
     <img
       :src="BackgroundImage[0]"
       :srcset="`${BackgroundImage[0]} 400w, ${BackgroundImage[1]} 800w, ${BackgroundImage[2]} 1200w, ${BackgroundImage[3]} 2400w`"
       alt="Background-Image"
-      class="tw-h-full lg:tw-h-[22.5rem] xll:tw-h-full tw-w-full tw-object-cover"
+      class="tw-h-full tw-w-full tw-object-cover"
       loading="lazy"
     />
     <div
-      class="tw-container tw-absolute tw-top-4 tw-w-full tw-flex-col tw-items-center tw-justify-center tw-p-4 tw-text-center tw-text-[#FFF] md:tw-left-0 md:tw-top-1/2 md:tw-top-16 md:tw--mt-10 md:tw-text-center lg:!tw-left-[50%] lg:!tw-top-[72%] xll:!tw-top-[60%] lg:tw--translate-x-1/2 lg:tw--translate-y-1/2 lg:tw-transform xl:tw-w-[60%] 2xl:tw-w-[49%] xs:tw-left-[13%] xs:tw-w-[75%] xl2:tw-w-[55%] 2xll:tw-w-[45%] xll:tw-w-[61%]"
+      class="tw-container tw-absolute tw-top-4 md:tw-top-20 xl:tw-top-32 tw-w-full tw-p-4 tw-text-center tw-text-[#FFF] xs:tw-left-[13%] xll:tw-left-[24%] 3xl:tw-left-[33%] xs:tw-w-[75%]"
     >
-      <div class="tw-flex tw-w-full">
-        <div class="tw-m-auto tw-text-white">
-          <p
-            class="tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[2.625rem] md:tw-font-inter-bold md:tw-text-[3.4375rem] md:tw-leading-[4.16rem]"
-          >
-            Have an app idea?
-          </p>
+      <div class="tw-m-auto">
+        <p class="tw-text-white header-1">Have an app idea?</p>
 
-          <div
-            class="tw-font-inter-regular tw-text-base md:tw-my-4 md:tw-font-inter-medium md:tw-text-[1.5rem] md:tw-leading-[1.815625rem]"
-          >
-            See if we can make it a reality.
-          </div>
+        <div class="tw-mt-2 tw-text-white/[0.8] sub-h1-regular md:tw-my-4">
+          See if we can make it a reality.
         </div>
       </div>
-      <div class="tw-mx-auto tw-mt-4">
+      <div class="tw-flex tw-justify-center tw-mt-2">
         <router-link
-          class="gradient-btn consultation-btn tw-m-0 tw-mx-auto tw-flex tw-w-max tw-items-center tw-rounded-full tw-p-3 tw-px-7 tw-text-center"
+          class="gradient-btn primary-btn"
           to="/contact"
           @click.native="mixpanel.track('tap_android_development_cta')"
         >
-          <span
-            class="tw-mr-2.5 tw-font-inter-medium tw-text-[1rem] tw-font-normal tw-leading-[1.1875rem] md:tw-block md:tw-text-[1.09375rem] md:tw-leading-[1.3125rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
-            >Let's Chat
-          </span>
+          <span class="sub-h3-semibold xl:sub-h4-semibold">Let's Chat </span>
         </router-link>
       </div>
     </div>

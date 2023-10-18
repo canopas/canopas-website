@@ -1,24 +1,21 @@
 <template>
   <section
-    class="tw--mt-24 lg:tw--mt-48 xl:tw--mt-[32rem] 2xl:tw-mt-[-34rem] xll:tw--mt-[100rem] xll:tw-container"
+    class="tw-mt-16 md:tw--mt-24 lg:tw--mt-48 xl:tw--mt-[32rem] 2xl:tw-mt-[-30rem] xll:tw-container"
   >
     <div class="tw-container">
       <div class="tw-flex tw-flex-col tw-text-center">
+        <span class="header-2 tw-text-black-core-[0.87]">Case studies</span>
         <span
-          class="tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem] tw-text-black-core/[0.87]"
-          >Case Studies</span
-        >
-        <span
-          class="tw-py-4 tw-font-inter-regular tw-text-base tw-mx-auto md:tw-text-[1.5rem] md:tw-leading-9 tw-text-black-core/[0.60] lg:tw-w-[80%] xl:tw-w-[61%]"
+          class="tw-mt-4 md:tw-mt-6 sub-h1-regular tw-mx-auto xl:tw-text-[1.5rem] xl:tw-leading-9 tw-text-black-core/[0.60] lg:tw-w-[80%] xl:tw-w-[61%]"
           >Explore our case studies to witness how we've transformed our
           client's ideas into successful Android apps.</span
         >
       </div>
-      <!-- ---------------------Mobile UI------------------ -->
+      <!-- ---------------------MOBILE UI START------------------ -->
       <div
         v-for="item in cases"
         :key="item"
-        class="tw-mt-7 tw-relative md:tw-hidden"
+        class="tw-mt-6 tw-relative md:tw-hidden"
         :class="item.className"
       >
         <a
@@ -31,20 +28,19 @@
             :src="item.images[0]"
             :srcset="`${item.images[0]} 400w, ${item.images[1]} 800w,`"
             alt="casestudy-image"
-            class="tw-w-full tw-h-full tw-object-cover tw-mt-7"
+            class="tw-w-full tw-h-full tw-object-cover"
             loading="lazy"
           />
 
           <div
             :class="item.textalign"
-            class="tw-absolute tw-bottom-[10%] tw-flex tw-flex-col tw-text-black-core/[0.87]"
+            class="tw-absolute tw-bottom-4 tw-flex tw-flex-col"
           >
+            <span class="header-2 tw-text-black-core/[0.87]">{{
+              item.title
+            }}</span>
             <span
-              class="tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[1.7875rem]"
-              >{{ item.title }}</span
-            >
-            <span
-              class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.4rem]"
+              class="tw-mt-2 sub-h3-regular tw-text-black-core/[0.6]"
               v-html="item.content"
             ></span>
           </div>
@@ -53,46 +49,37 @@
       <div
         v-for="item in cta"
         :key="item"
-        class="tw-mt-7 tw-relative md:tw-hidden"
+        class="tw-mt-16 tw-relative md:tw-hidden"
         :class="item.className"
       >
         <img
           :src="item.images[0]"
           :srcset="`${item.images[0]} 400w, ${item.images[1]} 800w,`"
           alt="casestudy-image"
-          class="tw-w-full tw-h-full tw-object-cover tw-mt-7"
+          class="tw-w-full tw-h-full tw-object-cover"
           loading="lazy"
         />
         <div
           :class="item.textalign"
-          class="tw-absolute tw--mt-3 xs:tw-mt-0 tw-bottom-[10%] tw-flex tw-flex-col tw-text-black-core/[0.87]"
+          class="tw-absolute tw--mt-2 xs:tw-mt-0 tw-bottom-[1.53rem] tw-flex tw-flex-col tw-text-black-core/[0.87]"
         >
-          <span
-            class="tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[1.7875rem]"
-            >{{ item.title }}</span
-          >
-          <span
-            class="tw-font-inter-regular tw-text-[1rem] tw-leading-[1.4rem]"
-            v-html="item.content"
-          ></span>
-          <div class="tw-mt-4 tw-flex tw-flex-wrap tw-justify-center">
+          <span class="sub-h3-regular" v-html="item.content"></span>
+          <div class="tw-mt-2 tw-flex tw-flex-wrap tw-justify-center">
             <router-link
-              class="white-btn gradient-border-btn tw-flex tw-h-[2.8125rem] tw-w-max tw-items-center tw-rounded-full tw-border-none"
+              class="white-btn gradient-border-btn primary-btn tw-border-none"
               to="/contact"
               @click.native="mixpanel.track('tap_android_development_cta4')"
             >
-              <span
-                class="tw-font-inter-semibold tw-text-[1rem] tw-font-normal tw-leading-[1.21rem] !tw-tracking-[0] md:tw-text-[1.09375rem] md:tw-text-[1.1875rem] md:tw-leading-[1.3125rem] md:tw-leading-[1.4375rem] lg:tw-text-[1.1875rem] lg:tw-leading-[1.4375rem]"
-                >Inquire Now</span
-              >
+              <span class="sub-h3-semibold">Inquire Now</span>
             </router-link>
           </div>
         </div>
       </div>
-
-      <!-- ------------------------ MobileUI END---------------------- -->
     </div>
-    <div class="tw-hidden md:tw-block tw-bg-[#F6F6F6] tw-mt-14">
+    <!-- ------------------------ MOBILE UI END---------------------- -->
+
+    <!-- ---------------------DESKTOP UI START------------------ -->
+    <div class="tw-hidden md:tw-block tw-bg-[#F6F6F6] tw-mt-[4.5rem]">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
@@ -105,19 +92,18 @@
         :spaceBetween="20"
         :navigation="true"
         :modules="modules"
+        @autoplayTimeLeft="onAutoplayTimeLeft"
         class="swiper-container xll:tw-container"
       >
         <swiper-slide v-for="item in cases" :key="item">
           <div
-            class="tw-flex tw-flex-row xl:tw-px-[4rem] tw-py-[6rem] tw-w-[91%] 2xl:tw-w-[77%] 2xll:tw-w-[72%] xll:tw-w-[91%] tw-mx-auto"
+            class="tw-flex tw-flex-row xl:tw-px-16 tw-py-24 tw-w-[91%] 2xl:tw-w-[77%] 2xll:tw-w-[72%] xll:tw-w-[91%] tw-mx-auto"
           >
             <div
               class="tw-flex tw-flex-col tw-w-[77%] xl:tw-w-[48%] 2xll:tw-w-[50%] lg:tw-mr-auto xll:tw-ml-auto"
             >
-              <div class="tw-mb-4">
-                <span
-                  class="v2-canopas-gradient-text tw-text-left tw-font-inter-medium tw-text-[1.5rem] tw-leading-[1.816rem]"
-                >
+              <div>
+                <span class="tw-text-[#FF9472] tw-text-left sub-h3-semibold">
                   {{ item.title }}
                 </span>
               </div>
@@ -128,12 +114,12 @@
                 :target="item.target"
               >
                 <h2
-                  class="tw-mb-[1rem] tw-font-inter-semibold tw-text-[2rem] tw-leading-[2.7375rem] lg:tw-text-[2.875rem] lg:tw-leading-[3.7375rem]"
+                  class="tw-mt-4 tw-font-opensans-semibold header-3 tw-text-black-core/[0.87]"
                   v-html="item.deskcontent"
                 ></h2
               ></a>
               <span
-                class="tw-text-black-core/[0.60] tw-font-inter-medium tw-text-[1rem] tw-leading-[1.575rem] lg:tw-text-[1.25rem] lg:tw-leading-[1.875rem]"
+                class="tw-mt-4 tw-text-black-core/[0.6] sub-h3-medium"
                 v-html="item.description"
               ></span>
 
@@ -149,37 +135,33 @@
                 <div class="tw-inline-flex tw-p-2 lg:tw-p-4">
                   <div class="tw-p-[0.8rem]">
                     <span
-                      class="tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
+                      class="tw-font-opensans-semibold header-3 tw-text-[#FF9472]"
                       >{{ item.resultcount[0] }}</span
                     >
                     <div
-                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-4 lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
+                      class="tw-flex-1 tw-text-black-core-[0.87] sub-h3-regular"
                     >
                       <span>Downloads</span>
                     </div>
                   </div>
-                  <div
-                    class="tw-border-l-[0.5px] tw-border-black-core/[0.6] tw-p-[0.8rem]"
-                  >
+                  <div class="tw-border-l-[0.5px] tw-p-[0.8rem]">
                     <span
-                      class="tw-font-inter-semibold tw-text-[1rem] lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
+                      class="tw-font-opensans-semibold header-3 tw-text-[#FF9472]"
                       >{{ item.resultcount[1] }}</span
                     >
                     <div
-                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-4 lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
+                      class="tw-flex-1 tw-text-black-core-[0.87] sub-h3-regular"
                     >
                       <span>App Rating</span>
                     </div>
                   </div>
-                  <div
-                    class="tw-border-l-[0.5px] tw-border-black-core/[0.6] tw-p-[0.8rem]"
-                  >
+                  <div class="tw-border-l-[0.5px] tw-p-[0.8rem]">
                     <span
-                      class="tw-font-inter-semibold lg:tw-text-[2.125rem] tw-leading-[1.7625rem] lg:tw-leading-[2.7625rem] v2-canopas-gradient-text"
+                      class="tw-font-opensans-semibold header-3 tw-text-[#FF9472]"
                       >{{ item.resultcount[2] }}</span
                     >
                     <div
-                      class="tw-flex-1 tw-font-inter-regular tw-text-[1rem] tw-leading-4 lg:tw-text-[1.25rem] lg:tw-leading-[1.625rem]"
+                      class="tw-flex-1 tw-text-black-core-[0.87] sub-h3-regular"
                     >
                       <span>Monthly Users</span>
                     </div>
@@ -203,8 +185,17 @@
             </div>
           </div>
         </swiper-slide>
+        <div
+          class="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-1 tw-bg-black-core/[0.08]"
+        >
+          <div
+            class="progressbar tw-h-1 tw-bg-gradient-to-r tw-from-[#FF835B] tw-to-[#F2709C] tw-rounded-xl"
+            ref="progressBar"
+          ></div>
+        </div>
       </swiper>
     </div>
+    <!-- ---------------------DESKTOP UI END------------------ -->
   </section>
 </template>
 
@@ -231,9 +222,18 @@ import smileplus_800w from "@/assets/images/andriod-app-development/casestudy/de
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import config from "@/config.js";
+import { ref } from "vue";
+
 export default {
-  data() {
+  setup() {
+    const progressBar = ref(null);
+    const onAutoplayTimeLeft = (s, time, progress) => {
+      progressBar.value.style.setProperty("--progress", `${progress * 100}%`);
+    };
+
     return {
+      onAutoplayTimeLeft,
+      progressBar,
       resultsimage,
       modules: [Autoplay],
       cases: [
@@ -309,7 +309,7 @@ export default {
       cta: [
         {
           title: "",
-          content: `"Let’s Start a <span class="tw-text-black-core/[0.87] tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[2.0625rem]">New Project</span> Together"`,
+          content: `Let’s Start a <span class="header-2">New Project</span> Together`,
           images: [cta_400w, cta_800w],
           className: "tw-text-center ",
           textalign:
@@ -325,3 +325,11 @@ export default {
   inject: ["mixpanel"],
 };
 </script>
+<style lang="postcss">
+@import "swiper/css";
+@import "swiper/css/pagination";
+.progressbar {
+  width: calc(100% - var(--progress, 0%));
+  transition: width 0.04s ease;
+}
+</style>
