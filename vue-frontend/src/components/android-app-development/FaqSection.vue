@@ -1,18 +1,17 @@
 <template>
-  <section>
+  <section class="sm:tw-mt-16 md:tw-mt-40 xl:tw-mt-60">
     <div
       class="tw-mb-4 tw-bg-pink-gradient-background md:tw-container md:tw-bg-none"
     >
       <div
         class="tw-mx-[2%] tw-my-0 tw-flex tw-flex-col tw-gap-4 md:tw-my-0 md:-tw-ml-8"
       >
-        <div class="tw-mb-4 tw-text-center">
-          <span
-            class="tw-font-inter-bold tw-text-[1.875rem] tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:tw-text-[3.4375rem] md:tw-leading-[5.15625rem]"
-            >FAQs on Android App Development</span
+        <div class="tw-text-center">
+          <span class="header-2 tw-text-black-core/[0.87]"
+            >FAQs on android app development</span
           >
         </div>
-        <div class="tw-mx-auto">
+        <div class="tw-mt-6 tw-mx-auto">
           <img
             :src="faqImage"
             loading="lazy"
@@ -21,15 +20,13 @@
           />
         </div>
         <div
-          class="tw-container tw--mt-8 tw-flex-[67%] tw-pb-16 md:tw-w-[65rem]"
+          class="tw-container tw--mt-8 tw-flex-[67%] md:tw-pb-16 md:tw-w-[65rem]"
         >
           <div class="md:tw-pl-[30px]">
             <transition-group tag="div" :name="'faq-' + faqTransitionName">
-              <div
-                class="faq-section tw-mt-12 tw-h-auto tw-min-h-[28rem] sm:tw-min-h-[33rem]"
-              >
+              <div class="faq-section tw-mt-12 tw-h-auto">
                 <div
-                  class="tw-mt-6"
+                  class="tw-mt-3 md:tw-mt-6"
                   v-for="faq in faqs.slice(sliceFrom, sliceTo)"
                   :key="faq"
                 >
@@ -39,7 +36,7 @@
                   >
                     <div class="faq-header tw-flex tw-flex-row tw-items-center">
                       <div
-                        class="faq-question tw-w-[90%] tw-font-inter-semibold tw-text-[1.125rem] tw-leading-[1.6875rem] md:tw-text-[1.5rem] lg:tw-text-[1.75rem] md:tw-leading-[2rem] lg:tw-leading-[2.625rem]"
+                        class="faq-question tw-w-[90%] sub-h1-semibold"
                         :class="
                           openList && faq.id == currentIndex
                             ? 'v2-canopas-gradient-text footer-icon'
@@ -76,7 +73,7 @@
                         :key="faq.answer"
                       >
                         <div
-                          class="faq-answer tw-mt-4 tw-w-[90%] tw-animate-fadeIn tw-font-inter-regular tw-text-base tw-text-black-core/[0.87] md:tw-text-[1.25rem] md:tw-leading-[1.875rem]"
+                          class="faq-answer tw-mt-4 tw-w-[90%] tw-animate-fadeIn sub-h3-regular tw-text-black-core/[0.87]"
                           v-html="faq.answer"
                         ></div>
                       </div>
@@ -86,41 +83,129 @@
                 </div>
               </div>
             </transition-group>
+            <collapse-transition>
+              <transition-group
+                tag="div"
+                :name="'faq-' + faqTransitionName"
+                v-if="showAdditionalFAQs"
+              >
+                <div class="faq-section tw-h-auto">
+                  <div
+                    class="tw-mt-3"
+                    v-for="faq in faqs.slice(5, 10)"
+                    :key="faq"
+                  >
+                    <div
+                      class="faq-container tw-cursor-pointer tw-overflow-hidden tw-rounded-[5px] tw-bg-white tw-p-[15px] tw-shadow-md sm:tw-p-[25px]"
+                      @click="expandListItem(faq.id)"
+                    >
+                      <div
+                        class="faq-header tw-flex tw-flex-row tw-items-center"
+                      >
+                        <div
+                          class="faq-question tw-w-[90%] sub-h1-semibold"
+                          :class="
+                            openList && faq.id == currentIndex
+                              ? 'v2-canopas-gradient-text footer-icon'
+                              : 'tw-text-black-core/[0.87]'
+                          "
+                        >
+                          {{ faq.question }}
+                        </div>
+                        <div
+                          class="faq-icon tw-w-[10%] tw-text-end"
+                          @click.native="
+                            mixpanel.track('tap_android_app_faq_questions')
+                          "
+                        >
+                          <font-awesome-icon
+                            class="xmark tw-text-black-core/[0.87]"
+                            :class="
+                              openList && faq.id == currentIndex
+                                ? 'footer-icon'
+                                : 'tw-text-black-core/[0.87]'
+                            "
+                            :icon="
+                              openList && faq.id == currentIndex
+                                ? 'xmark'
+                                : 'plus'
+                            "
+                          />
+                        </div>
+                      </div>
+                      <collapse-transition>
+                        <div
+                          class="faq-header tw-flex tw-flex-row tw-items-center"
+                          v-if="openList && faq.id == currentIndex"
+                          :key="faq.answer"
+                        >
+                          <div
+                            class="faq-answer tw-mt-4 tw-w-[90%] tw-animate-fadeIn sub-h3-regular tw-text-black-core/[0.87]"
+                            v-html="faq.answer"
+                          ></div>
+                        </div>
+                      </collapse-transition>
+                      <div
+                        class="faq-divider"
+                        v-if="faq.id != faq.length"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </transition-group>
+            </collapse-transition>
+            <div class="tw-mx-auto tw-my-8 md:tw-hidden">
+              <div
+                class="tw-border tw-border-white primary-btn"
+                @click="showAdditionalFAQs = !showAdditionalFAQs"
+              >
+                <span class="tw-text-white sub-h3-semibold"
+                  >{{ showAdditionalFAQs ? "View Less" : "View More" }}
+                </span>
+                <font-awesome-icon
+                  class="tw-ml-2 tw-mt-1 fab tw-w-4 tw-h-4 tw-text-white"
+                  :icon="showAdditionalFAQs ? faAngleUp : faAngleDown"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="tw-container tw--mt-8 tw-pr-4 tw-text-right md:tw-pr-6 md:tw-pt-4 xl:tw-pr-20 2xl:tw-pr-44"
+      class="tw-hidden md:tw-block tw-container tw--mt-8 tw-pr-4 tw-text-right md:tw-pr-6 md:tw-pt-4 xl:tw-pr-20 2xl:tw-pr-44"
     >
       <button
         v-if="isActivePrev"
         type="button"
         :disabled="!isActivePrev"
-        class="clients-indicators tw-mx-1 tw-my-0 tw-cursor-pointer tw-drop-shadow-md sm:tw-mx-2"
+        class="tw-h-12 tw-flex tw-ml-auto tw-items-center tw-text-center"
         @click="slide(-1)"
         @click.native="mixpanel.track('tap_android_app_faq_previous_arrow')"
         aria-label="leftArrow"
       >
         <font-awesome-icon
           :class="isActivePrev ? 'footer-icon' : ''"
-          class="arrow tw-h-3.5 tw-w-3.5 tw-rounded-full tw-border-[#3d3d3d26] tw-bg-white tw-p-2.5 tw-drop-shadow-md md:tw-h-5 md:tw-w-5"
+          class="tw-mr-2 tw-h-5 tw-w-5"
           icon="arrow-left"
           id="leftArrow"
-        />
+        /><span class="v2-canopas-gradient-text sub-h4-semibold">Back</span>
       </button>
       <button
         v-else
         type="button"
+        class="tw-h-12 tw-flex tw-ml-auto tw-items-center tw-text-center"
         :disabled="!isActiveNext"
-        class="clients-indicators tw-mx-1 tw-my-0 tw-cursor-pointer tw-drop-shadow-md tw-drop-shadow-md sm:tw-mx-2"
         @click="slide(1)"
         @click.native="mixpanel.track('tap_android_app_faq_next_arrow')"
         aria-label="rightArrow"
       >
+        <span class="v2-canopas-gradient-text sub-h4-semibold"
+          >View More Questions</span
+        >
         <font-awesome-icon
           :class="isActiveNext ? 'footer-icon' : ''"
-          class="arrow tw-h-3.5 tw-w-3.5 tw-rounded-full tw-bg-white tw-p-2.5 tw-drop-shadow-md md:tw-h-5 md:tw-w-5"
+          class="tw-ml-2 tw-h-5 tw-w-5"
           icon="arrow-right"
           id="rightArrow"
         />
@@ -133,12 +218,16 @@
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import faqImage from "@/assets/images/andriod-app-development/faq.webp";
+import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 const TOTAL_FAQ_IN_SLIDE = 5;
 
 export default {
   data() {
     return {
+      faAngleUp,
+      faAngleDown,
+      showAdditionalFAQs: false,
       faqImage: faqImage,
       faqs: [
         {

@@ -128,35 +128,4 @@ a {
 .v2-button:hover > .fa {
   @apply tw-text-[#fff];
 }
-.gradient-btn {
-  @apply tw-mb-0 tw-ml-auto tw-mr-auto tw-mt-5 tw-rounded-[0.6rem] tw-border tw-border-solid tw-border-transparent tw-from-[#ff835b] tw-to-[#f2709c] tw-p-4 tw-text-center tw-text-white tw-bg-gradient-[270.11deg] hover:tw-bg-gradient-to-r hover:tw-from-[#ff9472] hover:tw-via-[#ff909c] hover:tw-to-[#f2709c] hover:tw-shadow-[inset_2px_1000px_1px_#fff] active:tw-scale-[0.98] lg:tw-mb-0 lg:tw-ml-2 lg:tw-mr-2 lg:tw-mt-5 lg:tw-px-4 lg:tw-py-4;
-}
-.gradient-btn > span {
-  @apply tw-mx-1.5 tw-my-0 tw-font-bold;
-}
-.gradient-btn:hover > a > span,
-.gradient-btn:hover > span {
-  @apply tw-from-[#f2709c] tw-to-[#ff9472] tw-bg-clip-text tw-text-transparent tw-bg-gradient-[89.88deg];
-}
-.white-btn > span {
-  @apply tw-from-[#FF835B] tw-to-[#F2709C] tw-bg-clip-text tw-text-transparent tw-bg-gradient-[270.11deg];
-}
-.gradient-btn:hover > .fa,
-.gradient-btn:hover > .fas,
-.gradient-btn:hover > a > .fab {
-  @apply tw-text-[#f2709c];
-}
-.gradient-border-btn {
-  @apply tw-m-[5px] tw-rounded-[0.6rem] tw-border tw-border-solid tw-border-transparent tw-bg-gradient-to-r tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-p-[1rem] tw-text-center tw-shadow-[inset_2px_1000px_1px_#fff] hover:tw-border hover:tw-border-solid hover:tw-border-transparent hover:tw-from-[#f2709c] hover:tw-to-[#ff9472] hover:tw-shadow-none hover:tw-bg-gradient-[91.53deg] active:tw-scale-[0.98];
-}
-.gradient-border-btn > a > .fab {
-  @apply tw-text-[#f2709c];
-}
-.gradient-border-btn:hover > .arrow,
-.gradient-border-btn:hover > .fa,
-.gradient-border-btn:hover > a > .fab,
-.gradient-border-btn:hover > span,
-.gradient-border-btn:hover > span > span {
-  @apply tw-text-white;
-}
 </style>
