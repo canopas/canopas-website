@@ -1,10 +1,10 @@
 <template>
   <section class="sm:tw-mt-16 md:tw-mt-40 xl:tw-mt-60">
     <div
-      class="tw-mb-4 tw-bg-pink-gradient-background md:tw-container md:tw-bg-none"
+      class="tw-mb-4 tw-bg-pink-gradient-background lg:tw-container lg:tw-bg-none"
     >
       <div
-        class="tw-mx-[2%] tw-my-0 tw-flex tw-flex-col tw-gap-4 md:tw-my-0 md:-tw-ml-8"
+        class="tw-mx-[2%] tw-my-0 tw-flex tw-flex-col tw-gap-4 lg:tw-my-0 lg:-tw-ml-8"
       >
         <div class="tw-text-center">
           <span class="header-2 tw-text-black-core/[0.87]"
@@ -16,17 +16,17 @@
             :src="faqImage"
             loading="lazy"
             alt="frequently-asked-questions-image"
-            class="tw-h-full tw-w-[20.25rem] tw-object-cover md:-tw-mb-10 md:tw-w-[25.75rem] md:tw-w-[412px]"
+            class="tw-h-full tw-w-[20.25rem] tw-object-cover lg:-tw-mb-10 lg:tw-w-[25.75rem] lg:tw-w-[412px]"
           />
         </div>
         <div
-          class="tw-container tw--mt-8 tw-flex-[67%] md:tw-pb-16 md:tw-w-[65rem]"
+          class="tw-container tw--mt-8 tw-flex-[67%] lg:tw-pb-16 lg:tw-w-[65rem]"
         >
-          <div class="md:tw-pl-[30px]">
+          <div class="lg:tw-pl-[30px]">
             <transition-group tag="div" :name="'faq-' + faqTransitionName">
               <div class="faq-section tw-mt-12 tw-h-auto">
                 <div
-                  class="tw-mt-3 md:tw-mt-6"
+                  class="tw-mt-3 lg:tw-mt-6"
                   v-for="faq in faqs.slice(sliceFrom, sliceTo)"
                   :key="faq"
                 >
@@ -154,7 +154,7 @@
                 </div>
               </transition-group>
             </collapse-transition>
-            <div class="tw-mx-auto tw-my-8 md:tw-hidden">
+            <div class="tw-mx-auto tw-my-8 lg:tw-hidden">
               <div
                 class="tw-border tw-border-white primary-btn"
                 @click="showAdditionalFAQs = !showAdditionalFAQs"
@@ -173,7 +173,7 @@
       </div>
     </div>
     <div
-      class="tw-hidden md:tw-block tw-container tw--mt-8 tw-pr-4 tw-text-right md:tw-pr-6 md:tw-pt-4 xl:tw-pr-20 2xl:tw-pr-44"
+      class="tw-hidden lg:tw-block tw-container tw--mt-8 tw-pr-4 tw-text-right lg:tw-pr-6 lg:tw-pt-4 xl:tw-pr-20 2xl:tw-pr-44"
     >
       <button
         v-if="isActivePrev"

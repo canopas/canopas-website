@@ -2,10 +2,10 @@
   <section class="section tw-mt-16 md:tw-mt-40 xl:tw-mt-60">
     <!-- ---------------------MOBILE UI START------------------ -->
     <div
-      class="tw-relative tw-z-[1] tw-h-[27rem] sm:tw-h-[30rem] tw-overflow-hidden md:tw-hidden"
+      class="tw-relative tw-z-[1] tw-h-[27rem] sm:tw-h-[30rem] tw-overflow-hidden lg:tw-hidden"
     >
       <p class="tw-text-center header-2 tw-text-black-core/[0.87]">Our blogs</p>
-      <div class="blog tw-mt-6 tw-block md:tw-hidden">
+      <div class="blog tw-mt-6 tw-block lg:tw-hidden">
         <swiper
           :slidesPerView="1.425"
           :spaceBetween="0"
@@ -55,7 +55,7 @@
 
     <!-- ---------------------DSKTOP UI START------------------ -->
     <div
-      class="tw-container tw-flex tw-hidden tw-flex-col md:tw-block md:tw-min-h-[580px] lg:tw-py-0"
+      class="tw-container tw-flex tw-hidden tw-flex-col lg:tw-block lg:tw-min-h-[580px] lg:tw-py-0"
     >
       <p class="tw-mb-8 tw-text-center header-2 tw-text-black-core/[0.87]">
         Our blogs
@@ -65,7 +65,7 @@
           @click="openBlog(blog.link, 'tap_android_app_blog_section')"
           v-for="blog in blogs.slice(0, 1)"
           :key="blog"
-          class="content tw-group tw-relative tw-mt-[1.3rem] tw-flex tw-basis-[55%] lg:tw-basis-[54.3%] xl:tw-basis-[53.6%] tw-cursor-pointer tw-flex-col tw-rounded-[20px]"
+          class="content tw-group tw-relative tw-mt-[1.3rem] tw-flex tw-basis-[54.3%] xl:tw-basis-[53.6%] tw-cursor-pointer tw-flex-col tw-rounded-[20px]"
         >
           <aspect-ratio height="96%">
             <img

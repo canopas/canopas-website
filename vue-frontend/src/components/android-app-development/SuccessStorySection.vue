@@ -6,7 +6,7 @@
       </h2>
       <!-- ---------------------MOBILE UI START------------------ -->
       <div
-        class="md:tw-hidden tw-container tw-my-8 tw-h-[700px] tw-relative tw-overflow-hidden"
+        class="lg:tw-hidden tw-container tw-my-8 tw-h-[700px] tw-relative tw-overflow-hidden"
       >
         <div
           class="tw-w-full tw--mt-4 tw-overflow-y-scroll hidden-scrollbar before:tw-z-[9] before:tw-blur-lg before:tw-absolute before:tw-left-0 before:tw-h-[8%] before:tw-w-full before:tw-bg-white-gradient"
@@ -69,9 +69,9 @@
       <!-- ---------------------MOBILE UI END------------------ -->
 
       <!-- ---------------------DESKTOP UI START------------------ -->
-      <div class="tw-hidden md:tw-block">
+      <div class="tw-hidden lg:tw-block">
         <h2
-          class="testimonial tw-opacity-[5%] tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2 tw-absolute tw-tracking-wide tw-font-black tw-font-inter-bold tw-text-[7.5rem] lg:tw-text-[9.5rem] xl:tw-text-[11.75rem] 2xl:tw-text-[13.75rem] xl:tw-leading-[20.625rem] tw-text-black-core/[0.4] tw-text-center"
+          class="testimonial tw-opacity-[5%] tw-top-1/2 tw-left-1/2 tw-transform tw--translate-x-1/2 tw--translate-y-1/2 tw-absolute tw-tracking-wide tw-font-black tw-font-inter-bold tw-text-[9.5rem] xl:tw-text-[11.75rem] 2xl:tw-text-[13.75rem] xl:tw-leading-[20.625rem] tw-text-black-core/[0.4] tw-text-center"
         >
           Testimonials
         </h2>
@@ -91,7 +91,7 @@
             }"
             :loop="true"
             :modules="modules"
-            class="swiper-container tw-h-[600px] lg:tw-h-[700px] tw-flex tw-items-center tw-justify-center"
+            class="swiper-container tw-h-[700px] tw-flex tw-items-center tw-justify-center"
           >
             <swiper-slide
               v-for="(client, index) in client"

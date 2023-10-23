@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-relative tw-mt-16 md:tw-mt-40 xl:tw-mt-16 tw-h-[217px] md:tw-h-[376px] xl:tw-h-[476px]"
+    class="tw-relative tw-mt-16 md:tw-mt-40 xl:tw-mt-16 tw-h-[217px] md:tw-h-[376px] xl:tw-h-[476px] 3xl:tw-outer-container"
   >
     <img
       :src="BackgroundImage[0]"
@@ -10,7 +10,7 @@
       loading="lazy"
     />
     <div
-      class="tw-container tw-absolute tw-top-4 md:tw-top-20 xl:tw-top-32 tw-w-full tw-p-4 tw-text-center tw-text-[#FFF] xs:tw-left-[13%] xll:tw-left-[24%] 3xl:tw-left-[33%] xs:tw-w-[75%]"
+      class="tw-container tw-absolute tw-top-4 md:tw-top-20 xl:tw-top-32 tw-w-full tw-p-4 tw-text-center tw-text-[#FFF] xs:tw-left-[13%] xll:tw-left-[24%] xs:tw-w-[75%]"
     >
       <div class="tw-m-auto">
         <p class="tw-text-white header-1">Have an app idea?</p>
