@@ -6,12 +6,12 @@
       </template>
     </metainfo>
     <Header />
-    <div class="xll:tw-bg-black-core/[90%]">
+    <div class="xll:tw-bg-black-core/[90%] 3xl:tw-bg-white">
       <LandingSection ref="landing" />
     </div>
     <DevelopmentSection ref="development" />
     <CaseStudy ref="casestudy" />
-    <PinkCtaSection ref="cta1" class="tw-hidden md:tw-block" />
+    <PinkCtaSection ref="cta1" class="tw-hidden lg:tw-block" />
     <SuccessStorySection ref="successstory" />
     <BlackCtaSection ref="cta2" />
     <BlogSection ref="blog" />

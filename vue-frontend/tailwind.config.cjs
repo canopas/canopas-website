@@ -252,6 +252,14 @@ module.exports = {
             maxWidth: "1320px",
           },
         },
+        ".outer-container": {
+          margin: "auto",
+          padding: "0 0.75rem",
+          maxWidth: "100%",
+          "@screen 3xl": {
+            maxWidth: "2550px",
+          },
+        },
       });
     },
   ],

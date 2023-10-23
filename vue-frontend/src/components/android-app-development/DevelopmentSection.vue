@@ -3,15 +3,17 @@
     <div
       class="xl:tw-h-[0vh] xl:!tw-sticky"
       :class="{
-        'xl:!tw-top-0': lastSlideReached && !isScrollingUp,
-        'xl:!tw-top-[7.5rem]': lastSlideReached && isScrollingUp,
+        'xl:!tw-top-[128px] 3xl:!tw-top-[500px]':
+          lastSlideReached && !isScrollingUp,
+        'xl:!tw-top-[8rem] 3xl:!tw-top-[500px]':
+          lastSlideReached && isScrollingUp,
       }"
     >
       <div
         class="tw-container tw-flex tw-flex-col tw-text-center xll:tw--mb-72"
       >
         <span
-          class="header-2 tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full xs:tw-mx-auto xs:tw-w-[71%]"
+          class="header-2 tw-text-black-core/[0.87] lg:!tw-mx-0 lg:!tw-w-full xs:tw-mx-auto xs:tw-w-[71%]"
         >
           Android app development services</span
         >
@@ -24,7 +26,7 @@
       </div>
     </div>
     <!-- ---------------------MOBILE UI START------------------ -->
-    <div class="swiper-content !tw-mt-6 md:tw-hidden">
+    <div class="swiper-content !tw-mt-6 md:!tw-mt-12 lg:tw-hidden">
       <swiper
         :slidesPerView="1.1"
         :centeredSlides="true"
@@ -83,15 +85,15 @@
               <img
                 alt="development-icon"
                 :src="item.icon"
-                class="tw-h-10 tw-w-10 tw-object-contain md:tw-hidden"
+                class="tw-h-10 tw-w-10 tw-object-contain lg:tw-hidden"
                 loading="lazy"
               />
               <span class="header-3 tw-text-black-core/[0.87]">{{
                 item.title
               }}</span>
             </div>
-            <div class="sub-h3-regular tw-text-black-core/[0.60] md:tw-p-4">
-              <ul class="tw-pl-8 tw-pr-4 md:tw-hidden">
+            <div class="sub-h3-regular tw-text-black-core/[0.60] lg:tw-p-4">
+              <ul class="tw-pl-8 tw-pr-4 lg:tw-hidden">
                 <li
                   v-for="list in item.description"
                   :key="list"
@@ -108,10 +110,10 @@
     <!-- ---------------------MOBILE UI END------------------ -->
 
     <!-- ---------------------DESKTOP UI START------------------ -->
-    <div class="sticky-parent tw-hidden md:tw-block">
+    <div class="sticky-parent tw-hidden lg:tw-block">
       <div
-        class="sticky tw-sticky tw-top-[92px] xl:!tw-top-0 xl:tw-max-h-full main tw-overflow-hidden"
-        :class="{ 'xl:!tw-top-[95px]': isScrollingUp }"
+        class="sticky tw-sticky tw-top-[92px] xl:!tw-top-[100px] 3xl:!tw-top-[470px] xl:tw-max-h-full main tw-overflow-hidden"
+        :class="{ 'xl:!tw-top-[100px]': isScrollingUp }"
       >
         <div class="tw-flex">
           <div
@@ -127,7 +129,7 @@
               ></div>
             </div>
             <div
-              class="tw-absolute tw-top-[6%] xl:tw-top-[23%] xll:tw-top-[31.5%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center md:tw-block 2xll:tw-ml-[47%] xll:tw-ml-[48%]"
+              class="tw-absolute tw-top-[7%] xl:tw-top-[23%] xll:tw-top-[31.5%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center lg:tw-block 2xll:tw-ml-[47%] xll:tw-ml-[48%]"
             >
               <span class="tw-text-center header-1 tw-text-black-core/[0.87]">
                 0{{ index + 1 }}</span
@@ -141,7 +143,7 @@
                 <img
                   alt="development-icon"
                   :src="item.icon"
-                  class="tw-h-10 tw-w-10 tw-object-contain md:tw-hidden"
+                  class="tw-h-10 tw-w-10 tw-object-contain lg:tw-hidden"
                   loading="lazy"
                 />
                 <span
@@ -150,7 +152,7 @@
                 >
               </div>
               <div class="tw-text-black-core/[0.6] sub-h3-medium">
-                <ul class="tw-pl-8 tw-pr-4 md:tw-hidden">
+                <ul class="tw-pl-8 tw-pr-4 lg:tw-hidden">
                   <li
                     v-for="list in item.description"
                     :key="list"
@@ -162,7 +164,7 @@
                 <p
                   v-for="list in item.description"
                   :key="list"
-                  class="tw-mt-4 tw-hidden md:tw-block"
+                  class="tw-mt-4 tw-hidden lg:tw-block"
                 >
                   {{ list }}
                 </p>
@@ -173,7 +175,7 @@
       </div>
     </div>
     <div
-      class="tw-hidden md:tw-block tw-h-[25vh] xl:tw-h-[70vh] xll:tw-h-[60vh] tw-w-screen"
+      class="tw-hidden lg:tw-block tw-h-[25vh] xl:tw-h-[70vh] xll:tw-h-[60vh] tw-w-screen"
     ></div>
     <!-- ---------------------DESKTOP UI END------------------ -->
   </div>
@@ -258,6 +260,7 @@ export default {
     };
   },
   mounted() {
+    this.width = window.innerWidth;
     document.addEventListener("scroll", this.handleScroll);
 
     let sticky = document.querySelector(".sticky");
@@ -293,8 +296,11 @@ export default {
       const windowHeight = window.innerHeight;
       const lastSlide = document.querySelector(".main:last-child");
       const lastSlidePosition = lastSlide.getBoundingClientRect().top;
-
-      if (lastSlidePosition <= windowHeight && lastSlidePosition >= 0) {
+      let threshold = windowHeight * 0.2;
+      if (this.width < 3840) {
+        threshold = 56.84375;
+      }
+      if (lastSlidePosition <= windowHeight && lastSlidePosition >= threshold) {
         this.lastSlideReached = true;
         this.isScrollingUp = window.scrollY < this.scrollPosition;
       } else {

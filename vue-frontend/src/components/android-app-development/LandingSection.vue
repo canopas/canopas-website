@@ -1,6 +1,6 @@
 <template>
   <div
-    class="tw-relative tw-h-[28.125rem] xll:tw-container md:!tw-h-[30.125rem] xl:md:!tw-h-[33.125rem] xs:tw-h-[23.125rem]"
+    class="tw-relative tw-h-[28.125rem] xll:tw-container 3xl:tw-outer-container md:!tw-h-[30.125rem] xl:md:!tw-h-[33.125rem] xs:tw-h-[23.125rem]"
   >
     <img
       :src="background400"

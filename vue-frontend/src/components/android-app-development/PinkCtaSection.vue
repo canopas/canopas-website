@@ -1,5 +1,7 @@
 <template>
-  <div class="tw-relative md:tw-h-[376px] xl:tw-h-[476px]">
+  <div
+    class="tw-relative md:tw-h-[376px] xl:tw-h-[476px] 3xl:tw-outer-container"
+  >
     <img
       :src="background"
       alt="Background-Image"

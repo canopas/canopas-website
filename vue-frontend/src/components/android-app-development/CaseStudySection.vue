@@ -1,6 +1,6 @@
 <template>
   <section
-    class="tw-mt-16 md:tw--mt-24 lg:tw--mt-48 xl:tw--mt-[32rem] 2xl:tw-mt-[-30rem] xll:tw-container"
+    class="tw-mt-16 md:tw-mt-40 lg:tw--mt-48 xl:tw--mt-[32rem] 2xl:tw-mt-[-30rem] 3xl:tw-outer-container"
   >
     <div class="tw-container">
       <div class="tw-flex tw-flex-col tw-text-center">
@@ -15,7 +15,7 @@
       <div
         v-for="item in cases"
         :key="item"
-        class="tw-mt-6 tw-relative md:tw-hidden"
+        class="tw-mt-6 tw-relative lg:tw-hidden"
         :class="item.className"
       >
         <a
@@ -49,7 +49,7 @@
       <div
         v-for="item in cta"
         :key="item"
-        class="tw-mt-16 tw-relative md:tw-hidden"
+        class="tw-mt-16 tw-relative lg:tw-hidden"
         :class="item.className"
       >
         <img
@@ -79,7 +79,7 @@
     <!-- ------------------------ MOBILE UI END---------------------- -->
 
     <!-- ---------------------DESKTOP UI START------------------ -->
-    <div class="tw-hidden md:tw-block tw-bg-[#F6F6F6] tw-mt-[4.5rem]">
+    <div class="tw-hidden lg:tw-block tw-bg-[#F6F6F6] tw-mt-[4.5rem]">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
@@ -130,7 +130,7 @@
               />
 
               <div
-                class="tw-bg-white tw-drop-shadow-md tw-rounded md:tw-w-[390px] lg:tw-w-[457px]"
+                class="tw-bg-white tw-drop-shadow-md tw-rounded lg:tw-w-[457px]"
               >
                 <div class="tw-inline-flex tw-p-2 lg:tw-p-4">
                   <div class="tw-p-[0.8rem]">
@@ -243,7 +243,7 @@ export default {
           target: "_self",
           content: "Create systems to build your dream life",
           deskcontent: `Overcome depression <br>by building habits`,
-          resultcount: ["5k+", "4.9", "100"],
+          resultcount: ["10k+", "4.9", "1100+"],
           description: `Justly aims to tackle loneliness, depression, and <br>mental health through innovative solutions.`,
           images: [
             justlymobile_400w,
@@ -260,7 +260,7 @@ export default {
           target: "_self",
           content: "Radio, music and podcast",
           deskcontent: `A radio, music and <br> podcast platform`,
-          resultcount: ["100k+", "5", "15k+"],
+          resultcount: ["300k+", "5", "25k+"],
           description: `Luxe Radio displays the best of Moroccan and <br>international creation, emphasizing taste, elegance, and refinement.`,
           images: [
             luxeradiomobile_400w,
@@ -277,7 +277,7 @@ export default {
           target: "_self",
           content: "Create your life’s most memorable events",
           deskcontent: `Photo editor and <br> video maker app`,
-          resultcount: ["10k+", "4.7 ", "1200+"],
+          resultcount: ["25k+", "4.7 ", "2700+"],
           description: `Togness are create slideshows, <br>and add quotes and your own music for every special occasion of your life!`,
           images: [
             tognessmobile_400w,
@@ -294,7 +294,7 @@ export default {
           target: "_blank",
           content: "Create systems to build your dream life",
           deskcontent: `For Dentists and <br>Dental labs`,
-          resultcount: ["5k+", "4.9", "350+"],
+          resultcount: ["25k+", "4.9", "5k+"],
           description: `Smile+ allows to create the perfect smile of your <br>patient in a few minutes.`,
           images: [
             smileplusmobile_400w,
