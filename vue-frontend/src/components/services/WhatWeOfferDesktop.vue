@@ -94,6 +94,7 @@ export default {
           title: "Flutter App Development ",
           description:
             "Bring your multi-platform app vision to life with our Flutter app development services. We excel in crafting high-quality, stunning applications that work flawlessly on Android, iOS, and the web, all from a single codebase, facilitating faster time to market and cost savings.",
+          url: "/flutter-app-development",
         },
         {
           path: [100, 100],

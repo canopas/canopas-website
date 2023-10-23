@@ -95,6 +95,7 @@ export default {
             "Bring your multi-platform app vision to life with our Flutter app development services. We excel in crafting high-quality, stunning applications that work flawlessly on Android, iOS, and the web, all from a single codebase, facilitating faster time to market and cost savings.",
           class:
             "tw-bg-gradient-to-b tw-from-[#E0EDFF]  via-[#E0EDFF]  tw-to-white tw-bg-gradient-[180deg] ",
+          url: "/flutter-app-development",
         },
         {
           images: [uiuxdesign400w, uiuxdesign800w],
