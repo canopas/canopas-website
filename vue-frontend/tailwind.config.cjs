@@ -121,6 +121,14 @@ module.exports = {
             opacity: 0,
           },
         },
+        moveUp: {
+          "0%": {
+            transform: "translateY(3rem)",
+          },
+          "100%": {
+            transform: " translateY(0)",
+          },
+        },
         underlineOut: {
           "0%": { transform: "scaleX(0)" },
           "100%": { transform: "scaleX(1)" },
@@ -160,6 +168,7 @@ module.exports = {
         fadeSlide: "fadeIn 4s ease-in-out",
         fadeSlideOut: "fadeOut 2.5s ease-in-out",
         zoomEffect: "zoomEffect 0.5s ease forwards",
+        moveUp: "moveUp 1s ease-in-out",
       },
       zIndex: {
         "-1": "-1",
@@ -200,6 +209,18 @@ module.exports = {
           "linear-gradient(transparent calc(100% - 5px), #f77783 1px)",
         "light-pink-gradient-background":
           "linear-gradient(180deg, #FFFEFE 3.13%, #FFF6F0 47.54%, #FFF 95.59%)",
+        "togness-blue-gradient-background":
+          "linear-gradient(180deg, #FFFFFF 2.84%, #E7F2FF 40.99%, #E7F2FF 48.58%, #FFFFFF 97.07%)",
+        "justly-pink-gradient-background":
+          "linear-gradient(180deg, #FFFFFF 2.84%, #FFE1E4 35.92%, #FFE1E4 48.58%, #FFFFFF 97.07%)",
+        "luxeradio-yellow-gradient-background":
+          "linear-gradient(180deg, #FFFFFF 2.84%, #FEF1DE 40.99%, #FEF1DE 52.9%, #FFFFFF 97.07%)",
+        "justly-radical-gradient":
+          "radial-gradient(84% 76.48% at 50% 50%, #E4949C 0%, rgba(255, 191, 171, 0) 100%)",
+        "luxeradio-radical-gradient":
+          "radial-gradient(84% 76.48% at 50% 50%, #FEF1DE 0%, rgba(255, 191, 171, 0) 100%)",
+        "togness-radical-gradient":
+          "radial-gradient(84% 76.48% at 50% 50%, #E7F2FF 0%, rgba(255, 191, 171, 0) 100%)",
       },
     },
   },

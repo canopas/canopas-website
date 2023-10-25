@@ -1,7 +1,7 @@
 <template>
   <section class="tw-my-20 md:tw-mb-32 lg:tw-my-32 xll:tw-container">
     <div
-      class="tw-pb-4 md:tw-py-12 tw-text-center tw-font-inter-bold tw-text-3xl tw-leading-[2.4375rem] md:tw-text-[2.65625rem] md:tw-leading-[3.796875rem] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem] tw-tracking-[-4%] xll:tw-py-24 tw-text-black-core/[0.87]"
+      class="tw-pb-4 md:tw-py-12 tw-text-center tw-font-inter-bold tw-text-3xl tw-leading-[2.4375rem] md:tw-text-[2.65625rem] md:tw-leading-[3.796875rem] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem] tw-tracking-[-0.04rem] xll:tw-py-24 tw-text-black-core/[0.87]"
     >
       <span>Our Blogs</span>
     </div>
@@ -48,7 +48,7 @@
               class="=tw-w-80 tw-h-28 tw-bg-white tw-flex tw-flex-col tw-justify-center tw-px-8"
             >
               <h2
-                class="tw-font-inter-medium tw-text-basetw-leading-6 tw-tracking-[-4%] tw-text-black-core/[0.87]"
+                class="tw-font-inter-medium tw-text-basetw-leading-6 tw-tracking-[-0.04rem] tw-text-black-core/[0.87]"
               >
                 {{ blog.title }}
               </h2>
