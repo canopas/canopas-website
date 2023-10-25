@@ -7,8 +7,13 @@
     </metainfo>
     <Header />
     <LandingSection ref="iosLanding" />
-    <DevelopmentSection ref="iosDevelopment" />
-    <CtaSection ref="iosCta1" />
+    <DevelopmentSection id="developmentSection" ref="iosDevelopment" />
+    <CaseStudySection
+      ref="iosCaseStudy"
+      v-on:scroll-to-next="scrollToCta"
+      v-on:scroll-to-previous="scrollToDevelopment"
+    />
+    <CtaSection id="ctasection" ref="iosCta1" />
     <SuccessStorySection ref="iosSuccessstory" />
     <BlogSection ref="iosblog" />
     <CtaSection2 ref="iosCta2" />
@@ -34,6 +39,9 @@ const BlogSection = defineAsyncComponent(() =>
 const FaqSection = defineAsyncComponent(() =>
   import("@/components/ios-app-development/FaqSection.vue"),
 );
+const CaseStudySection = defineAsyncComponent(() =>
+  import("@/components/ios-app-development/CaseStudySection.vue"),
+);
 const CtaSection = defineAsyncComponent(() =>
   import("@/components/ios-app-development/CtaSection.vue"),
 );
@@ -53,6 +61,7 @@ export default {
         iosDevelopment: "view_ios_app_development_section",
         iosSuccessstory: "view_ios_app_development_section",
         iosFaq: "view_ios_development_faq_section",
+        iosCaseStudy: "view_ios_CaseStudy_section",
         iosCta1: "view_cta_1_ios_app_development_section",
         iosblog: "view_ios_app_blog_section",
         iosCta2: "view_cta_2_ios_app_development_section",
@@ -86,6 +95,7 @@ export default {
     SuccessStorySection,
     BlogSection,
     FaqSection,
+    CaseStudySection,
     CtaSection,
     CtaSection2,
     NewFooter,
@@ -97,6 +107,16 @@ export default {
         this.event = event;
         this.mixpanel.track(event);
       }
+    },
+    scrollToCta() {
+      var ctaDiv = document.getElementById("ctasection");
+      var top = ctaDiv.offsetTop;
+      window.scrollTo({ top: top, behavior: "smooth" });
+    },
+    scrollToDevelopment() {
+      var developmentDiv = document.getElementById("developmentSection");
+      var top = developmentDiv.offsetTop;
+      window.scrollTo({ top: top, behavior: "smooth" });
     },
   },
   beforeRouteEnter(to, from, next) {

@@ -4,7 +4,7 @@
       class="tw-container md:tw-mt-36 lg:tw-mb-8 tw-mb-7 tw-mx-auto tw-text-center"
     >
       <span
-        class="tw-tracking-[-4%] tw-mb-2.5 tw-font-inter-bold tw-text-3xl tw-leading-[2.4375rem] md:tw-hidden tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full md:tw-text-[2.65625rem] lg:tw-text-[3.4375rem] md:tw-leading-[3.796875rem] lg:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
+        class="tw-tracking-[-0.04rem] tw-mb-2.5 tw-font-inter-bold tw-text-3xl tw-leading-[2.4375rem] md:tw-hidden tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full md:tw-text-[2.65625rem] lg:tw-text-[3.4375rem] md:tw-leading-[3.796875rem] lg:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
       >
         Success Stories</span
       >
@@ -44,7 +44,7 @@
               class="tw-mx-auto sm:tw-px-10 md:tw-px-6 lg:tw-px-4 xl:tw-px-24 tw-text-white tw-flex tw-flex-col tw-justify-between tw-items-center tw-object-center"
             >
               <div
-                class="tw-font-inter-semibold tw-text-lg tw-leading-[1.6875rem] tw-transition-all tw-ease tw-duration-500 tw-tracking-[-2%]"
+                class="tw-font-inter-semibold tw-text-lg tw-leading-[1.6875rem] tw-transition-all tw-ease tw-duration-500 tw-tracking-[-0.02rem]"
               >
                 {{ client.review }}
               </div>
@@ -80,10 +80,11 @@
       <div
         class="tw-w-2/5 tw-flex tw-justify-center tw-items-center tw-bg-[#F4F4F4] tw-rounded-tl-xl tw-rounded-bl-xl"
       >
-        <span
-          class="tw-text-[2.4375rem] tw-font-opensans-bold tw-w-3/4 2xl:tw-w-[65%] tw-mx-auto lg:tw-text-5xl tw-leading-[2.79375rem] lg:tw-leading-[3.9rem] !tw-tracking-[-4%] tw-text-black-core/[0.87]"
-          >What our clients says?</span
+        <h2
+          class="tw-text-[2.4375rem] tw-font-opensans-bold tw-w-3/4 2xl:tw-w-[65%] tw-mx-auto lg:tw-text-5xl tw-leading-[2.79375rem] lg:tw-leading-[3.9rem] !tw-tracking-[-0.04rem] tw-text-black-core/[0.87]"
         >
+          What our clients say!
+        </h2>
       </div>
 
       <div

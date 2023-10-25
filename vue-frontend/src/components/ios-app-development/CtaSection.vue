@@ -16,7 +16,7 @@
         <div class="tw-flex tw-w-full">
           <div class="tw-m-auto tw-text-white">
             <p
-              class="tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[2.0625rem] tw-tracking-[-4%] tw-text-black-core/[0.87]"
+              class="tw-font-inter-semibold tw-text-[1.375rem] tw-leading-[2.0625rem] tw-tracking-[-0.04rem] tw-text-black-core/[0.87]"
             >
               Let's Start a New Project Together
             </p>
