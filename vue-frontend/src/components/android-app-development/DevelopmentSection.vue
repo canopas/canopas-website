@@ -1,173 +1,167 @@
 <template>
   <div class="tw-mt-16 md:tw-mt-40 xl:tw-mt-60 tw-bg-white tw-h-[70%]">
-    <div
-      class="xl:tw-h-[0vh] xl:!tw-sticky"
-      :class="{
-        'xl:!tw-top-[128px] 3xl:!tw-top-[500px]':
-          lastSlideReached && !isScrollingUp,
-        'xl:!tw-top-[8rem] 3xl:!tw-top-[500px]':
-          lastSlideReached && isScrollingUp,
-      }"
-    >
-      <div
-        class="tw-container tw-flex tw-flex-col tw-text-center xll:tw--mb-72"
-      >
-        <span
-          class="header-2 tw-text-black-core/[0.87] lg:!tw-mx-0 lg:!tw-w-full xs:tw-mx-auto xs:tw-w-[71%]"
+    <div class="sticky-parent">
+      <div class="lg:tw-sticky lg:!tw-top-[128px] 3xl:!tw-top-[500px]">
+        <div
+          class="tw-container tw-flex tw-flex-col tw-text-center xll:tw--mb-72"
         >
-          Android app development services</span
-        >
-        <span
-          class="tw-mt-4 md:tw-mt-6 sub-h1-regular tw-text-black-core/[0.60]"
-          >With over a decade of expertise in Android app development, our team
-          can help you craft high- quality, user-friendly apps that drive
-          business growth and customer engagement.</span
-        >
-      </div>
-    </div>
-    <!-- ---------------------MOBILE UI START------------------ -->
-    <div class="swiper-content !tw-mt-6 md:!tw-mt-12 lg:tw-hidden">
-      <swiper
-        :slidesPerView="1.1"
-        :centeredSlides="true"
-        :spaceBetween="10"
-        :modules="modules"
-        class="swiper-container"
-        @swiper="setSwiperRef"
-        :breakpoints="{
-          '768': {
-            slidesPerView: 1.3,
-          },
-          '992': {
-            slidesPerView: 1.5,
-          },
-          '1200': {
-            slidesPerView: 1.6,
-          },
-          '1400': {
-            slidesPerView: 1.9,
-          },
-          '1600': {
-            slidesPerView: 2.1,
-          },
-          '1800': {
-            slidesPerView: 2.4,
-          },
-          '2000': {
-            slidesPerView: 2.6,
-          },
-          '2200': {
-            slidesPerView: 2.8,
-          },
-          '2500': {
-            slidesPerView: 3.2,
-          },
-          '2800': {
-            slidesPerView: 3.8,
-          },
-          '3500': {
-            slidesPerView: 4.5,
-          },
-        }"
-      >
-        <swiper-slide
-          v-for="(item, index) in items"
-          :key="index"
-          class="tw-cursor-pointer"
-        >
-          <div
-            class="tw-mr-4 tw-rounded-[1.25rem] tw-px-4 tw-py-6 md:tw-w-[34.7rem] lg:tw-w-[40.75rem] xl:!tw-w-[45.75rem]"
-            :class="[item.bgColor]"
+          <span
+            class="header-2 tw-text-black-core/[0.87] lg:!tw-mx-0 lg:!tw-w-full xs:tw-mx-auto xs:tw-w-[71%]"
           >
-            <div
-              class="tw-justify-left tw-mb-5 tw-flex tw-flex-row tw-items-center tw-space-x-4"
-            >
-              <img
-                alt="development-icon"
-                :src="item.icon"
-                class="tw-h-10 tw-w-10 tw-object-contain lg:tw-hidden"
-                loading="lazy"
-              />
-              <span class="header-3 tw-text-black-core/[0.87]">{{
-                item.title
-              }}</span>
-            </div>
-            <div class="sub-h3-regular tw-text-black-core/[0.60] lg:tw-p-4">
-              <ul class="tw-pl-8 tw-pr-4 lg:tw-hidden">
-                <li
-                  v-for="list in item.description"
-                  :key="list"
-                  class="tw-mb-3.5 tw-list-disc"
-                >
-                  {{ list }}
-                </li>
-              </ul>
-            </div>
-          </div>
-        </swiper-slide>
-      </swiper>
-    </div>
-    <!-- ---------------------MOBILE UI END------------------ -->
-
-    <!-- ---------------------DESKTOP UI START------------------ -->
-    <div class="sticky-parent tw-hidden lg:tw-block">
-      <div
-        class="sticky tw-sticky tw-top-[92px] xl:!tw-top-[100px] 3xl:!tw-top-[470px] xl:tw-max-h-full main tw-overflow-hidden"
-        :class="{ 'xl:!tw-top-[100px]': isScrollingUp }"
-      >
-        <div class="tw-flex">
-          <div
-            v-for="(item, index) in items"
-            :key="index"
-            class="tw-cursor-pointer tw-mt--48 xl:tw-mt-32 xll:tw-mt-[36rem] tw-min-w-[100vw] tw-h-[900px] xl:tw-h-full"
+            Android app development services</span
           >
-            <div
-              class="tw-relative !-tw-mr-2 tw-mb-12 tw-mt-[6rem] xl:tw-mt-[6.5rem] xll:tw-mt-[-15rem]"
+          <span
+            class="tw-mt-4 md:tw-mt-6 sub-h1-regular tw-text-black-core/[0.60]"
+            >With over a decade of expertise in Android app development, our
+            team can help you craft high- quality, user-friendly apps that drive
+            business growth and customer engagement.</span
+          >
+        </div>
+        <!-- ---------------------MOBILE UI START------------------ -->
+        <div class="swiper-content !tw-mt-6 md:!tw-mt-12 lg:tw-hidden">
+          <swiper
+            :slidesPerView="1.1"
+            :centeredSlides="true"
+            :spaceBetween="10"
+            :modules="modules"
+            class="swiper-container"
+            @swiper="setSwiperRef"
+            :breakpoints="{
+              '768': {
+                slidesPerView: 1.3,
+              },
+              '992': {
+                slidesPerView: 1.5,
+              },
+              '1200': {
+                slidesPerView: 1.6,
+              },
+              '1400': {
+                slidesPerView: 1.9,
+              },
+              '1600': {
+                slidesPerView: 2.1,
+              },
+              '1800': {
+                slidesPerView: 2.4,
+              },
+              '2000': {
+                slidesPerView: 2.6,
+              },
+              '2200': {
+                slidesPerView: 2.8,
+              },
+              '2500': {
+                slidesPerView: 3.2,
+              },
+              '2800': {
+                slidesPerView: 3.8,
+              },
+              '3500': {
+                slidesPerView: 4.5,
+              },
+            }"
+          >
+            <swiper-slide
+              v-for="(item, index) in items"
+              :key="index"
+              class="tw-cursor-pointer"
             >
               <div
-                class="tw-border-b-2 tw-border-dotted tw-border-[#000000]/[0.6] tw-text-center"
-              ></div>
-            </div>
-            <div
-              class="tw-absolute tw-top-[7%] xl:tw-top-[23%] xll:tw-top-[31.5%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center lg:tw-block 2xll:tw-ml-[47%] xll:tw-ml-[48%]"
-            >
-              <span class="tw-text-center header-1 tw-text-black-core/[0.87]">
-                0{{ index + 1 }}</span
+                class="tw-mr-4 tw-rounded-[1.25rem] tw-px-4 tw-py-6 md:tw-w-[34.7rem] lg:tw-w-[40.75rem] xl:!tw-w-[45.75rem]"
+                :class="[item.bgColor]"
               >
-            </div>
+                <div
+                  class="tw-justify-left tw-mb-5 tw-flex tw-flex-row tw-items-center tw-space-x-4"
+                >
+                  <img
+                    alt="development-icon"
+                    :src="item.icon"
+                    class="tw-h-10 tw-w-10 tw-object-contain lg:tw-hidden"
+                    loading="lazy"
+                  />
+                  <span class="header-3 tw-text-black-core/[0.87]">{{
+                    item.title
+                  }}</span>
+                </div>
+                <div class="sub-h3-regular tw-text-black-core/[0.60] lg:tw-p-4">
+                  <ul class="tw-pl-8 tw-pr-4 lg:tw-hidden">
+                    <li
+                      v-for="list in item.description"
+                      :key="list"
+                      class="tw-mb-3.5 tw-list-disc"
+                    >
+                      {{ list }}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </swiper-slide>
+          </swiper>
+        </div>
+        <!-- ---------------------MOBILE UI END------------------ -->
+
+        <!-- ---------------------DESKTOP UI START------------------ -->
+
+        <div
+          class="sticky tw-sticky main tw-overflow-hidden tw-hidden lg:tw-block"
+        >
+          <div class="tw-flex">
             <div
-              class="tw-ml-auto xll:tw-ml-[12%] xll:tw-ml-auto tw-rounded-[1.25rem] tw-p-[1.88rem] !tw-w-[39.75rem] xl:!tw-w-[45rem] tw-mx-auto"
-              :class="[item.bgColor]"
+              v-for="(item, index) in items"
+              :key="index"
+              class="tw-cursor-pointer -tw-mt-12 xll:tw-mt-[43rem] tw-min-w-[100vw] tw-h-[900px] xl:tw-h-full"
             >
-              <div class="tw-justify-left tw-flex tw-flex-row tw-items-center">
-                <img
-                  alt="development-icon"
-                  :src="item.icon"
-                  class="tw-h-10 tw-w-10 tw-object-contain lg:tw-hidden"
-                  loading="lazy"
-                />
-                <span
-                  class="tw-font-opensans-semibold tw-text-black-core/[0.87] header-3"
-                  >{{ item.title }}</span
+              <div
+                class="tw-relative !-tw-mr-2 tw-mb-12 tw-mt-24 xl:tw-mt-[6.5rem] xll:-tw-mt-60"
+              >
+                <div
+                  class="tw-border-b-2 tw-border-dotted tw-border-[#000000]/[0.6] tw-text-center"
+                ></div>
+              </div>
+              <div
+                class="tw-absolute tw-top-[2%] xl:tw-top-[15px] xll:tw-top-[37.5%] tw-ml-[45%] xll:tw-ml-[47%] tw-hidden tw-h-20 !tw-bg-white tw-text-center lg:tw-block 2xll:tw-ml-[47%] xll:tw-ml-[48%]"
+              >
+                <span class="tw-text-center header-1 tw-text-black-core/[0.87]">
+                  0{{ index + 1 }}</span
                 >
               </div>
-              <div class="tw-text-black-core/[0.6] sub-h3-medium">
-                <ul class="tw-pl-8 tw-pr-4 lg:tw-hidden">
-                  <li
+              <div
+                class="tw-ml-auto xll:tw-ml-[12%] xll:tw-ml-auto tw-rounded-[1.25rem] tw-p-[1.88rem] !tw-w-[39.75rem] xl:!tw-w-[45rem] tw-mx-auto"
+                :class="[item.bgColor]"
+              >
+                <div
+                  class="tw-justify-left tw-flex tw-flex-row tw-items-center"
+                >
+                  <img
+                    alt="development-icon"
+                    :src="item.icon"
+                    class="tw-h-10 tw-w-10 tw-object-contain lg:tw-hidden"
+                    loading="lazy"
+                  />
+                  <span
+                    class="tw-font-opensans-semibold tw-text-black-core/[0.87] header-3"
+                    >{{ item.title }}</span
+                  >
+                </div>
+                <div class="tw-text-black-core/[0.6] sub-h3-medium">
+                  <ul class="tw-pl-8 tw-pr-4 lg:tw-hidden">
+                    <li
+                      v-for="list in item.description"
+                      :key="list"
+                      class="tw-mb-3.5 tw-list-disc"
+                    >
+                      {{ list }}
+                    </li>
+                  </ul>
+                  <p
                     v-for="list in item.description"
                     :key="list"
-                    class="tw-mb-3.5 tw-list-disc"
+                    class="tw-mt-4 tw-hidden lg:tw-block"
                   >
                     {{ list }}
-                  </li>
-                </ul>
-                <p
-                  v-for="list in item.description"
-                  :key="list"
-                  class="tw-mt-4 tw-hidden lg:tw-block"
-                >
-                  {{ list }}
-                </p>
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -191,10 +185,6 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 export default {
   data() {
     return {
-      isScrollingUp: false,
-      currentCardIndex: 0,
-      scrollPosition: 0,
-      lastSlideReached: false,
       items: [
         {
           title: "Android App Development Consultation",
@@ -260,10 +250,7 @@ export default {
     };
   },
   mounted() {
-    this.width = window.innerWidth;
-    document.addEventListener("scroll", this.handleScroll);
-
-    let sticky = document.querySelector(".sticky");
+    let sticky = document.querySelector(".main");
     let stickyParent = document.querySelector(".sticky-parent");
 
     let scrollWidth = sticky.scrollWidth;
@@ -278,37 +265,15 @@ export default {
         sticky.scrollLeft = 0;
       } else {
         sticky.scrollLeft =
-          (scrollWidth / verticalScrollHeight) * -scrolled * 0.85;
+          (scrollWidth / verticalScrollHeight) * -scrolled * 0.9;
       }
-      requestAnimationFrame(horizontalScroll);
     }
-
-    // Attach the existing horizontalScroll function separately
     document.addEventListener("scroll", horizontalScroll);
   },
   beforeDestroy() {
-    document.removeEventListener("scroll", this.handleScroll);
-
     document.removeEventListener("scroll", this.horizontalScroll);
   },
-  methods: {
-    handleScroll() {
-      const windowHeight = window.innerHeight;
-      const lastSlide = document.querySelector(".main:last-child");
-      const lastSlidePosition = lastSlide.getBoundingClientRect().top;
-      let threshold = windowHeight * 0.2;
-      if (this.width < 3840) {
-        threshold = 56.84375;
-      }
-      if (lastSlidePosition <= windowHeight && lastSlidePosition >= threshold) {
-        this.lastSlideReached = true;
-        this.isScrollingUp = window.scrollY < this.scrollPosition;
-      } else {
-        this.lastSlideReached = false;
-      }
-      this.scrollPosition = window.scrollY;
-    },
-  },
+
   components: {
     Swiper,
     SwiperSlide,
@@ -319,6 +284,6 @@ export default {
 <style lang="postcss" scoped>
 @import "swiper/css";
 .sticky-parent {
-  @apply tw-h-[700vh] xll:!tw-h-[400vh];
+  @apply lg:tw-h-[700vh] xll:!tw-h-[400vh];
 }
 </style>
