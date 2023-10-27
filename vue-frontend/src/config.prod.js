@@ -120,7 +120,6 @@ export default Object.freeze({
     image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   IS_PROD: true,
-  SHOW_ANDROID_APP_DEVELOPMENT_PAGE: false,
   SHOW_IOS_APP_DEVELOPMENT_PAGE: false,
   SHOW_FLUTTER_APP_DEVELOPMENT_PAGE: false,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
