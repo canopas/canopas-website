@@ -25,16 +25,8 @@
         <div :class="service.class" class="tw-px-2.5 sm:tw-px-20">
           <div
             class="tw-py-5 sm:tw-py-6"
-            @click="
-              [
-                showServices ? openUrl(service.url) : '',
-                index == 0 && showAndroidProd ? openUrl(service.url) : '',
-              ]
-            "
-            :class="[
-              showServices ? 'tw-cursor-pointer' : '',
-              index == 0 && showAndroidProd ? 'tw-cursor-pointer' : '',
-            ]"
+            @click="showServices ? openUrl(service.url) : ''"
+            :class="showServices ? 'tw-cursor-pointer' : ''"
           >
             <span
               class="tw-text-center tw-font-inter-semibold tw-text-[1.5rem] tw-leading-9"
@@ -72,13 +64,11 @@ import frontend400w from "@/assets/images/services/service/frontend-400w.webp";
 import frontend800w from "@/assets/images/services/service/frontend-800w.webp";
 
 import config from "@/config.js";
-import prod from "@/config.prod.js";
 
 export default {
   data() {
     return {
       showServices: !config.IS_PROD,
-      showAndroidProd: prod.IS_PROD,
 
       services: [
         {
