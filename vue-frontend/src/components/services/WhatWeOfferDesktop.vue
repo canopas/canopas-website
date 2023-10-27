@@ -18,8 +18,8 @@
             <div class="tw-absolute tw-top-[50%] tw-translate-y-[-50%]">
               <div
                 class="tw-py-5"
-                @click="showServices ? openUrl(service.url) : ''"
-                :class="showServices ? 'tw-cursor-pointer' : ''"
+                @click="service.showServices ? openUrl(service.url) : ''"
+                :class="service.showServices ? 'tw-cursor-pointer' : ''"
               >
                 <span
                   class="tw-font-inter-semibold tw-text-[1.5rem] tw-leading-9 md:tw-text-[2.25rem] md:tw-leading-[3.43rem] xl:tw-text-[3.125rem] xl:tw-leading-[4.6875rem]"
@@ -70,7 +70,6 @@ import config from "@/config.js";
 export default {
   data() {
     return {
-      showServices: !config.IS_PROD,
       services: [
         {
           path: [0, 0],
@@ -79,6 +78,7 @@ export default {
           description:
             "Take your business to new heights with an Android app! Tap into a global user base, boost customer engagement, communicate directly, and gather insightful data. Plus, enhance your visibility, add revenue streams, and provide top-notch customer service. With over a decade of expertise in Android app development, our team can help you craft high-quality, user-friendly apps that drive business growth and customer engagement. ",
           url: "/android-app-development",
+          showServices: config.SHOW_ANDROID_APP_DEVELOPMENT_PAGE,
         },
         {
           path: [100, 100],
@@ -87,6 +87,7 @@ export default {
           description:
             "Our seasoned iOS developers specialize in creating aesthetically pleasing, intuitive, and user-friendly apps that seamlessly function across all Apple devices. We leverage the latest iOS technologies to deliver solutions that give you an edge in the competitive Apple app market. Plus, our team follows Human Interface Guidelines defined by Apple to deliver exceptional user experience.",
           url: "/ios-app-development",
+          showServices: config.SHOW_IOS_APP_DEVELOPMENT_PAGE,
         },
         {
           path: [100, 100],
@@ -95,6 +96,7 @@ export default {
           description:
             "Bring your multi-platform app vision to life with our Flutter app development services. We excel in crafting high-quality, stunning applications that work flawlessly on Android, iOS, and the web, all from a single codebase, facilitating faster time to market and cost savings.",
           url: "/flutter-app-development",
+          showServices: config.SHOW_FLUTTER_APP_DEVELOPMENT_PAGE,
         },
         {
           path: [100, 100],
