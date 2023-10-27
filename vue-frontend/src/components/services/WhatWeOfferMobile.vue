@@ -25,8 +25,8 @@
         <div :class="service.class" class="tw-px-2.5 sm:tw-px-20">
           <div
             class="tw-py-5 sm:tw-py-6"
-            @click="showServices ? openUrl(service.url) : ''"
-            :class="showServices ? 'tw-cursor-pointer' : ''"
+            @click="service.showServices ? openUrl(service.url) : ''"
+            :class="service.showServices ? 'tw-cursor-pointer' : ''"
           >
             <span
               class="tw-text-center tw-font-inter-semibold tw-text-[1.5rem] tw-leading-9"
@@ -68,8 +68,6 @@ import config from "@/config.js";
 export default {
   data() {
     return {
-      showServices: !config.IS_PROD,
-
       services: [
         {
           images: [androidApp400w, androidApp800w],
@@ -79,6 +77,7 @@ export default {
           class:
             "tw-bg-gradient-to-b tw-from-[#EBF2FC]  via-[#EBF2FC]  tw-to-white tw-bg-gradient-[180deg] ",
           url: "/android-app-development",
+          showServices: config.SHOW_ANDROID_APP_DEVELOPMENT_PAGE,
         },
         {
           images: [iosApp400w, iosApp800w],
@@ -88,6 +87,7 @@ export default {
           class:
             "tw-bg-gradient-to-b tw-from-[#FADFB7]  via-[#FADFB7]  tw-to-white tw-bg-gradient-[180deg] ",
           url: "/ios-app-development",
+          showServices: config.SHOW_IOS_APP_DEVELOPMENT_PAGE,
         },
         {
           images: [flutterApp400w, flutterApp800w],
@@ -97,6 +97,7 @@ export default {
           class:
             "tw-bg-gradient-to-b tw-from-[#E0EDFF]  via-[#E0EDFF]  tw-to-white tw-bg-gradient-[180deg] ",
           url: "/flutter-app-development",
+          showServices: config.SHOW_FLUTTER_APP_DEVELOPMENT_PAGE,
         },
         {
           images: [uiuxdesign400w, uiuxdesign800w],
