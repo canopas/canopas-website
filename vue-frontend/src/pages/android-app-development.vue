@@ -56,32 +56,9 @@ const NewFooter = defineAsyncComponent(() =>
 );
 
 export default {
-  data() {
-    return {
-      event: "",
-      events: {
-        landing: "view_android_development_landing_section",
-        footer: "view_android_development_footer",
-        development: "view_android_development_section",
-        casestudy: "view_android_development_casestudy_section",
-        faq: "view_android_development_faq_section",
-        successstory: "view_android_development_success_story_section",
-        cta1: "view_android_development_cta_section",
-        cta2: "view_android_development_cta2_section",
-        cta3: "view_android_development_cta3_section",
-      },
-    };
-  },
   setup() {
     var seoData = config.ANDRIOD_APP_DEVELOPMENT_SEO_META_DATA;
     useMeta({
-      meta: [
-        {
-          name: "robots",
-          content: "noindex, nofollow",
-          vmid: "robots",
-        },
-      ],
       title: seoData.title,
       description: seoData.description,
       og: {
@@ -105,24 +82,21 @@ export default {
     CtaSection,
     NewFooter,
   },
-  methods: {
-    sendEvent() {
-      const event = this.events[elementInViewPort(this.$refs)];
-      if (event && this.event !== event) {
-        this.event = event;
-        this.mixpanel.track(event);
-      }
-    },
-  },
-  beforeRouteEnter(to, from, next) {
-    if (!config.SHOW_ANDROID_APP_DEVELOPMENT_PAGE) {
-      next({
-        name: "Error404Page",
-        params: { pathMatch: "/android-app-development" },
-      });
-    } else {
-      next();
-    }
+  data() {
+    return {
+      event: "",
+      events: {
+        landing: "view_android_development_landing_section",
+        footer: "view_android_development_footer",
+        development: "view_android_development_section",
+        casestudy: "view_android_development_casestudy_section",
+        faq: "view_android_development_faq_section",
+        successstory: "view_android_development_success_story_section",
+        cta1: "view_android_development_cta_section",
+        cta2: "view_android_development_cta2_section",
+        cta3: "view_android_development_cta3_section",
+      },
+    };
   },
   inject: ["mixpanel"],
   mounted() {
@@ -131,6 +105,15 @@ export default {
   },
   unmounted() {
     window.removeEventListener("scroll", this.sendEvent);
+  },
+  methods: {
+    sendEvent() {
+      const event = this.events[elementInViewPort(this.$refs)];
+      if (event && this.event !== event) {
+        this.event = event;
+        this.mixpanel.track(event);
+      }
+    },
   },
 };
 </script>

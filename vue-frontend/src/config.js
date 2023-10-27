@@ -122,7 +122,6 @@ export default Object.freeze({
   IS_PROD: false,
   SHOW_FLUTTER_APP_DEVELOPMENT_PAGE: true,
   SHOW_IOS_APP_DEVELOPMENT_PAGE: true,
-  SHOW_ANDROID_APP_DEVELOPMENT_PAGE: true,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
   MIX_PANEL_TOKEN: "acf7239a736ff487ca6058c981a55d7e",

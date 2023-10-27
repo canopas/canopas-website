@@ -18,8 +18,16 @@
             <div class="tw-absolute tw-top-[50%] tw-translate-y-[-50%]">
               <div
                 class="tw-py-5"
-                @click="showServices ? openUrl(service.url) : ''"
-                :class="showServices ? 'tw-cursor-pointer' : ''"
+                @click="
+                  [
+                    showServices ? openUrl(service.url) : '',
+                    index == 0 && showAndroidProd ? openUrl(service.url) : '',
+                  ]
+                "
+                :class="[
+                  showServices ? 'tw-cursor-pointer' : '',
+                  index == 0 && showAndroidProd ? 'tw-cursor-pointer' : '',
+                ]"
               >
                 <span
                   class="tw-font-inter-semibold tw-text-[1.5rem] tw-leading-9 md:tw-text-[2.25rem] md:tw-leading-[3.43rem] xl:tw-text-[3.125rem] xl:tw-leading-[4.6875rem]"
@@ -67,10 +75,12 @@ import uiuxdesign800w from "@/assets/images/services/service/uiuxdesign-800w.web
 import iosApp800w from "@/assets/images/services/service/iosapp-800w.webp";
 import { elementInViewPort } from "@/utils";
 import config from "@/config.js";
+import prod from "@/config.prod.js";
 export default {
   data() {
     return {
       showServices: !config.IS_PROD,
+      showAndroidProd: prod.IS_PROD,
       services: [
         {
           path: [0, 0],
