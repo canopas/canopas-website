@@ -1,16 +1,15 @@
 <template>
-  <section class="tw-my-8 md:tw-mb-20 md:tw-mt-32">
-    <div class="tw-mb-4 md:tw-container">
-      <div class="tw-mx-[2%] tw-my-0 tw-flex tw-flex-col tw-gap-4 md:tw-my-0">
+  <section class="tw-my-8 sm:tw-mt-16 md:tw-mb-20 lg:tw-my-60">
+    <div class="tw-mb-4 lg:tw-container">
+      <div class="tw-mx-[2%] tw-my-0 tw-flex tw-flex-col tw-gap-4 lg:tw-my-0">
         <div class="tw-text-center">
-          <span
-            class="tw-font-inter-bold tw-text-3xl tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:tw-text-[2.65625rem] lg:tw-text-[3.4375rem] md:tw-leading-[3.453125rem] lg:tw-leading-[4.46875rem]"
-            >FAQs on iOS App Development</span
+          <span class="header-2 tw-text-black-core/[0.87]"
+            >FAQs on iOS app development</span
           >
         </div>
 
         <div
-          class="tw-container tw-mt-6 tw-flex-[67%] tw-pb-8 md:tw-pb-16 md:tw-w-[65rem] md:tw--ml-6 xl:tw-mx-auto"
+          class="tw-container tw-mt-6 tw-flex-[67%] tw-pb-8 lg:tw-pb-16 lg:tw-w-[65rem] lg:tw--ml-6 xl:tw-mx-auto"
         >
           <div>
             <transition-group tag="div" :name="'faq-' + faqTransitionName">
@@ -21,16 +20,16 @@
                   :key="faq"
                 >
                   <div
-                    class="faq-container tw-cursor-pointer tw-overflow-hidden tw-rounded-[5px] tw-bg-white md:tw-p-[15px] md:tw-shadow-md"
+                    class="faq-container tw-cursor-pointer tw-overflow-hidden tw-rounded-[5px] tw-bg-white lg:tw-p-[15px] lg:tw-shadow-md"
                     @click="expandListItem(faq.id)"
                   >
                     <div class="faq-header tw-flex tw-flex-row tw-items-center">
                       <div
-                        class="faq-question tw-w-[90%] tw-p-[10px] tw-font-inter-semibold tw-tracking-[-0.04rem] tw-text-lg tw-leading-[1.6875rem] md:tw-text-2xl lg:tw-text-[1.75rem] md:tw-leading-8 lg:tw-leading-[2.625rem]"
+                        class="faq-question tw-w-[90%] tw-p-[10px] sub-h1-semibold"
                         :class="
                           openList && faq.id == currentIndex
                             ? 'v2-canopas-gradient-text footer-icon'
-                            : 'tw-text-black-core/[0.60] md:tw-text-black-core/[0.80]'
+                            : 'tw-text-black-core/[0.60] lg:tw-text-black-core/[0.80]'
                         "
                       >
                         {{ faq.question }}
@@ -56,7 +55,6 @@
                         />
                       </div>
                     </div>
-
                     <collapse-transition>
                       <div
                         class="faq-header tw-mt-1.5 tw-flex tw-flex-row tw-animate-fadeIn tw-items-center gradient-border tw-h-auto tw-border-l md:tw-border-l-4 tw-ml-3"
@@ -64,7 +62,7 @@
                         :key="faq.answer"
                       >
                         <div
-                          class="faq-answer tw-w-[90%] tw-px-3 tw-font-inter-regular tw-text-base tw-leading-normal tw-text-black-core/[0.87] md:tw-text-xl md:tw-leading-[1.875rem]"
+                          class="faq-answer tw-w-[90%] tw-px-3 sub-h3-regular"
                           v-html="faq.answer"
                         ></div>
                       </div>
@@ -74,51 +72,135 @@
                 </div>
               </div>
             </transition-group>
+            <collapse-transition>
+              <transition-group
+                tag="div"
+                :name="'faq-' + faqTransitionName"
+                v-if="showAdditionalFAQs"
+              >
+                <div class="faq-section tw-h-auto lg:tw-hidden">
+                  <div
+                    class="tw-mt-3"
+                    v-for="faq in faqs.slice(5, 10)"
+                    :key="faq"
+                  >
+                    <div
+                      class="faq-container tw-cursor-pointer tw-overflow-hidden tw-rounded-[5px] tw-bg-white lg:tw-p-[15px] lg:tw-shadow-md"
+                      @click="expandListItem(faq.id)"
+                    >
+                      <div
+                        class="faq-header tw-flex tw-flex-row tw-items-center"
+                      >
+                        <div
+                          class="faq-question tw-w-[90%] tw-p-[10px] sub-h1-semibold"
+                          :class="
+                            openList && faq.id == currentIndex
+                              ? 'v2-canopas-gradient-text footer-icon'
+                              : 'tw-text-black-core/[0.60] lg:tw-text-black-core/[0.80]'
+                          "
+                        >
+                          {{ faq.question }}
+                        </div>
+                        <div
+                          class="faq-icon tw-w-[10%] tw-text-end"
+                          @click.native="
+                            mixpanel.track('tap_ios_app_faq_questions')
+                          "
+                        >
+                          <font-awesome-icon
+                            class="xmark tw-text-black-core/[0.87]"
+                            :class="
+                              openList && faq.id == currentIndex
+                                ? 'footer-icon'
+                                : 'tw-text-black-core/[0.87]'
+                            "
+                            :icon="
+                              openList && faq.id == currentIndex
+                                ? 'angle-up'
+                                : 'angle-down'
+                            "
+                          />
+                        </div>
+                      </div>
+                      <collapse-transition>
+                        <div
+                          class="faq-header tw-mt-1.5 tw-flex tw-flex-row tw-animate-fadeIn tw-items-center gradient-border tw-h-auto tw-border-l md:tw-border-l-4 tw-ml-3"
+                          v-if="openList && faq.id == currentIndex"
+                          :key="faq.answer"
+                        >
+                          <div
+                            class="faq-answer tw-w-[90%] tw-px-3 sub-h3-regular"
+                            v-html="faq.answer"
+                          ></div>
+                        </div>
+                      </collapse-transition>
+                      <div
+                        class="faq-divider"
+                        v-if="faq.id != faq.length"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </transition-group>
+            </collapse-transition>
+            <div
+              class="tw-w-full tw-my-8 lg:tw-hidden tw-mt-8 tw-flex tw-justify-center tw-items-center"
+            >
+              <div
+                class="tw-m-[5px] tw-rounded-[0.6rem] tw-border tw-border-solid tw-border-transparent tw-bg-gradient-to-r tw-from-[#ff9472] tw-via-[#ff909c] tw-to-[#f2709c] tw-p-[1rem] tw-text-center tw-shadow-[inset_2px_1000px_1px_#fff] active:tw-scale-[0.98] tw-border tw-border-black tw-w-[155px] tw-cursor-pointer tw-h-[57px]"
+                @click="showAdditionalFAQs = !showAdditionalFAQs"
+              >
+                <span class="sub-h3-semibold v2-canopas-gradient-text"
+                  >{{ showAdditionalFAQs ? "View Less" : "View More" }}
+                </span>
+                <font-awesome-icon
+                  class="fa tw-ml-2 tw-mt-1 footer-icon"
+                  :icon="showAdditionalFAQs ? faAngleUp : faAngleDown"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div
-        class="tw-container tw-py-4 tw-flex tw-justify-center tw-items-center md:tw-justify-end tw-pr-4 tw-text-center md:tw-text-right md:tw-pr-6 md:tw-pt-4 xl:tw-pr-20 2xl:tw-pr-44 md:tw--mr-8 lg:tw--mr-10"
+    </div>
+    <div
+      class="tw-hidden lg:tw-block tw-container tw--mt-8 tw-text-right lg:tw-pt-4 xl:tw-pr-16 2xl:tw-pr-40"
+    >
+      <button
+        v-if="isActivePrev"
+        type="button"
+        :disabled="!isActivePrev"
+        class="tw-h-12 tw-flex tw-ml-auto tw-items-center tw-text-center"
+        @click="slide(-1)"
+        @click.native="mixpanel.track('tap_ios_app_faq_previous_arrow')"
+        aria-label="leftArrow"
       >
-        <button
-          v-if="isActivePrev"
-          type="button"
-          :disabled="!isActivePrev"
-          class="clients-indicators tw-mx-1 tw-my-0 tw-cursor-pointer sm:tw-mx-2"
-          @click="slide(-1)"
-          @click.native="mixpanel.track('tap_ios_app_faq_previous_arrow')"
-          aria-label="leftArrow"
+        <font-awesome-icon
+          :class="isActivePrev ? 'footer-icon' : ''"
+          class="tw-mr-2 tw-h-5 tw-w-5"
+          icon="arrow-left"
+          id="leftArrow"
+        /><span class="v2-canopas-gradient-text sub-h4-semibold">Back</span>
+      </button>
+      <button
+        v-else
+        type="button"
+        class="tw-h-12 tw-flex tw-ml-auto tw-items-center tw-text-center"
+        :disabled="!isActiveNext"
+        @click="slide(1)"
+        @click.native="mixpanel.track('tap_ios_app_faq_next_arrow')"
+        aria-label="rightArrow"
+      >
+        <span class="v2-canopas-gradient-text sub-h4-semibold"
+          >View More Questions</span
         >
-          <font-awesome-icon
-            :class="isActivePrev ? 'footer-icon' : ''"
-            class="arrow tw-h-3.5 tw-w-3.5 tw-rounded-full tw-border-[#3d3d3d26] tw-bg-white tw-p-2.5 tw-drop-shadow-md md:tw-h-5 md:tw-w-5"
-            icon="fa-angle-left"
-            id="leftArrow"
-          />
-        </button>
-        <button
-          v-else
-          type="button"
-          :disabled="!isActiveNext"
-          class="clients-indicators tw-flex tw-items-center tw-justify-center tw-my-0 tw-cursor-pointer"
-          @click="slide(1)"
-          @click.native="mixpanel.track('tap_ios_app_faq_next_arrow')"
-          aria-label="rightArrow"
-        >
-          <div
-            :disabled="!isActiveNext"
-            class="faq-question v2-canopas-gradient-text tw-w-full tw-font-inter-semibold tw-text-base tw-leading-[1.21rem] md:tw-text-2xl lg:tw-text-3xl md:tw-leading-[1.3234375rem] lg:tw-leading-[1.436875rem]"
-          >
-            Load More Questions
-          </div>
-          <font-awesome-icon
-            :class="isActiveNext ? 'footer-icon' : ''"
-            class="arrow tw-h-3.5 tw-w-3.5 tw-rounded-full tw-bg-white tw-p-2.5 md:tw-h-5 md:tw-w-5"
-            icon="fa-angle-right"
-            id="rightArrow"
-          />
-        </button>
-      </div>
+        <font-awesome-icon
+          :class="isActiveNext ? 'footer-icon' : ''"
+          class="tw-ml-2 tw-h-5 tw-w-5"
+          icon="arrow-right"
+          id="rightArrow"
+        />
+      </button>
     </div>
   </section>
 </template>
@@ -126,12 +208,16 @@
 <script type="module">
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { faAngleUp, faAngleDown } from "@fortawesome/free-solid-svg-icons";
 
 const TOTAL_FAQ_IN_SLIDE = 5;
 
 export default {
   data() {
     return {
+      faAngleUp,
+      faAngleDown,
+      showAdditionalFAQs: false,
       faqs: [
         {
           id: 1,
@@ -256,7 +342,7 @@ export default {
   },
 };
 </script>
-<style scoped>
+<style lang="postcss">
 .gradient-border {
   border-image: linear-gradient(180deg, #f2709c 50%, #ff835b 50%) 1;
 }

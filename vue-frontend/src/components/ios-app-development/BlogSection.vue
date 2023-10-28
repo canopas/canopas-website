@@ -1,9 +1,11 @@
 <template>
-  <section class="tw-my-20 md:tw-mb-32 lg:tw-my-32 xll:tw-container">
+  <section
+    class="tw-my-16 md:tw-mb-32 lg:tw-my-32 xll:tw-container 3xl:tw-outer-container"
+  >
     <div
-      class="tw-pb-4 md:tw-py-12 tw-text-center tw-font-inter-bold tw-text-3xl tw-leading-[2.4375rem] md:tw-text-[2.65625rem] md:tw-leading-[3.796875rem] lg:tw-text-[3.4375rem] lg:tw-leading-[5.15625rem] tw-tracking-[-0.04rem] xll:tw-py-24 tw-text-black-core/[0.87]"
+      class="tw-pb-4 md:tw-pb-12 tw-text-center header-2 xll:tw-py-24 tw-text-black-core/[0.87]"
     >
-      <span>Our Blogs</span>
+      <span>Our blogs</span>
     </div>
     <!-- Mobile UI start -->
     <div class="tw-mt-8 tw-block md:tw-hidden">
@@ -45,17 +47,13 @@
             />
             <div
               @click="openBlog(blog.link, 'tap_ios_blog_section')"
-              class="=tw-w-80 tw-h-28 tw-bg-white tw-flex tw-flex-col tw-justify-center tw-px-8"
+              class="=tw-w-80 tw-h-28 tw-bg-white tw-flex tw-flex-col tw-justify-center tw-p-8"
             >
-              <h2
-                class="tw-font-inter-medium tw-text-basetw-leading-6 tw-tracking-[-0.04rem] tw-text-black-core/[0.87]"
-              >
+              <h2 class="sub-h1-semibold">
                 {{ blog.title }}
               </h2>
 
-              <span
-                class="tw-mt-2 tw-font-inter-regular tw-text-sm tw-tracking-[-0.72px] lg:tw-leading-[1.3125rem] v2-canopas-gradient-text"
-              >
+              <span class="tw-mt-2 tw-text-black-core/[0.60] sub-h4-semibold">
                 {{ blog.readTime }}
               </span>
             </div>
@@ -114,13 +112,11 @@
           <div>
             <p
               @click="openBlog(blog.link, 'tap_ios_blog_section')"
-              class="tw-mt-2 tw-font-inter-semibold tw-text-2xl lg:tw-text-[2.125rem] tw-w-full lg:tw-leading-[3.1875rem] !tw-tracking-[-4%] tw-text-black-core/[0.87]"
+              class="tw-mt-6 header-3 tw-w-full !tw-tracking-[-4%] tw-text-black-core/[0.87]"
             >
               {{ blog.title }}
             </p>
-            <p
-              class="tw-mt-2 tw-font-inter-medium tw-text-base lg:tw-text-lg tw-tracking-[-0.72px] lg:tw-leading-[1.125rem] tw-text-black-core/[0.60]"
-            >
+            <p class="tw-mt-6 sub-h4-regular tw-text-black-core/[0.60]">
               {{ blog.readTime }}
             </p>
           </div>

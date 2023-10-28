@@ -1,23 +1,23 @@
 <template>
   <div
-    class="tw-my-16 xs:tw-my-24 md:tw-mt-24 xl:!tw-mt-60 md:!tw-mb-0 tw-flex tw-flex-col 3xl:tw-container"
+    class="tw-mt-16 xs:tw-mt-24 md:tw-mt-24 xl:!tw-mt-60 md:!tw-mb-0 tw-flex tw-flex-col 3xl:tw-outer-container"
   >
     <div
       class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center md:tw-mb-20"
     >
       <h2
-        class="tw-tracking-[-0.04rem] tw-mb-2.5 tw-font-opensans-bold tw-text-2xl tw-leading-9 tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full md:tw-text-[2.46875rem] lg:tw-text-[3.4375rem] md:tw-leading-[3.359375rem] lg:tw-leading-[4.46875rem] xs:tw-mx-auto xs:tw-w-[71%]"
+        class="header-2 tw-mb-2.5 tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full xs:tw-mx-auto xs:tw-w-[71%]"
       >
         Case studies
       </h2>
       <span
-        class="tw-font-inter-regular tw-text-lg md:tw-text-xl tw-leading-[1.6875rem] md:tw-leading-[1.875rem] tw-text-black-core/[0.60] md:tw-font-inter-medium lg:tw-text-2xl lg:tw-leading-9 tw-w-11/12 2xl:tw-w-9/12 tw-mx-auto"
+        class="sub-h1-regular tw-text-black-core/[0.60] tw-w-11/12 2xl:tw-w-9/12 tw-mx-auto"
         >Explore our case studies to witness how we've transformed our client's
         ideas into successful iOS apps.</span
       >
     </div>
     <!-- Mobile UI -->
-    <div class="md:tw-hidden tw-flex tw-flex-col">
+    <div class="lg:tw-hidden tw-flex tw-flex-col tw-mb-24 md:tw-mb-36">
       <div
         v-for="(portfolio, index) in portfolios"
         :key="index"
@@ -56,15 +56,12 @@
             class="tw-w-11/12 sm:tw-w-9/12 tw-flex tw-flex-col tw-ml-[10%] tw-pr-3.5 xs:tw-p-3"
             :class="index == 1 ? 'tw-pl-3.5 tw-w-full' : ''"
           >
-            <h2
-              class="tw-tracking-[0.04rem] tw-mb-2.5 tw-font-opensans-bold tw-text-2xl tw-leading-9 tw-text-black-core/[0.87]"
-            >
+            <h2 class="tw-mb-2.5 header-2">
               {{ portfolio.title }}
             </h2>
-            <span
-              class="tw-font-inter-regular tw-text-lg tw-leading-[1.6875rem] tw-text-black-core/[0.60]"
-              >{{ portfolio.description }}</span
-            >
+            <span class="sub-h1-regular tw-text-black-core/[0.60]">{{
+              portfolio.description
+            }}</span>
           </div>
         </div>
       </div>
@@ -74,7 +71,7 @@
 
     <div
       id="stickyParent"
-      class="sticky-parent tw-h-[300vh] xll:tw-h-[250vh] 3xl:!tw-h-[220vh] tw-hidden md:tw-block"
+      class="sticky-parent tw-h-[300vh] xll:tw-h-[240vh] 3xl:!tw-h-[220vh] tw-hidden lg:tw-block"
     >
       <div
         class="sticky tw-sticky tw-top-0 tw-max-h-full main tw-overflow-hidden"
@@ -110,9 +107,9 @@
                 <div class="tw-flex tw-justify-end tw-relative">
                   <div
                     :class="portfolio.row1Background"
-                    class="tw-absolute tw-top-8 lg:tw-top-4 xl:tw-top-8 tw-right-[-30%] lg:tw-right-[-25%] xl:tw-right-[-17%] 2xll:tw-right-[-18%] xll:tw-right-[-12%] 3xl:tw-right-[-18%] tw-font-opensans-bold tw-text-2xl tw-leading-[1.95rem] lg:tw-text-5xl lg:tw-leading-[3.9rem] tw-text-[#FFFFFF] tw-tracking-[-0.04rem] tw-w-40 tw-h-40 lg:tw-w-[250px] lg:tw-h-[250px] tw-p-8 xl:tw-w-[300px] xl:tw-h-[300px] tw-rounded-full tw-flex tw-justify-center tw-items-center"
+                    class="tw-absolute tw-top-8 lg:tw-top-4 xl:tw-top-8 tw-right-[-30%] lg:tw-right-[-25%] xl:tw-right-[-17%] 2xll:tw-right-[-18%] xll:tw-right-[-12%] 3xl:tw-right-[-13%] tw-font-opensans-bold tw-text-2xl tw-leading-[1.95rem] lg:tw-text-5xl lg:tw-leading-[3.9rem] tw-text-[#FFFFFF] tw-tracking-[-0.04rem] tw-w-40 tw-h-40 lg:tw-w-[250px] lg:tw-h-[250px] tw-p-8 xl:tw-w-[300px] xl:tw-h-[300px] tw-rounded-full tw-flex tw-justify-center tw-items-center"
                   >
-                    <h2 class="title">
+                    <h2 class="header-1 title">
                       {{ portfolio.title }}
                     </h2>
                   </div>
@@ -121,16 +118,13 @@
                   class="tw-w-[17rem] lg:tw-w-[19rem] xl:tw-w-[33rem] tw-mx-auto tw-mt-32 lg:tw-mt-44 xl:tw-mt-72 description"
                   :class="{ '!tw-mt-12 xl:!tw-mt-72': isScrollingUp }"
                 >
-                  <h2
-                    class="tw-font-opensans-bold tw-text-2xl tw-leading-[1.95rem] lg:tw-text-5xl lg:tw-leading-[3.9rem] tw-text-[#FFFFFF] tw-tracking-[-0.04rem]"
-                  >
+                  <h2 class="header-2 tw-text-[#FFFFFF]">
                     {{ portfolio.desktopDescription }}
                   </h2>
                   <div class="tw-mt-6">
-                    <span
-                      class="tw-font-inter-medium tw-text-[#FFFFFF]/[0.80] tw-text-base lg:tw-text-xl lg:tw-leading-[1.875rem]"
-                      >{{ portfolio.subDescription }}</span
-                    >
+                    <span class="sub-h3-semibold tw-text-[#FFFFFF]/[0.80]">{{
+                      portfolio.subDescription
+                    }}</span>
                   </div>
                 </div>
                 <div
@@ -139,7 +133,7 @@
                 >
                   <span
                     @click="scrollToNext()"
-                    class="tw-font-inter-medium tw-text-[#FFFFFF]/[0.80] tw-text-base lg:tw-text-xl lg:tw-leading-[1.875rem] tw-mt-6"
+                    class="tw-text-[#FFFFFF]/[0.80] tw-mt-6 sub-h3-semibold"
                     >SKIP</span
                   >
                 </div>

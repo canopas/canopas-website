@@ -1,20 +1,25 @@
 <template>
-  <div class="tw-my-16 md:tw-my-24 tw-flex tw-flex-col xll:tw-container">
-    <div class="tw-container tw-mb-2.5 tw-flex tw-flex-col tw-text-center">
+  <div
+    class="tw-my-16 md:tw-my-24 lg:tw-my-60 3xl:tw-my-[264px] tw-flex tw-flex-col xll:tw-container 3xl:tw-outer-container"
+  >
+    <div
+      class="tw-container tw-mb-2.5 md:tw-mb-7 tw-flex tw-flex-col tw-text-center"
+    >
       <span
-        class="tw-tracking-[-1.2px] tw-mb-2.5 tw-font-inter-bold tw-text-3xl tw-leading-[2.4375rem] tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full md:tw-text-[2.65625rem] lg:tw-text-[3.4375rem] md:tw-leading-[3.796875rem] lg:tw-leading-[5.15625rem] xs:tw-mx-auto xs:tw-w-[71%]"
+        class="tw-mb-2.5 lg:tw-mb-6 tw-text-black-core/[0.87] md:!tw-mx-0 md:!tw-w-full xs:tw-mx-auto header-2"
       >
-        iOS App Development Services</span
+        iOS app <br class="lg:tw-hidden" />
+        development services</span
       >
       <span
-        class="tw-font-inter-regular tw-text-base md:tw-text-xl tw-leading-6 md:tw-leading-[1.875rem] tw-text-black-core/[0.87] md:tw-font-inter-medium lg:tw-text-2xl lg:tw-leading-9 tw-w-11/12 2xl:tw-w-9/12 tw-mx-auto"
+        class="sub-h1-regular tw-text-black-core/[0.60] tw-w-11/12 2xl:tw-w-9/12 tw-mx-auto"
         >With a blend of robust technology, intuitive designs, and innovative
         strategies, our team can help you craft high-quality, standout
         user-friendly apps that drive business growth and customer
         engagement.</span
       >
     </div>
-    <div class="swiper-content tw-mt-4 md:tw-hidden">
+    <div class="swiper-content tw-mt-4 lg:tw-hidden">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
@@ -44,27 +49,18 @@
           :key="index"
           class="tw-cursor-pointer tw-px-4 tw-pb-4"
         >
-          <div class="tw-text-center">
-            <span
-              class="tw-text-center tw-font-inter-bold tw-text-6xl tw-leading-[5.625rem] border-text"
-            >
-              0{{ index + 1 }}</span
-            >
-          </div>
           <div
-            class="tw-text-center tw-border tw-rounded-tr-[50px] tw-h-[700px] xs:tw-h-[600px] tw-p-4 tw-rounded-bl-[50px] tw-border-solid tw-border-black-core/[0.87] tw-bg-[#F8F8F8]"
+            class="tw-text-center tw-rounded-tr-[50px] tw-h-[700px] xs:tw-h-[600px] tw-p-4 tw-rounded-bl-[50px] tw-bg-[#F8F8F8]"
           >
             <div
               class="tw-justify-center tw-px-5 tw-h-16 tw-mb-5 tw-flex tw-flex-row tw-items-center"
             >
               <span
-                class="tw-tracking-[-0.96px] tw-font-inter-semibold tw-text-2xl tw-leading-[1.95rem] v2-canopas-gradient-text"
+                class="header-3 tw-text-[#FF9472]"
                 v-html="item.title"
               ></span>
             </div>
-            <div
-              class="tw-font-inter-regular tw-text-base tw-leading-6 tw-text-black-core/[0.87]"
-            >
+            <div class="sub-h3-regular tw-text-black-core/[0.87]">
               <p v-for="list in item.description" :key="list" class="tw-mb-4">
                 {{ list }}
               </p>
@@ -75,17 +71,17 @@
     </div>
 
     <div
-      class="tw-rounded-[20px] tw-hidden md:tw-flex tw-flex-row tw-container tw-mt-16 tw-bg-[#FFF] tw-drop-shadow-[0px_20px_20px_rgba(0,0,0,0.10)]"
+      class="tw-rounded-[20px] tw-hidden lg:tw-flex tw-flex-row tw-container tw-mt-16 tw-bg-[#FFF] tw-drop-shadow-[0px_20px_20px_rgba(0,0,0,0.10)]"
     >
       <div class="tw--ml-4">
         <div
           v-for="(item, index) in item"
           :key="index"
           :class="[
-            activeIndex == index ? 'tw-border-r-[#ff835b] tw-bg-[#FFF]' : '',
+            activeIndex == index ? 'tw-border-r-[#FF9472] tw-bg-[#FFF]' : '',
             index == 4 || index == 0 ? item.className : '',
           ]"
-          class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-[7.5rem] lg:tw-h-[6.8rem] tw-w-40 xl:tw-w-60 xl:tw-h-[6.2rem] tw-bg-[#F5F5F5] tw-border-b tw-border-[#E3E3E3] tw-border-r-[5px]"
+          class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-h-[7.5rem] tw-h-[5.8rem] xl:tw-h-[6.8rem] tw-w-40 xl:tw-w-60 xl:tw-h-[6.2rem] tw-bg-[#F5F5F5] tw-border-b tw-border-[#E3E3E3] tw-border-r-[5px]"
           @mouseover="slideTo(index), (activeIndex = index)"
           @touchstart.passive="slideTo(index), (activeIndex = index)"
           @touchmove.passive="slideTo(index), (activeIndex = index)"
@@ -116,7 +112,7 @@
           }"
           :loop="true"
           :modules="modules"
-          class="swiper-container tw-h-[600px] lg:tw-h-[540px] xl:tw-h-[495px] tw-flex"
+          class="swiper-container lg:tw-h-[463px] xl:tw-h-[495px] tw-flex"
           @swiper="setSwiperRef"
           @slideChange="onSlideChange"
         >
@@ -128,19 +124,15 @@
             <div
               class="tw-justify-start tw-px-5 tw-mt-3 lg:tw-my-3 tw-flex tw-flex-row"
             >
-              <span
-                class="tw-font-inter-semibold tw-text-[1.5625rem] tw-leading-[4.03125rem] lg:tw-text-[1.625rem] lg:tw-leading-[2.4375rem] v2-canopas-gradient-text tw-mr-1.5"
+              <span class="header-3 tw-text-[#FF9472] tw-mr-1.5"
                 >{{ index + 1 }}.
               </span>
-              <span
-                class="tw-font-inter-semibold tw-text-[1.5625rem] tw-leading-[4.03125rem] lg:tw-text-[1.625rem] lg:tw-leading-[2.4375rem] v2-canopas-gradient-text"
-                >{{ item.desktoptitle }}</span
-              >
+              <span class="header-3 tw-text-[#FF9472] tw-mr-1.5">{{
+                item.desktoptitle
+              }}</span>
             </div>
-            <div
-              class="tw-px-5 tw-font-inter-regular tw-text-lg lg:tw-text-xl tw-leading-[1.6875rem] lg:tw-leading-[1.875rem] tw-text-black-core/[0.87]"
-            >
-              <p v-for="list in item.description" :key="list" class="tw-mb-8">
+            <div class="tw-px-5 sub-h3-medium tw-text-black-core/[0.60]">
+              <p v-for="list in item.description" :key="list" class="tw-mb-6">
                 {{ list }}
               </p>
             </div>

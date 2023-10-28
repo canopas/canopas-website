@@ -1,5 +1,5 @@
 <template>
-  <section class="tw-mb-20">
+  <section class="tw-my-20 lg:tw-my-60 3xl:tw-mt-[315px]">
     <div
       class="tw-container md:tw-mt-36 lg:tw-mb-8 tw-mb-7 tw-mx-auto tw-text-center"
     >
@@ -11,7 +11,7 @@
     </div>
     <!-- Mobile UI start -->
     <div
-      class="tw-ml-auto md:tw-hidden tw-mx-auto tw-h-[30rem] tw-relative xll:tw-container tw-overflow-hidden tw-bg-[#1E1E1D]"
+      class="tw-ml-auto lg:tw-hidden tw-mx-auto tw-h-[32.188rem] tw-relative xll:tw-container tw-overflow-hidden tw-bg-[#1E1E1D]"
     >
       <img
         :src="reviewBackgroundImage"
@@ -44,7 +44,7 @@
               class="tw-mx-auto sm:tw-px-10 md:tw-px-6 lg:tw-px-4 xl:tw-px-24 tw-text-white tw-flex tw-flex-col tw-justify-between tw-items-center tw-object-center"
             >
               <div
-                class="tw-font-inter-semibold tw-text-lg tw-leading-[1.6875rem] tw-transition-all tw-ease tw-duration-500 tw-tracking-[-0.02rem]"
+                class="tw-transition-all tw-ease tw-duration-500 sub-h1-semibold"
               >
                 {{ client.review }}
               </div>
@@ -58,12 +58,11 @@
                 /></span>
               </div>
               <div class="tw-flex tw-flex-col">
+                <span class="sub-h2-medium tw-text-[#FFFFFF]/[0.80]">{{
+                  client.name
+                }}</span>
                 <span
-                  class="tw-font-inter-semibold tw-text-base tw-leading-[1.2rem]"
-                  >{{ client.name }}</span
-                >
-                <span
-                  class="tw-font-inter-regular tw-text-xs tw-leading-[0.9rem] tw-mt-[0.3rem]"
+                  class="sub-h3-regular tw-text-[#FFFFFF]/[0.60] tw-mt-[0.3rem]"
                   >{{ client.designation }}</span
                 >
               </div>
@@ -75,13 +74,13 @@
     <!-- Mobile UI END -->
     <!-- Desktop UI -->
     <div
-      class="tw-hidden md:tw-flex tw-item-center tw-rounded-[20px] tw-w-[95%] lg:tw-w-11/12 xl:tw-w-5/6 2xl:tw-w-[75%] tw-h-[660px] tw-mx-auto tw-drop-shadow-md xll:tw-container"
+      class="tw-hidden lg:tw-flex tw-item-center tw-rounded-[20px] tw-w-[95%] lg:tw-w-11/12 xl:tw-w-5/6 2xl:tw-w-[75%] tw-h-[660px] tw-mx-auto tw-drop-shadow-md xll:tw-container"
     >
       <div
         class="tw-w-2/5 tw-flex tw-justify-center tw-items-center tw-bg-[#F4F4F4] tw-rounded-tl-xl tw-rounded-bl-xl"
       >
         <h2
-          class="tw-text-[2.4375rem] tw-font-opensans-bold tw-w-3/4 2xl:tw-w-[65%] tw-mx-auto lg:tw-text-5xl tw-leading-[2.79375rem] lg:tw-leading-[3.9rem] !tw-tracking-[-0.04rem] tw-text-black-core/[0.87]"
+          class="header-2 tw-w-3/4 2xl:tw-w-[65%] tw-mx-auto tw-text-black-core/[0.87]"
         >
           What our clients say!
         </h2>
