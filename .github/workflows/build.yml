@@ -55,7 +55,7 @@ jobs:
 
       - name: Build frontend
         run: |
-          cd vue-frontend
+          cd nuxt-frontend
           yarn install --frozen-lockfile
           npx prettier -c .
           npx eslint .
