@@ -1,8 +1,6 @@
 name: DeployFrontendDev
 
 on:
-  repository_dispatch:
-    types: [deploy-blog-dev]
   push:
     branches:
       - "master"
@@ -27,38 +25,13 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-actions-frontend-access
           aws-region: ap-south-1
 
-      - name: Build nginx and push on ECR
+      - name: Build frontend and copy to S3
         run: |
-          cd nginx 
-          sed -i "s|WEBSITE_URL|dev-stack.canopas.com|g" conf.d/default.conf
-          sed -i "s|API_URL|dev-stack-api.canopas.com|g" conf.d/default.conf
-          bash ./../deploy/deploy-ecr-image.sh dev-nginx ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-nginx
-
-      - name: Build frontend and push on ECR
-        run: |
-          cd vue-frontend
-          echo VITE_RECAPTCHA_SITE_KEY=${{ secrets.RECAPTCHA_SITE_KEY }} >> .env
+          cd nuxt-frontend
+          sed -i "s|VITE_IFRAMELY_KEY_VALUE|${{ secrets.IFRAMELY_KEY }}|g" config.js
+          sed -i "s|VITE_RECAPTCHA_SITE_KEY_VALUE|${{ secrets.RECAPTCHA_SITE_KEY }}|g" config.js
           sh ./../deploy/generate-sitemap.sh https://dev-stack.canopas.com https://dev-stack-api.canopas.com
-          bash ./../deploy/deploy-ecr-image.sh dev-frontend ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.$AWS_REGION.amazonaws.com/canopas-website-frontend
-
-      - name: Get latest blog image tag
-        id: get_blog_image_tag
-        run: |
-          aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.ap-south-1.amazonaws.com
-          echo "::set-output name=blogImageTag::$(aws ecr describe-images --repository-name canopas-blog --output text --query 'sort_by(imageDetails,& imagePushedAt)[*].imageTags[*]' | grep -w 'dev' | tr '\t' '\n' | tail -1)"
-
-      - name: Deploy cloudformation stack
-        id: canopas-website-dev-ECS-EC2-stack
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
-        with:
-          name: canopas-website-dev-ECS-EC2-stack
-          template: infrastructure/frontend.yml
-          capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM
-          timeout-in-minutes: "10"
-          no-fail-on-empty-changeset: "1"
-          parameter-overrides: >-
-            EnvName=dev,
-            ClusterName=canopas-website-dev,
-            ImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-frontend,
-            NginxImageTag=${{ github.sha }}-${{ github.run_attempt }}-dev-nginx,
-            BlogImageTag=${{steps.get_blog_image_tag.outputs.blogImageTag}}
+          yarn install --frozen-lockfile && yarn generate
+          aws s3 sync ./.output/public s3://dev-stack.canopas.com --exclude "*.js"
+          aws s3 sync ./.output/public s3://dev-stack.canopas.com --include "*.js" --content-type "application/javascript"
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.DEV_CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"

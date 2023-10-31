@@ -14,4 +14,4 @@ else
     done
 fi
 
-cd vue-frontend && npx prettier -w . && git add . 
+cd nuxt-frontend && npx prettier -w . && git add . 

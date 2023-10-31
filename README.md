@@ -137,7 +137,7 @@ This repository contains the working code of [Canopas website](https://canopas.c
 ### Install dependencies
 
 ```
-cd vue-frontend && yarn install
+cd nuxt-frontend && yarn install
 ```
 
 ### Start website in dev mode using,
