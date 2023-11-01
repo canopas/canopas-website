@@ -99,7 +99,7 @@ func UploadFileToS3(fileName string, sess *session.Session) {
 	return
 }
 
-func UploadResumeToS3(fileHeader *multipart.FileHeader) (string, error) {
+func UploadResumeToS3(fileHeader *multipart.FileHeader, email string) (string, error) {
 	file, err := fileHeader.Open()
 	if err != nil {
 		return "", err
@@ -114,7 +114,7 @@ func UploadResumeToS3(fileHeader *multipart.FileHeader) (string, error) {
 
 	svc := s3.New(sess)
 
-	fileName := GenerateUniqueFileName(fileHeader.Filename)
+	fileName := email + "_" + GenerateUniqueFileName(fileHeader.Filename)
 
 	params := &s3.PutObjectInput{
 		Bucket: aws.String("canopas-website"),

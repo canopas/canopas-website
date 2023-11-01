@@ -186,7 +186,7 @@ func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
 func (repository *CareerRepository) InsertJobApplication(input JobsApplicationsDetails) error {
 
 	// Upload resume to S3
-	resumeURL, err := utils.UploadResumeToS3(input.File)
+	resumeURL, err := utils.UploadResumeToS3(input.File, input.Email)
 	if err != nil {
 		log.Error(err)
 		return err
