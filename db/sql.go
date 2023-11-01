@@ -13,7 +13,7 @@ import (
 
 func NewSql() *sqlx.DB {
 
-	log.Info("Initializing New Mysql Instance")
+	log.Info("Initializing New Postgresql Instance")
 
 	var db *sqlx.DB
 	username := os.Getenv("DB_USERNAME")
@@ -51,7 +51,7 @@ func NewSql() *sqlx.DB {
 		sslmode = "disable"
 	}
 
-	db = sqlx.MustConnect("postgres", "postgres://"+username+":"+password+"@"+host+":"+port+"?sslmode="+sslmode)
+	db = sqlx.MustConnect("postgres", "postgres://"+username+":"+password+"@"+host+":"+port+"/"+name+"?sslmode="+sslmode)
 
 	db.Mapper = reflectx.NewMapperFunc("json", strings.ToLower)
 	db.SetConnMaxLifetime(time.Minute * 1)
