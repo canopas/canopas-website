@@ -91,6 +91,19 @@ function getJobDates() {
   return { datePosted, validThrough };
 }
 
+function getDiffrentWidthImages(response) {
+  let imageUrls = response.data;
+  let slides = [];
+  slides = imageUrls.map((set) => ({
+    image: parseImageUrls(set.image_urls),
+  }));
+  return slides;
+}
+
+function parseImageUrls(imageUrls) {
+  return imageUrls.split(",").map((url) => url.trim());
+}
+
 export {
   elementInViewPort,
   handleAnimationOnScroll,
@@ -98,4 +111,5 @@ export {
   openBlog,
   unescapeHTML,
   getJobDates,
+  getDiffrentWidthImages,
 };
