@@ -1,7 +1,7 @@
 <template>
   <section class="mt-6 lg:mt-[6.75rem]">
     <div class="container lg:text-left text-center lg:flex xl:my-8 pb-16">
-      <div class="flex flex-col gap-4 lg:gap-6 lg:flex-1 lg:items-start">
+      <div class="flex flex-col gap-4 lg:gap-6 lg:flex-1">
         <h1 class="header-1">Flutter App Development Company</h1>
         <p class="sub-h1-regular text-black-core/[0.89]">
           We harness the power of Flutter to create visually stunning, fast, and
@@ -11,20 +11,19 @@
           dynamic mobile app market.
         </p>
         <div class="hidden lg:block">
-          <router-link
+          <nuxt-link
+            class="gradient-btn primary-btn ml-0"
             to="/contact"
             @click.native="$mixpanel.track('tap_flutter_development_cta')"
           >
-            <button class="gradient-btn primary-btn ml-0">
-              <span class="sub-h4-semibold border-none"
-                >Get Free Consultation</span
-              >
-            </button>
-          </router-link>
+            <span class="sub-h3-semibold border-none"
+              >Get Free Consultation</span
+            >
+          </nuxt-link>
         </div>
       </div>
       <div
-        class="mx-20 mt-8 lg:mt-0 lg:mx-0 flex lg:flex-wrap flex-col md:gap-[1rem] lg:flex-1"
+        class="mx-20 mt-8 lg:mt-0 lg:mx-0 flex flex-col md:gap-[1rem] lg:flex-1"
       >
         <img
           :src="landing400"
@@ -33,16 +32,15 @@
           alt="flutter-landing"
         />
         <div class="lg:hidden">
-          <router-link
+          <nuxt-link
+            class="gradient-btn primary-btn"
             to="/contact"
             @click.native="$mixpanel.track('tap_flutter_development_cta')"
           >
-            <button class="gradient-btn primary-btn">
-              <span class="sub-h3-semibold border-none"
-                >Get Free Consultation</span
-              >
-            </button>
-          </router-link>
+            <span class="sub-h3-semibold border-none"
+              >Get Free Consultation</span
+            >
+          </nuxt-link>
         </div>
       </div>
     </div>

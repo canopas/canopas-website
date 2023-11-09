@@ -1,27 +1,30 @@
 <template>
   <div>
-    <metainfo>
-      <template v-slot:title="{ content }">
-        {{ content }}
-      </template>
-    </metainfo>
     <Header />
-    <LandingSection ref="flutterLanding" />
+    <LandingSection />
+    <CtaSection />
+    <NewFooter ref="flutterFooter" />
   </div>
 </template>
 
 <script>
 import Header from "@/components/partials/NewHeader.vue";
 import config from "@/config.js";
+import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
-import LandingSection from "../components/flutter-app-development/LandingSection.vue";
-
+import LandingSection from "@/components/flutter-app-development/LandingSection.vue";
+const CtaSection = defineAsyncComponent(() =>
+  import("@/components/flutter-app-development/CtaSection.vue"),
+);
+const NewFooter = defineAsyncComponent(() =>
+  import("@/components/partials/NewFooter.vue"),
+);
 export default {
   data() {
     return {
       event: "",
       events: {
-        flutterLanding: "view_flutter_development_landing_section",
+        flutterFooter: "view_flutter_app_development_footer",
       },
     };
   },
@@ -40,6 +43,8 @@ export default {
   components: {
     Header,
     LandingSection,
+    CtaSection,
+    NewFooter,
   },
   methods: {
     sendEvent() {
