@@ -75,23 +75,9 @@
 
 <script type="module">
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-
-import perks1_400w from "@/assets/images/perks/jobs_canopas_perks_1_400w.webp";
-import perks1_800w from "@/assets/images/perks/jobs_canopas_perks_1_800w.webp";
-import perks2_400w from "@/assets/images/perks/jobs_canopas_perks_2_400w.webp";
-import perks2_800w from "@/assets/images/perks/jobs_canopas_perks_2_800w.webp";
-import perks3_400w from "@/assets/images/perks/jobs_canopas_perks_3_400w.webp";
-import perks3_800w from "@/assets/images/perks/jobs_canopas_perks_3_800w.webp";
-import perks4_400w from "@/assets/images/perks/jobs_canopas_perks_4_400w.webp";
-import perks4_800w from "@/assets/images/perks/jobs_canopas_perks_4_800w.webp";
-import perks5_400w from "@/assets/images/perks/jobs_canopas_perks_5_400w.webp";
-import perks5_800w from "@/assets/images/perks/jobs_canopas_perks_5_800w.webp";
-import perks6_400w from "@/assets/images/perks/jobs_canopas_perks_6_400w.webp";
-import perks6_800w from "@/assets/images/perks/jobs_canopas_perks_6_800w.webp";
-import perks7_400w from "@/assets/images/perks/jobs_canopas_perks_7_400w.webp";
-import perks7_800w from "@/assets/images/perks/jobs_canopas_perks_7_800w.webp";
-import perks8_400w from "@/assets/images/perks/jobs_canopas_perks_8_400w.webp";
-import perks8_800w from "@/assets/images/perks/jobs_canopas_perks_8_800w.webp";
+import axios from "axios";
+import config from "@/config.js";
+import { getDiffrentWidthImages } from "@/utils.js";
 import learning from "@/assets/images/benefits/jobs_canopas_learning.svg";
 import health from "@/assets/images/benefits/jobs_canopas_health.svg";
 import clock from "@/assets/images/benefits/jobs_canopas_clock.svg";
@@ -109,7 +95,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: [perks1_400w, perks1_800w],
+          image: [],
           description: "",
         },
         {
@@ -126,7 +112,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: [perks2_400w, perks2_800w],
+          image: [],
           description: "",
         },
         {
@@ -144,7 +130,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: [perks3_400w, perks3_800w],
+          image: [],
           description: "",
         },
         {
@@ -162,7 +148,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: [perks4_400w, perks4_800w],
+          image: [],
           description: "",
         },
         {
@@ -180,7 +166,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: [perks5_400w, perks5_800w],
+          image: [],
           description: "",
         },
         {
@@ -198,7 +184,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: [perks6_400w, perks6_800w],
+          image: [],
           description: "",
         },
         {
@@ -216,7 +202,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: [perks7_400w, perks7_800w],
+          image: [],
           description: "",
         },
         {
@@ -234,7 +220,7 @@ export default {
           title: "",
           icon: "",
           bgColor: "transparent",
-          image: [perks8_400w, perks8_800w],
+          image: [],
           description: "",
         },
       ],
@@ -256,6 +242,26 @@ export default {
         this.$emit("scroll-to-career");
       }
     },
+    async fetchImages() {
+      try {
+        const response = await axios.get(config.API_BASE + "/api/perksimages");
+        var slides = getDiffrentWidthImages(response);
+        this.perks.forEach((perk, index) => {
+          if (index % 2 === 0 && index / 2 < slides.length) {
+            const slideIndex = Math.floor(index / 2);
+            perk.image = [
+              slides[slideIndex].image[0],
+              slides[slideIndex].image[1],
+            ];
+          }
+        });
+      } catch (error) {
+        console.error("Error fetching data from the API", error);
+      }
+    },
+  },
+  created() {
+    this.fetchImages();
   },
 };
 </script>

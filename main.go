@@ -58,6 +58,7 @@ func setupRouter() *gin.Engine {
 	sitemapRepo := sitemap.New(jobsRepo)
 	leaveRepo := leave.New(templateFS, utilsRepo)
 	notificationRepo := notification.New(templateFS, utilsRepo)
+	lifePerksImagesRepo := jobs.NewLifePerksImages(sqlDb)
 
 	router.POST("/api/send-contact-mail", contactRepo.SendContactMail)
 
@@ -86,6 +87,10 @@ func setupRouter() *gin.Engine {
 			"message": "Pong",
 		})
 	})
+
+	router.GET("/api/lifeimages", lifePerksImagesRepo.LifeImages)
+
+	router.GET("/api/perksimages", lifePerksImagesRepo.PerksImages)
 
 	return router
 }

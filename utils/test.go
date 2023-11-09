@@ -108,6 +108,19 @@ func CreateTables(db *sqlx.DB) error {
 
 	_, err = db.Exec(jobsIcons)
 
+
+	lifeatCanopas := "CREATE TABLE lifeatcanopas (id SERIAL PRIMARY KEY, image_urls varchar, index int4 NOT NULL DEFAULT 0, created_at timestamptz DEFAULT CURRENT_TIMESTAMP,updated_at timestamptz DEFAULT CURRENT_TIMESTAMP)"
+
+	_, err = db.Exec(lifeatCanopas)
+
+	if err != nil {
+		return err
+	}
+
+	perkImages := "CREATE TABLE perks (id SERIAL PRIMARY KEY, image_urls varchar, index int4 NOT NULL DEFAULT 0, created_at timestamptz DEFAULT CURRENT_TIMESTAMP,updated_at timestamptz DEFAULT CURRENT_TIMESTAMP)"
+
+	_, err = db.Exec(perkImages)
+
 	if err != nil {
 		return err
 	}
@@ -120,6 +133,8 @@ func TruncateTables(db *sqlx.DB) {
 	db.MustExec("DROP TABLE IF EXISTS job_applications")
 	db.MustExec("DROP TABLE IF EXISTS job_applicant_statuses")
 	db.MustExec("DROP TABLE IF EXISTS job_icons")
+	db.MustExec("DROP TABLE IF EXISTS lifeatcanopas")
+	db.MustExec("DROP TABLE IF EXISTS perks")
 }
 
 func PrepareTablesData(db *sqlx.DB) {
@@ -127,6 +142,8 @@ func PrepareTablesData(db *sqlx.DB) {
 	db.MustExec("INSERT INTO job_applications(id, name, email, phone, place,reference, resumeURL, position, message, status, created_at, updated_at) VALUES(1, 'New Web Developer', 'developer@gmail.com', '1234567890', 'surat', 'From canopas', '', 'Web Developer from testing', 'I m a very good programer', '1',current_timestamp, current_timestamp)")
 	db.MustExec("INSERT INTO job_applicant_statuses(id, applicant_id, status, index, rejection_with_mail, created_at, updated_at) VALUES(1, 1, 1, 0, false, current_timestamp,current_timestamp )")
 	db.MustExec("INSERT INTO job_icons (id,name,value,createdAt,updatedAt) VALUES ('1','iOS','fab fa-apple',NULL,NULL);")
+    db.MustExec("INSERT INTO lifeatcanopas (id,image_urls,created_at,updated_at) VALUES(1,'https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-400.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-800.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-1600.webp',current_timestamp, current_timestamp)")
+	db.MustExec("INSERT INTO perks (id,image_urls,created_at,updated_at) VALUES(1,'https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-400.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-800.webp',current_timestamp, current_timestamp)")
 }
 
 func PrepareTextFileFormData() (string, *bytes.Buffer) {

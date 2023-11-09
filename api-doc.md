@@ -417,3 +417,71 @@
     - Headers : none
     - Message : Acceptence mail has been sent successfully
 ```
+
+### 9. Get Career Page LifeatCanopas Section Images
+
+```
+- Method : GET
+- Endpoint : /api/lifeimages
+- Description : API for get images of lifeat canopas section of career page
+- Request:
+    - Headers : none
+    - Body : none
+
+- Response :
+
+    - If API is not found or image data not found then,
+    - Status Code: 404 not found
+    - Data: no response data
+
+    - If any server error is there then,
+    - Status Code: 500 Internal server error
+    - Data: no response data
+
+    - If request will success ,
+    - Status Code: 200 Ok
+    - Headers : none
+    - Data :
+        [
+            {
+                 "id": 1,
+                 "image_urls": "https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-400.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-800.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-1600.webp",
+                 "index": 0
+            },
+        ]
+
+```
+
+### 10. Get Career Page Perks and Benefit Section Images
+
+```
+- Method : GET
+- Endpoint : /api/perksimages
+- Description : API for get images of perks and benefit section of career page
+- Request:
+    - Headers : none
+    - Body : none
+
+- Response :
+
+    - If API is not found or image data not found then,
+    - Status Code: 404 not found
+    - Data: no response data
+
+    - If any server error is there then,
+    - Status Code: 500 Internal server error
+    - Data: no response data
+
+    - If request will success ,
+    - Status Code: 200 Ok
+    - Headers : none
+    - Data :
+        [
+            {
+                 "id": 1,
+                 "image_urls": "https://canopas-website.s3.ap-south-1.amazonaws.com/perksBenefits/1-400.webp,https://canopas-website.s3.ap-south-1.amazonaws.com//perksBenefits/1-800.webp",
+                 "index": 0
+            },
+        ]
+
+```
