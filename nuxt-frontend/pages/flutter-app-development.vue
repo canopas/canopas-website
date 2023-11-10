@@ -3,6 +3,7 @@
     <Header />
     <LandingSection />
     <CtaSection />
+    <SuccessStory />
     <NewFooter ref="flutterFooter" />
   </div>
 </template>
@@ -15,6 +16,9 @@ import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/flutter-app-development/LandingSection.vue";
 const CtaSection = defineAsyncComponent(() =>
   import("@/components/flutter-app-development/CtaSection.vue"),
+);
+const SuccessStory = defineAsyncComponent(() =>
+  import("@/components/flutter-app-development/SuccessStorySection.vue"),
 );
 const NewFooter = defineAsyncComponent(() =>
   import("@/components/partials/NewFooter.vue"),
@@ -44,6 +48,7 @@ export default {
     Header,
     LandingSection,
     CtaSection,
+    SuccessStory,
     NewFooter,
   },
   methods: {
