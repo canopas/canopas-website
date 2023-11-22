@@ -14,7 +14,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/about/LandingSection.vue";
 import HowItAllStartedSection from "@/components/about/HowItAllStartedSection.vue";
@@ -22,73 +22,61 @@ import config from "@/config.js";
 import { elementInViewPort } from "@/utils.js";
 import { defineAsyncComponent } from "vue";
 
-const HowItAllStartedSectionMobile = defineAsyncComponent(() =>
-  import("@/components/about/HowItAllStartedSectionMobile.vue"),
+const HowItAllStartedSectionMobile = defineAsyncComponent(
+  () => import("@/components/about/HowItAllStartedSectionMobile.vue"),
 );
-const AboutusVirtue = defineAsyncComponent(() =>
-  import("@/components/about/AboutusVirtue.vue"),
+const AboutusVirtue = defineAsyncComponent(
+  () => import("@/components/about/AboutusVirtue.vue"),
 );
-const WithCanopasSection = defineAsyncComponent(() =>
-  import("@/components/about/WithCanopas.vue"),
+const WithCanopasSection = defineAsyncComponent(
+  () => import("@/components/about/WithCanopas.vue"),
 );
-const ClientReviewSection = defineAsyncComponent(() =>
-  import("@/components/home-new/ClientReviewSection.vue"),
+const ClientReviewSection = defineAsyncComponent(
+  () => import("@/components/home-new/ClientReviewSection.vue"),
 );
-const CTASection = defineAsyncComponent(() =>
-  import("@/components/about/CTASection.vue"),
+const CTASection = defineAsyncComponent(
+  () => import("@/components/about/CTASection.vue"),
 );
-const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue"),
+const NewFooter = defineAsyncComponent(
+  () => import("@/components/partials/NewFooter.vue"),
 );
+const { $mixpanel } = useNuxtApp();
 
-export default {
-  setup() {
-    const seoData = config.ABOUT_SEO_META_DATA;
-    useSeoMeta({
-      title: seoData.title,
-      description: seoData.description,
-      ogTitle: seoData.title,
-      ogType: seoData.type,
-      ogUrl: seoData.url,
-      ogImage: seoData.image,
-    });
-  },
-  components: {
-    Header,
-    LandingSection,
-    HowItAllStartedSectionMobile,
-    HowItAllStartedSection,
-    AboutusVirtue,
-    WithCanopasSection,
-    ClientReviewSection,
-    CTASection,
-    NewFooter,
-  },
-  data() {
-    return {
-      event: "",
-      events: {
-        withcanopas: "view_about_phases",
-        footer: "view_about_footer",
-      },
-    };
-  },
-  inject: ["mixpanel"],
-  mounted() {
-    window.addEventListener("scroll", this.sendEvent);
-    this.$mixpanel.track("view_about_page");
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.sendEvent);
-  },
-  methods: {
-    sendEvent() {
-      const event = this.events[elementInViewPort(this.$refs)];
-      if (event && this.event !== event) {
-        this.event = event;
-        this.$mixpanel.track(event);
-      }
-    },
-  },
+const withcanopas = ref(null);
+const footer = ref(null);
+
+const seoData = config.ABOUT_SEO_META_DATA;
+useSeoMeta({
+  title: seoData.title,
+  description: seoData.description,
+  ogTitle: seoData.title,
+  ogType: seoData.type,
+  ogUrl: seoData.url,
+  ogImage: seoData.image,
+});
+
+let event = "";
+let events = {
+  withcanopas: "view_about_phases",
+  footer: "view_about_footer",
 };
+let elements;
+onMounted(() => {
+  elements = ref({
+    withcanopas: withcanopas,
+    footer: footer,
+  });
+  window.addEventListener("scroll", sendEvent);
+  $mixpanel.track("view_about_page");
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", sendEvent);
+});
+function sendEvent() {
+  const newEvent = events[elementInViewPort(elements.value)];
+  if (newEvent && event !== newEvent) {
+    event = newEvent;
+    $mixpanel.track(event);
+  }
+}
 </script>

@@ -193,8 +193,8 @@ export default {
     };
   },
   components: {
-    LottieAnimation: defineAsyncComponent(() =>
-      import("@/components/utils/LottieAnimation.vue"),
+    LottieAnimation: defineAsyncComponent(
+      () => import("@/components/utils/LottieAnimation.vue"),
     ),
   },
   mounted() {

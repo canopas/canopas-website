@@ -14,14 +14,14 @@ import config from "@/config.js";
 import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/flutter-app-development/LandingSection.vue";
-const CtaSection = defineAsyncComponent(() =>
-  import("@/components/flutter-app-development/CtaSection.vue"),
+const CtaSection = defineAsyncComponent(
+  () => import("@/components/flutter-app-development/CtaSection.vue"),
 );
-const SuccessStory = defineAsyncComponent(() =>
-  import("@/components/flutter-app-development/SuccessStorySection.vue"),
+const SuccessStory = defineAsyncComponent(
+  () => import("@/components/flutter-app-development/SuccessStorySection.vue"),
 );
-const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue"),
+const NewFooter = defineAsyncComponent(
+  () => import("@/components/partials/NewFooter.vue"),
 );
 export default {
   data() {
