@@ -35,32 +35,32 @@ import LandingSection from "@/components/home-new/LandingSection.vue";
 import { elementInViewPort } from "@/utils.js";
 import { defineAsyncComponent } from "vue";
 
-const CaseStudy = defineAsyncComponent(() =>
-  import("@/components/home-new/CaseStudy.vue"),
+const CaseStudy = defineAsyncComponent(
+  () => import("@/components/home-new/CaseStudy.vue"),
 );
-const ServiceSection = defineAsyncComponent(() =>
-  import("@/components/home-new/ServiceSection.vue"),
+const ServiceSection = defineAsyncComponent(
+  () => import("@/components/home-new/ServiceSection.vue"),
 );
-const ServiceSectionMobile = defineAsyncComponent(() =>
-  import("@/components/home-new/ServiceSectionMobile.vue"),
+const ServiceSectionMobile = defineAsyncComponent(
+  () => import("@/components/home-new/ServiceSectionMobile.vue"),
 );
-const ContributionSection = defineAsyncComponent(() =>
-  import("@/components/home-new/ContributionSection.vue"),
+const ContributionSection = defineAsyncComponent(
+  () => import("@/components/home-new/ContributionSection.vue"),
 );
-const ContributionSectionMobile = defineAsyncComponent(() =>
-  import("@/components/home-new/ContributionSectionMobile.vue"),
+const ContributionSectionMobile = defineAsyncComponent(
+  () => import("@/components/home-new/ContributionSectionMobile.vue"),
 );
-const ClientReview = defineAsyncComponent(() =>
-  import("@/components/home-new/ClientReviewSection.vue"),
+const ClientReview = defineAsyncComponent(
+  () => import("@/components/home-new/ClientReviewSection.vue"),
 );
-const CTASection = defineAsyncComponent(() =>
-  import("@/components/mobile-app-development/CTASection2.vue"),
+const CTASection = defineAsyncComponent(
+  () => import("@/components/mobile-app-development/CTASection2.vue"),
 );
-const BlogSection = defineAsyncComponent(() =>
-  import("@/components/home-new/BlogSection.vue"),
+const BlogSection = defineAsyncComponent(
+  () => import("@/components/home-new/BlogSection.vue"),
 );
-const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue"),
+const NewFooter = defineAsyncComponent(
+  () => import("@/components/partials/NewFooter.vue"),
 );
 
 export default {

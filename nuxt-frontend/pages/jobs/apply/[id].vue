@@ -503,8 +503,8 @@ function submitApplication() {
         referenceBy.value != ""
         ? reference.value + " - " + referenceBy.value
         : reference.value && reference.value != ""
-        ? reference.value
-        : "NA",
+          ? reference.value
+          : "NA",
     );
 
     formData.append("file", file.value, fileName);

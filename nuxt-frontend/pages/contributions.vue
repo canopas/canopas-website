@@ -19,7 +19,7 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { defineAsyncComponent } from "vue";
 import Header from "@/components/partials/NewHeader.vue";
 import config from "@/config.js";
@@ -27,83 +27,69 @@ import MobileLandingSection from "@/components/contributions/MobileLanding.vue";
 import DesktopLandingSection from "@/components/contributions/DesktopLanding.vue";
 import GithubContribution from "@/components/contributions/GithubContribution.vue";
 import { elementInViewPort } from "@/utils.js";
-const WeeklyUpdateSection = defineAsyncComponent(() =>
-  import("@/components/contributions/WeeklyUpdate.vue"),
+const WeeklyUpdateSection = defineAsyncComponent(
+  () => import("@/components/contributions/WeeklyUpdate.vue"),
 );
-const WhatsTrending = defineAsyncComponent(() =>
-  import("@/components/contributions/WhatsTrending.vue"),
+const WhatsTrending = defineAsyncComponent(
+  () => import("@/components/contributions/WhatsTrending.vue"),
 );
-const Favourite = defineAsyncComponent(() =>
-  import("@/components/contributions/Favourite.vue"),
+const Favourite = defineAsyncComponent(
+  () => import("@/components/contributions/Favourite.vue"),
 );
-const AnimatedCreation = defineAsyncComponent(() =>
-  import("@/components/contributions/AnimatedCreation.vue"),
+const AnimatedCreation = defineAsyncComponent(
+  () => import("@/components/contributions/AnimatedCreation.vue"),
 );
-const UnitTest = defineAsyncComponent(() =>
-  import("@/components/contributions/UnitTest.vue"),
+const UnitTest = defineAsyncComponent(
+  () => import("@/components/contributions/UnitTest.vue"),
 );
-const DevOps = defineAsyncComponent(() =>
-  import("@/components/contributions/DevOps.vue"),
+const DevOps = defineAsyncComponent(
+  () => import("@/components/contributions/DevOps.vue"),
 );
-const ExploreDesign = defineAsyncComponent(() =>
-  import("@/components/contributions/DesignExplore.vue"),
+const ExploreDesign = defineAsyncComponent(
+  () => import("@/components/contributions/DesignExplore.vue"),
 );
+const NewFooter = defineAsyncComponent(
+  () => import("@/components/partials/NewFooter.vue"),
+);
+const { $mixpanel } = useNuxtApp();
 
-const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue"),
-);
+const favourite = ref(null);
+const footer = ref(null);
 
-export default {
-  setup() {
-    const seoData = config.CONTRIBUTION_SEO_META_DATA;
-    useSeoMeta({
-      title: seoData.title,
-      description: seoData.description,
-      ogTitle: seoData.title,
-      ogType: seoData.type,
-      ogUrl: seoData.url,
-      ogImage: seoData.image,
-    });
-  },
-  components: {
-    Header,
-    MobileLandingSection,
-    DesktopLandingSection,
-    GithubContribution,
-    WeeklyUpdateSection,
-    WhatsTrending,
-    Favourite,
-    AnimatedCreation,
-    UnitTest,
-    DevOps,
-    ExploreDesign,
-    NewFooter,
-  },
-  data() {
-    return {
-      event: "",
-      events: {
-        favourite: "view_favourite_contribution",
-        footer: "view_contribution_footer",
-      },
-    };
-  },
-  inject: ["mixpanel"],
-  mounted() {
-    window.addEventListener("scroll", this.sendEvent);
-    this.$mixpanel.track("view_contribution_page");
-  },
-  unmounted() {
-    window.removeEventListener("scroll", this.sendEvent);
-  },
-  methods: {
-    sendEvent() {
-      const event = this.events[elementInViewPort(this.$refs)];
-      if (event && this.event !== event) {
-        this.event = event;
-        this.$mixpanel.track(event);
-      }
-    },
-  },
+const seoData = config.CONTRIBUTION_SEO_META_DATA;
+useSeoMeta({
+  title: seoData.title,
+  description: seoData.description,
+  ogTitle: seoData.title,
+  ogType: seoData.type,
+  ogUrl: seoData.url,
+  ogImage: seoData.image,
+});
+
+let event = "";
+let events = {
+  favourite: "view_favourite_contribution",
+  footer: "view_contribution_footer",
 };
+
+let elements;
+
+onMounted(() => {
+  elements = ref({
+    favourite: favourite,
+    footer: footer,
+  });
+  window.addEventListener("scroll", sendEvent);
+  $mixpanel.track("view_contribution_page");
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", sendEvent);
+});
+function sendEvent() {
+  const newEvent = events[elementInViewPort(elements.value)];
+  if (newEvent && event !== newEvent) {
+    event = newEvent;
+    $mixpanel.track(event);
+  }
+}
 </script>

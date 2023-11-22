@@ -19,23 +19,23 @@ import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/ios-app-development/LandingSection.vue";
 import DevelopmentSection from "@/components/ios-app-development/DevelopmentSection.vue";
-const SuccessStorySection = defineAsyncComponent(() =>
-  import("@/components/ios-app-development/SuccessStory.vue"),
+const SuccessStorySection = defineAsyncComponent(
+  () => import("@/components/ios-app-development/SuccessStory.vue"),
 );
-const BlogSection = defineAsyncComponent(() =>
-  import("@/components/ios-app-development/BlogSection.vue"),
+const BlogSection = defineAsyncComponent(
+  () => import("@/components/ios-app-development/BlogSection.vue"),
 );
-const FaqSection = defineAsyncComponent(() =>
-  import("@/components/ios-app-development/FaqSection.vue"),
+const FaqSection = defineAsyncComponent(
+  () => import("@/components/ios-app-development/FaqSection.vue"),
 );
-const CtaSection = defineAsyncComponent(() =>
-  import("@/components/ios-app-development/CtaSection.vue"),
+const CtaSection = defineAsyncComponent(
+  () => import("@/components/ios-app-development/CtaSection.vue"),
 );
-const CtaSection2 = defineAsyncComponent(() =>
-  import("@/components/ios-app-development/CtaSection2.vue"),
+const CtaSection2 = defineAsyncComponent(
+  () => import("@/components/ios-app-development/CtaSection2.vue"),
 );
-const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue"),
+const NewFooter = defineAsyncComponent(
+  () => import("@/components/partials/NewFooter.vue"),
 );
 
 export default {

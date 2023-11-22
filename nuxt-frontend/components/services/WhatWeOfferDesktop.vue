@@ -134,55 +134,57 @@ export default {
 
       // check which element is in viewport
       const elementIdx = elementInViewPort(this.$refs);
-      const index = parseInt(
-        elementIdx ? elementIdx.charAt(elementIdx.length - 1) : 0,
-      );
+      if (elementIdx) {
+        const index = parseInt(
+          elementIdx ? elementIdx.charAt(elementIdx.length - 1) : 0,
+        );
 
-      if (this.prevIndex != index) {
-        // when image will change, prevImage should be at path 0 or 100
-        if (this.prevIndex != 0) {
-          this.services[this.prevIndex].path = [
-            scrollUp ? 100 : 0,
-            scrollUp ? 100 : 0,
-          ];
+        if (this.prevIndex != index) {
+          // when image will change, prevImage should be at path 0 or 100
+          if (this.prevIndex != 0) {
+            this.services[this.prevIndex].path = [
+              scrollUp ? 100 : 0,
+              scrollUp ? 100 : 0,
+            ];
+          }
+
+          this.prevIndex = index;
         }
 
-        this.prevIndex = index;
+        // make previous images clip path 0
+        this.services = this.services.map((val, i) => {
+          val.path = i < index ? [0, 0] : i > index ? [100, 100] : val.path;
+          return val;
+        });
+
+        // random offset used when scrolling
+        const rect = this.$refs[elementIdx][0].getBoundingClientRect();
+        const scrollOffset =
+          ((window.innerHeight - rect.top) * 100) / window.innerHeight;
+
+        if (scrollUp) {
+          this.services[0].path = [0, 0];
+        }
+
+        // if firstImage then path should be 0
+        // else set respective path
+        if (index == 0) {
+          this.services[index].path = [0, 0];
+        } else if (
+          !scrollUp &&
+          index == this.services.length - 1 &&
+          rect.top < window.innerHeight / 2
+        ) {
+          this.services[index].path = [
+            100 - scrollOffset * 1.2,
+            100 - scrollOffset * 1.2,
+          ];
+        } else {
+          this.services[index].path = [100 - scrollOffset, 100 - scrollOffset];
+        }
+
+        this.lastScrollY = scrollY;
       }
-
-      // make previous images clip path 0
-      this.services = this.services.map((val, i) => {
-        val.path = i < index ? [0, 0] : i > index ? [100, 100] : val.path;
-        return val;
-      });
-
-      // random offset used when scrolling
-      const rect = this.$refs[elementIdx][0].getBoundingClientRect();
-      const scrollOffset =
-        ((window.innerHeight - rect.top) * 100) / window.innerHeight;
-
-      if (scrollUp) {
-        this.services[0].path = [0, 0];
-      }
-
-      // if firstImage then path should be 0
-      // else set respective path
-      if (index == 0) {
-        this.services[index].path = [0, 0];
-      } else if (
-        !scrollUp &&
-        index == this.services.length - 1 &&
-        rect.top < window.innerHeight / 2
-      ) {
-        this.services[index].path = [
-          100 - scrollOffset * 1.2,
-          100 - scrollOffset * 1.2,
-        ];
-      } else {
-        this.services[index].path = [100 - scrollOffset, 100 - scrollOffset];
-      }
-
-      this.lastScrollY = scrollY;
     },
     openUrl(url) {
       window.open(url, "_self");

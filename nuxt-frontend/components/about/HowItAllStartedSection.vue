@@ -26,8 +26,8 @@
                 index == activeIndex
                   ? 'v2-canopas-gradient-text'
                   : index < activeIndex
-                  ? 'text-black-core/[0.2]'
-                  : 'text-black-core/[0.6]'
+                    ? 'text-black-core/[0.2]'
+                    : 'text-black-core/[0.6]'
               "
               class="text-[1.5rem] leading-[2.5rem] xl:text-[1.875rem] xl:leading-[2.812rem] font-inter-medium hover:bg-clip-text hover:text-transparent hover:from-[#FF835B] hover:to-[#F2709C] hover:bg-gradient-[270.11deg]"
               @click="slide(index, story)"

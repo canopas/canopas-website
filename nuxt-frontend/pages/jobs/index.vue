@@ -26,29 +26,29 @@ import { defineAsyncComponent } from "vue";
 import config from "@/config.js";
 import { elementInViewPort, handleAnimationOnScroll } from "@/utils.js";
 
-const VirtuesView = defineAsyncComponent(() =>
-  import("@/components/jobs/VirtuesView.vue"),
+const VirtuesView = defineAsyncComponent(
+  () => import("@/components/jobs/VirtuesView.vue"),
 );
-const LifeAtCanopas = defineAsyncComponent(() =>
-  import("@/components/jobs/LifeAtCanopas.vue"),
+const LifeAtCanopas = defineAsyncComponent(
+  () => import("@/components/jobs/LifeAtCanopas.vue"),
 );
-const Career = defineAsyncComponent(() =>
-  import("@/components/jobs/CareerView.vue"),
+const Career = defineAsyncComponent(
+  () => import("@/components/jobs/CareerView.vue"),
 );
-const PerksAndBenefits = defineAsyncComponent(() =>
-  import("@/components/jobs/PerksAndBenefits.vue"),
+const PerksAndBenefits = defineAsyncComponent(
+  () => import("@/components/jobs/PerksAndBenefits.vue"),
 );
-const WhyCanopas = defineAsyncComponent(() =>
-  import("@/components/jobs/WhyCanopas.vue"),
+const WhyCanopas = defineAsyncComponent(
+  () => import("@/components/jobs/WhyCanopas.vue"),
 );
-const WhyCanopasMobile = defineAsyncComponent(() =>
-  import("@/components/jobs/WhyCanopasMobile.vue"),
+const WhyCanopasMobile = defineAsyncComponent(
+  () => import("@/components/jobs/WhyCanopasMobile.vue"),
 );
-const FaqSection = defineAsyncComponent(() =>
-  import("@/components/jobs/FaqSection.vue"),
+const FaqSection = defineAsyncComponent(
+  () => import("@/components/jobs/FaqSection.vue"),
 );
-const NewFooter = defineAsyncComponent(() =>
-  import("@/components/partials/NewFooter.vue"),
+const NewFooter = defineAsyncComponent(
+  () => import("@/components/partials/NewFooter.vue"),
 );
 
 const { $mixpanel } = useNuxtApp();
