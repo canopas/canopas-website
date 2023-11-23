@@ -1,5 +1,7 @@
 <template>
-  <div class="bg-black-core text-white text-center h-[600px] lg:h-[750px]">
+  <div
+    class="bg-black-core text-white text-center h-[600px] lg:h-[750px] 3xl:outer-container"
+  >
     <div
       class="container flex gap-6 lg:gap-[4.5rem] flex-col pt-12 xs:pt-14 sm:pt-[4.5rem] lg:!pt-[7.5rem] xl:!pt-24 lg:px-48"
     >
