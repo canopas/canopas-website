@@ -14,8 +14,8 @@
       v-on:add-animation="handleAnimationOnScroll"
     />
     <Career id="career" />
-    <FaqSection v-on:add-animation="handleAnimationOnScroll" />
-    <NewFooter ref="footer" />
+    <FaqSection v-on:add-animation="handleAnimationOnScroll" ref="faq" />
+    <NewFooter />
   </div>
 </template>
 
@@ -53,12 +53,7 @@ const NewFooter = defineAsyncComponent(
 
 const { $mixpanel } = useNuxtApp();
 
-const landingview = ref(null);
-const virtue = ref(null);
-const life = ref(null);
 const perks = ref(null);
-const whycanopas = ref(null);
-const joblist = ref(null);
 const faq = ref(null);
 
 const seoData = config.JOBS_SEO_META_DATA;
@@ -74,19 +69,14 @@ useSeoMeta({
 let event = "";
 let events = {
   perks: "view_perks_benefits",
-  footer: "view_jobs_footer",
+  faq: "view_jobs_faq",
 };
 
 let elements;
 
 onMounted(() => {
   elements = ref({
-    landingview: landingview,
-    virtue: virtue,
-    life: life,
     perks: perks,
-    whycanopas: whycanopas,
-    joblist: joblist,
     faq: faq,
   });
   window.addEventListener("scroll", sendEvent);
