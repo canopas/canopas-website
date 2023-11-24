@@ -6,8 +6,8 @@
       ref="userReview"
       class="pb-0 sm:pb-10 md:pb-8 lg:pb-20 sm:top-10"
     />
-    <CTASection />
-    <NewFooter ref="footer" />
+    <CTASection ref="cta" />
+    <NewFooter />
   </div>
 </template>
 
@@ -30,7 +30,7 @@ const NewFooter = defineAsyncComponent(
 const { $mixpanel } = useNuxtApp();
 
 const userReview = ref(null);
-const footer = ref(null);
+const cta = ref(null);
 
 const seoData = config.PORTFOLIO_SEO_META_DATA;
 useSeoMeta({
@@ -45,7 +45,7 @@ useSeoMeta({
 let event = "";
 let events = {
   userReview: "view_portfolio_user_review_section",
-  footer: "view_portfolio_footer_section",
+  cta: "view_portfolio_cta_section",
 };
 
 let elements;
@@ -53,7 +53,7 @@ let elements;
 onMounted(() => {
   elements = ref({
     userReview: userReview,
-    footer: footer,
+    cta: cta,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_portfolio_page");

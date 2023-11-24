@@ -6,8 +6,8 @@
     <VirtueView />
     <LifeAtCanopasVue ref="lifeatcanopas" />
     <LatestBlog />
-    <ContributionSection />
-    <NewFooter ref="footer" />
+    <ContributionSection ref="contribution" />
+    <NewFooter />
   </div>
 </template>
 <script setup>
@@ -37,7 +37,7 @@ const NewFooter = defineAsyncComponent(
 const { $mixpanel } = useNuxtApp();
 
 const lifeatcanopas = ref(null);
-const footer = ref(null);
+const contribution = ref(null);
 
 const seoData = config.JOBS_THANKYOU_SEO_META_DATA;
 useSeoMeta({
@@ -53,14 +53,14 @@ let applicantName = "";
 let event = "";
 let events = {
   lifeatcanopas: "view_jobs_thankyou_lifeatcanopas_section",
-  footer: "view_jobs_thankyou_footer",
+  contribution: "view_jobs_thankyou_contribution_section",
 };
 let elements;
 
 onMounted(() => {
   elements = ref({
     lifeatcanopas: lifeatcanopas,
-    footer: footer,
+    contribution: contribution,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_jobs_thankyou_page");

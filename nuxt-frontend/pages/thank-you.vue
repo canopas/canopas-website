@@ -5,11 +5,12 @@
       <LandingSection :name="clientName" />
       <BenefitSection
         class="overflow-y-hidden 2xl:overflow-y-visible 3xl:overflow-y-hidden"
+        ref="benefits"
       />
-      <HappyClientSection ref="clientreview" />
-      <ScheduleMeeting />
+      <HappyClientSection />
+      <ScheduleMeeting ref="meeting" />
     </div>
-    <NewFooter ref="footer" />
+    <NewFooter />
   </div>
 </template>
 
@@ -20,6 +21,7 @@ import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/contact/thank-you/LandingSection.vue";
 import BenefitSection from "@/components/contact/thank-you/BenefitSection.vue";
 import { elementInViewPort } from "@/utils.js";
+
 const HappyClientSection = defineAsyncComponent(
   () => import("@/components/contact/thank-you/HappyClient.vue"),
 );
@@ -29,10 +31,11 @@ const ScheduleMeeting = defineAsyncComponent(
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
 );
+
 const { $mixpanel } = useNuxtApp();
 
-const clientreview = ref(null);
-const footer = ref(null);
+const benefits = ref(null);
+const meeting = ref(null);
 
 const seoData = config.CLIENT_THANKYOU_SEO_META_DATA;
 useSeoMeta({
@@ -47,22 +50,25 @@ useSeoMeta({
 let clientName = "";
 let event = "";
 let events = {
-  clientreview: "view_thankyou_clientreview_section",
-  footer: "view_thankyou_footer",
+  benefits: "view_thankyou_benefits_section",
+  meeting: "view_thankyou_schedule_meeting_section",
 };
+
 let elements;
 
 onMounted(() => {
   elements = ref({
-    clientreview: clientreview,
-    footer: footer,
+    benefits: benefits,
+    meeting: meeting,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_thankyou_page");
 });
+
 onUnmounted(() => {
   window.removeEventListener("scroll", sendEvent);
 });
+
 onBeforeMount(() => {
   let cName = localStorage.getItem("client-name");
   if (cName) {

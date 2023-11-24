@@ -11,10 +11,10 @@
       <DevelopmentProcess ref="developmentprocess" />
       <div class="bg-black-core/[0.85]">
         <ClientReview />
-        <CTASection2 />
+        <CTASection2 ref="cta" />
       </div>
     </div>
-    <NewFooter ref="footer" class="mt-[-15px] md:mt-auto" />
+    <NewFooter class="mt-[-15px] md:mt-auto" />
   </div>
 </template>
 
@@ -48,7 +48,7 @@ const NewFooter = defineAsyncComponent(
 const { $mixpanel } = useNuxtApp();
 
 const developmentprocess = ref(null);
-const footer = ref(null);
+const cta = ref(null);
 
 const seoData = config.MOBILE_APP_DEVELOPMENT_SEO_META_DATA;
 useSeoMeta({
@@ -63,7 +63,7 @@ useSeoMeta({
 let event = "";
 let events = {
   developmentprocess: "view_mobileapp_development_developmentprocess_section",
-  footer: "view_mobileapp_development_footer",
+  cta: "view_mobileapp_development_cta",
 };
 
 let elements;
@@ -71,7 +71,7 @@ let elements;
 onMounted(() => {
   elements = ref({
     developmentprocess: developmentprocess,
-    footer: footer,
+    cta: cta,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_mobileapp_development_page");

@@ -8,9 +8,9 @@
       <AboutusVirtue />
       <WithCanopasSection ref="withcanopas" />
       <ClientReviewSection />
-      <CTASection />
+      <CTASection ref="cta" />
     </div>
-    <NewFooter ref="footer" />
+    <NewFooter />
   </div>
 </template>
 
@@ -43,7 +43,7 @@ const NewFooter = defineAsyncComponent(
 const { $mixpanel } = useNuxtApp();
 
 const withcanopas = ref(null);
-const footer = ref(null);
+const cta = ref(null);
 
 const seoData = config.ABOUT_SEO_META_DATA;
 useSeoMeta({
@@ -58,13 +58,13 @@ useSeoMeta({
 let event = "";
 let events = {
   withcanopas: "view_about_phases",
-  footer: "view_about_footer",
+  cta: "view_about_cta",
 };
 let elements;
 onMounted(() => {
   elements = ref({
     withcanopas: withcanopas,
-    footer: footer,
+    cta: cta,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_about_page");

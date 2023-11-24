@@ -13,9 +13,9 @@
       <AnimatedCreation />
       <UnitTest class="md:overflow-hidden" />
       <DevOps />
-      <ExploreDesign class="overflow-hidden" />
+      <ExploreDesign class="overflow-hidden" ref="design" />
     </div>
-    <NewFooter ref="footer" />
+    <NewFooter />
   </div>
 </template>
 
@@ -54,7 +54,7 @@ const NewFooter = defineAsyncComponent(
 const { $mixpanel } = useNuxtApp();
 
 const favourite = ref(null);
-const footer = ref(null);
+const design = ref(null);
 
 const seoData = config.CONTRIBUTION_SEO_META_DATA;
 useSeoMeta({
@@ -69,7 +69,7 @@ useSeoMeta({
 let event = "";
 let events = {
   favourite: "view_favourite_contribution",
-  footer: "view_contribution_footer",
+  design: "view_design_contribution",
 };
 
 let elements;
@@ -77,7 +77,7 @@ let elements;
 onMounted(() => {
   elements = ref({
     favourite: favourite,
-    footer: footer,
+    design: design,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_contribution_page");

@@ -11,8 +11,8 @@
     <BlackCtaSection />
     <BlogSection />
     <FaqSection />
-    <CtaSection />
-    <NewFooter ref="footer" />
+    <CtaSection ref="cta" />
+    <NewFooter />
   </div>
 </template>
 
@@ -53,7 +53,7 @@ const NewFooter = defineAsyncComponent(
 const { $mixpanel } = useNuxtApp();
 
 const casestudy = ref(null);
-const footer = ref(null);
+const cta = ref(null);
 
 const seoData = config.ANDRIOD_APP_DEVELOPMENT_SEO_META_DATA;
 useSeoMeta({
@@ -68,7 +68,7 @@ useSeoMeta({
 let event = "";
 let events = {
   casestudy: "view_android_development_casestudy_sections",
-  footer: "view_android_development_footer",
+  cta: "view_android_development_cta",
 };
 
 let elements;
@@ -76,7 +76,7 @@ let elements;
 onMounted(() => {
   elements = ref({
     casestudy: casestudy,
-    footer: footer,
+    cta: cta,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_android_development_page");
