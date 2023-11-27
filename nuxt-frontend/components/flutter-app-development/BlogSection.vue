@@ -89,7 +89,7 @@
               class="bg-[#121212] ease absolute top-1/2 left-1/2 right-1/2 rounded-xl transition-all duration-700 opacity-0 overflow-hidden w-0 h-0 hover:opacity-100 group-hover:h-full group-hover:w-full group-hover:top-0 group-hover:left-0 group-hover:right-0"
             >
               <div
-                class="absolute w-80 -top-72 left-1/2 text-center -translate-x-1/2 -translate-y-1/2 transition-all duration-700 transform group-hover:top-1/2"
+                class="absolute w-72 xl:w-80 -top-72 left-1/2 text-center -translate-x-1/2 -translate-y-1/2 transition-all duration-700 transform group-hover:top-1/2"
               >
                 <span
                   v-html="blog.hovertitle"

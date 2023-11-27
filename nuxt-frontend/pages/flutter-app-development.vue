@@ -5,6 +5,7 @@
     <CtaSection />
     <SuccessStory />
     <BlogSection />
+    <CtaSection2 />
     <NewFooter ref="flutterFooter" />
   </div>
 </template>
@@ -24,12 +25,14 @@ const SuccessStory = defineAsyncComponent(
 const BlogSection = defineAsyncComponent(
   () => import("@/components/flutter-app-development/BlogSection.vue"),
 );
+const CtaSection2 = defineAsyncComponent(
+  () => import("@/components/flutter-app-development/CtaSection2.vue"),
+);
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
 );
 const { $mixpanel } = useNuxtApp();
 const footer = ref(null);
-
 const seoData = config.FLUTTER_APP_DEVELOPMENT_SEO_META_DATA;
 useSeoMeta({
   robots: "noindex, nofollow",
