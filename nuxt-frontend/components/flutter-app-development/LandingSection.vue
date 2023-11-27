@@ -3,7 +3,7 @@
     <div class="container lg:text-left text-center lg:flex xl:my-8 pb-16">
       <div class="flex flex-col gap-4 lg:gap-6 lg:flex-1">
         <h1 class="header-1">Flutter App Development Company</h1>
-        <p class="sub-h1-regular text-black-core/[0.89]">
+        <p class="sub-h1-regular text-black-core/[0.6]">
           We harness the power of Flutter to create visually stunning, fast, and
           highly responsive applications that effortlessly work on both iOS and
           Android platforms. Our team turns your unique business requirements
@@ -23,7 +23,7 @@
         </div>
       </div>
       <div
-        class="mx-20 mt-8 lg:mt-0 lg:mx-0 flex flex-col md:gap-[1rem] lg:flex-1"
+        class="mx-auto w-[14.5625rem] xs:w-[20.5625rem] mt-8 lg:mt-0 lg:mx-0 md:gap-[1rem] lg:flex-1"
       >
         <img
           :src="landing400"
@@ -31,17 +31,15 @@
           class="h-full w-full object-contain"
           alt="flutter-landing"
         />
-        <div class="lg:hidden">
-          <nuxt-link
-            class="gradient-btn primary-btn"
-            to="/contact"
-            @click.native="$mixpanel.track('tap_flutter_development_cta')"
-          >
-            <span class="sub-h3-semibold border-none"
-              >Get Free Consultation</span
-            >
-          </nuxt-link>
-        </div>
+      </div>
+      <div class="lg:hidden mt-3">
+        <nuxt-link
+          class="gradient-btn primary-btn"
+          to="/contact"
+          @click.native="$mixpanel.track('tap_flutter_development_cta')"
+        >
+          <span class="sub-h3-semibold border-none">Get Free Consultation</span>
+        </nuxt-link>
       </div>
     </div>
   </section>
