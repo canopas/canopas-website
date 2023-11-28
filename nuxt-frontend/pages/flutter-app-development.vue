@@ -6,7 +6,8 @@
     <SuccessStory />
     <BlogSection />
     <CtaSection2 />
-    <NewFooter ref="flutterFooter" />
+    <FaqSection />
+    <NewFooter class="-mt-4 md:mt-auto" ref="flutterFooter" />
   </div>
 </template>
 
@@ -27,6 +28,9 @@ const BlogSection = defineAsyncComponent(
 );
 const CtaSection2 = defineAsyncComponent(
   () => import("@/components/flutter-app-development/CtaSection2.vue"),
+);
+const FaqSection = defineAsyncComponent(
+  () => import("@/components/flutter-app-development/FaqSection.vue"),
 );
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
