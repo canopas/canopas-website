@@ -48,7 +48,7 @@
           @click="openBlog(blog.link, 'tap_flutter_app_blog_section')"
           v-for="blog in blogs.slice(0, 1)"
           :key="blog"
-          class="content group relative flex basis-full"
+          class="content group relative flex flex-[54%]"
         >
           <img
             :src="blog.image[2]"
@@ -70,7 +70,7 @@
             </div>
           </div>
         </div>
-        <div class="flex flex-col space-y-5 basis-[49%]">
+        <div class="flex flex-col space-y-5 flex-[20.2%]">
           <div
             class="cursor-pointer group content relative"
             v-for="blog in blogs.slice(1, 3)"

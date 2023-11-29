@@ -8,7 +8,6 @@
         :srcset="`${background400} 400w, ${background800} 800w`"
         class="h-full w-full object-cover md:object-top lg:hidden"
         alt="flutter-cta"
-        loading="lazy"
       />
       <img
         :src="background1200"
@@ -57,22 +56,12 @@
   </section>
 </template>
 
-<script type="module">
+<script setup type="module">
 import background400 from "@/assets/images/flutter-app-development/cta/background-400w.webp";
 import background800 from "@/assets/images/flutter-app-development/cta/background-800w.webp";
 import background1200 from "@/assets/images/flutter-app-development/cta/background-1200w.webp";
 import background2400 from "@/assets/images/flutter-app-development/cta/background-2400w.webp";
 import hex from "@/assets/images/flutter-app-development/cta/hex-img.webp";
-export default {
-  data() {
-    return {
-      background400,
-      background800,
-      background1200,
-      background2400,
-      hex,
-    };
-  },
-  inject: ["mixpanel"],
-};
+
+const { $mixpanel } = useNuxtApp();
 </script>
