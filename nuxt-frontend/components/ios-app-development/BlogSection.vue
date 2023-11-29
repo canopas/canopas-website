@@ -1,9 +1,9 @@
 <template>
-  <section class="my-20 md:mb-32 lg:my-32 xll:container">
+  <section class="my-16 md:mb-32 lg:my-32 xll:container 3xl:outer-container">
     <div
-      class="pb-4 md:py-12 text-center font-inter-bold text-3xl leading-[2.4375rem] md:text-[2.65625rem] md:leading-[3.796875rem] lg:text-[3.4375rem] lg:leading-[5.15625rem] tracking-[-0.04rem] xll:py-24 text-black-core/[0.87]"
+      class="pb-4 md:pb-12 text-center header-2 xll:py-24 text-black-core/[0.87]"
     >
-      <span>Our Blogs</span>
+      <span>Our blogs</span>
     </div>
     <!-- Mobile UI start -->
     <div class="mt-8 block md:hidden">
@@ -41,17 +41,13 @@
             />
             <div
               @click="openBlog(blog.link, 'tap_ios_blog_section')"
-              class="=w-80 h-28 bg-white flex flex-col justify-center px-8"
+              class="w-80 h-28 bg-white flex flex-col justify-center p-8"
             >
-              <h2
-                class="font-inter-medium text-baseleading-6 tracking-[-0.04rem] text-black-core/[0.87]"
-              >
+              <h2 class="sub-h1-semibold">
                 {{ blog.title }}
               </h2>
 
-              <span
-                class="mt-2 font-inter-regular text-sm tracking-[-0.72px] lg:leading-[1.3125rem] v2-canopas-gradient-text"
-              >
+              <span class="mt-2 text-black-core/[0.60] sub-h4-semibold">
                 {{ blog.readTime }}
               </span>
             </div>
@@ -110,13 +106,11 @@
           <div>
             <p
               @click="openBlog(blog.link, 'tap_ios_blog_section')"
-              class="mt-2 font-inter-semibold text-2xl lg:text-[2.125rem] w-full lg:leading-[3.1875rem] !tracking-[-4%] text-black-core/[0.87]"
+              class="mt-6 header-3 w-full !tracking-[-4%] text-black-core/[0.87]"
             >
               {{ blog.title }}
             </p>
-            <p
-              class="mt-2 font-inter-medium text-base lg:text-lg tracking-[-0.72px] lg:leading-[1.125rem] text-black-core/[0.60]"
-            >
+            <p class="mt-6 sub-h4-regular text-black-core/[0.60]">
               {{ blog.readTime }}
             </p>
           </div>

@@ -313,7 +313,7 @@ export default {
           language: "Kotlin",
           color: "bg-[#A97BFF]",
           forks: "02",
-          title: "Cpompose CountryPicker",
+          title: "Compose CountryPicker",
           description:
             "Country code bottomsheet picker in Jetpack Compose with Search functionality...",
           stars: "50",

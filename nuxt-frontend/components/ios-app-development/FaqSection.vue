@@ -1,36 +1,35 @@
 <template>
-  <section class="my-8 md:mb-20 md:mt-32">
-    <div class="mb-4 md:container">
-      <div class="mx-[2%] my-0 flex flex-col gap-4 md:my-0">
+  <section class="sm:mt-16 md:mb-20 lg:my-60">
+    <div class="lg:container">
+      <div class="mx-[2%] my-0 flex flex-col gap-4 lg:my-0">
         <div class="text-center">
-          <span
-            class="font-inter-bold text-3xl leading-[2.4375rem] text-black-core/[0.87] md:text-[2.65625rem] lg:text-[3.4375rem] md:leading-[3.453125rem] lg:leading-[4.46875rem]"
-            >FAQs on iOS App Development</span
+          <span class="header-2 text-black-core/[0.87]"
+            >FAQs on iOS app development</span
           >
         </div>
 
         <div
-          class="container mt-6 flex-[67%] pb-8 md:pb-16 md:w-[65rem] md:-ml-6 xl:mx-auto"
+          class="container -mt-8 flex-[67%] lg:pb-16 lg:w-[65rem] lg:-ml-6 xl:mx-auto"
         >
           <div>
             <transition-group tag="div" :name="'faq-' + faqTransitionName">
-              <div class="faq-section h-auto">
+              <div class="faq-section mt-12 h-auto">
                 <div
                   class="mt-4"
                   v-for="faq in faqs.slice(sliceFrom, sliceTo)"
                   :key="faq"
                 >
                   <div
-                    class="faq-container cursor-pointer overflow-hidden rounded-[5px] bg-white md:p-[15px] md:shadow-md"
+                    class="faq-container cursor-pointer overflow-hidden rounded-[5px] bg-white lg:p-[15px] lg:shadow-md"
                     @click="expandListItem(faq.id)"
                   >
                     <div class="faq-header flex flex-row items-center">
                       <div
-                        class="faq-question w-[90%] p-[10px] font-inter-semibold tracking-[-0.04rem] text-lg leading-[1.6875rem] md:text-2xl lg:text-[1.75rem] md:leading-8 lg:leading-[2.625rem]"
+                        class="faq-question w-[90%] p-[10px] sub-h1-semibold"
                         :class="
                           openList && faq.id == currentIndex
                             ? 'v2-canopas-gradient-text footer-icon'
-                            : 'text-black-core/[0.60] md:text-black-core/[0.80]'
+                            : 'text-black-core/[0.60] lg:text-black-core/[0.80]'
                         "
                       >
                         {{ faq.question }}
@@ -42,7 +41,7 @@
                         "
                       >
                         <Icon
-                          class="xmark text-black-core/[0.87]"
+                          class="angle-up text-black-core/[0.87]"
                           :class="
                             openList && faq.id == currentIndex
                               ? 'footer-icon'
@@ -64,7 +63,7 @@
                         :key="faq.answer"
                       >
                         <div
-                          class="faq-answer w-[90%] px-3 font-inter-regular text-base leading-normal text-black-core/[0.87] md:text-xl md:leading-[1.875rem]"
+                          class="faq-answer w-[90%] px-3 sub-h3-regular"
                           v-html="faq.answer"
                         ></div>
                       </div>
@@ -74,51 +73,133 @@
                 </div>
               </div>
             </transition-group>
+            <collapse-transition>
+              <transition-group
+                tag="div"
+                :name="'faq-' + faqTransitionName"
+                v-if="showAdditionalFAQs"
+              >
+                <div class="faq-section h-auto lg:hidden">
+                  <div class="mt-3" v-for="faq in faqs.slice(5, 10)" :key="faq">
+                    <div
+                      class="faq-container cursor-pointer overflow-hidden rounded-[5px] bg-white lg:p-[15px] lg:shadow-md"
+                      @click="expandListItem(faq.id)"
+                    >
+                      <div class="faq-header flex flex-row items-center">
+                        <div
+                          class="faq-question w-[90%] p-[10px] sub-h1-semibold"
+                          :class="
+                            openList && faq.id == currentIndex
+                              ? 'v2-canopas-gradient-text footer-icon'
+                              : 'text-black-core/[0.60] lg:text-black-core/[0.80]'
+                          "
+                        >
+                          {{ faq.question }}
+                        </div>
+                        <div
+                          class="faq-icon w-[10%] text-end"
+                          @click.native="
+                            mixpanel.track('tap_ios_app_faq_questions')
+                          "
+                        >
+                          <Icon
+                            class="angle-up text-black-core/[0.87]"
+                            :class="
+                              openList && faq.id == currentIndex
+                                ? 'footer-icon'
+                                : 'text-black-core/[0.87]'
+                            "
+                            :name="
+                              openList && faq.id == currentIndex
+                                ? 'fa6-solid:angle-up'
+                                : 'fa6-solid:angle-down'
+                            "
+                          />
+                        </div>
+                      </div>
+                      <collapse-transition>
+                        <div
+                          class="faq-header mt-1.5 flex flex-row animate-fadeIn items-center gradient-border h-auto border-l md:border-l-4 ml-3"
+                          v-if="openList && faq.id == currentIndex"
+                          :key="faq.answer"
+                        >
+                          <div
+                            class="faq-answer w-[90%] px-3 sub-h3-regular"
+                            v-html="faq.answer"
+                          ></div>
+                        </div>
+                      </collapse-transition>
+                      <div
+                        class="faq-divider"
+                        v-if="faq.id != faq.length"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+              </transition-group>
+            </collapse-transition>
+            <div
+              class="w-full my-8 lg:hidden mt-8 flex justify-center items-center"
+            >
+              <div
+                class="m-[5px] rounded-[0.6rem] border border-solid border-transparent bg-gradient-to-r from-[#ff9472] via-[#ff909c] to-[#f2709c] p-[1rem] text-center shadow-[inset_2px_1000px_1px_#fff] active:scale-[0.98] border border-black w-[155px] cursor-pointer h-[57px]"
+                @click="showAdditionalFAQs = !showAdditionalFAQs"
+              >
+                <span class="sub-h3-semibold v2-canopas-gradient-text"
+                  >{{ showAdditionalFAQs ? "View Less" : "View More" }}
+                </span>
+                <Icon
+                  class="ml-2 fab w-4 h-4 footer-icon"
+                  :name="
+                    showAdditionalFAQs
+                      ? 'fa6-solid:angle-up'
+                      : 'fa6-solid:angle-down'
+                  "
+                />
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div
-        class="container py-4 flex justify-center items-center md:justify-end pr-4 text-center md:text-right md:pr-6 md:pt-4 xl:pr-20 2xl:pr-44 md:-mr-8 lg:-mr-10"
+    </div>
+    <div
+      class="hidden lg:block container -mt-8 text-right lg:pt-4 xl:pr-16 2xl:pr-40"
+    >
+      <button
+        v-if="isActivePrev"
+        type="button"
+        :disabled="!isActivePrev"
+        class="h-12 flex ml-auto items-center text-center"
+        @click="slide(-1)"
+        @click.native="mixpanel.track('tap_ios_app_faq_previous_arrow')"
+        aria-label="leftArrow"
       >
-        <button
-          v-if="isActivePrev"
-          type="button"
-          :disabled="!isActivePrev"
-          class="clients-indicators mx-1 my-0 cursor-pointer sm:mx-2"
-          @click="slide(-1)"
-          @click.native="$mixpanel.track('tap_ios_app_faq_previous_arrow')"
-          aria-label="leftArrow"
+        <Icon
+          :class="isActivePrev ? 'footer-icon' : ''"
+          class="mr-2 h-5 w-5"
+          icon="arrow-left"
+          id="leftArrow"
+        /><span class="v2-canopas-gradient-text sub-h4-semibold">Back</span>
+      </button>
+      <button
+        v-else
+        type="button"
+        class="h-12 flex ml-auto items-center text-center"
+        :disabled="!isActiveNext"
+        @click="slide(1)"
+        @click.native="mixpanel.track('tap_ios_app_faq_next_arrow')"
+        aria-label="rightArrow"
+      >
+        <span class="v2-canopas-gradient-text sub-h4-semibold"
+          >View More Questions</span
         >
-          <Icon
-            :class="isActivePrev ? 'footer-icon' : ''"
-            class="arrow h-3.5 w-3.5 rounded-full border-[#3d3d3d26] bg-white p-2.5 drop-shadow-md md:h-5 md:w-5"
-            name="fa6-solid:angle-left"
-            id="leftArrow"
-          />
-        </button>
-        <button
-          v-else
-          type="button"
-          :disabled="!isActiveNext"
-          class="clients-indicators flex items-center justify-center my-0 cursor-pointer"
-          @click="slide(1)"
-          @click.native="$mixpanel.track('tap_ios_app_faq_next_arrow')"
-          aria-label="rightArrow"
-        >
-          <div
-            :disabled="!isActiveNext"
-            class="faq-question v2-canopas-gradient-text w-full font-inter-semibold text-base leading-[1.21rem] md:text-2xl lg:text-3xl md:leading-[1.3234375rem] lg:leading-[1.436875rem]"
-          >
-            Load More Questions
-          </div>
-          <Icon
-            :class="isActiveNext ? 'footer-icon' : ''"
-            class="arrow h-3.5 w-3.5 rounded-full bg-white p-2.5 md:h-5 md:w-5"
-            name="fa6-solid:angle-right"
-            id="rightArrow"
-          />
-        </button>
-      </div>
+        <Icon
+          :class="isActiveNext ? 'footer-icon' : ''"
+          class="ml-2 h-5 w-5"
+          name="fa6-solid:arrow-right"
+          id="rightArrow"
+        />
+      </button>
     </div>
   </section>
 </template>
@@ -131,6 +212,7 @@ const TOTAL_FAQ_IN_SLIDE = 5;
 export default {
   data() {
     return {
+      showAdditionalFAQs: false,
       faqs: [
         {
           id: 1,

@@ -1,29 +1,28 @@
 <template>
-  <div class="my-16 md:my-24 flex flex-col xll:container">
-    <div class="container mb-2.5 flex flex-col text-center">
+  <div
+    class="my-16 lg:my-24 xl:my-60 3xl:my-[264px] flex flex-col xll:container 3xl:outer-container"
+  >
+    <div class="container mb-2.5 md:mb-7 flex flex-col text-center">
       <span
-        class="tracking-[-1.2px] mb-2.5 font-inter-bold text-3xl leading-[2.4375rem] text-black-core/[0.87] md:!mx-0 md:!w-full md:text-[2.65625rem] lg:text-[3.4375rem] md:leading-[3.796875rem] lg:leading-[5.15625rem] xs:mx-auto xs:w-[71%]"
+        class="mb-2.5 lg:mb-6 text-black-core/[0.87] md:!mx-0 md:!w-full xs:mx-auto header-2"
       >
-        iOS App Development Services</span
+        iOS app <br class="lg:hidden" />
+        development services</span
       >
       <span
-        class="font-inter-regular text-base md:text-xl leading-6 md:leading-[1.875rem] text-black-core/[0.87] md:font-inter-medium lg:text-2xl lg:leading-9 w-11/12 2xl:w-9/12 mx-auto"
+        class="sub-h1-regular text-black-core/[0.60] w-[93%] 2xl:w-9/12 mx-auto"
         >With a blend of robust technology, intuitive designs, and innovative
         strategies, our team can help you craft high-quality, standout
         user-friendly apps that drive business growth and customer
         engagement.</span
       >
     </div>
-    <div class="swiper-content mt-4 md:hidden">
+    <div class="swiper-content mt-4 lg:hidden">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
         :spaceBetween="10"
         :modules="modules"
-        :autoplay="{
-          delay: 4000,
-          disableOnInteraction: false,
-        }"
         :breakpoints="{
           '540': {
             slidesPerView: 1.2,
@@ -44,27 +43,15 @@
           :key="index"
           class="cursor-pointer px-4 pb-4"
         >
-          <div class="text-center">
-            <span
-              class="text-center font-inter-bold text-6xl leading-[5.625rem] border-text"
-            >
-              0{{ index + 1 }}</span
-            >
-          </div>
           <div
-            class="text-center border rounded-tr-[50px] h-[700px] xs:h-[600px] p-4 rounded-bl-[50px] border-solid border-black-core/[0.87] bg-[#F8F8F8]"
+            class="text-center rounded-tr-[50px] p-4 rounded-bl-[50px] bg-[#F8F8F8]"
           >
             <div
               class="justify-center px-5 h-16 mb-5 flex flex-row items-center"
             >
-              <span
-                class="tracking-[-0.96px] font-inter-semibold text-2xl leading-[1.95rem] v2-canopas-gradient-text"
-                v-html="item.title"
-              ></span>
+              <span class="header-3 text-[#FF9472]" v-html="item.title"></span>
             </div>
-            <div
-              class="font-inter-regular text-base leading-6 text-black-core/[0.87]"
-            >
+            <div class="sub-h3-regular text-black-core/[0.87]">
               <p v-for="list in item.description" :key="list" class="mb-4">
                 {{ list }}
               </p>
@@ -75,17 +62,17 @@
     </div>
 
     <div
-      class="rounded-[20px] hidden md:flex flex-row container mt-16 bg-[#FFF] drop-shadow-[0px_20px_20px_rgba(0,0,0,0.10)]"
+      class="rounded-[20px] hidden lg:flex flex-row container mt-16 bg-[#FFF] drop-shadow-[0px_20px_20px_rgba(0,0,0,0.10)]"
     >
       <div class="-ml-4">
         <div
           v-for="(item, index) in item"
           :key="index"
           :class="[
-            activeIndex == index ? 'border-r-[#ff835b] bg-[#FFF]' : '',
+            activeIndex == index ? 'border-r-[#FF9472] bg-[#FFF]' : '',
             index == 4 || index == 0 ? item.className : '',
           ]"
-          class="flex flex-col justify-center items-center h-[7.5rem] lg:h-[6.8rem] w-40 xl:w-60 xl:h-[6.2rem] bg-[#F5F5F5] border-b border-[#E3E3E3] border-r-[5px]"
+          class="flex flex-col justify-center items-center h-[7.5rem] h-[5.8rem] xl:h-[6.8rem] w-40 xl:w-60 xl:h-[6.2rem] bg-[#F5F5F5] border-b border-[#E3E3E3] border-r-[5px]"
           @mouseover="slideTo(index), (activeIndex = index)"
           @touchstart.passive="slideTo(index), (activeIndex = index)"
           @touchmove.passive="slideTo(index), (activeIndex = index)"
@@ -116,7 +103,7 @@
           }"
           :loop="true"
           :modules="modules"
-          class="swiper-container h-[600px] lg:h-[540px] xl:h-[495px] flex"
+          class="swiper-container lg:h-[463px] xl:h-[495px] flex"
           @swiper="setSwiperRef"
           @slideChange="onSlideChange"
         >
@@ -126,19 +113,15 @@
             class="lg:px-8 lg:pt-2 2xl:px-11"
           >
             <div class="justify-start px-5 mt-3 lg:my-3 flex flex-row">
-              <span
-                class="font-inter-semibold text-[1.5625rem] leading-[4.03125rem] lg:text-[1.625rem] lg:leading-[2.4375rem] v2-canopas-gradient-text mr-1.5"
+              <span class="header-3 text-[#FF9472] mr-1.5"
                 >{{ index + 1 }}.
               </span>
-              <span
-                class="font-inter-semibold text-[1.5625rem] leading-[4.03125rem] lg:text-[1.625rem] lg:leading-[2.4375rem] v2-canopas-gradient-text"
-                >{{ item.desktoptitle }}</span
-              >
+              <span class="header-3 text-[#FF9472] mr-1.5">{{
+                item.desktoptitle
+              }}</span>
             </div>
-            <div
-              class="px-5 font-inter-regular text-lg lg:text-xl leading-[1.6875rem] lg:leading-[1.875rem] text-black-core/[0.87]"
-            >
-              <p v-for="list in item.description" :key="list" class="mb-8">
+            <div class="px-5 sub-h3-medium text-black-core/[0.60]">
+              <p v-for="list in item.description" :key="list" class="mb-6">
                 {{ list }}
               </p>
             </div>

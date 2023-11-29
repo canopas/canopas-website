@@ -1,6 +1,6 @@
 <template>
   <section>
-    <div class="relative mb-16 h-48 md:h-72 xll:h-[30rem] md:hidden">
+    <div class="relative mb-16 h-[217px] md:h-[376px] lg:hidden">
       <img
         :src="BackgroundImage[0]"
         :srcset="`${BackgroundImage[0]} 400w`"
@@ -9,25 +9,22 @@
         loading="lazy"
       />
       <div
-        class="container absolute top-4 w-full p-4 left-[2%] sm:left-[13%] xs:p-8 text-center sm:w-[79%]"
+        class="container absolute top-0 md:top-[17%] w-full p-4 left-[2%] sm:left-[13%] xs:p-8 text-center sm:w-[79%]"
       >
         <div class="flex w-full">
           <div class="m-auto text-white">
-            <p
-              class="font-inter-semibold text-[1.375rem] leading-[2.0625rem] tracking-[-0.04rem] text-black-core/[0.87]"
-            >
+            <p class="header-1 text-black-core/[0.87]">
               Let's Start a New Project Together
             </p>
           </div>
         </div>
         <div class="mx-auto mt-4">
           <router-link
-            class="gradient-btn consultation-btn m-0 mx-auto flex text-[#FFF] w-max items-center rounded-full p-3 px-7 text-center"
+            class="gradient-btn primary-btn m-0 mx-auto flex text-[#FFF] w-max items-center p-3 px-7 text-center"
             to="/contact"
             @click.native="$mixpanel.track('tap_ios_development_cta')"
           >
-            <span
-              class="mr-2.5 font-inter-semibold text-base leading-[1.21rem] md:block"
+            <span class="mr-2.5 sub-h3-semibold xl:sub-h4-semibold lg:block"
               >Contact Us
             </span>
           </router-link>
@@ -35,7 +32,9 @@
       </div>
     </div>
     <!-- Desktop view start -->
-    <div class="relative mb-16 h-80 lg:h-[476px] hidden md:block">
+    <div
+      class="relative mb-16 lg:h-[476px] 3xl:outer-container hidden lg:block"
+    >
       <img
         :src="BackgroundImage[1]"
         :srcset="`${BackgroundImage[1]} 800w,${BackgroundImage[2]} 1200w,${BackgroundImage[3]} 2400w`"
@@ -44,27 +43,22 @@
         loading="lazy"
       />
       <div
-        class="container absolute left-1/2 flex w-full -translate-x-1/2 -translate-y-[15.55rem] lg:-translate-y-[24rem] transform flex-row items-center"
+        class="container absolute left-1/2 flex w-full -translate-x-1/2 lg:-translate-y-[22rem] xl:-translate-y-[23rem] transform flex-row items-center"
       >
         <div class="flex w-[66%]">
           <div class="w-[95%] py-5 text-white xl:m-auto 2xl:w-4/5">
-            <p
-              class="font-inter-bold text-[2.188rem] leading-[2.625rem] lg:text-[3.4375rem] lg:leading-[5.15625rem]"
-            >
+            <p class="header-1">
               Are you ready to take your business app to the next level?
             </p>
           </div>
         </div>
         <div class="mx-auto mt-4">
           <router-link
-            class="gradient-btn consultation-btn m-0 mx-auto flex text-[#FFF] w-max items-center rounded-full p-3 px-7 text-center"
+            class="gradient-btn primary-btn m-0 mx-auto flex text-[#FFF] w-max items-center p-3 px-7"
             to="/contact"
             @click.native="$mixpanel.track('tap_ios_development_cta')"
           >
-            <span
-              class="mr-2.5 font-inter-medium text-base leading-[1.21rem] lg:text-[1.1875rem] lg:leading-[1.436875rem]"
-              >Let's Chat
-            </span>
+            <span class="sub-h3-semibold xl:sub-h4-semibold">Let's Chat </span>
           </router-link>
         </div>
       </div>

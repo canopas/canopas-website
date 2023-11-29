@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative mb-16 h-48 md:h-72 xll:h-[30rem] bg-gradient-to-l from-[#FF835B]/[10%] to-[#F2709C]/[10%]"
+    class="3xl:outer-container relative mb-16 h-[217px] md:h-[275px] lg:mt-60 lg:h-[476px] bg-gradient-to-l from-[#FF835B]/[10%] to-[#F2709C]/[10%]"
   >
     <img
       :src="BackgroundImage[0]"
@@ -12,29 +12,24 @@
     <div
       class="container absolute top-[1.2rem] w-full p-4 text-center text-black-core/[0.87] md:left-0 md:top-1/2 md:top-16 md:-mt-6 md:text-center lg:!left-[50%] lg:!top-[57%] xll:!top-[60%] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:transform xl:w-[60%] 2xl:w-[49%] xs:left-[13%] xs:w-[75%] xl2:w-[55%] 2xll:w-[45%] xll:w-[61%]"
     >
-      <div class="flex w-full">
+      <div class="flex w-full lg:mb-10">
         <div class="m-auto">
-          <p
-            class="font-inter-semibold text-[1.375rem] leading-[2.0625rem] md:font-inter-bold md:text-[2.40625rem] lg:text-[3.4375rem] md:leading-[3.11125rem] lg:leading-[4.16rem]"
-          >
+          <p class="header-1 text-black-core/[0.87] mb-4 lg:mb-6">
             Have an app idea?
           </p>
 
-          <div
-            class="font-inter-regular text-base leading-6 md:my-4 md:font-inter-medium md:text-xl md:leading-[1.875rem] lg:text-2xl lg:leading-9"
-          >
+          <div class="sub-h1-regular text-black-core/[0.60]">
             See if we can make it a reality.
           </div>
         </div>
       </div>
       <div class="mx-auto mt-4">
         <nuxt-link
-          class="gradient-btn consultation-btn m-0 mx-auto flex w-max items-center rounded-full p-3 px-7 text-center"
+          class="gradient-btn primary-btn m-0 mx-auto flex w-max items-center p-3 px-7 text-center"
           to="/contact"
           @click.native="$mixpanel.track('tap_ios_development_cta')"
         >
-          <span
-            class="mr-2.5 font-inter-medium text-base leading-[1.21rem] md:block md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem]"
+          <span class="mr-2.5 sub-h3-semibold xl:sub-h4-semibold"
             >Let's Chat
           </span>
         </nuxt-link>

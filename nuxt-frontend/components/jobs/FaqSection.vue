@@ -165,7 +165,7 @@ export default {
           id: 6,
           question: "What does the hiring process look like?",
           answer:
-            "You will be greeted by HR when you visit us for an interview. There will be two rounds of interviews. Technical or Non-technical followed by an HR interview. ",
+            "You will be greeted by HR when you visit us for an interview. There will be two rounds of interviews. Technical or Non-technical followed by HR interview. ",
         },
         {
           id: 7,

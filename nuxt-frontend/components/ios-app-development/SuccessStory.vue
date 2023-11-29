@@ -1,5 +1,5 @@
 <template>
-  <section class="mb-20">
+  <section class="my-20 lg:my-60 3xl:mt-[315px]">
     <div class="container md:mt-36 lg:mb-8 mb-7 mx-auto text-center">
       <span
         class="tracking-[-0.04rem] mb-2.5 font-inter-bold text-3xl leading-[2.4375rem] md:hidden text-black-core/[0.87] md:!mx-0 md:!w-full md:text-[2.65625rem] lg:text-[3.4375rem] md:leading-[3.796875rem] lg:leading-[5.15625rem] xs:mx-auto xs:w-[71%]"
@@ -9,7 +9,7 @@
     </div>
     <!-- Mobile UI start -->
     <div
-      class="ml-auto md:hidden mx-auto h-[30rem] relative xll:container overflow-hidden bg-[#1E1E1D]"
+      class="ml-auto lg:hidden mx-auto h-[32.188rem] relative xll:container overflow-hidden bg-[#1E1E1D]"
     >
       <img
         :src="reviewBackgroundImage"
@@ -41,9 +41,7 @@
             <div
               class="mx-auto sm:px-10 md:px-6 lg:px-4 xl:px-24 text-white flex flex-col justify-between items-center object-center"
             >
-              <div
-                class="font-inter-semibold text-lg leading-[1.6875rem] transition-all ease duration-500 tracking-[-0.02rem]"
-              >
+              <div class="transition-all ease duration-500 sub-h1-semibold">
                 {{ client.review }}
               </div>
               <div class="flex flex-col mt-8 mb-2.5">
@@ -56,11 +54,11 @@
                 /></span>
               </div>
               <div class="flex flex-col">
-                <span class="font-inter-semibold text-base leading-[1.2rem]">{{
+                <span class="sub-h2-medium text-[#FFFFFF]/[0.80]">{{
                   client.name
                 }}</span>
                 <span
-                  class="font-inter-regular text-xs leading-[0.9rem] mt-[0.3rem]"
+                  class="sub-h3-regular text-[#FFFFFF]/[0.60] mt-[0.3rem]"
                   >{{ client.designation }}</span
                 >
               </div>
@@ -72,20 +70,18 @@
     <!-- Mobile UI END -->
     <!-- Desktop UI -->
     <div
-      class="hidden md:flex item-center rounded-[20px] w-[95%] lg:w-11/12 xl:w-5/6 2xl:w-[75%] h-[660px] mx-auto drop-shadow-md xll:container"
+      class="hidden lg:flex item-center rounded-[20px] w-[95%] lg:w-11/12 xl:w-5/6 2xl:w-[75%] h-[660px] mx-auto drop-shadow-md xll:container"
     >
       <div
         class="w-2/5 flex justify-center items-center bg-[#F4F4F4] rounded-tl-xl rounded-bl-xl"
       >
-        <h2
-          class="text-[2.4375rem] font-opensans-bold w-3/4 2xl:w-[65%] mx-auto lg:text-5xl leading-[2.79375rem] lg:leading-[3.9rem] !tracking-[-0.04rem] text-black-core/[0.87]"
-        >
-          What our clients say!
+        <h2 class="header-2 w-3/4 2xl:w-[65%] mx-auto text-black-core/[0.87]">
+          What our clients says!
         </h2>
       </div>
 
       <div
-        class="w-3/5 bg-[#3D3D3D] rounded-tr-xl rounded-br-xl flex flex-col justify-center"
+        class="w-3/5 bg-[#121212] rounded-tr-xl rounded-br-xl flex flex-col justify-center"
       >
         <div class="pl-7 lg:pl-12">
           <img
