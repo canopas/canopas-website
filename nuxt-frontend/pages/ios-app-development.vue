@@ -3,12 +3,13 @@
     <Header />
     <LandingSection />
     <DevelopmentSection />
+    <CaseStudySection />
     <CtaSection />
     <SuccessStorySection ref="iosSuccessstory" />
     <BlogSection />
     <CtaSection2 />
-    <FaqSection />
-    <NewFooter ref="iosFooter" />
+    <FaqSection ref="iosFaq" />
+    <NewFooter />
   </div>
 </template>
 
@@ -19,6 +20,10 @@ import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/ios-app-development/LandingSection.vue";
 import DevelopmentSection from "@/components/ios-app-development/DevelopmentSection.vue";
+
+const CaseStudySection = defineAsyncComponent(
+  () => import("@/components/ios-app-development/CaseStudySection.vue"),
+);
 const SuccessStorySection = defineAsyncComponent(
   () => import("@/components/ios-app-development/SuccessStory.vue"),
 );
@@ -44,7 +49,7 @@ export default {
       event: "",
       events: {
         iosSuccessstory: "view_ios_app_development_success_story",
-        iosFooter: "view_ios_app_development_footer",
+        iosFaq: "view_ios_app_development_faq_section",
       },
     };
   },
@@ -64,6 +69,7 @@ export default {
     Header,
     LandingSection,
     DevelopmentSection,
+    CaseStudySection,
     SuccessStorySection,
     BlogSection,
     FaqSection,

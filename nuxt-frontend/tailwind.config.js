@@ -132,7 +132,7 @@ module.exports = {
             transform: "translateY(3rem)",
           },
           "100%": {
-            transform: " translateY(0)",
+            transform: "translateY(0)",
           },
         },
         underlineOut: {
@@ -227,6 +227,8 @@ module.exports = {
           "radial-gradient(84% 76.48% at 50% 50%, #FEF1DE 0%, rgba(255, 191, 171, 0) 100%)",
         "togness-radical-gradient":
           "radial-gradient(84% 76.48% at 50% 50%, #E7F2FF 0%, rgba(255, 191, 171, 0) 100%)",
+        "ios-landing-background":
+          "linear-gradient(184deg, #FFF 18.82%, rgba(249, 133, 132, 0.10) 52.46%, rgba(244, 118, 149, 0.10)67.02%)",
       },
     },
   },

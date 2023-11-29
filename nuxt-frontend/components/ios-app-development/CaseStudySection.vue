@@ -1,21 +1,19 @@
 <template>
-  <div
-    class="my-16 xs:my-24 md:mt-24 xl:!mt-60 md:!mb-0 flex flex-col 3xl:container"
-  >
+  <div class="md:!mb-0 flex flex-col 3xl:outer-container">
     <div class="container mb-2.5 flex flex-col text-center md:mb-20">
       <h2
-        class="tracking-[-0.04rem] mb-2.5 font-opensans-bold text-2xl leading-9 text-black-core/[0.87] md:!mx-0 md:!w-full md:text-[2.46875rem] lg:text-[3.4375rem] md:leading-[3.359375rem] lg:leading-[4.46875rem] xs:mx-auto xs:w-[71%]"
+        class="header-2 mb-2.5 text-black-core/[0.87] md:!mx-0 md:!w-full xs:mx-auto xs:w-[71%]"
       >
         Case studies
       </h2>
       <span
-        class="font-inter-regular text-lg md:text-xl leading-[1.6875rem] md:leading-[1.875rem] text-black-core/[0.60] md:font-inter-medium lg:text-2xl lg:leading-9 w-11/12 2xl:w-9/12 mx-auto"
+        class="sub-h1-regular text-black-core/[0.60] w-11/12 2xl:w-9/12 mx-auto"
         >Explore our case studies to witness how we've transformed our client's
         ideas into successful iOS apps.</span
       >
     </div>
     <!-- Mobile UI -->
-    <div class="md:hidden flex flex-col">
+    <div class="lg:hidden flex flex-col mb-24 md:mb-36">
       <div
         v-for="(portfolio, index) in portfolios"
         :key="index"
@@ -24,43 +22,38 @@
       >
         <div
           class="basis-[50%] flex"
-          :class="
-            index == 0 || index == 2 ? 'items-end justify-end xs:-mr-6' : ''
-          "
+          :class="index == 0 || index == 2 ? 'items-end justify-end -mr-4' : ''"
         >
           <img
             :src="portfolio.image[0]"
             :srcset="`${portfolio.image[0]} 400w`"
             :alt="portfolio.title"
-            class="w-[137px] xs:w-[200px] xs:h-[350px] h-[297px] object-cover"
+            class="w-[200px] h-[350px] object-cover"
             loading="lazy"
-            :class="index == 1 ? 'mt-32 xs:-ml-6' : ''"
+            :class="index == 1 ? 'mt-32 -ml-4' : ''"
           />
         </div>
         <div
           class="flex flex-col basis-[50%]"
-          :class="index == 1 ? 'items-end' : ''"
+          :class="index == 1 ? 'items-end basis-[70%]' : ''"
         >
           <img
             :src="portfolio.image[1]"
             :srcset="`${portfolio.image[1]} 400w`"
             :alt="portfolio.title"
-            class="w-[137px] xs:w-[200px] xs:h-[350px] h-[297px] object-cover"
+            class="w-[200px] h-[350px] object-cover"
             loading="lazy"
           />
           <div
-            class="w-11/12 sm:w-9/12 flex flex-col ml-[10%] pr-3.5 xs:p-3"
-            :class="index == 1 ? 'pl-3.5 w-full' : ''"
+            class="w-[94%] sm:w-9/12 flex flex-col ml-[10%] pr-3.5 xs:p-3"
+            :class="index == 1 ? 'pl-3.5 !w-[91%] sm:!w-[66%]' : ''"
           >
-            <h2
-              class="tracking-[0.04rem] mb-2.5 font-opensans-bold text-2xl leading-9 text-black-core/[0.87]"
-            >
+            <h2 class="mb-2.5 header-2">
               {{ portfolio.title }}
             </h2>
-            <span
-              class="font-inter-regular text-lg leading-[1.6875rem] text-black-core/[0.60]"
-              >{{ portfolio.description }}</span
-            >
+            <span class="sub-h1-regular text-black-core/[0.60]">{{
+              portfolio.description
+            }}</span>
           </div>
         </div>
       </div>
@@ -70,7 +63,7 @@
 
     <div
       id="stickyParent"
-      class="sticky-parent h-[300vh] xll:h-[250vh] 3xl:!h-[220vh] hidden md:block"
+      class="sticky-parent h-[300vh] xll:h-[240vh] 3xl:!h-[220vh] hidden lg:block"
     >
       <div
         class="sticky sticky top-0 max-h-full main overflow-hidden"
@@ -96,7 +89,7 @@
           @slideChange="onSlideChange"
         >
           <swiper-slide v-for="(portfolio, index) in portfolios" :key="index">
-            <div class="hidden md:flex flex-row justify-center h-screen">
+            <div class="flex flex-row justify-center h-screen">
               <div
                 :class="portfolio.row1Background"
                 class="flex flex-col justify-center !basis-[40%] justify-around px-8"
@@ -104,27 +97,24 @@
                 <div class="flex justify-end relative">
                   <div
                     :class="portfolio.row1Background"
-                    class="absolute top-8 lg:top-4 xl:top-8 right-[-30%] lg:right-[-25%] xl:right-[-17%] 2xll:right-[-18%] xll:right-[-12%] 3xl:right-[-18%] font-opensans-bold text-2xl leading-[1.95rem] lg:text-5xl lg:leading-[3.9rem] text-[#FFFFFF] tracking-[-0.04rem] w-40 h-40 lg:w-[250px] lg:h-[250px] p-8 xl:w-[300px] xl:h-[300px] rounded-full flex justify-center items-center"
+                    class="absolute top-4 xl:top-8 right-[-25%] xl:right-[-17%] 2xll:right-[-18%] xll:right-[-12%] 3xl:right-[-13%] text-[#FFFFFF] w-[250px] h-[250px] p-8 xl:w-[300px] xl:h-[300px] rounded-full flex justify-center items-center"
                   >
-                    <h2 class="title">
+                    <h2 class="header-1 title">
                       {{ portfolio.title }}
                     </h2>
                   </div>
                 </div>
                 <div
-                  class="w-[17rem] lg:w-[19rem] xl:w-[33rem] mx-auto mt-32 lg:mt-44 xl:mt-72 description"
+                  class="w-[19rem] xl:w-[33rem] mx-auto mt-44 xl:mt-72 description"
                   :class="{ '!mt-12 xl:!mt-72': isScrollingUp }"
                 >
-                  <h2
-                    class="font-opensans-bold text-2xl leading-[1.95rem] lg:text-5xl lg:leading-[3.9rem] text-[#FFFFFF] tracking-[-0.04rem]"
-                  >
+                  <h2 class="header-2 text-[#FFFFFF]">
                     {{ portfolio.desktopDescription }}
                   </h2>
                   <div class="mt-6">
-                    <span
-                      class="font-inter-medium text-[#FFFFFF]/[0.80] text-base lg:text-xl lg:leading-[1.875rem]"
-                      >{{ portfolio.subDescription }}</span
-                    >
+                    <span class="sub-h3-semibold text-[#FFFFFF]/[0.80]">{{
+                      portfolio.subDescription
+                    }}</span>
                   </div>
                 </div>
                 <div
@@ -133,14 +123,14 @@
                 >
                   <span
                     @click="scrollToNext()"
-                    class="font-inter-medium text-[#FFFFFF]/[0.80] text-base lg:text-xl lg:leading-[1.875rem] mt-6"
+                    class="text-[#FFFFFF]/[0.80] mt-6 sub-h3-semibold"
                     >SKIP</span
                   >
                 </div>
               </div>
 
               <div
-                class="flex flex-row !basis-[60%] items-center p-8 lg:p-12 2xll:p-20 bg-white"
+                class="flex flex-row !basis-[60%] items-center p-12 2xll:p-20 bg-white"
                 :class="portfolio.row2Background"
               >
                 <div class="basis-[50%] mt-48 flex items-end justify-end">
@@ -148,7 +138,7 @@
                     :src="portfolio.image[2]"
                     :srcset="`${portfolio.image[2]} 800w`"
                     :alt="portfolio.title"
-                    class="image w-[175px] h-[350px] lg:w-[284px] lg:h-[490px] xl:h-[590px] object-cover"
+                    class="image w-[284px] h-[490px] xl:h-[590px] object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -158,7 +148,7 @@
                       :src="portfolio.image[3]"
                       :srcset="`${portfolio.image[3]} 800w`"
                       :alt="portfolio.title"
-                      class="image w-[175px]main h-[350px] lg:w-[284px] lg:h-[490px] xl:h-[590px] object-cover"
+                      class="image main w-[284px] h-[490px] xl:h-[590px] object-cover"
                       loading="lazy"
                     />
                   </div>
