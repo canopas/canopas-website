@@ -35,6 +35,7 @@
           class="white-btn gradient-border-btn primary-btn mt-8"
           :href="canopas"
           target="_blank"
+          @click.native="$mixpanel.track('tap_flutter_blog_section')"
         >
           <span class="sub-h3-semibold v2-canopas-gradient-text">View all</span>
         </a>
@@ -132,6 +133,7 @@
         class="primary-btn gradient-border-btn white-btn mt-[4.5rem] lg:mb-[15rem]"
         :href="canopas"
         target="_blank"
+        @click.native="$mixpanel.track('tap_flutter_blog_section')"
       >
         <span class="sub-h3-semibold">Read More Blogs </span>
         <Icon name="fa6-solid:arrow-right" class="fa ml-2" />
@@ -139,7 +141,7 @@
     </div>
   </section>
 </template>
-<script>
+<script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { openBlog } from "@/utils.js";
 import inherit_400w from "@/assets/images/flutter-app-development/blog/1-400w.webp";
@@ -154,62 +156,50 @@ import animate_800w from "@/assets/images/flutter-app-development/blog/4-800w.we
 import master_400w from "@/assets/images/flutter-app-development/blog/5-400w.webp";
 import master_800w from "@/assets/images/flutter-app-development/blog/5-800w.webp";
 
-export default {
-  data() {
-    return {
-      openBlog,
-      blogs: [
-        {
-          id: 1,
-          image: [inherit_400w, inherit_800w, desk800w],
-          title: "How to Use InheritedWidget in Flutter",
-          readTime: "7 min",
-          hovertitle: `<span class="sub-h1-semibold text-center text-white">How to Use InheritedWidget in Flutter</span>`,
-          link: "https://blog.canopas.com/how-to-use-inheritedwidget-in-flutter-5fd64ce52b66",
-        },
-        {
-          id: 2,
-          image: [animate_400w, animate_800w],
-          title:
-            "Flutter Fun Animation A smiley that reacts to your every move",
-          readTime: "8 min",
-          hovertitle: `<span class="sub-h1-semibold text-center text-white">Flutter Fun Animation A smiley that reacts to your every move</span>`,
-          link: "https://blog.canopas.com/flutter-animations-made-fun-a-smiley-that-reacts-to-your-every-move-9ebfb0a0657f",
-        },
-        {
-          id: 3,
-          image: [maintain_400w, maintain_800w],
-          title: "Maintain the state of BottomNavigationBar across tabs",
-          readTime: "9 min",
-          hovertitle: `<span class="sub-h1-semibold text-center text-white">Maintain the state of BottomNavigationBar across tabs</span>`,
-          link: "https://blog.canopas.com/how-to-maintain-the-state-of-bottomnavigationbar-across-tabs-528b3699f78b",
-        },
-        {
-          id: 4,
-          image: [custom_400w, custom_800w],
-          title: "Customizing Serialization and Deserialization in Flutter",
-          readTime: "10 min",
-          hovertitle: `<span class="sub-h1-semibold text-center text-white">Customizing Serialization and Deserialization in Flutter</span>`,
-          link: "https://blog.canopas.com/flutter-customizing-serialization-and-deserialization-with-json-serializable-db17e3aa90b0",
-        },
-        {
-          id: 5,
-          image: [master_400w, master_800w],
-          title: "Mastering Flutter Inspector DevTools for Effective Debugging",
-          readTime: "11 min",
-          hovertitle: `<span class="sub-h1-semibold text-center text-white">Mastering Flutter Inspector DevTools for Effective Debugging</span>`,
-          link: "https://blog.canopas.com/optimizing-flutter-apps-mastering-flutter-inspector-devtools-for-effective-debugging-493c03f68835",
-        },
-      ],
-      canopas: "https://blog.canopas.com",
-    };
+const { $mixpanel } = useNuxtApp();
+const blogs = [
+  {
+    id: 1,
+    image: [inherit_400w, inherit_800w, desk800w],
+    title: "How to Use InheritedWidget in Flutter",
+    readTime: "7 min",
+    hovertitle: `<span class="sub-h1-semibold text-center text-white">How to Use InheritedWidget in Flutter</span>`,
+    link: "https://blog.canopas.com/how-to-use-inheritedwidget-in-flutter-5fd64ce52b66",
   },
-  components: {
-    Swiper,
-    SwiperSlide,
+  {
+    id: 2,
+    image: [animate_400w, animate_800w],
+    title: "Flutter Fun Animation A smiley that reacts to your every move",
+    readTime: "8 min",
+    hovertitle: `<span class="sub-h1-semibold text-center text-white">Flutter Fun Animation A smiley that reacts to your every move</span>`,
+    link: "https://blog.canopas.com/flutter-animations-made-fun-a-smiley-that-reacts-to-your-every-move-9ebfb0a0657f",
   },
-  inject: ["mixpanel"],
-};
+  {
+    id: 3,
+    image: [maintain_400w, maintain_800w],
+    title: "Maintain the state of BottomNavigationBar across tabs",
+    readTime: "9 min",
+    hovertitle: `<span class="sub-h1-semibold text-center text-white">Maintain the state of BottomNavigationBar across tabs</span>`,
+    link: "https://blog.canopas.com/how-to-maintain-the-state-of-bottomnavigationbar-across-tabs-528b3699f78b",
+  },
+  {
+    id: 4,
+    image: [custom_400w, custom_800w],
+    title: "Customizing Serialization and Deserialization in Flutter",
+    readTime: "10 min",
+    hovertitle: `<span class="sub-h1-semibold text-center text-white">Customizing Serialization and Deserialization in Flutter</span>`,
+    link: "https://blog.canopas.com/flutter-customizing-serialization-and-deserialization-with-json-serializable-db17e3aa90b0",
+  },
+  {
+    id: 5,
+    image: [master_400w, master_800w],
+    title: "Mastering Flutter Inspector DevTools for Effective Debugging",
+    readTime: "11 min",
+    hovertitle: `<span class="sub-h1-semibold text-center text-white">Mastering Flutter Inspector DevTools for Effective Debugging</span>`,
+    link: "https://blog.canopas.com/optimizing-flutter-apps-mastering-flutter-inspector-devtools-for-effective-debugging-493c03f68835",
+  },
+];
+const canopas = "https://blog.canopas.com";
 </script>
 <style lang="postcss" scoped>
 .swiper-slide-active div {

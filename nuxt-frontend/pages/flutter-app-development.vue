@@ -2,6 +2,7 @@
   <div>
     <Header />
     <LandingSection />
+    <DevelopmentSection />
     <CtaSection />
     <SuccessStory />
     <BlogSection />
@@ -17,6 +18,7 @@ import config from "@/config.js";
 import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/flutter-app-development/LandingSection.vue";
+import DevelopmentSection from "@/components/flutter-app-development/DevelopmentSection.vue";
 const CtaSection = defineAsyncComponent(
   () => import("@/components/flutter-app-development/CtaSection.vue"),
 );

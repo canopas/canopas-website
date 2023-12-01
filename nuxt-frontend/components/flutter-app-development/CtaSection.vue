@@ -43,7 +43,7 @@
                 to="/contact"
                 @click.native="$mixpanel.track('tap_flutter_development_cta')"
               >
-                <span class="sub-h3-semibold border-none"
+                <span class="sub-h3-semibold xl:sub-h4-semibold border-none"
                   >Connect With Us
                 </span>
                 <Icon name="fa6-solid:arrow-right" class="fa ml-3" />

@@ -136,7 +136,7 @@
           class="mr-2 h-5 w-5"
           name="fa6-solid:arrow-left"
           id="leftArrow"
-        /><span class="sub-h4-semibold">Back</span>
+        /><span class="sub-h3-semibold xl:sub-h4-semibold">Back</span>
       </button>
       <button
         v-else
@@ -146,7 +146,9 @@
         @click="slide(1)"
         @click.native="$mixpanel.track('tap_flutter_app_faq_next_arrow')"
       >
-        <span class="sub-h4-semibold">View More Questions</span>
+        <span class="sub-h3-semibold xl:sub-h4-semibold"
+          >View More Questions</span
+        >
         <Icon
           class="ml-2 h-5 w-5"
           name="fa6-solid:arrow-right"
