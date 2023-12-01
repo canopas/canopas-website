@@ -19,7 +19,7 @@
               delay: 3000,
               disableOnInteraction: false,
             }"
-            :speed="3000"
+            :speed="1500"
             :loop="true"
             :spaceBetween="20"
             :pagination="pagination"
@@ -46,62 +46,51 @@
     </div>
   </div>
 </template>
-<script>
+<script setup>
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import quoteimage from "@/assets/images/flutter-app-development/quote.webp";
-export default {
-  data() {
-    return {
-      modules: [Pagination, Autoplay],
-      quoteimage,
-      clients: [
-        {
-          id: 1,
-          name: "Rebecca Kimura",
-          designation: "Founder at Togness, Australia",
-          review:
-            "There was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they understood the first time.",
-        },
-        {
-          id: 2,
-          name: "Elyass Bouchater",
-          designation: "Product Manager at Luxe, Morocco",
-          review:
-            "The Play Store is the hardest app store to get good reviews on, and we've just reached a five-star rating, which has been one of our biggest achievements, partly thanks to Canopas' work.",
-        },
-        {
-          id: 3,
-          name: "Rob Eberhard",
-          designation: "Founder at ActivScout, Canada",
-          review:
-            "I was especially impressed with the skills of their backend developer and how well the project manager and she worked with one another to create a  high performing iOS app.",
-        },
-        {
-          id: 4,
-          name: "Lisa Weinstein",
-          designation: "Founder at Brickandbatten, USA",
-          review:
-            "There is not enough space to say all the wonderful things I would want to share about Canopas. The team is incredibly helpful, stays calm even when we had to deal with tough issues on our app and always found a way to help us fix whatever was needed or roll out any new features for our app in both the iOS and Android stores.",
-        },
-        {
-          id: 5,
-          name: "Cyril Trosset",
-          designation: "CTO at Udini, France",
-          review:
-            "Multiple versions of this Android app have been successfully delivered over time. They are always very responsive on bug resolution. They are very efficient at producing complex interfaces and  high quality apps.",
-        },
-      ],
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    };
+const modules = [Pagination, Autoplay];
+const clients = [
+  {
+    id: 1,
+    name: "Rebecca Kimura",
+    designation: "Founder at Togness, Australia",
+    review:
+      "There was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they understood the first time.",
   },
-  components: {
-    Swiper,
-    SwiperSlide,
+  {
+    id: 2,
+    name: "Elyass Bouchater",
+    designation: "Product Manager at Luxe, Morocco",
+    review:
+      "The Play Store is the hardest app store to get good reviews on, and we've just reached a five-star rating, which has been one of our biggest achievements, partly thanks to Canopas' work.",
   },
+  {
+    id: 3,
+    name: "Rob Eberhard",
+    designation: "Founder at ActivScout, Canada",
+    review:
+      "I was especially impressed with the skills of their backend developer and how well the project manager and she worked with one another to create a  high performing iOS app.",
+  },
+  {
+    id: 4,
+    name: "Lisa Weinstein",
+    designation: "Founder at Brickandbatten, USA",
+    review:
+      "There is not enough space to say all the wonderful things I would want to share about Canopas. The team is incredibly helpful, stays calm even when we had to deal with tough issues on our app and always found a way to help us fix whatever was needed or roll out any new features for our app in both the iOS and Android stores.",
+  },
+  {
+    id: 5,
+    name: "Cyril Trosset",
+    designation: "CTO at Udini, France",
+    review:
+      "Multiple versions of this Android app have been successfully delivered over time. They are always very responsive on bug resolution. They are very efficient at producing complex interfaces and  high quality apps.",
+  },
+];
+const pagination = {
+  el: ".swiper-pagination",
+  clickable: true,
 };
 </script>
 <style lang="postcss">
