@@ -61,14 +61,8 @@
     <!-- Mobile UI END-->
     <!-- Desktop UI -->
 
-    <div
-      id="stickyParent"
-      class="sticky-parent h-[300vh] xll:h-[240vh] 3xl:!h-[220vh] hidden lg:block"
-    >
-      <div
-        class="sticky sticky top-0 max-h-full main overflow-hidden"
-        :class="{ '!top-[75px] xl:!top-[40px]': isScrollingUp }"
-      >
+    <div id="stickyParent" class="relative sticky-parent hidden lg:block">
+      <div class="sticky top-0 w-full h-screen">
         <swiper
           :direction="'vertical'"
           :slidesPerView="1"
@@ -78,54 +72,38 @@
           :mousewheel="{
             enabled: false,
             releaseOnEdges: true,
-            sensitivity: 1,
-            thresholdDelta: 1,
           }"
-          :touchReleaseOnEdges="true"
           :modules="modules"
           :allowTouchMove="false"
           class="swiper-container h-screen"
           @swiper="setSwiperRef"
-          @slideChange="onSlideChange"
         >
           <swiper-slide v-for="(portfolio, index) in portfolios" :key="index">
             <div class="flex flex-row justify-center h-screen">
               <div
                 :class="portfolio.row1Background"
-                class="flex flex-col justify-center !basis-[40%] justify-around px-8"
+                class="flex flex-col justify-center !basis-[40%] justify-around px-8 text-white"
               >
                 <div class="flex justify-end relative">
                   <div
                     :class="portfolio.row1Background"
-                    class="absolute top-4 xl:top-8 right-[-25%] xl:right-[-17%] 2xll:right-[-18%] xll:right-[-12%] 3xl:right-[-13%] text-[#FFFFFF] w-[250px] h-[250px] p-8 xl:w-[300px] xl:h-[300px] rounded-full flex justify-center items-center"
-                  >
-                    <h2 class="header-1 title">
-                      {{ portfolio.title }}
-                    </h2>
-                  </div>
+                    class="absolute top-4 xl:top-8 right-[-25%] xl:right-[-17%] 2xll:right-[-18%] xll:right-[-12%] 3xl:right-[-13%] w-[250px] h-[250px] p-8 xl:w-[300px] xl:h-[300px] rounded-full flex items-center"
+                  ></div>
+                  <h2 class="absolute top-32 header-1 title right-[-30px]">
+                    {{ portfolio.title }}
+                  </h2>
                 </div>
                 <div
                   class="w-[19rem] xl:w-[33rem] mx-auto mt-44 xl:mt-72 description"
-                  :class="{ '!mt-12 xl:!mt-72': isScrollingUp }"
                 >
-                  <h2 class="header-2 text-[#FFFFFF]">
+                  <h2 class="header-2">
                     {{ portfolio.desktopDescription }}
                   </h2>
                   <div class="mt-6">
-                    <span class="sub-h3-semibold text-[#FFFFFF]/[0.80]">{{
+                    <span class="sub-h3-semibold opacity-80">{{
                       portfolio.subDescription
                     }}</span>
                   </div>
-                </div>
-                <div
-                  class="flex justify-end pr-[8%] 2xll:pr-[14%] cursor-pointer"
-                  :class="{ 'mt-[-45%] xl:mt-0': isScrollingUp }"
-                >
-                  <span
-                    @click="scrollToNext()"
-                    class="text-[#FFFFFF]/[0.80] mt-6 sub-h3-semibold"
-                    >SKIP</span
-                  >
                 </div>
               </div>
 
@@ -186,11 +164,7 @@ export default {
       swiperRef: 0,
       activeIndex: 0,
       skipNext: true,
-      lastTouchY: null,
       lastScrollY: 0,
-      isScrollingUp: false,
-      scrollPosition: 0,
-      lastSlideReached: false,
       portfolios: [
         {
           title: "Justly",
@@ -246,69 +220,18 @@ export default {
   },
   mounted() {
     document.addEventListener("scroll", this.handleScroll);
-    document.addEventListener("wheel", this.handleWheel);
-    window.addEventListener("touchstart", this.handleTouchStart);
-    window.addEventListener("touchmove", this.handleTouchMove);
-    window.addEventListener("touchend", this.handleTouchEnd);
-    window.addEventListener("scroll", this.handleScrollTop);
   },
   unmounted() {
-    document.removeEventListener("wheel", this.handleWheel);
-    window.removeEventListener("touchstart", this.handleTouchStart);
-    window.removeEventListener("touchmove", this.handleTouchMove);
-    window.removeEventListener("touchend", this.handleTouchEnd);
-    window.removeEventListener("scroll", this.handleScrollTop);
     document.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     setSwiperRef(swiper) {
       this.swiperRef = swiper;
     },
-    // handle mouseScroll event
-    scrollDirectionIsUp(event) {
-      if (event.wheelDelta) {
-        return event.wheelDelta > 0;
-      }
-      return event.deltaY < 0;
-    },
 
-    handleWheel(event) {
-      if (this.scrollDirectionIsUp(event)) {
-        this.skipNext = false;
-      } else {
-        this.skipNext = true;
-      }
-    },
-    //handleTouch event
-    handleTouchStart(event) {
-      this.lastTouchY = event.touches[0].clientY;
-    },
-    handleTouchMove(event) {
-      if (this.lastTouchY !== null) {
-        const currentTouchY = event.touches[0].clientY;
-        if (currentTouchY > this.lastTouchY) {
-          this.skipNext = false;
-        } else if (currentTouchY < this.lastTouchY) {
-          this.skipNext = true;
-        }
-        this.lastTouchY = currentTouchY;
-      }
-    },
-    handleTouchEnd() {
-      this.lastTouchY = null;
-    },
-
-    scrollToNext() {
-      if (this.skipNext) {
-        this.$emit("scroll-to-next");
-      } else {
-        this.$emit("scroll-to-previous");
-      }
-    },
-    handleScrollTop() {
+    handleScroll() {
       const stickyParent = document.getElementById("stickyParent");
       const stickyTop = stickyParent.offsetTop;
-      let scrollTop = window.scrollY;
       var position = stickyParent.getBoundingClientRect();
 
       if (
@@ -317,24 +240,11 @@ export default {
           (window.innerHeight || document.documentElement.clientHeight)
       ) {
         this.swiperRef.mousewheel.enable();
-        this.swiperRef.allowTouchMove = true;
+        this.$emit("sectionFullscreen", false);
       } else {
         this.swiperRef.mousewheel.disable();
-        this.swiperRef.allowTouchMove = false;
+        this.$emit("sectionFullscreen", true);
       }
-      this.lastScrollY = scrollTop;
-    },
-    handleScroll() {
-      const windowHeight = window.innerHeight;
-      const lastSlide = document.querySelector(".main");
-      const lastSlidePosition = lastSlide.getBoundingClientRect().top;
-      if (lastSlidePosition <= windowHeight && lastSlidePosition >= 0) {
-        this.lastSlideReached = true;
-        this.isScrollingUp = window.scrollY < this.scrollPosition;
-      } else {
-        this.lastSlideReached = false;
-      }
-      this.scrollPosition = window.scrollY;
     },
   },
   components: {
@@ -346,6 +256,9 @@ export default {
 <style lang="postcss">
 @import "swiper/css";
 @import "swiper/css/pagination";
+.sticky-parent {
+  @apply h-[300vh] 3xl:!h-[220vh];
+}
 .swiper-container {
   @apply mx-0;
 }

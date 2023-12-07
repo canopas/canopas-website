@@ -15,16 +15,19 @@
           transform your business vision into reality, giving your brand the
           edge it needs in today's competitive marketplace.
         </p>
-
-        <nuxt-link
-          class="relative z-9 ml-0 lg:mt-[2.2rem] xl:mt-[2.5rem] 2xl:mt-[2.4rem] hidden lg:block gradient-btn primary-btn"
-          to="/contact"
-          @click.native="$mixpanel.track('tap_ios_development_cta')"
+        <div
+          class="relative z-9 lg:mt-[2.2rem] xl:mt-[2.5rem] 2xl:mt-[2.4rem] hidden lg:block"
         >
-          <span class="sub-h3-semibold xl:sub-h4-semibold"
-            >Consult Our iOS Team</span
+          <nuxt-link
+            class="ml-0 gradient-btn primary-btn"
+            to="/contact"
+            @click.native="$mixpanel.track('tap_ios_development_cta')"
           >
-        </nuxt-link>
+            <span class="sub-h3-semibold xl:sub-h4-semibold"
+              >Consult Our iOS Team</span
+            >
+          </nuxt-link>
+        </div>
       </div>
       <div
         class="flex flex-col lg:flex-row items-center justify-center lg:flex-1 mt-8 xs:mt-0"

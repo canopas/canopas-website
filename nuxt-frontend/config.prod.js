@@ -100,16 +100,16 @@ export default Object.freeze({
     description:
       "We create bespoke Android applications known for their supreme performance, unwavering security, and utmost reliability",
     type: "Website",
-    url: "https://dev-stack.canopas.com/android-app-development",
-    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
+    url: "https://canopas.com/android-app-development",
+    image: "https://canopas.com/apple-touch-icon.png",
   },
   IOS_APP_DEVELOPMENT_SEO_META_DATA: {
     title: "Canopas Services -  IOS App Development",
     description:
       "Explore Canopas' services for IOS app develeopment. Evaluate our exceptional work quality and experience for yourself.",
     type: "Website",
-    url: "https://dev-stack.canopas.com/ios-app-development",
-    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
+    url: "https://canopas.com/ios-app-development",
+    image: "https://canopas.com/apple-touch-icon.png",
   },
   FLUTTER_APP_DEVELOPMENT_SEO_META_DATA: {
     title: "Flutter App Development Company - Canopas",
@@ -121,7 +121,7 @@ export default Object.freeze({
   },
   IS_PROD: true,
   SHOW_ANDROID_APP_DEVELOPMENT_PAGE: true,
-  SHOW_IOS_APP_DEVELOPMENT_PAGE: false,
+  SHOW_IOS_APP_DEVELOPMENT_PAGE: true,
   SHOW_FLUTTER_APP_DEVELOPMENT_PAGE: false,
   SMILEPLUS_URL: "https://www.udini.ai/products/smile",
   WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
