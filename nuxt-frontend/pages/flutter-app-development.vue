@@ -12,8 +12,7 @@
     <NewFooter class="-mt-4 md:mt-auto" ref="flutterFooter" />
   </div>
 </template>
-
-<script setup>
+<script>
 import Header from "@/components/partials/NewHeader.vue";
 import config from "@/config.js";
 import { defineAsyncComponent } from "vue";
@@ -41,39 +40,66 @@ const FaqSection = defineAsyncComponent(
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
 );
-const { $mixpanel } = useNuxtApp();
-const footer = ref(null);
-const seoData = config.FLUTTER_APP_DEVELOPMENT_SEO_META_DATA;
-useSeoMeta({
-  robots: "noindex, nofollow",
-  title: seoData.title,
-  description: seoData.description,
-  ogTitle: seoData.title,
-  ogType: seoData.type,
-  ogUrl: seoData.url,
-  ogImage: seoData.image,
-});
 
-let event = "";
-let events = {
-  footer: "view_flutter_app_development_footer",
+export default {
+  beforeRouteEnter(to, from, next) {
+    if (!config.SHOW_FLUTTER_APP_DEVELOPMENT_PAGE) {
+      next({
+        name: "Error404Page",
+        params: { pathMatch: "/flutter-app-development" },
+      });
+    } else {
+      next();
+    }
+  },
+  components: {
+    Header,
+    LandingSection,
+    DevelopmentSection,
+    CaseStudySection,
+    CtaSection,
+    SuccessStory,
+    BlogSection,
+    CtaSection2,
+    FaqSection,
+    NewFooter,
+  },
+  setup() {
+    const { $mixpanel } = useNuxtApp();
+    const footer = ref(null);
+    const seoData = config.FLUTTER_APP_DEVELOPMENT_SEO_META_DATA;
+    useSeoMeta({
+      robots: "noindex, nofollow",
+      title: seoData.title,
+      description: seoData.description,
+      ogTitle: seoData.title,
+      ogType: seoData.type,
+      ogUrl: seoData.url,
+      ogImage: seoData.image,
+    });
+
+    let event = "";
+    let events = {
+      footer: "view_flutter_app_development_footer",
+    };
+    let elements;
+    onMounted(() => {
+      elements = ref({
+        footer: footer,
+      });
+      window.addEventListener("scroll", sendEvent);
+      $mixpanel.track("view_flutter_app_development_page");
+    });
+    onUnmounted(() => {
+      window.removeEventListener("scroll", sendEvent);
+    });
+    function sendEvent() {
+      const newEvent = events[elementInViewPort(elements.value)];
+      if (newEvent && event !== newEvent) {
+        event = newEvent;
+        $mixpanel.track(event);
+      }
+    }
+  },
 };
-let elements;
-onMounted(() => {
-  elements = ref({
-    footer: footer,
-  });
-  window.addEventListener("scroll", sendEvent);
-  $mixpanel.track("view_flutter_app_development_page");
-});
-onUnmounted(() => {
-  window.removeEventListener("scroll", sendEvent);
-});
-function sendEvent() {
-  const newEvent = events[elementInViewPort(elements.value)];
-  if (newEvent && event !== newEvent) {
-    event = newEvent;
-    $mixpanel.track(event);
-  }
-}
 </script>

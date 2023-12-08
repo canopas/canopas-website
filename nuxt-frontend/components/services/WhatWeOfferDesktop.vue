@@ -112,6 +112,8 @@ export default {
           title: "Backend Development",
           description:
             "The 'behind-the-scenes' backbone of any app, the backend, handles the critical tasks of data management, server configuration, and application logic. Our experts ensure your app is robust, secure, and efficient from its core, enabling it to handle high traffic loads, process data swiftly, and interact flawlessly with front-end requests.",
+          url: "/backend-development",
+          showServices: config.SHOW_BACKEND_DEVELOPMENT_PAGE,
         },
         {
           path: [100, 100],
