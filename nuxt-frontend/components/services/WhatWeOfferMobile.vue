@@ -109,6 +109,8 @@ export default {
             "The 'behind-the-scenes' backbone of any app, the backend, handles the critical tasks of data management, server configuration, and application logic. Our experts ensure your app is robust, secure, and efficient from its core, enabling it to handle high traffic loads, process data swiftly, and interact flawlessly with front-end requests.",
           class:
             "bg-gradient-to-b from-[#D2D8E3]/[0.95] via-[#D2D8E3]/[0.95] to-white bg-gradient-[180deg] ",
+          url: "/backend-development",
+          showServices: config.SHOW_BACKEND_DEVELOPMENT_PAGE,
         },
         {
           images: [frontend400w, frontend800w],
