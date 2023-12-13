@@ -1,45 +1,34 @@
 <template>
-  <div class="pr-2">
-    <div
-      class="flex items-center py-7 md:py-12 lg:pb-5 lg:pt-0 font-product-sans font-bold text-[1.875rem] md:text-[2.5rem] leading-[2.274375rem] md:leading-[3.0325rem]"
-    >
-      <h1 class="v2-canopas-gradient-text pr-2">Hey Smarty</h1>
+  <div>
+    <div class="flex items-center lg:pt-0">
+      <h1 class="header-2 primary-color pr-2">Hey Smarty</h1>
       <img
         :src="HandWing"
         alt="HandWing"
-        class="w-[31.26px] md:w-[49.38px] h-[31.79px] md:h-[50.29px]"
+        class="w-[32px] md:w-[49.38px] h-[32px] md:h-[50.29px]"
       />
     </div>
 
-    <div
-      class="lg:my-10 font-inter-medium text-[1rem] md:text-[1.375rem] leading-6 md:leading-[2.0625rem] text-black-core/[0.87]"
-    >
+    <div class="my-6 sub-h1-regular text-black-core/[0.87]">
       Thanks for reaching out to us. This form requires
-      <span
-        class="font-inter-bold text-[1rem] md:text-[1.375rem] leading-6 md:leading-[2.0625rem] canopas-gradient-text"
-        >less than 60 seconds</span
-      >
+      <span class="sub-h1-semibold primary-color">less than 60 seconds</span>
       to fill up.
     </div>
-    <div
-      class="mt-7 font-inter-medium text-[1rem] md:text-[1.375rem] leading-6 md:leading-[2.0625rem] text-black-core/[0.87]"
-    >
+    <div class="sub-h3-semibold lg:sub-h2-medium text-black-core/[0.60]">
       Here's what you will get by filling out this form.
     </div>
     <div>
-      <ul class="list-none m-auto mt-4 p-0 text-left">
+      <ul class="list-none m-auto p-0 text-left">
         <li
-          v-for="reasons in reasons"
-          :key="reasons"
-          class="flex items-start px-0 py-3"
+          v-for="reason in reasons"
+          :key="reason"
+          class="flex items-start px-0 pt-4"
         >
           <span
-            class="mt-2 md:mt-3 mr-[15px] w-1.5 md:w-[8.81px] h-1.5 md:h-[9px] rounded-full bg-gradient-to-b from-pink-300 to-orange-300"
+            class="mt-2 md:mt-3 mr-[15px] w-2 md:w-[8.81px] h-2 md:h-[9px] rounded-full bg-[#F2709C]"
           ></span>
-          <div
-            class="w-11/12 lg:w-10/12 font-inter-medium text-[1rem] md:text-[1.375rem] leading-6 md:leading-[2.0625rem] text-black-core/[0.87]"
-          >
-            {{ reasons.title }}
+          <div class="w-11/12 lg:w-[90%] sub-h3-regular text-black-core/[0.87]">
+            <span v-html="reason.title"></span>
           </div>
         </li>
       </ul>
@@ -55,19 +44,15 @@ export default {
       HandWing: HandWing,
       reasons: [
         {
-          title:
-            "Free consultation and QA session to know more about each other.",
+          title: `Free consultation and QA session to know more about each other.`,
         },
         {
-          title:
-            "  The call is only 15 minutes and we promise not to give you a hard\
+          title: `  The call is <span class='sub-h3-semibold'>only 15 minutes</span> and we promise not to give you a hard\
               sell. We will talk more ONLY if you find the conversation\
-              interesting.",
+              interesting.`,
         },
         {
-          title:
-            " 100% MONEY BACK GUARANTEE for the first TWO WEEKS of work if\
-              you're not satisfied. No questions asked.",
+          title: ` To prove our <span class='sub-h3-semibold'>Skin In the Game,</span> we offer 6 Months of Free Post Deployment Maintenance for all the work we do on your project.`,
         },
       ],
     };

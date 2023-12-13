@@ -1,16 +1,16 @@
 <template>
-  <div class="container my-[50px] lg:mt-0 md:w-full">
+  <div class="mt-10 lg:mt-0 md:w-full">
     <form>
       <div
-        class="rounded-2xl border border-slate-200 bg-white shadow-[0px_0px_45px_rgba(0,0,0,0.1)]"
+        class="rounded-2xl border bg-white shadow-[0px_0px_45px_rgba(0,0,0,0.1)]"
       >
-        <div class="pt-5 pb-20 px-8 lg:px-12">
-          <div>
-            <div class="relative mb-5 md:mb-5 pt-8 text-left">
+        <div class="pt-5 pb-12 px-8">
+          <div class="flex flex-col gap-5">
+            <div class="relative pt-8 text-left">
               <input
                 type="text"
                 id="username"
-                class="block peer mx-0 w-full rounded-none border-b border-slate-400 bg-transparent px-0 transition ease-in-out appearance-none text-[1rem] md:text-[1.375rem] font-inter-regular leading-[1.21rem] md:leading-[2.0625rem] text-black-core placeholder-black-core/[.6] focus:outline-none active:outline-none"
+                class="block peer mx-0 w-full pb-1 rounded-none border-b border-black/[0.08] bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium text-black-core/[0.87] focus:outline-none active:outline-none"
                 name="username"
                 required
                 autocomplete="given-username"
@@ -24,16 +24,16 @@
               />
               <label
                 for="username"
-                class="absolute top-4 left-0 mb-5 text-black-core/[.6] font-inter-regular text-[1rem] md:text-[1.375rem] leading-[1.21rem] md:leading-[2.0625rem] transform -translate-y-4 origin-[0] scale-75 duration-300 peer-focus:text-black-core peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                class="absolute top-4 left-0 mb-5 text-black-core/[.6] sub-h3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
                 >Your name</label
               >
               <span v-if="showNameValidationError" class="error text-red-600"
                 >Name is required</span
               >
             </div>
-            <div class="relative mb-5 md:mb-5 pt-8 text-left">
+            <div class="relative pt-8 text-left">
               <input
-                class="block peer mx-0 w-full rounded-none border-b border-slate-400 bg-transparent px-0 transition ease-in-out appearance-none text-[1rem] md:text-[1.375rem] font-inter-regular leading-[1.21rem] md:leading-[2.0625rem] text-black-core placeholder-black-core/[.6] focus:outline-none active:outline-none"
+                class="block peer mx-0 w-full pb-1 rounded-none border-b border-black/[0.08] bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium text-black-core/[0.87] focus:outline-none active:outline-none"
                 type="text"
                 name="email"
                 id="email"
@@ -50,7 +50,7 @@
               />
               <label
                 for="email"
-                class="absolute top-4 left-0 mb-5 text-black-core/[.6] font-inter-regular text-[1rem] md:text-[1.375rem] leading-[1.21rem] md:leading-[2.0625rem] transform -translate-y-4 origin-[0] scale-75 duration-300 peer-focus:text-black-core/[0.6] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                class="absolute top-4 left-0 mb-5 text-black-core/[.6] sub-h3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
                 >Your email</label
               >
               <span v-if="showEmailValidationError" class="error text-red-600"
@@ -62,9 +62,9 @@
                 >Please enter valid email address</span
               >
             </div>
-            <div class="relative md:col-span-2 mb-5 md:mb-5 pt-8 text-left">
+            <div class="relative pt-8 text-left">
               <textarea
-                class="block peer mx-0 w-full min-h-[50px] md:min-h-[90px] rounded-none border-b border-slate-400 bg-transparent px-0 transition ease-in-out appearance-none text-[1rem] md:text-[1.375rem] font-inter-regular leading-[1.21rem] md:leading-[2.0625rem] text-black-core placeholder-black-core/[.6] focus:outline-none active:outline-none"
+                class="block peer mx-0 w-full pb-1 min-h-[50px] md:min-h-[90px] rounded-none border-b border-black/[0.08] bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium text-black-core/[0.87] placeholder-black-core/[.6] focus:outline-none active:outline-none"
                 id="project"
                 name="project"
                 rows="3"
@@ -82,7 +82,7 @@
               ></textarea>
               <label
                 for="project"
-                class="absolute top-4 left-0 mb-5 text-black-core/[.6] font-inter-regular text-[1rem] md:text-[1.375rem] leading-[1.21rem] md:leading-[2.0625rem] transform -translate-y-4 origin-[0] scale-75 duration-300 peer-focus:text-black-core peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                class="absolute top-4 left-0 mb-5 text-black-core/[.6] sub-h3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
                 >Tell us about your project</label
               >
               <span
@@ -91,9 +91,9 @@
                 >This field is required</span
               >
             </div>
-            <div class="relative md:col-span-2 pt-6 md:pt-8 text-left">
+            <div class="relative pt-6 md:pt-8 text-left">
               <input
-                class="block peer mx-0 w-full rounded-none border-b border-slate-400 bg-transparent px-0 transition ease-in-out appearance-none text-[1rem] md:text-[1.375rem] font-inter-regular text-black-core placeholder-black-core/[.6] focus:outline-none active:outline-none"
+                class="block peer mx-0 w-full pb-1 rounded-none border-b border-black/[0.08] bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium text-black-core/[0.87] focus:outline-none active:outline-none"
                 type="text"
                 name="reference"
                 id="reference"
@@ -109,7 +109,7 @@
               />
               <label
                 for="reference"
-                class="absolute top-4 left-0 mb-5 text-black-core/[.6] font-inter-regular text-[1rem] md:text-[1.375rem] leading-[1.21rem] md:leading-[2.0625rem] transform -translate-y-4 origin-[0] scale-75 duration-300 peer-focus:text-black-core peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                class="absolute top-4 left-0 mb-5 text-black-core/[.6] sub-h3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
                 >How did you find us?</label
               >
               <span
@@ -121,7 +121,7 @@
             <div class="relative pt-8">
               <div ref="invest-list" class="flex">
                 <button
-                  class="flex items-center justify-between mt-2.5 md:mt-3 mx-0 w-full border-b border-slate-400 bg-none px-0 font-inter-regular text-[1rem] md:text-[1.375rem] leading-[1.21rem] md:leading-[2.0625rem] whitespace-nowrap transition duration-150 ease-in-out focus:outline-0 active:outline-0 focus:shadow-none active:shadow-none focus:ring-0 active:ring-0 focus:bg-transparent active:bg-transparent active:text-black-core/[0.6]"
+                  class="flex items-center justify-between mt-2.5 md:mt-3 mx-0 w-full border-b border-black/[0.08] bg-none px-0 sub-h3-regular whitespace-nowrap transition duration-150 ease-in-out focus:outline-0 active:outline-0 focus:shadow-none active:shadow-none focus:ring-0 active:ring-0 focus:bg-transparent active:bg-transparent active:text-black-core/[0.6]"
                   type="button"
                   id="invest"
                   name="invest"
@@ -130,7 +130,7 @@
                 >
                   <label
                     for="invest"
-                    class="absolute top-8 md:top-8 left-0 text-black-core/[0.6] transform duration-300 placeholder:!text-black-core/[0.6]"
+                    class="absolute top-8 left-0 text-black-core/[0.6] transform duration-300 placeholder:!text-black-core/[0.6]"
                     :class="[
                       floatable
                         ? '-translate-y-4 xl:-translate-y-[0.5rem] origin-[0] scale-75'
@@ -173,13 +173,11 @@
                 >This field is required</span
               >
             </div>
-            <div
-              class="mt-8 text-base font-inter-regular text-black-core/[0.87]"
-            >
+            <div class="mt-8 sub-h4-regular text-black-core/[0.87]">
               We sign NDA for all of our projects.
             </div>
           </div>
-          <div class="flex justify-center py-5 lg:py-8">
+          <div class="flex justify-center py-8">
             <img
               v-if="showLoader"
               :src="loaderImage"
@@ -198,7 +196,7 @@
                     class="flex text-center text-red-600"
                     :class="
                       errorMessage == 'Invalid Recaptcha score'
-                        ? '!mt-2 md:!-mt-2 !mr-4 sm:!mr-16 md:!mr-12 lg:!mr-10 xl:!mr-[2.8rem] 2xl:!mr-14 '
+                        ? '!mt-2 !mr-4 sm:!mr-16 md:!mr-12 lg:!mr-10 xl:!mr-[2.8rem] 2xl:!mr-14 '
                         : ''
                     "
                     >{{ errorMessage }}</span
@@ -207,10 +205,10 @@
                 <button
                   id="submit"
                   ref="recaptcha"
-                  class="absolute top-[-13px] sm:-top-5 right-[-122px] md:right-[-170px] w-max rounded-full py-2.5 md:py-5 px-20 md:px-28 text-center gradient-btn consultation-btn"
+                  class="absolute top-[-13px] sm:-top-5 right-[-110px] md:right-[-70px] w-max py-2.5 px-20 md:px-8 text-center gradient-btn consultation-btn"
                   @click.prevent="submitForm()"
                 >
-                  <span>Submit</span>
+                  <span class="sub-h3-semibold lg:sub-h5-semibold">Submit</span>
                 </button>
               </div>
             </div>
