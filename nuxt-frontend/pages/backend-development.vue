@@ -2,6 +2,7 @@
   <div>
     <Header />
     <LandingSection />
+    <CaseStudySection />
     <NewFooter class="-mt-4 md:mt-0" />
   </div>
 </template>
@@ -11,6 +12,9 @@ import config from "@/config.js";
 import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/backend-development/LandingSection.vue";
+const CaseStudySection = defineAsyncComponent(
+  () => import("@/components/backend-development/CaseStudySection.vue"),
+);
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
 );
@@ -29,6 +33,7 @@ export default {
   components: {
     Header,
     LandingSection,
+    CaseStudySection,
     NewFooter,
   },
   setup() {
