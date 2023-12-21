@@ -1,19 +1,16 @@
 <template>
-  <div class="container justify-center mt-20 text-center">
-    <div class="m-auto w-[290px] sm:w-full pb-14 md:pb-20">
-      <span
-        class="font-inter-bold text-black-core/[.87] text-[1.875rem] md:text-[3.4375rem] leading-10 md:leading-[5.5625rem]"
-      >
+  <div
+    class="container justify-center mt-36 sm:mt-20 md:mt-24 mb-16 text-center"
+  >
+    <div class="m-auto w-[290px] sm:w-full pb-14 md:pb-8">
+      <span class="mobile-header-2 lg:desk-header-2 text-black-87">
         We are here to Contribute
       </span>
-      <div
-        class="mt-2 md:mt-0 font-inter-medium text-black-core/[0.6] text-[1rem] leading-[1.375rem] md:text-[1.5rem] md:leading-[2.5625rem]"
-      >
+      <div class="mt-4 sub-h1-regular w-full mx-auto text-black-60">
         <span>and that starts with the site itself, </span>
-        <br />
         <span>
           <a
-            class="relative bg-gradient-[1deg] pb-[5px] v2-canopas-gradient-text font-inter-medium gradient-underline no-underline after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-l after:to-pink-300 after:from-orange-300"
+            class="relative bg-gradient-[1deg] pb-[5px] v2-canopas-gradient-text sub-h3-semibold gradient-underline no-underline after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-l after:to-pink-300 after:from-orange-300"
             :href="websiteOpenSourceUrl"
             target="_blank"
             @click.native="$mixpanel.track('tap_canopas_website_github')"
@@ -22,90 +19,82 @@
         >
       </div>
     </div>
-    <div class="text-left">
-      <div
-        v-for="(contribution, index) in contributions"
-        :key="contribution"
-        class="relative flex justify-center mt-8 w-full"
-        :class="index % 2 != 0 ? 'flex-row-reverse' : 'flex-row'"
-      >
-        <div class="w-[45%] shadow-[2px_2px_10px_rgba(0,0,0,0.1)]">
-          <video class="lozad" autoplay loop muted playsinline>
-            <source :data-src="contribution.video[1]" type="video/webm" />
-            <source :data-src="contribution.video[0]" type="video/mp4" />
-          </video>
-        </div>
+    <div
+      v-for="(contribution, index) in contributions"
+      :key="contribution"
+      class="relative flex mt-8 w-full text-left"
+      :class="index % 2 != 0 ? 'flex-row-reverse' : 'flex-row'"
+    >
+      <div class="w-[45%] shadow-[2px_2px_10px_rgba(0,0,0,0.1)] rounded-xl">
+        <video class="lozad rounded-xl" autoplay loop muted playsinline>
+          <source :data-src="contribution.video[1]" type="video/webm" />
+          <source :data-src="contribution.video[0]" type="video/mp4" />
+        </video>
+      </div>
 
-        <div
-          @click="
-            openBlog(contribution.link, 'tap_home_github_contribution_section')
-          "
-          class="absolute top-[50%] flex flex-col w-[50%] translate-y-[-50%] bg-[#FFFFFF] p-2.5 sm:p-4 shadow-[0_0px_10px_rgba(0,0,0,0.1)] active:scale-[0.98]"
-          :class="[index % 2 == 0 ? 'left-[50%]' : 'right-[50%]']"
-        >
-          <div>
+      <div
+        @click="
+          openBlog(contribution.link, 'tap_home_github_contribution_section')
+        "
+        class="absolute top-[50%] flex flex-col w-[67%] md:w-[52%] translate-y-[-50%] bg-[#FFFFFF] p-2.5 sm:p-4 shadow-[0_0px_10px_rgba(0,0,0,0.1)] active:scale-[0.98] rounded-xl md:rounded"
+        :class="[
+          index % 2 == 0
+            ? 'left-[32%] md:left-[48%]'
+            : 'right-[32%] md:right-[48%]',
+        ]"
+      >
+        <div>
+          <div
+            :class="index % 2 != 0 ? 'flex-row-reverse' : ''"
+            class="flex flex-row justify-between items-center"
+          >
             <div
-              :class="index % 2 != 0 ? 'flex-row-reverse' : ''"
-              class="flex flex-row justify-between items-center"
+              class="flex items-center justify-center w-[2.938rem] h-[1.375rem] md:w-[3.9375rem] md:h-[2.125rem] from-[#f2709c] to-[#ff835b] px-[3px] py-[2px] bg-gradient-[270.11deg] rounded sub-h4-semibold text-white"
             >
-              <div
-                class="flex items-center justify-center w-[2.625rem] md:w-[4.75rem] h-[1.125rem] md:h-[1.875rem] from-[#ff835b] to-[#f2709c] bg-gradient-[270.11deg] rounded-full md:px-2.5 font-inter-bold md:font-inter-semibold text-[0.625rem] md:text-[1rem] text-white"
-              >
-                <span>
-                  <Icon
-                    class="fa w-2.5 md:w-[18px] h-[10px] md:h-2.5 pr-[5px] text-white box-content mb-[0.225em]"
-                    name="fa6-solid:star"
-                  />{{ contribution.stars }}</span
-                >
-              </div>
-              <div>
-                <div>
-                  <a
-                    class="flex items-center font-inter-bold text-[0.75rem] md:text-[1.25rem] leading-[2.5625rem] duration-300 ease-in-out hover:scale-[1.1]"
-                    :href="contribution.link"
-                    target="_blank"
-                    @click.native="$mixpanel.track('tap_library')"
-                  >
-                    <Icon
-                      class="mr-1 md:mr-2.5 w-4 md:w-[1.75rem] h-4 md:h-7 text-pink-300"
-                      name="fa6-brands:github"
-                    />
-                    <div class="v2-canopas-gradient-text">GitHub</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p
-                class="md:mt-[41px] font-inter-semibold text-black-core/[0.87] text-[1rem] md:text-[1.875rem] leading-[1.3rem] md:leading-8"
-              >
-                {{ contribution.title }}
-              </p>
-            </div>
-            <div class="mt-5">
-              <span
-                class="hidden md:block font-inter-light text-[1.25rem] leading-[1.578rem] text-black-core/[0.6]"
-                >{{ contribution.description }}</span
-              >
-            </div>
-            <div
-              class="flex flex-row justify-between mt-2.5 md:mt-[30px] font-inter-regular text-black-core/[0.87] text-[0.625rem] md:text-[1rem] leading-[0.9375rem] md:leading-[1.5rem]"
-            >
-              <span>by {{ contribution.author }}</span>
-              <a
-                class="duration-300 ease-in-out hover:scale-[1.1]"
-                :href="contribution.link"
-                :aria-label="contribution.title"
-                target="_blank"
-                @click.native="$mixpanel.track('tap_library')"
-              >
+              <span>
                 <Icon
-                  class="arrow fa w-4 h-4 box-content"
-                  name="fa6-solid:arrow-right-long"
-                  id="leftArrow"
-                />
-              </a>
+                  class="fa w-3 h-3 pr-[5px] box-content mb-[0.225em]"
+                  name="fa6-solid:star"
+                />{{ contribution.stars }}</span
+              >
             </div>
+            <a
+              class="flex items-center sub-h4-semibold"
+              :href="contribution.link"
+              target="_blank"
+              @click.native="$mixpanel.track('tap_library')"
+            >
+              <Icon
+                class="mr-1 md:mr-2.5 w-4 md:w-[1.75rem] h-4 md:h-7 footer-icon"
+                name="fa6-brands:github"
+              />
+              <div class="v2-canopas-gradient-text">GitHub</div>
+            </a>
+          </div>
+          <p class="mt-4 sub-h3-semibold text-black-87 w-[73%] md:w-full">
+            {{ contribution.title }}
+          </p>
+          <div class="mt-3 hidden md:block">
+            <span class="sub-h3-regular text-black-60">{{
+              contribution.description
+            }}</span>
+          </div>
+          <div
+            class="flex flex-row justify-between mt-3 md:mt-6 sub-h4-regular text-black-60"
+          >
+            <span>by {{ contribution.author }}</span>
+            <a
+              :href="contribution.link"
+              :aria-label="contribution.title"
+              target="_blank"
+              @click.native="$mixpanel.track('tap_library')"
+            >
+              <Icon
+                class="arrow fa w-4 h-4 box-content text-black-87"
+                name="fa6-solid:arrow-right-long"
+                id="leftArrow"
+              />
+            </a>
           </div>
         </div>
       </div>
@@ -138,24 +127,28 @@ export default {
       contributions: [
         {
           title: "Intro Showcase view in jetpack compose",
-          stars: "275",
+          stars: config.INTRO_SHOWCASE_STARS,
+          description:
+            "Highlight different features of the app using Jetpack Compose",
           author: "Radhika S.",
           video: [introShowCaseMp4, introShowCaseWebm],
           link: "https://github.com/canopas/Intro-showcase-view",
         },
         {
           title: "UIPilot",
-          stars: "228",
+          stars: config.UIPILOT_STARS,
+          description: "The missing typesafe SwiftUI navigation library",
           author: "Jimmy S.",
           video: [uIPilotMp4, uIPilotWebm],
           link: "https://github.com/canopas/UIPilot",
         },
         {
           title: "Jetpack Compose animations",
-          stars: "203",
+          stars: config.JETPACK_COMPOSE_ANIMATION_STARS,
+          description: "Cool animations implemented with Jetpack compose",
           author: "Radhika S.",
           video: [jcAnimationsMp4, jcAnimationsWebm],
-          link: "https://github.com/canopas/Jetpack-compose-animations-examples",
+          link: "https://github.com/canopas/compose-animations-examples",
         },
       ],
     };

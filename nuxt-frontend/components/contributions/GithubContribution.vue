@@ -200,6 +200,7 @@
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { openBlog } from "@/utils.js";
+import config from "@/config.js";
 
 import android1_400w from "@/assets/images/contributions/github/mobile/android-1-400w.webp";
 import android1_800w from "@/assets/images/contributions/github/mobile/android-1-800w.webp";
@@ -285,7 +286,7 @@ export default {
           title: "Compose Intro Showcase",
           description:
             "Intro showcase view in Jetpack compose. An implementation of Intro Showcase from ...",
-          stars: "318",
+          stars: config.INTRO_SHOWCASE_STARS,
           contributors: [contributor1, contributor2, contributor3],
           event: "tap_contribution_intro_showcase",
         },
@@ -300,7 +301,7 @@ export default {
           forks: "26",
           title: "Compose Animation Examples",
           description: "Cool animations implemented with Jetpack compose....",
-          stars: "265",
+          stars: config.JETPACK_COMPOSE_ANIMATION_STARS,
           contributors: [contributor1, contributor2, contributor4],
           event: "tap_contribution_jetpack_compose_animation",
         },
@@ -316,7 +317,7 @@ export default {
           title: "Compose CountryPicker",
           description:
             "Country code bottomsheet picker in Jetpack Compose with Search functionality...",
-          stars: "50",
+          stars: config.COMPOSE_COUNTRY_PICKER_STARS,
           contributors: [contributor1, contributor2, contributor4],
           event: "tap_contribution_jetcountry_picker",
         },
@@ -331,7 +332,7 @@ export default {
           forks: "21",
           title: "UIPilot ",
           description: "The missing typesafe SwiftUI navigation library.",
-          stars: "263",
+          stars: config.UIPILOT_STARS,
           contributors: [contributor1, contributor6, contributor2],
           event: "tap_contribution_jetpack_compose_animation",
         },
@@ -346,7 +347,7 @@ export default {
           forks: "02",
           title: "Swiftui Animations",
           description: "Cool animations implemented with SwiftUI",
-          stars: "53",
+          stars: config.SWIFT_UI_ANIMATION_STARS,
           contributors: [contributor1, contributor6],
           event: "tab_contribution_swiftui_animation",
         },
@@ -362,7 +363,7 @@ export default {
           title: "iOS Developer Roadmap 2022",
           description:
             "iOS Developer Roadmap 2022 is a learning path to understand iOS development...",
-          stars: "73",
+          stars: config.IOS_DEVELOPER_ROADMAP_STARS,
           contributors: [contributor1, contributor6],
           event: "tab_contribution_ios_roadmap",
         },
@@ -378,7 +379,7 @@ export default {
           title: "Tailwind Animations Examples",
           description:
             "This repository contains different animations implemented using tailwind css...",
-          stars: "101",
+          stars: config.TAILWIND_ANIMATIONS_STARS,
           contributors: [contributor8, contributor9],
           event: "tab_contribution_tailwind_animation",
         },
@@ -394,7 +395,7 @@ export default {
           title: "Web Development Roadmap",
           description:
             "Web Developer Roadmap is a path to understand web development including...",
-          stars: "95",
+          stars: config.WEB_DEVELOPMENT_ROADMAP_STARS,
           contributors: [contributor8, contributor10],
           event: "tab_contribution_webdevelopment_roadmap",
         },
@@ -410,7 +411,7 @@ export default {
           title: "Canopas Blog website",
           description:
             "Source code of canopas resources by following best practices...",
-          stars: "26",
+          stars: config.CANOPAS_BLOG_WEBSITE_STARS,
           contributors: [contributor8, contributor11, contributor12],
           event: "tab_contribution_canopas_blog",
         },
@@ -426,7 +427,7 @@ export default {
           title: "Canopas Website",
           description:
             "Source code of canopas website by following best practices...",
-          stars: "22",
+          stars: config.CANOPAS_WEBSITE_STARS,
           contributors: [contributor8, contributor14, contributor12],
           event: "tap_contribution_canopas_website",
         },

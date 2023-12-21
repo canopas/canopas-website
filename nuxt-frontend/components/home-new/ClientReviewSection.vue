@@ -1,13 +1,9 @@
 <template>
-  <div class="container my-4 mt-[6.25rem] md:mt-[14.063rem] ml-auto mx-auto">
+  <div class="container mt-16 lg:mt-60 ml-auto mx-auto">
     <div class="swiper-content">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
-        :autoplay="{
-          delay: 3000,
-          disableOnInteraction: false,
-        }"
         :loop="true"
         :spaceBetween="20"
         :pagination="pagination"
@@ -26,41 +22,71 @@
           class="cursor-pointer"
         >
           <div
-            class="mx-auto sm:px-10 md:px-6 lg:px-4 xl:px-24 sm:text-black-core/[0.87] text-black-900"
+            class="mx-auto sm:px-5 md:px-[5.8rem] lg:px-8 xl:px-24 text-black-87"
             :class="[client.className]"
           >
+            <a
+              class="md:hidden"
+              :href="clutchLink"
+              target="_blank"
+              @click.native="$mixpanel.track('tap_clutch_ratings')"
+            >
+              <div class="flex flex-row sm:justify-end w-full sm:w-fit">
+                <div class="flex flex-col sm:justify-center mt-1 sm:mt-[7px]">
+                  <span class="sm:justify-between sub-h4-regular">
+                    REVIEWED ON
+                  </span>
+
+                  <img
+                    :src="reviewImage"
+                    class="mr-2 w-[5.0625rem] h-[1.4375rem]"
+                    alt="reviewClutchImage"
+                  />
+                </div>
+                <div class="flex flex-col mt-2.5 sm:mt-5 sm:justify-end">
+                  <span class="flex flex-row">
+                    <Icon
+                      v-for="i in 5"
+                      :key="i"
+                      class="fa-star w-[12px] h-[12px] text-[#FFC700]"
+                      name="fa6-solid:star"
+                  /></span>
+
+                  <span class="sub-h4-regular"> 5.0 RATINGS </span>
+                </div>
+              </div>
+            </a>
             <div
-              class="font-roboto-medium text-[1.375rem] md:text-[2.25rem] lg:text-[3.125rem] leading-[1.875rem] md:leading-[2.75rem] lg:leading-[3.75rem] transition-all ease duration-500"
+              class="mt-8 md:mt-0 sub-h1-semibold lg:desk-header-3 transition-all ease duration-500"
               :class="reading ? 'scale-[0.98]' : ''"
               v-html="client.review"
             ></div>
-            <div class="flex flex-row justify-between mt-11 md:mt-20">
+            <div class="flex flex-row justify-between mt-8 md:mt-20">
               <div class="flex flex-col">
                 <span
-                  class="v2-canopas-gradient-text font-inter-semibold text-[1rem] md:text-[1.625rem]"
+                  class="sub-h3-regular lg:mobile-header-3-regular xl:sub-h2-medium"
                   >{{ client.name }}</span
                 >
                 <span
-                  class="text-[0.75rem] md:text-[1.25rem] leading-[1.375rem] text-black-core/[0.87]"
+                  class="sub-h4-regular lg:mobile-header-3-regular text-black-60"
                   >{{ client.designation }}</span
                 >
               </div>
               <a
+                class="hidden md:block"
                 :href="clutchLink"
                 target="_blank"
                 @click.native="$mixpanel.track('tap_clutch_ratings')"
               >
-                <div class="flex flex-row sm:justify-end w-[132px] sm:w-fit">
-                  <div class="flex flex-col sm:justify-center mt-1 sm:mt-[7px]">
-                    <span
-                      class="sm:justify-between mr-1 md:mr-2 text-[0.5rem] md:text-[0.625rem] leading-[1.375rem] text-black-core/[0.87]"
-                    >
+                <div class="flex flex-row sm:justify-end w-[166px]">
+                  <div class="flex flex-col sm:justify-center mt-1">
+                    <span class="sm:justify-between mr-2 sub-h4-medium">
                       REVIEWED ON
                     </span>
 
                     <img
                       :src="reviewImage"
-                      class="mr-2 w-[3.313rem] md:w-[4.25rem] h-[0.938rem] md:h-[1.188rem]"
+                      class="mr-2 w-[5.3125rem] h-[1.5rem]"
                       alt="reviewClutchImage"
                     />
                   </div>
@@ -69,15 +95,11 @@
                       <Icon
                         v-for="i in 5"
                         :key="i"
-                        class="fa-star w-[11px] md:w-4 h-[11px] md:h-4 text-[#FF3D2E]"
+                        class="fa-star w-[14px] h-[14px] text-[#FFC700]"
                         name="fa6-solid:star"
                     /></span>
 
-                    <span
-                      class="md:font-inter-regular text-[0.5rem] md:text-[0.75rem] leading-[1.375rem] text-black-core/[0.87]"
-                    >
-                      5.0 RATINGS
-                    </span>
+                    <span class="sub-h4-regular"> 5.0 RATINGS </span>
                   </div>
                 </div>
               </a>
@@ -108,7 +130,7 @@ export default {
           name: "Rebecca Kimura",
           className: "2xl:px-48",
           designation: "Founder at Togness, Australia",
-          review: `“There was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they <span class="bg-single-color-underline
+          review: `“There was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they <span class="lg:bg-single-color-underline
             ">understood the first time.</span>”`,
         },
         {
@@ -116,7 +138,7 @@ export default {
           name: "Elyass Bouchater",
           className: "2xl:px-48",
           designation: "Product Manager at Luxe, Morocco",
-          review: `“The Play Store is the hardest app store to get good reviews on, and we’ve just reached a five-star rating, which has been one of our biggest achievements, partly <span class="bg-single-color-underline
+          review: `“The Play Store is the hardest app store to get good reviews on, and we’ve just reached a five-star rating, which has been one of our biggest achievements, partly <span class="lg:bg-single-color-underline
             ">thanks to Canopas’ work.</span>”`,
         },
         {
@@ -124,7 +146,7 @@ export default {
           name: "Rob Eberhard",
           className: "2xl:px-52",
           designation: "Founder at ActivScout, Canada",
-          review: `“I was especially impressed with the skills of their backend developer and how well the project manager and she worked with one another to create a <span class="bg-single-color-underline
+          review: `“I was especially impressed with the skills of their backend developer and how well the project manager and she worked with one another to create a <span class="lg:bg-single-color-underline
             ">high performing iOS app.</span>”`,
         },
         {
@@ -133,7 +155,7 @@ export default {
           className: "2xl:px-52",
           designation: "Founder at Brickandbatten, USA",
           review: `“There is not enough space to say all the wonderful things I would want to share about Canopas. The team is incredibly helpful, stays calm even when we had to deal with tough issues on our app and always found a way to help us fix whatever was needed or roll out any new features for our app in both the
-            <span class="bg-single-color-underline
+            <span class="lg:bg-single-color-underline
             "> iOS and Android stores.</span>”`,
         },
         {
@@ -141,7 +163,7 @@ export default {
           name: "Cyril Trosset",
           className: "2xl:px-52",
           designation: "CTO at Udini, France",
-          review: `“Multiple versions of this Android app have been successfully delivered over time. They are always very responsive on bug resolution. They are very efficient at producing complex interfaces and <span class="bg-single-color-underline
+          review: `“Multiple versions of this Android app have been successfully delivered over time. They are always very responsive on bug resolution. They are very efficient at producing complex interfaces and <span class="lg:bg-single-color-underline
             ">high quality apps.</span>”`,
         },
       ],

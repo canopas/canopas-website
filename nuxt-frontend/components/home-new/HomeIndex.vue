@@ -2,12 +2,8 @@
   <div>
     <ScreenHeader />
     <LandingSection ref="landing" />
-    <ServiceSection class="hidden md:block" ref="service" v-if="width > 768" />
-    <ServiceSectionMobile
-      class="block md:hidden"
-      ref="service"
-      v-if="width <= 768"
-    />
+    <ServiceSection class="hidden lg:block" ref="service" />
+    <ServiceSectionMobile class="block lg:hidden" ref="service" />
     <CaseStudy ref="casestudies" />
     <ClientReview ref="clientReview" />
     <BlogSection ref="blogs" />
@@ -21,11 +17,8 @@
       class="block lg:hidden"
       ref="contributions"
     />
-    <CTASection
-      ref="cta"
-      class="!mt-[100px] md:!mt-[220px] pt-10 bg-black-core/[0.85] mb-[-15px]"
-    />
-    <NewFooter />
+    <CTASection ref="cta" class="pt-10 bg-[#121212]" />
+    <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
   </div>
 </template>
 

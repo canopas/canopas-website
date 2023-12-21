@@ -1,18 +1,20 @@
 <template>
-  <section class="relative pb-[50px] md:pt-[50px] 2xl:-mt-px">
+  <section class="relative pb-[46px] md:pt-[50px]">
     <div
-      class="absolute right-0 top-1 hidden h-[140px] border-l-[20px] border-[#F2709C] md:block lg:top-9 xl:h-[185px] 2xl:top-[4.25rem]"
+      class="absolute right-0 top-1 hidden h-[140px] border-l-[20px] border-[#F2709C] lg:block lg:top-9 xl:h-[185px] 2xl:top-[4.25rem]"
     ></div>
     <div
-      class="absolute bottom-[6.25rem] left-0 hidden h-[115px] border-l-[20px] border-[#FF9472] md:block"
+      class="absolute bottom-[6.25rem] left-0 hidden h-[115px] border-l-[20px] border-[#FF9472] lg:block"
     ></div>
 
     <div
-      class="container xll:max-w-[1640px] flex flex-col items-center md:flex-row md:flex-row-reverse"
+      class="container xll:max-w-[1640px] flex flex-col items-center lg:flex-row lg:flex-row-reverse"
     >
-      <div class="flex flex-col md:relative md:items-end lg:flex-[55%]">
+      <div
+        class="flex flex-col lg:relative items-center lg:items-end lg:flex-[55%]"
+      >
         <p
-          class="text-center font-inter-bold text-[2.625rem] leading-[3.125rem] text-white md:text-right md:text-[3.275rem] md:leading-[3.875rem] xl:text-[5.625rem] xl:leading-[6.125rem]"
+          class="text-center mobile-header-1 lg:desk-header-1 text-white lg:text-right xl:w-[89%] 2xl:w-[77%] xll:w-[61%]"
         >
           <span class="bg-gradient-L bg-clip-text text-transparent">L</span>et's
           <span class="mr-[-0.2rem] bg-gradient-W bg-clip-text text-transparent"
@@ -23,42 +25,30 @@
           >ogether
         </p>
         <p
-          class="mt-6 w-[385px] text-center font-inter-regular text-base text-white md:text-right md:text-[1.4rem] md:leading-8 md:text-white/[0.75] xl:w-[82%] xl:text-[1.75rem] xl:leading-[2.625rem] 2xl:w-[68%] xll:w-[55%]"
+          class="mt-4 lg:mt-[2.5rem] w-[98%] md:w-[70%] lg:w-[80%] xl:w-[75%] 2xl:w-[65%] xll:w-[52%] text-center sub-h1-regular lg:mobile-header-2-regular text-white-core-80 lg:text-right"
         >
           Not sure where to start? We also offer code and architecture reviews,
           strategic planning, and more.
         </p>
         <nuxt-link
-          class="gradient-btn consultation-btn mr-0 mt-10 hidden w-max items-end rounded-full py-5 text-right md:flex"
+          class="gradient-btn primary-btn mr-0 hidden lg:flex lg:mt-10"
           to="/contact"
         >
-          <span
-            class="mr-2.5 font-inter-semibold text-[1.09375rem] leading-[1.3125rem] xl:text-[1.188rem] xl:leading-[1.188rem]"
-            >Get Free Consultation
-          </span>
+          <span class="sub-h1-semibold">Get Free Consultation </span>
         </nuxt-link>
       </div>
       <div class="relative lg:flex-[45%]">
         <img
           :src="ctaImage400w"
           :srcset="`${ctaImage400w} 400w, ${ctaImage800w} 800w`"
-          class="mt-8 h-full w-full md:mt-0"
+          class="mt-8 h-full w-full md:w-[50%] md:h-[50%] lg:h-full lg:w-full lg:mt-0 md:mx-auto"
           alt="cta-image"
           loading="lazy"
         />
-        <div
-          class="gradient-border absolute bottom-4 left-[0.5rem] h-[55px] border-l-[13px] md:hidden"
-        ></div>
       </div>
 
-      <nuxt-link
-        class="gradient-btn consultation-btn mt-10 flex w-max items-center rounded-full py-5 text-center md:hidden"
-        to="/contact"
-      >
-        <span
-          class="mr-2.5 font-inter-semibold text-[1.125rem] leading-[1.125rem]"
-          >Get Free Consultation
-        </span>
+      <nuxt-link class="gradient-btn primary-btn lg:hidden" to="/contact">
+        <span class="sub-h3-semibold">Get Free Consultation </span>
       </nuxt-link>
     </div>
   </section>

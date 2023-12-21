@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative bg-gradient-to-t from-pink-300/[0.05] to-white landing-bg-mobile-clip-path md:landing-bg-clip-path overflow-hidden px-0 pb-[3.125rem] md:pb-[6.25rem] font-inter-regular"
+    class="relative bg-gradient-to-t from-pink-5 to-white landing-bg-mobile-clip-path md:landing-bg-clip-path overflow-hidden px-0 pb-[3.125rem] md:pb-[6.25rem] 3xl:outer-container"
   >
     <img
       :src="background2100"
@@ -11,9 +11,12 @@
     />
 
     <div
-      class="container flex flex-col items-center lg:flex-row-reverse lg:items-start pb-[1.563rem] md:pb-[3.125rem]"
+      class="container flex flex-col items-center lg:flex-row-reverse lg:items-start pb-[1.563rem] lg:pb-[3.125rem]"
     >
-      <aspect-ratio class="flex-[45%] lg:block hidden mt-10" height="66%">
+      <aspect-ratio
+        class="flex-[45%] lg:block hidden mt-10 2xl:mt-6"
+        height="66%"
+      >
         <img
           class="w-full h-full object-contain"
           :src="landing800"
@@ -21,90 +24,86 @@
           alt="landing-view-image"
         />
       </aspect-ratio>
-      <div class="flex-[55%] flex flex-col mt-10 md:mt-5 lg:mt-[6.25rem]">
+      <div
+        class="flex-[55%] flex flex-col items-center lg:items-start mt-6 lg:mt-[6.25rem]"
+      >
         <h1
-          class="w-[100%] sm:w-[85%] pb-5 lg:pb-8 xl:pb-10 tracking-[0] text-[2.1875rem] leading-[2.8125rem] md:text-[2.65625rem] md:leading-[3.28125rem] lg:text-[3.28125rem] lg:leading-[3.70625rem] 2xl:text-[4.0625rem] 2xl:leading-[4.6875rem] text-black-core/[.87] font-roboto-bold v2-header-3-text"
+          class="text-center lg:text-left w-full md:w-[95%] lg:w-[90%] xl:w-[94%] 2xl:w-[81%] mobile-header-1 lg:desk-header-2 xl:desk-header-1"
         >
-          For Over A Decade We Have Helped Businesses Grow Exponentially.
-          <div>
-            — <span class="canopas-gradient-text"> Is Yours Next?</span>
-          </div>
+          For over a decade we have helped businesses grow exponentially.
+          <div>- <span class="primary-color"> Is Yours Next?</span></div>
         </h1>
         <div
-          class="w-[85%] md:w-[65%] pb-[29.5px] md:pb-[47px] v2-normal-text tracking-[0] text-[1rem] leading-[1.375rem] md:text-[1.09375rem] md:leading-[1.53125rem] lg:text-[1.1875rem] lg:leading-7 text-black-core/[0.6] font-inter-regular"
+          class="sub-h1-regular lg:mobile-header-2-regular text-black-60 w-full md:w-[75%] lg:w-full 2xl:w-[89%] pt-4 lg:pt-6 text-center lg:text-left"
         >
           We develop Mobile and Web apps that help you
-          <span
-            class="bg-no-repeat bg-bottom bg-[length:100%_2.5px] bg-gradient-underline pb-[3px] font-inter-bold"
-            >generate more revenue,</span
-          >&nbsp;
-          <span
-            class="bg-no-repeat bg-bottom bg-[length:100%_2.5px] bg-gradient-underline pb-[3px] font-inter-bold"
-            >acquire new users,</span
+          <span class="sub-h1-semibold lg:mobile-header-2-semibold"
+            >generate more revenue, acquire new users,</span
           >
           and
-          <span
-            class="bg-no-repeat bg-bottom bg-[length:100%_2.5px] bg-gradient-underline pb-[3px] font-inter-bold"
+          <span class="sub-h1-semibold lg:mobile-header-2-semibold"
             >deliver an exceptional user experience.</span
           >
         </div>
 
-        <div class="flex items-center flex-col-reverse lg:flex-row">
+        <div
+          class="flex items-center flex-col-reverse lg:flex-row xl:pt-[1.5rem]"
+        >
           <div class="text-center">
             <nuxt-link
-              class="flex items-center w-max !m-0 rounded-full p-3 text-center gradient-btn consultation-btn"
+              class="gradient-btn primary-btn"
               to="/contact"
               @click.native="$mixpanel.track('tap_landing_cta')"
             >
-              <span
-                class="mr-2.5 font-normal text-[1rem] leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem] font-inter-medium !tracking-[0]"
+              <span class="sub-h3-semibold lg:sub-h1-semibold"
                 >Get Free Consultation
               </span> </nuxt-link
-            ><small
-              class="lg:hidden font-inter-regular text-black-core/[0.6] text-[0.75rem] leading-[1.125rem]"
-              >100% MONEY BACK GUARANTEE <br />
-              FOR 14 DAYS</small
+            ><small class="lg:hidden sub-h4-regular text-black-60"
+              >100% MONEY BACK GUARANTEE FOR <br />
+              TWO WEEKS</small
             >
           </div>
 
-          <div class="flex items-center pb-3.5 md:pl-7 lg:pl-3 xl:pl-7 lg:pb-0">
+          <div
+            class="flex items-center pt-4 md:pl-7 lg:pl-3 xl:pl-[4.62rem] lg:pb-0"
+          >
             <div v-for="client in clients" :key="client">
               <div
                 v-if="client.image"
-                class="rounded-full"
+                class="rounded-full border-[2px] border-[#EBEBEB]"
                 :class="client.className"
               >
                 <img
                   :src="client.image"
-                  class="w-10 md:w-[50px] h-10 md:h-[50px] object-cover"
+                  class="w-10 h-10 object-cover"
                   loading="lazy"
                   alt="client-image"
                 />
               </div>
               <a v-if="client.plusIcon" href="/contact" aria-label="contact">
                 <div
-                  class="w-10 md:w-[50px] h-10 md:h-[50px] border-[3px] border-white rounded-full bg-[#ffc4c0]"
+                  class="w-10 h-10 border-[2px] border-[#EBEBEB] rounded-full bg-white"
                   :class="client.className"
                 >
                   <Icon
-                    class="fa w-[35px] md:w-[45px] h-[23px] pt-[5px] md:pt-2.5 text-white box-content"
+                    class="fa w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] pt-[7px] lg:pt-[0.525rem] text-[#999999] box-content pl-2"
                     name="fa6-solid:plus"
                   />
                 </div>
               </a>
             </div>
             <div class="pl-2.5 md:pl-1.5">
-              <div class="flex justify-between mt-[3px]">
+              <div class="flex mt-[3px]">
                 <Icon
                   v-for="i in 5"
                   :key="i"
-                  class="fas w-3.5 h-3.5 p-px text-[#FF3D2E] box-content"
+                  class="fas w-3.5 h-3.5 p-px text-[#FFC700] box-content"
                   name="fa6-solid:star"
                 />
               </div>
               <div class="">
                 <span
-                  class="font-medium text-[12px] leading-[22px] uppercase text-black-core/[0.6] tracking-[0]"
+                  class="sub-h4-regular lg:sub-h4-medium uppercase text-black-60"
                 >
                   40+ Reviews
                 </span>
@@ -113,11 +112,11 @@
           </div>
         </div>
         <small
-          class="hidden lg:block w-[74%] xl:w-[56%] pt-3 lg:pt-4 text-[0.875rem] leading-[1.125rem] text-black-core/[0.6]"
+          class="hidden lg:block w-[74%] xl:w-[72%] pt-3 lg:pt-4 sub-h4-medium text-black-60"
         >
           We offer a
-          <span class="font-inter-bold"
-            >100% MONEY BACK GUARANTEE FOR 14 DAYS
+          <span class="secondary-color"
+            >100% MONEY BACK GUARANTEE FOR TWO WEEKS
           </span>
           if you don't like our work. No questions asked.
         </small>
@@ -140,7 +139,6 @@ import AspectRatio from "../utils/AspectRatio.vue";
 export default {
   data() {
     return {
-      width: 680,
       landing400,
       landing800,
       background400,
@@ -175,8 +173,5 @@ export default {
     AspectRatio,
   },
   inject: ["mixpanel"],
-  mounted() {
-    this.width = window.innerWidth;
-  },
 };
 </script>

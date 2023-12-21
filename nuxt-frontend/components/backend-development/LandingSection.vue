@@ -4,10 +4,12 @@
       class="container flex flex-col lg:flex-row pt-6 lg:py-[7.5rem] gap-4 text-center lg:text-left"
     >
       <div class="flex flex-col gap-4 lg:gap-6 lg:flex-1">
-        <h1 class="header-1 text-black-core/[0.87] lg:w-1/2">
+        <h1 class="mobile-header-1 lg:desk-header-1 text-black-87 lg:w-1/2">
           Backend development company
         </h1>
-        <p class="sub-h1-regular xs:px-4 lg:!px-0 text-black-core/[0.6]">
+        <p
+          class="sub-h1-regular lg:mobile-header-2-regular xs:px-4 lg:!px-0 text-black-60"
+        >
           Our backend development team isn’t just about writing code; it's about
           crafting powerful, efficient, scalable, and secure foundations that
           drive innovative applications. We shape, optimize, and elevate digital
@@ -18,7 +20,7 @@
           to="/contact"
           @click.native="$mixpanel.track('tap_backend_landing_cta')"
         >
-          <span class="sub-h3-semibold xl:sub-h4-semibold"
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
             >Be Future-Ready With Us</span
           ></nuxt-link
         >

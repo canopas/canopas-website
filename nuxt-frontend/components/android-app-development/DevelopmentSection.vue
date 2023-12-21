@@ -4,11 +4,12 @@
       <div class="lg:sticky lg:!top-[128px] 3xl:!top-[500px]">
         <div class="container flex flex-col text-center xll:-mb-72">
           <span
-            class="header-2 text-black-core/[0.87] lg:!mx-0 lg:!w-full xs:mx-auto xs:w-[71%]"
+            class="mobile-header-2 lg:desk-header-2 text-black-87 lg:!mx-0 lg:!w-full xs:mx-auto xs:w-[71%]"
           >
             Android app development services</span
           >
-          <span class="mt-4 md:mt-6 sub-h1-regular text-black-core/[0.60]"
+          <span
+            class="mt-4 md:mt-6 sub-h1-regular lg:mobile-header-2-regular text-black-60"
             >With over a decade of expertise in Android app development, our
             team can help you craft high- quality, user-friendly apps that drive
             business growth and customer engagement.</span
@@ -77,11 +78,11 @@
                     class="h-10 w-10 object-contain lg:hidden"
                     loading="lazy"
                   />
-                  <span class="header-3 text-black-core/[0.87]">{{
+                  <span class="mobile-header-3 text-black-87">{{
                     item.title
                   }}</span>
                 </div>
-                <div class="sub-h3-regular text-black-core/[0.60] lg:p-4">
+                <div class="sub-h3-regular text-black-60 lg:p-4">
                   <ul class="pl-8 pr-4 lg:hidden">
                     <li
                       v-for="list in item.description"
@@ -117,7 +118,9 @@
               <div
                 class="absolute top-[2%] xl:top-[15px] xll:top-[37.5%] ml-[45%] xll:ml-[47%] hidden h-20 !bg-white text-center lg:block 2xll:ml-[47%] xll:ml-[48%]"
               >
-                <span class="text-center header-1 text-black-core/[0.87]">
+                <span
+                  class="text-center mobile-header-1 lg:desk-header-1 text-black-87"
+                >
                   0{{ index + 1 }}</span
                 >
               </div>
@@ -133,11 +136,13 @@
                     loading="lazy"
                   />
                   <span
-                    class="font-opensans-semibold text-black-core/[0.87] header-3"
+                    class="font-opensans-semibold text-black-87 desk-header-3"
                     >{{ item.title }}</span
                   >
                 </div>
-                <div class="text-black-core/[0.6] sub-h3-medium">
+                <div
+                  class="text-black-60 sub-h3-medium lg:mobile-header-3-medium"
+                >
                   <ul class="pl-8 pr-4 lg:hidden">
                     <li
                       v-for="list in item.description"
@@ -181,7 +186,7 @@ export default {
       items: [
         {
           title: "Android App Development Consultation",
-          bgColor: "bg-[#F2709C]/[0.04]",
+          bgColor: "bg-pink-40",
           icon: consultation,
           description: [
             "At Canopas, we believe that a successful project begins with a thorough understanding of your vision, goals, and market dynamics.",
@@ -205,7 +210,7 @@ export default {
         },
         {
           title: "Custom Android Application Development",
-          bgColor: "bg-[#F2709C]/[0.04]",
+          bgColor: "bg-pink-40",
           icon: custom,
           description: [
             "Our approach to development is rooted in agility and focused collaboration.  We build in two-week sprints where our team devotes their complete energy and attention to sculpting the foundation of your app.",
@@ -229,7 +234,7 @@ export default {
         },
         {
           title: "Maintenance and Support",
-          bgColor: "bg-[#F2709C]/[0.04]",
+          bgColor: "bg-pink-40",
           icon: maintenance,
           description: [
             "Post-deployment, we monitor the app's performance and user feedback closely, ready to make quick updates or fixes if needed. Our maintenance and support services ensure your app stays relevant, competitive, and effective in the face of new devices, OS updates, and emerging user expectations.",

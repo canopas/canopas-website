@@ -1,15 +1,11 @@
 <template>
-  <div class="container relative m-0 mt-10 max-w-full p-0 text-center">
+  <div class="container relative m-0 mt-16 max-w-full p-0 text-center">
     <div>
+      <p class="text-center background-text text-[#F8F8F8]">Services</p>
       <p
-        class="text-center text-[2.5rem] leading-[1.875rem] text-black-core/[.03]"
+        class="-mt-5 pb-8 text-center mobile-header-2 lg:desk-header-2 text-black-87"
       >
-        Services
-      </p>
-      <p
-        class="-mt-5 pb-8 text-center font-roboto-bold text-[1.875rem] leading-[2.198rem]"
-      >
-        How We Can Help You
+        How we can help you
       </p>
     </div>
     <img
@@ -27,7 +23,7 @@
         :class="
           index % 2 == 0 ? 'items-end text-right' : 'items-start text-left'
         "
-        class="mx-5 flex flex-[70%] flex-col text-black-900"
+        class="mx-4 flex flex-[70%] flex-col"
       >
         <img
           :src="service.bullet"
@@ -35,15 +31,10 @@
           loading="lazy"
           class="-mr-5 h-[50px] w-[50px]"
         />
-        <a
-          :href="service.url"
-          class="py-[15px] font-inter-bold text-[1.5rem] leading-[1.816rem]"
-        >
+        <a :href="service.url" class="mobile-header-3 v2-canopas-gradient-text">
           {{ service.title }}
         </a>
-        <div
-          class="py-[15px] font-inter-regular text-[1rem] leading-5 sm:w-[70%]"
-        >
+        <div class="pt-4 sub-h3-regular text-black-60 sm:w-[70%] md:w-[65%]">
           {{ service.content }}
         </div>
       </div>
@@ -51,7 +42,7 @@
         :src="service.image"
         alt="service-background-image"
         loading="lazy"
-        class="h-full w-[126px] flex-[30%]"
+        class="h-full w-[126px] flex-[30%] sm:flex-[10%] md:flex-[6%]"
       />
     </div>
   </div>
@@ -74,7 +65,7 @@ export default {
       ServiceBackgroundImage,
       services: [
         {
-          title: "Mobile App Development",
+          title: "Mobile Development",
           content:
             "Whether your goal is to acquire new users, improve your retention rate, or increase in-app sales, our team will guide you based on our decade-long experience. From native to hybrid, we've got you covered.",
           image: circle1,

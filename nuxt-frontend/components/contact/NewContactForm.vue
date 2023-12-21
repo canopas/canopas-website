@@ -5,12 +5,12 @@
         class="rounded-2xl border bg-white shadow-[0px_0px_45px_rgba(0,0,0,0.1)]"
       >
         <div class="pt-5 pb-12 px-8">
-          <div class="flex flex-col gap-5">
+          <div class="flex flex-col gap-5 text-black-87">
             <div class="relative pt-8 text-left">
               <input
                 type="text"
                 id="username"
-                class="block peer mx-0 w-full pb-1 rounded-none border-b border-black/[0.08] bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium text-black-core/[0.87] focus:outline-none active:outline-none"
+                class="block peer mx-0 w-full pb-1 rounded-none border-b bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium lg:mobile-header-3-medium focus:outline-none active:outline-none"
                 name="username"
                 required
                 autocomplete="given-username"
@@ -24,7 +24,7 @@
               />
               <label
                 for="username"
-                class="absolute top-4 left-0 mb-5 text-black-core/[.6] sub-h3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                class="absolute top-4 left-0 mb-5 text-black-60 sub-h3-regular lg:mobile-header-3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
                 >Your name</label
               >
               <span v-if="showNameValidationError" class="error text-red-600"
@@ -33,7 +33,7 @@
             </div>
             <div class="relative pt-8 text-left">
               <input
-                class="block peer mx-0 w-full pb-1 rounded-none border-b border-black/[0.08] bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium text-black-core/[0.87] focus:outline-none active:outline-none"
+                class="block peer mx-0 w-full pb-1 rounded-none border-b bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium lg:mobile-header-3-medium focus:outline-none active:outline-none"
                 type="text"
                 name="email"
                 id="email"
@@ -50,7 +50,7 @@
               />
               <label
                 for="email"
-                class="absolute top-4 left-0 mb-5 text-black-core/[.6] sub-h3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                class="absolute top-4 left-0 mb-5 text-black-60 sub-h3-regular lg:mobile-header-3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
                 >Your email</label
               >
               <span v-if="showEmailValidationError" class="error text-red-600"
@@ -64,7 +64,7 @@
             </div>
             <div class="relative pt-8 text-left">
               <textarea
-                class="block peer mx-0 w-full pb-1 min-h-[50px] md:min-h-[90px] rounded-none border-b border-black/[0.08] bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium text-black-core/[0.87] placeholder-black-core/[.6] focus:outline-none active:outline-none"
+                class="block peer mx-0 w-full pb-1 min-h-[50px] md:min-h-[90px] rounded-none border-b bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium lg:mobile-header-3-medium focus:outline-none active:outline-none"
                 id="project"
                 name="project"
                 rows="3"
@@ -82,7 +82,7 @@
               ></textarea>
               <label
                 for="project"
-                class="absolute top-4 left-0 mb-5 text-black-core/[.6] sub-h3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                class="absolute top-4 left-0 mb-5 text-black-60 sub-h3-regular lg:mobile-header-3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
                 >Tell us about your project</label
               >
               <span
@@ -93,7 +93,7 @@
             </div>
             <div class="relative pt-6 md:pt-8 text-left">
               <input
-                class="block peer mx-0 w-full pb-1 rounded-none border-b border-black/[0.08] bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium text-black-core/[0.87] focus:outline-none active:outline-none"
+                class="block peer mx-0 w-full pb-1 rounded-none border-b bg-transparent px-0 transition ease-in-out appearance-none sub-h3-medium lg:mobile-header-3-medium focus:outline-none active:outline-none"
                 type="text"
                 name="reference"
                 id="reference"
@@ -109,7 +109,7 @@
               />
               <label
                 for="reference"
-                class="absolute top-4 left-0 mb-5 text-black-core/[.6] sub-h3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
+                class="absolute top-4 left-0 mb-5 text-black-60 sub-h3-regular lg:mobile-header-3-regular transform -translate-y-4 origin-[0] scale-75 duration-300 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-4"
                 >How did you find us?</label
               >
               <span
@@ -121,7 +121,7 @@
             <div class="relative pt-8">
               <div ref="invest-list" class="flex">
                 <button
-                  class="flex items-center justify-between mt-2.5 md:mt-3 mx-0 w-full border-b border-black/[0.08] bg-none px-0 sub-h3-regular whitespace-nowrap transition duration-150 ease-in-out focus:outline-0 active:outline-0 focus:shadow-none active:shadow-none focus:ring-0 active:ring-0 focus:bg-transparent active:bg-transparent active:text-black-core/[0.6]"
+                  class="flex items-center justify-between mt-2.5 md:mt-3 mx-0 w-full border-b bg-none px-0 sub-h3-regular lg:mobile-header-3-regular whitespace-nowrap transition duration-150 ease-in-out focus:outline-0 active:outline-0 focus:shadow-none active:shadow-none focus:ring-0 active:ring-0 focus:bg-transparent active:bg-transparent active:text-black-60"
                   type="button"
                   id="invest"
                   name="invest"
@@ -130,24 +130,23 @@
                 >
                   <label
                     for="invest"
-                    class="absolute top-8 left-0 text-black-core/[0.6] transform duration-300 placeholder:!text-black-core/[0.6]"
+                    class="absolute top-8 left-0 text-black-60 transform duration-300 placeholder:!text-black-60"
                     :class="[
                       floatable
                         ? '-translate-y-4 xl:-translate-y-[0.5rem] origin-[0] scale-75'
                         : 'translate-y-0 scale-100',
                       floatable && showList
                         ? 'text-black-core'
-                        : 'text-black-core/[0.6]',
+                        : 'text-black-60',
                     ]"
                     @click="floatable = !floatable"
                     >I'll invest</label
                   >
-                  <span
-                    class="font-inter-regular text-[1rem] md:text-[1.375rem] leading-[1.21rem] md:leading-[2.0625rem]"
-                    >{{ invest }}</span
-                  >
+                  <span class="sub-h1-regular lg:sub-h2-regular">{{
+                    invest
+                  }}</span>
                   <Icon
-                    class="fab mb-3 w-[15px] md:w-[25px] h-[15px] md:h-[25px] text-black-core/[0.6]"
+                    class="fab mb-3 w-[15px] md:w-[25px] h-[15px] md:h-[25px] text-black-60"
                     :name="
                       showList ? 'fa6-solid:caret-up' : 'fa6-solid:caret-down'
                     "
@@ -163,7 +162,7 @@
                     @click="setOption(option)"
                   >
                     <span
-                      class="block w-full py-2 px-4 whitespace-nowrap text-black-core/[.6] hover:bg-[#000]/[.2] hover:text-[#000] font-inter-regular text-lg md:text-xl lg:text-2xl leading-[1.21rem] md:leading-[2.0625rem]"
+                      class="block w-full py-2 px-4 whitespace-nowrap text-black-60 hover:bg-black-core hover:bg-opacity-[.2] hover:text-black-core sub-h1-regular lg:mobile-header-2-regular"
                       >{{ option }}</span
                     >
                   </li>
@@ -173,7 +172,7 @@
                 >This field is required</span
               >
             </div>
-            <div class="mt-8 sub-h4-regular text-black-core/[0.87]">
+            <div class="mt-8 sub-h4-regular lg:sub-h3-regular">
               We sign NDA for all of our projects.
             </div>
           </div>
@@ -185,9 +184,7 @@
               alt="loader-image"
             />
             <div v-else>
-              <div
-                class="relative font-inter-semibold text-[1.1875rem] leading-[1.436875rem] md:leading-[1.386875rem] text-center"
-              >
+              <div class="relative mobile-header-3-semibold text-center">
                 <div
                   class="absolute -top-10 sm:-top-8 xl:-top-[1.875rem] 2xl:-top-[1.875rem] text-center -right-32 sm:-right-[10.5rem] md:-right-44 lg:-right-40 2xl:-right-[10.5rem] w-[250px] sm:w-max"
                 >
@@ -208,7 +205,7 @@
                   class="absolute top-[-13px] sm:-top-5 right-[-110px] md:right-[-70px] w-max py-2.5 px-20 md:px-8 text-center gradient-btn consultation-btn"
                   @click.prevent="submitForm()"
                 >
-                  <span class="sub-h3-semibold lg:sub-h5-semibold">Submit</span>
+                  <span class="sub-h3-semibold lg:sub-h1-semibold">Submit</span>
                 </button>
               </div>
             </div>

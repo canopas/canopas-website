@@ -1,7 +1,9 @@
 <template>
-  <div class="bg-[#121212] text-white 3xl:outer-container">
-    <div class="container pt-14 pb-20 lg:pt-[7.5rem] lg:pb-10">
-      <p class="text-center header-2 mb-6 lg:mb-[4.5rem]">
+  <div class="bg-[#121212] text-white">
+    <div class="container pt-14 pb-20 lg:pt-[7.5rem] lg:pb-14">
+      <p
+        class="text-center mobile-header-2 lg:desk-header-2 mb-6 lg:mb-[4.5rem]"
+      >
         FAQs on Flutter app development
       </p>
       <transition-group tag="div" :name="'faq-' + faqTransitionName">
@@ -12,7 +14,7 @@
             :key="faq"
           >
             <div
-              class="faq-container cursor-pointer overflow-hidden rounded-xl bg-[#F2709C]/[0.08] py-6 px-4 lg:py-8 lg:px-10"
+              class="faq-container cursor-pointer overflow-hidden rounded-xl bg-pink-80 py-6 px-4 lg:py-8 lg:px-10"
               @click="expandListItem(faq.id)"
             >
               <div class="faq-header flex flex-row gap-4 lg:gap-6">
@@ -31,7 +33,9 @@
                     "
                   />
                 </div>
-                <div class="sub-h1-semibold w-[90%]">
+                <div
+                  class="sub-h1-semibold lg:mobile-header-2-semibold w-[90%]"
+                >
                   {{ faq.question }}
                 </div>
               </div>
@@ -43,7 +47,7 @@
                 >
                   <div class="w-[6%]"></div>
                   <div
-                    class="faq-answer mt-4 w-[90%] animate-fadeIn sub-h3-regular text-white items-end"
+                    class="faq-answer mt-4 w-[90%] animate-fadeIn sub-h3-regular lg:mobile-header-3-regular text-white items-end"
                     v-html="faq.answer"
                   ></div>
                 </div>
@@ -66,7 +70,7 @@
               :key="faq"
             >
               <div
-                class="faq-container cursor-pointer overflow-hidden rounded-xl bg-[#F2709C]/[0.08] py-6 px-4 lg:py-8 lg:px-10"
+                class="faq-container cursor-pointer overflow-hidden rounded-xl bg-pink-80 py-6 px-4 lg:py-8 lg:px-10"
                 @click="expandListItem(faq.id)"
               >
                 <div class="faq-header flex flex-row gap-4 lg:gap-6">
@@ -85,7 +89,9 @@
                       "
                     />
                   </div>
-                  <div class="sub-h1-semibold w-[90%]">
+                  <div
+                    class="sub-h1-semibold lg:mobile-header-2-semibold w-[90%]"
+                  >
                     {{ faq.question }}
                   </div>
                 </div>
@@ -97,7 +103,7 @@
                   >
                     <div class="w-[6%]"></div>
                     <div
-                      class="faq-answer mt-4 w-[90%] animate-fadeIn sub-h3-regular text-white"
+                      class="faq-answer mt-4 w-[90%] animate-fadeIn sub-h3-regular lg:mobile-header-3-regular text-white"
                       v-html="faq.answer"
                     ></div>
                   </div>
@@ -123,7 +129,7 @@
         />
       </div>
     </div>
-    <div class="hidden lg:block container text-right pb-[8.75rem]">
+    <div class="hidden lg:block container text-right pb-[3.75rem]">
       <button
         v-if="isActivePrev"
         type="button"
@@ -136,7 +142,7 @@
           class="mr-2 h-5 w-5"
           name="fa6-solid:arrow-left"
           id="leftArrow"
-        /><span class="sub-h3-semibold xl:sub-h4-semibold">Back</span>
+        /><span class="sub-h1-semibold">Back</span>
       </button>
       <button
         v-else
@@ -146,9 +152,7 @@
         @click="slide(1)"
         @click.native="$mixpanel.track('tap_flutter_app_faq_next_arrow')"
       >
-        <span class="sub-h3-semibold xl:sub-h4-semibold"
-          >View More Questions</span
-        >
+        <span class="sub-h1-semibold">View More Questions</span>
         <Icon
           class="ml-2 h-5 w-5"
           name="fa6-solid:arrow-right"

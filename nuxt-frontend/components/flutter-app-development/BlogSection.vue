@@ -2,7 +2,7 @@
   <section class="mt-16 lg:mt-[15rem]">
     <!-- --------------------Mobile UI Start----------------------- -->
     <div class="text-center h-[30rem] sm:!h-[36rem] md:!h-[42rem] lg:hidden">
-      <p class="header-2 opacity-[0.87]">Our blogs</p>
+      <p class="mobile-header-2 opacity-[0.87]">Our blogs</p>
       <div class="mt-2">
         <swiper
           :slidesPerView="1.425"
@@ -23,8 +23,12 @@
                 loading="lazy"
               />
               <div class="p-4 flex flex-col gap-3">
-                <p class="sub-h1-semibold opacity-[0.87]">{{ blog.title }}</p>
-                <p class="sub-h4-regular text-black-core/60">
+                <p
+                  class="sub-h1-semibold lg:mobile-header-2-semibold opacity-[0.87]"
+                >
+                  {{ blog.title }}
+                </p>
+                <p class="sub-h4-regular text-black-60">
                   {{ blog.readTime }}
                 </p>
               </div>
@@ -43,7 +47,7 @@
     </div>
     <!-- --------------------Desktop UI Start----------------------- -->
     <div class="container hidden lg:block lg:min-h-[580px]">
-      <p class="mb-14 text-center header-2 text-black-core/[0.87]">Our blogs</p>
+      <p class="mb-14 text-center lg:desk-header-2 text-black-87">Our blogs</p>
       <div class="flex flex-row space-x-5">
         <div
           @click="openBlog(blog.link, 'tap_flutter_app_blog_section')"
@@ -135,7 +139,9 @@
         target="_blank"
         @click.native="$mixpanel.track('tap_flutter_blog_section')"
       >
-        <span class="sub-h3-semibold">Read More Blogs </span>
+        <span class="sub-h3-semibold lg:mobile-header-3-semibold"
+          >Read More Blogs
+        </span>
         <Icon name="fa6-solid:arrow-right" class="fa ml-2" />
       </a>
     </div>
@@ -163,7 +169,7 @@ const blogs = [
     image: [inherit_400w, inherit_800w, desk800w],
     title: "How to Use InheritedWidget in Flutter",
     readTime: "7 min",
-    hovertitle: `<span class="sub-h1-semibold text-center text-white">How to Use InheritedWidget in Flutter</span>`,
+    hovertitle: `<span class="mobile-header-2-semibold text-center text-white">How to Use InheritedWidget in Flutter</span>`,
     link: "https://blog.canopas.com/how-to-use-inheritedwidget-in-flutter-5fd64ce52b66",
   },
   {
@@ -171,7 +177,7 @@ const blogs = [
     image: [animate_400w, animate_800w],
     title: "Flutter Fun Animation A smiley that reacts to your every move",
     readTime: "8 min",
-    hovertitle: `<span class="sub-h1-semibold text-center text-white">Flutter Fun Animation A smiley that reacts to your every move</span>`,
+    hovertitle: `<span class="mobile-header-2-semibold text-center text-white">Flutter Fun Animation A smiley that reacts to your every move</span>`,
     link: "https://blog.canopas.com/flutter-animations-made-fun-a-smiley-that-reacts-to-your-every-move-9ebfb0a0657f",
   },
   {
@@ -179,7 +185,7 @@ const blogs = [
     image: [maintain_400w, maintain_800w],
     title: "Maintain the state of BottomNavigationBar across tabs",
     readTime: "9 min",
-    hovertitle: `<span class="sub-h1-semibold text-center text-white">Maintain the state of BottomNavigationBar across tabs</span>`,
+    hovertitle: `<span class="mobile-header-2-semibold text-center text-white">Maintain the state of BottomNavigationBar across tabs</span>`,
     link: "https://blog.canopas.com/how-to-maintain-the-state-of-bottomnavigationbar-across-tabs-528b3699f78b",
   },
   {
@@ -187,7 +193,7 @@ const blogs = [
     image: [custom_400w, custom_800w],
     title: "Customizing Serialization and Deserialization in Flutter",
     readTime: "10 min",
-    hovertitle: `<span class="sub-h1-semibold text-center text-white">Customizing Serialization and Deserialization in Flutter</span>`,
+    hovertitle: `<span class="mobile-header-2-semibold text-center text-white">Customizing Serialization and Deserialization in Flutter</span>`,
     link: "https://blog.canopas.com/flutter-customizing-serialization-and-deserialization-with-json-serializable-db17e3aa90b0",
   },
   {
@@ -195,7 +201,7 @@ const blogs = [
     image: [master_400w, master_800w],
     title: "Mastering Flutter Inspector DevTools for Effective Debugging",
     readTime: "11 min",
-    hovertitle: `<span class="sub-h1-semibold text-center text-white">Mastering Flutter Inspector DevTools for Effective Debugging</span>`,
+    hovertitle: `<span class="mobile-header-2-semibold text-center text-white">Mastering Flutter Inspector DevTools for Effective Debugging</span>`,
     link: "https://blog.canopas.com/optimizing-flutter-apps-mastering-flutter-inspector-devtools-for-effective-debugging-493c03f68835",
   },
 ];

@@ -1,11 +1,11 @@
 <template>
-  <section class="mt-6 lg:mt-28">
-    <div class="container lg:text-left text-center lg:flex pb-16 lg:pb-60">
+  <section class="mt-6 lg:mt-[6.75rem]">
+    <div class="container lg:text-left text-center lg:flex xl:my-8 pb-16">
       <div class="flex flex-col gap-4 lg:gap-6 lg:flex-1">
-        <h1 class="header-1 text-black-core/[0.87]">
-          Flutter app development company
+        <h1 class="mobile-header-1 lg:desk-header-1">
+          Flutter App Development Company
         </h1>
-        <p class="sub-h1-regular text-black-core/[0.6]">
+        <p class="sub-h1-regular lg:mobile-header-2-regular text-black-60">
           We harness the power of Flutter to create visually stunning, fast, and
           highly responsive applications that effortlessly work on both iOS and
           Android platforms. Our team turns your unique business requirements
@@ -18,7 +18,8 @@
             to="/contact"
             @click.native="$mixpanel.track('tap_flutter_development_cta')"
           >
-            <span class="sub-h3-semibold xl:sub-h4-semibold border-none"
+            <span
+              class="sub-h3-semibold lg:mobile-header-3-semibold border-none"
               >Get Free Consultation</span
             >
           </nuxt-link>
@@ -40,7 +41,9 @@
           to="/contact"
           @click.native="$mixpanel.track('tap_flutter_development_cta')"
         >
-          <span class="sub-h3-semibold border-none">Get Free Consultation</span>
+          <span class="sub-h3-semibold lg:mobile-header-3-semibold border-none"
+            >Get Free Consultation</span
+          >
         </nuxt-link>
       </div>
     </div>

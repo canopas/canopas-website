@@ -3,8 +3,10 @@
     <div
       class="container flex flex-col gap-4 lg:gap-6 pb-6 lg:pb-[4.5rem] lg:w-[51.625rem]"
     >
-      <h2 class="header-2 text-black-core/[0.87]">Case studies</h2>
-      <span class="sub-h1-regular text-black-core/[0.6]">
+      <h2 class="mobile-header-2 lg:desk-header-2 text-black-87">
+        Case studies
+      </h2>
+      <span class="sub-h1-regular lg:mobile-header-2-regular lg: text-black-60">
         Explore our case studies to witness how we've transformed our client's
         ideas into successful Flutter apps.
       </span>
@@ -24,7 +26,7 @@
             class="absolute -top-1 left-1/2 -translate-x-1/2 -translate-y-1/2 w-0 h-0 border-transparent border-t-0 border-l-[13px] border-r-[13px] border-b-[14px] border-b-[#EF233C] border-b-solid"
           ></div>
           <div class="container flex flex-col gap-4">
-            <h3 class="header-3">{{ portfolio.title }}</h3>
+            <h3 class="mobile-header-3-semibold">{{ portfolio.title }}</h3>
             <p class="sub-h1-regular">{{ portfolio.description }}</p>
           </div>
         </div>
@@ -56,8 +58,10 @@
               <div
                 class="absolute flex flex-col gap-6 w-[27.25rem] top-1/2 left-14 -translate-y-1/2"
               >
-                <h3 class="header-3">{{ portfolio.title }}</h3>
-                <span class="sub-h1-regular">{{ portfolio.description }}</span>
+                <h3 class="desk-header-3">{{ portfolio.title }}</h3>
+                <span class="mobile-header-2-regular">{{
+                  portfolio.description
+                }}</span>
               </div>
             </div>
           </div>

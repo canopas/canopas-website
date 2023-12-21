@@ -2,8 +2,10 @@
   <section class="mt-16 mb-16 lg:mt-60 lg:mb-0 3xl:outer-container">
     <div class="container">
       <div class="flex flex-col gap-4 lg:gap-6 text-center">
-        <h2 class="header-2 text-black-core/[0.87]">Case studies</h2>
-        <p class="sub-h1-regular px-4 text-black-core/[0.6]">
+        <h2 class="mobile-header-2 lg:desk-header-2 text-black-87">
+          Case studies
+        </h2>
+        <p class="sub-h1-regular lg:mobile-header-2-regular px-4 text-black-87">
           Explore our case studies to witness how we've transformed
           <br class="hidden lg:flex" />our client's ideas into successful apps.
         </p>
@@ -33,13 +35,10 @@
             :class="item.textalign"
             class="absolute bottom-4 flex flex-col gap-2"
           >
-            <h2 class="header-2 text-black-core/[0.87]">
+            <h2 class="mobile-header-2 text-black-87">
               {{ item.title }}
             </h2>
-            <p
-              class="sub-h3-regular text-black-core/[0.6]"
-              v-html="item.content"
-            ></p>
+            <p class="sub-h3-regular text-black-87" v-html="item.content"></p>
           </div>
         </a>
       </div>
@@ -69,7 +68,7 @@
           >
             <div class="flex flex-col gap-8 my-auto text-left flex-1">
               <div class="white-btn">
-                <span class="header-3">
+                <span class="desk-header-3">
                   {{ item.title }}
                 </span>
               </div>
@@ -81,12 +80,12 @@
                   :target="item.target"
                 >
                   <h3
-                    class="header-3 text-black-core/[0.87]"
+                    class="desk-header-3 text-black-87"
                     v-html="item.deskcontent"
                   ></h3
                 ></a>
                 <p
-                  class="text-black-core/[0.6] sub-h3-medium"
+                  class="text-black-87 mobile-header-3-medium"
                   v-html="item.description"
                 ></p>
               </div>

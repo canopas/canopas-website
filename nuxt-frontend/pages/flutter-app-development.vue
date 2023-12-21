@@ -9,7 +9,10 @@
     <BlogSection />
     <CtaSection2 />
     <FaqSection />
-    <NewFooter class="-mt-4 md:mt-auto" ref="flutterFooter" />
+    <NewFooter
+      class="-mt-4 md:mt-auto bg-gradient-to-b from-pink-0 to-pink-16"
+      ref="flutterFooter"
+    />
   </div>
 </template>
 <script>

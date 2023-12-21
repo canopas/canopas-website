@@ -3,8 +3,12 @@
     class="py-14 lg:py-[7.5rem] bg-[#121212] text-white text-center 3xl:outer-container"
   >
     <div class="container flex flex-col gap-4 lg:gap-6 lg:pb-[4.5rem]">
-      <span class="header-2"> Flutter app development services </span>
-      <span class="sub-h1-regular text-white/[0.8]">
+      <span class="mobile-header-2 lg:desk-header-2">
+        Flutter app development services
+      </span>
+      <span
+        class="sub-h1-regular lg:mobile-header-2-regular text-white-core-80"
+      >
         We leverage Flutter's rich, customizable widgets and fast development
         capabilities to create beautiful and user-friendly apps that save you
         time and cost of platform-specific development.
@@ -43,14 +47,16 @@
           :key="index"
           class="cursor-pointer px-4"
         >
-          <div class="flex flex-col gap-4 py-8 px-4 bg-white/[0.08] rounded-xl">
-            <div class="header-3">
+          <div
+            class="flex flex-col gap-4 py-8 px-4 bg-white-core-90 rounded-xl"
+          >
+            <div class="mobile-header-3-semibold">
               <span v-html="item.title"></span>
             </div>
-            <div class="sub-h3-medium text-white/[0.8]">
+            <div class="sub-h3-medium text-white-core-80">
               <span
                 v-html="item.description"
-                class="flex gap-4 flex-col text-white/[0.8]"
+                class="flex gap-4 flex-col text-white-core-80"
               ></span>
             </div>
           </div>
@@ -77,10 +83,10 @@
           ]"
         >
           <div class="flex flex-col flex-1 gap-6">
-            <div class="header-3">
+            <div class="desk-header-3">
               <span v-html="item.title"></span>
             </div>
-            <div class="sub-h3-regular">
+            <div class="mobile-header-3-medium">
               <span v-html="item.description"></span>
             </div>
           </div>
@@ -182,7 +188,7 @@ function handleScroll() {
   @apply static pt-8;
 }
 .swiper-pagination-bullet {
-  @apply !w-3 !h-3 !rounded-full !bg-[#F2709C]/[0.8] !border !border-solid !border-[#FFFFFF]/[0.80];
+  @apply !w-3 !h-3 !rounded-full !bg-pink-90 !border !border-solid !border-white-core-80;
 }
 .swiper-pagination-bullet-active {
   @apply !border-none !opacity-100;

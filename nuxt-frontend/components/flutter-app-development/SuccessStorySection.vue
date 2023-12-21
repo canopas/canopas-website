@@ -5,7 +5,7 @@
     <div
       class="container flex gap-6 lg:gap-[4.5rem] flex-col pt-12 xs:pt-14 sm:pt-[4.5rem] lg:!pt-[7.5rem] xl:!pt-24 lg:px-48"
     >
-      <div class="header-2">Our Success Stories</div>
+      <div class="mobile-header-2 lg:desk-header-2">Our Success Stories</div>
       <div class="flex flex-col gap-6 lg:gap-10">
         <img
           :src="quoteimage"
@@ -28,14 +28,18 @@
           >
             <swiper-slide v-for="(client, index) in clients" :key="index">
               <div class="flex flex-col gap-6 lg:gap-10">
-                <div class="sub-h1-semibold">"{{ client.review }}"</div>
+                <div class="sub-h1-semibold lg:mobile-header-2-semibold">
+                  "{{ client.review }}"
+                </div>
                 <div class="flex flex-col">
-                  <span class="sub-h3-semibold opacity-80">{{
-                    client.name
-                  }}</span>
-                  <span class="sub-h3-regular opacity-60">{{
-                    client.designation
-                  }}</span>
+                  <span
+                    class="sub-h3-semibold lg:mobile-header-3-semibold text-white-core-80"
+                    >{{ client.name }}</span
+                  >
+                  <span
+                    class="sub-h3-regular lg:mobile-header-3-regular text-white-core-60"
+                    >{{ client.designation }}</span
+                  >
                 </div>
               </div>
             </swiper-slide>
@@ -100,7 +104,7 @@ const pagination = {
   @apply static pt-6 pl-0;
 }
 .swiper-pagination-bullet {
-  @apply !w-3 !h-3 !rounded-full !bg-[#F2709C]/[0.8] !border !border-solid !border-[#FFFFFF]/[0.80];
+  @apply !w-3 !h-3 !rounded-full !bg-pink-90 !border !border-solid !border-white-core-80;
 }
 .swiper-pagination-bullet-active {
   @apply !border-none !opacity-100;

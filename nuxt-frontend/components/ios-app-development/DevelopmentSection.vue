@@ -4,13 +4,13 @@
   >
     <div class="container mb-2.5 md:mb-7 flex flex-col text-center">
       <span
-        class="mb-2.5 lg:mb-6 text-black-core/[0.87] md:!mx-0 md:!w-full xs:mx-auto header-2"
+        class="mb-2.5 lg:mb-6 text-black-87 md:!mx-0 md:!w-full xs:mx-auto mobile-header-2 lg:desk-header-2"
       >
         iOS app <br class="lg:hidden" />
         development services</span
       >
       <span
-        class="sub-h1-regular text-black-core/[0.60] w-[93%] 2xl:w-9/12 mx-auto"
+        class="sub-h1-regular lg:mobile-header-2-regular text-black-60 w-[93%] 2xl:w-9/12 mx-auto"
         >With a blend of robust technology, intuitive designs, and innovative
         strategies, our team can help you craft high-quality, standout
         user-friendly apps that drive business growth and customer
@@ -49,9 +49,12 @@
             <div
               class="justify-center px-5 h-16 mb-5 flex flex-row items-center"
             >
-              <span class="header-3 text-[#FF9472]" v-html="item.title"></span>
+              <span
+                class="mobile-header-3-semibold text-[#FF9472]"
+                v-html="item.title"
+              ></span>
             </div>
-            <div class="sub-h3-regular text-black-core/[0.87]">
+            <div class="sub-h3-regular text-black-87">
               <p v-for="list in item.description" :key="list" class="mb-4">
                 {{ list }}
               </p>
@@ -112,16 +115,18 @@
             :key="index"
             class="lg:px-8 lg:pt-2 2xl:px-11"
           >
-            <div class="justify-start px-5 mt-3 lg:my-3 flex flex-row">
-              <span class="header-3 text-[#FF9472] mr-1.5"
-                >{{ index + 1 }}.
-              </span>
-              <span class="header-3 text-[#FF9472] mr-1.5">{{
-                item.desktoptitle
-              }}</span>
+            <div
+              class="justify-start px-5 mt-3 lg:my-3 flex flex-row desk-header-3 primary-color"
+            >
+              <span class="mr-1.5">{{ index + 1 }}. </span>
+              <span class="mr-1.5">{{ item.desktoptitle }}</span>
             </div>
-            <div class="px-5 sub-h3-medium text-black-core/[0.60]">
-              <p v-for="list in item.description" :key="list" class="mb-6">
+            <div class="px-5 mobile-header-3-semibold">
+              <p
+                v-for="list in item.description"
+                :key="list"
+                class="mb-6 text-black-60"
+              >
                 {{ list }}
               </p>
             </div>

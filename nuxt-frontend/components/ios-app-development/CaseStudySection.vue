@@ -2,12 +2,12 @@
   <div class="md:!mb-0 flex flex-col 3xl:outer-container">
     <div class="container mb-2.5 flex flex-col text-center md:mb-20">
       <h2
-        class="header-2 mb-2.5 text-black-core/[0.87] md:!mx-0 md:!w-full xs:mx-auto xs:w-[71%]"
+        class="mobile-header-2 lg:desk-header-2 mb-2.5 text-black-87 md:!mx-0 md:!w-full xs:mx-auto xs:w-[71%]"
       >
         Case studies
       </h2>
       <span
-        class="sub-h1-regular text-black-core/[0.60] w-11/12 2xl:w-9/12 mx-auto"
+        class="sub-h1-regular lg:mobile-header-2-regular text-black-60 w-11/12 2xl:w-9/12 mx-auto"
         >Explore our case studies to witness how we've transformed our client's
         ideas into successful iOS apps.</span
       >
@@ -48,10 +48,10 @@
             class="w-[94%] sm:w-9/12 flex flex-col ml-[10%] pr-3.5 xs:p-3"
             :class="index == 1 ? 'pl-3.5 !w-[91%] sm:!w-[66%]' : ''"
           >
-            <h2 class="mb-2.5 header-2">
+            <h2 class="mb-2.5 mobile-header-2">
               {{ portfolio.title }}
             </h2>
-            <span class="sub-h1-regular text-black-core/[0.60]">{{
+            <span class="sub-h1-regular text-black-60">{{
               portfolio.description
             }}</span>
           </div>
@@ -89,18 +89,18 @@
                     :class="portfolio.row1Background"
                     class="absolute top-4 xl:top-8 right-[-25%] xl:right-[-17%] 2xll:right-[-18%] xll:right-[-12%] 3xl:right-[-13%] w-[250px] h-[250px] p-8 xl:w-[300px] xl:h-[300px] rounded-full flex items-center"
                   ></div>
-                  <h2 class="absolute top-32 header-1 title right-[-30px]">
+                  <h2 class="absolute top-32 desk-header-1 title right-[-30px]">
                     {{ portfolio.title }}
                   </h2>
                 </div>
                 <div
                   class="w-[19rem] xl:w-[33rem] mx-auto mt-44 xl:mt-72 description"
                 >
-                  <h2 class="header-2">
+                  <h2 class="desk-header-2">
                     {{ portfolio.desktopDescription }}
                   </h2>
                   <div class="mt-6">
-                    <span class="sub-h3-semibold opacity-80">{{
+                    <span class="mobile-header-3-medium text-white-core-80">{{
                       portfolio.subDescription
                     }}</span>
                   </div>

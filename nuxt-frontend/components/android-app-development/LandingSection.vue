@@ -17,11 +17,13 @@
     <div
       class="container absolute p-4 w-full text-center text-[#FFF] transform left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 xl:w-[84%] md:top-[49%] lg:top-[48%] 2xl:w-[69%] xll:w-[65%]"
     >
-      <h1 class="header-1 text-white">
+      <h1 class="mobile-header-1 lg:desk-header-1 text-white">
         Android app <br />
         development company
       </h1>
-      <p class="mt-4 md:mt-6 sub-h1-regular text-white/[0.80]">
+      <p
+        class="mt-4 md:mt-6 sub-h1-regular lg:mobile-header-2-regular text-white-core-80"
+      >
         We create bespoke Android applications known for their supreme
         performance, unwavering security, and utmost reliability. With an
         unshakable commitment, our team curates unique, captivating apps to
@@ -36,7 +38,7 @@
           to="/contact"
           @click.native="$mixpanel.track('tap_android_development_cta')"
         >
-          <span class="sub-h3-semibold xl:sub-h4-semibold"
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
             >Consult Our Android Team</span
           >
         </nuxt-link>

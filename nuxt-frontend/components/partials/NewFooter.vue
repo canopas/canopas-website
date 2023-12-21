@@ -1,14 +1,9 @@
 <template>
-  <div class="relative overflow-hidden px-0 font-inter-medium z-[1]">
-    <img
-      :src="bg"
-      class="absolute top-[15px] sm:top-0 left-0 w-full h-full xl2:h-[unset] -z-[1] object-cover xl2:object-fill"
-      alt="canopas-contact-footer"
-    />
+  <div class="pt-14 px-0 font-inter-medium z-[1] bg-[#121212]">
     <div class="container text-center">
-      <div class="mt-11 mb-8 md:mb-[60px]">
+      <div class="mb-8 md:mb-[60px]">
         <div
-          class="mt-5 text-[1.375rem] leading-[1.6875rem] md:text-[1.5rem] md:leading-[1.8125rem] lg:text-[1.625rem] lg:leading-[1.9375rem] text-white/[.87] font-bold"
+          class="text-[1.375rem] leading-[1.6875rem] md:text-2xl md:leading-[1.8125rem] lg:text-[1.625rem] lg:leading-[1.9375rem] text-white font-bold"
         >
           Follow us on
         </div>
@@ -31,7 +26,7 @@
         </ul>
       </div>
       <div
-        class="mb-8 md:mb-9 text-[0.75rem] leading-[0.9375rem] md:text-[0.84375rem] md:leading-[1.03125rem] lg:text-[0.9375rem] lg:leading-[1.125rem] text-white/[.87]"
+        class="mb-8 md:mb-9 text-[0.75rem] leading-[0.9375rem] md:text-[0.84375rem] md:leading-[1.03125rem] lg:text-[0.9375rem] lg:leading-[1.125rem] text-white-core-80"
       >
         <Icon name="fa6-regular:copyright" class="box-content" />
         {{ new Date().getFullYear() }} Canopas Software LLP. All rights

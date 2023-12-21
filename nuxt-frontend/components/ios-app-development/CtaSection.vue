@@ -13,7 +13,7 @@
       >
         <div class="flex w-full">
           <div class="m-auto text-white">
-            <p class="header-1 text-black-core/[0.87]">
+            <p class="mobile-header-1 text-black-87">
               Let's Start a New Project Together
             </p>
           </div>
@@ -24,9 +24,7 @@
             to="/contact"
             @click.native="$mixpanel.track('tap_ios_development_cta')"
           >
-            <span class="mr-2.5 sub-h3-semibold xl:sub-h4-semibold lg:block"
-              >Contact Us
-            </span>
+            <span class="mr-2.5 sub-h3-semibold lg:block">Contact Us </span>
           </router-link>
         </div>
       </div>
@@ -47,7 +45,7 @@
       >
         <div class="flex w-[66%]">
           <div class="w-[95%] py-5 text-white xl:m-auto 2xl:w-4/5">
-            <p class="header-1">
+            <p class="desk-header-1">
               Are you ready to take your business app to the next level?
             </p>
           </div>
@@ -58,7 +56,7 @@
             to="/contact"
             @click.native="$mixpanel.track('tap_ios_development_cta')"
           >
-            <span class="sub-h3-semibold xl:sub-h4-semibold">Let's Chat </span>
+            <span class="sub-h4-semibold">Let's Chat </span>
           </router-link>
         </div>
       </div>
