@@ -175,16 +175,15 @@
         </ul>
         <div v-if="showMenu" class="h-auto w-full bg-white p-4">
           <div className="grid p-3 pb-5">
-            <a
-              href="/contact"
-              className="relative justify-self-center rounded-full border-[1px] border-solid border-transparent bg-gradient-to-r from-[#f2709c] to-[#ff9472] hover:shadow-[inset_2px_1000px_1px_#fff] font-bold text-white "
+            <nuxt-link
+              class="gradient-btn primary-btn"
+              to="/contact"
+              @click.native="$mixpanel.track('tap_landing_cta')"
             >
-              <div
-                className="py-[0.8rem] px-10 text-lg hover:bg-clip-text hover:bg-gradient-to-r hover:from-[#f2709c] hover:via-[#ff909c] hover:to-[#ff9472] hover:text-transparent inline-block"
-              >
-                Get Free Consultation
-              </div>
-            </a>
+              <span class="sub-h3-semibold lg:sub-h1-semibold"
+                >Get Free Consultation
+              </span>
+            </nuxt-link>
           </div>
         </div>
       </div>
@@ -238,7 +237,7 @@ export default {
           name: "Get Free Consultation",
           url: "/contact",
           className:
-            "m-0 rounded-full py-3 px-3 font-normal text-[1rem] leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem] font-inter-medium !tracking-[0] gradient-btn consultation-btn",
+            "m-0 px-3 pt-2.5  gradient-btn primary-btn sub-h3-semibold lg:sub-h1-semibold",
           showContactBtn: true,
           event: "tap_header_cta",
         },

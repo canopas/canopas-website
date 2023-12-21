@@ -10,15 +10,17 @@
       loading="lazy"
     />
     <div
-      class="container absolute top-[1.2rem] w-full p-4 text-center text-black-core/[0.87] md:left-0 md:top-1/2 md:top-16 md:-mt-6 md:text-center lg:!left-[50%] lg:!top-[57%] xll:!top-[60%] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:transform xl:w-[60%] 2xl:w-[49%] xs:left-[13%] xs:w-[75%] xl2:w-[55%] 2xll:w-[45%] xll:w-[61%]"
+      class="container absolute top-[1.2rem] w-full p-4 text-center md:left-0 md:top-1/2 md:top-16 md:-mt-6 md:text-center lg:!left-[50%] lg:!top-[57%] xll:!top-[60%] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:transform xl:w-[60%] 2xl:w-[49%] xs:left-[13%] xs:w-[75%] xl2:w-[55%] 2xll:w-[45%] xll:w-[61%]"
     >
       <div class="flex w-full lg:mb-10">
         <div class="m-auto">
-          <p class="header-1 text-black-core/[0.87] mb-4 lg:mb-6">
+          <p
+            class="mobile-header-1 lg:desk-header-1 mb-4 lg:mb-6 text-black-87"
+          >
             Have an app idea?
           </p>
 
-          <div class="sub-h1-regular text-black-core/[0.60]">
+          <div class="sub-h1-regular lg:mobile-header-2-regular text-black-60">
             See if we can make it a reality.
           </div>
         </div>
@@ -29,7 +31,7 @@
           to="/contact"
           @click.native="$mixpanel.track('tap_ios_development_cta')"
         >
-          <span class="mr-2.5 sub-h3-semibold xl:sub-h4-semibold"
+          <span class="mr-2.5 sub-h3-semibold xl:sub-h1-semibold"
             >Let's Chat
           </span>
         </nuxt-link>

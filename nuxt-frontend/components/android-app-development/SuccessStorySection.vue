@@ -1,7 +1,9 @@
 <template>
   <section>
     <div class="div relative mt-16 md:mt-40 xl:mt-60">
-      <h2 class="sm:pb-10 text-center header-2 text-black-core/[0.87]">
+      <h2
+        class="sm:pb-10 text-center mobile-header-2 lg:desk-header-2 text-black-87"
+      >
         Success stories
       </h2>
       <!-- ---------------------MOBILE UI START------------------ -->
@@ -32,10 +34,10 @@
               <div
                 v-for="(client, index) in clients"
                 :key="index"
-                class="mb-8 mx-auto rounded-[5px] sm:px-10 md:px-6 lg:px-4 xl:px-24 p-5 bg-[#F2709C]/[0.08]"
+                class="mb-8 mx-auto rounded-[5px] sm:px-10 md:px-6 lg:px-4 xl:px-24 p-5 bg-pink-80"
               >
                 <div
-                  class="text-black-core/[0.87] sub-h1-semibold transition-all ease duration-500"
+                  class="text-black-87 sub-h1-semibold lg:mobile-header-2-semibold transition-all ease duration-500"
                   v-html="client.review"
                 ></div>
                 <div class="flex flex-row justify-between mt-6">
@@ -48,10 +50,10 @@
                         name="fa6-solid:star"
                       />
                     </span>
-                    <span class="mt-2 text-black-core/[0.87] sub-h3-regular">{{
+                    <span class="mt-2 text-black-87 sub-h3-regular">{{
                       client.name
                     }}</span>
-                    <span class="sub-h4-regular text-black-core/[0.6]">{{
+                    <span class="sub-h4-regular text-black-60">{{
                       client.designation
                     }}</span>
                   </div>
@@ -105,22 +107,19 @@
                     name="fa6-solid:star"
                   />
                 </span>
-                <span
-                  class="font-inter-regular text-[1.125rem] leading-[1.688rem] text-black-core/[0.87]"
-                  >(5.0)</span
-                >
+                <span class="sub-h1-regular text-black-87">(5.0)</span>
               </div>
               <div
-                class="font-opensans-semibold header-3 text-black-core/[0.87]"
+                class="font-opensans-semibold desk-header-3 text-black-87"
                 v-html="client.review"
               ></div>
               <div class="flex flex-row justify-between my-5">
                 <div class="flex flex-col">
-                  <span class="mt-3 text-black-core/[0.6] sub-h2-medium">{{
+                  <span class="mt-3 text-black-60 sub-h2-medium">{{
                     client.name
                   }}</span>
                   <span
-                    class="mt-1 sub-h4-regular text-black-core/[0.40]"
+                    class="mt-1 sub-h1-regular text-black-60"
                     v-html="client.desktop_designation"
                   ></span>
                 </div>

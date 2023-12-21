@@ -9,7 +9,7 @@
         loading="lazy"
       />
       <div
-        class="w-[80%] mx-auto sm:w-full text-center mt-8 text-black-core/[0.87] header-1"
+        class="w-[80%] mx-auto sm:w-full text-center mt-8 text-black-87 mobile-header-1 lg:desk-header-1"
       >
         Let’s talk about what we can build and scale together.
       </div>
@@ -42,7 +42,7 @@
         class="h-[82%] lg:h-[80%] xl:h-[75%] border-[#00000]/[0.6] absolute left-[10%] z-0 mr-[0.2rem] mt-8 flex flex-col items-center justify-center rounded-lg border-2 py-2 lg:!mt-[5.7rem] lg:!py-12 xl:!mt-[7.8rem] xl:!py-4 2xl:!pb-16 2xl:!pt-12 2xl:pr-8 xs:mt-[2.8rem] xs:py-4"
       >
         <div
-          class="ml-[27rem] xl:ml-[27.5rem] text-black-core/[0.87] header-1 lg:!w-[47%] 2xl:!w-[60%]"
+          class="ml-[27rem] xl:ml-[27.5rem] text-black-87 mobile-header-1 lg:desk-header-1 lg:!w-[47%] 2xl:!w-[60%]"
         >
           <span>Let’s talk about what we can build and scale together.</span>
         </div>
@@ -52,7 +52,7 @@
             to="/contact"
             @click.native="$mixpanel.track('tap_android_development_cta')"
           >
-            <span class="sub-h4-semibold">Contact Us </span>
+            <span class="sub-h1-semibold">Contact Us </span>
           </router-link>
         </div>
       </div>

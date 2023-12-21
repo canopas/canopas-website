@@ -8,6 +8,7 @@
         :srcset="`${background400} 400w, ${background800} 800w`"
         class="h-full w-full object-cover md:object-top lg:hidden"
         alt="flutter-cta"
+        loading="lazy"
       />
       <img
         :src="background1200"
@@ -29,11 +30,13 @@
           <div
             class="flex flex-col gap-4 lg:gap-6 lg:text-left lg:flex-1 my-auto"
           >
-            <div class="text-black-core/[0.87]">
-              <p class="header-1">Let's code your success story together!</p>
+            <div class="text-black-87">
+              <p class="mobile-header-1 lg:desk-header-1">
+                Let's code your success story together!
+              </p>
             </div>
-            <div class="text-black-core/[0.6]">
-              <span class="sub-h1-regular">
+            <div class="text-black-60">
+              <span class="sub-h1-regular lg:mobile-header-2-regular">
                 Join hands with us for your next app endeavour.
               </span>
             </div>
@@ -43,7 +46,7 @@
                 to="/contact"
                 @click.native="$mixpanel.track('tap_flutter_development_cta')"
               >
-                <span class="sub-h3-semibold xl:sub-h4-semibold border-none"
+                <span class="sub-h3-semibold lg:sub-h1-semibold border-none"
                   >Connect With Us
                 </span>
                 <Icon name="fa6-solid:arrow-right" class="fa ml-3" />

@@ -6,10 +6,14 @@
       class="container px-4 pb-4 3xl:pb-28 text-left lg:flex mb-4 md:mb-7 lg:mb-14"
     >
       <div class="lg:flex-1 mb-6">
-        <h1 class="header-1 mb-4 pr-2 lg:w-2/4 text-black-core/[0.87]">
+        <h1
+          class="mobile-header-1 lg:desk-header-1 mb-4 pr-2 lg:w-2/4 text-black-87"
+        >
           iOS app development company
         </h1>
-        <p class="sub-h1-regular 2xl:w-4/5 text-black-core/[0.60]">
+        <p
+          class="sub-h1-regular lg:mobile-header-2-regular 2xl:w-4/5 text-black-60"
+        >
           We craft tailor-made iOS apps that redefine user experience and put
           you ahead of the game. Our team work with passion and precision to
           transform your business vision into reality, giving your brand the
@@ -23,7 +27,7 @@
             to="/contact"
             @click.native="$mixpanel.track('tap_ios_development_cta')"
           >
-            <span class="sub-h3-semibold xl:sub-h4-semibold"
+            <span class="sub-h3-semibold lg:sub-h1-semibold"
               >Consult Our iOS Team</span
             >
           </nuxt-link>
@@ -42,7 +46,7 @@
           v-if="width < 1400"
           :src="landingmd800"
           :srcset="`${landingmd800} 800w`"
-          class="overflow-visible hidden lg:block h-full lg:!-mt-[0.5%] xl:!mt-[0.5%] lg:!h-[31rem] xl:!h-[38rem] -ml-[82%] lg:-ml-[61%] xl:-ml-[59%] w-[55%] object-cover"
+          class="overflow-visible hidden lg:block h-full lg:!mt-[14.5%] xl:!mt-[0.5%] lg:!h-[33rem] xl:!h-[38rem] -ml-[82%] lg:-ml-[61%] xl:-ml-[59%] 2xl:-ml-[83%] w-[55%] object-cover"
           alt="ios-landing"
         />
         <img

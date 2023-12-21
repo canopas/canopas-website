@@ -8,11 +8,11 @@
       <div
         class="xs:mx-4 lg:!mx-0 flex flex-col gap-4 lg:gap-6 flex-[52.69%] my-auto"
       >
-        <p class="header-1 xl:header-2 text-black-core/[0.87]">
+        <p class="mobile-header-1 lg:desk-header-2 text-black-87">
           Crafting tomorrow's technology starts with one click.
           <span class="border-text"> Will you take the leap? </span>
         </p>
-        <span class="text-black-core/[0.6] sub-h1-regular"
+        <span class="text-black-60 sub-h1-regular lg:mobile-header-2-regular"
           >Discover how we can elevate your project.</span
         >
         <nuxt-link
@@ -20,7 +20,9 @@
           to="/contact"
           @click.native="$mixpanel.track('tap_flutter_development_cta')"
         >
-          <span class="sub-h3-semibold border-none">Drop Us a Line </span>
+          <span class="sub-h3-semibold lg:mobile-header-3-semibold border-none"
+            >Drop Us a Line
+          </span>
           <Icon name="fa6-solid:arrow-right" class="fa ml-3" />
         </nuxt-link>
       </div>
@@ -37,7 +39,7 @@
           to="/contact"
           @click.native="$mixpanel.track('tap_flutter_development_cta')"
         >
-          <span class="sub-h3-semibold xl:sub-h4-semibold border-none"
+          <span class="sub-h3-semibold lg:mobile-header-3-semibold border-none"
             >Drop Us a Line
           </span>
           <Icon name="fa6-solid:arrow-right" class="fa ml-3" />

@@ -3,7 +3,7 @@
     <div class="mb-4 bg-pink-gradient-background lg:container lg:bg-none">
       <div class="mx-[2%] my-0 flex flex-col gap-4 lg:my-0 lg:-ml-8">
         <div class="text-center">
-          <span class="header-2 text-black-core/[0.87]"
+          <span class="mobile-header-2 lg:desk-header-2 text-black-87"
             >FAQs on android app development</span
           >
         </div>
@@ -30,11 +30,11 @@
                   >
                     <div class="faq-header flex flex-row items-center">
                       <div
-                        class="faq-question w-[90%] sub-h1-semibold"
+                        class="faq-question w-[90%] sub-h1-semibold lg:mobile-header-2-semibold"
                         :class="
                           openList && faq.id == currentIndex
                             ? 'v2-canopas-gradient-text footer-icon'
-                            : 'text-black-core/[0.87]'
+                            : 'text-black-87'
                         "
                       >
                         {{ faq.question }}
@@ -46,11 +46,11 @@
                         "
                       >
                         <Icon
-                          class="xmark text-black-core/[0.87]"
+                          class="xmark text-black-87"
                           :class="
                             openList && faq.id == currentIndex
                               ? 'footer-icon'
-                              : 'text-black-core/[0.87]'
+                              : 'text-black-87'
                           "
                           :name="
                             openList && faq.id == currentIndex
@@ -67,7 +67,7 @@
                         :key="faq.answer"
                       >
                         <div
-                          class="faq-answer mt-4 w-[90%] animate-fadeIn sub-h3-regular text-black-core/[0.87]"
+                          class="faq-answer mt-4 w-[90%] animate-fadeIn sub-h3-regular lg:mobile-header-3-regular text-black-87"
                           v-html="faq.answer"
                         ></div>
                       </div>
@@ -91,11 +91,11 @@
                     >
                       <div class="faq-header flex flex-row items-center">
                         <div
-                          class="faq-question w-[90%] sub-h1-semibold"
+                          class="faq-question w-[90%] sub-h1-semibold lg:mobile-header-2-semibold"
                           :class="
                             openList && faq.id == currentIndex
                               ? 'v2-canopas-gradient-text footer-icon'
-                              : 'text-black-core/[0.87]'
+                              : 'text-black-87'
                           "
                         >
                           {{ faq.question }}
@@ -107,11 +107,11 @@
                           "
                         >
                           <Icon
-                            class="xmark text-black-core/[0.87]"
+                            class="xmark text-black-87"
                             :class="
                               openList && faq.id == currentIndex
                                 ? 'footer-icon'
-                                : 'text-black-core/[0.87]'
+                                : 'text-black-87'
                             "
                             :name="
                               openList && faq.id == currentIndex
@@ -128,7 +128,7 @@
                           :key="faq.answer"
                         >
                           <div
-                            class="faq-answer mt-4 w-[90%] animate-fadeIn sub-h3-regular text-black-core/[0.87]"
+                            class="faq-answer mt-4 w-[90%] animate-fadeIn sub-h3-regular lg:mobile-header-3-regular text-black-87"
                             v-html="faq.answer"
                           ></div>
                         </div>
@@ -181,7 +181,7 @@
           class="mr-2 h-5 w-5"
           icon="arrow-left"
           id="leftArrow"
-        /><span class="v2-canopas-gradient-text sub-h4-semibold">Back</span>
+        /><span class="v2-canopas-gradient-text sub-h1-semibold">Back</span>
       </button>
       <button
         v-else
@@ -192,7 +192,7 @@
         @click.native="$mixpanel.track('tap_android_app_faq_next_arrow')"
         aria-label="rightArrow"
       >
-        <span class="v2-canopas-gradient-text sub-h4-semibold"
+        <span class="v2-canopas-gradient-text sub-h1-semibold"
           >View More Questions</span
         >
         <Icon

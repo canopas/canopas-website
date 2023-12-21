@@ -1,5 +1,7 @@
 <template>
-  <section class="pb-[50px] pt-[100px] md:pb-[150px] md:pt-[200px]">
+  <section
+    class="pb-[50px] pt-[100px] md:pb-[141px] 3xl:pb-[146px] md:pt-[200px]"
+  >
     <div class="container">
       <div class="hidden md:block">
         <span

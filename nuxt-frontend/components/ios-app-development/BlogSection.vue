@@ -1,7 +1,7 @@
 <template>
   <section class="my-16 md:mb-32 lg:my-32 xll:container 3xl:outer-container">
     <div
-      class="pb-4 md:pb-12 text-center header-2 xll:py-24 text-black-core/[0.87]"
+      class="pb-4 md:pb-12 text-center mobile-header-2 xl:desk-header-2 xll:py-24 text-black-87"
     >
       <span>Our blogs</span>
     </div>
@@ -47,7 +47,7 @@
                 {{ blog.title }}
               </h2>
 
-              <span class="mt-2 text-black-core/[0.60] sub-h4-semibold">
+              <span class="mt-2 text-black-60 sub-h4-semibold">
                 {{ blog.readTime }}
               </span>
             </div>
@@ -106,11 +106,11 @@
           <div>
             <p
               @click="openBlog(blog.link, 'tap_ios_blog_section')"
-              class="mt-6 header-3 w-full !tracking-[-4%] text-black-core/[0.87]"
+              class="mt-6 desk-header-3 w-full !tracking-[-4%] text-black-87"
             >
               {{ blog.title }}
             </p>
-            <p class="mt-6 sub-h4-regular text-black-core/[0.60]">
+            <p class="mt-6 sub-h1-regular text-black-60">
               {{ blog.readTime }}
             </p>
           </div>

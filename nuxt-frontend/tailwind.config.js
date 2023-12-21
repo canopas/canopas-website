@@ -34,17 +34,30 @@ module.exports = {
         black: {
           core: "#000000",
           900: "#3d3d3d",
+          87: "#000000DE",
+          60: "#00000099",
         },
         white: "#ffffff",
+        "white-core": {
+          80: "#FFFFFFCC",
+          60: "#FFFFFF99",
+          90: "#FFFFFF14",
+        },
         pink: {
+          0: "#f2709c00",
           300: "#f2709c",
+          40: "#f2709c0a",
+          80: "#f2709c14",
+          90: "#f2709ccc",
+          16: "#f2709c29",
+          5: "#f2709c0d",
         },
         orange: {
           300: "#ff835b",
         },
         slate: {
-          200: "rgb(226, 226, 226)",
-          400: "rgb(141, 138, 138)",
+          200: "#e2e2e2",
+          400: "#8d8a8a",
         },
       },
       borderRadius: {
@@ -54,10 +67,10 @@ module.exports = {
         1: "1px",
       },
       borderColor: {
-        gray: "rgba(0, 0, 0, 0.2)",
+        gray: "#00000033",
       },
       boxShadow: {
-        "3xl": "0px 4px 45px rgba(0, 0, 0, 0.1)",
+        "3xl": "0px 4px 45px #0000001a",
         "4xl": "2px 1000px 1px #3d3d3d inset",
       },
       lineHeight: {
@@ -225,7 +238,7 @@ module.exports = {
           "linear-gradient(to bottom, #FFFFFF , #FDE0E2 23%, #FDE0E2 88%, #FFFFFF 100%);",
         "gradient-L": "linear-gradient(178deg, #FFFFFF  68%, #f77783 40%);",
         "gradient-W": "linear-gradient(257deg, #FFFFFF  65%, #f77783 68%);",
-        "gradient-T": "linear-gradient(540deg, #FFFFFF  30%, #f77783 10%);",
+        "gradient-T": "linear-gradient(540deg, #FFFFFF  33%, #f77783 10%);",
         "multiple-underline-out":
           "linear-gradient(transparent calc(100% - 5px), white 1px)",
         "gradient-underline-out":

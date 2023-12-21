@@ -2,7 +2,7 @@
   <section class="my-20 lg:my-60 3xl:mt-[315px]">
     <div class="container md:mt-36 lg:mb-8 mb-7 mx-auto text-center">
       <span
-        class="tracking-[-0.04rem] mb-2.5 font-inter-bold text-3xl leading-[2.4375rem] md:hidden text-black-core/[0.87] md:!mx-0 md:!w-full md:text-[2.65625rem] lg:text-[3.4375rem] md:leading-[3.796875rem] lg:leading-[5.15625rem] xs:mx-auto xs:w-[71%]"
+        class="mb-2.5 mobile-header-2 md:hidden text-black-87 md:!mx-0 md:!w-full xs:mx-auto xs:w-[71%]"
       >
         Success Stories</span
       >
@@ -54,13 +54,12 @@
                 /></span>
               </div>
               <div class="flex flex-col">
-                <span class="sub-h2-medium text-[#FFFFFF]/[0.80]">{{
+                <span class="sub-h3-medium text-white-core-80">{{
                   client.name
                 }}</span>
-                <span
-                  class="sub-h3-regular text-[#FFFFFF]/[0.60] mt-[0.3rem]"
-                  >{{ client.designation }}</span
-                >
+                <span class="sub-h4-regular text-white-core-60 mt-[0.3rem]">{{
+                  client.designation
+                }}</span>
               </div>
             </div>
           </swiper-slide>
@@ -75,7 +74,7 @@
       <div
         class="w-2/5 flex justify-center items-center bg-[#F4F4F4] rounded-tl-xl rounded-bl-xl"
       >
-        <h2 class="header-2 w-3/4 2xl:w-[65%] mx-auto text-black-core/[0.87]">
+        <h2 class="desk-header-2 w-3/4 2xl:w-[65%] mx-auto text-black-87">
           What our clients says!
         </h2>
       </div>
@@ -88,7 +87,7 @@
             :src="imageleft"
             alt="quote-left-image"
             loading="lazy"
-            class="w-[1.1rem] h-4 lg:w-8 lg:h-7 text-[#FFFFFF]/[0.60]"
+            class="w-[1.1rem] h-4 lg:w-8 lg:h-7 text-white-core-60"
           />
         </div>
         <div class="flex items-center">
@@ -106,7 +105,7 @@
             class="swiper-container cursor-pointer"
           >
             <swiper-slide v-for="(client, index) in clients" :key="index">
-              <div class="my-auto px-7 lg:px-12 py-7 lg:py-12">
+              <div class="my-auto px-7 lg:px-12 py-7 lg:py-12 text-white">
                 <span class="flex mb-2.5">
                   <Icon
                     v-for="i in 5"
@@ -114,20 +113,16 @@
                     class="fa-star w-[1.375rem] h-[1.375rem] lg:w-6 lg:h-6 text-[#FFC700]"
                     name="fa6-solid:star"
                 /></span>
-                <div
-                  class="font-inter-semibold text-[#FFFFFF] text-[1.3125rem] lg:text-2xl leading-[2.203125rem] lg:leading-9"
-                >
+                <div class="mobile-header-2-semibold">
                   {{ client.review }}
                 </div>
                 <div class="flex flex-col text-left mt-6">
-                  <span
-                    class="font-inter-medium text-[#FFFFFF]/[0.80] text-text-3xl lg:text-[1.375rem] leading-[1.63125rem] lg:leading-[2.0625rem]"
-                    >{{ client.name }}</span
-                  >
-                  <span
-                    class="font-inter-regular text-[#FFFFFF]/[0.60] text-[0.9375rem] lg:text-lg leading-[2.5875rem] lg:leading-[1.6875rem]"
-                    >{{ client.designation }}</span
-                  >
+                  <span class="text-white-core-80 sub-h2-medium">{{
+                    client.name
+                  }}</span>
+                  <span class="text-white-core-60 sub-h1-regular">{{
+                    client.designation
+                  }}</span>
                 </div>
               </div>
             </swiper-slide>
@@ -138,7 +133,7 @@
                   :src="imageright"
                   alt="quote-image-right"
                   loading="lazy"
-                  class="w-[1.1rem] h-4 lg:w-8 lg:h-7 text-[#FFFFFF]/[0.60]"
+                  class="w-[1.1rem] h-4 lg:w-8 lg:h-7 text-white-core-60"
                 />
               </div>
             </div>

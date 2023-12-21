@@ -4,7 +4,7 @@
     <div
       class="relative z-[1] h-[27rem] sm:h-[30rem] overflow-hidden lg:hidden"
     >
-      <p class="text-center header-2 text-black-core/[0.87]">Our blogs</p>
+      <p class="text-center mobile-header-2 text-black-87">Our blogs</p>
       <div class="blog mt-6 block lg:hidden">
         <swiper
           :slidesPerView="1.425"
@@ -29,7 +29,7 @@
                 />
               </div>
               <div class="title hidden">
-                <p class="mt-3 text-black-core/[0.60]">
+                <p class="mt-3 text-black-60">
                   {{ blog.publishDate }}
                 </p>
                 <a
@@ -37,9 +37,7 @@
                   :href="blog.link"
                   target="_blank"
                 >
-                  <p
-                    class="mt-2 cursor-pointer sub-h1-semibold text-black-core/[0.87]"
-                  >
+                  <p class="mt-2 cursor-pointer sub-h1-semibold text-black-87">
                     {{ blog.title }}
                   </p>
                 </a>
@@ -55,7 +53,7 @@
     <div
       class="container flex hidden flex-col lg:block lg:min-h-[580px] lg:py-0"
     >
-      <p class="mb-8 text-center header-2 text-black-core/[0.87]">Our blogs</p>
+      <p class="mb-8 text-center desk-header-2 text-black-87">Our blogs</p>
       <div class="flex flex-row space-x-5 space-y-1">
         <div
           @click="openBlog(blog.link, 'tap_android_app_blog_section')"
@@ -111,7 +109,7 @@
               >
                 <span
                   @click="openBlog(blog.link, 'tap_android_app_blog_section')"
-                  class="font-inter-regular text-black-core/[0.87] text-base lg:text-[1.5rem] lg:leading-9 text-white"
+                  class="text-black-87 sub-h3-regular lg:mobile-header-2-regular text-white"
                   v-html="blog.hovertitle"
                 ></span>
               </div>
@@ -143,7 +141,7 @@
             >
               <span
                 @click="openBlog(blog.link, 'tap_android_app_blog_section')"
-                class="font-inter-regular text-black-core/[0.87] text-[1rem] lg:text-[1.5rem] leading-6 lg:leading-9 text-black-core/[0.87]"
+                class="sub-h3-regular lg:mobile-header-2-regular text-black-87"
                 v-html="blog.hovertitle"
               ></span>
             </div>
@@ -181,7 +179,7 @@ export default {
           image: [jacoco_400w, jacoco_800w, jacoco_desktop_400w],
           publishDate: "Sep 27, 2021",
           title: "Android code coverage using JaCoCo",
-          hovertitle: `<span class="header-3 text-black-core/[0.87]">Android<span><br><span class="sub-h1-regular text-black-core/[0.87]">Code coverage using JaCoCo</span>`,
+          hovertitle: `<span class="desk-header-3 text-black-87">Android<span><br><span class="mobile-header-2-regular text-black-87">Code coverage using JaCoCo</span>`,
           link: "https://blog.canopas.com/android-code-coverage-using-jacoco-6639a1fc4293",
           bgColor: "bg-gradient-to-b from-[#E7E7E7] to-[#DADADA]",
         },
@@ -190,7 +188,7 @@ export default {
           image: [mvvm_400w, mvvm_800w],
           publishDate: "Dec 3, 2021",
           title: "Jetpack Compose: MVVM State management in a simple way",
-          hovertitle: `<span class="header-3 text-white">Jetpack Compose</span><br><span class="text-white sub-h1-regular">MVVM State management in a simple way</span>`,
+          hovertitle: `<span class="desk-header-3 text-white">Jetpack Compose</span><br><span class="text-white mobile-header-2-regular">MVVM State management in a simple way</span>`,
           link: "https://blog.canopas.com/jetpack-compose-mvvm-state-management-in-a-simple-way-4c632fa6f554",
           bgColor: "bg-gradient-to-b from-[#282828] to-[#282828]",
         },
@@ -199,7 +197,7 @@ export default {
           image: [keyboard_400w, keyboard_800w],
           publishDate: "Apr 26, 2022",
           title: "Keyboard Handling In Jetpack Compose — All You Need To Know",
-          hovertitle: `<span class="text-white sub-h1-regular">Keyboard Handling In<br> <span class="header-3 text-white">Jetpack Compose</span><br><span class="text-white sub-h1-regular">All You Need To Know</span></span>`,
+          hovertitle: `<span class="text-white mobile-header-2-regular">Keyboard Handling In<br> <span class="desk-header-3 text-white">Jetpack Compose</span><br><span class="text-white mobile-header-2-regular">All You Need To Know</span></span>`,
           link: "https://blog.canopas.com/keyboard-handling-in-jetpack-compose-all-you-need-to-know-3e6fddd30d9a",
           bgColor: "bg-gradient-to-b from-[#070710] to-[#222241]",
         },
@@ -209,7 +207,7 @@ export default {
           publishDate: "Feb 17, 2022",
           title:
             "Retrofit — Effective error handling with Kotlin Coroutine and Result API",
-          hovertitle: `<span class="header-3 text-white">Retrofit</span> <br><span class="text-white sub-h1-regular">Effective error handling with Kotlin Coroutine and Result API</span>`,
+          hovertitle: `<span class="desk-header-3 text-white">Retrofit</span> <br><span class="text-white mobile-header-2-regular">Effective error handling with Kotlin Coroutine and Result API</span>`,
           link: "https://blog.canopas.com/retrofit-effective-error-handling-with-kotlin-coroutine-and-result-api-405217e9a73d",
           className: "basis-[54%]",
           bgColor: "bg-gradient-to-b from-[#282828] to-[#282828]",
@@ -220,7 +218,7 @@ export default {
           publishDate: "Mar 10, 2022",
           title:
             "Android — Send live audio stream from client to server using WebSocket and OkHttp client",
-          hovertitle: `<span class="header-3 text-black-core/[0.87]">Android</span><br><span class=" text-black-core/[0.87] sub-h1-regular">Send live audio stream from client to server using WebSocket and OkHttp client</span>`,
+          hovertitle: `<span class="desk-header-3 text-black-87">Android</span><br><span class=" text-black-87 mobile-header-2-regular">Send live audio stream from client to server using WebSocket and OkHttp client</span>`,
           link: "https://blog.canopas.com/android-send-live-audio-stream-from-client-to-server-using-websocket-and-okhttp-client-ecc9f28118d9",
           className: "basis-[60%] ",
           bgColor: "bg-gradient-to-b from-[#FEE4DF] to-[#FDCCBC]",

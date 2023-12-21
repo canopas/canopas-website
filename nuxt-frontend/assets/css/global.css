@@ -86,14 +86,6 @@
     @apply text-[1.25rem] font-bold leading-[1.6rem] tracking-[0.5px] text-[#3d3d3d] md:text-[1.75rem] md:leading-8 lg:text-[2.25rem] lg:leading-[2.729rem];
   }
 
-  .grecaptcha-badge {
-    @apply invisible;
-  }
-
-  .v2-header-text {
-    @apply text-[4.0625rem] font-bold leading-[5.875rem] tracking-[1px] text-[#3d3d3d] md:text-[5.625rem] md:leading-[6.6875rem] lg:text-[7.5rem] lg:leading-[7.4375rem];
-  }
-
   .v2-header-2-text {
     @apply text-[3.125rem] font-semibold leading-[5rem] tracking-[1px] text-[#3d3d3d] md:text-[4.0625rem] md:leading-[5.875rem] lg:text-[5.625rem] lg:leading-[6.6875rem];
   }
@@ -135,17 +127,8 @@
     @apply underline decoration-[#3d3d3dcc] decoration-solid decoration-2 underline-offset-[1rem] md:decoration-[3px];
   }
 
-  .v2-button {
-    @apply rounded-[3rem] border-[1px] border-solid border-[#3d3d3d] bg-white px-[1.5rem] py-[0.7rem] text-center text-[#3d3d3d] hover:bg-[#3d3d3d] hover:text-[#fff] active:scale-[0.98];
-  }
-
-  .v2-button > span {
-    @apply mr-2.5;
-  }
-
   .cta-button:hover > span,
-  .portfolio-nav:hover > span,
-  .v2-button:hover > .fa {
+  .portfolio-nav:hover > span {
     @apply text-[#fff];
   }
 
@@ -188,53 +171,76 @@
     @apply text-white;
   }
 
-  .header-1 {
-    @apply font-opensans-bold tracking-[-0.08rem] xl:tracking-[-0.15rem]  text-[2rem] leading-[2.6rem] lg:text-6xl lg:leading-[4.875rem];
+  .mobile-header-1 {
+    @apply font-opensans-bold tracking-[-0.08rem] text-[2rem] leading-[2.6rem];
   }
-
-  .header-2 {
-    @apply font-opensans-bold tracking-[-0.08rem] xl:tracking-[-0.12rem] text-2xl leading-[2.25rem] lg:text-5xl lg:leading-[3.9rem];
+  .mobile-header-2 {
+    @apply font-opensans-bold tracking-[-0.08rem] text-2xl leading-9;
   }
-
-  .header-3 {
-    @apply font-opensans-semibold tracking-[-0.08rem] text-xl leading-[1.875rem] lg:text-[2rem] lg:leading-[3rem];
+  .mobile-header-2-regular {
+    @apply font-inter-regular tracking-[-0.08rem] xl:tracking-normal text-2xl leading-9;
   }
-
+  .mobile-header-2-semibold {
+    @apply font-inter-semibold  tracking-[-0.08rem] xl:tracking-normal text-2xl leading-9;
+  }
+  .mobile-header-3 {
+    @apply font-opensans-semibold tracking-[-0.08rem] xl:tracking-normal text-xl leading-[1.875rem];
+  }
+  .mobile-header-3-regular {
+    @apply font-inter-regular tracking-[-0.08rem] xl:tracking-normal text-xl leading-[1.875rem];
+  }
+  .mobile-header-3-medium {
+    @apply font-inter-medium tracking-[-0.08rem] xl:tracking-normal text-xl leading-[1.875rem];
+  }
+  .mobile-header-3-semibold {
+    @apply font-inter-semibold tracking-[-0.08rem] xl:tracking-normal text-xl leading-[1.875rem];
+  }
+  .desk-header-1 {
+    @apply font-opensans-bold tracking-[-0.08rem] text-6xl leading-[4.875rem];
+  }
+  .desk-header-2 {
+    @apply font-opensans-bold tracking-[-0.08rem] text-5xl leading-[3.9rem];
+  }
+  .desk-header-3 {
+    @apply font-opensans-semibold tracking-[-0.08rem] text-[2rem] leading-[3rem];
+  }
   .sub-h1-regular {
-    @apply text-lg leading-[1.688rem] lg:text-2xl lg:leading-[2.25rem] font-inter-regular;
+    @apply font-inter-regular text-lg leading-[1.688rem];
   }
-
   .sub-h1-semibold {
-    @apply text-lg leading-[1.688rem]  lg:text-2xl lg:leading-[2.25rem]  font-inter-semibold;
+    @apply font-inter-semibold text-lg leading-[1.688rem];
   }
-
+  .sub-h2-regular {
+    @apply font-inter-regular text-[1.375rem] leading-[2.063rem];
+  }
   .sub-h2-medium {
-    @apply lg:text-[1.375rem] lg:leading-[2.063rem] font-inter-medium;
+    @apply font-inter-medium text-[1.375rem] leading-[2.063rem];
   }
-
   .sub-h3-regular {
-    @apply text-base lg:text-xl lg:leading-[1.875rem] font-inter-regular;
+    @apply font-inter-regular text-base;
   }
-
   .sub-h3-medium {
-    @apply text-base lg:text-xl lg:leading-[1.875rem] font-inter-medium;
+    @apply font-inter-medium text-base;
   }
-
   .sub-h3-semibold {
-    @apply text-base lg:text-xl lg:leading-[1.875rem] font-inter-semibold;
+    @apply font-inter-semibold text-base;
   }
-
   .sub-h4-regular {
-    @apply font-inter-regular text-xs leading-[1.125rem] lg:text-lg lg:leading-[1.688rem];
+    @apply font-inter-regular text-xs leading-[1.125rem];
   }
-
+  .sub-h4-medium {
+    @apply font-inter-medium text-xs leading-[1.125rem];
+  }
   .sub-h4-semibold {
-    @apply font-inter-semibold text-xs leading-[1.125rem] lg:text-lg lg:leading-[1.688rem];
+    @apply font-inter-semibold text-xs leading-[1.125rem];
   }
-
+  .background-text {
+    @apply font-inter-regular text-[2.5rem] leading-[1.875rem] lg:text-7xl lg:leading-[4.5rem];
+  }
   .primary-btn {
     @apply h-12  mx-auto flex w-max items-center rounded-xl py-3 px-6 text-center;
   }
+
   .primary-color {
     @apply text-[#FF9472];
   }

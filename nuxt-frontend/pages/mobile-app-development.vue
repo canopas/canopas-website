@@ -9,12 +9,12 @@
       <Portfolio />
       <CTASection />
       <DevelopmentProcess ref="developmentprocess" />
-      <div class="bg-black-core/[0.85]">
+      <div class="bg-[#121212]">
         <ClientReview />
         <CTASection2 ref="cta" />
       </div>
     </div>
-    <NewFooter class="mt-[-15px] md:mt-auto" />
+    <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
   </div>
 </template>
 

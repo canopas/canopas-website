@@ -1,29 +1,25 @@
 <template>
   <div
-    class="from-[#F98584] to-[#F47695] bg-gradient-[180deg] font-inter-regular mt-[2.813rem] lg:mt-[7.813rem]"
+    class="h-[352px] lg:h-[420px] xl:h-[476px] from-[#FF835B] to-[#F2709C] bg-gradient-[174deg] lg:bg-gradient-[180deg] 3xl:outer-container"
   >
-    <div class="container flex flex-col lg:flex-row">
-      <div class="hidden lg:block lg:w-[45%] xl:w-[50%]">
+    <div class="container flex flex-col lg:flex-row py-4 lg:py-0">
+      <div class="hidden lg:block lg:w-full">
         <img
           :src="CTAImage[3]"
           :srcset="`${CTAImage[0]} 400w, ${CTAImage[1]} 800w, ${CTAImage[2]} 1600w, ${CTAImage[3]} 2400w`"
           alt="portfolio-cta-image"
-          class="w-full h-full object-fill xl:object-contain"
+          class="w-full object-fill 2xl:object-contain h-[420px] xl:h-[476px]"
           loading="lazy"
         />
       </div>
 
-      <div class="flex lg:w-[55%] xl:w-[50%]">
-        <div
-          class="m-auto lg:ml-auto xl:m-auto w-[80%] sm:w-[85%] md:w-[69%] lg:w-[100%] xl:w-[90%] 2xl:w-[92%] py-5 text-white"
-        >
-          <p
-            class="text-[1.5rem] leading-[1.813rem] md:text-[2.188rem] md:leading-[2.625rem] lg:text-[3.125rem] lg:leading-[3.813rem] font-inter-bold"
-          >
-            Whether you need...
-          </p>
+      <div
+        class="flex flex-col md:flex-row lg:flex-col m-auto lg:ml-[25px] xl:m-auto w-[88%] sm:w-[85%] md:w-[94%] lg:w-[90%] 2xl:w-[92%] py-5 md:py-12"
+      >
+        <div class="text-white">
+          <p class="mobile-header-1 xl:desk-header-2">Whether you need...</p>
           <ul
-            class="pt-6 text-[1rem] leading-5 md:text-[1.188rem] md:leading-6 lg:text-[1.375rem] lg:leading-[1.8125rem] font-inter-semibold"
+            class="pt-6 sub-h3-semibold lg:sub-h1-semibold xl:mobile-header-2-semibold pl-0"
           >
             <li v-for="reason in reasons" :key="reason" class="flex">
               <span class="pr-1">*</span>
@@ -31,22 +27,21 @@
             </li>
           </ul>
           <div
-            class="xl:w-[100%] pt-6 pb-8 text-[0.875rem] leading-[1.125rem] md:text-[1.125rem] md:leading-[1.375rem] lg:text-[1.375rem] lg:leading-[1.813rem]"
+            class="md:w-[76%] lg:w-full xl:w-[77%] pt-6 pb-8 sub-h4-regular text-white-core-80 lg:sub-h3-regular xl:mobile-header-3-regular"
           >
             Bring us your toughest challenge and we'll show you the path to a
             sleek solution.
           </div>
-          <nuxt-link
-            class="flex items-center mx-auto lg:mx-0 w-max rounded-full p-3 text-center font-normal text-[1rem] leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem] font-inter-medium !tracking-[0] border border-solid border-white bg-white hover:bg-transparent hover:text-white active:scale-[0.98] cta-button"
-            to="/contact"
-            @click.native="$mixpanel.track('tap_home_portfolio_cta')"
-          >
-            <span
-              class="bg-gradient-[270.11deg] bg-clip-text text-transparent from-[#ff9472] to-[#f2709c] font-inter-semibold"
-              >Talk to our experts</span
-            >
-          </nuxt-link>
         </div>
+        <nuxt-link
+          class="ml-0 my-auto white-btn gradient-border-btn primary-btn border-none"
+          to="/contact"
+          @click.native="$mixpanel.track('tap_home_portfolio_cta')"
+        >
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
+            >Talk to our experts</span
+          >
+        </nuxt-link>
       </div>
     </div>
   </div>

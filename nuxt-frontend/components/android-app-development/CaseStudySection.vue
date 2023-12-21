@@ -4,9 +4,11 @@
   >
     <div class="container">
       <div class="flex flex-col text-center">
-        <span class="header-2 text-black-core-[0.87]">Case studies</span>
+        <span class="mobile-header-2 lg:desk-header-2 text-black-87"
+          >Case studies</span
+        >
         <span
-          class="mt-4 md:mt-6 sub-h1-regular mx-auto xl:text-[1.5rem] xl:leading-9 text-black-core/[0.60] lg:w-[80%] xl:w-[61%]"
+          class="mt-4 md:mt-6 sub-h1-regular lg:mobile-header-2-regular mx-auto text-black-60 lg:w-[80%] xl:w-[61%]"
           >Explore our case studies to witness how we've transformed our
           client's ideas into successful Android apps.</span
         >
@@ -33,11 +35,9 @@
           />
 
           <div :class="item.textalign" class="absolute bottom-4 flex flex-col">
-            <span class="header-2 text-black-core/[0.87]">{{
-              item.title
-            }}</span>
+            <span class="mobile-header-2 text-black-87">{{ item.title }}</span>
             <span
-              class="mt-2 sub-h3-regular text-black-core/[0.6]"
+              class="mt-2 sub-h3-regular text-black-60"
               v-html="item.content"
             ></span>
           </div>
@@ -58,7 +58,7 @@
         />
         <div
           :class="item.textalign"
-          class="absolute -mt-2 xs:mt-0 bottom-[1.53rem] flex flex-col text-black-core/[0.87]"
+          class="absolute -mt-2 xs:mt-0 bottom-[1.53rem] flex flex-col text-black-87"
         >
           <span class="sub-h3-regular" v-html="item.content"></span>
           <div class="mt-2 flex flex-wrap justify-center">
@@ -100,7 +100,7 @@
               class="flex flex-col w-[77%] xl:w-[48%] 2xll:w-[50%] lg:mr-auto xll:ml-auto"
             >
               <div>
-                <span class="text-[#FF9472] text-left sub-h3-semibold">
+                <span class="primary-color text-left mobile-header-3-semibold">
                   {{ item.title }}
                 </span>
               </div>
@@ -111,12 +111,12 @@
                 :target="item.target"
               >
                 <h2
-                  class="mt-4 font-opensans-semibold header-3 text-black-core/[0.87]"
+                  class="mt-4 font-opensans-semibold desk-header-3 text-black-87"
                   v-html="item.deskcontent"
                 ></h2
               ></a>
               <span
-                class="mt-4 text-black-core/[0.6] sub-h3-medium"
+                class="mt-4 text-black-60 sub-h3-medium md:mobile-header-3-medium"
                 v-html="item.description"
               ></span>
 
@@ -130,28 +130,28 @@
                 <div class="inline-flex p-2 lg:p-4">
                   <div class="p-[0.8rem]">
                     <span
-                      class="font-opensans-semibold header-3 text-[#FF9472]"
+                      class="font-opensans-semibold desk-header-3 text-[#FF9472]"
                       >{{ item.resultcount[0] }}</span
                     >
-                    <div class="flex-1 text-black-core-[0.87] sub-h3-regular">
+                    <div class="flex-1 text-black-87 mobile-header-3-regular">
                       <span>Downloads</span>
                     </div>
                   </div>
                   <div class="border-l-[0.5px] p-[0.8rem]">
                     <span
-                      class="font-opensans-semibold header-3 text-[#FF9472]"
+                      class="font-opensans-semibold desk-header-3 text-[#FF9472]"
                       >{{ item.resultcount[1] }}</span
                     >
-                    <div class="flex-1 text-black-core-[0.87] sub-h3-regular">
+                    <div class="flex-1 text-black-87 mobile-header-3-regular">
                       <span>App Rating</span>
                     </div>
                   </div>
                   <div class="border-l-[0.5px] p-[0.8rem]">
                     <span
-                      class="font-opensans-semibold header-3 text-[#FF9472]"
+                      class="font-opensans-semibold desk-header-3 text-[#FF9472]"
                       >{{ item.resultcount[2] }}</span
                     >
-                    <div class="flex-1 text-black-core-[0.87] sub-h3-regular">
+                    <div class="flex-1 text-black-87 mobile-header-3-regular">
                       <span>Monthly Users</span>
                     </div>
                   </div>
@@ -296,7 +296,7 @@ export default {
       cta: [
         {
           title: "",
-          content: `Let’s Start a <span class="header-2">New Project</span> Together`,
+          content: `Let’s Start a <span class="mobile-header-2">New Project</span> Together`,
           images: [cta_400w, cta_800w],
           className: "text-center ",
           textalign:

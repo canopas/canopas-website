@@ -71,17 +71,17 @@ func Get(c *gin.Context) {
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
-
 	// bind data to struct
 	var blogs Blog
 	json.Unmarshal(responseData, &blogs)
 
 	filteredItems := []Item{}
 	existingBlogs := []Item{}
-
 	// filter weekly and newletteres
 	for _, item := range blogs.Items {
+		
 		if !strings.Contains(strings.ToLower(item.Title), "weekly") && !strings.Contains(strings.ToLower(item.Title), "newsletter") {
+			item.Thumbnail = extractFirstImgSrc(item.Description)
 			item.Description = truncateTo20Words(item.Description)
 			filteredItems = append(filteredItems, item)
 		}
@@ -150,6 +150,18 @@ func truncateTo20Words(description string) string {
 	}
 	return strings.Join(words, " ") + "..."
 }
+func extractFirstImgSrc(description string) string {
+	imgRegex := regexp.MustCompile(`<img[^>]+\bsrc="([^"]+)"[^>]*>`)
+
+	match := imgRegex.FindStringSubmatch(description)
+
+	if len(match) > 1 {
+		return match[1]
+	}
+
+	return "" 
+}
+
 
 // make array or slice unique
 func Unique(arr []Item) []Item {

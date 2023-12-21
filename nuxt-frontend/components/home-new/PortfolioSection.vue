@@ -1,8 +1,6 @@
 <template>
-  <div
-    class="container flex md:items-center m-auto sm:w-[70%] md:w-full pb-16 md:pb-32"
-  >
-    <div class="flex flex-col md:flex-wrap md:flex-row">
+  <div class="container flex lg:items-center m-auto lg:w-full pb-16 lg:pb-60">
+    <div class="flex flex-col lg:flex-wrap lg:flex-row">
       <div
         v-for="portfolio in portfolios"
         :key="portfolio"
@@ -10,32 +8,40 @@
           portfolio.classes,
           portfolio.id != 8 ? 'p-4 sm:p-8' : '',
           portfolio.id == 4 ? 'sm:!pb-12' : '',
-          activeIndex == portfolio.id ? 'scale-105 md:scale-[1.2] z-[2] ' : '',
+          activeIndex == portfolio.id
+            ? 'lg:scale-105 lg::scale-[1.2] lg:z-[2] '
+            : '',
+          portfolio.video ? 'sm:!p-0' : '',
         ]"
-        class="relative transition-all duration-500 ease-in-out transform cursor-pointer"
+        class="relative lg:transition-all lg:duration-500 lg:ease-in-out lg:transform cursor-pointer rounded-xl mt-4 lg:mt-0 md:w-[80%] md:mx-auto"
         @mouseover="activeIndex = portfolio.id"
         @mouseleave="activeIndex = null"
         @touchstart.passive="activeIndex = portfolio.id"
         @click="openPortfolio(portfolio)"
       >
         <div
-          class="absolute top-[18px] sm:top-[13px] md:top-5 xl:top-[30px] inset-x-0 z-[2] text-[1.375rem] leading-8 lg:text-[2rem] lg:leading-8 xl:text-[2.5rem] xl:leading-8 text-center font-inter-bold"
+          class="text-black-87 absolute top-[18px] sm:top-[13px] lg:top-[8px] xl:top-[10px] 2xl:top-[19px] inset-x-0 z-[2] text-center mobile-header-3-semibold lg:desk-header-3"
           :class="[
             activeIndex == portfolio.id
-              ? 'text-black-core/[0.87] scale-[0.7] sm:scale-[0.8]'
-              : 'text-transparent',
+              ? ' lg:scale-[0.8]'
+              : 'lg:text-transparent',
+            portfolio.video ? 'xl:!mt-[8px]' : '',
+            portfolio.id == 7 ? 'lg:!top-[-6px] 2xl:!top-0' : '',
           ]"
         >
           {{ portfolio.title }}
         </div>
-        <div class="flex items-center h-full py-8 sm:p-0">
+        <div
+          class="flex items-center h-full"
+          :class="portfolio.video ? 'p-0' : 'py-8 sm:p-0 lg:pt-0 lg:pb-2'"
+        >
           <video
             v-if="portfolio.video"
             autoplay
             loop
             muted
             playsinline
-            class="lozad p-1 md:p-8"
+            class="lozad mx-auto sm:h-[400px] 2xl:h-[509px]"
           >
             <source :data-src="portfolio.video[1]" type="video/webm" />
             <source :data-src="portfolio.video[0]" type="video/mp4" />
@@ -44,11 +50,12 @@
             v-else
             :src="portfolio.images[0]"
             :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w`"
-            class="h-full w-full object-cover z-[1]"
+            class="h-full w-full object-contain z-[1]"
             :class="[
               portfolio.id == 4
-                ? 'mt-0 sm:mt-4 md:mt-0 sm:w-full sm:h-[90%]'
+                ? 'mt-0 sm:mt-4 lg:mt-0 sm:w-full sm:h-[90%]'
                 : '',
+              portfolio.id == 8 ? 'object-cover' : '',
             ]"
             :alt="portfolio.title + `-image`"
             loading="eager"
@@ -56,14 +63,17 @@
         </div>
         <div
           v-if="portfolio.description"
-          class="absolute inset-x-0 -mt-[50px] sm:-mt-5 z-[2] text-[1rem] leading-5 md:text-[0.875rem] lg:text-[1rem] md:leading-4 lg:leading-5 text-center font-inter-medium"
+          class="text-black-60 absolute inset-x-0 -mt-[35px] sm:-mt-[10px] xl:-mt-[25px] z-[2] w-[92%] sm:w-[90%] md:w-[75%] lg:w-full mx-auto text-center sub-h4-semibold lg:sub-h1-regular"
           :class="[
             activeIndex == portfolio.id
-              ? 'text-black-core/[0.87] scale-[0.7] sm:scale-[0.8]'
-              : 'text-transparent',
-            portfolio.id == 7 ? 'lg:px-2.5' : '',
-            portfolio.id == 5 ? '!-mt-[50px]' : '',
-            portfolio.video ? '-mt-10 sm:!-mt-5 lg:!-mt-[30px]' : '',
+              ? 'lg:scale-[0.8]'
+              : 'lg:text-transparent',
+            portfolio.id == 7
+              ? 'lg:px-2.5 lg:-mt-[20px] 2xl:-mt-[23px]'
+              : 'lg:-mt-[46px] 2xl:-mt-[41px]',
+            portfolio.video
+              ? 'sm:-mt-[50px] lg:-mt-[74px] xl:-mt-[70px] 2xl:-mt-[75px]'
+              : '',
           ]"
         >
           {{ portfolio.description }}
@@ -108,7 +118,7 @@ export default {
         {
           id: 1,
           images: [justly_1_400w, justly_1_800w],
-          classes: "flex-[40%] bg-[#F5E1B6]",
+          classes: "flex-[40%] bg-[#F6EAD0] lg:rounded-none lg:rounded-tl-xl",
           title: "Justly",
           description:
             "Justly aims to tackle loneliness, depression, and mental health through innovative solutions.",
@@ -118,7 +128,7 @@ export default {
         {
           id: 2,
           video: [tognessMp4, tognessWebm],
-          classes: "flex-[40%] bg-[#B3D8FE]",
+          classes: "flex-[40%] bg-[#E1F1FF] lg:rounded-none",
           title: "Togness",
           description:
             "Togness is a photo editor and slideshow maker app for your life’s most memorable events.",
@@ -128,7 +138,8 @@ export default {
         {
           id: 3,
           images: [luxeradio_1_400w, luxeradio_1_800w],
-          classes: "flex-[20%] hidden md:block bg-[#EBB7DB]",
+          classes:
+            "flex-[20%] hidden lg:block bg-[#EBB7DB] lg:rounded-none lg:rounded-tr-xl",
           title: "Luxeradio",
           url: "/portfolio/luxeradio",
           event: "tap_luxeradio_portfolio_card",
@@ -136,7 +147,7 @@ export default {
         {
           id: 4,
           images: [luxeradio_2_400w, luxeradio_2_800w],
-          classes: "flex-[50%] bg-[#E9CFED]",
+          classes: "flex-[50%] bg-[#F1E8F2] lg:rounded-none",
           title: "Luxeradio",
           description:
             "Luxe Radio displays the best of Moroccan and international creation, emphasizing taste, elegance, and refinement.",
@@ -146,7 +157,7 @@ export default {
         {
           id: 5,
           video: [smileMp4, smileWebm],
-          classes: "flex-[50%] bg-[#FED7CC]",
+          classes: "flex-[50%] bg-[#FFE9E5] lg:rounded-none",
           title: "Smile+",
           description:
             "Smile+ app is designed for dentists to create a perfect smile for their patients automated with AI.",
@@ -157,7 +168,8 @@ export default {
         {
           id: 6,
           images: [justly_2_400w, justly_2_800w],
-          classes: "flex-[25%] hidden md:block bg-[#CDE3F7]",
+          classes:
+            "flex-[25%] hidden lg:block bg-[#CDE3F7] lg:rounded-none lg:rounded-bl-xl",
           title: "Justly",
           url: "/portfolio/justly",
           event: "tap_justly_portfolio_card",
@@ -165,7 +177,7 @@ export default {
         {
           id: 7,
           images: [togness_1_400w, togness_1_800w],
-          classes: "flex-[50%] hidden md:block bg-[#D6E1BF]",
+          classes: "flex-[50%] hidden lg:block bg-[#E6F0D0] lg:rounded-none",
           title: "Togness",
           description:
             "Togness is a photo editor and slideshow maker app for your life’s most memorable events.",
@@ -175,7 +187,8 @@ export default {
         {
           id: 8,
           images: [justly_3_400w, justly_3_800w],
-          classes: "flex-[25%] hidden md:block bg-[#AED2F6]",
+          classes:
+            "flex-[25%] hidden lg:block bg-[#AED2F6] lg:rounded-none lg:rounded-br-xl",
           title: "Justly",
           url: "/portfolio/justly",
           event: "tap_justly_portfolio_card",

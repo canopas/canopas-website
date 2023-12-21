@@ -13,9 +13,13 @@
       class="container absolute top-4 md:top-20 xl:top-32 w-full p-4 text-center text-[#FFF] xs:left-[13%] xll:left-[24%] xs:w-[75%]"
     >
       <div class="m-auto">
-        <p class="text-white header-1">Have an app idea?</p>
+        <p class="text-white mobile-header-1 lg:desk-header-1">
+          Have an app idea?
+        </p>
 
-        <div class="mt-2 text-white/[0.8] sub-h1-regular md:my-4">
+        <div
+          class="mt-2 text-white-core-80 sub-h1-regular lg:mobile-header-2-regular md:my-4"
+        >
           See if we can make it a reality.
         </div>
       </div>
@@ -25,7 +29,7 @@
           to="/contact"
           @click.native="$mixpanel.track('tap_android_development_cta')"
         >
-          <span class="sub-h3-semibold xl:sub-h4-semibold">Let's Chat </span>
+          <span class="sub-h3-semibold xl:sub-h1-semibold">Let's Chat </span>
         </router-link>
       </div>
     </div>

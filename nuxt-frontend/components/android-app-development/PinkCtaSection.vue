@@ -11,14 +11,16 @@
     >
       <div class="flex w-[66%]">
         <div class="w-[80%] py-5 text-white lg:w-[90%] xl:m-auto 2xl:w-9/12">
-          <p class="header-2">Whether you need...</p>
-          <ul class="pt-6 sub-h1-semibold">
+          <p class="mobile-header-2 lg:desk-header-2">Whether you need...</p>
+          <ul class="pt-6 sub-h1-semibold lg:mobile-header-2-semibold">
             <li v-for="reason in reasons" :key="reason" class="flex">
               <span class="pr-1">*</span>
               <div class="sm:w-[90%]">{{ reason }}</div>
             </li>
           </ul>
-          <div class="text-white/[0.8] pb-8 pt-4 sub-h3-regular xl:w-[85%]">
+          <div
+            class="text-white-core-80 pb-8 pt-4 sub-h3-regular lg:mobile-header-3-regular xl:w-[85%]"
+          >
             Bring us your toughest challenge and we'll show you the path to a
             sleek solution.
           </div>
@@ -30,7 +32,7 @@
           to="/contact"
           @click.native="$mixpanel.track('tap_android_development_cta')"
         >
-          <span class="sub-h4-semibold v2-canopas-gradient-text"
+          <span class="sub-h1-semibold v2-canopas-gradient-text"
             >Let's Chat</span
           >
         </router-link>
