@@ -3,6 +3,7 @@
     <Header />
     <LandingSection />
     <CaseStudySection />
+    <PartnerWithUsSection />
     <NewFooter class="-mt-4 md:mt-0" />
   </div>
 </template>
@@ -14,6 +15,9 @@ import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/backend-development/LandingSection.vue";
 const CaseStudySection = defineAsyncComponent(
   () => import("@/components/backend-development/CaseStudySection.vue"),
+);
+const PartnerWithUsSection = defineAsyncComponent(
+  () => import("@/components/backend-development/PartnerWithUsSection.vue"),
 );
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
@@ -34,6 +38,7 @@ export default {
     Header,
     LandingSection,
     CaseStudySection,
+    PartnerWithUsSection,
     NewFooter,
   },
   setup() {
