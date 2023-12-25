@@ -38,7 +38,7 @@
             <h2 class="mobile-header-2 text-black-87">
               {{ item.title }}
             </h2>
-            <p class="sub-h3-regular text-black-87" v-html="item.content"></p>
+            <p class="sub-h3-regular text-black-60" v-html="item.content"></p>
           </div>
         </a>
       </div>
@@ -85,7 +85,7 @@
                   ></h3
                 ></a>
                 <p
-                  class="text-black-87 mobile-header-3-medium"
+                  class="text-black-60 mobile-header-3-medium"
                   v-html="item.description"
                 ></p>
               </div>

@@ -173,7 +173,7 @@ onUnmounted(() => {
 function handleScroll() {
   const stickyparent = document.getElementById("partner-with-us");
   const stickyparenthead = stickyparent.getBoundingClientRect();
-  if (stickyparenthead.top < 0) {
+  if (stickyparenthead.top < 140) {
     isAnimated.value = true;
     isVisible.value = true;
   }
