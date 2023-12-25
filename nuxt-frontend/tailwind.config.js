@@ -39,6 +39,7 @@ module.exports = {
         },
         white: "#ffffff",
         "white-core": {
+          12: "#FFFFFF1F",
           80: "#FFFFFFCC",
           60: "#FFFFFF99",
           90: "#FFFFFF14",
@@ -59,6 +60,7 @@ module.exports = {
           200: "#e2e2e2",
           400: "#8d8a8a",
         },
+        "deep-charcoal": "#121212",
       },
       borderRadius: {
         "x-lg": "20px",

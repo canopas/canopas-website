@@ -4,6 +4,7 @@
     <LandingSection />
     <CaseStudySection />
     <PartnerWithUsSection />
+    <SuccessStorySection />
     <NewFooter class="-mt-4 md:mt-0" />
   </div>
 </template>
@@ -18,6 +19,9 @@ const CaseStudySection = defineAsyncComponent(
 );
 const PartnerWithUsSection = defineAsyncComponent(
   () => import("@/components/backend-development/PartnerWithUsSection.vue"),
+);
+const SuccessStorySection = defineAsyncComponent(
+  () => import("@/components/backend-development/SuccessStorySection.vue"),
 );
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
@@ -39,6 +43,7 @@ export default {
     LandingSection,
     CaseStudySection,
     PartnerWithUsSection,
+    SuccessStorySection,
     NewFooter,
   },
   setup() {
