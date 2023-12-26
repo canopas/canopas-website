@@ -181,7 +181,7 @@ const blogs = [
     className: "rotate-6",
   },
 ];
-const backendblog = computed(() => Array(50).fill(blogs).flat());
+const backendblog = computed(() => Array(5).fill(blogs).flat());
 </script>
 <style lang="postcss" scoped>
 @import "swiper/css";
