@@ -1,24 +1,26 @@
 <template>
   <div
-    class="from-[#ffad9326] to-[#f2709c26] bg-gradient-247 px-0 py-[100px] overflow-hidden text-center rounded-tr-none rounded-bl-none rounded-tl-[100px] rounded-br-[100px] sm:rounded-tl-[150px] sm:rounded-br-[150px] md:rounded-tl-[200px] md:rounded-br-[200px] lg:rounded-tl-[300px] lg:rounded-br-[300px]"
+    class="from-[#ffad9326] to-[#f2709c26] 3xl:outer-container bg-gradient-247 px-0 overflow-hidden text-center rounded-tr-none rounded-bl-none rounded-tl-[100px] rounded-br-[100px] sm:rounded-tl-[150px] sm:rounded-br-[150px] md:rounded-tl-[200px] md:rounded-br-[200px] lg:rounded-tl-[300px] lg:rounded-br-[300px]"
   >
-    <div class="normal-text text-black-900 font-bold">
+    <div
+      class="pt-10 lg:pt-14 mobile-header-3-semibold lg:desk-header-3 text-black-87"
+    >
       Canopas is built on the 10 virtues
     </div>
-    <div class="text-center container mt-20 sm:p-0">
-      <div class="flex-div flex flex-wrap m-auto lg:w-[85%]">
+    <div class="text-center container mt-8 mb-14 lg:mb-28 sm:p-0">
+      <div class="flex flex-wrap m-auto lg:w-[85%]">
         <div
-          class="relative flex-[100%] md:flex-[33%]"
+          class="relative basis-full lg:basis-[33%]"
           v-for="virtue in virtues.slice(0, 3)"
           :key="virtue.id"
           @touchstart.passive="activeIndex = virtue.id"
           @hover.native="$mixpanel.track('hover_virtue')"
         >
           <div
-            class="flex flex-col items-center my-[5%] mx-auto py-0 px-[10%] sm:my-[2%] sm:px-0 md:my-[10%]"
+            class="flex flex-col items-center my-5 mx-auto py-0 px-10 sm:my-2 sm:px-0 lg:my-10"
           >
             <div
-              class="image rounded-[50%] bg-white relative h-0 w-1/2 pb-[50%] mb-[5%] sm:w-[30%] sm:pb-[30%] md:w-1/2 md:pb-[50%]"
+              class="image rounded-full bg-white relative h-0 w-1/2 pb-[50%] mb-5 sm:w-[30%] sm:pb-[30%] lg:w-1/2 lg:pb-[50%]"
             >
               <img
                 class="absolute w-[95%] h-[95%] left-0"
@@ -27,41 +29,39 @@
               />
             </div>
             <div
-              class="w-3/5 mb-[5%] text-[#e8505b] normal-text lg:text-[1.3125rem] lg:leading-[1.5918rem]"
+              class="w-3/5 sub-h1-semibold secondary-color lg:mobile-header-3-medium lg:text-black-87"
             >
               {{ virtue.title }}
             </div>
           </div>
           <div
-            class="hover:opacity-100 absolute translate-x-[-50%] transition duration-[0.4s] ease-in-out h-auto w-[290px] left-[50%] top-0 bottom-0 opacity-0 bg-white p-[2%] m-auto rounded-[15px] flex flex-col justify-center sm:w-1/2 md:w-[90%] 2xl:p-[3%]"
+            class="hover:opacity-100 absolute -translate-x-2/4 transition duration-[0.4s] ease-in-out h-auto w-[290px] left-2/4 top-0 bottom-0 opacity-0 bg-white p-2 m-auto rounded-xl flex flex-col justify-center sm:w-3/5 lg:w-full 2xl:p-3"
             :class="activeIndex == virtue.id ? 'opacity-100' : ''"
           >
-            <div
-              class="text-[#e8505b] mb-[3%] w-full normal-text md:mb-0 lg:text-[1.3125rem] lg:leading-[1.5918rem] 2xl:mb-[2%]"
-            >
+            <div class="w-full secondary-color mobile-header-3-medium">
               {{ virtue.title }}
             </div>
             <div
-              class="normal-2-text mt-2.5 mb-[3%] w-full md:mb-0 2xl:mb-[2%]"
+              class="sub-h3-regular lg:sub-h1-regular text-black-60 mt-4 mt-2.5 mb-3 w-full lg:mb-0 2xl:mb-2"
             >
               {{ virtue.description }}
             </div>
           </div>
         </div>
       </div>
-      <div class="flex-div flex flex-wrap m-auto md:w-[70%] lg:w-[60%]">
+      <div class="flex flex-wrap m-auto lg:w-3/5">
         <div
-          class="relative flex-[100%] md:flex-[33%]"
+          class="relative basis-full lg:basis-1/2"
           v-for="virtue in virtues.slice(3, 5)"
           :key="virtue.id"
           @touchstart.passive="activeIndex = virtue.id"
           @hover.native="$mixpanel.track('hover_virtue')"
         >
           <div
-            class="flex flex-col items-center my-[5%] mx-auto py-0 px-[10%] sm:my-[2%] sm:px-0 md:my-[10%]"
+            class="flex flex-col items-center my-5 mx-auto py-0 px-10 sm:my-2 sm:px-0 lg:my-10"
           >
             <div
-              class="image rounded-[50%] bg-white relative h-0 w-1/2 pb-[50%] mb-[5%] sm:w-[30%] sm:pb-[30%] md:w-1/2 md:pb-[50%]"
+              class="image rounded-full bg-white relative h-0 w-1/2 pb-[50%] mb-5 sm:w-[30%] sm:pb-[30%] lg:w-1/2 lg:pb-[50%]"
             >
               <img
                 class="absolute w-[95%] h-[95%] left-0"
@@ -71,41 +71,39 @@
               />
             </div>
             <div
-              class="w-3/5 mb-[5%] text-[#e8505b] normal-text lg:text-[1.3125rem] lg:leading-[1.5918rem]"
+              class="w-3/5 sub-h1-semibold secondary-color lg:mobile-header-3-medium lg:text-black-87"
             >
               {{ virtue.title }}
             </div>
           </div>
           <div
-            class="hover:opacity-100 absolute translate-x-[-50%] transition duration-[0.4s] ease-in-out h-auto w-[290px] left-[50%] top-0 bottom-0 opacity-0 bg-white p-[2%] m-auto rounded-[15px] flex flex-col justify-center sm:w-1/2 md:w-[90%] 2xl:p-[3%]"
+            class="hover:opacity-100 absolute -translate-x-2/4 transition duration-[0.4s] ease-in-out h-auto w-[290px] left-2/4 top-0 bottom-0 opacity-0 bg-white p-2 m-auto rounded-xl flex flex-col justify-center sm:w-3/5 lg:w-full 2xl:p-3"
             :class="activeIndex == virtue.id ? 'opacity-100' : ''"
           >
-            <div
-              class="text-[#e8505b] mb-[3%] w-full normal-text md:mb-0 lg:text-[1.3125rem] lg:leading-[1.5918rem] 2xl:mb-[2%]"
-            >
+            <div class="w-full secondary-color mobile-header-3-medium">
               {{ virtue.title }}
             </div>
             <div
-              class="normal-2-text mt-2.5 mb-[3%] w-full md:mb-0 2xl:mb-[2%]"
+              class="sub-h3-regular lg:sub-h1-regular text-black-60 mt-4 mt-2.5 mb-3 w-full lg:mb-0 2xl:mb-2"
             >
               {{ virtue.description }}
             </div>
           </div>
         </div>
       </div>
-      <div class="flex-div flex flex-wrap m-auto lg:w-[85%]">
+      <div class="flex flex-wrap m-auto lg:w-[85%]">
         <div
-          class="relative flex-[100%] md:flex-[33%]"
+          class="relative basis-full lg:basis-[33%]"
           v-for="virtue in virtues.slice(5, 8)"
           :key="virtue.id"
           @touchstart.passive="activeIndex = virtue.id"
           @hover.native="$mixpanel.track('hover_virtue')"
         >
           <div
-            class="flex flex-col items-center my-[5%] mx-auto py-0 px-[10%] sm:my-[2%] sm:px-0 md:my-[10%]"
+            class="flex flex-col items-center my-5 mx-auto py-0 px-10 sm:my-2 sm:px-0 lg:my-10"
           >
             <div
-              class="image rounded-[50%] bg-white relative h-0 w-1/2 pb-[50%] mb-[5%] sm:w-[30%] sm:pb-[30%] md:w-1/2 md:pb-[50%]"
+              class="image rounded-full bg-white relative h-0 w-1/2 pb-[50%] mb-5 sm:w-[30%] sm:pb-[30%] lg:w-1/2 lg:pb-[50%]"
             >
               <img
                 class="absolute w-[95%] h-[95%] left-0"
@@ -115,41 +113,39 @@
               />
             </div>
             <div
-              class="w-3/5 mb-[5%] text-[#e8505b] normal-text lg:text-[1.3125rem] lg:leading-[1.5918rem]"
+              class="w-3/5 sub-h1-semibold secondary-color lg:mobile-header-3-medium lg:text-black-87"
             >
               {{ virtue.title }}
             </div>
           </div>
           <div
-            class="hover:opacity-100 absolute translate-x-[-50%] transition duration-[0.4s] ease-in-out h-auto w-[290px] left-[50%] top-0 bottom-0 opacity-0 bg-white p-[2%] m-auto rounded-[15px] flex flex-col justify-center sm:w-1/2 md:w-[90%] 2xl:p-[3%]"
+            class="hover:opacity-100 absolute -translate-x-2/4 transition duration-[0.4s] ease-in-out h-auto w-[290px] left-2/4 top-0 bottom-0 opacity-0 bg-white p-2 m-auto rounded-xl flex flex-col justify-center sm:w-3/5 lg:w-full 2xl:p-3"
             :class="activeIndex == virtue.id ? 'opacity-100' : ''"
           >
-            <div
-              class="text-[#e8505b] mb-[3%] w-full normal-text md:mb-0 lg:text-[1.3125rem] lg:leading-[1.5918rem] 2xl:mb-[2%]"
-            >
+            <div class="w-full secondary-color mobile-header-3-medium">
               {{ virtue.title }}
             </div>
             <div
-              class="normal-2-text mt-2.5 mb-[3%] w-full md:mb-0 2xl:mb-[2%]"
+              class="sub-h3-regular lg:sub-h1-regular text-black-60 mt-4 mt-2.5 mb-3 w-full lg:mb-0 2xl:mb-2"
             >
               {{ virtue.description }}
             </div>
           </div>
         </div>
       </div>
-      <div class="flex-div flex flex-wrap m-auto md:w-[70%] lg:w-[60%]">
+      <div class="flex flex-wrap m-auto lg:w-3/5">
         <div
-          class="relative flex-[100%] md:flex-[33%]"
+          class="relative basis-full lg:basis-1/2"
           v-for="virtue in virtues.slice(8, 10)"
           :key="virtue.id"
           @touchstart.passive="activeIndex = virtue.id"
           @hover.native="$mixpanel.track('hover_virtue')"
         >
           <div
-            class="flex flex-col items-center my-[5%] mx-auto py-0 px-[10%] sm:my-[2%] sm:px-0 md:my-[10%]"
+            class="flex flex-col items-center my-5 mx-auto py-0 px-10 sm:my-2 sm:px-0 lg:my-10"
           >
             <div
-              class="image rounded-[50%] bg-white relative h-0 w-1/2 pb-[50%] mb-[5%] sm:w-[30%] sm:pb-[30%] md:w-1/2 md:pb-[50%]"
+              class="image rounded-full bg-white relative h-0 w-1/2 pb-[50%] mb-5 sm:w-[30%] sm:pb-[30%] lg:w-1/2 lg:pb-[50%]"
             >
               <img
                 class="absolute w-[95%] h-[95%] left-0"
@@ -159,22 +155,20 @@
               />
             </div>
             <div
-              class="w-3/5 mb-[5%] text-[#e8505b] normal-text lg:text-[1.3125rem] lg:leading-[1.5918rem]"
+              class="w-3/5 sub-h1-semibold secondary-color lg:mobile-header-3-medium lg:text-black-87"
             >
               {{ virtue.title }}
             </div>
           </div>
           <div
-            class="hover:opacity-100 absolute translate-x-[-50%] transition duration-[0.4s] ease-in-out h-auto w-[290px] left-[50%] top-0 bottom-0 opacity-0 bg-white p-[2%] m-auto rounded-[15px] flex flex-col justify-center sm:w-1/2 md:w-[90%] 2xl:p-[3%]"
+            class="hover:opacity-100 absolute -translate-x-2/4 transition duration-[0.4s] ease-in-out h-auto w-[290px] left-2/4 top-0 bottom-0 opacity-0 bg-white p-2 m-auto rounded-xl flex flex-col justify-center sm:w-3/5 lg:w-full 2xl:p-3"
             :class="activeIndex == virtue.id ? 'opacity-100' : ''"
           >
-            <div
-              class="text-[#e8505b] mb-[3%] w-full normal-text md:mb-0 lg:text-[1.3125rem] lg:leading-[1.5918rem] 2xl:mb-[2%]"
-            >
+            <div class="w-full secondary-color mobile-header-3-medium">
               {{ virtue.title }}
             </div>
             <div
-              class="normal-2-text mt-2.5 mb-[3%] w-full md:mb-0 2xl:mb-[2%]"
+              class="sub-h3-regular lg:sub-h1-regular text-black-60 mt-4 mt-2.5 mb-3 w-full md:mb-0 2xl:mb-2"
             >
               {{ virtue.description }}
             </div>
