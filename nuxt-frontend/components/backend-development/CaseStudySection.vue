@@ -5,7 +5,7 @@
         <h2 class="mobile-header-2 lg:desk-header-2 text-black-87">
           Case studies
         </h2>
-        <p class="sub-h1-regular lg:mobile-header-2-regular px-4 text-black-87">
+        <p class="sub-h1-regular lg:mobile-header-2-regular px-4 text-black-60">
           Explore our case studies to witness how we've transformed
           <br class="hidden lg:flex" />our client's ideas into successful apps.
         </p>
