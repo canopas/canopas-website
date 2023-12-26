@@ -39,6 +39,7 @@ module.exports = {
         },
         white: "#ffffff",
         "white-core": {
+          1: "#FFFFFF1A",
           12: "#FFFFFF1F",
           80: "#FFFFFFCC",
           60: "#FFFFFF99",
@@ -46,6 +47,7 @@ module.exports = {
         },
         pink: {
           0: "#f2709c00",
+          1: "#f2709c1a",
           300: "#f2709c",
           40: "#f2709c0a",
           80: "#f2709c14",
@@ -55,6 +57,7 @@ module.exports = {
         },
         orange: {
           300: "#ff835b",
+          5: "#ff835b0d",
         },
         slate: {
           200: "#e2e2e2",
@@ -232,6 +235,10 @@ module.exports = {
           "linear-gradient(to top, rgba(255, 255, 255, 0.6) 5%, #FFFFFF 51.63% )",
         "white-gradient-bottom":
           "linear-gradient(to bottom, rgba(255, 255, 255, 0.6) 5%, #FFFFFF 51.63%)",
+        "black-gradient":
+          "linear-gradient(to top, rgba(0, 0, 0, 1) 5%, #000000 51.63%)",
+        "black-gradient-bottom":
+          "linear-gradient(to bottom, rgba(0, 0, 0, 1) 5%, #000000 51.63%)",
         "multi-gradient-background":
           "linear-gradient(180deg, #1A1A1A 11.98%, #A65B5F 36.02%, #F98188 55.21%, #9B565A 73.96%, #1A1A1A 91.67%)",
         "pink-gradient-background":

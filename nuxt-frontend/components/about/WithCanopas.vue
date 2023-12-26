@@ -1,87 +1,89 @@
 <template>
-  <div
-    class="mt-[7.813rem] mb-11 md:mb-24 bg-gradient-to-t from-orange-300/[0.15] to-white"
-  >
-    <div class="container pb-4 pt-20 lg:pt-32">
-      <div
-        class="m-auto sm:w-[90%] text-center font-inter-bold text-[1.875rem] lg:text-[3.4375rem] leading-[2.5rem] lg:leading-[5.875rem] tracking-[-4%] text-black-900"
-      >
-        With <span class="canopas-gradient-text">canopas</span>, you will have
-        everything you need under one roof.
-      </div>
-      <div>
+  <section class="3xl:outer-container">
+    <div
+      class="mt-16 lg:mt-[7.5rem] mb-11 lg:mb-24 bg-gradient-to-t from-orange-5 to-white"
+    >
+      <div class="container pb-14">
         <div
-          ref="service1"
-          class="flex flex-wrap m-auto md:mt-20 md:mx-auto md:mb-auto lg:even:w-[70%]"
+          class="m-auto sm:w-[90%] text-center mobile-header-2 lg:desk-header-2 text-black-87"
         >
+          With <span class="primary-color">canopas</span>, you will have
+          everything you need under one roof.
+        </div>
+        <div>
           <div
-            v-for="(phase, i) in phases.slice(0, 3)"
-            :key="i"
-            class="md:flex-[1_1_30%] md:flex md:flex-col py-4 px-0 md:p-0 md:text-left last-of-type:md:py-0 last-of-type:md:px-40 last-of-type:lg:p-0 text-center"
+            ref="service1"
+            class="flex flex-wrap m-auto mt-6 lg:mt-20 lg:mx-auto lg:mb-auto lg:even:w-[70%]"
           >
-            <aspect-ratio height="56.25%">
-              <img
-                :src="phase.image"
-                class="w-full h-full object-cover"
-                loading="lazy"
-                :alt="phase.alt"
-              />
-            </aspect-ratio>
             <div
-              class="md:-mt-5 p-4 sm:py-4 sm:px-12 md:py-4 md:pr-12 md:pl-6 lg:py-4 lg:px-6"
-              :class="phase.className"
+              v-for="(phase, i) in phases.slice(0, 3)"
+              :key="i"
+              class="lg:flex-[1_1_30%] lg:flex lg:flex-col py-4 px-0 lg:p-0 lg:text-left last-of-type:lg:p-0 text-center"
             >
+              <aspect-ratio height="56.25%">
+                <img
+                  :src="phase.image"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                  :alt="phase.alt"
+                />
+              </aspect-ratio>
               <div
-                class="bg-gradient-to-r from-pink-300 to-orange-300 p-2 bg-clip-text text-transparent font-inter-medium text-[1.5rem] md:text-[2.1875rem] leading-[1.95rem] md:leading-[4.28rem] tracking-[1%]"
+                class="lg:-mt-5 p-4 sm:px-12 lg:py-4 lg:pl-[1.2rem] xl:pl-[1.9rem] lg:py-4 lg:px-6"
+                :class="phase.className"
               >
-                {{ phase.title }}
-              </div>
-              <div
-                class="md:p-2 font-inter-regular text-[1rem] md:text-[1.375rem] md:leading-8 text-black-900"
-              >
-                {{ phase.description }}
+                <div
+                  class="mobile-header-3-semibold lg:desk-header-3 primary-color"
+                >
+                  {{ phase.title }}
+                </div>
+                <div
+                  class="sub-h3-regular mt-2 lg:mt-3 lg:mobile-header-3-medium text-black-60"
+                >
+                  {{ phase.description }}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div
-          ref="service2"
-          class="flex flex-wrap m-auto md:mt-20 md:mx-auto md:mb-auto lg:even:w-[70%]"
-        >
           <div
-            v-for="(phase, i) in phases.slice(3, 5)"
-            :key="i"
-            class="text-center py-4 px-0 md:flex-[1_1_30%] md:flex md:flex-col md:p-0 md:text-left"
+            ref="service2"
+            class="flex flex-wrap m-auto lg:mt-20 lg:mx-auto lg:mb-auto lg:even:w-[85%]"
           >
-            <aspect-ratio height="56.25%">
-              <img
-                :src="phase.image"
-                class="w-full h-full object-cover"
-                :class="phase.title == 'Marketing' ? 'h-full md:h-[84%]' : ''"
-                loading="lazy"
-                :alt="phase.alt"
-              />
-            </aspect-ratio>
             <div
-              class="md:-mt-10 p-4 sm:py-4 sm:px-12 md:py-4 md:pr-12 md:pl-6 lg:py-4 lg:px-6"
-              :class="phase.className"
+              v-for="(phase, i) in phases.slice(3, 5)"
+              :key="i"
+              class="text-center py-4 px-0 lg:flex-[1_1_30%] lg:flex lg:flex-col lg:p-0 lg:text-left"
             >
+              <aspect-ratio height="56.25%">
+                <img
+                  :src="phase.image"
+                  class="w-full h-full object-cover"
+                  :class="phase.title == 'Marketing' ? 'h-full lg:h-[84%]' : ''"
+                  loading="lazy"
+                  :alt="phase.alt"
+                />
+              </aspect-ratio>
               <div
-                class="bg-gradient-to-r from-pink-300 to-orange-300 p-2 bg-clip-text text-transparent font-inter-medium text-[1.5rem] md:text-[2.1875rem] leading-[1.95rem] md:leading-[4.28rem] tracking-[1%]"
+                class="lg:-mt-[3.25rem] p-4 sm:px-12 lg:pl-[1.9rem] 2xl:pl-10 lg:px-6"
+                :class="phase.className"
               >
-                {{ phase.title }}
-              </div>
-              <div
-                class="md:p-2 font-inter-regular text-[1rem] md:text-[1.375rem] md:leading-8 text-black-900"
-              >
-                {{ phase.description }}
+                <div
+                  class="mobile-header-3-semibold lg:desk-header-3 primary-color"
+                >
+                  {{ phase.title }}
+                </div>
+                <div
+                  class="sub-h3-regular mt-2 lg:mt-3 lg:mobile-header-3-medium text-black-60"
+                >
+                  {{ phase.description }}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script type="module">
@@ -110,7 +112,7 @@ export default {
           title: "Design",
           description:
             "Working passionately with you, our designers create aesthetically pleasing  and user friendly digital experiences.",
-          className: "md:ml-[17px] 2xl:ml-[25px]",
+          className: "lg:ml-[17px] 2xl:ml-6",
         },
         {
           image: development,
@@ -118,7 +120,7 @@ export default {
           title: "Development",
           description:
             "Backend and Frontend. From the beginning, we have performance and maintainability in mind. Always insisting on best practices and keeping up with the latest trends.",
-          className: "md:ml-[35px] 2xl:ml-[45px]",
+          className: "lg:ml-[35px] xl:ml-[38px] 2xl:ml-[50px]",
         },
         {
           image: marketing,
@@ -126,7 +128,7 @@ export default {
           title: "Marketing",
           description:
             "From organic growth to writing irresistible ads for your marketing campaign, we're here to help you. We'll help you build a brand and community of prospects who can give you a boost on your product launch.",
-          className: "md:ml-[28px] 2xl:ml-[38px]",
+          className: "lg:ml-7 xl:ml-[38px]",
         },
         {
           image: support,
@@ -134,7 +136,7 @@ export default {
           title: "Support",
           description:
             "From bug fixing to feature updates, you can count on us. For the last 7 years, our clients had a 99.87% uptime for their products.",
-          className: "-mt-[15px] md:ml-[25px] 2xl:ml-[35px]",
+          className: "-mt-[15px] lg:ml-[25px] xl:ml-[38px]",
         },
       ],
     };

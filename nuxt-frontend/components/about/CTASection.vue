@@ -1,11 +1,35 @@
 <template>
   <section>
     <div
-      class="container flex flex-col lg:flex-row items-center mt-[100px] 2xl:gap-[5.5rem]"
+      class="container flex flex-col lg:flex-row-reverse items-center mt-[100px] 2xl:gap-[5.5rem]"
     >
       <div
-        class="md:w-[80%] lg:w-[48%] xl:w-[55%] 2xl:w-[50%] lg:pr-10 2xl:pr-0"
+        class="flex flex-col items-center lg:items-start lg:mt-[14.5rem] xl:mt-[15.5rem] 2xl:mt-[15.5rem] lg:w-[52%] xl:w-2/4"
       >
+        <div
+          class="md:w-[70%] lg:w-full text-center lg:text-left mobile-header-2 lg:desk-header-2 text-black-87"
+        >
+          Ready to take the next step and work together?
+        </div>
+        <div
+          class="md:w-[70%] lg:w-full pt-4 lg:text-left text-center sub-h1-regular lg:mobile-header-2-regular text-black-60"
+        >
+          We'd love to ask some questions, learn a little more about what you do
+          and who you serve and kick around some ideas for you.
+        </div>
+        <div class="pt-4 pb-60 hidden lg:flex">
+          <nuxt-link
+            class="gradient-btn primary-btn"
+            to="/contact"
+            @click.native="$mixpanel.track('tap_landing_cta')"
+          >
+            <span class="sub-h3-semibold lg:sub-h1-semibold"
+              >Talk to our experts
+            </span>
+          </nuxt-link>
+        </div>
+      </div>
+      <div class="md:w-[80%] lg:w-[48%] xl:w-w-2/4 lg:pr-10 2xl:pr-0">
         <img
           :src="CTAImage[0]"
           :srcset="`${CTAImage[0]} 400w, ${CTAImage[1]} 800w, ${CTAImage[2]} 1600w, ${CTAImage[3]} 2400w`"
@@ -14,32 +38,16 @@
           loading="lazy"
         />
       </div>
-      <div
-        class="flex flex-col items-center lg:items-start lg:mt-[5.5rem] xl:mt-10 lg:w-[52%] xl:w-[45%] 2xl:w-[50%]"
-      >
-        <div
-          class="md:w-[70%] lg:w-full text-center lg:text-left text-[1.875rem] md:text-[2.5rem] 2xl:text-[3.125rem] leading-[2.813rem] md:leading-[3.438rem] 2xl:leading-[4.688rem] font-inter-bold text-black-core/[0.87]"
+      <div class="pb-16 mt-[-43px] lg:hidden">
+        <nuxt-link
+          class="gradient-btn primary-btn"
+          to="/contact"
+          @click.native="$mixpanel.track('tap_landing_cta')"
         >
-          Ready to take the next step and work together?
-        </div>
-        <div
-          class="md:w-[70%] lg:w-full pt-4 lg:text-left text-center text-[1rem] md:text-[1.125rem] 2xl:text-[1.188rem] leading-6 md:leading-[1.656rem] 2xl:leading-[1.781rem] font-inter-medium text-black-core/[0.87]"
-        >
-          We'd love to ask some questions, learn a little more about what you do
-          and who you serve and kick around some ideas for you.
-        </div>
-        <div class="py-8">
-          <router-link
-            class="flex items-center w-max m-0 rounded-full p-3 text-center gradient-btn consultation-btn"
-            to="/contact"
-            @click.native="mixpanel.track('tap_about_cta_contact')"
-          >
-            <span
-              class="mr-2.5 font-normal text-[1rem] leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem] font-inter-medium"
-              >Talk to our experts
-            </span>
-          </router-link>
-        </div>
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
+            >Talk to our experts
+          </span>
+        </nuxt-link>
       </div>
     </div>
   </section>

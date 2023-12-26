@@ -1,41 +1,31 @@
 <template>
-  <section>
-    <div class="container mt-10 mb-20">
-      <h1
-        class="pt-5 sm:pt-10 text-center text-[1.875rem] md:text-[2.813rem] leading-9 md:leadig-[3.875rem] font-inter-bold text-black-core/[0.87]"
-      >
+  <section class="bg-deep-charcoal mb-16">
+    <div class="container pb-8">
+      <h1 class="pt-14 text-center mobile-header-2 text-white">
         How it all started?
       </h1>
       <div
-        class="container flex flex-col items-center w-full md:w-[82%] h-[24.25rem] mt-20 overflow-y-scroll hidden-scrollbar before:-mt-5 before:blur-lg before:absolute before:left-0 before:h-[6%] before:w-full before:bg-white-gradient"
+        class="container flex flex-col items-center w-full md:w-[82%] h-[24.25rem] mt-8 overflow-y-scroll hidden-scrollbar before:-mt-5 before:blur-lg before:absolute before:left-0 before:h-[6%] before:w-full before:bg-black-gradient"
       >
-        <div
-          v-for="(event, index) in events"
-          :key="event"
-          class="flex flex-row items-center"
-        >
-          <div :class="[event.className]" class="flex flex-row">
+        <div v-for="(event, index) in events" :key="event">
+          <div :class="[event.className]" class="flex">
             <div class="flex flex-col">
-              <h1
-                class="text-[1.5rem] leading-9 font-inter-semibold v2-canopas-gradient-text"
-              >
+              <h1 class="mobile-header-2 primary-color">
                 {{ event.year }}
               </h1>
               <div
                 :class="index == events.length - 1 ? 'hidden' : ''"
-                class="ml-6 h-60 sm:h-40 md:h-48 border-dotted border-l-2 border-[#000000]/[0.87]"
+                class="ml-6 h-60 sm:h-40 md:h-48 border-dotted border-l-2 border-black-87"
               ></div>
             </div>
-            <div
-              class="ml-6 text-[1rem] md:text-[1.125rem] leading-6 md:leading-[1.625rem] font-inter-medium text-black-core/[0.87]"
-            >
+            <div class="ml-6 sub-h3-medium text-white">
               {{ event.description }}
             </div>
           </div>
         </div>
       </div>
       <div
-        class="-mt-6 w-full h-12 after:absolute after:left-0 after:h-[5%] after:w-full after:blur-lg after:bg-white-gradient-bottom"
+        class="-mt-6 w-full h-12 after:absolute after:left-0 after:h-[5%] after:w-full after:blur-lg after:bg-black-gradient-bottom"
       ></div>
     </div>
   </section>
