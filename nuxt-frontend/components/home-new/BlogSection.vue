@@ -42,11 +42,14 @@
           <div
             v-for="(blog, index) in blogs"
             :key="blog"
-            @mouseover="activeIndex = index"
-            @mouseleave="activeIndex = index"
+            @mouseenter="
+              activeIndex = index;
+              activeBlog = blog;
+              animate = true;
+            "
             @touchstart.passive="activeIndex = index"
             @click.native="$mixpanel.track('tap_blog_post')"
-            class="md:w-[50%] 2xl:w-[55%] xll:w-[65%] 3xl:w-[55%] w-full"
+            class="md:w-1/2 2xl:w-[55%] xll:w-[65%] 3xl:w-[55%] w-full"
           >
             <div class="flex flex-col 2xl:pr-16">
               <hr
@@ -59,28 +62,29 @@
                 <div
                   class="flex flex-col items-center text-black-87 lg:text-black-60"
                 >
-                  <span class="mobile-header-2 lg:desk-header-2">
+                  <span
+                    class="mobile-header-2 lg:desk-header-2"
+                    @mouseleave="animate = false"
+                  >
                     {{ blog.pubDate[1] }}
                   </span>
-                  <span class="text-center sub-h4-regular lg:sub-h4-medium">
+                  <span
+                    class="text-center sub-h4-regular lg:sub-h4-medium"
+                    @mouseleave="animate = false"
+                  >
                     {{ blog.pubDate[0] }}
                   </span>
                 </div>
 
                 <div
                   class="flex flex-col w-full"
-                  @mouseover="
-                    activeBlog = blog;
-                    animate = true;
-                  "
-                  @mouseleave="animate = false"
                   @touchstart.passive="
                     activeBlog = blog;
                     animate = true;
                   "
                   @touchend="animate = false"
                 >
-                  <div>
+                  <div @mouseleave="animate = false">
                     <span
                       @click="
                         width > 768 ? openBlog(blog.link, 'tap_blog_post') : ''
@@ -152,7 +156,6 @@
             class="relative mt-14 lg:mt-[4.5rem]"
             alt="blog-background-image"
           />
-
           <img
             v-if="activeBlog !== null"
             @click="openBlog(activeBlog.link, 'tap_blog_post')"

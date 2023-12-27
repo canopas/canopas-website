@@ -42,7 +42,7 @@
         </li>
       </ul>
       <nuxt-link
-        class="ml-0 md:mx-auto lg:hidden gradient-btn primary-btn"
+        class="md:mx-auto lg:hidden gradient-btn primary-btn"
         to="/contact"
         @click.native="$mixpanel.track('tap_landing_cta')"
       >

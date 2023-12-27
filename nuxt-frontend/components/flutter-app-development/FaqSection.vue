@@ -129,7 +129,9 @@
         />
       </div>
     </div>
-    <div class="hidden lg:block container text-right pb-[3.75rem]">
+    <div
+      class="hidden lg:block container text-right pb-[3.75rem] xll:pb-3 3xl:pb-9"
+    >
       <button
         v-if="isActivePrev"
         type="button"

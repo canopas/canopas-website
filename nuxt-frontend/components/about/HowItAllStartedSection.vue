@@ -17,7 +17,7 @@
           </nuxt-link>
         </div>
       </div>
-      <div class="flex flex-col gap-14">
+      <div class="flex flex-col gap-14 mb-12">
         <div
           class="flex gap-10 item opacity-50"
           v-for="(event, index) in events"
@@ -88,7 +88,7 @@ function handleScroll() {
   child.forEach((item, index) => {
     const itemRect = item.getBoundingClientRect();
     const itemTop = itemRect.top;
-    if (itemTop < 380) {
+    if (itemTop < 550) {
       activeIndex.value = index;
     }
   });
