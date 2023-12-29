@@ -121,6 +121,8 @@ export default {
           title: "Frontend Development",
           description:
             "The front end is the first point of interaction between your users and your app, making its design and functionality crucial. We focus on creating interactive, visually stunning, and easy-to-navigate interfaces that make your digital presence stand out, promoting enhanced user satisfaction and brand loyalty. ",
+          url: "/frontend-development",
+          showServices: config.SHOW_FRONTEND_DEVELOPMENT_PAGE,
         },
       ],
       lastScrollY: 0,
