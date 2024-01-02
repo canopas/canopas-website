@@ -2,12 +2,8 @@
   <div>
     <Header />
     <LandingSection />
-    <CaseStudySection />
-    <PartnerWithUsSection />
-    <SuccessStorySection />
-    <BlogSection />
-    <BlackCtaSection />
-    <NewFooter />
+    <DevelopmentSection />
+    <NewFooter class="-mt-4 md:mt-0" />
   </div>
 </template>
 <script>
@@ -16,21 +12,7 @@ import config from "@/config.js";
 import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/backend-development/LandingSection.vue";
-const CaseStudySection = defineAsyncComponent(
-  () => import("@/components/backend-development/CaseStudySection.vue"),
-);
-const PartnerWithUsSection = defineAsyncComponent(
-  () => import("@/components/backend-development/PartnerWithUsSection.vue"),
-);
-const SuccessStorySection = defineAsyncComponent(
-  () => import("@/components/backend-development/SuccessStorySection.vue"),
-);
-const BlogSection = defineAsyncComponent(
-  () => import("@/components/backend-development/BlogSection.vue"),
-);
-const BlackCtaSection = defineAsyncComponent(
-  () => import("@/components/backend-development/BlackCtaSection.vue"),
-);
+import DevelopmentSection from "@/components/backend-development/DevelopmentSection.vue";
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
 );
@@ -49,11 +31,7 @@ export default {
   components: {
     Header,
     LandingSection,
-    CaseStudySection,
-    PartnerWithUsSection,
-    SuccessStorySection,
-    BlogSection,
-    BlackCtaSection,
+    DevelopmentSection,
     NewFooter,
   },
   setup() {
