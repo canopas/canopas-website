@@ -1,7 +1,16 @@
 <template>
-  <section class="mt-16 lg:mt-60 font-inter-regular">
+  <section
+    :class="
+      currentRoutePath == '/portfolio' ? 'mt-6 lg:mt-28' : 'mt-16 lg:mt-60'
+    "
+  >
     <div>
-      <p class="text-[#F8F8F8] background-text text-center">Our Portfolio</p>
+      <p
+        class="text-[#F8F8F8] background-text text-center"
+        :class="currentRoutePath == '/portfolio' ? 'hidden' : 'block'"
+      >
+        Our Portfolio
+      </p>
       <h2
         class="container -mt-5 md:mt-[-50px] mobile-header-2 lg:desk-header-2 text-center text-black-87"
       >
