@@ -1,19 +1,17 @@
 <template>
-  <div class="pt-14 px-0 font-inter-medium z-[1] bg-[#121212]">
+  <div class="pt-14 px-0 font-inter-medium z-[1] bg-deep-charcoal">
     <div class="container text-center">
       <div class="mb-8 md:mb-[60px]">
-        <div
-          class="text-[1.375rem] leading-[1.6875rem] md:text-2xl md:leading-[1.8125rem] lg:text-[1.625rem] lg:leading-[1.9375rem] text-white font-bold"
-        >
+        <div class="text-white mobile-header-3 lg:desk-header-3">
           Follow us on
         </div>
         <ul
-          class="flex flex-wrap justify-center w-full m-auto mt-2 xl:mt-6 cursor-pointer list-none"
+          class="flex flex-wrap justify-center w-full m-auto mt-2 xl:mt-6 cursor-pointer list-none pl-0"
         >
           <li
             v-for="icon in socialMediaIcons"
             :key="icon"
-            class="flex justify-center !items-center w-10 h-10 md:w-[62px] md:h-[62px] !rounded-[50%] text-center cursor-pointer"
+            class="flex justify-center !items-center w-10 h-10 md:w-[62px] md:h-[62px] !rounded-[50%] text-center cursor-pointer pb-[1.2rem] md:pb-4"
             :class="icon.image ? 'm-[5px]' : 'gradient-border-btn border-0'"
           >
             <a :href="icon.url" target="_blank" aria-label="footerLink">
@@ -81,6 +79,11 @@ export default {
           url: Config.YOUTUBE_URL,
           icon: "fa6-brands:youtube",
           event: "tap_footer_youtube",
+        },
+        {
+          url: Config.GITHUB_URL,
+          icon: "fa6-brands:github",
+          event: "tap_footer_github",
         },
       ],
     };
