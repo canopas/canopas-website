@@ -25,14 +25,20 @@
           ></nuxt-link
         >
       </div>
-      <div class="flex flex-col -gap-1 lg:flex-1 lg:my-auto">
-        <div class="w-4/5 md:w-3/5 lg:w-full mx-auto">
-          <img
-            :src="landing"
-            alt="backend"
-            class="w-full h-full object-cover"
-          />
-        </div>
+      <div
+        class="mx-auto w-[20.5625rem] flex flex-col -gap-1 lg:flex-1 lg:my-auto"
+      >
+        <img
+          :src="landing400"
+          :srcset="`${landing400} 400w,${landing800} 800w`"
+          alt="backend"
+          class="w-full h-full object-contain lg:hidden"
+        />
+        <img
+          :src="landing"
+          alt="backend"
+          class="w-full h-full object-cover hidden lg:block"
+        />
         <nuxt-link
           class="gradient-btn primary-btn mb-16 lg:hidden"
           to="/contact"
@@ -47,6 +53,8 @@
   </section>
 </template>
 <script setup>
+import landing400 from "@/assets/images/backend-development/landing/landing400w.webp";
+import landing800 from "@/assets/images/backend-development/landing/landing800w.webp";
 import landing from "@/assets/images/backend-development/landing/landing.webm";
 const { $mixpanel } = useNuxtApp();
 </script>
