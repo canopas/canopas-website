@@ -7,6 +7,7 @@
     <SuccessStorySection />
     <BlogSection />
     <BlackCtaSection />
+    <FaqSection />
     <NewFooter />
   </div>
 </template>
@@ -31,6 +32,9 @@ const BlogSection = defineAsyncComponent(
 const BlackCtaSection = defineAsyncComponent(
   () => import("@/components/backend-development/BlackCtaSection.vue"),
 );
+const FaqSection = defineAsyncComponent(
+  () => import("@/components/backend-development/FaqSection.vue"),
+);
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
 );
@@ -54,6 +58,7 @@ export default {
     SuccessStorySection,
     BlogSection,
     BlackCtaSection,
+    FaqSection,
     NewFooter,
   },
   setup() {

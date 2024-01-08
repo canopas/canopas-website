@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-16 mb-16 lg:mt-60 lg:mb-0 3xl:outer-container">
+  <section class="my-16 lg:mt-60 lg:mb-0 3xl:outer-container">
     <div class="container">
       <div class="flex flex-col gap-4 lg:gap-6 text-center">
         <h2 class="mobile-header-2 lg:desk-header-2 text-black-87">
@@ -7,7 +7,8 @@
         </h2>
         <p class="sub-h1-regular lg:mobile-header-2-regular px-4 text-black-60">
           Explore our case studies to witness how we've transformed
-          <br class="hidden lg:flex" />our client's ideas into successful apps.
+          <br class="hidden lg:inline-block" />our client's ideas into
+          successful apps.
         </p>
       </div>
       <!-- ---------------------MOBILE UI START------------------ -->
@@ -63,9 +64,7 @@
         class="swiper-container xll:container"
       >
         <swiper-slide v-for="item in cases" :key="item">
-          <div
-            class="flex flex-row py-[8.5rem] container px-10 xl:px-16 mx-auto"
-          >
+          <div class="flex py-[8.5rem] container px-10 xl:px-16 mx-auto">
             <div class="flex flex-col gap-8 my-auto text-left flex-1">
               <div class="white-btn">
                 <span class="desk-header-3">
@@ -90,7 +89,7 @@
                 ></p>
               </div>
             </div>
-            <div class="flex-1 flex justify-end">
+            <div class="flex-1">
               <a
                 class="cursor-pointer"
                 :href="item.url"
@@ -100,7 +99,7 @@
                 <img
                   :src="item.images[2]"
                   :srcset="`${item.images[2]} 400w,${item.images[3]} 800w`"
-                  class="w-[29.79663rem] h-[28.95819rem] object-contain"
+                  class="w-[29.79663rem] h-[28.95819rem] object-fit mx-auto"
                   :alt="item.title"
                   loading="lazy"
               /></a>
