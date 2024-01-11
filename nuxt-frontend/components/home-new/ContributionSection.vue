@@ -2,7 +2,7 @@
   <div class="relative container my-0 lg:mb-60 mx-auto">
     <div class="sticky top-0 w-full h-screen">
       <div
-        class="flex flex-col justify-center w-[36%] xl:w-[39%] h-full float-right xl:pl-12"
+        class="flex flex-col justify-center w-[36%] xl:w-[34%] 2xl:w-[28%] h-full float-right xl:pl-12"
       >
         <span
           class="text-black-87 mobile-header-2 lg:mobile-header-1 xl:desk-header-2"
@@ -12,7 +12,7 @@
         <div class="mt-2 md:mt-0 text-black-60 mobile-header-2-regular">
           <span>and that starts with the site itself, </span>
           <a
-            class="mobile-header-2-semibold relative bg-gradient-[1deg] pb-[5px] v2-canopas-gradient-text gradient-underline no-underline cursor-pointer after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-gradient-to-l after:to-pink-300 after:from-orange-300"
+            class="mobile-header-2-semibold v2-canopas-gradient-text gradient-border border-b-2"
             :href="websiteOpenSourceUrl"
             target="_blank"
             @click.native="$mixpanel.track('tap_canopas_website_github')"
@@ -21,7 +21,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col -mt-[90vh] mb-0 w-[62%] xl:w-[60%]">
+    <div class="flex flex-col -mt-[90vh] mb-0 w-[62%] xl:w-[64%] 2xl:w-[72%]">
       <div
         v-for="(contribution, index) in contributions"
         :key="contribution"
@@ -44,7 +44,7 @@
           @click="
             openBlog(contribution.link, 'tap_home_github_contribution_section')
           "
-          class="relative flex flex-col basis-[50%] xl:basis-[60%] my-auto w-[100%] translate-y-0 bg-[#FFFFFF] p-4 xl:p-8 shadow-[0_0px_10px_rgba(0,0,0,0.1)] active:scale-[0.98]"
+          class="relative flex flex-col basis-1/2 xl:basis-3/5 2xl:basis-[66%] my-auto w-full translate-y-0 bg-white p-4 xl:p-8 shadow-[0_0px_10px_rgba(0,0,0,0.1)] active:scale-[0.98]"
           :class="[index % 2 == 0 ? 'rounded-r-xl' : 'rounded-l-xl']"
         >
           <div>
@@ -184,3 +184,8 @@ export default {
   inject: ["mixpanel"],
 };
 </script>
+<style scoped>
+.gradient-border {
+  border-image: linear-gradient(to left, #f2709c, #ff835b) 1;
+}
+</style>

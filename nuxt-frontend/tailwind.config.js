@@ -57,13 +57,16 @@ module.exports = {
         },
         orange: {
           300: "#ff835b",
+          1: "#ff835b1a",
           5: "#ff835b0d",
+          80: "#ff835b14",
         },
         slate: {
           200: "#e2e2e2",
           400: "#8d8a8a",
         },
         "deep-charcoal": "#121212",
+        "white-smoke": "#F8F8F8",
       },
       borderRadius: {
         "x-lg": "20px",
@@ -190,6 +193,14 @@ module.exports = {
             transform: " scale(1.2) translateX(15%)",
           },
         },
+        mulitpleUnderlineOut: {
+          "0%": {
+            backgroundSize: "0%",
+          },
+          "100%": {
+            backgroundSize: "100%",
+          },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",
@@ -198,6 +209,7 @@ module.exports = {
         menuSticky: "0.6s ease-in-out",
         fadeInRight: "fadeInRight 150ms ease-in",
         underlineOut: "underlineOut 1s",
+        mulitpleUnderlineOut: "mulitpleUnderlineOut 1s",
         gridAnimation: "scroll 40s linear infinite",
         gridAnimationReverse: "scroll-reverse 20s linear infinite",
         gridAnimationReverse2: "scroll-reverse 40s linear infinite",
@@ -252,6 +264,8 @@ module.exports = {
           "linear-gradient(transparent calc(100% - 5px), white 1px)",
         "gradient-underline-out":
           "linear-gradient(transparent calc(100% - 5px), #f77783 1px)",
+        "black-underline-out":
+          "linear-gradient(transparent calc(100% - 4px), #000000DE 1px)",
         "light-pink-gradient-background":
           "linear-gradient(180deg, #FFFEFE 3.13%, #FFF6F0 47.54%, #FFF 95.59%)",
         "togness-blue-gradient-background":

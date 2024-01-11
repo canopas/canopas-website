@@ -1,46 +1,40 @@
 <template>
-  <section class="my-[7.813rem]">
-    <div
-      class="py-12 text-center font-inter-bold text-[1.875rem] leading-[2.25rem] lg:text-[3.4375rem] lg:leading-[5.15625rem] xl:py-24"
-    >
+  <section class="my-60">
+    <div class="text-center desk-header-2">
       <span>What We Offer</span>
     </div>
     <div class="container"></div>
-    <div class="text-black-core-900/[0.87] container text-center">
+    <div class="container text-center">
       <div class="mb-16 flex justify-center">
-        <div class="flex w-[50%] flex-col justify-end text-left">
+        <div class="flex w-1/2 flex-col justify-end text-left">
           <div
             v-for="(service, index) in services"
             :key="service"
-            class="relative h-[100vh]"
+            class="relative h-screen"
             :ref="'image-' + index"
           >
-            <div class="absolute top-[50%] translate-y-[-50%]">
+            <div class="absolute top-1/2 -translate-y-1/2">
               <div
-                class="py-5"
+                class="py-6"
                 @click="service.showServices ? openUrl(service.url) : ''"
                 :class="service.showServices ? 'cursor-pointer' : ''"
               >
                 <span
-                  class="font-inter-semibold text-[1.5rem] leading-9 md:text-[2.25rem] md:leading-[3.43rem] xl:text-[3.125rem] xl:leading-[4.6875rem]"
-                  >{{ service.title }}</span
-                >
+                  class="desk-header-2 text-black-87 bg-black-underline-out box-decoration-clone bg-no-repeat pb-[5px] bg-[length:100%] hover:animate-mulitpleUnderlineOut"
+                  >{{ service.title }}
+                </span>
               </div>
-              <div
-                class="font-inter-regular text-base md:text-[1.094rem] md:leading-[1.625rem] xl:text-[1.188rem] xl:leading-[1.781rem]"
-              >
+              <div class="mobile-header-3-regular text-black-60">
                 <p>{{ service.description }}</p>
               </div>
             </div>
           </div>
         </div>
-        <div
-          class="-translate-[50%] sticky top-0 flex w-[50%] h-[100vh] items-center"
-        >
+        <div class="sticky top-0 flex w-1/2 h-screen items-center">
           <div
             v-for="service in services"
             :key="service"
-            class="absolute w-[100%] overflow-hidden pb-[100%]"
+            class="absolute w-full overflow-hidden pb-[100%]"
             :style="{
               clipPath: `polygon(0% ${service.path[0]}%, 100% ${service.path[1]}%, 100% 100%, 0% 100%)`,
             }"
@@ -48,7 +42,7 @@
             <img
               :src="service.image"
               alt="Service-images"
-              class="absolute right-0 top-0 z-[1] ml-auto h-full w-[80%] object-cover"
+              class="absolute right-0 top-0 z-[1] ml-auto h-full w-4/5 object-cover"
               loading="lazy"
             />
           </div>

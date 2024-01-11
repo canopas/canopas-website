@@ -1,50 +1,51 @@
 <template>
-  <section class="relative mt-32 xl:mt-40 mb-20 xl:mb-0">
-    <div class="xl:hidden">
+  <section
+    class="mt-16 md:mt-32 lg:mt-60 mb-20 lg:mb-0 lg:pb-28 lg:bg-gradient-to-t lg:from-orange-1 lg:via-pink-1 lg:to-white 3xl:outer-container"
+  >
+    <div class="lg:hidden relative mx-auto w-[400px]">
       <img
         :src="ctabgImages[0]"
         :srcset="`${ctabgImages[0]} 400w`"
         loading="lazy"
         alt="cta-bg-image"
-        class="absolute top-[-6.5rem] sm:left-[4.5rem] md:left-[6.5rem] w-[100%] sm:w-[80%] tw object-content"
+        class="absolute top-[-14] md:top-[-6.5rem] left-2 object-contain mx-auto"
       />
     </div>
-    <div class="container xl:flex xl:flex-row">
-      <div
-        class="flex flex-col items-center xl:items-start xl:mb-20 xl:w-[60%] 2xl:w-[50%]"
-      >
+    <div class="container flex flex-row">
+      <div class="flex flex-col items-center lg:items-start lg:w-3/5">
         <p
-          class="font-inter-bold text-center xl:text-left text-[1.875rem] md:text-[2.813rem] lg:text-[3.438rem] leading-9 md:leading-[3.75rem] lg:leading-[5.156rem] font-inter-bold text-black-core/[0.87]"
+          class="text-center lg:text-left mobile-header-2 lg:desk-header-2 text-black-87 w-[69%] lg:w-[87%] 2xl:w-[82%]"
         >
           Want to build a new version of your existing app or add new features?
         </p>
         <p
-          class="mt-4 text-[1rem] md:text-[1.25rem] leading-6 md:leading-[1.875rem] font-inter-medium text-center xl:text-left text-black-core/[0.87] lg:text-black-core/[0.60]"
+          class="mt-4 text-center lg:text-left sub-h1-regular lg:mobile-header-2-regular text-black-60 w-[78%] xl:w-[70%] 2xl:w-[65%]"
         >
           Not sure where to start? We also offer code and architecture reviews,
           strategic planning, and more.
         </p>
         <nuxt-link
-          class="flex items-center m-0 mt-6 w-max rounded-full p-3 text-center gradient-btn consultation-btn"
+          class="relative mt-8 lg:ml-0 gradient-btn primary-btn"
           to="/contact"
-          @click.native="$mixpanel.track('tap_services_cta')"
+          @click.native="$mixpanel.track('tap_landing_cta')"
         >
-          <span
-            class="mr-2.5 text-[1.188rem] leading-[1.425rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem] font-inter-semibold !tracking-[0]"
-            >Talk to our experts
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
+            >Talk To Our Experts
           </span>
         </nuxt-link>
       </div>
-      <div class="hidden xl:block relative w-[53%] xl:w-[40%] 2xl:w-[50%]">
-        <img
-          :src="ctaImages[0]"
-          :srcset="`${ctaImages[0]} 400w, ${ctaImages[1]} 800w`"
-          loading="lazy"
-          class="absolute right-0 h-full object-contain z-[2] mr-[-50px]"
-          alt="cta-image"
-        />
+      <div class="hidden lg:block relative w-2/5">
+        <aspect-ratio class="w-[96%] 2xl:w-[80%] lg:block hidden" height="60%">
+          <img
+            :src="ctaImages[0]"
+            :srcset="`${ctaImages[0]} 400w, ${ctaImages[1]} 800w`"
+            loading="lazy"
+            class="relative h-full w-full z-[2] object-cover ml-10"
+            alt="cta-image"
+          />
+        </aspect-ratio>
         <div
-          class="swiper-content flex xl:items-center w-full h-full pl-4 md:pl-0"
+          class="absolute top-[5.5rem] xl:-top-10 swiper-content flex xl:items-center w-full h-full pl-4 md:pl-0 lg:ml-[-3.75rem] xl:ml-[-1.625rem]"
         >
           <swiper
             :slidesPerView="1"
@@ -64,29 +65,26 @@
             <swiper-slide
               v-for="(slide, index) in slides"
               :key="index"
-              @mouseover="playSwiper(false)"
-              @mouseleave="playSwiper(true)"
-              @touchstart.passive="playSwiper(false)"
-              @touchmove.passive="playSwiper(true)"
-              @touchend="playSwiper(true)"
               class="cursor-pointer"
             >
               <div
                 :class="slide.hasStar ? 'justify-between' : 'justify-center'"
-                class="flex flex-col items-center rounded-2xl bg-gradient-to-r from-[#FF835B]/[0.3] to-[#F2709C]/[0.3] w-[50%] p-5 h-[140px]"
+                class="flex flex-col items-center rounded-2xl bg-gradient-to-r from-orange-1 to-pink-1 w-64 p-5 h-32"
               >
-                <span class="font-inter-bold text-[1.5rem] leading-9">{{
+                <span class="mobile-header-2-bold text-black-87">{{
                   slide.title
                 }}</span>
-                <span
-                  class="font-inter-regular text-[1.1875rem] leading-[1.78125rem] text-black-core/[0.6]"
-                  >{{ slide.content }}</span
+                <span class="sub-h1-semibold text-black-60">{{
+                  slide.content
+                }}</span>
+                <div
+                  v-if="slide.hasStar"
+                  class="flex justify-between mt-[0.188rem]"
                 >
-                <div v-if="slide.hasStar" class="flex justify-between mt-[3px]">
                   <Icon
                     v-for="i in 5"
                     :key="i"
-                    class="fa w-[15px] h-[15px] mr-[5px] text-[#F2709C]"
+                    class="fa w-[15px] h-[15px] mr-[0.313rem] secondary-color"
                     name="fa6-solid:star"
                   />
                 </div>
@@ -136,14 +134,6 @@ export default {
     SwiperSlide,
   },
   inject: ["mixpanel"],
-  methods: {
-    onSwiper(swiper) {
-      this.swiper = swiper;
-    },
-    playSwiper(play) {
-      play ? this.swiper.autoplay.start() : this.swiper.autoplay.stop();
-    },
-  },
 };
 </script>
 <style lang="postcss">

@@ -5,7 +5,7 @@
       <LandingSection />
       <WhatWeOfferMobile class="block lg:hidden" />
       <WhatWeOfferDesktop class="hidden lg:block" />
-      <CTASection class="!mt-24 xl:!mt-40" />
+      <CTASection />
       <TechnologyStack />
       <BlogSection ref="blogs" />
       <ContributionSection class="hidden lg:block" />

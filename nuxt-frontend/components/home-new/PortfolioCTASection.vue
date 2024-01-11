@@ -34,7 +34,7 @@
           </div>
         </div>
         <nuxt-link
-          class="m-auto lg:ml-0 white-btn gradient-border-btn primary-btn border-none"
+          class="m-auto lg:ml-0 white-border-btn primary-btn border-none"
           to="/contact"
           @click.native="$mixpanel.track('tap_home_portfolio_cta')"
         >

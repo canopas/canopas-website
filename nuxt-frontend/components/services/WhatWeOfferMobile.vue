@@ -1,12 +1,10 @@
 <template>
-  <div class="text-black-core-900/[0.87] text-center sm:container">
-    <div
-      class="py-12 text-center font-inter-bold text-[1.875rem] leading-9 sm:py-16"
-    >
+  <div class="mt-16 text-center sm:container sm:mt-16">
+    <div class="mobile-header-2 text-black-87">
       <span>What We Offer</span>
     </div>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col mt-6">
       <div v-for="service in services" :key="service" class="m-auto md:w-[70%]">
         <div>
           <img
@@ -18,18 +16,17 @@
           />
         </div>
 
-        <div :class="service.class" class="px-2.5 sm:px-20">
+        <div :class="service.class" class="px-2.5 sm:px-20 pb-10">
           <div
             class="py-5 sm:py-6"
             @click="service.showServices ? openUrl(service.url) : ''"
             :class="service.showServices ? 'cursor-pointer' : ''"
           >
-            <span
-              class="text-center font-inter-semibold text-[1.5rem] leading-9"
-              >{{ service.title }}</span
-            >
+            <span class="mobile-header-3-semibold text-black-87">{{
+              service.title
+            }}</span>
           </div>
-          <div class="mb-10 text-center font-inter-regular text-base sm:mb-14">
+          <div class="sub-h3-regular text-black-60">
             <p>{{ service.description }}</p>
           </div>
         </div>

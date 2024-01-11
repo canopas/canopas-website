@@ -133,7 +133,7 @@
   }
 
   .gradient-btn {
-    @apply mb-0 ml-auto mr-auto mt-5 rounded-[0.6rem] border border-solid border-transparent from-[#ff835b] to-[#f2709c] p-4 text-center text-white bg-gradient-[270.11deg] hover:bg-gradient-to-r hover:from-[#ff9472] hover:via-[#ff909c] hover:to-[#f2709c] hover:shadow-[inset_2px_1000px_1px_#fff] active:scale-[0.98] lg:mb-0 lg:ml-2 lg:mr-2 lg:mt-5 lg:px-4 lg:py-4;
+    @apply mb-0 ml-auto mr-auto mt-5 rounded-[0.6rem] border border-solid border-transparent from-orange-300 to-pink-300 p-4 text-center text-white bg-gradient-[270.11deg] lg:hover:bg-gradient-to-r lg:hover:shadow-[inset_2px_1000px_1px_white] active:scale-[0.98] lg:mb-0 lg:ml-2 lg:mr-2 lg:mt-5 lg:px-4 lg:py-4;
   }
 
   .gradient-btn > span {
@@ -142,25 +142,25 @@
 
   .gradient-btn:hover > a > span,
   .gradient-btn:hover > span {
-    @apply from-[#f2709c] to-[#ff9472] bg-clip-text text-transparent bg-gradient-[89.88deg];
+    @apply lg:bg-clip-text lg:text-transparent lg:bg-gradient-[89.88deg];
   }
 
   .white-btn > span {
-    @apply from-[#FF835B] to-[#F2709C] bg-clip-text text-transparent bg-gradient-[270.11deg];
+    @apply from-orange-300 to-pink-300 bg-clip-text text-transparent bg-gradient-[270.11deg];
   }
 
   .gradient-btn:hover > .fa,
   .gradient-btn:hover > .fas,
   .gradient-btn:hover > a > .fab {
-    @apply text-[#f2709c];
+    @apply lg:text-pink-300;
   }
 
   .gradient-border-btn {
-    @apply m-[5px] rounded-[0.6rem] border border-solid border-transparent bg-gradient-to-r from-[#ff9472] via-[#ff909c] to-[#f2709c] p-[1rem] text-center shadow-[inset_2px_1000px_1px_#fff] hover:border hover:border-solid hover:border-transparent hover:from-[#f2709c] hover:to-[#ff9472] hover:shadow-none hover:bg-gradient-[91.53deg] active:scale-[0.98];
+    @apply m-[5px] rounded-[0.6rem] border border-solid border-transparent  p-4 text-center shadow-[inset_2px_1000px_1px_white] lg:hover:border lg:hover:border-solid lg:hover:border-transparent lg:hover:from-pink-300 lg:hover:to-orange-300 lg:hover:shadow-none lg:hover:bg-gradient-[91.53deg] active:scale-[0.98];
   }
 
   .gradient-border-btn > a > .fab {
-    @apply text-[#f2709c];
+    @apply text-pink-300;
   }
 
   .gradient-border-btn:hover > .arrow,
@@ -168,7 +168,15 @@
   .gradient-border-btn:hover > a > .fab,
   .gradient-border-btn:hover > span,
   .gradient-border-btn:hover > span > span {
-    @apply text-white;
+    @apply lg:text-white;
+  }
+
+  .white-border-btn {
+    @apply m-[5px] rounded-[0.6rem] border border-solid border-transparent bg-gradient-to-r p-4 text-center shadow-[inset_2px_1000px_1px_white]  active:scale-[0.98];
+  }
+
+  .white-border-btn > span {
+    @apply from-orange-300 to-pink-300 bg-clip-text text-transparent bg-gradient-[270.11deg];
   }
 
   .mobile-header-1 {
@@ -178,22 +186,25 @@
     @apply font-opensans-bold tracking-[-0.08rem] text-2xl leading-9;
   }
   .mobile-header-2-regular {
-    @apply font-inter-regular tracking-[-0.08rem] xl:tracking-normal text-2xl leading-9;
+    @apply font-inter-regular tracking-[-0.08rem] lg:tracking-normal text-2xl leading-9;
+  }
+  .mobile-header-2-bold {
+    @apply font-inter-bold tracking-[-0.08rem] lg:tracking-normal text-2xl leading-9;
   }
   .mobile-header-2-semibold {
-    @apply font-inter-semibold  tracking-[-0.08rem] xl:tracking-normal text-2xl leading-9;
+    @apply font-inter-semibold  tracking-[-0.08rem] lg:tracking-normal text-2xl leading-9;
   }
   .mobile-header-3 {
-    @apply font-opensans-semibold tracking-[-0.08rem] xl:tracking-normal text-xl leading-[1.875rem];
+    @apply font-opensans-semibold tracking-[-0.08rem] lg:tracking-normal text-xl leading-[1.875rem];
   }
   .mobile-header-3-regular {
-    @apply font-inter-regular tracking-[-0.08rem] xl:tracking-normal text-xl leading-[1.875rem];
+    @apply font-inter-regular tracking-[-0.08rem] lg:tracking-normal text-xl leading-[1.875rem];
   }
   .mobile-header-3-medium {
-    @apply font-inter-medium tracking-[-0.08rem] xl:tracking-normal text-xl leading-[1.875rem];
+    @apply font-inter-medium tracking-[-0.08rem] lg:tracking-normal text-xl leading-[1.875rem];
   }
   .mobile-header-3-semibold {
-    @apply font-inter-semibold tracking-[-0.08rem] xl:tracking-normal text-xl leading-[1.875rem];
+    @apply font-inter-semibold tracking-[-0.08rem] lg:tracking-normal text-xl leading-[1.875rem];
   }
   .desk-header-1 {
     @apply font-opensans-bold tracking-[-0.08rem] text-6xl leading-[4.875rem];
