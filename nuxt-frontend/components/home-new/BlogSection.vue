@@ -2,7 +2,7 @@
   <section class="my-16 lg:my-60 text-black-87 h-full">
     <div class="container flex flex-col items-center m-auto w-full">
       <div class="container">
-        <p class="text-[#F8F8F8] background-text text-center">Blogs</p>
+        <p class="text-white-smoke background-text text-center">Blogs</p>
         <h2
           class="-mt-5 md:mt-[-50px] mx-auto lg:w-[71%] xl:w-[65%] mobile-header-2 lg:desk-header-2 text-center"
         >
@@ -15,7 +15,10 @@
         >
           Well, at least the community says Hell Yeah. Our blogs hosted on
           medium have
-          <span class="secondary-color">100k+</span>
+          <span
+            class="secondary-color sub-h1-semibold lg:mobile-header-2-semibold"
+            >100k+</span
+          >
           minutes monthly reading time and it’s only rising.
         </div>
       </div>

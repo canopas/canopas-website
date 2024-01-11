@@ -1,14 +1,11 @@
 <template>
-  <section
-    class="flex flex-col mt-[7.813rem] items-center mb-20 md:mb-[14.063rem] md:mx-auto md:w-8/12"
-  >
-    <div class="container mt-20 lg:mt-32 text-center">
-      <span
-        class="font-inter-bold text-[1.875rem] md:text-[3.4375rem] leading-9 md:leading-[5.15625rem] text-black-core/[0.87]"
+  <section class="mt-16 lg:mt-60 flex flex-col items-center mt-16 md:mx-auto">
+    <div class="container text-center">
+      <span class="mobile-header-2 lg:desk-header-2 text-black-87"
         >Technology Stack</span
       >
       <p
-        class="mt-5 font-inter-medium text-black-core/[0.87] md:text-black-core/[0.6] text-[1rem] md:text-[1.5rem] leading-6 md:leading-9"
+        class="mt-4 sub-h1-regular lg:mobile-header-2-regular text-black-60 w-full xl:w-[91%] 2xl:w-[81%] text-center mx-auto"
       >
         The products we build are typically deployed to mobile and web. Web and
         mobile are our bread and butter. From native to hybrid, frontend to
@@ -18,44 +15,40 @@
       </p>
     </div>
     <div
-      class="xl:hidden mt-16 h-auto w-[380px] rounded-2xl bg-[#F6F6F6]"
+      class="lg:hidden mt-16 h-auto w-[380px] rounded-2xl bg-white-smoke"
       v-for="stack in stacks"
       :key="stack"
     >
       <span
-        class="flex items-center -mt-6 mx-auto w-max rounded-full py-2.5 md:py-3 px-10 text-center gradient-btn pointer-events-none"
+        class="flex items-center -mt-6 mx-auto w-max rounded-xl py-2.5 md:py-3 px-10 text-center bg-black-core pointer-events-none"
       >
-        <span
-          class="mr-2.5 text-[1.25rem] md:text-[1.09375rem] lg:text-[1.1875rem] leading-[1.875rem] md:leading-[1.3125rem] lg:leading-[1.4375rem] font-inter-semibold"
-          >{{ stack.title }}
-        </span>
+        <span class="mobile-header-3 text-white">{{ stack.title }} </span>
       </span>
       <div class="flex flex-row flex-wrap items-center my-7 pl-7">
         <img
           v-for="techs in stack.image"
           :key="techs"
-          class="flex w-28 h-28 object-cover mt-4 rounded-[5px] pr-[10px]"
+          class="flex w-28 h-28 object-cover mt-4 rounded-[0.313rem] pr-2.5"
           :src="techs"
           alt="technology-stacks-image"
         />
       </div>
     </div>
-    <div class="hidden xl:block">
-      <div class="grid grid-rows-2 grid-flow-col gap-x-4 xl:gap-x-12">
+    <div class="hidden lg:block">
+      <div class="grid grid-rows-2 grid-flow-col gap-x-4 xl:gap-x-6">
         <div class="row-start-2 row-span-1 -mt-40">
           <div v-for="stack in stack1" :key="stack" class="flex">
             <div
-              class="mt-14 h-auto w-[368px] rounded-2xl bg-white drop-shadow-md"
+              class="mt-14 h-auto w-[313px] xl:w-[345px] 2xl:w-[368px] rounded-2xl bg-white drop-shadow-md"
             >
               <span
-                class="flex items-center mx-auto mt-[-23px] w-max rounded-full py-3 px-5 text-center gradient-btn pointer-events-none"
+                class="flex items-center mx-auto mt-[-1.438rem] w-max rounded-xl py-3 px-5 text-center bg-black-core pointer-events-none"
               >
-                <span
-                  class="mr-2.5 text-[1.1875rem] leading-[1.4375rem] font-inter-semibold"
+                <span class="text-white mobile-header-2-semibold"
                   >{{ stack.title }}
                 </span>
               </span>
-              <div class="flex flex-wrap my-7 px-[30px] pb-[30px]">
+              <div class="flex flex-wrap mt-7 px-1 xl:px-5 pb-5">
                 <div
                   v-for="techs in stack.icons"
                   :key="techs"
@@ -66,10 +59,9 @@
                     :src="techs.image"
                     alt="technology-stacks-image"
                   />
-                  <span
-                    class="font-inter-regular text-[1.125rem] leading-[1.6875rem] text-center"
-                    >{{ techs.content }}</span
-                  >
+                  <span class="sub-h1-regular text-black-87 text-center">{{
+                    techs.content
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -82,17 +74,16 @@
             class="flex flex-col nowrap"
           >
             <div
-              class="mt-16 h-auto w-[368px] rounded-2xl bg-white drop-shadow-md"
+              class="mt-16 h-auto w-[313px] xl:w-[345px] 2xl:w-[368px] rounded-2xl bg-white drop-shadow-md"
             >
               <span
-                class="flex items-center mx-auto mt-[-23px] w-max rounded-full py-3 px-5 text-center gradient-btn pointer-events-none"
+                class="flex items-center mx-auto mt-[-1.438rem] w-max rounded-xl py-3 px-5 text-center bg-black-core pointer-events-none"
               >
-                <span
-                  class="mr-2.5 text-[1.1875rem] leading-[1.4375rem] font-inter-semibold"
+                <span class="text-white mobile-header-2-semibold"
                   >{{ stack.title }}
                 </span>
               </span>
-              <div class="flex flex-wrap my-7 px-[30px] pb-[30px]">
+              <div class="flex flex-wrap mt-7 px-1 xl:px-5 pb-5">
                 <div
                   v-for="techs in stack.icons"
                   :key="techs"
@@ -104,10 +95,9 @@
                     alt="technology-stacks-image"
                   />
 
-                  <span
-                    class="font-inter-regular text-[1.125rem] leading-[1.6875rem] text-center"
-                    >{{ techs.content }}</span
-                  >
+                  <span class="sub-h1-regular text-black-87 text-center">{{
+                    techs.content
+                  }}</span>
                 </div>
               </div>
             </div>
@@ -120,17 +110,16 @@
             class="flex flex-col nowrap"
           >
             <div
-              class="mt-16 h-auto w-[368px] rounded-2xl bg-white drop-shadow-md"
+              class="mt-16 h-auto w-[313px] xl:w-[345px] 2xl:w-[368px] rounded-2xl bg-white drop-shadow-md"
             >
               <span
-                class="flex items-center mx-auto mt-[-23px] w-max rounded-full py-3 px-5 text-center gradient-btn pointer-events-none"
+                class="flex items-center mx-auto mt-[-1.438rem] w-max rounded-xl py-3 px-5 text-center bg-black-core pointer-events-none"
               >
-                <span
-                  class="mr-2.5 text-[1.1875rem] leading-[1.4375rem] font-inter-semibold"
+                <span class="text-white mobile-header-2-semibold"
                   >{{ stack.title }}
                 </span>
               </span>
-              <div class="flex flex-wrap my-7 px-[30px] pb-[30px]">
+              <div class="flex flex-wrap mt-7 px-1 xl:px-5 pb-5">
                 <div
                   v-for="techs in stack.icons"
                   :key="techs"
@@ -142,10 +131,9 @@
                     alt="technology-stacks-image"
                   />
 
-                  <span
-                    class="font-inter-regular text-[1.125rem] leading-[1.6875rem] text-center"
-                    >{{ techs.content }}</span
-                  >
+                  <span class="sub-h1-regular text-black-87 text-center">{{
+                    techs.content
+                  }}</span>
                 </div>
               </div>
             </div>

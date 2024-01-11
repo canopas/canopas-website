@@ -1,33 +1,28 @@
 <template>
-  <section
-    class="xll:container flex flex-col lg:flex-row mt-20 mb-20 lg:my-[14.063rem]"
-  >
+  <section class="xll:container flex flex-col lg:flex-row mt-16 lg:mt-60">
     <div
-      class="flex flex-col mt-10 lg:mt-[4.563rem] lg:w-[50%] 2xl:w-[40%] lg:pl-[8%] 2xl:pl-[10%] xll:pl-0"
+      class="flex flex-col lg:my-auto lg:w-1/2 2xl:w-[40%] lg:pl-[8%] 2xl:pl-[10%] xll:pl-0"
     >
       <p
-        class="lg:w-[87%] xl:w-[80%] 2xl:w-[88%] text-center lg:text-left text-[1.875rem] md:text-[2.813rem] lg:text-[3.438rem] leading-[2.5rem] md:leading-[3.75rem] lg:leading-[5.156rem] font-inter-bold text-black-core/[0.87]"
+        class="lg:w-[87%] xl:w-3/4 2xl:w-4/5 text-center lg:text-left mobile-header-2 lg:desk-header-2 text-black-87"
       >
         Our Success Stories
       </p>
       <p
-        class="mt-4 text-center lg:text-left font-inter-regular text-[1.2rem] md:text-[1.25rem] lg:text-[1.5rem] leading-[1.575rem] md:leading-[1.875rem] lg:leading-9 text-black-core/[0.6]"
+        class="mt-4 text-center lg:text-left sub-h1-regular lg:mobile-header-2-regular text-black-60"
       >
         Check out the best from our vault of<br />
         50+ projects.
       </p>
       <nuxt-link
-        class="hidden lg:block flex items-center m-0 mt-6 w-max rounded-full p-3 text-center gradient-btn consultation-btn"
-        :to="portfolioURL"
-        @click.native="$mixpanel.track('tap_services_portfolio')"
+        class="hidden lg:flex mt-8 ml-0 gradient-btn primary-btn"
+        to="/contact"
+        @click.native="$mixpanel.track('tap_landing_cta')"
       >
-        <span
-          class="mr-2.5 font-normal text-[1rem] leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem] font-inter-medium !tracking-[0]"
-          >View Work
-        </span>
+        <span class="sub-h3-semibold lg:sub-h1-semibold">View Work </span>
       </nuxt-link>
     </div>
-    <div class="swiper-content mt-12 lg:w-[50%] 2xl:w-[60%] pl-4 md:pl-0">
+    <div class="swiper-content mt-6 lg:w-1/2 2xl:w-3/5 pl-4 md:pl-0">
       <swiper
         :slidesPerView="1.1"
         :centeredSlides="false"
@@ -59,11 +54,6 @@
         <swiper-slide
           v-for="(story, index) in stories"
           :key="index"
-          @mouseover="playSwiper(false)"
-          @mouseleave="playSwiper(true)"
-          @touchstart.passive="playSwiper(false)"
-          @touchmove.passive="playSwiper(true)"
-          @touchend="playSwiper(true)"
           class="cursor-pointer"
           @click="openPortfolio(story)"
         >
@@ -130,10 +120,10 @@ export default {
       },
     };
   },
-  computed: {
-    stories() {
-      return Array(50).fill(this.stories).flat();
-    },
+  mounted() {
+    if (window.innerWidth > 991) {
+      this.stories = Array(50).fill(this.stories).flat();
+    }
   },
   components: {
     Swiper,
@@ -141,13 +131,6 @@ export default {
   },
   inject: ["mixpanel"],
   methods: {
-    onSwiper(swiper) {
-      this.swiper = swiper;
-    },
-    playSwiper(play) {
-      play ? this.swiper.autoplay.start() : this.swiper.autoplay.stop();
-      this.reading = !play;
-    },
     openPortfolio(story) {
       window.open(story.url, story.target ? story.target : "_self");
       this.$mixpanel.track(story.event);
