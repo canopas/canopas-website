@@ -116,7 +116,7 @@ export default Object.freeze({
     description:
       "We create bespoke Flutter applications known for their supreme performance, unwavering security, and outmost reliability",
     type: "Website",
-    url: "https://canopas.com/flutter-app-development",
+    url: "https://canopas.com/flutter-app-development-ND",
     image: "https://canopas.com/apple-touch-icon.png",
   },
   BACKEND_DEVELOPMENT_SEO_META_DATA: {
@@ -124,7 +124,7 @@ export default Object.freeze({
     description:
       "We create bespoke Backend API's known for their supreme performance, unwavering security, and outmost reliability",
     type: "Website",
-    url: "https://canopas.com/backend-development",
+    url: "https://canopas.com/backend-development-ND",
     image: "https://canopas.com/apple-touch-icon.png",
   },
   FRONTEND_DEVELOPMENT_SEO_META_DATA: {
@@ -132,7 +132,7 @@ export default Object.freeze({
     description:
       "We create bespoke Frontend webpages known for their supreme performance, unwavering security, and outmost reliability",
     type: "Website",
-    url: "https://dev-stack.canopas.com/frontend-development",
+    url: "https://dev-stack.canopas.com/frontend-development-ND",
     image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   IS_PROD: true,
@@ -148,14 +148,14 @@ export default Object.freeze({
   SHOW_DRAFT_POSTS: false,
   VITE_IFRAMELY_KEY: "VITE_IFRAMELY_KEY_VALUE",
   VITE_RECAPTCHA_SITE_KEY: "VITE_RECAPTCHA_SITE_KEY_VALUE",
-  INTRO_SHOWCASE_STARS: 344,
+  INTRO_SHOWCASE_STARS: 348,
   UIPILOT_STARS: 276,
-  JETPACK_COMPOSE_ANIMATION_STARS: 281,
+  JETPACK_COMPOSE_ANIMATION_STARS: 282,
   COMPOSE_COUNTRY_PICKER_STARS: 52,
   SWIFT_UI_ANIMATION_STARS: 52,
   IOS_DEVELOPER_ROADMAP_STARS: 79,
   TAILWIND_ANIMATIONS_STARS: 103,
   CANOPAS_WEBSITE_STARS: 25,
-  CANOPAS_BLOG_WEBSITE_STARS: 30,
+  CANOPAS_BLOG_WEBSITE_STARS: 29,
   WEB_DEVELOPMENT_ROADMAP_STARS: 97,
 });

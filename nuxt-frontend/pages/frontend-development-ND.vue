@@ -1,7 +1,9 @@
 <template>
-  <Header />
-  <LandingSection />
-  <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
+  <div>
+    <Header />
+    <LandingSection />
+    <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
+  </div>
 </template>
 <script>
 import Header from "@/components/partials/NewHeader.vue";
@@ -14,7 +16,7 @@ export default {
     if (!config.SHOW_FRONTEND_DEVELOPMENT_PAGE) {
       next({
         name: "Error404Page",
-        params: { pathMatch: "/frontend-development" },
+        params: { pathMatch: "/frontend-development-ND" },
       });
     } else {
       next();
