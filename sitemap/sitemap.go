@@ -7,6 +7,8 @@ import (
 	"jobs"
 	"net/http"
 	"os"
+	"path/filepath"
+	"strings"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -72,21 +74,24 @@ type URLset struct {
 	URL        []URL    `xml:"url"`
 }
 
+var testFolderPath string
+
 func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	baseUrl := c.Query("baseUrl")
 
 	sitemapUrls := []URL{
 		{Loc: baseUrl, Priority: `1`},
-		{Loc: baseUrl + `/contact`, Priority: `0.9`},
-		{Loc: baseUrl + `/about`, Priority: `0.9`},
+		{Loc: baseUrl + "/resources", Priority: `0.9`},
 	}
 
-	// add portfolios
-	sitemapUrls = addPortfolios(baseUrl, sitemapUrls)
+	var folderPath string
+	if testFolderPath != "" {
+		folderPath = testFolderPath
+	} else {
+		folderPath = "nuxt-frontend/pages"
+	}
 
-	// add all jobs
-	sitemapUrls, err := repository.addJobs(baseUrl, sitemapUrls)
-
+	sitemapUrls, err := repository.addPages(baseUrl, sitemapUrls, folderPath)
 	if err != nil {
 		log.Error(err)
 		c.AbortWithStatus(http.StatusInternalServerError)
@@ -95,20 +100,11 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 
 	// add published resource blogs
 	sitemapUrls, err = addPublishedResources(baseUrl, sitemapUrls)
-
 	if err != nil {
 		log.Error(err)
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
-	//add contribution
-	sitemapUrls = addcontributions(baseUrl, sitemapUrls)
-
-	//add service
-	sitemapUrls = addServices(baseUrl, sitemapUrls)
-
-	//add unique services
-	sitemapUrls = addUniqueServices(baseUrl, sitemapUrls)
 
 	//get first day of current month
 	year, month, _ := time.Now().Date()
@@ -130,38 +126,26 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	c.XML(http.StatusOK, urlset)
 }
 
-func (repository *SitemapRepository) addJobs(baseUrl string, sitemapUrls []URL) ([]URL, error) {
-	jobsUrl := baseUrl + "/jobs"
-	sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl, Priority: `1`})
-
-	careers, err := repository.careerRepo.GetCareers()
+func (repository *SitemapRepository) addPages(baseUrl string, sitemapUrls []URL, folderPath string) ([]URL, error) {
+	files, err := ioutil.ReadDir(folderPath)
 	if err != nil {
 		return sitemapUrls, err
 	}
 
-	for i := range careers {
-		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
-		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
+	for _, file := range files {
+		if !file.IsDir() {
+			fileName := file.Name()
+
+			// Check if the file name contains "ND"
+			if !strings.Contains(fileName, "ND") && !strings.Contains(fileName, "slug") && !strings.Contains(fileName, "index") && !strings.Contains(fileName, "unsubscribe") {
+				// Extract file name without extension
+				nameWithoutExt := strings.TrimSuffix(fileName, filepath.Ext(fileName))
+
+				// Create URL and append to sitemapUrls
+				sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + "/" + nameWithoutExt, Priority: "0.9"})
+			}
+		}
 	}
-
-	return sitemapUrls, nil
-}
-func addcontributions(baseUrl string, sitemapUrls []URL) []URL {
-	contributionUrl := baseUrl + "/contributions"
-
-	sitemapUrls = append(sitemapUrls, URL{Loc: contributionUrl, Priority: `0.9`})
-
-	return sitemapUrls
-}
-func addServices(baseUrl string, sitemapUrls []URL) []URL {
-	serviceUrl := baseUrl + "/services"
-
-	sitemapUrls = append(sitemapUrls, URL{Loc: serviceUrl, Priority: `0.9`})
-
-	return sitemapUrls
-}
-
-func addPortfolios(baseUrl string, sitemapUrls []URL) []URL {
 	portfolioUrl := baseUrl + "/portfolio"
 
 	portfolios := []Portfolio{
@@ -188,23 +172,22 @@ func addPortfolios(baseUrl string, sitemapUrls []URL) []URL {
 	for i := range portfolios {
 		sitemapUrls = append(sitemapUrls, URL{Loc: portfolioUrl + `/` + portfolios[i].Name, Priority: `0.9`, Video: portfolios[i].Videos})
 	}
+	jobsUrl := baseUrl + "/jobs"
+	sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl, Priority: `1`})
 
-	return sitemapUrls
-}
-func addUniqueServices(baseUrl string, sitemapUrls []URL) []URL {
-	services := []UniqueService{
-		{
-			Name: "mobile-app-development",
-		},
+	careers, err := repository.careerRepo.GetCareers()
+	if err != nil {
+		return sitemapUrls, err
 	}
-	for i := range services {
-		sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + `/` + services[i].Name, Priority: `0.9`})
+
+	for i := range careers {
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
 	}
-	return sitemapUrls
+
+	return sitemapUrls, nil
 }
 func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
-	resourcesUrl := baseUrl + "/resources"
-	sitemapUrls = append(sitemapUrls, URL{Loc: resourcesUrl, Priority: `0.9`})
 
 	resourceUrl := os.Getenv("RESOURCES_URL")
 
@@ -236,7 +219,7 @@ func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
 
 	for i := range resources.Data {
 		data := resources.Data[i]
-		sitemapUrls = append(sitemapUrls, URL{Loc: resourcesUrl + `/` + data.Attributes.Slug, Priority: `0.9`})
+		sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + `/` + data.Attributes.Slug, Priority: `0.9`})
 	}
 
 	return sitemapUrls, nil
