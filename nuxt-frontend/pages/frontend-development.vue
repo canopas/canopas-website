@@ -16,7 +16,7 @@ export default {
     if (!config.SHOW_FRONTEND_DEVELOPMENT_PAGE) {
       next({
         name: "Error404Page",
-        params: { pathMatch: "/frontend-development-ND" },
+        params: { pathMatch: "/frontend-development" },
       });
     } else {
       next();

@@ -1,14 +1,16 @@
 package sitemap
 
 import (
+	"bytes"
+	"embed"
 	"encoding/json"
 	"encoding/xml"
-	"io/ioutil"
+	"io"
 	"jobs"
 	"net/http"
 	"os"
-	"path/filepath"
 	"strings"
+	"text/template"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -23,10 +25,12 @@ const (
 
 type SitemapRepository struct {
 	careerRepo *jobs.CareerRepository
+	templates  *template.Template
 }
 
-func New(careerRepo *jobs.CareerRepository) *SitemapRepository {
-	return &SitemapRepository{careerRepo: careerRepo}
+func New(careerRepo *jobs.CareerRepository, templateFs embed.FS) *SitemapRepository {
+	templates := template.Must(template.ParseFS(templateFs, "templates/*.txt"))
+	return &SitemapRepository{careerRepo: careerRepo, templates: templates}
 }
 
 type URL struct {
@@ -74,24 +78,15 @@ type URLset struct {
 	URL        []URL    `xml:"url"`
 }
 
-var testFolderPath string
-
 func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	baseUrl := c.Query("baseUrl")
 
 	sitemapUrls := []URL{
 		{Loc: baseUrl, Priority: `1`},
-		{Loc: baseUrl + "/resources", Priority: `0.9`},
 	}
 
-	var folderPath string
-	if testFolderPath != "" {
-		folderPath = testFolderPath
-	} else {
-		folderPath = "nuxt-frontend/pages"
-	}
-
-	sitemapUrls, err := repository.addPages(baseUrl, sitemapUrls, folderPath)
+	filePath := "templates/path.txt"
+	sitemapUrls, err := repository.addPages(baseUrl, sitemapUrls, filePath)
 	if err != nil {
 		log.Error(err)
 		c.AbortWithStatus(http.StatusInternalServerError)
@@ -126,26 +121,40 @@ func (repository *SitemapRepository) GenerateSitemap(c *gin.Context) {
 	c.XML(http.StatusOK, urlset)
 }
 
-func (repository *SitemapRepository) addPages(baseUrl string, sitemapUrls []URL, folderPath string) ([]URL, error) {
-	files, err := ioutil.ReadDir(folderPath)
+func (repository *SitemapRepository) addPages(baseUrl string, sitemapUrls []URL, file string) ([]URL, error) {
+	var templateBuffer bytes.Buffer
+	var input string
+
+	err := repository.templates.ExecuteTemplate(&templateBuffer, "path.txt", input)
+
+	if err != nil {
+		log.Error(err)
+		return sitemapUrls, nil
+	}
+
+	fileContent := string(templateBuffer.String())
+	lines := strings.Split(fileContent, "\n")
+
+	// append all pages
+	for _, fileName := range lines {
+		sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + "/" + fileName, Priority: "0.9"})
+	}
+
+	// append jobs
+	jobsUrl := baseUrl + "/jobs"
+	sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl, Priority: `1`})
+
+	careers, err := repository.careerRepo.GetCareers()
 	if err != nil {
 		return sitemapUrls, err
 	}
 
-	for _, file := range files {
-		if !file.IsDir() {
-			fileName := file.Name()
-
-			// Check if the file name contains "ND"
-			if !strings.Contains(fileName, "ND") && !strings.Contains(fileName, "slug") && !strings.Contains(fileName, "index") && !strings.Contains(fileName, "unsubscribe") {
-				// Extract file name without extension
-				nameWithoutExt := strings.TrimSuffix(fileName, filepath.Ext(fileName))
-
-				// Create URL and append to sitemapUrls
-				sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + "/" + nameWithoutExt, Priority: "0.9"})
-			}
-		}
+	for i := range careers {
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
+		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
 	}
+
+	// append portfolios
 	portfolioUrl := baseUrl + "/portfolio"
 
 	portfolios := []Portfolio{
@@ -167,26 +176,13 @@ func (repository *SitemapRepository) addPages(baseUrl string, sitemapUrls []URL,
 		},
 	}
 
-	sitemapUrls = append(sitemapUrls, URL{Loc: portfolioUrl, Priority: `0.9`})
-
 	for i := range portfolios {
 		sitemapUrls = append(sitemapUrls, URL{Loc: portfolioUrl + `/` + portfolios[i].Name, Priority: `0.9`, Video: portfolios[i].Videos})
-	}
-	jobsUrl := baseUrl + "/jobs"
-	sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl, Priority: `1`})
-
-	careers, err := repository.careerRepo.GetCareers()
-	if err != nil {
-		return sitemapUrls, err
-	}
-
-	for i := range careers {
-		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/` + careers[i].UniqueId, Priority: `0.9`})
-		sitemapUrls = append(sitemapUrls, URL{Loc: jobsUrl + `/apply/` + careers[i].UniqueId, Priority: `0.9`})
 	}
 
 	return sitemapUrls, nil
 }
+
 func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
 
 	resourceUrl := os.Getenv("RESOURCES_URL")
@@ -208,7 +204,7 @@ func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
 	}
 	defer resp.Body.Close()
 
-	responseData, err := ioutil.ReadAll(resp.Body)
+	responseData, err := io.ReadAll(resp.Body)
 	if err != nil {
 		log.Error(err)
 		return sitemapUrls, err
