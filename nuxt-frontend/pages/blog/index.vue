@@ -4,7 +4,7 @@
     <BlogList
       :mixpanel="$mixpanel"
       :showDrafts="config.SHOW_DRAFT_POSTS"
-      :showResources="true"
+      :showResources="false"
     />
     <BlogFooter :mixpanel="$mixpanel" />
   </div>

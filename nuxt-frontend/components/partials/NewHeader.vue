@@ -192,7 +192,7 @@
 </template>
 
 <script type="module">
-import Config from "@/config.js";
+import config from "@/config.js";
 export default {
   data() {
     return {
@@ -251,8 +251,8 @@ export default {
         },
         {
           name: "Blog",
-          url: Config.BLOG_URL,
-          target: "_blank",
+          url: config.IS_PROD ? config.BLOG_URL : "/blog",
+          target: config.IS_PROD ? "_blank" : "_self",
           event: "tap_header_blog",
         },
         {
