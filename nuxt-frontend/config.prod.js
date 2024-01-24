@@ -116,7 +116,7 @@ export default Object.freeze({
     description:
       "We create bespoke Flutter applications known for their supreme performance, unwavering security, and outmost reliability",
     type: "Website",
-    url: "https://canopas.com/flutter-app-development-ND",
+    url: "https://canopas.com/flutter-app-development",
     image: "https://canopas.com/apple-touch-icon.png",
   },
   BACKEND_DEVELOPMENT_SEO_META_DATA: {
@@ -124,7 +124,7 @@ export default Object.freeze({
     description:
       "We create bespoke Backend API's known for their supreme performance, unwavering security, and outmost reliability",
     type: "Website",
-    url: "https://canopas.com/backend-development-ND",
+    url: "https://canopas.com/backend-development",
     image: "https://canopas.com/apple-touch-icon.png",
   },
   FRONTEND_DEVELOPMENT_SEO_META_DATA: {
@@ -132,7 +132,7 @@ export default Object.freeze({
     description:
       "We create bespoke Frontend webpages known for their supreme performance, unwavering security, and outmost reliability",
     type: "Website",
-    url: "https://dev-stack.canopas.com/frontend-development-ND",
+    url: "https://dev-stack.canopas.com/frontend-development",
     image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
   IS_PROD: true,

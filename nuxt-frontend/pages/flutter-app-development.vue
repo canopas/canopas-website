@@ -2,13 +2,17 @@
   <div>
     <Header />
     <LandingSection />
+    <DevelopmentSection />
     <CaseStudySection />
-    <PartnerWithUsSection />
-    <SuccessStorySection />
+    <CtaSection />
+    <SuccessStory />
     <BlogSection />
-    <BlackCtaSection />
+    <CtaSection2 />
     <FaqSection />
-    <NewFooter />
+    <NewFooter
+      class="-mt-4 md:mt-auto bg-gradient-to-b from-pink-0 to-pink-16"
+      ref="flutterFooter"
+    />
   </div>
 </template>
 <script>
@@ -16,24 +20,25 @@ import Header from "@/components/partials/NewHeader.vue";
 import config from "@/config.js";
 import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
-import LandingSection from "@/components/backend-development/LandingSection.vue";
+import LandingSection from "@/components/flutter-app-development/LandingSection.vue";
+import DevelopmentSection from "@/components/flutter-app-development/DevelopmentSection.vue";
 const CaseStudySection = defineAsyncComponent(
-  () => import("@/components/backend-development/CaseStudySection.vue"),
+  () => import("@/components/flutter-app-development/CaseStudySection.vue"),
 );
-const PartnerWithUsSection = defineAsyncComponent(
-  () => import("@/components/backend-development/PartnerWithUsSection.vue"),
+const CtaSection = defineAsyncComponent(
+  () => import("@/components/flutter-app-development/CtaSection.vue"),
 );
-const SuccessStorySection = defineAsyncComponent(
-  () => import("@/components/backend-development/SuccessStorySection.vue"),
+const SuccessStory = defineAsyncComponent(
+  () => import("@/components/flutter-app-development/SuccessStorySection.vue"),
 );
 const BlogSection = defineAsyncComponent(
-  () => import("@/components/backend-development/BlogSection.vue"),
+  () => import("@/components/flutter-app-development/BlogSection.vue"),
 );
-const BlackCtaSection = defineAsyncComponent(
-  () => import("@/components/backend-development/BlackCtaSection.vue"),
+const CtaSection2 = defineAsyncComponent(
+  () => import("@/components/flutter-app-development/CtaSection2.vue"),
 );
 const FaqSection = defineAsyncComponent(
-  () => import("@/components/backend-development/FaqSection.vue"),
+  () => import("@/components/flutter-app-development/FaqSection.vue"),
 );
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
@@ -41,10 +46,10 @@ const NewFooter = defineAsyncComponent(
 
 export default {
   beforeRouteEnter(to, from, next) {
-    if (!config.SHOW_BACKEND_DEVELOPMENT_PAGE) {
+    if (!config.SHOW_FLUTTER_APP_DEVELOPMENT_PAGE) {
       next({
         name: "Error404Page",
-        params: { pathMatch: "/backend-development-ND" },
+        params: { pathMatch: "/flutter-app-development" },
       });
     } else {
       next();
@@ -53,20 +58,21 @@ export default {
   components: {
     Header,
     LandingSection,
+    DevelopmentSection,
     CaseStudySection,
-    PartnerWithUsSection,
-    SuccessStorySection,
+    CtaSection,
+    SuccessStory,
     BlogSection,
-    BlackCtaSection,
+    CtaSection2,
     FaqSection,
     NewFooter,
   },
   setup() {
     const { $mixpanel } = useNuxtApp();
     const footer = ref(null);
-    const seoData = config.BACKEND_DEVELOPMENT_SEO_META_DATA;
+    const seoData = config.FLUTTER_APP_DEVELOPMENT_SEO_META_DATA;
     useSeoMeta({
-      robots: "noindex,nofollow",
+      robots: "noindex, nofollow",
       title: seoData.title,
       description: seoData.description,
       ogTitle: seoData.title,
@@ -74,9 +80,10 @@ export default {
       ogUrl: seoData.url,
       ogImage: seoData.image,
     });
+
     let event = "";
     let events = {
-      footer: "view_backend_development_footer",
+      footer: "view_flutter_app_development_footer",
     };
     let elements;
     onMounted(() => {
@@ -84,7 +91,7 @@ export default {
         footer: footer,
       });
       window.addEventListener("scroll", sendEvent);
-      $mixpanel.track("view_backend_development_page");
+      $mixpanel.track("view_flutter_app_development_page");
     });
     onUnmounted(() => {
       window.removeEventListener("scroll", sendEvent);

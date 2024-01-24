@@ -87,7 +87,7 @@ export default {
             "Bring your multi-platform app vision to life with our Flutter app development services. We excel in crafting high-quality, stunning applications that work flawlessly on Android, iOS, and the web, all from a single codebase, facilitating faster time to market and cost savings.",
           class:
             "bg-gradient-to-b from-[#E0EDFF]  via-[#E0EDFF]  to-white bg-gradient-[180deg] ",
-          url: "/flutter-app-development-ND",
+          url: "/flutter-app-development",
           showServices: config.SHOW_FLUTTER_APP_DEVELOPMENT_PAGE,
         },
         {
@@ -106,7 +106,7 @@ export default {
             "The 'behind-the-scenes' backbone of any app, the backend, handles the critical tasks of data management, server configuration, and application logic. Our experts ensure your app is robust, secure, and efficient from its core, enabling it to handle high traffic loads, process data swiftly, and interact flawlessly with front-end requests.",
           class:
             "bg-gradient-to-b from-[#D2D8E3]/[0.95] via-[#D2D8E3]/[0.95] to-white bg-gradient-[180deg] ",
-          url: "/backend-development-ND",
+          url: "/backend-development",
           showServices: config.SHOW_BACKEND_DEVELOPMENT_PAGE,
         },
         {
@@ -116,7 +116,7 @@ export default {
             "The front end is the first point of interaction between your users and your app, making its design and functionality crucial. We focus on creating interactive, visually stunning, and easy-to-navigate interfaces that make your digital presence stand out, promoting enhanced user satisfaction and brand loyalty. ",
           class:
             "bg-gradient-to-b from-[#BBDEFF] via-[#BBDEFF] to-white bg-gradient-[180deg] ",
-          url: "/frontend-development-ND",
+          url: "/frontend-development",
           showServices: config.SHOW_FRONTEND_DEVELOPMENT_PAGE,
         },
       ],

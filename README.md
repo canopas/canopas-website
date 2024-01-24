@@ -126,6 +126,9 @@ This repository contains the working code of [Canopas website](https://canopas.c
 
   [Here](https://github.com/canopas/canopas-website/blob/master/api-doc.md) is APIs reference used in the website.
 
+### For generating sitemap :
+- Add your pages to templates/path.txt
+
 # Canopas website -- Frontend
 
 ## Requirements

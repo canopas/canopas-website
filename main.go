@@ -26,6 +26,7 @@ import (
 )
 
 //go:embed templates/*.html
+//go:embed templates/*.txt
 var templateFS embed.FS
 
 var router *gin.Engine
@@ -55,7 +56,7 @@ func setupRouter() *gin.Engine {
 	utilsRepo := utils.NewEmail()
 	contactRepo := contact.New(templateFS, utilsRepo)
 	jobsRepo := jobs.New(sqlDb, templateFS, utilsRepo)
-	sitemapRepo := sitemap.New(jobsRepo)
+	sitemapRepo := sitemap.New(jobsRepo, templateFS)
 	leaveRepo := leave.New(templateFS, utilsRepo)
 	notificationRepo := notification.New(templateFS, utilsRepo)
 	lifePerksImagesRepo := jobs.NewLifePerksImages(sqlDb)

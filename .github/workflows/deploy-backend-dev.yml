@@ -25,7 +25,7 @@ jobs:
           role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-actions-backend-access
           aws-region: ap-south-1
 
-      - name: Build backend and deploy to S3
+      - name: Build backend and copy zip to S3
         run: |
           apt-get update && apt-get install -y zip
           GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o main main.go

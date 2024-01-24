@@ -89,7 +89,7 @@ export default {
           title: "Flutter App Development ",
           description:
             "Bring your multi-platform app vision to life with our Flutter app development services. We excel in crafting high-quality, stunning applications that work flawlessly on Android, iOS, and the web, all from a single codebase, facilitating faster time to market and cost savings.",
-          url: "/flutter-app-development-ND",
+          url: "/flutter-app-development",
           showServices: config.SHOW_FLUTTER_APP_DEVELOPMENT_PAGE,
         },
         {
@@ -106,7 +106,7 @@ export default {
           title: "Backend Development",
           description:
             "The 'behind-the-scenes' backbone of any app, the backend, handles the critical tasks of data management, server configuration, and application logic. Our experts ensure your app is robust, secure, and efficient from its core, enabling it to handle high traffic loads, process data swiftly, and interact flawlessly with front-end requests.",
-          url: "/backend-development-ND",
+          url: "/backend-development",
           showServices: config.SHOW_BACKEND_DEVELOPMENT_PAGE,
         },
         {
@@ -115,7 +115,7 @@ export default {
           title: "Frontend Development",
           description:
             "The front end is the first point of interaction between your users and your app, making its design and functionality crucial. We focus on creating interactive, visually stunning, and easy-to-navigate interfaces that make your digital presence stand out, promoting enhanced user satisfaction and brand loyalty. ",
-          url: "/frontend-development-ND",
+          url: "/frontend-development",
           showServices: config.SHOW_FRONTEND_DEVELOPMENT_PAGE,
         },
       ],

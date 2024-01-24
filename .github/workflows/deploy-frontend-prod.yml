@@ -1,8 +1,11 @@
 name: DeployFrontendProd
 
 on:
-  push:
-    branches:
+  workflow_run:
+    workflows: ["DeployBackendProd"]
+    types:
+      - completed
+    branches: 
       - "master"
 
 jobs:
