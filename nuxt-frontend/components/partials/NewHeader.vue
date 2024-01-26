@@ -251,8 +251,8 @@ export default {
         },
         {
           name: "Blog",
-          url: config.IS_PROD ? config.BLOG_URL : "/blog",
-          target: config.IS_PROD ? "_blank" : "_self",
+          target: "_self",
+          url: "/blog",
           event: "tap_header_blog",
         },
         {
