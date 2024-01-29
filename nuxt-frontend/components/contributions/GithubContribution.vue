@@ -1,29 +1,27 @@
 <template>
-  <section class="lg:my-[14.063rem]">
-    <div class="container md:mb-24 lg:mb-0">
-      <p
-        class="text-center font-inter-bold text-[1.875rem] leading-[2.438rem] text-black-core/[0.87] lg:text-[3.438rem] lg:leading-[5.156rem]"
-      >
+  <section class="lg:mt-60">
+    <div class="container">
+      <p class="text-center mobile-header-2 lg:desk-header-2 text-black-87">
         GitHub Contributions
       </p>
       <p
-        class="mt-4 text-center font-inter-regular text-base text-black-core/[0.87] lg:mt-8 lg:font-inter-medium lg:text-[1.5rem] lg:leading-9 lg:text-black-core/[0.6]"
+        class="mt-4 text-center sub-h1-regular lg:mobile-header-2-regular text-black-60"
       >
         Explore our repositories and join us on this thrilling journey of
         creating code that fuels global innovation.
       </p>
       <div
-        class="m-auto mt-8 flex w-full justify-around gap-4 rounded-[30px] bg-white py-[5px] drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)] sm:w-[95%] lg:mt-[3.75rem] lg:w-[75%]"
+        class="m-auto mt-4 flex w-full justify-around gap-4 rounded-xl bg-white py-[0.313rem] drop-shadow-[0_2px_10px_rgba(61,61,61,0.1)] sm:w-[95%] lg:mt-[3.75rem] lg:w-3/4"
       >
         <button
           v-for="(navbar, index) in navbars"
           :key="index"
-          class="portfolio-nav m-0 w-full flex-[16.66%] rounded-[25px] px-[5px] py-2 text-center font-inter-semibold text-[0.75rem] leading-[0.938rem] tracking-[1px] active:scale-[0.98] md:py-[13px] md:text-[1rem] md:leading-[1.1875rem] lg:text-[1.188rem] lg:leading-[1.438rem] lg:hover:from-[#ff835b] lg:hover:to-[#f2709c] lg:hover:text-white lg:hover:bg-gradient-[270.11deg]"
+          class="portfolio-nav m-0 w-full rounded-lg py-2 text-center sub-h3-semibold lg:sub-h1-semibold active:scale-[0.98] md:py-[0.813rem] lg:hover:from-orange-300 lg:hover:to-pink-300 lg:hover:text-white lg:hover:bg-gradient-[270.11deg]"
           @click="slideTo(index), changeContributions(index)"
           :class="
             activeIndex == index
-              ? 'from-[#ff835b] to-[#f2709c] text-white bg-gradient-[270.11deg] '
-              : 'border border-solid border-transparent text-black-core/[0.6]'
+              ? 'from-orange-300 to-pink-300 text-white bg-gradient-[270.11deg] '
+              : 'border border-solid border-transparent text-black-60'
           "
         >
           {{ navbar }}
@@ -31,14 +29,19 @@
       </div>
     </div>
     <!-- Mobile UI start -->
-    <div class="swiper-content !mt-8 sm:container md:hidden">
+    <div class="swiper-content !mt-6 lg:hidden">
       <swiper
         :slidesPerView="1"
+        :spaceBetween="10"
         :centeredSlides="true"
-        :spaceBetween="20"
         @swiper="setSwiperRef"
         @slideChange="onSlideChange()"
         class="swiper-container"
+        :breakpoints="{
+          '768': {
+            slidesPerView: 1.5,
+          },
+        }"
       >
         <swiper-slide
           v-for="(contribution, index) in allContributions"
@@ -55,14 +58,14 @@
             loading="lazy"
           />
           <div
-            class="z-[1] mx-auto mb-10 mt-[-23px] flex max-w-[95%] flex-col rounded-[10px] bg-white py-4 drop-shadow-2xl sm:max-w-[85%] md:max-w-[70%]"
+            class="z-[1] mx-auto mb-10 mt-[-3.125rem] sm:mt-[-3.75rem] flex max-w-[95%] flex-col rounded-[10px] bg-white py-4 drop-shadow-xl sm:max-w-[85%] md:max-w-[90%]"
           >
             <div class="flex flex-row items-center justify-start gap-8 px-4">
               <div
-                class="flex h-[1.875rem] w-[4.75rem] items-center justify-center rounded-full from-[#ff835b] to-[#f2709c] px-2.5 font-inter-semibold text-[1rem] text-white bg-gradient-[270.11deg]"
+                class="flex h-[1.875rem] w-[4.75rem] items-center justify-center rounded-lg px-2.5 bg-primary-1 text-white sub-h3-semibold"
               >
                 <Icon
-                  class="fa h-[18px] w-[18px] pr-[5px] text-white"
+                  class="fa h-[1.125rem] w-[1.125rem] pr-[0.313rem] text-white"
                   name="fa6-solid:star"
                 />{{ contribution.stars }}
               </div>
@@ -71,28 +74,25 @@
                   class="h-4 w-4 rounded-full"
                   :class="contribution.color"
                 ></span
-                ><span
-                  class="font-inter-medium text-[1rem] leading-4 text-black-core/[0.87]"
-                  >{{ contribution.language }}</span
-                >
+                ><span class="sub-h3-medium text-black-87">{{
+                  contribution.language
+                }}</span>
               </div>
               <div class="flex flex-row items-center gap-2">
                 <Icon
-                  class="fa h-4 w-4 font-inter-medium text-[1rem] leading-4 text-black-core/[0.87]"
+                  class="fa h-4 w-4 sub-h3-medium text-black-87"
                   name="fa6-solid:code-fork"
                 />{{ contribution.forks }}
               </div>
             </div>
-            <p
-              class="mt-2 px-4 font-inter-regular text-base text-black-core/[0.6]"
-            >
-              <span
-                class="font-inter-medium text-[1.25rem] leading-[1.875rem] text-black-core/[0.87]"
-                >{{ contribution.title }}</span
+            <p class="mt-4 px-4 sub-h3-regular text-black-60">
+              <span class="sub-h1-semibold text-black-87">{{
+                contribution.title
+              }}</span
               ><br />{{ contribution.description }}
             </p>
-            <div class="mt-4 flex flex-row items-center px-4">
-              <p class="mr-2 font-inter-semibold text-base">Contributors:</p>
+            <div class="mt-5 flex flex-row items-center px-4">
+              <p class="mr-2 sub-h3-semibold">Contributors:</p>
               <div
                 class="ml-2 flex flex-row items-center"
                 v-for="(contributor, index) in contribution.contributors"
@@ -102,6 +102,7 @@
                   :src="contributor"
                   class="h-9 w-9 object-cover"
                   alt="contribution-image"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -112,12 +113,12 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
     <div
-      class="container mx-auto mt-8 hidden 2xl:gap-12 flex-wrap justify-between md:flex lg:my-10"
+      class="container mx-auto mt-8 hidden 2xl:gap-12 flex-wrap justify-between lg:flex lg:my-10"
     >
       <div
         v-for="(contribution, index) in contributions"
         :key="index"
-        class="flip-card-inner mx-auto relative h-[368px] w-[48%] cursor-pointer md:-mt-12 lg:mt-4 lg:h-[440px] xl:mt-8 xl:h-[500px] 2xl:h-[550px]"
+        class="flip-card-inner mx-auto relative h-[23rem] w-[48%] cursor-pointer md:-mt-12 lg:mt-4 lg:h-[27.5rem] xl:mt-8 xl:h-[31.25rem] 2xl:h-[34.375rem]"
         @click="openBlog(contribution.link, contribution.event)"
       >
         <div class="flip-card-front absolute w-full h-full overflow-hidden">
@@ -126,10 +127,11 @@
             :srcset="`${contribution.deskImage[0]} 400w, ${contribution.deskImage[1]} 800w`"
             class="absolute w-full rounded-[20px] object-cover lg:h-full"
             alt="contribution-image"
+            loading="lazy"
           />
         </div>
         <div
-          class="flip-card-back absolute h-[92%] w-full rounded-[20px] from-[#FF835B] to-[#F2709C] bg-gradient-[180deg] lg:h-full"
+          class="flip-card-back absolute h-full w-full rounded-[20px] from-orange-300 to-pink-300 bg-gradient-[180deg]"
         >
           <div
             class="flex flex-row items-center justify-between pl-6 pr-4 pt-6 xl:px-12 xl:pt-10"
@@ -137,44 +139,38 @@
             <div class="flex flex-row items-center gap-2 text-white">
               <span>
                 <Icon class="fa h-6 w-6" name="fa6-solid:code-fork" /></span
-              ><span
-                class="font-inter-semibold text-[1.625rem] leading-[1.625rem]"
-                >{{ contribution.forks }}</span
-              >
+              ><span class="mobile-header-2-semibold">{{
+                contribution.forks
+              }}</span>
             </div>
             <div class="flex flex-row items-center gap-2">
-              <span
-                class="font-inter-semibold text-[1.625rem] leading-[1.625rem] text-white"
-                >{{ contribution.language }}</span
-              >
+              <span class="mobile-header-2-semibold text-white">{{
+                contribution.language
+              }}</span>
             </div>
             <div
-              class="flex flex-row items-center rounded-[30px] bg-white px-4 py-2 xl:px-6"
+              class="flex flex-row items-center rounded-xl bg-white px-4 py-2 xl:px-6"
             >
               <Icon
-                class="fab footer-icon h-[26px] w-[26px] pr-[5px]"
+                class="fab footer-icon h-[1.625rem] w-[1.625rem] pr-[0.313rem]"
                 name="fa6-solid:star"
               />
               <span
-                class="v2-canopas-gradient-text font-inter-semibold text-[1.625rem] leading-[1.625rem]"
+                class="v2-canopas-gradient-text mt-0.5 mobile-header-2-semibold"
                 >{{ contribution.stars }}</span
               >
             </div>
           </div>
-          <p
-            class="ml-6 mr-2 xl:ml-12 xl:mr-4 font-inter-semibold text-[1rem] leading-[3rem] text-white lg:mt-16 lg:text-[2rem]"
-          >
+          <p class="ml-6 mr-2 xl:ml-12 xl:mr-4 text-white mt-12 desk-header-3">
             {{ contribution.title }}
           </p>
           <p
-            class="ml-6 mr-2 xl:ml-12 xl:mr-12 font-inter-regular text-[1.2rem] leading-[2.625rem] text-white lg:text-[1.75rem]"
+            class="ml-6 mr-2 xl:ml-12 xl:mr-12 text-white-core-80 mobile-header-2-regular"
           >
             {{ contribution.description }}
           </p>
           <div class="mt-4 flex flex-row items-center px-6 xl:px-12 lg:mt-8">
-            <p
-              class="mr-2 font-inter-semibold text-[1.625rem] leading-[2.438rem] text-white"
-            >
+            <p class="mr-2 mobile-header-2-semibold text-white">
               Contributors:
             </p>
             <div
@@ -186,6 +182,7 @@
                 :src="contributor"
                 class="h-9 w-9 rounded-full object-cover"
                 alt="contribution-image"
+                loading="lazy"
               />
             </div>
           </div>

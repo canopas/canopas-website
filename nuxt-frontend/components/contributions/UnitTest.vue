@@ -1,20 +1,19 @@
 <template>
-  <div class="mx-auto text-center lg:my-[14.063rem]">
-    <span
-      class="container text-center font-inter-bold text-[1.875rem] leading-[2.4375rem] text-black-core/[0.8] lg:text-[3.4375rem] lg:leading-[5.15625rem]"
-      >WHY and How to Write Unit Tests?</span
+  <div class="mt-16 mx-auto lg:my-60">
+    <div
+      class="container text-center mobile-header-2 lg:desk-header-2 text-black-87"
     >
-    <div class="swiper-content mt-16 block h-full pl-[5%] md:hidden">
+      WHY and How to write unit tests?
+    </div>
+    <div class="swiper-content mt-8 block h-full pl-[5%] md:hidden">
       <swiper
         :slidesPerView="1.1"
         :centeredSlides="false"
         :autoplay="{
           delay: 4000,
-          disableOnInteraction: true,
         }"
         :speed="3000"
         :loop="true"
-        :loopedSlides="50"
         :spaceBetween="10"
         :modules="modules"
         class="swiper-container"
@@ -31,12 +30,12 @@
             <img
               :src="test.images[0]"
               :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
-              class="cover-image h-fit w-fit rounded-t-lg border-b-[0.5px] border-black-core/[0.87] object-contain drop-shadow-md"
+              class="cover-image h-fit w-fit rounded-t-lg border-b-[0.5px] border-black-8 object-contain drop-shadow-md"
               alt="UnitTestImage"
               loading="lazy"
             />
             <div class="content mb-8 rounded-b-lg bg-white p-5 drop-shadow-md">
-              <span class="font-inter-medium text-black-core/[0.87]">{{
+              <span class="sub-h1-semibold text-black-87">{{
                 test.title
               }}</span>
             </div>
@@ -46,11 +45,11 @@
     </div>
     <!-- ************************Desktop View****************************** -->
     <div
-      class="mt-12 hidden bg-gradient-to-t from-[#FF835B]/[0.1] via-[#F2709C]/[0.1] to-[#FFFFFF] md:block xl:mt-16"
+      class="mt-12 hidden bg-gradient-to-t from-orange-1 via-pink-1 to-white md:block xl:mt-16 3xl:outer-container"
     >
       <div class="swiper-content relative -mt-6 xll:container">
         <div
-          class="absolute left-0 top-[18px] z-0 mx-auto h-full w-full border-t-[0.5px] border-black-core/[0.4]"
+          class="absolute left-0 top-[1.125rem] z-0 mx-auto h-full w-full border-t-[0.5px] border-black-4"
         ></div>
 
         <swiper
@@ -75,13 +74,13 @@
               <img
                 :src="dot"
                 alt="dot-image"
-                class="mx-auto h-[26px] w-[26px] object-contain"
+                class="mx-auto h-[1.625rem] w-[1.625rem] object-contain"
               />
 
               <img
                 :src="test.images[0]"
                 :srcset="`${test.images[0]} 400w,${test.images[1]} 800w`"
-                class="image-content swiper-zoom-container h-[80%] w-fit object-cover drop-shadow-md lg:h-fit"
+                class="image-content swiper-zoom-container h-4/5 w-fit object-cover drop-shadow-md lg:h-fit"
                 alt="UnitTestImage"
                 loading="lazy"
               />
@@ -90,7 +89,7 @@
         </swiper>
       </div>
       <div
-        class="h-[100px] origin-bottom-right skew-x-[-87deg] bg-white lg:h-[135px] xll:h-[220px]"
+        class="h-[6.25rem] origin-bottom-right skew-x-[-87deg] bg-white lg:h-[8.438rem] xll:h-[13.75rem]"
       ></div>
     </div>
   </div>

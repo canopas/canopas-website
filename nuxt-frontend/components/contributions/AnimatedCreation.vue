@@ -1,22 +1,22 @@
 <template>
-  <section class="mb-[6.063rem] lg:my-[14.063rem] overflow-hidden">
+  <section class="lg:mt-60 overflow-hidden">
     <div
-      class="container text-center font-inter-bold text-[1.875rem] leading-[2.438rem] text-black-core/[0.87] lg:text-[3.438rem] lg:leading-[5.156rem]"
+      class="container text-center mobile-header-2 lg:desk-header-2 text-black-87"
     >
       Explore Our Animated Creations
     </div>
     <!-- Mobile UI start -->
-    <div class="mt-10 block md:hidden">
-      <swiper :slidesPerView="1.1" :spaceBetween="0" class="p-[1rem]">
+    <div class="mt-6 block lg:hidden">
+      <swiper :slidesPerView="1.1" :spaceBetween="0" class="p-4">
         <swiper-slide
           v-for="(animation, index) in animations"
           :key="index"
           class="pl-4 pr-4 sm:pl-8"
         >
           <div
-            class="flex items-center justify-center rounded-[20px] border-1 bg-white drop-shadow-md"
+            class="flex items-center justify-center rounded-xl border-1 bg-white drop-shadow-md"
           >
-            <div class="flex-[39%] sm:flex-[45%]">
+            <div class="basis-1/2">
               <img
                 @click="
                   openBlog(animation.link, 'tap_animation_creation_section')
@@ -24,13 +24,11 @@
                 :src="animation.image[0]"
                 :srcset="`${animation.image[0]} 400w, ${animation.image[1]} 800w`"
                 alt="animation"
-                class="h-full w-full object-cover"
+                class="h-full w-full object-cover rounded-xl"
                 loading="lazy"
               />
             </div>
-            <div
-              class="flex-[50%] px-2 font-inter-medium text-base text-black-core/[0.87] sm:text-[1.25rem] sm:leading-[1.688rem]"
-            >
+            <div class="basis-1/2 px-2 sub-h1-semibold">
               {{ animation.title }}
             </div>
           </div>
@@ -39,8 +37,8 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <div class="container mt-[50px] hidden flex-row gap-8 md:flex">
-      <div class="flex w-[50%] flex-col gap-8">
+    <div class="container mt-[3.125rem] hidden flex-row gap-8 lg:flex">
+      <div class="flex w-1/2 flex-col gap-8">
         <div v-for="animation in animations.slice(0, 3)" :key="animation.id">
           <div
             class="group relative cursor-pointer overflow-hidden"
@@ -50,21 +48,21 @@
               :src="animation.deskImages[0]"
               :srcset="`${animation.deskImages[0]} 400w, ${animation.deskImages[1]} 800w`"
               alt="animation"
-              class="h-full w-full rounded-bl-[50px] rounded-tr-[50px] object-cover"
+              class="h-full w-full rounded-bl-[3.125rem] rounded-tr-[3.125rem] object-cover"
               loading="lazy"
             />
             <div
-              class="ease absolute left-[50%] top-[50%] h-[0%] w-[0%] -translate-x-1/2 -translate-y-1/2 rounded-bl-[50px] rounded-tr-[50px] bg-black-900 opacity-0 transition-all duration-1000 group-hover:h-full group-hover:w-full group-hover:opacity-[1]"
+              class="ease absolute left-1/2 top-1/2 h-0 w-0 -translate-x-1/2 -translate-y-1/2 rounded-bl-[3.125rem] rounded-tr-[3.125rem] bg-black-900 opacity-0 transition-all duration-1000 group-hover:h-full group-hover:w-full group-hover:opacity-100"
             ></div>
             <div
-              class="absolute inset-x-0 top-[40%] m-auto h-full translate-y-[-50%] px-4 text-center font-inter-bold text-base text-white opacity-0 transition-all duration-1000 group-hover:translate-y-[0%] group-hover:opacity-[1] group-hover:transition-all group-hover:duration-1000 lg:text-[1.75rem] lg:leading-[2.625rem]"
+              class="mobile-header-2-semibold absolute inset-x-0 top-[33%] xl:top-[40%] 2xl:top-[42%] m-auto h-full -translate-y-1/2 px-4 text-center text-white opacity-0 transition-all duration-1000 group-hover:translate-y-[0%] group-hover:opacity-100 group-hover:transition-all group-hover:duration-1000"
             >
               {{ animation.title }}
             </div>
           </div>
         </div>
       </div>
-      <div class="mt-[50px] flex w-[50%] flex-col gap-8">
+      <div class="mt-[3.125rem] flex w-1/2 flex-col gap-8">
         <div v-for="animation in animations.slice(3, 6)" :key="animation.id">
           <div
             class="group relative cursor-pointer overflow-hidden"
@@ -74,14 +72,14 @@
               :src="animation.deskImages[0]"
               :srcset="`${animation.deskImages[0]} 400w, ${animation.deskImages[1]} 800w`"
               alt="animation"
-              class="h-full w-full rounded-bl-[50px] rounded-tr-[50px] object-cover"
+              class="h-full w-full rounded-bl-[3.125rem] rounded-tr-[3.125rem] object-cover"
               loading="lazy"
             />
             <div
-              class="ease absolute left-[50%] top-[50%] h-0 w-0 -translate-x-1/2 -translate-y-1/2 rounded-bl-[50px] rounded-tr-[50px] bg-black-900 opacity-0 transition-all duration-1000 group-hover:h-full group-hover:w-full group-hover:opacity-[1]"
+              class="ease absolute left-1/2 top-1/2 h-0 w-0 -translate-x-1/2 -translate-y-1/2 rounded-bl-[3.125rem] rounded-tr-[3.125rem] bg-black-900 opacity-0 transition-all duration-1000 group-hover:h-full group-hover:w-full group-hover:opacity-100"
             ></div>
             <div
-              class="absolute inset-x-0 top-[40%] m-auto h-full translate-y-[-50%] px-4 text-center font-inter-bold text-base text-white opacity-0 transition-all duration-1000 group-hover:translate-y-[0%] group-hover:opacity-[1] group-hover:transition-all group-hover:duration-1000 lg:text-[1.75rem] lg:leading-[2.625rem]"
+              class="mobile-header-2-semibold absolute inset-x-0 top-[38%] 2xl:top-[42%] m-auto h-full -translate-y-1/2 px-4 text-center text-white opacity-0 transition-all duration-1000 group-hover:translate-y-[0%] group-hover:opacity-100 group-hover:transition-all group-hover:duration-1000"
             >
               {{ animation.title }}
             </div>

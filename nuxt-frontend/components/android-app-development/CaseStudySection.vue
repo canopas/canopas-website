@@ -76,7 +76,7 @@
     <!-- ------------------------ MOBILE UI END---------------------- -->
 
     <!-- ---------------------DESKTOP UI START------------------ -->
-    <div class="hidden lg:block bg-[#F6F6F6] mt-[4.5rem]">
+    <div class="hidden lg:block bg-white-smoke-2 mt-[4.5rem]">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"
@@ -100,7 +100,7 @@
               class="flex flex-col w-[77%] xl:w-[48%] 2xll:w-[50%] lg:mr-auto xll:ml-auto"
             >
               <div>
-                <span class="primary-color text-left mobile-header-3-semibold">
+                <span class="text-primary-1 text-left mobile-header-3-semibold">
                   {{ item.title }}
                 </span>
               </div>
@@ -130,7 +130,7 @@
                 <div class="inline-flex p-2 lg:p-4">
                   <div class="p-[0.8rem]">
                     <span
-                      class="font-opensans-semibold desk-header-3 text-[#FF9472]"
+                      class="font-opensans-semibold desk-header-3 text-primary-1"
                       >{{ item.resultcount[0] }}</span
                     >
                     <div class="flex-1 text-black-87 mobile-header-3-regular">
@@ -139,7 +139,7 @@
                   </div>
                   <div class="border-l-[0.5px] p-[0.8rem]">
                     <span
-                      class="font-opensans-semibold desk-header-3 text-[#FF9472]"
+                      class="font-opensans-semibold desk-header-3 text-primary-1"
                       >{{ item.resultcount[1] }}</span
                     >
                     <div class="flex-1 text-black-87 mobile-header-3-regular">
@@ -148,7 +148,7 @@
                   </div>
                   <div class="border-l-[0.5px] p-[0.8rem]">
                     <span
-                      class="font-opensans-semibold desk-header-3 text-[#FF9472]"
+                      class="font-opensans-semibold desk-header-3 text-primary-1"
                       >{{ item.resultcount[2] }}</span
                     >
                     <div class="flex-1 text-black-87 mobile-header-3-regular">
@@ -174,9 +174,9 @@
             </div>
           </div>
         </swiper-slide>
-        <div class="absolute top-0 left-0 w-full h-1 bg-black-core/[0.08]">
+        <div class="absolute top-0 left-0 w-full h-1 bg-black-8">
           <div
-            class="progressbar h-1 bg-gradient-to-r from-[#FF835B] to-[#F2709C] rounded-xl"
+            class="progressbar h-1 bg-gradient-to-r from-orange-300 to-primary-1 rounded-xl"
             ref="progressBar"
           ></div>
         </div>

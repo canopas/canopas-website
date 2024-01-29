@@ -1,12 +1,10 @@
 <template>
-  <section class="my-20 overflow-hidden md:mt-[8.063rem] lg:mt-[14.063rem]">
+  <section class="my-16 overflow-hidden lg:mt-60">
     <!-- Mobile UI start -->
-    <p
-      class="container text-center font-inter-bold text-[1.875rem] leading-[2.438rem] text-black-core/[0.87] md:ml-[6%] md:w-[39%] md:text-left lg:hidden lg:text-[3.438rem] lg:leading-[5.156rem]"
-    >
-      The Favorites You Can't Miss
+    <p class="container text-center mobile-header-2 lg:hidden">
+      The favorites you can't miss
     </p>
-    <div class="mt-8 block md:hidden">
+    <div class="mt-8 block lg:hidden">
       <swiper :slidesPerView="1.2" :spaceBetween="0" class="p-4">
         <swiper-slide
           v-for="(favourite, index) in favourites"
@@ -19,10 +17,9 @@
               alt="like"
               class="h-7 w-7 object-cover"
               loading="lazy"
-            /><span
-              class="v2-canopas-gradient-text font-inter-bold text-[1rem] leading-9"
-              >{{ favourite.likes }}</span
-            >
+            /><span class="text-primary-1 sub-h3-semibold">{{
+              favourite.likes
+            }}</span>
           </div>
           <div class="overflow-hidden">
             <div class="h-full w-full">
@@ -33,13 +30,11 @@
                 :src="favourite.image[0]"
                 :srcset="`${favourite.image[0]} 400w, ${favourite.image[1]} 800w`"
                 alt="favourite"
-                class="h-full w-full rounded-[10px] object-cover"
+                class="h-full w-full rounded-xl object-cover"
                 loading="lazy"
               />
             </div>
-            <p
-              class="mt-2 pl-2 font-inter-medium text-[1rem] leading-9 text-black-core/[0.87] sm:text-[1.25rem]"
-            >
+            <p class="mt-3 sub-h1-semibold text-black-87">
               {{ favourite.description }}
             </p>
           </div>
@@ -48,31 +43,26 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <p
-      class="container hidden font-inter-bold text-[2rem] leading-[3rem] text-black-core/[0.87] lg:block lg:text-[3rem] lg:leading-[4rem]"
-    >
+    <p class="container hidden lg:block desk-header-2 text-black-87">
       The Favorites You <br />
       Can't Miss
     </p>
-    <div class="container hidden flex-row gap-x-8 md:flex">
+    <div class="container hidden flex-row gap-x-8 lg:flex">
       <div class="flex flex-col justify-center gap-8">
         <div
           class="flex flex-col"
           v-for="favourite in favourites.slice(0, 1)"
           :key="favourite.id"
         >
-          <div
-            class="mb-2 mr-6 flex flex-row items-center justify-end gap-2 lg:mr-8 xl:mr-[2.5rem] 2xl:mr-12"
-          >
+          <div class="mb-2 flex flex-row items-center justify-end gap-2">
             <img
               :src="like_100w"
               alt="like"
               class="h-7 w-7 object-cover"
               loading="lazy"
-            /><span
-              class="v2-canopas-gradient-text font-inter-bold text-[1rem] leading-9 md:text-[1.375rem] md:leading-[1.375rem]"
-              >{{ favourite.likes }}</span
-            >
+            /><span class="text-primary-1 mobile-header-3-semibold">{{
+              favourite.likes
+            }}</span>
           </div>
           <div
             class="group relative h-full w-full cursor-pointer overflow-hidden"
@@ -84,14 +74,14 @@
               :src="favourite.deskImage[0]"
               :srcset="`${favourite.deskImage[0]} 400w, ${favourite.deskImage[1]} 800w`"
               alt="favourite"
-              class="h-full w-full rounded-[10px] object-contain"
+              class="h-full w-full rounded-xl object-contain"
               loading="lazy"
             />
             <div
-              class="ease absolute left-[0] top-[0] h-[0] w-[0] rounded-[10px] from-[#FF835B] to-[#F2709C] opacity-0 transition-all duration-1000 bg-gradient-[180deg] group-hover:h-full group-hover:w-full group-hover:opacity-90"
+              class="ease absolute left-0 top-0 h-0 w-0 rounded-[10px] from-pink-300 to-orange-300 opacity-0 transition-all duration-1000 bg-gradient-[180deg] group-hover:h-full group-hover:w-full group-hover:opacity-90"
             ></div>
             <div
-              class="absolute left-[8%] lg:left-[10%] xl:left-[8%] top-[25%] xl:top-[32%] 2xl:top-[35%] 2xl:left-[9%] h-full w-[82%] translate-y-[50%] text-center font-inter-bold text-[1rem] leading-[1.8rem] text-white opacity-0 transition-all duration-1000 group-hover:translate-y-[0%] group-hover:opacity-[1] group-hover:transition-all group-hover:duration-1000 lg:w-[80%] lg:text-[1.5rem] lg:leading-9"
+              class="mobile-header-2-semibold absolute left-[10%] xl:left-[8%] top-[25%] xl:top-[32%] 2xl:top-[35%] 2xl:left-[9%] h-full w-[82%] translate-y-1/2 text-center text-white opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-1000 lg:w-4/5"
             >
               {{ favourite.description }}
             </div>
@@ -104,18 +94,15 @@
           v-for="favourite in favourites.slice(1, 3)"
           :key="favourite.id"
         >
-          <div
-            class="mb-2 mr-6 flex flex-row items-center justify-end gap-2 lg:mr-8 xl:mr-[2.5rem] 2xl:mr-12"
-          >
+          <div class="mb-2 flex flex-row items-center justify-end gap-2">
             <img
               :src="like_100w"
               alt="like"
               class="h-7 w-7 object-cover"
               loading="lazy"
-            /><span
-              class="v2-canopas-gradient-text font-inter-bold text-[1rem] leading-9 md:text-[1.375rem] md:leading-[1.375rem]"
-              >{{ favourite.likes }}</span
-            >
+            /><span class="text-primary-1 mobile-header-3-semibold">{{
+              favourite.likes
+            }}</span>
           </div>
           <div
             class="group relative h-full w-full cursor-pointer overflow-hidden"
@@ -127,14 +114,14 @@
               :src="favourite.deskImage[0]"
               :srcset="`${favourite.deskImage[0]} 400w, ${favourite.deskImage[1]} 800w`"
               alt="favourite"
-              class="h-full w-full rounded-[10px] object-contain"
+              class="h-full w-full rounded-xl object-contain"
               loading="lazy"
             />
             <div
-              class="ease absolute left-[0] top-[0] h-[0] w-[0] rounded-[10px] from-[#FF835B] to-[#F2709C] opacity-0 transition-all duration-1000 bg-gradient-[180deg] group-hover:h-full group-hover:w-full group-hover:opacity-90"
+              class="ease absolute left-0 top-0 h-0 w-0 rounded-[10px] from-pink-300 to-orange-300 opacity-0 transition-all duration-1000 bg-gradient-[180deg] group-hover:h-full group-hover:w-full group-hover:opacity-90"
             ></div>
             <div
-              class="absolute left-[8%] lg:left-[10%] xl:left-[8%] top-[25%] xl:top-[32%] 2xl:top-[35%] 2xl:left-[9%] h-full w-[82%] translate-y-[50%] text-center font-inter-bold text-[1rem] leading-[1.8rem] text-white opacity-0 transition-all duration-1000 group-hover:translate-y-[0%] group-hover:opacity-[1] group-hover:transition-all group-hover:duration-1000 lg:w-[80%] lg:text-[1.5rem] lg:leading-9"
+              class="mobile-header-2-semibold absolute left-[10%] xl:left-[8%] top-[25%] xl:top-[32%] 2xl:top-[37%] 2xl:left-[9%] h-full w-[82%] translate-y-1/2 text-center text-white opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-1000 lg:w-4/5"
             >
               {{ favourite.description }}
             </div>
@@ -148,18 +135,15 @@
           :key="favourite.id"
           :class="favourite.id == 5 ? 'mt-8' : ''"
         >
-          <div
-            class="mb-2 mr-6 flex flex-row items-center justify-end gap-2 lg:mr-8 xl:mr-10 2xl:mr-12"
-          >
+          <div class="mb-2 flex flex-row items-center justify-end gap-2">
             <img
               :src="like_100w"
               alt="like"
               class="h-7 w-7 object-cover"
               loading="lazy"
-            /><span
-              class="v2-canopas-gradient-text font-inter-bold text-[1rem] leading-5 md:text-[1.375rem] md:leading-[1.375rem]"
-              >{{ favourite.likes }}</span
-            >
+            /><span class="text-primary-1 mobile-header-3-semibold">{{
+              favourite.likes
+            }}</span>
           </div>
           <div
             class="group relative h-full w-full cursor-pointer overflow-hidden"
@@ -171,14 +155,14 @@
               :src="favourite.deskImage[0]"
               :srcset="`${favourite.deskImage[0]} 400w, ${favourite.deskImage[1]} 800w`"
               alt="favourite"
-              class="h-full w-full rounded-[10px] object-contain"
+              class="h-full w-full rounded-xl object-contain"
               loading="lazy"
             />
             <div
-              class="ease absolute left-[0] top-[0] h-[0] w-[0] rounded-[10px] from-[#FF835B] to-[#F2709C] opacity-0 transition-all duration-1000 bg-gradient-[180deg] group-hover:h-full group-hover:w-full group-hover:opacity-90"
+              class="ease absolute left-0 top-0 h-0 w-0 rounded-[10px] from-pink-300 to-orange-300 opacity-0 transition-all duration-1000 bg-gradient-[180deg] group-hover:h-full group-hover:w-full group-hover:opacity-90"
             ></div>
             <div
-              class="absolute left-[8%] lg:left-[10%] xl:left-[8%] top-[25%] xl:top-[32%] 2xl:top-[35%] 2xl:left-[9%] h-full w-[82%] translate-y-[50%] text-center font-inter-bold text-[1rem] leading-[1.8rem] text-white opacity-0 transition-all duration-1000 group-hover:translate-y-[0%] group-hover:opacity-[1] group-hover:transition-all group-hover:duration-1000 lg:w-[80%] lg:text-[1.5rem] lg:leading-9"
+              class="mobile-header-2-semibold absolute left-[10%] xl:left-[8%] top-[25%] xl:top-[38%] 2xl:left-[9%] h-full w-[82%] translate-y-1/2 text-center text-white opacity-0 transition-all duration-1000 group-hover:translate-y-0 group-hover:opacity-100 group-hover:transition-all group-hover:duration-1000 lg:w-4/5"
             >
               {{ favourite.description }}
             </div>

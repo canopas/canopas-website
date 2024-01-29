@@ -206,6 +206,9 @@
   .mobile-header-3-semibold {
     @apply font-inter-semibold tracking-[-0.08rem] lg:tracking-normal text-xl leading-[1.875rem];
   }
+  .mobile-header-3-bold {
+    @apply font-inter-bold tracking-[-0.08rem] lg:tracking-normal text-xl leading-[1.875rem];
+  }
   .desk-header-1 {
     @apply font-opensans-bold tracking-[-0.08rem] text-6xl leading-[4.875rem];
   }
@@ -236,6 +239,9 @@
   .sub-h3-semibold {
     @apply font-inter-semibold text-base;
   }
+  .sub-h3-bold {
+    @apply font-inter-bold text-base;
+  }
   .sub-h4-regular {
     @apply font-inter-regular text-xs leading-[1.125rem];
   }
@@ -250,10 +256,6 @@
   }
   .primary-btn {
     @apply h-12  mx-auto flex w-max items-center rounded-xl py-3 px-6 text-center;
-  }
-
-  .primary-color {
-    @apply text-[#FF9472];
   }
   .secondary-color {
     @apply text-[#F2709C];

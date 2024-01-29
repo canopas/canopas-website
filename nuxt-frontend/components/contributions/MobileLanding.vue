@@ -1,124 +1,120 @@
 <template>
   <section
-    class="mb-16 h-[470px] bg-gradient-to-t from-[#FF835B]/[0.1] to-[#F2709C]/[0.1] bg-gradient-[270.11deg]"
+    class="mb-16 h-[485px] bg-gradient-to-t from-orange-1 to-pink-1 bg-gradient-[270.11deg]"
   >
     <div class="relative">
       <div
-        class="absolute left-[16%] top-4 flex w-[80%] flex-row justify-between"
+        class="absolute left-[16%] top-4 flex w-4/5 flex-row justify-between"
       >
         <img
           :src="heartlike"
           class="mx-auto -mt-3 h-7 w-7 animate-zoomIn"
           alt="mobile-background-icon"
+          loading="lazy"
         />
 
         <div
-          class="flex h-[31px] w-[29px] animate-zoomIn items-center justify-center gap-y-12 rounded-full bg-white drop-shadow-md lg:-mt-3 lg:ml-5 2xl:ml-[8.25rem] 2xl:mt-5"
+          class="flex h-8 w-[1.813rem] animate-zoomIn items-center justify-center gap-y-12 rounded-full bg-white drop-shadow-md lg:-mt-3 lg:ml-5 2xl:ml-[8.25rem] 2xl:mt-5"
         >
           <Icon
-            class="h-3.5 w-3.5 p-px text-[#000]"
+            class="h-3.5 w-3.5 p-px text-black-core"
             name="fa6-solid:thumbs-up"
           />
         </div>
       </div>
       <div
-        class="absolute left-[6%] top-[13.5rem] mx-auto flex w-[90%] flex-row justify-between xs:top-44"
+        class="absolute left-[6%] top-[11rem] xs:top-[11.5rem] mx-auto flex w-[90%] flex-row justify-between xs:top-44"
       >
-        <div
-          class="mt-[45px] flex flex-col items-center justify-around gap-y-16 xs:gap-y-20"
-        >
+        <div class="flex flex-col items-start justify-around mt-10">
           <div
-            class="-mt-6 mt-5 flex h-20 w-[140px] flex-col items-center justify-center gap-y-1.5 rounded-md bg-white text-center drop-shadow-md"
-          >
-            <span
-              class="v2-canopas-gradient-text -mt-[30px] font-inter-bold text-[1.5rem] font-extrabold leading-[2.1rem]"
-            >
-              100K+</span
-            >
-            <span class="font-inter-medium text-base text-black-core/[0.87]"
-              >Monthly minutes Read on blog
-            </span>
-          </div>
-          <Icon class="h-4 w-4 animate-zoomIn" name="fa6-brands:github" />
-        </div>
-        <div
-          class="flex flex-col items-center justify-start gap-[3.75rem] xs:justify-end xs:gap-y-[4.5rem]"
-        >
-          <div
-            class="mt-[25px] flex h-7 w-7 animate-zoomIn items-center justify-center rounded-full bg-white drop-shadow-md sm:-mr-56 xs:-mr-24"
+            class="flex h-7 w-7 animate-zoomIn items-center justify-center rounded-full bg-white drop-shadow-md"
           >
             <Icon
               class="fas footer-icon h-3.5 w-3.5 p-px"
               name="fa6-solid:star"
             />
           </div>
-
+          <div
+            class="mt-[4.25rem] flex h-[3.4rem] w-[7.188rem] flex-col items-center justify-center rounded-md bg-white text-center drop-shadow-md"
+          >
+            <span class="text-primary-1 sub-h3-bold -mt-5"> 100K+</span>
+            <span class="sub-h4-medium text-black-87"
+              >Monthly minutes <br />
+              Read on blog
+            </span>
+          </div>
+          <Icon class="h-4 w-4 animate-zoomIn ml-5" name="fa6-brands:github" />
+        </div>
+        <div
+          class="flex flex-col items-center justify-start gap-[3.75rem] mt-44"
+        >
           <Icon
-            class="h-2.5 w-[17px] animate-zoomOut"
+            class="mt-[-2.188rem] ml-[-3.438rem] h-2.5 w-[1.063rem] animate-zoomOut"
             name="fa6-brands:medium"
           />
           <div
-            class="-mt-6 flex h-[70px] w-[98px] flex-col items-center justify-center rounded-md from-[#ff835b] to-[#f2709c] text-center text-white drop-shadow-md bg-gradient-[270.11deg] lg:w-[150px] lg:p-5 xs:h-[100px] xs:w-[120px]"
+            class="-mt-2 flex h-20 w-[6.25rem] flex-col items-center justify-center rounded-md text-center bg-pink-80"
           >
-            <span
-              class="font-inter-bold text-[1rem] font-extrabold leading-[2.1rem] text-white xs:text-[1.5rem]"
-            >
-              3K+</span
-            >
-            <span
-              class="mb-2.5 font-inter-medium text-[0.8rem] leading-[1rem] text-white xs:text-[1rem] xs:leading-6"
-              >Daily Visitors on Our Blog
+            <span class="text-primary-1 sub-h3-bold"> 3K+</span>
+            <span class="mb-2.5 sub-h4-medium text-black-87"
+              >Daily Visitors <br />
+              on Our Blog
             </span>
           </div>
         </div>
 
-        <div
-          class="mt-[50px] flex flex-col items-center justify-between gap-y-5"
-        >
+        <div class="mt-10 flex flex-col items-center">
           <div
-            class="ml-[30px] flex h-[22px] w-[52px] animate-zoomIn flex-row items-center justify-center gap-x-0.5 rounded-full from-[#ff835b] to-[#f2709c] text-center text-white drop-shadow-md bg-gradient-[270.11deg] xs:ml-10"
+            class="flex h-[1.375rem] w-[3.25rem] animate-zoomIn flex-row items-center justify-center gap-x-0.5 rounded-full from-orange-300 to-pink-300 text-center text-white drop-shadow-md bg-gradient-[270.11deg] xs:ml-10"
           >
             <img
               :src="clapsmall"
               class="h-3.5 w-3"
               alt="desktop-background-icon"
+              loading="lazy"
             />
-            <span class="font-inter-semibold">237</span>
+            <span class="sub-h4-semibold">237</span>
           </div>
 
           <div
-            class="flex h-20 w-20 flex-col items-center justify-center rounded-md bg-white text-center drop-shadow-md"
+            class="mt-20 flex h-[4.5rem] w-20 flex-col items-center justify-center rounded-md bg-white text-center drop-shadow-md"
           >
             <img
               :src="githubicon"
-              class="absolute mt-5 flex h-[60px] w-[60px] flex-col items-center justify-center"
+              class="absolute mt-1 flex h-[3.125rem] w-[3.125rem] flex-col items-center justify-center"
               alt="mobile-background-icon"
+              loading="lazy"
             />
-            <span
-              class="v2-canopas-gradient-text -mt-[15px] font-inter-bold text-[1.5rem] font-extrabold leading-[2.1rem] xl:text-[1.75rem]"
-            >
-              1K+</span
-            >
-            <span
-              class="p-2.5 font-inter-medium text-base text-black-core/[0.87]"
-              >GitHub Stars
-            </span>
+            <span class="-mt-[0.938rem] text-primary-1 sub-h3-bold"> 1K+</span>
+            <span class="p-2.5 sub-h4-medium text-black-87">GitHub Stars </span>
           </div>
           <img
             :src="dribble"
-            class="h-4 w-4 animate-zoomOut"
+            class="mt-6 h-4 w-4 animate-zoomOut"
             alt="mobile-background-icon"
+            loading="lazy"
           />
         </div>
       </div>
-      <div class="container flex flex-col pt-11">
-        <div class="font-inter-bold text-[2rem] leading-[3rem]">
-          <h1>Crafting Code, Connecting Communities</h1>
+      <div class="container flex flex-col pt-11 text-center">
+        <div class="mobile-header-1 text-black-87">
+          <span
+            >Crafting Code, <br />
+            Connecting Communities</span
+          >
         </div>
-        <div class="font-inter-regular text-base">
-          Our team at Canopas constantly seeks to learn, grow, and give back to
-          the developer community.
+        <div class="mt-4 sub-h1-regular text-black-60">
+          Our team at Canopas constantly seeks to <br />
+          learn, grow, and give back to the developer <br />
+          community.
         </div>
+        <nuxt-link
+          class="gradient-btn primary-btn"
+          to="/contact"
+          @click.native="$mixpanel.track('tap_landing_cta')"
+        >
+          <span class="sub-h3-semibold">Get Free Consultation </span>
+        </nuxt-link>
       </div>
     </div>
   </section>

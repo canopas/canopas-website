@@ -10,7 +10,7 @@
         <div v-for="(event, index) in events" :key="event">
           <div :class="[event.className]" class="flex">
             <div class="flex flex-col">
-              <h1 class="mobile-header-2 primary-color">
+              <h1 class="mobile-header-2 text-primary-1">
                 {{ event.year }}
               </h1>
               <div
