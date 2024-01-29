@@ -31,11 +31,17 @@ module.exports = {
         2: "2 0 0%",
       },
       colors: {
+        primary: {
+          1: "#FF9472",
+        },
         black: {
           core: "#000000",
           900: "#3d3d3d",
           87: "#000000DE",
           60: "#00000099",
+          80: "#000000cc",
+          8: "#00000014",
+          4: "#00000066",
         },
         white: "#ffffff",
         "white-core": {
@@ -67,6 +73,9 @@ module.exports = {
         },
         "deep-charcoal": "#121212",
         "white-smoke": "#F8F8F8",
+        "white-smoke-1": "#F2F2F2",
+        "white-smoke-2": "#F2F2F2",
+        "lavender-blush": "#FFEDF0",
       },
       borderRadius: {
         "x-lg": "20px",

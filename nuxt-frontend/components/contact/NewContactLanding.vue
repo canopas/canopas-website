@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="flex items-center lg:pt-0">
-      <h1 class="mobile-header-2 lg:desk-header-2 primary-color pr-2">
+      <h1 class="mobile-header-2 lg:desk-header-2 text-primary-1 pr-2">
         Hey Smarty
       </h1>
       <img
@@ -13,7 +13,7 @@
 
     <div class="my-6 sub-h1-regular lg:mobile-header-2-regular text-black-87">
       Thanks for reaching out to us. This form requires
-      <span class="sub-h1-semibold lg:mobile-header-2-semibold primary-color"
+      <span class="sub-h1-semibold lg:mobile-header-2-semibold text-primary-1"
         >less than 60 seconds</span
       >
       to fill up.

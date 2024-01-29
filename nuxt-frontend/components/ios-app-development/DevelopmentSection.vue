@@ -72,7 +72,7 @@
           v-for="(item, index) in item"
           :key="index"
           :class="[
-            activeIndex == index ? 'border-r-[#FF9472] bg-[#FFF]' : '',
+            activeIndex == index ? 'border-r-primary-1 bg-[#FFF]' : '',
             index == 4 || index == 0 ? item.className : '',
           ]"
           class="flex flex-col justify-center items-center h-[7.5rem] h-[5.8rem] xl:h-[6.8rem] w-40 xl:w-60 xl:h-[6.2rem] bg-[#F5F5F5] border-b border-[#E3E3E3] border-r-[5px]"
@@ -116,7 +116,7 @@
             class="lg:px-8 lg:pt-2 2xl:px-11"
           >
             <div
-              class="justify-start px-5 mt-3 lg:my-3 flex flex-row desk-header-3 primary-color"
+              class="justify-start px-5 mt-3 lg:my-3 flex flex-row desk-header-3 text-primary-1"
             >
               <span class="mr-1.5">{{ index + 1 }}. </span>
               <span class="mr-1.5">{{ item.desktoptitle }}</span>

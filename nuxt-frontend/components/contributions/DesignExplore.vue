@@ -1,48 +1,31 @@
 <template>
-  <div
-    class="my-20 xll:container md:mt-[8.063rem] lg:mt-[14.063rem] md:mb-12 xl:mb-20"
-  >
-    <div
-      class="container mb-20 text-center font-inter-bold text-[1.875rem] leading-[2.4375rem] text-black-core/[0.87] lg:text-[3.4375rem] lg:leading-[5.15625rem]"
-    >
+  <div class="my-16 xll:container lg:my-60 md:mb-12 xl:mb-20">
+    <div class="container mb-12 text-center mobile-header-2 lg:desk-header-2">
       Explore Our UI/UX Design
     </div>
     <!-- Mobile UI start -->
-    <div class="my-10 block md:hidden">
-      <div
-        class="animate-gridAnimationReverse"
-        :class="[pausedId == 0 ? gridAnimation : 'animation-paused']"
-      >
-        <div
-          class="animate-gridAnimation"
-          :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
-        >
-          <div class="ml-40 flex" v-if="mobileGrid.length > 0">
-            <div
-              v-for="(item, index) in mobileGrid"
-              :key="index"
-              class="ml-8 flex flex-[0_0_320px] flex-col justify-center rounded-2xl text-left text-[1rem] leading-[1.125rem] sm:flex-[0_0_480px] md:text-[1.0625rem] md:leading-[1.5rem] lg:flex-[0_0_528px] lg:text-[1.1875rem] lg:leading-[1.875rem]"
-              :class="pausedId == index ? 'scale-[0.97] cursor-pointer' : ''"
-              @mouseover="pausedId = index"
-              @mouseleave="pausedId = 0"
-              @touchstart.passive="pausedId = index"
-              @touchend="pausedId = 0"
-              :ref="'card-1-' + index"
-              @click="
-                openBlog(item.link, 'tap_contribution_ui/ux_design_explore')
-              "
-            >
-              <div class="image-container sm:px-5">
-                <img
-                  @click.native="$mixpanel.track('tap_explore_design')"
-                  :src="item.images[0]"
-                  :srcset="`${item.images[0]} 400w, ${item.images[1]} 800w`"
-                  alt="explore_uiux_design"
-                  class="h-full w-full rounded-lg object-cover"
-                  :class="item.classname"
-                  loading="lazy"
-                />
-              </div>
+    <div class="my-6 block lg:hidden">
+      <div class="animate-gridAnimation">
+        <div class="ml-40 flex" v-if="mobileGrid.length > 0">
+          <div
+            v-for="(item, index) in mobileGrid"
+            :key="index"
+            class="ml-8 flex flex-[0_0_320px] flex-col justify-center rounded-2xl sm:flex-[0_0_480px] lg:flex-[0_0_528px]"
+            :ref="'card-1-' + index"
+            @click="
+              openBlog(item.link, 'tap_contribution_ui/ux_design_explore')
+            "
+          >
+            <div class="image-container sm:px-5">
+              <img
+                @click.native="$mixpanel.track('tap_explore_design')"
+                :src="item.images[0]"
+                :srcset="`${item.images[0]} 400w, ${item.images[1]} 800w`"
+                alt="explore_uiux_design"
+                class="h-full w-full rounded-lg object-cover"
+                :class="item.classname"
+                loading="lazy"
+              />
             </div>
           </div>
         </div>
@@ -51,7 +34,7 @@
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
 
-    <div class="mt-12 hidden md:block xl:mt-16">
+    <div class="mt-12 hidden lg:block xl:mt-16">
       <div class="swiper-content -mt-6 w-full xll:container">
         <swiper
           :slidesPerView="3"

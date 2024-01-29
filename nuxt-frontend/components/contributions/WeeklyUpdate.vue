@@ -1,15 +1,13 @@
 <template>
-  <section class="mb-[200px]">
-    <div class="container mt-12 flex flex-col items-center gap-y-2.5 lg:mt-24">
+  <section class="mt-16 lg:mt-60">
+    <div class="container flex flex-col items-center gap-y-2.5">
       <div class="text-center">
-        <span
-          class="font-inter-bold text-[1.875rem] leading-[2.4375rem] text-black-core/[.87] lg:text-[3.4375rem] lg:leading-[5.15625rem]"
-        >
-          Our Weekly Tech Updates</span
+        <span class="mobile-header-2 lg:desk-header-2 text-black-87">
+          Our weekly tech updates</span
         >
       </div>
       <div
-        class="mb-8 mt-2.5 text-center font-inter-regular text-base text-black-core/[0.87] lg:mt-6 lg:font-inter-medium lg:text-[1.5rem] lg:leading-9 lg:text-black-core/[0.6]"
+        class="mb-8 mt-2.5 text-center lg:mt-6 sub-h3-regular lg:mobile-header-2-regular text-black-60 xl:w-4/5 2xl:w-[70%]"
       >
         Each week, we curate a hand-picked selection of the latest tech updates,
         delivering them straight to you. Immerse yourself in our weekly insights
@@ -17,16 +15,24 @@
       </div>
     </div>
     <!-- Mobile UI start -->
-    <div class="swiper-content mb-10 block md:hidden">
+    <div class="swiper-content block lg:hidden">
       <swiper
         :slidesPerView="1.1"
-        :spaceBetween="0"
         :effect="'cards'"
         :grabCursor="true"
         :modules="modules"
+        :breakpoints="{
+          '768': {
+            slidesPerView: 1,
+          },
+        }"
         class="swiper-container"
       >
-        <swiper-slide v-for="(weekly, index) in weeklies" :key="index">
+        <swiper-slide
+          v-for="(weekly, index) in weeklies"
+          :key="index"
+          class="rounded-t-lg rounded-b-lg"
+        >
           <div
             class="h-full w-full object-cover"
             @click="openBlog(weekly.url, weekly.event)"
@@ -34,28 +40,25 @@
             <img
               :src="[weekly.image]"
               alt="Weekly-stack-image"
-              class="h-fit w-fit rounded-t-lg object-contain"
+              class="h-fit w-fit object-contain"
+              loading="lazy"
             />
-            <div class="!rounded-b-lg bg-[#F2F2F2] p-8">
-              <div class="flex flex-row justify-between">
-                <span
-                  class="v2-canopas-gradient-text font-inter-regular text-[0.875rem] leading-[1.3125rem]"
-                  >{{ weekly.author }}</span
-                >
-                <span
-                  class="text-[0.875rem] leading-[1.3125rem] text-black-core/[0.87]"
-                  >{{ weekly.readtime }}</span
-                >
-              </div>
+            <div class="bg-white-smoke-1 p-4 pb-14">
               <div class="mt-4 flex flex-col">
-                <div
-                  class="font-inter-medium text-[1.25rem] leading-6 sm:text-black-core/[0.87]"
-                >
+                <div class="sub-h1-semibold text-black-87">
                   {{ weekly.title }}
                 </div>
-                <div class="mt-2.5 text-black-core/[0.87]">
+                <div class="mt-2.5 sub-h3-medium text-black-60">
                   {{ weekly.content }}
                 </div>
+              </div>
+              <div class="mt-6 flex flex-row justify-between">
+                <span class="sub-h4-medium text-black-87">{{
+                  weekly.author
+                }}</span>
+                <span class="sub-h4-regular text-black-60">{{
+                  weekly.readtime
+                }}</span>
               </div>
             </div>
           </div>
@@ -64,51 +67,46 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <ul id="scrollContainer" class="w-full mt-20 lg:mt-28 hidden md:block">
+    <ul id="scrollContainer" class="w-full mt-20 lg:mt-16 hidden lg:block">
       <li
         v-for="(weekly, index) in weeklies"
         :key="index"
         :ref="'weekly-' + index"
         :id="'weekly-' + index"
         @click="openBlog(weekly.url, weekly.event)"
-        class="origin-[center top] sticky top-[8.625rem] xll:top-[15.625rem] 3xl:top-[20.625rem] mx-[1%] h-[270px] lg:h-[390px] cursor-pointer overflow-hidden drop-shadow-xl md:container lg:h-[365px] xl:mx-auto xl:h-[480px] 2xl:h-[590px] xll:h-[546px]"
+        class="origin-[center top] sticky top-[8.625rem] xll:top-[15.625rem] 3xl:top-[20.625rem] mx-[1%] h-[24.375rem] cursor-pointer overflow-hidden drop-shadow-xl md:container xl:mx-auto xl:h-[30rem] 2xl:h-[36.875rem] xll:h-[34.125rem]"
         :style="{
           transform: `translateY(${weekly.translate}px) scale(${weekly.scale})`,
         }"
       >
         <div
           :class="weekly.color"
-          class="mx-auto flex h-[350px] flex-row xl:h-[450px] 2xl:h-[515px]"
+          class="mx-auto flex h-[21.875rem] flex-row xl:h-[28.125rem] 2xl:h-[32.188rem]"
         >
           <div class="basis-1/2 p-5">
             <img
               :src="[weekly.image]"
               alt="Weekly-stack-image"
               class="h-[72%] lg:h-full w-fit object-cover"
+              loading="lazy"
             />
           </div>
           <div class="basis-1/2 p-5 sm:p-9">
-            <div class="flex flex-row justify-between">
-              <span
-                class="v2-canopas-gradient-text font-inter-semibold md:text-[1rem] md:leading-[1.125rem] lg:text-[1.125rem] lg:leading-6 xl:text-[1.25rem] xl:leading-[1.875rem]"
-                >{{ weekly.author }}</span
-              >
-              <span
-                class="font-inter-semibold text-black-core/[0.87] md:text-[1rem] md:leading-[1.125rem] lg:text-[1.125rem] lg:leading-6 xl:text-[1.25rem] xl:leading-[1.875rem]"
-                >{{ weekly.readtime }}</span
-              >
-            </div>
-            <div class="mb-5 mt-8 flex flex-col">
-              <div
-                class="text-black-bore/[0.87] font-inter-semibold md:text-[1.125rem] md:leading-6 lg:text-[1.5rem] lg:leading-[1.875rem] xl:text-[1.875rem] xl:leading-9"
-              >
+            <div class="mb-28 xl:mb-40 flex flex-col">
+              <div class="v2-canopas-gradient-text desk-header-3">
                 {{ weekly.title }}
               </div>
-              <div
-                class="mt-2.5 font-inter-regular text-black-core/[0.87] md:text-[1rem] md:leading-6 lg:text-[1.25rem] lg:leading-[1.875rem] xl:text-[1.75rem] xl:leading-[2.625rem]"
-              >
+              <div class="mt-4 mobile-header-2-regular text-black-60">
                 {{ weekly.content }}
               </div>
+            </div>
+            <div class="flex flex-row justify-between">
+              <span class="mobile-header-3-semibold text-black-60">{{
+                weekly.author
+              }}</span>
+              <span class="sub-h1-regular text-black-60">{{
+                weekly.readtime
+              }}</span>
             </div>
           </div>
         </div>
@@ -145,7 +143,7 @@ export default {
           title: "Android Stack Weekly",
           content:
             "Welcome to Android Weekly — a newsletter on new development and updates of Android universe curated by Canopas team, delivered every Monday.",
-          color: "bg-[#FFEDF0]",
+          color: "bg-lavender-blush",
           url: "https://blog.canopas.com/tagged/canopas-android-weekly",
           translate: 0,
           scale: 1,
@@ -159,7 +157,7 @@ export default {
           title: "iOS Stack Weekly",
           content:
             "Welcome to iOS Weekly — a newsletter on new development and updates of the iOS universe curated by Canopas team, delivered every Monday.",
-          color: "bg-[#FFF8EF]",
+          color: "bg-white-smoke",
           url: "https://blog.canopas.com/tagged/canopas-ios-weekly",
           translate: 40,
           scale: 1,
@@ -173,7 +171,7 @@ export default {
           title: "Web Stack Weekly",
           content:
             "Welcome to Web weekly — a weekly newsletter on new development and updates of Web universe curated by Canopas team, delivered every Monday.",
-          color: "bg-[#EDEFFF]",
+          color: "bg-lavender-blush",
           url: "https://blog.canopas.com/tagged/canopas-web-weekly",
           translate: 80,
           scale: 1,
@@ -187,7 +185,7 @@ export default {
           title: "Flutter Stack Weekly",
           content:
             "Welcome to Flutter Weekly — a newsletter on new development and updates of Flutter universe curated by Canopas team, delivered every Monday.",
-          color: "bg-[#EBF9EF]",
+          color: "bg-white-smoke",
           url: "https://blog.canopas.com/tagged/canopas-flutter-weekly",
           translate: 120,
           scale: 1,

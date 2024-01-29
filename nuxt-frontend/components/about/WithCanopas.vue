@@ -7,7 +7,7 @@
         <div
           class="m-auto sm:w-[90%] text-center mobile-header-2 lg:desk-header-2 text-black-87"
         >
-          With <span class="primary-color">canopas</span>, you will have
+          With <span class="text-primary-1">canopas</span>, you will have
           everything you need under one roof.
         </div>
         <div>
@@ -33,7 +33,7 @@
                 :class="phase.className"
               >
                 <div
-                  class="mobile-header-3-semibold lg:desk-header-3 primary-color"
+                  class="mobile-header-3-semibold lg:desk-header-3 text-primary-1"
                 >
                   {{ phase.title }}
                 </div>
@@ -68,7 +68,7 @@
                 :class="phase.className"
               >
                 <div
-                  class="mobile-header-3-semibold lg:desk-header-3 primary-color"
+                  class="mobile-header-3-semibold lg:desk-header-3 text-primary-1"
                 >
                   {{ phase.title }}
                 </div>

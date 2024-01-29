@@ -31,7 +31,7 @@
           class="text-center lg:text-left w-full md:w-[95%] lg:w-[90%] xl:w-[94%] 2xl:w-[81%] mobile-header-1 lg:desk-header-2 xl:desk-header-1"
         >
           For over a decade we have helped businesses grow exponentially.
-          <div>- <span class="primary-color"> Is Yours Next?</span></div>
+          <div>- <span class="text-primary-1"> Is Yours Next?</span></div>
         </h1>
         <div
           class="sub-h1-regular lg:mobile-header-2-regular text-black-60 w-full md:w-[75%] lg:w-full 2xl:w-[89%] pt-4 lg:pt-6 text-center lg:text-left"

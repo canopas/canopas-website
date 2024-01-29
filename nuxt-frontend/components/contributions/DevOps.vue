@@ -1,14 +1,10 @@
 <template>
-  <section
-    class="mb-[100px] mt-[12%] overflow-hidden sm:mt-[7%] 2xll:mt-[2%] 3xl:mt-0"
-  >
-    <p
-      class="container text-center font-inter-bold text-[1.875rem] leading-[2.438rem] text-black-core/[0.87] lg:text-[3.438rem] lg:leading-[5.156rem]"
-    >
-      DevOps - CI/CD and Auto Deployment
+  <section class="mt-16 overflow-hidden 2xll:mt-[2%] 3xl:mt-0">
+    <p class="container text-center mobile-header-2 lg:desk-header-2">
+      DevOps: CI/CD and auto deployment
     </p>
     <!-- Mobile UI start -->
-    <div class="mt-12 block md:hidden">
+    <div class="mt-12 block lg:hidden">
       <swiper :slidesPerView="1.325" :centeredSlides="true" :spaceBetween="0">
         <swiper-slide v-for="(blog, index) in devOps" :key="index">
           <div class="scale-75 transition-all duration-200 ease-out">
@@ -21,7 +17,7 @@
               loading="lazy"
             />
             <div
-              class="absolute right-0 top-0 rounded-bl-[5px] bg-white px-3 py-1 font-inter-medium text-[0.875rem] leading-[1.313rem]"
+              class="absolute right-0 top-0 rounded-bl-[5px] bg-white px-3 py-1 sub-h4-medium text-black-87"
             >
               {{ blog.readTime }}
             </div>
@@ -31,7 +27,7 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <div class="container mt-16 hidden flex-col gap-10 md:flex">
+    <div class="container mt-16 hidden flex-col gap-10 lg:flex">
       <div class="flex flex-row gap-10 overflow-hidden">
         <div v-for="blog in devOps.slice(0, 2)" :key="blog.id">
           <div class="group relative h-full w-full cursor-pointer">
@@ -39,26 +35,22 @@
               :src="blog.image[0]"
               :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
               alt="devops"
-              class="h-full w-full rounded-[20px] object-cover"
+              class="h-full w-full rounded-[1.25rem] object-cover"
               loading="lazy"
             />
             <div
               @click="openBlog(blog.link, 'tap_contribution_Devops_section')"
             >
               <div
-                class="gradient-class opacity-1 ease absolute bottom-[0] left-[0] h-[21%] w-full rounded-b-[20px] transition-all duration-1000 group-hover:h-full lg:group-hover:h-[85%]"
+                class="gradient-class opacity-1 ease absolute bottom-0 left-0 h-[21%] w-full rounded-b-[1.25rem] transition-all duration-1000 group-hover:h-full lg:group-hover:h-[85%]"
               ></div>
               <div
-                class="opacity-1 absolute -bottom-16 translate-y-[50%] p-4 font-inter-medium text-white transition-all duration-1000 group-hover:bottom-[-1rem] group-hover:translate-y-[0%] group-hover:transition-all group-hover:duration-1000 xl:group-hover:bottom-0 2xl:group-hover:bottom-8"
+                class="opacity-1 absolute -bottom-16 translate-y-1/2 p-4 font-inter-medium text-white transition-all duration-1000 group-hover:-bottom-4 group-hover:translate-y-0 group-hover:transition-all group-hover:duration-1000 xl:group-hover:bottom-0 2xl:group-hover:bottom-8"
               >
-                <p
-                  class="text-[1.1rem] leading-[1.1875rem] xl:text-[1.125rem] xl:leading-[1.688rem]"
-                >
+                <p class="sub-h1-regular">
                   {{ blog.readTime }}
                 </p>
-                <p
-                  class="mt-4 w-full text-[1.1rem] leading-[1.875rem] xl:text-[1.5rem] xl:leading-9 2xl:w-[75%]"
-                >
+                <p class="mt-4 w-full mobile-header-2-semibold 2xl:w-[75%]">
                   {{ blog.title }}
                 </p>
               </div>
@@ -69,31 +61,27 @@
       <div
         v-for="blog in devOps.slice(2, 3)"
         :key="blog.id"
-        class="mx-auto w-[50%] overflow-hidden"
+        class="mx-auto w-1/2 overflow-hidden"
       >
         <div class="group relative h-full w-full cursor-pointer">
           <img
             :src="blog.image[0]"
             :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
             alt="devops"
-            class="h-full w-full rounded-[20px] object-cover"
+            class="h-full w-full rounded-[1.25rem] object-cover"
             loading="lazy"
           />
           <div @click="openBlog(blog.link, 'tap_contribution_Devops_section')">
             <div
-              class="gradient-class opacity-1 ease absolute bottom-[0] left-[0] h-[21%] w-full rounded-b-[20px] transition-all duration-1000 group-hover:h-full lg:group-hover:h-[85%]"
+              class="gradient-class opacity-1 ease absolute bottom-0 left-0 h-[21%] w-full rounded-b-[1.25rem] transition-all duration-1000 group-hover:h-full lg:group-hover:h-[85%]"
             ></div>
             <div
-              class="opacity-1 absolute -bottom-16 translate-y-[50%] p-4 font-inter-medium text-white transition-all duration-1000 group-hover:-bottom-4 group-hover:translate-y-[0%] group-hover:transition-all group-hover:duration-1000 xl:group-hover:bottom-0 2xl:group-hover:bottom-8"
+              class="opacity-1 absolute -bottom-16 translate-y-1/2 p-4 font-inter-medium text-white transition-all duration-1000 group-hover:-bottom-4 group-hover:translate-y-0 group-hover:transition-all group-hover:duration-1000 xl:group-hover:bottom-0 2xl:group-hover:bottom-8"
             >
-              <p
-                class="text-[1.1rem] leading-[1.1875rem] xl:text-[1.125rem] xl:leading-[1.688rem]"
-              >
+              <p class="sub-h1-regular">
                 {{ blog.readTime }}
               </p>
-              <p
-                class="mt-4 w-full text-[1.1rem] leading-[1.875rem] xl:text-[1.5rem] xl:leading-9 2xl:w-[75%]"
-              >
+              <p class="mt-4 w-full mobile-header-2-semibold 2xl:w-[75%]">
                 {{ blog.title }}
               </p>
             </div>
@@ -107,26 +95,22 @@
               :src="blog.image[0]"
               :srcset="`${blog.image[0]} 400w, ${blog.image[1]} 800w`"
               alt="devops"
-              class="h-full w-full cursor-pointer rounded-[20px] object-cover"
+              class="h-full w-full cursor-pointer rounded-[1.25rem] object-cover"
               loading="lazy"
             />
             <div
               @click="openBlog(blog.link, 'tap_contribution_Devops_section')"
             >
               <div
-                class="gradient-class opacity-1 ease absolute bottom-[0] left-[0] h-[21%] w-full rounded-b-[20px] transition-all duration-1000 group-hover:h-full lg:group-hover:h-[85%]"
+                class="gradient-class opacity-1 ease absolute bottom-0 left-0 h-[21%] w-full rounded-b-[20px] transition-all duration-1000 group-hover:h-full lg:group-hover:h-[85%]"
               ></div>
               <div
-                class="absolute -bottom-16 translate-y-[50%] p-4 font-inter-medium text-white transition-all duration-1000 group-hover:-bottom-4 group-hover:translate-y-[0%] group-hover:transition-all group-hover:duration-1000 xl:group-hover:bottom-0 2xl:group-hover:bottom-8"
+                class="absolute -bottom-16 translate-y-1/2 p-4 font-inter-medium text-white transition-all duration-1000 group-hover:-bottom-4 group-hover:translate-y-0 group-hover:transition-all group-hover:duration-1000 xl:group-hover:bottom-0 2xl:group-hover:bottom-8"
               >
-                <p
-                  class="text-[1.1rem] leading-[1.1875rem] xl:text-[1.125rem] xl:leading-[1.688rem]"
-                >
+                <p class="sub-h1-regular">
                   {{ blog.readTime }}
                 </p>
-                <p
-                  class="mt-4 w-full text-[1.1rem] leading-[1.875rem] xl:text-[1.5rem] xl:leading-9 2xl:w-[75%]"
-                >
+                <p class="mt-4 w-full mobile-header-2-semibold 2xl:w-[75%]">
                   {{ blog.title }}
                 </p>
               </div>

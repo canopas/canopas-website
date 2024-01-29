@@ -1,9 +1,9 @@
 <template>
   <div>
     <Header />
-    <div class="overflow-hidden">
-      <MobileLandingSection class="block md:hidden" />
-      <DesktopLandingSection class="hidden md:block" />
+    <div>
+      <MobileLandingSection class="block lg:hidden" />
+      <DesktopLandingSection class="hidden lg:block" />
       <GithubContribution />
     </div>
     <div>

@@ -1,58 +1,47 @@
 <template>
-  <div class="mt-5 xll:container md:mt-[8.063rem] lg:mt-[14.063rem]">
+  <div class="mt-16 xll:container lg:mt-60">
     <div
-      class="container text-center font-inter-bold text-[1.875rem] leading-[2.25rem] lg:text-[3.4375rem] lg:leading-[5.1875rem]"
+      class="container text-center mobile-header-2 lg:desk-header-2 text-black-87"
     >
       Discover What's Trending
     </div>
     <!-- Mobile UI start -->
-    <div class="my-10 block overflow-hidden md:hidden">
+    <div class="mt-6 block overflow-hidden lg:hidden">
       <div
-        class="animate-gridAnimationReverse"
-        :class="[pausedId == 0 ? gridAnimation : 'animation-paused']"
+        class="animate-gridAnimation"
+        :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
       >
-        <div
-          class="animate-gridAnimation"
-          :class="[pausedId == 0 ? 'animation-running' : 'animation-paused']"
-        >
-          <div class="ml-40 flex pb-2.5" v-if="mobileGrid.length > 0">
-            <div
-              v-for="(post, index) in mobileGrid"
-              :key="index"
-              class="ml-8 flex flex-[0_0_320px] flex-col justify-center rounded-2xl text-left text-[1rem] leading-[1.125rem] sm:flex-[0_0_480px] md:text-[1.0625rem] md:leading-[1.5rem] lg:flex-[0_0_528px] lg:text-[1.1875rem] lg:leading-[1.875rem]"
-              :class="pausedId == post.id ? 'scale-[0.97] cursor-pointer' : ''"
-              @mouseover="pausedId = post.id"
-              @mouseleave="pausedId = 0"
-              @touchstart.passive="pausedId = post.id"
-              @touchend="pausedId = 0"
-              :ref="'card-1-' + index"
-              @click="openBlog(post.link, 'tap_contribution_trending_section')"
-            >
-              <div
-                class="overflow-hidden rounded-3xl border-1 border-[#000000]/[0.6]"
-              >
-                <div class="">
-                  <img
-                    @click.native="$mixpanel.track('tap_whats_trending_blog')"
-                    :src="post.images[0]"
-                    :srcset="`${post.images[0]} 400w, ${post.images[1]} 600w`"
-                    alt="trending"
-                    class="h-[10%] object-cover"
-                    loading="lazy"
-                  />
+        <div class="ml-40 flex pb-2.5" v-if="mobileGrid.length > 0">
+          <div
+            v-for="(post, index) in mobileGrid"
+            :key="index"
+            class="ml-8 flex flex-[0_0_320px] flex-col justify-center rounded-xl text-left sm:flex-[0_0_480px]"
+            :class="pausedId == post.id ? 'scale-[0.97] cursor-pointer' : ''"
+            @mouseover="pausedId = post.id"
+            @mouseleave="pausedId = 0"
+            @touchstart.passive="pausedId = post.id"
+            @touchend="pausedId = 0"
+            :ref="'card-1-' + index"
+            @click="openBlog(post.link, 'tap_contribution_trending_section')"
+          >
+            <div class="overflow-hidden rounded-3xl border-1 border-black-80">
+              <div class="">
+                <img
+                  @click.native="$mixpanel.track('tap_whats_trending_blog')"
+                  :src="post.images[0]"
+                  :srcset="`${post.images[0]} 400w, ${post.images[1]} 600w`"
+                  alt="trending"
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+              </div>
+              <div class="flex flex-col gap-1 p-4">
+                <div class="min-h-[5.625rem] sub-h1-semibold text-black-87">
+                  {{ post.title }}
                 </div>
-                <div class="flex flex-col gap-1 p-4">
-                  <div
-                    class="min-h-[5.625rem] font-inter-semibold text-[1rem] leading-[1.875rem]"
-                  >
-                    {{ post.title }}
-                  </div>
-                  <div class="w-fit self-end">
-                    <div
-                      class="rounded-full border border-solid border-transparent from-[#ff835b] to-[#f2709c] px-6 py-[0.7rem] text-center font-inter-semibold text-[1rem] leading-[1.25rem] tracking-normal text-white bg-gradient-[270.11deg]"
-                    >
-                      {{ post.views }} Views
-                    </div>
+                <div class="w-fit self-end">
+                  <div class="sub-h4-medium text-primary-1">
+                    {{ post.views }} Views
                   </div>
                 </div>
               </div>
@@ -63,7 +52,7 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <div class="mt-10 hidden overflow-hidden md:block lg:mt-20">
+    <div class="mt-10 hidden overflow-hidden lg:block mt-20">
       <div
         class="animate-gridAnimationReverse"
         :style="{
@@ -80,7 +69,7 @@
             <div
               v-for="(post, index) in grid1"
               :key="index"
-              class="relative ml-8 flex flex-[0_0_320px] flex-col justify-center rounded-2xl text-left text-[1rem] leading-[1.125rem] sm:flex-[0_0_480px] md:text-[1.0625rem] md:leading-6 lg:flex-[0_0_528px] lg:text-[1.1875rem] lg:leading-[1.875rem]"
+              class="relative ml-8 flex flex-col justify-center rounded-xl flex-[0_0_528px]"
               :class="pausedId == post.id ? 'scale-[0.97] cursor-pointer' : ''"
               @mouseover="pausedId = post.id"
               @mouseleave="pausedId = 0"
@@ -94,7 +83,7 @@
                 :style="{
                   top: `-${viewTop}px`,
                 }"
-                class="absolute inset-x-0 z-10 m-auto w-fit rounded-full border border-solid border-transparent from-[#ff835b] to-[#f2709c] px-6 py-[0.3rem] text-center font-inter-semibold text-[1rem] leading-5 tracking-normal text-white bg-gradient-[270.11deg] xl:text-[1.625rem] xl:leading-[2.4375rem]"
+                class="absolute inset-x-0 z-10 m-auto w-fit rounded-xl border border-solid border-transparent from-orange-300 to-pink-300 px-6 py-[0.3rem] mobile-header-2-semibold text-center text-white bg-gradient-[270.11deg]"
               >
                 {{ post.views }} Views
               </div>
@@ -107,7 +96,7 @@
                   :src="post.images[0]"
                   :srcset="`${post.images[0]} 400w, ${post.images[1]} 600w`"
                   alt="trending"
-                  class="rounded-md object-contain"
+                  class="rounded-xl object-contain"
                 />
               </aspect-ratio>
             </div>
@@ -115,7 +104,7 @@
         </div>
       </div>
     </div>
-    <div class="mb-10 hidden overflow-hidden md:block lg:mb-20">
+    <div class="hidden overflow-hidden lg:block">
       <div
         class="animate-gridAnimation"
         :style="{
@@ -134,7 +123,7 @@
             <div
               v-for="(post, index) in grid2"
               :key="index"
-              class="relative ml-8 mt-8 flex flex-[0_0_320px] flex-col justify-center rounded-2xl text-left text-[1rem] leading-[1.125rem] sm:flex-[0_0_480px] md:text-[1.0625rem] md:leading-6 lg:flex-[0_0_528px] lg:text-[1.1875rem] lg:leading-[1.875rem]"
+              class="relative ml-8 mt-8 flex flex-col justify-center rounded-xl text-left flex-[0_0_528px]"
               :class="pauseId == post.id ? 'scale-[0.97] cursor-pointer' : ''"
               @mouseover="pauseId = post.id"
               @mouseleave="pauseId = 0"
@@ -147,7 +136,7 @@
                 :style="{
                   top: `-${viewTop}px`,
                 }"
-                class="absolute inset-x-0 z-10 m-auto w-fit rounded-full border border-solid border-transparent from-[#ff835b] to-[#f2709c] px-6 py-[0.3rem] text-center font-inter-semibold text-[1rem] leading-5 tracking-normal text-white bg-gradient-[270.11deg] xl:text-[1.625rem] xl:leading-[2.4375rem]"
+                class="absolute inset-x-0 z-10 m-auto w-fit rounded-xl border border-solid border-transparent from-orange-300 to-pink-300 px-6 py-[0.3rem] text-center mobile-header-2-semibold text-white bg-gradient-[270.11deg]"
               >
                 {{ post.views }} Views
               </div>
@@ -160,7 +149,7 @@
                   :src="post.images[0]"
                   :srcset="`${post.images[0]} 400w, ${post.images[1]} 600w`"
                   alt="trending"
-                  class="rounded-md object-contain"
+                  class="rounded-xl object-contain"
                 />
               </aspect-ratio>
             </div>
