@@ -66,11 +66,6 @@ export default {
           event: "tap_footer_twitter",
         },
         {
-          url: Config.BLOG_URL,
-          icon: "fa6-brands:medium",
-          event: "tap_footer_medium",
-        },
-        {
           url: Config.LINKEDIN_URL,
           icon: "fa6-brands:linkedin-in",
           event: "tap_footer_linkedin",

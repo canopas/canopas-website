@@ -1,91 +1,79 @@
 <template>
   <section
-    class="py-[50px] md:-mt-1px md:bg-multi-gradient-background md:pb-[200px] md:pt-[150px]"
+    class="lg:bg-multi-gradient-background lg:pb-60 mt-16 lg:mt-0 3xl:outer-container"
   >
-    <!-- MOBILE UI START -->
-    <div class="container md:hidden">
-      <p class="text-center font-inter-bold text-[1.875rem] leading-9">
-        CASE STUDIES
+    <div class="flex flex-col items-center text-center">
+      <p class="mobile-header-2 lg:desk-header-2 text-black-87 lg:text-white">
+        Our portfolios
       </p>
       <p
-        class="v2-canopas-gradient-text mt-2 text-center font-inter-medium text-[1rem] leading-[1.2rem]"
+        class="mt-3 text-primary-1 mobile-header-2-regular lg:mobile-header-2-semibold w-4/5 mx-auto"
       >
         1M+ users use our apps everyday
       </p>
+      <p
+        class="hidden lg:block text-white-core-80 mt-6 mobile-header-2-regular w-[66%] xl:w-[52%]"
+      >
+        Discover how we transformed the vision of our clients into successful
+        mobile applications.
+      </p>
+    </div>
+    <!-- MOBILE UI START -->
+    <div class="container lg:hidden">
       <div
-        class="mt-10 flex flex-col"
+        class="mt-6 flex flex-col"
         v-for="(portfolio, index) in portfolios"
         :key="index"
       >
-        <div class="flex flex-row items-center gap-2">
+        <div class="flex items-center gap-2">
           <img
             :src="portfolio.logo"
             alt="app-logo"
-            class="h-[30px] w-[30px] object-contain"
-            :class="index == 3 ? 'w-[75px]' : ''"
+            class="h-[1.875rem] w-[1.875rem] object-contain"
+            :class="index == 3 ? 'w-[4.688rem]' : ''"
+            loading="lazy"
           />
-          <p
-            class="font-inter-bold text-[1.25rem] leading-6 text-black-core/[0.87]"
-          >
+          <p class="mobile-header-3-semibold text-black-87">
             {{ portfolio.name }}
           </p>
         </div>
-        <div
-          class="mt-3 font-inter-medium text-[1.2rem] leading-[1.6rem] text-black-core/[0.60]"
-        >
+        <div class="mt-2 sub-h3-regular text-black-60">
           {{ portfolio.description }}
         </div>
         <img
           :src="portfolio.image[0]"
           :srcset="`${portfolio.image[0]} 400w, ${portfolio.image[1]} 600w,  ${portfolio.image[2]} 800w}`"
           alt="app-image"
-          class="mx-auto mt-8 h-full max-w-[95%]"
+          class="mx-auto mt-4 h-full max-w-[95%] md:max-w-[75%]"
           @click="openPortfolio(portfolio)"
+          loading="lazy"
         />
       </div>
     </div>
     <!-- MOBILE UI END -->
 
     <!-- DESKTOP UI START -->
-    <div class="container hidden md:block">
-      <div class="flex flex-col items-center">
-        <p
-          class="text-center font-inter-bold text-[3.125rem] leading-[3.438rem] text-white xl:text-[4.125rem] xl:leading-[4.95rem]"
-        >
-          Our portfolios
-        </p>
-        <p
-          class="v2-canopas-gradient-text mt-1 text-center font-inter-medium text-[1.25rem] leading-6 xl:text-[1.5rem] xl:leading-[1.8rem]"
-        >
-          1M+ users use our apps everyday
-        </p>
-        <p
-          class="mt-6 w-[73%] text-center font-inter-regular text-[1.25rem] leading-[1.5rem] text-white/[0.85] lg:w-[58%] xl:text-[1.5rem] xl:leading-[1.8rem] 2xl:w-[50%]"
-        >
-          Discover how we transformed the vision of our clients into successful
-          mobile applications.
-        </p>
-      </div>
+    <div class="container hidden lg:block">
       <div
-        class="mt-32 flex flex-col"
+        class="mt-16 flex flex-col"
         v-for="(portfolio, index) in portfolios"
         :key="index"
       >
         <div
-          class="flex flex-row gap-6 lg:gap-14"
+          class="flex gap-6 lg:gap-14"
           :class="
             portfolio.id == 2 || portfolio.id == 4 ? 'flex-row-reverse' : ''
           "
         >
           <div
-            class="flex flex-[61%] flex-col justify-center 2xl:w-[70%]"
+            class="flex w-[61%] flex-col justify-center 2xl:w-[70%]"
             :class="
               portfolio.id == 2 || portfolio.id == 4
                 ? 'lg:pl-[4.5rem] 2xl:pl-[6.5rem]'
                 : ''
             "
           >
-            <div class="flex flex-row items-center gap-2">
+            <div class="flex items-center gap-2">
               <img
                 :src="
                   portfolio.id == 2 || portfolio.id == 3
@@ -93,14 +81,14 @@
                     : portfolio.logo
                 "
                 alt="app-logo"
-                class="h-[30px] w-[30px] object-contain"
+                class="h-[1.875rem] w-[1.875rem] object-contain"
                 :class="index == 3 ? 'w-[75px]' : ''"
               />
               <p
-                class="font-inter-semibold text-[1.25rem] leading-[1.513rem]"
+                class="mobile-header-3-semibold"
                 :class="
                   portfolio.id == 1
-                    ? 'from-[#26AEF9] to-[#2671FA] bg-clip-text text-transparent bg-gradient-[180deg]'
+                    ? 'from-dodger-blue to-cool-purple bg-clip-text text-transparent bg-gradient-[180deg]'
                     : 'text-white '
                 "
               >
@@ -108,11 +96,11 @@
               </p>
             </div>
             <p
-              class="mt-2 w-[90%] cursor-pointer font-inter-semibold text-[2.063rem] leading-10 text-white xl:text-[3rem] xl:leading-[3.631rem]"
+              class="mt-2 w-[90%] cursor-pointer text-white desk-header-3"
               :class="
                 portfolio.id == 1 || portfolio.id == 3
-                  ? 'lg:w-[67%] xl:w-[81%] 2xl:w-[83%]'
-                  : 'lg:w-[78%] xl:w-[89%] 2xl:w-[82%]'
+                  ? 'lg:w-[73%] xl:w-3/4 2xl:w-[57%]'
+                  : 'lg:w-[86%] xl:w-[82%] 2xl:w-[63%]'
               "
               @click="openPortfolio(portfolio)"
             >
@@ -122,10 +110,10 @@
               >
             </p>
             <p
-              class="mt-6 font-inter-medium text-[1.125rem] leading-[1.438rem] text-white/[0.85] lg:w-[94%] xl:text-[1.25rem] xl:leading-[1.513rem]"
+              class="mt-6 lg:w-[90%] xl:w-[76%] 2xl:w-[70%] mobile-header-3-regular text-white-core-80"
               :class="
                 portfolio.id == 1 || portfolio.id == 3
-                  ? 'xl:w-[85%] 2xl:w-[100%]'
+                  ? 'xl:w-[74%] 2xl:w-[70%]'
                   : ''
               "
             >
@@ -133,7 +121,7 @@
             </p>
           </div>
           <div
-            class="items-enter flex-[39%] cursor-pointer justify-center 2xl:w-[30%]"
+            class="items-enter w-[39%] cursor-pointer justify-center 2xl:w-[30%]"
           >
             <img
               :src="portfolio.desktopImage[0]"

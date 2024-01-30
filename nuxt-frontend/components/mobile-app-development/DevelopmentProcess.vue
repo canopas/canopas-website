@@ -1,17 +1,13 @@
 <template>
-  <section
-    class="py-[50px] md:pb-[100px] xl:pt-[100px] md:bg-light-pink-gradient-background"
-  >
+  <section class="lg:bg-light-pink-gradient-background mt-16 lg:mt-60">
     <!-- MOBILE UI START  -->
-    <div class="container flex flex-col items-center md:hidden">
-      <p
-        class="w-[60%] text-center font-inter-bold text-[1.875rem] leading-[2.269rem] text-black-core/[0.85] sm:w-full"
-      >
-        DEVELOPMENT PROCESS
+    <div class="container flex flex-col items-center lg:hidden">
+      <p class="text-center mobile-header-2 text-black-87">
+        Development process
       </p>
-      <div class="cards relative h-full w-full pt-[550px]" ref="cards">
+      <div class="cards relative h-full w-full pt-[34.375rem]" ref="cards">
         <div
-          class="absolute bottom-0 left-0 right-0 top-0 m-auto h-[22.80088rem] w-[22.625rem] rounded-[1.25rem] border border-[#f77881] bg-[#3d3d3d] pt-5 transition-all duration-500 sm:w-[24.625rem]"
+          class="absolute bottom-0 left-0 right-0 top-0 m-auto h-[22.80088rem] w-[22.625rem] rounded-[1.25rem] border border-pink-300 bg-deep-charcoal pt-5 transition-all duration-500 sm:w-[24.625rem]"
           :style="{ zIndex: process.zIndex }"
           v-for="(process, index) in processes"
           :key="index"
@@ -20,7 +16,7 @@
           @touchend="onTouchEnd"
         >
           <div class="flex flex-col px-4">
-            <div class="flex flex-row items-center gap-2">
+            <div class="flex items-center gap-2">
               <div>
                 <img
                   :src="process.image"
@@ -28,13 +24,11 @@
                   class="h-12 w-12 sm:h-14 sm:w-14"
                 />
               </div>
-              <p
-                class="font-inter-semibold text-[1.125rem] leading-[1.688rem] text-[#F77881]"
-              >
+              <p class="sub-h1-semibold text-white">
                 {{ process.title }}
               </p>
             </div>
-            <p class="mt-5 text-center font-inter-regular text-base text-white">
+            <p class="mt-5 text-center sub-h3-regular text-white-core-80">
               {{ process.description }}
             </p>
           </div>
@@ -45,29 +39,23 @@
 
     <!-- Desktop UI START -->
     <div
-      class="container hidden h-[985px] overflow-hidden md:block lg:h-[925px] xl:h-[1245px]"
+      class="container hidden h-[61.563rem] overflow-hidden lg:block lg:h-[70.813rem] xl:h-[77.813rem]"
     >
-      <p
-        class="text-center font-inter-bold text-[3.125rem] leading-[3.625rem] text-black-core/[0.85] xl:text-[4.125rem] xl:leading-[6.188rem]"
-      >
-        Development Process
-      </p>
+      <p class="text-center desk-header-2">Development Process</p>
       <div class="flex flex-row-reverse items-center 2xl:gap-28">
         <transition-group>
-          <div class="w-[60%] xl:w-[50%]">
+          <div class="w-3/5 xl:w-1/2">
             <div
               v-for="(process, index) in processes"
               :key="process"
               class="flex flex-col"
             >
-              <div class="mb-4 mt-12 flex flex-row items-center gap-2">
+              <div class="mb-4 mt-12 flex items-center gap-2">
                 <div
                   :class="
-                    activeIndex == index
-                      ? 'gradient-border-text'
-                      : 'border-text '
+                    activeIndex == index ? 'secondary-color' : 'border-text '
                   "
-                  class="font-futura-bold text-[2.875rem] leading-[3.375rem] xl:text-[4.125rem] xl:leading-[6.188rem]"
+                  class="desk-header-1"
                 >
                   {{ process.id }}
                 </div>
@@ -76,11 +64,11 @@
                   @touchstart.passive="
                     (activeIndex = index), (activeProcess = process)
                   "
-                  class="relative w-max cursor-pointer rounded-r-[15px] bg-[#FFF1ED] py-6 pl-4 pr-8 font-inter-medium text-[1.25rem] leading-[1.625rem] text-black-core xl:py-9 xl:pr-12 xl:text-[1.5rem] xl:leading-9"
+                  class="relative w-max cursor-pointer rounded-r-[15px] bg-pink-80 sub-h2-medium text-black-87 py-6 pl-4 pr-8 xl:py-9 xl:pr-12"
                   :class="process.className"
                 >
                   <span
-                    class="absolute right-0 top-0 h-3 w-3 rounded-full bg-[#3D3D3D] xl:h-5 xl:w-5"
+                    class="absolute right-0 top-0 h-3 w-3 rounded-full bg-black-60 xl:h-5 xl:w-5"
                   ></span>
                   {{ process.title }}
                 </div>
@@ -89,16 +77,16 @@
                 <div
                   v-if="activeIndex == index"
                   :key="process.description"
-                  class="ml-[2.4rem] xl:ml-[3.2rem] font-inter-regular text-[1.25rem] leading-[1.625rem] text-black-core/[0.70] xl:text-[1.5rem] xl:leading-9"
+                  class="ml-[2.4rem] xl:ml-[3.2rem] mobile-header-2-regular text-black-60"
                   v-html="process.description"
                 ></div>
               </collapse-transition>
             </div></div
         ></transition-group>
-        <div class="w-[40%] xl:w-[50%]">
+        <div class="w-2/5 xl:w-1/2">
           <img
             v-if="activeProcess !== null"
-            :src="activeProcess.image"
+            :src="activeProcess.desktopImage"
             alt="process"
             class="h-full w-full object-contain"
           />
@@ -115,6 +103,11 @@ import process2 from "@/assets/images/mobile-app-development/development-process
 import process3 from "@/assets/images/mobile-app-development/development-process/process-3.gif";
 import process4 from "@/assets/images/mobile-app-development/development-process/process-4.gif";
 import process5 from "@/assets/images/mobile-app-development/development-process/process-5.gif";
+import desktop_process1 from "@/assets/images/mobile-app-development/development-process/desktop/process-1.gif";
+import desktop_process2 from "@/assets/images/mobile-app-development/development-process/desktop/process-2.gif";
+import desktop_process3 from "@/assets/images/mobile-app-development/development-process/desktop/process-3.gif";
+import desktop_process4 from "@/assets/images/mobile-app-development/development-process/desktop/process-4.gif";
+import desktop_process5 from "@/assets/images/mobile-app-development/development-process/desktop/process-5.gif";
 import CollapseTransition from "@ivanv/vue-collapse-transition/src/CollapseTransition.vue";
 
 export default {
@@ -134,6 +127,7 @@ export default {
           description:
             "Our journey begins with your vision. We don't just listen; we delve deep into your idea, understanding the 'why' behind it. What's the core problem your app aims to solve? Who's your target audience? These insights help us shape a mobile app solution that truly resonates with your goals.",
           image: process1,
+          desktopImage: desktop_process1,
         },
         {
           id: 2,
@@ -141,6 +135,7 @@ export default {
           description:
             "Once we've nailed down the essence of your idea, our design team steps in. Crafting an immersive user interface and a seamless user experience isn't just about aesthetics - it's about designing an app your users will love to use. We strike the perfect balance between functionality and visual appeal, making your app irresistible to users.",
           image: process2,
+          desktopImage: desktop_process2,
         },
         {
           id: 3,
@@ -148,6 +143,7 @@ export default {
           description:
             "Now, it's time to breathe life into the design. Our team of seasoned developers focuses on creating an app that's fast, thoughtful, and smart. We meticulously code to ensure that your app runs smoothly, provides quick response times, and offers intelligent solutions to your users.",
           image: process3,
+          desktopImage: desktop_process3,
         },
         {
           id: 4,
@@ -155,6 +151,7 @@ export default {
           description:
             "Once we're confident of the app's performance and reliability, it's time to introduce it to the world. We take care of the entire deployment process, ensuring your app finds its rightful place on the App Store or Google Play. But our journey doesn't end there.",
           image: process4,
+          desktopImage: desktop_process4,
         },
         {
           id: 5,
@@ -163,6 +160,7 @@ export default {
           description:
             "The lifecycle of an app doesn't end after launching the product. As your business grows, so should your app. We provide ongoing maintenance and continuous feature enhancement to ensure your app stays relevant, scalable, and in tune with your evolving business needs.",
           image: process5,
+          desktopImage: desktop_process5,
         },
       ],
     };

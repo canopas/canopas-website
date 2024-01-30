@@ -1,15 +1,15 @@
 <template>
   <div>
     <Header />
-    <div class="overflow-hidden">
-      <div class="bg-[#262626] md:bg-[#1A1A1A]">
+    <div>
+      <div class="bg-deep-charcoal 3xl:outer-container">
         <LandingSection />
         <Services />
       </div>
       <Portfolio />
       <CTASection />
       <DevelopmentProcess ref="developmentprocess" />
-      <div class="bg-[#121212]">
+      <div class="bg-deep-charcoal 3xl:outer-container">
         <ClientReview />
         <CTASection2 ref="cta" />
       </div>

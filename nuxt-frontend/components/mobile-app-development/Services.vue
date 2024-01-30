@@ -1,49 +1,42 @@
 <template>
-  <section class="py-[50px]">
+  <section class="mt-16 lg:mt-60 pb-14 lg:pb-60">
     <p
-      class="container text-center font-inter-bold text-[1.875rem] leading-[2.813rem] text-white md:text-[4.125rem] md:leading-[4.95rem]"
+      class="container text-center text-white mobile-header-2 lg:desk-header-2"
     >
       Services
     </p>
     <!-- MOBILE UI START  -->
     <div
-      class="container mt-12 flex flex-col md:hidden"
+      class="container mt-8 flex flex-col lg:hidden"
       v-for="(service, index) in services"
       :key="index"
     >
-      <div class="flex flex-row items-start justify-center gap-4">
-        <img
-          :src="service.image"
-          alt="mobile-service"
-          class="h-[33px] w-[33px]"
-        />
-        <p
-          class="v2-canopas-gradient-text font-inter-semibold text-[1.25rem] leading-[1.5rem]"
-        >
+      <div class="flex items-start justify-center gap-4">
+        <img :src="service.image" alt="mobile-service" class="h-8 w-8" />
+        <p class="v2-canopas-gradient-text mobile-header-3-semibold">
           {{ service.title }}
         </p>
       </div>
       <div
-        class="mt-4 flex h-full w-full flex-col rounded-[20px] bg-[#3F3F3F] px-4 py-[1.56rem]"
+        class="mt-4 flex h-full w-full flex-col rounded-xl bg-white-core-8 px-4 py-[1.56rem]"
       >
-        <div class="flex flex-row items-start justify-center gap-4">
+        <div class="flex items-start justify-center gap-4">
           <div v-for="(technology, index) in service.technologies" :key="index">
             <div class="flex flex-col items-center gap-1">
               <img
                 :src="technology.image"
                 alt="technology"
-                class="h-[60px] w-[60px] object-contain"
+                class="h-[3.75rem] w-[3.75rem] object-contain"
+                loading="lazy"
               />
               <p
-                class="text-center font-inter-semibold text-[0.75rem] leading-[1.125rem] text-white/[0.76]"
+                class="text-center sub-h4-semibold text-white-core-60"
                 v-html="technology.name"
               ></p>
             </div>
           </div>
         </div>
-        <p
-          class="mt-6 text-center font-inter-regular text-base text-[#F5F5F5]/[0.85]"
-        >
+        <p class="mt-6 text-center sub-h3-regular text-white-core-80">
           {{ service.description }}
         </p>
       </div>
@@ -52,26 +45,24 @@
 
     <!-- DESKTOP UI START  -->
     <div
-      class="container mt-[6.25rem] hidden flex-col md:flex"
+      class="container mt-16 hidden flex-col lg:flex"
       v-for="(service, index) in services"
       :key="index"
     >
-      <div class="flex flex-row">
-        <div class="mb-auto mt-6 flex flex-row items-center gap-4">
+      <div class="flex">
+        <div class="mb-auto mt-6 flex items-center gap-4">
           <img
             :src="service.image"
             alt="mobile-service"
             class="h-[33px] w-[33px]"
           />
-          <p
-            class="v2-canopas-gradient-text font-inter-semibold text-[1.5rem] leading-7 xl:text-[1.75rem] xl:leading-[2.1rem]"
-          >
+          <p class="v2-canopas-gradient-text mobile-header-2-semibold">
             {{ service.title }}
           </p>
         </div>
         <div class="gradient-border ml-16 h-auto border-l"></div>
         <div class="ml-4 flex flex-col gap-6 xl:ml-8">
-          <div class="ml-4 flex flex-row justify-start gap-8">
+          <div class="ml-4 flex justify-start gap-8">
             <div
               v-for="(technology, index) in service.technologies"
               :key="index"
@@ -80,18 +71,16 @@
                 <img
                   :src="technology.image"
                   alt="technology"
-                  class="h-[70px] w-[70px] object-contain"
+                  class="h-[4.375rem] w-[4.375rem] object-contain"
                 />
                 <p
-                  class="text-center font-inter-semibold text-base text-white/[0.50]"
+                  class="text-center sub-h1-regular text-white-core-60"
                   v-html="technology.name"
                 ></p>
               </div>
             </div>
           </div>
-          <div
-            class="font-inter-regular text-base text-white/[0.85] xl:text-[1.25rem] xl:leading-[1.875rem]"
-          >
+          <div class="mobile-header-3-regular text-white-core-80">
             {{ service.description }}
           </div>
         </div>
