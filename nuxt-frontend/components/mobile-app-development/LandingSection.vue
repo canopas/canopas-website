@@ -1,68 +1,76 @@
 <template>
-  <section class="md:pb-[50px] lg:pb-[150px] 3xl:pb-[300px]">
+  <section class="xll:pb-48">
     <!-- MOBILE UI START -->
-    <div class="container flex flex-col pt-10 md:hidden">
-      <div class="flex flex-row gap-4">
-        <p class="gradient-border h-auto border-l"></p>
-        <div>
-          <h1
-            class="w-[75%] font-inter-bold text-[1.875rem] leading-[2.625rem] text-white sm:w-[80%]"
-          >
-            YOUR PREMIER
-            <span class="v2-canopas-gradient-text">MOBILE APP DEVELOPMENT</span>
-            COMPANY
-          </h1>
-          <p
-            class="mt-4 font-inter-medium text-[1.125rem] leading-[1.688rem] text-white/[0.85]"
-          >
-            Canopas - A mobile app development company revolutionizing
-            businesses with bespoke Android, iOS, and Flutter applications.
-          </p>
-        </div>
+    <div class="container flex flex-col pt-10 lg:hidden">
+      <div class="text-center">
+        <h1 class="mobile-header-1 text-white md:w-3/5 md:mx-auto">
+          YOUR PREMIER
+          <span class="text-primary-1">MOBILE APP DEVELOPMENT</span>
+          COMPANY
+        </h1>
+        <p class="mt-4 sub-h1-regular text-white-core-80 md:w-[72%] md:mx-auto">
+          Canopas - A mobile app development company revolutionizing businesses
+          with bespoke Android, iOS, and Flutter applications.
+        </p>
+        <nuxt-link
+          class="mt-8 gradient-btn primary-btn"
+          to="/contact"
+          @click.native="$mixpanel.track('tap_landing_cta')"
+        >
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
+            >Get Free Consultation
+          </span>
+        </nuxt-link>
       </div>
-      <aspect-ratio height="93%" class="mt-10">
+      <aspect-ratio height="93%" class="mt-10 md:!pt-[61%]">
         <img
           class="h-full w-full object-contain"
           :src="mobile_mockup_400w"
           :srcset="`${mobile_mockup_400w} 400w, ${mobile_mockup_800w} 800w`"
           alt="landing-view-image"
+          loading="lazy"
         />
       </aspect-ratio>
     </div>
     <!-- MOBILE UI END -->
 
     <!-- DESKTOP UI START -->
-    <div class="container hidden md:flex">
+    <div class="container hidden lg:flex">
       <div
-        class="relative mx-auto flex flex-row gap-24 xl:gap-40 2xl:gap-48"
+        class="relative mx-auto flex gap-24 xl:gap-40 2xl:gap-48"
         v-for="index in 6"
         :key="index"
       >
         <p
-          class="h-[35rem] border-l border-[#434343]/[0.4] lg:h-[45rem] xl:h-[50rem]"
+          class="h-[35rem] border-l border-black-suede lg:h-[45rem] xl:h-[50rem]"
         ></p>
       </div>
-      <div class="absolute top-[12.5rem] flex flex-row lg:top-[17.5rem]">
-        <div
-          class="relative flex flex-[55%] flex-row gap-4 lg:flex-[55%] xll:max-w-[38%]"
-        >
+      <div class="absolute top-[12.5rem] flex lg:top-[17.5rem]">
+        <div class="relative flex basis-[55%] gap-4 xll:max-w-[38%]">
           <p class="gradient-border h-[58%] border-l xll:h-[48%]"></p>
           <div>
             <h1
-              class="w-[98%] font-inter-bold text-[2rem] leading-[3rem] text-white lg:w-[77%] xl:w-[100%] xl:text-[3.125rem] xl:leading-[4.375rem] 2xl:w-[80%] xll:w-[100%] 3xl:w-[72%]"
+              class="text-white mobile-header-1 xl:desk-header-1 2xl:w-[93%] xll:w-[94%] 3xl:w-4/5"
             >
               YOUR PREMIER
-              <span class="v2-canopas-gradient-text"
-                >MOBILE APP DEVELOPMENT</span
-              >
+              <span class="text-primary-1">MOBILE APP DEVELOPMENT</span>
               COMPANY
             </h1>
             <p
-              class="mt-4 w-[98%] font-inter-medium text-[1.225rem] leading-[2rem] text-white/[0.85] lg:w-[76%] xl:w-[100%] xl:text-[2.125rem] xl:leading-[3.188rem] 2xl:w-[85%] xll:w-[91%] 3xl:w-[76%]"
+              class="mt-6 mobile-header-2-regular text-white-core-80 xl:w-[91%] 2xl:w-[84%] xll:w-[91%] 3xl:w-[76%]"
             >
               Canopas - A mobile app development company revolutionizing
               businesses with bespoke Android, iOS, and Flutter applications.
             </p>
+            <nuxt-link
+              class="mt-10 ml-0 gradient-btn primary-btn"
+              to="/contact"
+              @click.native="$mixpanel.track('tap_landing_cta')"
+            >
+              <span class="sub-h3-semibold lg:sub-h1-semibold"
+                >Get Free Consultation
+              </span>
+            </nuxt-link>
             <div
               class="mt-0 flex justify-end xll:mr-[-9.5rem] 3xl:mr-[-5.5rem]"
             >
@@ -70,17 +78,17 @@
                 :src="card_400w"
                 :srcset="`${card_400w} 400w, ${card_800w} 800w`"
                 alt="landing"
-                class="h-[40%] w-[40%] object-contain xl:w-[33%] 2xl:w-[26%] xll:w-[37%]"
+                class="h-2/5 w-2/5 object-contain xl:w-[33%] 2xl:w-[26%] xll:w-[37%]"
               />
             </div>
           </div>
         </div>
         <aspect-ratio
-          class="flex-[45%] lg:flex-[45%] lg:!pt-[62] xl:!pt-[61%] 2xl:!pt-[51%] xll:max-w-[49%]"
+          class="basis-[45%] lg:!pt-[62] xl:!pt-[61%] 2xl:!pt-[51%] xll:max-w-[49%]"
           height="67%"
         >
           <img
-            class="absolute top-[-55px] h-full object-contain lg:top-[-95px] xl:top-[-66px] 2xl:top-[-105px] xll:h-[90%] xll:w-[100%] 3xl:top-[-132px] 3xl:h-[77%] 3xl:w-[72%]"
+            class="absolute top-[-55px] h-full object-contain lg:top-[-95px] xl:top-[-66px] 2xl:top-[-105px] xll:h-[90%] xll:w-full 3xl:top-[-132px] 3xl:h-[77%] 3xl:w-[72%]"
             :src="mockup_400w"
             :srcset="`${mockup_400w} 400w, ${mockup_800w} 800w`"
             alt="landing-view-image"

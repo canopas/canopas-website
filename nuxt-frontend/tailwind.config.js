@@ -50,6 +50,7 @@ module.exports = {
           80: "#FFFFFFCC",
           60: "#FFFFFF99",
           90: "#FFFFFF14",
+          8: "#ffffff14",
         },
         pink: {
           0: "#f2709c00",
@@ -73,8 +74,10 @@ module.exports = {
         },
         "deep-charcoal": "#121212",
         "white-smoke": "#F8F8F8",
+        "black-suede": "#43434366",
+        "dodger-blue": "#26AEF9",
+        "cool-purple": "#2671FA",
         "white-smoke-1": "#F2F2F2",
-        "white-smoke-2": "#F2F2F2",
         "lavender-blush": "#FFEDF0",
       },
       borderRadius: {
@@ -261,7 +264,7 @@ module.exports = {
         "black-gradient-bottom":
           "linear-gradient(to bottom, rgba(0, 0, 0, 1) 5%, #000000 51.63%)",
         "multi-gradient-background":
-          "linear-gradient(180deg, #1A1A1A 11.98%, #A65B5F 36.02%, #F98188 55.21%, #9B565A 73.96%, #1A1A1A 91.67%)",
+          "linear-gradient(180deg, #121212 11.98%, #A65B5F 36.02%, #F98188 55.21%, #9B565A 73.96%, #121212 91.67%)",
         "pink-gradient-background":
           "linear-gradient(183deg, #FFF 36.43%, rgba(249, 133, 132, 0.50) 58.99%, #F47695 79.68%);",
         "gradient-background":

@@ -76,7 +76,7 @@
     <!-- ------------------------ MOBILE UI END---------------------- -->
 
     <!-- ---------------------DESKTOP UI START------------------ -->
-    <div class="hidden lg:block bg-white-smoke-2 mt-[4.5rem]">
+    <div class="hidden lg:block bg-white-smoke mt-[4.5rem]">
       <swiper
         :slidesPerView="1"
         :centeredSlides="true"

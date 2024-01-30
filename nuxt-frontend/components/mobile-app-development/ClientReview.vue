@@ -1,22 +1,16 @@
 <template>
-  <section
-    class="pb-[50px] pt-[100px] md:pb-[141px] 3xl:pb-[146px] md:pt-[200px]"
-  >
+  <section class="pb-16 pt-14 lg:pb-28 3xl:pb-[9.188rem] lg:pt-32">
     <div class="container">
-      <div class="hidden md:block">
-        <span
-          class="v2-canopas-gradient-text text-left font-inter-medium text-[1.5rem] leading-[1.816rem]"
-        >
+      <div class="hidden lg:block">
+        <span class="mobile-header-2-semibold text-primary-1">
           Testimonials
         </span>
       </div>
-      <p
-        class="text-center font-inter-bold text-[1.875rem] leading-[2.269rem] text-white md:text-left md:font-inter-semibold md:text-[3.125rem] md:leading-[3.625rem] xl:text-[4.125rem] xl:leading-[4.993rem]"
-      >
+      <p class="text-center desk-header-2 text-white lg:text-left">
         What our <br />
-        Clients Say
+        clients says
       </p>
-      <div class="flex items-center md:flex-row lg:gap-12 xl:items-start">
+      <div class="flex items-center lg:gap-12 xl:items-start">
         <swiper
           :spaceBetween="30"
           :loop="true"
@@ -25,35 +19,35 @@
             delay: 5000,
           }"
           :modules="modules"
-          class="md:w-[60%] lg:w-[55%]"
+          class="lg:w-[55%]"
         >
           <swiper-slide
             v-for="(review, index) in reviews"
             :key="index"
-            class="mt-[2.57rem] cursor-pointer md:mt-16"
+            class="mt-8 cursor-pointer lg:mt-16"
           >
-            <div class="flex flex-col items-center md:items-start">
+            <div class="flex flex-col items-center lg:items-start">
               <div
-                class="flex flex-col items-center md:flex-row md:items-start md:gap-1 xl:gap-2"
+                class="flex flex-col items-center lg:flex-row lg:items-start lg:gap-1 xl:gap-2"
               >
                 <img
                   :src="quote"
                   alt="quote"
-                  class="h-6 w-6 md:h-8 md:w-8 xl:h-10 xl:w-10"
+                  class="h-6 w-6 lg:h-8 lg:w-8 xl:h-10 xl:w-10"
                 />
                 <div
-                  class="mx-6 text-center font-inter-regular text-[1.25rem] leading-[1.875rem] text-white md:mx-0 md:text-left md:text-[1.5rem] md:leading-[2.188rem] xl:text-[1.75rem] xl:leading-[2.625rem]"
+                  class="mt-2 mx-6 text-center sub-h1-regular lg:mobile-header-2-semibold text-white lg:mx-0 lg:text-left"
                 >
                   {{ review.review }}
                 </div>
               </div>
 
               <span
-                class="v2-canopas-gradient-text mt-8 font-inter-bold text-[1.25rem] leading-[1.875rem] md:ml-9 md:text-[1.5rem] md:leading-[2.188rem] xl:ml-[3.25rem] xl:text-[1.75rem] xl:leading-[2.625rem]"
+                class="mt-6 text-white sub-h3-regular lg:sub-h2-regular lg:ml-9 xl:ml-[3.25rem]"
                 >━ {{ review.name }}</span
               >
               <span
-                class="mt-1 font-inter-regular text-[0.875rem] leading-[1.313rem] text-white md:ml-9 md:text-[0.938rem] md:leading-[1.375rem] xl:ml-[3.25rem] xl:text-[1rem] xl:leading-[1.5rem]"
+                class="mt-1 text-white-core-80 lg:ml-[3.25rem] sub-h4-regular lg:sub-h1-regular"
                 >{{ review.designation }}</span
               >
             </div>
@@ -61,7 +55,7 @@
         </swiper>
 
         <div
-          class="relative hidden md:mr-[-30px] md:block md:w-[40%] lg:mr-auto lg:w-[45%]"
+          class="relative hidden lg:mr-[1.875rem] lg:block lg:w-2/5 lg:mr-auto lg:w-[45%]"
         >
           <img
             :src="circle"
@@ -71,7 +65,7 @@
           <img
             :src="rating"
             alt="rating"
-            class="absolute top-[-38px] h-40 w-40 lg:top-[-110px] lg:h-48 lg:w-48 xl:top-[-140px] xl:h-60 xl:w-60 2xl:top-[-135px]"
+            class="absolute top-[-2.375rem] h-40 w-40 lg:top-[-6.875rem] lg:h-48 lg:w-48 xl:top-[-8.75rem] xl:h-60 xl:w-60 2xl:top-[-8.438rem]"
           />
         </div>
       </div>

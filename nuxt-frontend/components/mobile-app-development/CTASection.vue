@@ -1,9 +1,9 @@
 <template>
   <section
-    class="relative my-[50px] bg-[#FDE0E2] bg-gradient-background md:mt-0 md:bg-none"
+    class="relative mt-16 bg-pink-16 bg-gradient-background lg:mt-0 lg:bg-none 3xl:outer-container"
   >
     <!-- MOBILE UI START  -->
-    <div class="md:hidden">
+    <div class="lg:hidden">
       <img
         :src="background400w"
         :srcset="`${background400w} 400w, ${background800w} 800w`"
@@ -14,30 +14,22 @@
       <div
         class="container sticky flex flex-col items-center justify-center py-20"
       >
-        <p
-          class="v2-canopas-gradient-text flex text-center font-inter-medium text-[1rem] leading-[1.21rem]"
-        >
-          Get started today
+        <p class="text-primary-1 sub-h3-semibold">Get started today</p>
+        <p class="mt-2 text-center mobile-header-1 text-black-87">
+          Let's build the next <br />
+          big thing!
         </p>
-        <p
-          class="mt-6 text-center font-inter-bold text-[2.25rem] leading-[2.723rem] text-black-core/[0.85]"
-        >
-          Let's build the next big thing!
-        </p>
-        <p
-          class="mt-4 text-center font-inter-regular text-[0.875rem] leading-[1.313rem] text-black-core/[0.75]"
-        >
+        <p class="mt-4 text-center sub-h1-regular text-black-60">
           Let's improve your business's digital strategy and implement robust
           mobile apps to achieve your business objectives. Schedule Your Free
           Consultation Now.
         </p>
         <nuxt-link
-          class="gradient-btn consultation-btn mt-10 flex w-max items-center rounded-full py-4 text-center"
+          class="mt-6 gradient-btn primary-btn"
           to="/contact"
-          @click.native="$mixpanel.track('tap_mobileapp_development_cta1')"
+          @click.native="$mixpanel.track('tap_landing_cta')"
         >
-          <span
-            class="mr-2.5 font-inter-semibold text-[1.1875rem] leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem]"
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
             >Get Free Consultation
           </span>
         </nuxt-link>
@@ -46,7 +38,7 @@
     <!-- MOBILE UI END -->
 
     <!-- DESKTOP UI START -->
-    <div class="hidden md:block">
+    <div class="hidden lg:block">
       <img
         :src="desktop_background800w"
         :srcset="`${desktop_background800w} 800w, ${desktop_background1200w} 1200w, ${desktop_background1600w} 1600w, ${desktop_background2400w} 2400w `"
@@ -57,30 +49,25 @@
       <div
         class="container sticky z-[1] flex flex-col items-center justify-center py-20 xll:py-32"
       >
-        <p
-          class="v2-canopas-gradient-text text-center font-inter-medium text-[1.125rem] leading-[1.375rem] xl:text-[1.25rem] xl:leading-[1.513rem]"
-        >
+        <p class="text-primary-1 text-center mobile-header-3-semibold">
           Get started today
         </p>
-        <p
-          class="mt-4 text-center font-inter-bold text-[2.813rem] leading-[3.438rem] text-black-core/[0.85] xl:text-[3.438rem] xl:leading-[4.16rem]"
-        >
+        <p class="mt-2 text-center desk-header-2 text-black-87">
           Let's build the next big thing!
         </p>
         <p
-          class="mt-4 w-[75%] text-center font-inter-regular text-[1.063rem] leading-[1.625rem] text-black-core/[0.75] xl:text-[1.25rem] xl:leading-[1.875rem]"
+          class="mt-6 w-[75%] text-center mobile-header-2-regular text-black-60"
         >
           Let's improve your business's digital strategy and implement robust
           mobile apps to achieve your business objectives. Schedule Your Free
           Consultation Now.
         </p>
         <nuxt-link
-          class="gradient-btn consultation-btn mt-10 flex w-max items-center rounded-full py-[1rem] text-center"
+          class="mt-10 gradient-btn primary-btn"
           to="/contact"
-          @click.native="$mixpanel.track('tap_mobileapp_development_cta1')"
+          @click.native="$mixpanel.track('tap_landing_cta')"
         >
-          <span
-            class="mr-2.5 font-inter-semibold text-[1.1875rem] leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem]"
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
             >Get Free Consultation
           </span>
         </nuxt-link>
