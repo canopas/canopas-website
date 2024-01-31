@@ -1616,10 +1616,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@canopassoftware/canopas-blog-components@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@canopassoftware/canopas-blog-components/-/canopas-blog-components-1.1.1.tgz#d81ee1b3d92334a44e5b7ef4e28bc0434776ec0d"
-  integrity sha512-ItJ0DmLuSVRq9oI3UeObTlDM64ymuLnoCPeHOzNT/s0rfjL1jzusCwnQzx0O6jJlz1Vp0313xKV3pJx2WLWK4w==
+"@canopassoftware/canopas-blog-components@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/@canopassoftware/canopas-blog-components/-/canopas-blog-components-1.1.2.tgz#571e6218b08685273ce1aff9eb07ab7d04336727"
+  integrity sha512-sRb6dRBVk4QbM8HnuRpi+2lNdv0J6c4mNRQVbWW8AltFDTGrHpx23Sx3Y7xHD0e5HcSHv9HO19ayRg3Qoua2fw==
   dependencies:
     "@nuxt/kit" "^3.7.4"
     "@pinia/nuxt" "^0.5.0"
