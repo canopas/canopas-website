@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
-    "@canopassoftware/canopas-blog-components",
+    "@canopassoftware/blog-components",
   ],
   css: ["~/assets/css/global.css", "~/assets/css/app.css"],
   generate: { fallback: true },

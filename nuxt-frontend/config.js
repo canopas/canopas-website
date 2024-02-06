@@ -1,4 +1,48 @@
 export default Object.freeze({
+  // environments and feature flags
+  IS_PROD: false,
+  SHOW_ANDROID_APP_DEVELOPMENT_PAGE: true,
+  SHOW_IOS_APP_DEVELOPMENT_PAGE: true,
+  SHOW_FLUTTER_APP_DEVELOPMENT_PAGE: true,
+  SHOW_BACKEND_DEVELOPMENT_PAGE: true,
+  SHOW_FRONTEND_DEVELOPMENT_PAGE: true,
+
+  STRAPI_URL: "RESOURCES_URL",
+  VITE_IFRAMELY_KEY: "VITE_IFRAMELY_KEY_VALUE",
+  VITE_RECAPTCHA_SITE_KEY: "VITE_RECAPTCHA_SITE_KEY_VALUE",
+  MIX_PANEL_TOKEN: "acf7239a736ff487ca6058c981a55d7e",
+
+  // API urls
+  API_BASE: "https://dev-stack-api.canopas.com",
+  BASE_URL: "https://dev-stack.canopas.com",
+
+  // company's meta data
+  COMPANY_TITLE: "Canopas",
+  COMPANY_NAME: "Canopas Software LLP.",
+
+  // status codes
+
+  NOT_FOUND: 404,
+  SUCCESS: 200,
+
+  //resources components data
+  WORDS_PER_MINUTE: 265,
+  POST_PAGINATION_LIMIT: 10,
+  SHOW_DRAFT_POSTS: true,
+
+  // github repo stars
+  INTRO_SHOWCASE_STARS: 348,
+  UIPILOT_STARS: 276,
+  JETPACK_COMPOSE_ANIMATION_STARS: 282,
+  COMPOSE_COUNTRY_PICKER_STARS: 52,
+  SWIFT_UI_ANIMATION_STARS: 52,
+  IOS_DEVELOPER_ROADMAP_STARS: 79,
+  TAILWIND_ANIMATIONS_STARS: 103,
+  CANOPAS_WEBSITE_STARS: 25,
+  CANOPAS_BLOG_WEBSITE_STARS: 29,
+  WEB_DEVELOPMENT_ROADMAP_STARS: 97,
+
+  // Social media
   FACEBOOK_URL: "https://www.facebook.com/canopassoftware",
   TWITTER_URL: "https://twitter.com/canopassoftware",
   GITHUB_URL: "https://github.com/canopas",
@@ -10,10 +54,21 @@ export default Object.freeze({
   DESIGNRUSH_URL:
     "https://www.designrush.com/agency/website-design-development/in",
   BLOG_URL: "https://blog.canopas.com",
-  API_BASE: "https://dev-stack-api.canopas.com",
-  BASE_URL: "https://dev-stack.canopas.com",
   CALENDLY_IFRAME_URL: "https://calendly.com/jimmy822/30min",
   CLUTCH_URL: "https://clutch.co/profile/canopas-software#reviews",
+  SMILEPLUS_URL: "https://www.udini.ai/products/smile",
+  WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
+
+  SOCIAL_MEDIA_DATA: {
+    facebook: "https://www.facebook.com/canopassoftware",
+    instagram: "https://www.instagram.com/canopassoftware/",
+    twitter: "https://twitter.com/canopassoftware",
+    blog: "https://blog.canopas.com",
+    linkedin: "https://www.linkedin.com/company/canopasinc",
+    youtube: "https://www.youtube.com/channel/UC77VyeTVJ45HiUS_o2GNcBA/videos",
+  },
+
+  // SEO and meta data
   OG_IMAGE_URL: "https://dev-stack.canopas.com/apple-touch-icon.png",
   SEO_META_DATA: {
     title: "Canopas - Best Web and Mobile App Development Company",
@@ -135,27 +190,22 @@ export default Object.freeze({
     url: "https://dev-stack.canopas.com/frontend-development",
     image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
-  IS_PROD: false,
-  SHOW_ANDROID_APP_DEVELOPMENT_PAGE: true,
-  SHOW_IOS_APP_DEVELOPMENT_PAGE: true,
-  SHOW_FLUTTER_APP_DEVELOPMENT_PAGE: true,
-  SHOW_BACKEND_DEVELOPMENT_PAGE: true,
-  SHOW_FRONTEND_DEVELOPMENT_PAGE: true,
-  SMILEPLUS_URL: "https://www.udini.ai/products/smile",
-  WEBSITE_OPEN_SOURCE_URL: "https://github.com/canopas/canopas-website",
-  MIX_PANEL_TOKEN: "acf7239a736ff487ca6058c981a55d7e",
-
-  SHOW_DRAFT_POSTS: true,
-  VITE_IFRAMELY_KEY: "VITE_IFRAMELY_KEY_VALUE",
-  VITE_RECAPTCHA_SITE_KEY: "VITE_RECAPTCHA_SITE_KEY_VALUE",
-  INTRO_SHOWCASE_STARS: 348,
-  UIPILOT_STARS: 276,
-  JETPACK_COMPOSE_ANIMATION_STARS: 282,
-  COMPOSE_COUNTRY_PICKER_STARS: 52,
-  SWIFT_UI_ANIMATION_STARS: 52,
-  IOS_DEVELOPER_ROADMAP_STARS: 79,
-  TAILWIND_ANIMATIONS_STARS: 103,
-  CANOPAS_WEBSITE_STARS: 25,
-  CANOPAS_BLOG_WEBSITE_STARS: 29,
-  WEB_DEVELOPMENT_ROADMAP_STARS: 97,
+  BLOG_SEO_META_DATA: {
+    title: "Technology Trends & Updates | Canopas Blog",
+    description:
+      "We’re here to share knowledge and learnings about #web #android #iOS #flutter development. Follow Canopas to learn something new everyday.",
+    authorName: "canopas",
+    type: "Website",
+    url: "https://dev-stack.canopas.com/blog",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
+  },
+  RESOURCES_SEO_META_DATA: {
+    title: "Software Solutions & Trends | Canopas Resources",
+    description:
+      "Canopas blogs will help you to become a better software developer. We are sharing knowledge on Web, Backend, iOS, Android, and Flutter development",
+    authorName: "canopas",
+    type: "Website",
+    url: "https://dev-stack.canopas.com/blog",
+    image: "https://dev-stack.canopas.com/apple-touch-icon.png",
+  },
 });
