@@ -97,7 +97,7 @@ const pagination = {
   clickable: true,
 };
 </script>
-<style lang="postcss">
+<style lang="postcss" scoped>
 @import "swiper/css";
 @import "swiper/css/pagination";
 .swiper-pagination {

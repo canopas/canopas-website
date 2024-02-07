@@ -209,7 +209,7 @@ export default {
   },
 };
 </script>
-<style lang="postcss">
+<style lang="postcss" scoped>
 @import "swiper/css";
 @import "swiper/css/pagination";
 .swiper-wrapper {

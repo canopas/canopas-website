@@ -108,10 +108,6 @@ export default {
 @import "swiper/css";
 @import "swiper/css/pagination";
 
-.swiper {
-  @apply z-0;
-}
-
 .swiper-pagination-bullet {
   @apply !w-[15px] !h-[15px] !rounded-[3px] !bg-transparent !border !border-solid !border-[#3d3d3d];
 }

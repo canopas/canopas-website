@@ -156,7 +156,7 @@
   }
 
   .gradient-border-btn {
-    @apply m-[5px] rounded-[0.6rem] border border-solid border-transparent  p-4 text-center shadow-[inset_2px_1000px_1px_white] lg:hover:border lg:hover:border-solid lg:hover:border-transparent lg:hover:from-pink-300 lg:hover:to-orange-300 lg:hover:shadow-none lg:hover:bg-gradient-[91.53deg] active:scale-[0.98];
+    @apply m-[5px] rounded-[0.6rem] border border-solid border-transparent bg-gradient-to-r from-orange-300  to-pink-300  p-4 text-center shadow-[inset_2px_1000px_1px_white] lg:hover:border lg:hover:border-solid lg:hover:border-transparent lg:hover:from-pink-300 lg:hover:to-orange-300 lg:hover:shadow-none lg:hover:bg-gradient-[91.53deg] active:scale-[0.98];
   }
 
   .gradient-border-btn > a > .fab {
@@ -170,7 +170,6 @@
   .gradient-border-btn:hover > span > span {
     @apply lg:text-white;
   }
-
   .white-border-btn {
     @apply m-[5px] rounded-[0.6rem] border border-solid border-transparent bg-gradient-to-r p-4 text-center shadow-[inset_2px_1000px_1px_white]  active:scale-[0.98];
   }
@@ -178,7 +177,19 @@
   .white-border-btn > span {
     @apply from-orange-300 to-pink-300 bg-clip-text text-transparent bg-gradient-[270.11deg];
   }
-
+  .white-gradient-border-btn {
+    @apply m-[5px] border border-solid border-transparent bg-gradient-to-r from-orange-300  to-pink-300 p-4 text-center shadow-[inset_2px_1000px_1px_white] lg:hover:border-transparent lg:hover:from-pink-300 lg:hover:to-orange-300 lg:hover:shadow-none lg:hover:bg-gradient-[91.53deg] active:scale-[0.98];
+  }
+  .white-gradient-border-btn > span {
+    @apply from-orange-300 to-pink-300 bg-clip-text text-transparent bg-gradient-[270.11deg];
+  }
+  .white-gradient-border-btn > .fa {
+    @apply text-pink-300;
+  }
+  .white-gradient-border-btn:hover > span,
+  .white-gradient-border-btn:hover > .fa {
+    @apply lg:text-white;
+  }
   .mobile-header-1 {
     @apply font-opensans-bold tracking-[-0.08rem] text-[2rem] leading-[2.6rem];
   }
