@@ -50,6 +50,7 @@ module.exports = {
           80: "#FFFFFFCC",
           60: "#FFFFFF99",
           90: "#FFFFFF14",
+          5: "#FFFFFF0d",
           8: "#ffffff14",
         },
         pink: {
@@ -61,12 +62,14 @@ module.exports = {
           90: "#f2709ccc",
           16: "#f2709c29",
           5: "#f2709c0d",
+          2: "#f2709c33",
         },
         orange: {
           300: "#ff835b",
           1: "#ff835b1a",
           5: "#ff835b0d",
           80: "#ff835b14",
+          2: "#ff835b33",
         },
         slate: {
           200: "#e2e2e2",
@@ -79,6 +82,9 @@ module.exports = {
         "cool-purple": "#2671FA",
         "white-smoke-1": "#F2F2F2",
         "lavender-blush": "#FFEDF0",
+        yellow: "#FFC700",
+        "orange-peel": "#f985840d",
+        "light-crimson": "#f476950d",
       },
       borderRadius: {
         "x-lg": "20px",

@@ -1,13 +1,11 @@
 <template>
-  <div
-    class="container my-[14.063rem] mx-auto py-0 px-[5%] sm:px-[10%] only:md:max-w-[760px] md:p-0"
-  >
+  <div class="container my-16 lg:my-60 mx-auto py-0 px-[5%] sm:px-[10%] lg:p-0">
     <div class="text-center">
-      <div class="header-text canopas-gradient-text">
-        <span class="underline-text">Perks</span> and Benefits
+      <div class="mobile-header-2 lg:desk-header-2 text-primary-1">
+        Perks and Benefits
       </div>
       <div
-        class="description my-[30px] mx-2.5 md:my-[50px] md:mx-20 normal-text"
+        class="mt-4 lg:mt-6 sub-h1-regular lg:mobile-header-2-regular text-black-60"
       >
         Whether it's about your learning, well being, or competitive
         compensation, we've got you covered. Check out all perks and benefits
@@ -15,21 +13,20 @@
       </div>
     </div>
     <div
-      class="flex-div flex flex-col md:flex-row md:flex-wrap md:items-center"
+      class="flex-div flex flex-col lg:flex-row lg:flex-wrap lg:items-center mt-8 lg:mt-16"
     >
       <div
         v-for="perk in perks"
         :key="perk.id"
-        class="flex-elements p-5 even:px-[30px] sm:even:px-10 md:flex-[30%] md:p-2.5 md:even:py-2.5 md:even:px-2.5 lg:p-5 lg:even:p-5"
-        :class="isMobile ? 'even:py-2.5 even:px-10' : ''"
+        class="p-5 even:px-[1.875rem] sm:even:px-10 lg:basis-[33%] lg:p-2.5 lg:even:py-2.5 lg:even:px-2.5 lg:p-5 lg:even:p-5"
       >
         <aspect-ratio
           height="120%"
           v-if="perk.image"
-          class="shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px]"
+          class="shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-xl"
         >
           <img
-            class="image shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-2.5 w-full h-full object-cover ease-in-out duration-300 hover:scale-110"
+            class="image shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-xl w-full h-full object-cover ease-in-out duration-300 hover:scale-110"
             :src="perk.image[0]"
             :srcset="`${perk.image[0]} 400w, ${perk.image[1]} 800w`"
             loading="lazy"
@@ -38,28 +35,27 @@
         </aspect-ratio>
         <aspect-ratio
           v-else
-          :height="isMobile ? '120%' : '100%'"
-          :style="{ backgroundColor: perk.bgColor }"
+          height="100%"
           class="rounded-[10px]"
+          :class="perk.class"
         >
           <div
-            class="details shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-[10px] flex flex-col justify-center items-center h-full p-4 sm:p-[30px] md:p-0.5 lg:p-[30px] xl:p-10"
-            :class="isMobile ? 'p-10' : ''"
+            class="details shadow-[0_4px_4px_rgba(0,0,0,0.25)] rounded-xl flex flex-col justify-center items-center h-full p-4 sm:p-[1.875rem]"
           >
-            <div
-              class="normal-2-text flex-none title inline-flex items-center text-black-900 font-bold"
-            >
+            <div class="flex-none inline-flex items-center">
               <img
                 :src="perk.icon"
                 loading="lazy"
                 class="w-[1.875rem] h-[1.875rem]"
                 :alt="perk.alt"
               />
-              <span class="ml-2.5 text-[1.3rem] lg:text-[1.5rem]">{{
+              <span class="ml-2.5 sub-h1-semibold text-black-87">{{
                 perk.title
               }}</span>
             </div>
-            <div class="normal-2-text text-center flex-none mt-2.5">
+            <div
+              class="sub-h1-regular text-black-60 text-center flex-none mt-2.5"
+            >
               <div
                 v-html="perk.description"
                 @click="scrollToCareer"
@@ -103,7 +99,7 @@ export default {
           title: "5 Days Work Week",
           icon: working,
           alt: "working-icon",
-          bgColor: "rgba(249, 129, 136, 0.08)",
+          class: "bg-pink-80",
           image: "",
           description: `At Canopas, you will experience a truly 5 days work-week. No extra time daily. No shortened lunch break.`,
         },
@@ -120,7 +116,7 @@ export default {
           title: "Lunch and learn sessions",
           icon: cooking,
           alt: "cooking-icon",
-          bgColor: "rgba(61, 61, 61, 0.08)",
+          class: "bg-white-smoke",
           image: "",
           description:
             "We organize bi-weekly or monthly lunch and learn sessions where one of our team members shares knowledge about the tech and non-tech topics like AI, blockchain, ML, etc.",
@@ -138,7 +134,7 @@ export default {
           title: "Flexible working",
           icon: clock,
           alt: "clock-icon",
-          bgColor: "rgba(61, 61, 61, 0.08)",
+          class: "bg-white-smoke",
           image: "",
           description:
             "We offer flexible working hours ranging from 7 AM to 9 PM for early birds and night owls. We also don't put unnecessary restrictions in the workplace. We want everyone to enjoy their work by being themselves. ",
@@ -156,7 +152,7 @@ export default {
           title: "Celebrations",
           icon: celebration,
           alt: "celebration-icon",
-          bgColor: "rgba(249, 129, 136, 0.08)",
+          class: "bg-pink-80",
           image: "",
           description:
             "Whether it's a festival, birthdays (and births!), work anniversaries, or national holidays - we celebrate wherever we can, be it at the office or anywhere else.",
@@ -174,7 +170,7 @@ export default {
           title: "Learning & Development",
           icon: learning,
           alt: "learning-icon",
-          bgColor: "rgba(249, 129, 136, 0.08)",
+          class: "bg-pink-80",
           image: "",
           description:
             "You will get exposure to new challenges, weekly internal knowledge sharing sessions, book library for career and personal growth.",
@@ -192,7 +188,7 @@ export default {
           title: "Equipment And Tools",
           icon: laptop,
           alt: "laptop-icon",
-          bgColor: "rgba(61, 61, 61, 0.08)",
+          class: "bg-white-smoke",
           image: "",
           description:
             "Sitting desks to standing desks, up-to-date desktop or laptop, MacBooks, and other tools and accessories based on your requirements.",
@@ -210,7 +206,7 @@ export default {
           title: "Health & Wellbeing",
           icon: health,
           alt: "health-icon",
-          bgColor: "rgba(61, 61, 61, 0.08)",
+          class: "bg-white-smoke",
           image: "",
           description:
             "We organize weekly cardio sessions and daily meditation in the office. We also organize yoga events or similar activities monthly.",

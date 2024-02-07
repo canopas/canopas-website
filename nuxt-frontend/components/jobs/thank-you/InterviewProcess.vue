@@ -1,41 +1,36 @@
 <template>
-  <section class="container mb-28">
-    <div class="pt-20 pb-8 xl:pb-20 text-center">
-      <span
-        class="font-inter-bold text-[1.875rem] md:text-[3.4375rem] leading-[2.4375rem] md:leading-[5.15625rem]"
-        >Interview Process
-      </span>
+  <section class="container my-16 lg:my-60">
+    <div class="mobile-header-2 text-black-87 lg:desk-header-2 text-center">
+      Interview Process
     </div>
     <div
       v-for="interview in interviews"
       :key="interview"
-      class="block md:hidden -mb-7"
+      class="block lg:hidden"
     >
       <img
         alt="numeric-block-image"
         :src="interview.image"
-        class="relative mx-auto w-[226px] h-[260px] object-contain"
+        class="relative mx-auto w-[14.125rem] h-[16.25rem] object-contain"
       />
 
       <span
         :class="interview.class"
         v-html="interview.content"
-        class="absolute w-44 text-center text-black-core/[0.87] font-inter-semibold text-[1.25rem] leading-[1.875rem] left-1/2 transform -translate-x-1/2"
+        class="absolute w-44 text-center mobile-header-3-semibold text-black-87 left-1/2 transform -translate-x-1/2"
       ></span>
     </div>
-    <div
-      class="hidden md:flex md:flex-wrap md:items-center md:justify-center md:mb-28"
-    >
+    <div class="hidden lg:flex flex-wrap items-center justify-center mt-16">
       <div v-for="interview in interviews" :key="interview">
         <img
           alt="numeric-block-image"
           :src="interview.desktopImage"
-          class="relative mx-auto w-[232px] lg:w-[225px] xl:w-[320px] h-[200px] xl:h-[237px] object-contain"
+          class="relative mx-auto w-[16.25rem] xl:w-80 h-[12.5rem] xl:h-[14.813rem] object-contain"
         />
         <span
           v-html="interview.content"
           :class="interview.desktopClass"
-          class="absolute w-[10rem] xl:w-[12.5rem] text-center text-black-core/[0.87] font-inter-semibold text-[1.3rem] xl:text-[1.625rem] leading-[1.75rem] xl:leading-[2.438rem] left-1/2 transform"
+          class="absolute w-40 xl:w-[12.5rem] text-center mobile-header-2-semibold text-black-87 left-1/2 transform"
         ></span>
       </div>
     </div>
@@ -55,26 +50,26 @@ export default {
       interviews: [
         {
           image: MobileOne,
-          content: `Registration and <br>Aptitude test`,
-          class: "-translate-y-[260%]",
+          content: `Registration<br> and <br>Aptitude test`,
+          class: "-translate-y-[192%]",
           desktopClass:
-            "-translate-y-[170%] xl:-translate-y-[153%] -translate-x-[195%] lg:-translate-x-[191%] xl:-translate-x-[211%]",
+            "-translate-y-[147%] xl:-translate-y-[160%] -translate-x-[213%] xl:-translate-x-[211%]",
           desktopImage: DesktopOne,
         },
         {
           image: MobileTwo,
-          content: `Technical or Non-technical Interview`,
-          class: "-translate-y-[185%]",
+          content: `Technical or <br>Non-technical Interview`,
+          class: "-translate-y-[192%]",
           desktopClass:
-            "-translate-y-[168%] xl:-translate-y-[153%] -translate-x-[47%]",
+            "-translate-y-[119%] xl:-translate-y-[158%] -translate-x-[47%]",
           desktopImage: Desktoptwo,
         },
         {
           image: MobileThree,
           content: `If selected, <br>You will be called for an HR Interview`,
-          class: "!w-40 -translate-y-[142%]",
+          class: "!w-[8.5rem] -translate-y-[142%]",
           desktopClass:
-            "-translate-y-[139%] xl:-translate-y-[127%] translate-x-[107%]  lg:translate-x-[102%] xl:translate-x-[123%]",
+            "-translate-y-[121%] xl:-translate-y-[131%] translate-x-[125%] xl:translate-x-[123%]",
           desktopImage: Desktopthree,
         },
       ],

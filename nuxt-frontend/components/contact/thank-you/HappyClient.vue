@@ -1,20 +1,21 @@
 <template>
   <section>
-    <div class="container my-20 md:my-32">
-      <div class="flex flex-col lg:flex-row gap-y-20 xl:justify-between">
-        <div class="flex flex-col items-center justify-center basis-[40%]">
+    <div class="container mt-16 lg:my-60">
+      <div class="flex gap-y-20 xl:justify-between">
+        <div class="flex flex-col justify-center lg:basis-2/5">
           <span
-            class="text-[1.875rem] md:text-[3.4375rem] leading-[2.4375rem] md:leading-[5.15625rem] text-center lg:text-left font-inter-bold md:font-inter-semibold text-black-core/[0.87]"
+            class="mobile-header-2 lg:desk-header-2 text-center lg:text-left text-black-87"
             >Join our happy Clients!</span
           >
           <span
-            class="mt-5 text-[1rem] md:text-[1.5rem] leading-6 md:leading-9 text-center lg:text-left font-inter-medium text-black-core/[0.60]"
+            class="mt-4 text-center lg:text-left sub-h1-regular lg:mobile-header-2-regular text-black-60"
           >
             The best products start with a foundation of great planning and are
             built through collaboration.
           </span>
         </div>
-        <div class="basis-[60%] swiper-content">
+        <!-- Desktop UI -->
+        <div class="hidden lg:block basis-3/5 swiper-content">
           <swiper
             :slidesPerView="2"
             :centeredSlides="true"
@@ -26,7 +27,7 @@
             }"
             :loop="true"
             :modules="modules"
-            class="swiper-container h-[500px] md:h-[700px]"
+            class="swiper-container h-[31.25rem] md:h-[43.75rem]"
           >
             <swiper-slide
               v-for="(client, index) in clients"
@@ -36,63 +37,51 @@
               <div
                 class="flex flex-col w-fit p-6 sm:p-10 gap-y-10 md:gap-y-12 bg-white shadow-[0px_0px_50px_rgba(0,0,0,0.08)]"
               >
-                <div class="flex flex-row justify-between">
+                <div class="flex justify-between">
                   <div class="flex flex-col">
-                    <span
-                      class="v2-canopas-gradient-text font-inter-semibold text-[1rem] md:text-[1.625rem]"
-                      >{{ client.name }}</span
-                    >
-                    <span
-                      class="text-[0.875rem] md:text-[1.25rem] leading-[1.375rem] text-black-core/[0.87]"
-                      >{{ client.designation }}</span
-                    >
+                    <span class="sub-h2-medium text-black-87">{{
+                      client.name
+                    }}</span>
+                    <span class="sub-h1-regular text-black-60">{{
+                      client.designation
+                    }}</span>
                   </div>
                   <a
                     :href="clutchLink"
                     target="_blank"
                     @click.native="$mixpanel.track('tap_clutch_ratings')"
                   >
-                    <div
-                      class="flex flex-row -mt-[0.15rem] sm:-mt-3 md:-mt-2 lg:mt-[0.1rem] w-[132px] sm:w-fit"
-                    >
+                    <div class="flex sm:justify-end w-full sm:w-fit">
                       <div
-                        class="flex flex-col sm:justify-center mt-1 sm:mt-[7px]"
+                        class="flex flex-col sm:justify-center mt-1 sm:mt-[0.438rem]"
                       >
-                        <span
-                          class="sm:justify-between mr-1 md:mr-2 text-[0.625rem] md:text-[0.625rem] leading-[1.375rem] text-black-core/[0.87]"
-                        >
+                        <span class="sm:justify-between sub-h4-regular">
                           REVIEWED ON
                         </span>
 
                         <img
                           :src="reviewImage"
-                          class="mr-2 w-[3.313rem] md:w-[4.25rem] h-[0.938rem] md:h-[1.188rem]"
+                          class="mr-2 w-[5.0625rem] h-[1.4375rem]"
                           alt="reviewClutchImage"
                         />
                       </div>
                       <div class="flex flex-col mt-2.5 sm:mt-5 sm:justify-end">
-                        <span class="flex flex-row">
+                        <span class="flex">
                           <Icon
                             v-for="i in 5"
                             :key="i"
-                            class="fa-star w-[11px] md:w-4 h-[11px] md:h-4 text-[#FF3D2E]"
+                            class="fa-star w-3 h-3 text-yellow"
                             name="fa6-solid:star"
                         /></span>
 
-                        <span
-                          class="md:font-inter-regular text-[0.5rem] md:text-[0.75rem] leading-[1.375rem] text-black-core/[0.87]"
-                        >
-                          5.0 RATINGS
-                        </span>
+                        <span class="sub-h4-regular"> 5.0 RATINGS </span>
                       </div>
                     </div>
                   </a>
                 </div>
-                <div
-                  class="mx-auto md:px-6 sm:text-black-core/[0.87] text-black-900"
-                >
+                <div class="">
                   <div
-                    class="font-roboto-medium text-[1.375rem] md:text-[1.625rem] leading-[1.875rem] md:leading-[2.4375rem] transition-all ease duration-500"
+                    class="mobile-header-2-semibold text-black-87 transition-all ease duration-500"
                     :class="client.class"
                   >
                     {{ client.review }}
@@ -102,20 +91,100 @@
             </swiper-slide>
           </swiper>
         </div>
+        <!-- Desktop UI End-->
       </div>
     </div>
+    <!-- Mobile UI -->
+    <div class="swiper-content -mt-40 lg:hidden">
+      <swiper
+        :slidesPerView="1.2"
+        :effect="'coverflow'"
+        :coverflowEffect="{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 3,
+          slideShadows: false,
+        }"
+        :autoplay="{
+          delay: 4000,
+          disableOnInteraction: false,
+        }"
+        :centeredSlides="true"
+        :loop="true"
+        :modules="modules"
+        class="swiper-container"
+      >
+        <swiper-slide
+          v-for="(client, index) in clients"
+          :key="index"
+          class="cursor-pointer"
+        >
+          <div
+            class="flex flex-col h-[35.25rem] sm:h-[31.25rem] md:h-[29.25rem] w-[32.25rem] w-fit p-6 sm:p-10 gap-y-10 md:gap-y-12 bg-white shadow-[0px_0px_50px_rgba(0,0,0,0.08)]"
+          >
+            <a
+              :href="clutchLink"
+              target="_blank"
+              @click.native="$mixpanel.track('tap_clutch_ratings')"
+            >
+              <div class="flex sm:justify-end w-full sm:w-fit">
+                <div class="flex flex-col sm:justify-center mt-1 sm:mt-[7px]">
+                  <span class="sm:justify-between sub-h4-regular">
+                    REVIEWED ON
+                  </span>
+
+                  <img
+                    :src="reviewImage"
+                    class="mr-2 w-[5.0625rem] h-[1.4375rem]"
+                    alt="reviewClutchImage"
+                  />
+                </div>
+                <div class="flex flex-col mt-2.5 sm:mt-5 sm:justify-end">
+                  <span class="flex">
+                    <Icon
+                      v-for="i in 5"
+                      :key="i"
+                      class="fa-star w-3 h-3 text-yellow"
+                      name="fa6-solid:star"
+                  /></span>
+
+                  <span class="sub-h4-regular"> 5.0 RATINGS </span>
+                </div>
+              </div>
+            </a>
+
+            <div class="mx-auto md:px-6">
+              <div
+                class="mobile-header-3-semibold !tracking-normal text-black-87 transition-all ease duration-500"
+                :class="client.class"
+              >
+                {{ client.review }}
+              </div>
+            </div>
+            <div class="flex flex-col">
+              <span class="sub-h3-medium text-black-87">{{ client.name }}</span>
+              <span class="sub-h4-regular text-black-60">{{
+                client.designation
+              }}</span>
+            </div>
+          </div>
+        </swiper-slide>
+      </swiper>
+    </div>
+    <!-- Mobile UI End -->
   </section>
 </template>
 
 <script>
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import reviewImage from "@/assets/images/clients/v3-client/ReviewImage.webp";
 import Config from "@/config.js";
 export default {
   data() {
     return {
-      modules: [Pagination, Autoplay],
+      modules: [Pagination, Autoplay, EffectCoverflow],
       reviewImage: reviewImage,
       clutchLink: Config.CLUTCH_URL,
       clients: [
@@ -125,7 +194,7 @@ export default {
           designation: "Founder at Togness, Australia",
           review: `“There was rarely ever a second explanation needed. Even if we struggled to explain technically what we wanted, they 
             understood the first time.”`,
-          class: "pb-12 md:pb-36",
+          class: "lg:pb-36",
         },
         {
           id: 2,
@@ -133,7 +202,7 @@ export default {
           designation: "Product Manager at Luxe, Morocco",
           review: `“The Play Store is the hardest app store to get good reviews on, and we’ve just reached a five-star rating, which has been one of our biggest achievements, partly 
            thanks to Canopas’ work.”`,
-          class: "pb-12 md:pb-36",
+          class: "lg:pb-36",
         },
         {
           id: 3,
@@ -141,7 +210,7 @@ export default {
           designation: "Founder at ActivScout, Canada",
           review: `“I was especially impressed with the skills of their backend developer and how well the project manager and she worked with one another to create a
             high performing iOS app.”`,
-          class: "pb-12 md:pb-36",
+          class: "lg:pb-36",
         },
         {
           id: 4,
@@ -156,7 +225,7 @@ export default {
           designation: "CTO at Udini, France",
           review: `“Multiple versions of this Android app have been successfully delivered over time. They are always very responsive on bug resolution. They are very efficient at producing complex interfaces and 
             high quality apps.”`,
-          class: "pb-12 md:pb-36",
+          class: "lg:pb-36",
         },
       ],
     };
@@ -171,15 +240,15 @@ export default {
 <style lang="postcss">
 @import "swiper/css";
 .swiper-wrapper {
-  @apply !items-center;
+  @apply !items-center mt-0;
 }
 .swiper-slide {
   @apply relative flex items-center justify-center z-10 transition-transform duration-300;
 }
 .swiper-slide-active {
-  @apply scale-[0.9]  md:w-[550px]  xl:w-[610px] blur-none z-20 opacity-100;
+  @apply mt-[255px] lg:mt-0 mb-4 lg:mb-0 md:w-[550px]  xl:w-[610px] blur-none z-20 opacity-100;
 }
 .swiper-slide:not(.swiper-slide-active) {
-  @apply md:w-[494px] opacity-40 shadow-[0px_0px_50px_rgba(0,0,0,0.08)];
+  @apply lg:w-[494px] opacity-40 shadow-[0px_0px_50px_rgba(0,0,0,0.08)];
 }
 </style>
