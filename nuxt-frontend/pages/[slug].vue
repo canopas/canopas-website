@@ -139,4 +139,40 @@ function getJsonLdSchema() {
     },
   };
 }
+//for copy to clipboard of code blocks
+function copyCode(bash) {
+  const code = bash.querySelector("code");
+  const text = code.innerText;
+  navigator.clipboard.writeText(text);
+}
+onMounted(() => {
+  const bashes = document.querySelectorAll("pre");
+  bashes.forEach((bash) => {
+    if (navigator.clipboard) {
+      const wrapperDiv = document.createElement("div");
+      bash.parentNode.insertBefore(wrapperDiv, bash);
+      wrapperDiv.appendChild(bash);
+      wrapperDiv.classList.add("relative");
+
+      const isSingleLine = bash.textContent.trim().split("\n").length === 1;
+      if (isSingleLine) {
+        bash.classList.add("!pr-20");
+      }
+      const button = document.createElement("button");
+      button.classList.add("copy-btn");
+      button.innerText = "copy";
+      bash.appendChild(button);
+      button.addEventListener("click", async () => {
+        await copyCode(bash, button);
+        button.innerText = "copied!";
+        button.classList.add("text-green-500");
+      });
+    }
+  });
+});
 </script>
+<style lang="postcss">
+.copy-btn {
+  @apply absolute top-3 right-3 border-1 px-2 bg-gray-700 rounded-lg;
+}
+</style>
