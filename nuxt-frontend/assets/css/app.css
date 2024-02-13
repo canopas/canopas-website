@@ -85,3 +85,67 @@
   font-weight: 600;
   src: url(../fonts/Open-Sans-SemiBold.woff2) format("woff2");
 }
+
+@font-face {
+  font-display: swap;
+  font-family: Source CodePro;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/Source-codePro.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Poppins Regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/Poppins-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Poppins Medium;
+  font-style: medium;
+  font-weight: 500;
+  src: url(~/assets/fonts/Poppins-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Inter-ExtraLight;
+  font-style: normal;
+  font-weight: 200;
+  src: url(~/assets/fonts/Inter-ExtraLight.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Comme-Light;
+  font-style: normal;
+  font-weight: 300;
+  src: url(~/assets/fonts/Comme-Light.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Comme-Regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/Comme-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Comme-Medium;
+  font-style: normal;
+  font-weight: 500;
+  src: url(~/assets/fonts/Comme-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Comme-SemiBold;
+  font-style: normal;
+  font-weight: 600;
+  src: url(~/assets/fonts/Comme-SemiBold.woff2) format("woff2");
+}

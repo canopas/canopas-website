@@ -1647,10 +1647,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@canopassoftware/blog-components@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@canopassoftware/blog-components/-/blog-components-1.1.5.tgz#036c8279ee9b9f87326e9f31b666b2f10d6bc9ca"
-  integrity sha512-3ptg1gv66AAMLdzTKiamSeFDMQgnyHRJDYUZj6WFHkmR9285mmoEJYACiu2tnml1z7RQoqoF28xg/wmVefg3Jg==
+"@canopassoftware/blog-components@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@canopassoftware/blog-components/-/blog-components-1.1.7.tgz#e46b91b37fa90bf08455fdad8a056c406c92f28d"
+  integrity sha512-0Mi8BDbfrK12/oNQ6vNu6O1rF+BHCcZ/tcnAtv9mbKzEFGGBIhoRkvJvv/TGGHb7wEFKZcLDi5Fuyd5KXbDpXQ==
   dependencies:
     "@nuxt/kit" "^3.7.4"
     "@pinia/nuxt" "^0.5.0"
@@ -4118,7 +4118,7 @@ autoprefixer@^10.4.15, autoprefixer@^10.4.17:
 
 axios@^1.4.0, axios@^1.5.1:
   version "1.6.7"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.6.7.tgz"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-1.6.7.tgz#7b48c2e27c96f9c68a2f8f31e2ab19f59b06b0a7"
   integrity sha512-/hDJGff6/c7u0hDkvkGxR/oy6CbCs8ziCsC7SqmhjfozqiJGc8Z11wrv9z9lYfY4K8l+H9TpjcMDX0xOZmx+RA==
   dependencies:
     follow-redirects "^1.15.4"
@@ -9079,7 +9079,7 @@ svgo@^3.2.0:
 
 swiper@^11.0.6:
   version "11.0.6"
-  resolved "https://registry.yarnpkg.com/swiper/-/swiper-11.0.6.tgz#787187e2711b01301b4c67b86b8e03099e2fc9f2"
+  resolved "https://registry.npmjs.org/swiper/-/swiper-11.0.6.tgz"
   integrity sha512-W/Me7MQl5rNgdM5x9i3Gll76WsyVpnHn91GhBOyL7RCFUeg62aVnflzlVfIpXzZ/87FtJOfAoDH79ZH2Yq76zA==
 
 system-architecture@^0.1.0:
