@@ -70,16 +70,6 @@ useHead({
       innerHTML: JSON.stringify(getJsonLdSchema()),
       type: "application/ld+json",
     },
-    {
-      src:
-        "//cdn.iframe.ly/embed.js?card=small&key=" + config.VITE_IFRAMELY_KEY,
-      onLoad: () => {
-        // Load media preview
-        document.querySelectorAll("oembed[url]").forEach((element) => {
-          iframely.load(element, element.attributes.url.value);
-        });
-      },
-    },
   ],
 });
 

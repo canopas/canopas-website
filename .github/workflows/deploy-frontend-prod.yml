@@ -31,7 +31,6 @@ jobs:
       - name: Build frontend and copy to S3
         run: |
           cd nuxt-frontend
-          sed -i "s|VITE_IFRAMELY_KEY_VALUE|${{ secrets.IFRAMELY_KEY }}|g" config.prod.js
           sed -i "s|VITE_RECAPTCHA_SITE_KEY_VALUE|${{ secrets.RECAPTCHA_SITE_KEY }}|g" config.prod.js
           sed -i "s|RESOURCES_URL|${{ secrets.RESOURCES_URL }}|g" config.prod.js
           mv config.prod.js config.js
