@@ -172,41 +172,6 @@ function formateDate(date) {
   return [formattedDate, formattedTime];
 }
 
-function filterPostsByCategoryAndTag(post, posts) {
-  const relatedPosts = [];
-  const postTags = post?.tags.map((tag) => tag.name);
-  const postCategoryName = post?.category.data?.attributes.name ?? null;
-
-  if (posts) {
-    if (postCategoryName || postTags?.length > 0) {
-      posts.forEach((post) => {
-        let index = 0;
-
-        const relatedTags = post.tags.map((tag) => tag.name);
-        const relatedCategoryName =
-          post.category?.data?.attributes.name ?? null;
-
-        index +=
-          postCategoryName &&
-          relatedCategoryName &&
-          postCategoryName === relatedCategoryName
-            ? 3
-            : 0;
-
-        index += postTags.filter((tag) => relatedTags.includes(tag)).length;
-
-        if (index > 0) {
-          post.index = index;
-          relatedPosts.push(post);
-        }
-      });
-    }
-  }
-  return relatedPosts.filter(
-    (p) =>
-      !post.is_resource || !p.is_resource || p.is_resource == post.is_resource,
-  );
-}
 export {
   elementInViewPort,
   handleAnimationOnScroll,
@@ -216,5 +181,5 @@ export {
   getJobDates,
   getDiffrentWidthImages,
   setPostFields,
-  filterPostsByCategoryAndTag,
+  getReadingTime,
 };

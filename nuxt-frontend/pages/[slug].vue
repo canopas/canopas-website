@@ -6,7 +6,6 @@
       :mixpanel="$mixpanel"
       :recaptchaKey="config.VITE_RECAPTCHA_SITE_KEY"
       :post="post"
-      :recommandedPosts="recommandedPosts"
       :websiteUrl="config.BASE_URL"
       :contactApiUrl="config.API_BASE"
     />
@@ -23,11 +22,7 @@
 import Header from "@/components/partials/NewHeader.vue";
 import { useRoute } from "vue-router";
 import config from "@/config";
-import {
-  useBlogDetailStore,
-  useRecommandedBlogStore,
-} from "@/stores/resources";
-import { filterPostsByCategoryAndTag } from "@/utils";
+import { useBlogDetailStore } from "@/stores/resources";
 
 const { $mixpanel } = useNuxtApp();
 const post = ref([]);
@@ -38,10 +33,7 @@ const store = useBlogDetailStore();
 const postData = computed(() => store.item);
 const status = computed(() => store.status);
 
-const recStore = useRecommandedBlogStore();
-const recommandedBlog = computed(() => recStore.items);
-
-let published_time, recommandedPosts;
+let published_time;
 await useAsyncData("blog", () => store.loadResource(slug.value));
 
 if (status.value !== config.SUCCESS) {
@@ -54,15 +46,6 @@ if (status.value !== config.SUCCESS) {
 }
 
 published_time = new Date(post?.value?.published_on).toLocaleTimeString();
-
-await useAsyncData("recommandedBlog", () =>
-  recStore.loadRecommandedBlog(slug.value, config.SHOW_DRAFT_POSTS),
-);
-
-recommandedPosts = filterPostsByCategoryAndTag(
-  post.value,
-  recommandedBlog.value,
-);
 
 useHead({
   script: [
@@ -130,11 +113,12 @@ function getJsonLdSchema() {
   };
 }
 //for copy to clipboard of code blocks
-function copyCode(bash) {
+async function copyCode(bash) {
   const code = bash.querySelector("code");
   const text = code.innerText;
-  navigator.clipboard.writeText(text);
+  await navigator.clipboard.writeText(text);
 }
+
 onMounted(() => {
   const bashes = document.querySelectorAll("pre");
   bashes.forEach((bash) => {
@@ -144,18 +128,26 @@ onMounted(() => {
       wrapperDiv.appendChild(bash);
       wrapperDiv.classList.add("relative");
 
+      const button = document.createElement("button");
+      button.classList.add("copy-btn");
+      button.innerText = "copy";
+
+      bash.appendChild(button);
+
       const isSingleLine = bash.textContent.trim().split("\n").length === 1;
       if (isSingleLine) {
         bash.classList.add("!pr-20");
       }
-      const button = document.createElement("button");
-      button.classList.add("copy-btn");
-      button.innerText = "copy";
-      bash.appendChild(button);
+
       button.addEventListener("click", async () => {
-        await copyCode(bash, button);
+        await copyCode(bash);
         button.innerText = "copied!";
-        button.classList.add("text-green-500");
+        button.classList.add("!text-green-600");
+
+        setTimeout(() => {
+          button.innerText = "copy";
+          button.classList.remove("!text-green-600");
+        }, 2000);
       });
     }
   });
@@ -163,6 +155,6 @@ onMounted(() => {
 </script>
 <style lang="postcss">
 .copy-btn {
-  @apply absolute top-3 right-3 border-1 px-2 bg-gray-700 rounded-lg;
+  @apply absolute top-3 right-3 border-1 px-2 bg-white text-[#1f2937] rounded-lg font-semibold;
 }
 </style>
