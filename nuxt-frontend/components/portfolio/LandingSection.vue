@@ -1,10 +1,14 @@
 <template>
   <section class="bg-white" :ref="response.landingref1">
-    <div class="container py-20 sm:pt-32 lg:pb-80 lg:pt-60">
-      <h1 class="v2-normal-2-text animate__animated animate__fadeInUp">
+    <div class="container pt-6 lg:pt-[7.5rem] pb-16 lg:pb-60">
+      <h1
+        class="sub-h1-semibold lg:sub-h2-medium text-black-60 animate__animated animate__fadeInUp"
+      >
         {{ response.title }}
       </h1>
-      <div class="v2-title-text mt-10 animate__animated animate__slideInUp">
+      <div
+        class="lg:w-4/5 mobile-header-1 lg:desk-header-1 text-black-87 mt-4 lg:mt-6 animate__animated animate__slideInUp"
+      >
         {{ response.subTitle }}
       </div>
     </div>

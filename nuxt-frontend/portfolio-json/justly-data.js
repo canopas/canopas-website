@@ -3,21 +3,21 @@ import landingBackground800w from "@/assets/images/portfolio/justly/landing/back
 import landingBackground1400w from "@/assets/images/portfolio/justly/landing/background-1400w.webp";
 import landingBackground2400w from "@/assets/images/portfolio/justly/landing/background-2400w.webp";
 
-import featureGoal400w from "@/assets/images/portfolio/justly/features/justly-goal-400w.webp";
-import featureGoal800w from "@/assets/images/portfolio/justly/features/justly-goal-800w.webp";
-import featureGoal1200w from "@/assets/images/portfolio/justly/features/justly-goal-1200w.webp";
+import feature1_400w from "@/assets/images/portfolio/justly/features/feature1-400w.webp";
+import feature1_800w from "@/assets/images/portfolio/justly/features/feature1-800w.webp";
+import feature1_1200w from "@/assets/images/portfolio/justly/features/feature1-1200w.webp";
 
-import featureLogo400w from "@/assets/images/portfolio/justly/features/justly-logo-400w.webp";
-import featureLogo800w from "@/assets/images/portfolio/justly/features/justly-logo-800w.webp";
-import featureLogo1200w from "@/assets/images/portfolio/justly/features/justly-logo-1200w.webp";
+import feature2_400w from "@/assets/images/portfolio/justly/features/feature2-400w.webp";
+import feature2_800w from "@/assets/images/portfolio/justly/features/feature2-800w.webp";
+import feature2_1200w from "@/assets/images/portfolio/justly/features/feature2-1200w.webp";
 
-import featureNotes400w from "@/assets/images/portfolio/justly/features/justly-notes-400w.webp";
-import featureNotes800w from "@/assets/images/portfolio/justly/features/justly-notes-800w.webp";
-import featureNotes1200w from "@/assets/images/portfolio/justly/features/justly-notes-1200w.webp";
+import feature3_400w from "@/assets/images/portfolio/justly/features/feature3-400w.webp";
+import feature3_800w from "@/assets/images/portfolio/justly/features/feature3-800w.webp";
+import feature3_1200w from "@/assets/images/portfolio/justly/features/feature3-1200w.webp";
 
-import featureRank400w from "@/assets/images/portfolio/justly/features/justly-rank-400w.webp";
-import featureRank800w from "@/assets/images/portfolio/justly/features/justly-rank-800w.webp";
-import featureRank1200w from "@/assets/images/portfolio/justly/features/justly-rank-1200w.webp";
+import feature4_400w from "@/assets/images/portfolio/justly/features/feature4-400w.webp";
+import feature4_800w from "@/assets/images/portfolio/justly/features/feature4-800w.webp";
+import feature4_1200w from "@/assets/images/portfolio/justly/features/feature4-1200w.webp";
 
 import brandingBackground400w from "@/assets/images/portfolio/justly/branding/background-400w.webp";
 import brandingBackground800w from "@/assets/images/portfolio/justly/branding/background-800w.webp";
@@ -105,28 +105,28 @@ export default {
         gridData1: [
           {
             id: 1,
-            aspectRatio: "104%",
-            image: [featureLogo400w, featureLogo800w, featureLogo1200w],
+            aspectRatio: "150%",
+            image: [feature1_400w, feature1_800w, feature1_1200w],
             alt: "justly-logo",
           },
           {
             id: 2,
-            aspectRatio: "125%",
-            image: [featureGoal400w, featureGoal800w, featureGoal1200w],
+            aspectRatio: "130%",
+            image: [feature2_400w, feature2_800w, feature2_1200w],
             alt: "goal-feture",
           },
         ],
         gridData2: [
           {
             id: 3,
-            aspectRatio: "104%",
-            image: [featureRank400w, featureRank800w, featureRank1200w],
+            aspectRatio: "115%",
+            image: [feature3_400w, feature3_800w, feature3_1200w],
             alt: "rank-feture",
           },
           {
             id: 4,
-            aspectRatio: "125%",
-            image: [featureNotes400w, featureNotes800w, featureNotes1200w],
+            aspectRatio: "150%",
+            image: [feature4_400w, feature4_800w, feature4_1200w],
             alt: "notes-feature",
           },
         ],
@@ -148,7 +148,7 @@ export default {
         gridData1: [
           {
             id: 1,
-            aspectRatio: "135%",
+            aspectRatio: "173%",
             title:
               "25+ habits from 5 unique domains to help you create the system you want for your identity.",
             image: [
@@ -160,7 +160,7 @@ export default {
           },
           {
             id: 2,
-            aspectRatio: "94%",
+            aspectRatio: "121%",
             title:
               "Create a community, find a wise mentor, or ask a friend to hold you accountable for the habits you want to cultivate.",
             image: [
@@ -174,7 +174,7 @@ export default {
         gridData2: [
           {
             id: 3,
-            aspectRatio: "94%",
+            aspectRatio: "144%",
             title:
               "Never lose your focus again with a wealth of stats and highlights to keep you on track.",
             image: [
@@ -186,7 +186,7 @@ export default {
           },
           {
             id: 4,
-            aspectRatio: "135%",
+            aspectRatio: "143%",
             title:
               "Adopt the daily routines of successful people to set yourself apart and achieve your goals.",
             image: [
@@ -212,7 +212,7 @@ export default {
       },
     ],
     element: {
-      class: "v2-header-2-text font-bold lg:w-4/5",
+      class: "mobile-header-2 lg:desk-header-2",
       title: `Much more than just a <span class="border-text">habit tracker...</span>`,
       detail: "",
     },

@@ -1,9 +1,9 @@
 <template>
   <section
-    class="background-image relative z-[-1] bg-white"
+    class="background-image relative z-[-1] bg-white md:pt-6"
     :ref="response.ref"
   >
-    <aspect-ratio :height="isMobile ? '100%' : '56.26%'">
+    <aspect-ratio :height="isMobile ? '80%' : '56.26%'">
       <img
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1400w, ${response.backgroundImage[3]} 2400w`"
@@ -19,11 +19,9 @@
       :ref="response.review.ref"
     />
   </section>
-  <section
-    class="v2-header-2-text font-bold text-center bg-white pt-20 sm:py-40"
-  >
+  <section class="text-center py-16 lg:py-60">
     <nuxt-link
-      class="animation-underline inline-block relative hover:text-[#3d3d3d] after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-black-900 after:origin-bottom-left after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
+      class="lg:desk-header-1 mobile-header-3-semibold v2-canopas-gradient-text animation-underline inline-block relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-gradient-to-r after:from:orange-300 after:to:pink-300 after:origin-bottom-left after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
       :to="response.url"
       @click.native="$mixpanel.track(response.event)"
       >{{ response.title }}</nuxt-link

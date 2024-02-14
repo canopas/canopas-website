@@ -1,73 +1,63 @@
 <template>
-  <div
-    class="relative mt-[4.375rem] md:mt-[14.063rem] overflow-hidden px-0 font-inter-regular md:font-inter-medium"
-  >
+  <div class="relative mt-16 lg:mt-60 overflow-hidden px-0 3xl:outer-container">
     <img
       :src="bg2400"
       :srcset="`${bg400} 400w, ${bg800} 800w, ${bg1200} 1200w, ${bg2400} 2400w`"
       class="absolute top-0 left-0 w-full -z-[1]"
       alt="canopas-cta"
     />
-    <div
-      class="container m-auto md:w-[86%] lg:w-4/5 xl:w-[86%] px-[25px] pt-[61px] md:pt-[162px] pb-[50px] md:pb-[70px] opacity-1 text-center"
-    >
-      <div class="md:w-[86%] lg:w-4/5 xl:w-[86%] m-auto">
-        <span
-          style="-webkit-box-decoration-break: clone"
-          class="w-full text-[2.1875rem] leading-[2.75rem] tracking-[1px] md:text-[2.8125rem] md:leading-[3.4375rem] lg:text-[3.4375rem] lg:leading-[4.0281rem] font-roboto-bold canopas-gradient-text"
+    <div class="container m-auto pt-14 lg:pt-28 text-center">
+      <span class="w-full mobile-header-2 lg:desk-header-2 text-black-87">
+        How do you know we’re a good fit for you?
+      </span>
+      <h2
+        class="mt-4 lg:mt-6 mobile-header-3-regular lg:mobile-header-2-regular text-black-60"
+      >
+        Let’s have a short chat.
+      </h2>
+      <div class="mt-2 lg:mt-4 flex flex-wrap justify-center">
+        <nuxt-link
+          class="gradient-btn primary-btn"
+          to="/contact"
+          @click.native="$mixpanel.track('tap_landing_cta')"
         >
-          How do you know we’re a good fit for you?
-        </span>
-        <h2
-          class="mt-6 text-[1.25rem] leading-[1.5625rem] md:text-[1.375rem] md:leading-[1.6875rem] lg:text-[1.5rem] lg:leading-[1.8156rem] tracking-normal text-black-core/[.87]"
+          <span class="sub-h3-semibold lg:sub-h1-semibold"
+            >Get In Touch
+          </span></nuxt-link
         >
-          Let’s have a short chat.
-        </h2>
-        <div class="flex flex-wrap justify-center">
-          <nuxt-link
-            class="flex w-max items-center rounded-full py-3 px-3 gradient-btn consultation-btn"
-            to="/contact"
-            @click.native="$mixpanel.track('tap_home_touch_cta')"
-          >
-            <span
-              class="mr-2.5 font-normal text-[1rem] leading-[1.1875rem] md:text-[1.09375rem] md:leading-[1.3125rem] lg:text-[1.1875rem] lg:leading-[1.4375rem] font-inter-medium !tracking-[0]"
-              >Get in touch</span
-            >
-          </nuxt-link>
-        </div>
-        <div
-          class="mt-12 w-full text-[1.25rem] leading-[1.5625rem] md:text-[1.375rem] md:leading-[1.6875rem] lg:text-[1.5rem] lg:leading-[1.8156rem] text-left"
-        >
-          <div class="v2-canopas-gradient-text">
-            Four reasons why do we do this call?
-          </div>
-        </div>
-        <ul
-          class="w-full mt-4 list-none p-0 text-[1rem] leading-[1.1875rem] md:text-[1.1875rem] md:leading-[1.625rem] lg:text-[1.375rem] lg:leading-[1.75rem] text-left text-black-core/[.87]"
-        >
-          <li
-            v-for="reason in reasons"
-            :key="reason"
-            class="flex py-[7.5px] md:py-[17.5px] px-0"
-          >
-            <span
-              class="inline-block mt-[5px] mr-[15px] md:mr-[18px] w-3 h-3 md:w-[15px] md:h-[15px] rounded-[2px] md:rounded-[5px] bg-gradient-to-b from-[#F2709C] to-[#FF9472] content-none"
-            ></span>
-            <div class="w-[90%]">
-              {{ reason }}
-            </div>
-          </li>
-        </ul>
       </div>
+    </div>
+    <div
+      class="container mt-10 lg:mt-[4.5rem] text-left mb-16 lg:mb-60 lg:translate-x-[15%] 2xl:translate-x-[22%]"
+    >
+      <div class="sub-h1-semibold lg:sub-h2-medium text-black-60">
+        Four reasons why do we do this call?
+      </div>
+      <ul
+        class="lg:w-3/4 2xl:w-[64%] mt-4 list-none p-0 sub-h3-regular lg:mobile-header-3-regular text-black-87"
+      >
+        <li
+          v-for="reason in reasons"
+          :key="reason"
+          class="flex pb-4 md:pb-6 px-0"
+        >
+          <span
+            class="inline-block mt-1.5 mr-[0.938rem] md:mr-[1.125rem] w-3 h-3 md:w-[0.938rem] md:h-[0.938rem] rounded-sm md:rounded-[5px] bg-primary-1 content-none"
+          ></span>
+          <div class="w-[90%]">
+            {{ reason }}
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script type="module">
-import bg400 from "@/assets/images/CTA/bg/400.svg";
-import bg800 from "@/assets/images/CTA/bg/800.svg";
-import bg1200 from "@/assets/images/CTA/bg/1200.svg";
-import bg2400 from "@/assets/images/CTA/bg/2400.svg";
+import bg400 from "@/assets/images/CTA/bg/400.webp";
+import bg800 from "@/assets/images/CTA/bg/800.webp";
+import bg1200 from "@/assets/images/CTA/bg/1200.webp";
+import bg2400 from "@/assets/images/CTA/bg/2400.webp";
 
 export default {
   data() {

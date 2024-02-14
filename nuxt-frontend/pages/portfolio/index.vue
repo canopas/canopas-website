@@ -2,10 +2,7 @@
   <div>
     <Header />
     <CaseStudy />
-    <UserReview
-      ref="userReview"
-      class="pb-0 sm:pb-10 md:pb-8 lg:pb-20 sm:top-10"
-    />
+    <UserReview ref="userReview" class="pb-0 sm:top-10" />
     <CTASection ref="cta" />
     <NewFooter />
   </div>

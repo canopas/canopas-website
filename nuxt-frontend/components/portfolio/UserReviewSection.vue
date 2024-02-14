@@ -1,14 +1,16 @@
 <template>
   <section
-    class="bg-white md:pt-36 md:pb-0 lg:pt-50"
+    class="bg-white pt-8 lg:pt-60"
     :ref="response.review ? response.review.ref : ''"
   >
-    <div class="header-text text-center">
+    <div class="mobile-header-2 lg:desk-header-2 text-black-87 text-center">
       Listen what {{ name.charAt(0).toUpperCase() + name.slice(1) }} users
       <br />
       say about us...
     </div>
-    <div class="mt-8 text-left overflow-x-hidden overflow-y-auto scrollbar-0">
+    <div
+      class="mt-6 lg:mt-16 text-left overflow-x-hidden overflow-y-auto scrollbar-0 3xl:outer-container"
+    >
       <div
         class="animate-gridAnimationReverse"
         :style="{
@@ -25,7 +27,7 @@
             <div
               v-for="element in grid1"
               :key="element.id"
-              class="flex flex-col justify-center flex-[0_0_320px] sm:flex-[0_0_480px] lg:flex-[0_0_528px] mt-8 ml-8 rounded-2xl border border-solid border-transparent shadow-[inset_2px_1000px_1px_#fff] from-[#ff9472] via-[#ff909c] to-[#f2709c] bg-gradient-to-r p-[16px] lg:p-[20px] text-[1rem] leading-[1.125rem] md:text-[1.0625rem] md:leading-6 lg:text-[1.1875rem] lg:leading-[1.875rem] text-left"
+              class="flex flex-col justify-center flex-[0_0_20rem] sm:flex-[0_0_30rem] lg:flex-[0_0_33rem] mt-8 ml-8 rounded-xl border-2 border-pink-90 p-4 lg:p-5 sub-h3-regular lg:mobile-header-3-regular text-black-87 text-left"
               :class="
                 pausedId == element.id ? 'scale-[0.97] cursor-pointer' : ''
               "
@@ -36,12 +38,12 @@
               :ref="'card-1-' + element.id"
             >
               {{ element.review }}
-              <div class="flex flex-row">
+              <div class="flex">
                 <Icon
                   v-for="(item, index) in 5"
                   :key="index"
                   name="fa6-solid:star"
-                  class="mt-3 w-5 h-5 text-yellow-500"
+                  class="mt-3 w-5 h-5 text-yellow"
                 />
               </div>
             </div>
@@ -50,7 +52,7 @@
             <div
               v-for="element in grid2"
               :key="element.id"
-              class="flex flex-col justify-center flex-[0_0_320px] sm:flex-[0_0_480px] lg:flex-[0_0_528px] mt-8 ml-8 rounded-2xl border border-solid border-transparent shadow-[inset_2px_1000px_1px_#fff] from-[#ff9472] via-[#ff909c] to-[#f2709c] bg-gradient-to-r p-4 lg:p-5 text-[1rem] leading-[1.125rem] md:text-[1.0625rem] md:leading-[1.5rem] lg:text-[1.1875rem] lg:leading-[1.875rem] text-left"
+              class="flex flex-col justify-center flex-[0_0_20rem] sm:flex-[0_0_30rem] lg:flex-[0_0_33rem] mt-8 ml-8 rounded-xl border-2 border-pink-90 p-4 lg:p-5 sub-h3-regular lg:mobile-header-3-regular text-black-87 text-left"
               :class="
                 pausedId == element.id ? 'scale-[0.97] cursor-pointer' : ''
               "
@@ -61,12 +63,12 @@
               :ref="'card-1-' + element.id"
             >
               {{ element.review }}
-              <div class="flex flex-row">
+              <div class="flex">
                 <Icon
                   v-for="(item, index) in 5"
                   :key="index"
                   name="fa6-solid:star"
-                  class="mt-3 w-5 h-5 text-yellow-500"
+                  class="mt-3 w-5 h-5 text-yellow"
                 />
               </div>
             </div>
