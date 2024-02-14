@@ -1,5 +1,5 @@
 <template>
-  <section class="my-16 lg:my-60 text-black-87 h-full">
+  <section v-if="activeBlog" class="my-16 lg:my-60 text-black-87 h-full">
     <div class="container flex flex-col items-center m-auto w-full">
       <div class="container">
         <p class="text-white-smoke background-text text-center">Blogs</p>
@@ -16,7 +16,7 @@
           Well, at least the community says Hell Yeah. Our blogs hosted on
           medium have
           <span
-            class="secondary-color sub-h1-semibold lg:mobile-header-2-semibold"
+            class="v2-canopas-gradient-text sub-h1-semibold lg:mobile-header-2-semibold"
             >100k+</span
           >
           minutes monthly reading time and it’s only rising.
@@ -55,27 +55,24 @@
             class="md:w-1/2 2xl:w-[55%] xll:w-[65%] 3xl:w-[55%] w-full"
           >
             <div class="flex flex-col 2xl:pr-16">
-              <hr
-                v-if="index == 0"
-                class="hidden md:block md:ml-[82px] 2xl:ml-[95px] h-[0.063rem]"
-              />
               <div
-                class="flex gap-8 md:gap-4 lg:gap-8 mt-[18px] md:mt-4 lg:mt-8"
+                class="flex gap-8 md:gap-4 lg:gap-8 justify-end mt-[18px] md:mt-4 lg:mt-8"
               >
                 <div
-                  class="flex flex-col items-center text-black-87 lg:text-black-60"
+                  class="w-[3%] flex flex-col items-center text-black-87 lg:text-black-60"
+                  :class="index == 0 ? 'mt-4 lg:mt-8' : ''"
                 >
                   <span
                     class="mobile-header-2 lg:desk-header-2"
                     @mouseleave="animate = false"
                   >
-                    {{ blog.pubDate[1] }}
+                    {{ blog.published_on[1] }}
                   </span>
                   <span
                     class="text-center sub-h4-regular lg:sub-h4-medium"
                     @mouseleave="animate = false"
                   >
-                    {{ blog.pubDate[0] }}
+                    {{ blog.published_on[0] }}
                   </span>
                 </div>
 
@@ -87,56 +84,70 @@
                   "
                   @touchend="animate = false"
                 >
+                  <hr
+                    v-if="index == 0"
+                    class="h-[0.063rem] mb-4 lg:mb-8 bg-[#C6C6C6]"
+                  />
                   <div @mouseleave="animate = false">
-                    <span
-                      @click="
-                        width > 768 ? openBlog(blog.link, 'tap_blog_post') : ''
-                      "
-                      :class="
-                        activeIndex == index
-                          ? 'bg-gradient-underline-out box-decoration-clone bg-no-repeat pb-[5px] transition-all duration-500 bg-[length:100%] hover:bg-gradient-underline-out'
-                          : 'bg-[length:0%]'
-                      "
-                      class="sub-h1-semibold lg:mobile-header-2-semibold xl:desk-header-3 text-black-87 cursor-pointer"
+                    <nuxt-link
+                      :to="'/' + blog.slug"
+                      @click.native="$mixpanel.track('tap_blog_post')"
                     >
-                      {{ blog.title }}</span
-                    >
+                      <span
+                        :class="
+                          activeIndex == index
+                            ? 'bg-gradient-underline-out box-decoration-clone bg-no-repeat pb-[5px] transition-all duration-500 bg-[length:100%] hover:bg-gradient-underline-out'
+                            : 'bg-[length:0%]'
+                        "
+                        class="sub-h1-semibold lg:mobile-header-2-semibold xl:desk-header-3 text-black-87 cursor-pointer"
+                      >
+                        {{ blog.title }}</span
+                      >
+                    </nuxt-link>
                   </div>
                   <div
-                    class="flex flex-row justify-between mt-[0.9375rem] md:mt-4 lg:mt-8 text-black-60"
+                    class="flex justify-between mt-[0.9375rem] md:mt-4 lg:mt-8 text-black-60"
                   >
                     <span class="w-auto sub-h4-regular lg:sub-h1-semibold">
-                      {{ blog.author }}
+                      {{ blog.authorName }}
                     </span>
-                    <span
-                      @click="openBlog(blog.link, 'tap_blog_post')"
-                      class="lg:w-[7.938rem] cursor-pointer sub-h3-semibold lg:mobile-header-3-semibold lg:v2-canopas-gradient-text"
+                    <nuxt-link
+                      :to="'/' + blog.slug"
+                      @click.native="$mixpanel.track('tap_blog_post')"
                     >
-                      Read more
-                      <Icon
-                        class="!hidden lg:!inline-block arrow fa w-4 h-4 text-pink-300"
-                        name="fa6-solid:arrow-right-long"
-                        id="leftArrow"
-                      />
-                    </span>
+                      <span
+                        class="lg:w-[7.938rem] cursor-pointer sub-h3-semibold lg:mobile-header-3-semibold lg:v2-canopas-gradient-text"
+                      >
+                        Read more
+                        <Icon
+                          class="!hidden lg:!inline-block arrow fa w-4 h-4 text-pink-300"
+                          name="fa6-solid:arrow-right-long"
+                          id="leftArrow"
+                        />
+                      </span>
+                    </nuxt-link>
                   </div>
                   <hr class="h-[0.063rem] mt-4 lg:mt-8 bg-[#C6C6C6]" />
-                  <div
+                  <nuxt-link
                     v-if="activeIndex == index"
-                    @click="openBlog(blog.link, 'tap_blog_post')"
-                    class="block md:!hidden mt-4 w-full animate-fadeInRight"
+                    :to="'/' + blog.slug"
+                    @click.native="$mixpanel.track('tap_blog_post')"
                   >
-                    <img
-                      :src="blog.thumbnail"
-                      class="object-cover"
-                      loading="lazy"
-                      :alt="blog.title"
-                    />
-                    <hr
-                      v-if="index != blogs.length - 1"
-                      class="md:hidden mt-4 h-[0.063rem] bg-[#C6C6C6]"
-                    />
-                  </div>
+                    <div
+                      class="block md:!hidden mt-4 w-full animate-fadeInRight"
+                    >
+                      <img
+                        :src="blog.image_url"
+                        class="object-cover"
+                        loading="lazy"
+                        :alt="blog.title"
+                      />
+                      <hr
+                        v-if="index != blogs.length - 1"
+                        class="md:hidden mt-4 h-[0.063rem] bg-[#C6C6C6]"
+                      />
+                    </div>
+                  </nuxt-link>
                 </div>
               </div>
             </div>
@@ -159,73 +170,57 @@
             class="relative mt-14 lg:mt-[4.5rem]"
             alt="blog-background-image"
           />
-          <img
-            v-if="activeBlog !== null"
-            @click="openBlog(activeBlog.link, 'tap_blog_post')"
-            :src="activeBlog.thumbnail"
-            class="absolute inline-block inset-0 m-auto w-[90%] md:top-8 lg:top-[5.5rem] xl:top-[7.5rem] 3xl:-top-[3.5rem] md:w-[47%] lg:w-[37%] xl:w-[35%] 2xl:w-[30%] xll:w-[26%] 3xl:w-[17%] md:-right-[387px] lg:-right-[570px] xl:-right-[680px] 2xl:-right-[945px] xll:-right-[1600px] 3xl:-right-[1246px] cursor-pointer"
-            :class="animate ? 'animate-fadeInRight' : ''"
-            loading="lazy"
-            :alt="activeBlog.title"
-          />
+          <nuxt-link
+            :to="'/' + activeBlog.slug"
+            @click.native="$mixpanel.track('tap_blog_post')"
+          >
+            <img
+              v-if="activeBlog !== null"
+              :src="activeBlog.image_url"
+              class="absolute inline-block inset-0 m-auto w-[90%] md:top-8 lg:top-[5.5rem] xl:top-[7.5rem] 3xl:-top-[3.5rem] md:w-[47%] lg:w-[37%] xl:w-[35%] 2xl:w-[30%] xll:w-[26%] 3xl:w-[17%] md:-right-[387px] lg:-right-[570px] xl:-right-[680px] 2xl:-right-[945px] xll:-right-[1600px] 3xl:-right-[1246px] cursor-pointer"
+              :class="animate ? 'animate-fadeInRight' : ''"
+              loading="lazy"
+              :alt="activeBlog.title"
+            />
+          </nuxt-link>
         </div>
       </div>
     </div>
   </section>
 </template>
 
-<script type="module">
+<script setup>
 import bgMobile from "@/assets/images/blog/bg/bg400.svg";
 import bg from "@/assets/images/blog/bg/bg2400.svg";
 import bgNew from "@/assets/images/blog/bg/bg.webp";
-import axios from "axios";
-import Config from "@/config.js";
-import { openBlog } from "@/utils.js";
+import config from "@/config.js";
+import { useBlogListStore } from "@/stores/resources";
 
-export default {
-  data() {
-    return {
-      openBlog,
-      width: 680,
-      bgMobile,
-      bg,
-      bgNew,
-      blogsURL: Config.BLOG_URL,
-      blogs: [],
-      activeIndex: 0,
-      activeBlog: null,
-      animate: false,
-    };
-  },
-  mounted() {
-    this.getBlogs();
-    this.width = window.innerWidth;
-  },
-  inject: ["mixpanel"],
-  methods: {
-    getBlogs() {
-      axios
-        .get(Config.API_BASE + "/api/blogs")
-        .then((blogs) => {
-          blogs = blogs.data;
-          for (const element of blogs) {
-            /** replace - to / in date as safari is not supporting this date format.
-             * get date in MMM DD, YYYY format
-             */
-            element.pubDate = new Date(
-              element.pubDate.replace(/-/g, "/"),
-            ).toLocaleDateString("en-US", {
-              month: "long",
-              day: "2-digit",
-            });
-            element.pubDate = element.pubDate.split(" ", 2);
-          }
-          this.activeBlog = blogs[0];
-          this.blogs = blogs;
-        })
-        .catch(() => {});
-    },
-  },
-  components: {},
-};
+const { $mixpanel } = useNuxtApp();
+
+const blogs = ref([]);
+const width = ref(680);
+const activeBlog = ref(null);
+const activeIndex = ref(0);
+const animate = ref(false);
+
+const store = useBlogListStore();
+const resources = computed(() => store.items);
+const status = computed(() => store.status);
+
+await useAsyncData("blogs", () =>
+  store.loadResources(config.SHOW_DRAFT_POSTS, false, 0, 3),
+);
+
+if (status.value === config.SUCCESS) {
+  blogs.value = resources.value;
+  activeBlog.value = blogs.value[0];
+}
+
+onMounted(() => {
+  for (const element of blogs.value) {
+    element.published_on = element.published_on.replace(",", "").split(" ", 2);
+  }
+  width.value = window.innerWidth;
+});
 </script>

@@ -22,7 +22,7 @@ export const useTagListStore = defineStore("tag-list", {
           config.STRAPI_URL +
           "/v1/tag/" +
           slug +
-          "?populate=deep&status=published";
+          "?populate=deep&publicationState=live";
 
         axios
           .get(url)

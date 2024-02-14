@@ -18,6 +18,7 @@ export default Object.freeze({
   // company's meta data
   COMPANY_TITLE: "Canopas",
   COMPANY_NAME: "Canopas Software LLP.",
+  POST_NOT_FOUND_MESSAGE: `Stay tuned, we have some exciting posts in the works that we'll be sharing with you shortly.`,
 
   // status codes
 
@@ -204,7 +205,7 @@ export default Object.freeze({
       "Canopas blogs will help you to become a better software developer. We are sharing knowledge on Web, Backend, iOS, Android, and Flutter development",
     authorName: "canopas",
     type: "Website",
-    url: "https://dev-stack.canopas.com/blog",
+    url: "https://dev-stack.canopas.com/resources",
     image: "https://dev-stack.canopas.com/apple-touch-icon.png",
   },
 });
