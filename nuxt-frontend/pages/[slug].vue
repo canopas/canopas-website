@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!assets">
     <Header />
     <BlogDetail
       :slug="slug"
@@ -25,7 +25,7 @@ import config from "@/config";
 import { useBlogDetailStore } from "@/stores/resources";
 
 const { $mixpanel } = useNuxtApp();
-const post = ref([]);
+const post = ref({});
 const route = useRoute();
 const slug = ref(route.params.slug);
 
@@ -34,7 +34,13 @@ const postData = computed(() => store.item);
 const status = computed(() => store.status);
 
 let published_time;
-await useAsyncData("blog", () => store.loadResource(slug.value));
+
+const assets =
+  slug.value === "favicon.ico" || slug.value === "flutter_service_worker.js";
+
+if (!assets) {
+  await useAsyncData("blog", () => store.loadResource(slug.value));
+}
 
 if (status.value !== config.SUCCESS) {
   navigateTo({
@@ -71,7 +77,7 @@ function seoData() {
     twitterSite: "https://canopas.com/",
     twitterCard: "summary_large_image",
     twitterLabel1: "Reading time",
-    twitterData1: post.value.readingTime + ` min read`,
+    twitterData1: post.value.reading_time + ` min read`,
     twitterCta: "Read on Canopas",
     keywords: post.value.keywords,
     twitterTileInfo1Icon: "Person",

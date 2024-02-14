@@ -1,6 +1,5 @@
 import { useElementVisibility } from "@vueuse/core";
 import mixpanel from "mixpanel-browser";
-import config from "./config";
 import Avatar from "./assets/images/user.png";
 import icon from "./assets/images/icon.svg";
 
@@ -108,48 +107,44 @@ function parseImageUrls(imageUrls) {
 }
 
 function setPostFields(post, slug) {
-  const publishedDate = post.attributes.published_on;
+  post = post.attributes ? post.attributes : post;
+  const publishedDate = post.published_on;
   const [date] = formateDate(publishedDate);
-  post.attributes.published_on = date || "Draft";
-  post.attributes.readingTime = getReadingTime(post.attributes.content);
+  post.published_on = date || "Draft";
 
-  post.attributes.image_url =
-    post.attributes.image.data?.attributes.url || icon;
-  post.attributes.alternativeText =
-    post.attributes.image.data?.attributes.alternativeText ||
-    post.attributes.title;
+  const postImg = post.image?.data?.attributes
+    ? post.image.data?.attributes
+    : post.image;
+  post.image_url = postImg?.url || icon;
+  post.alternativeText = postImg?.alternativeText || post.title;
 
-  const author = post.attributes.author.data?.attributes;
-  post.attributes.authorName = author?.name || "author";
-  post.attributes.authorImage = author?.image.data
-    ? author.image.data?.attributes.url
-    : Avatar;
-  post.attributes.authorAltText = author
-    ? author.username + " image"
-    : "author";
-  post.attributes.authorBio = author?.bio || "";
-  post.attributes.authorRole = author?.role || "Editor for Canopas";
+  const author = post.author?.data?.attributes
+    ? post.author.data?.attributes
+    : post.author;
+  post.authorName = author?.name || "author";
 
-  if (slug && post.attributes.tags[0]) {
-    post.attributes.tags.map((tag) => {
+  const authorImg = author?.image?.data?.attributes
+    ? author?.image.data?.attributes
+    : author?.image;
+
+  post.authorImage = authorImg?.url || Avatar;
+  post.authorAltText = author ? author.username + " image" : "author";
+  post.authorBio = author?.bio || "";
+  post.authorRole = author?.role || "Editor for Canopas";
+
+  if (slug && post.tags[0]) {
+    post.tags.map((tag) => {
       if (tag.slug == slug) {
         post.tagName = tag.name;
       }
     });
   }
 
-  let newPost = post.attributes;
+  let newPost = post;
   newPost.id = post.id;
   newPost.tagName = post.tagName;
+
   return newPost;
-}
-// Calculate reading time
-function getReadingTime(content) {
-  if (!content) return;
-  const numberOfWords = content
-    .replace(/<\/?[^>]+(>|$)/g, "")
-    .split(/\s/g).length;
-  return Math.ceil(numberOfWords / config.WORDS_PER_MINUTE);
 }
 
 // Formate date and time from millis
@@ -181,5 +176,4 @@ export {
   getJobDates,
   getDiffrentWidthImages,
   setPostFields,
-  getReadingTime,
 };
