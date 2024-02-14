@@ -2,20 +2,20 @@
   <section class="bg-white">
     <div
       v-if="response.solution"
-      class="container py-20 lg:py-80 relative"
+      class="container py-16 lg:py-60 relative"
       :ref="response.solution.ref"
     >
       <div class="flex flex-col justify-between lg:flex-row">
-        <div class="v2-normal-text font-bold">
+        <div class="mobile-header-3-semibold text-black-87">
           {{ response.solution.title }}
         </div>
         <div class="pt-5 lg:pl-16 lg:w-4/5 lg:pt-0">
           <div
-            class="v2-normal-text font-light"
+            class="sub-h1-regular text-black-60"
             v-html="response.solution.description"
           ></div>
 
-          <div class="flex w-fit flex-row pt-12 md:pt-16">
+          <div class="flex w-fit pt-10 md:pt-16">
             <div
               v-for="button in response.solution.buttons"
               :key="button"
@@ -35,9 +35,12 @@
     </div>
     <div
       v-if="response.title"
-      class="container pt-0 pb-20 md:pt-16 lg:pb-80 relative"
+      class="container pt-16 lg:pt-60 pb-6 lg:pb-28 relative"
     >
-      <div class="v2-header-3-text pt-20" v-html="response.title"></div>
+      <div
+        class="mobile-header-2 lg:desk-header-2"
+        v-html="response.title"
+      ></div>
     </div>
   </section>
 
@@ -58,7 +61,7 @@
 
   <section class="bg-white" :ref="response.details ? response.details.ref : ''">
     <div
-      class="container flex flex-col md:flex-row md:gap-x-16 pt-24 md:pt-48 xl:pt-80"
+      class="container flex flex-col lg:flex-row lg:gap-x-8 pt-16 lg:pt-60 md:w-4/5"
     >
       <div v-if="gridData1" class="basis-1/2">
         <div v-for="data in gridData1" :key="data">
@@ -103,18 +106,7 @@
             </aspect-ratio>
           </div>
           <div
-            class="v2-normal-text bg-white font-light ... px-6 sm:px-8 lg:px-12 xl:px-20 py-12 xl:py-20 text-center"
-            :class="[
-              response.details.ref == 'justlyui1'
-                ? ' pb-8 sm:pb-12 xl:pb-8  2xl:pb-12 text-[1.188rem] leading-[1.781rem] md:text-[1.281rem] md:leading-[1.875rem] xl:text-[1.375rem] xl:leading-8 font-inter-regular text-black-core/[0.87] '
-                : '',
-              response.details.ref == 'justlyui1' && data.id == 2
-                ? 'pt-32 sm:pt-28 md:pt-20 lg:pt-28 xl:pt-28 2xl:pt-36 md:!pb-0'
-                : '',
-              response.details.ref == 'justlyui1' && data.id == 1
-                ? 'pt-40 sm:pt-40 md:pt-28 lg:pt-36 xl:pt-40 2xl:pt-48'
-                : '',
-            ]"
+            class="sub-h1-regular lg:mobile-header-3-regular text-black-87 ... px-6 pt-4 2xl:px-32 pb-10 lg:pt-6 lg:pb-14 text-center"
           >
             {{ data.title }}
           </div>
@@ -168,17 +160,8 @@
             </aspect-ratio>
           </div>
           <div
-            class="v2-normal-text bg-white font-light ... px-6 sm:px-8 lg:px-12 xl:px-20 py-12 xl:py-20 text-center"
+            class="sub-h1-regular lg:mobile-header-3-regular text-black-87 ... px-6 pt-4 2xl:px-32 pb-10 lg:pt-6 lg:pb-14 text-center"
             :class="[
-              response.details.ref == 'justlyui1'
-                ? 'px-6  sm:px-8 lg:px-12  2xl:px-20 pb-8 sm:pb-12 md:pb-44 lg:pb-52 xl:pb-[13.5rem]  2xl:pb-[14.8rem] text-[1.188rem] leading-[1.781rem] md:text-[1.281rem] md:leading-[1.875rem] xl:text-[1.375rem] xl:leading-8 font-inter-regular text-center text-black-core/[0.87] '
-                : '',
-              response.details.ref == 'justlyui1' && data.id == 4
-                ? 'pt-4 md:pt-4 xl:pt-0  md:!pb-0'
-                : '',
-              response.details.ref == 'justlyui1' && data.id == 3
-                ? 'pt-56 sm:pt-52 md:pt-36 lg:pt-48 xl:pt-56 2xl:pt-64'
-                : '',
               response.details.ref == 'tognessui1' && data.title == 'togness'
                 ? 'hidden'
                 : '',

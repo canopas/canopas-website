@@ -8,20 +8,16 @@
         class="hidden absolute object-cover w-full py-40 lg:block"
         alt="luxeradio-music-background"
       />
-      <div
-        class="flex flex-col justify-between py-20 lg:flex-row lg:py-80"
-        :class="[id == 'justly' ? '!pt-16 xl:!pt-44 xl:!pb-56' : '']"
-      >
-        <div class="v2-normal-text font-bold">{{ response.title }}</div>
-        <div class="pt-5 lg:pl-16 lg:w-4/5 lg:pt-0">
-          <div class="v2-normal-text font-light">
+      <div class="flex flex-col justify-between py-16 lg:flex-row lg:py-60">
+        <div class="mobile-header-3-semibold lg:desk-header-3 text-black-87">
+          {{ response.title }}
+        </div>
+        <div class="pt-4 lg:pl-16 lg:w-4/5 lg:pt-0">
+          <div class="sub-h1-regular lg:mobile-header-3-regular text-black-60">
             {{ response.description }}
           </div>
 
-          <div
-            class="flex w-fit flex-row pt-12 md:pt-16 pb-12 absolute"
-            v-if="response.buttons"
-          >
+          <div class="flex w-fit pt-10 absolute" v-if="response.buttons">
             <div
               v-for="button in response.buttons"
               :key="button"
@@ -72,20 +68,22 @@
         muted
         playsinline
         v-if="response.animation"
-        class="absolute right-0 bottom-0 left-0 top-2.5 sm:top-[18px] md:top-5 xl:top-[35px] m-auto h-3/3 w-[19%] rounded-md md:rounded-xl lg:rounded-3xl"
+        class="absolute right-0 bottom-0 left-0 top-2.5 sm:top-[1.125rem] md:top-5 xl:top-[2.188rem] m-auto h-3/3 w-[19%] rounded-md md:rounded-xl lg:rounded-3xl"
       >
         <source :src="response.animation" type="video/mp4" />
       </video>
     </aspect-ratio>
   </section>
-  <section v-if="response.features" class="bg-white mt-20 lg:mt-0">
-    <div class="container flex flex-col md:flex-row md:pr-6 lg:pr-10 xl:pr-14">
+  <section v-if="response.features" class="bg-white">
+    <div
+      class="container flex flex-col lg:flex-row lg:pr-10 xl:pr-14 pt-16 md:w-4/5 lg:pt-0"
+    >
       <div v-if="response.features.gridData1" class="basis-1/2">
         <div v-for="data in response.features.gridData1" :key="data">
           <aspect-ratio
-            :height="data.aspectRatio"
-            class="mb-4 md:mb-6 lg:mb-8 xl:mb-10 2xl:mb-12"
-            :class="data.id == 1 ? 'md:w-[92%]' : 'md:w-[110%]'"
+            :height="width < 991 ? data.aspectRatio : '130%'"
+            class="mb-4 lg:mb-8 xl:mb-10 2xl:mb-12"
+            :class="data.id == 1 ? 'lg:w-[92%]' : 'lg:w-[110%]'"
           >
             <img
               v-if="data.image"
@@ -100,12 +98,12 @@
       <div v-if="response.features.gridData2" class="basis-1/2">
         <div v-for="data in response.features.gridData2" :key="data">
           <aspect-ratio
-            :height="data.aspectRatio"
-            class="mb-4 md:mb-6 lg:mb-8 xl:mb-10 2xl:mb-12"
+            :height="width < 991 ? data.aspectRatio : '130%'"
+            class="mb-4 lg:mb-8 xl:mb-10 2xl:mb-12"
             :class="
               data.id == 3
-                ? 'md:w-[110%]'
-                : 'md:w-[92%] md:ml-[3.8rem] lg:ml-20 xl:ml-24 2xl:ml-28'
+                ? 'lg:w-[110%]'
+                : 'lg:w-[92%] lg:ml-20 xl:ml-24 2xl:ml-28'
             "
           >
             <img
@@ -123,19 +121,16 @@
 
   <section v-if="response.solution" class="bg-white relative">
     <div class="container" :ref="response.solution.ref">
-      <div class="flex flex-col justify-between pt-20 lg:flex-row lg:pt-80">
-        <div class="v2-normal-text font-bold">
+      <div class="flex flex-col justify-between pt-16 lg:flex-row lg:pt-60">
+        <div class="mobile-header-3-semibold lg:desk-header-3 text-black-87">
           {{ response.solution.title }}
         </div>
         <div class="pt-5 lg:pl-16 lg:w-4/5 lg:pt-0">
-          <div class="v2-normal-text font-light">
+          <div class="sub-h1-regular lg:mobile-header-2-regular text-black-60">
             {{ response.solution.description }}
           </div>
 
-          <div
-            class="flex flex-row w-fit pt-12 md:pt-16"
-            v-if="response.solution.buttons"
-          >
+          <div class="flex w-fit pt-10" v-if="response.solution.buttons">
             <div
               v-for="button in response.solution.buttons"
               :key="button"
@@ -165,11 +160,11 @@ export default {
 
   data() {
     return {
+      width: 0,
       modules: [Pagination, Autoplay],
       id: this.$route.params.id,
       portfolioRef: null,
       backgroundColor: "",
-      isShowSliderInMobile: false,
       response: this.json,
     };
   },
@@ -184,7 +179,7 @@ export default {
     AspectRatio,
   },
   mounted() {
-    this.isShowSliderInMobile = window.innerWidth <= 992;
+    this.width = window.innerWidth;
   },
   inject: ["mixpanel"],
   methods: {

@@ -5,13 +5,20 @@
   >
     <div class="relative container">
       <div :ref="response[0].designref ? response[0].designref : ''">
-        <div class="pt-20 lg:py-80 flex flex-col justify-between xl:w-3/4">
-          <div class="v2-title-text font-bold" v-html="response[0].title"></div>
+        <div
+          class="py-16 lg:pt-60 lg:pb-[4.5rem] flex flex-col justify-between xl:w-3/4"
+        >
+          <div
+            class="mobile-header-2 lg:desk-header-2 text-black-87"
+            v-html="response[0].title"
+          ></div>
           <div
             v-if="response[0].description"
-            class="description pt-5 w-4/5 lg:pt-10 xl:pt-20 xl:w-full"
+            class="description pt-5 lg:pt-6 xl:w-full"
           >
-            <div class="v2-normal-text font-light">
+            <div
+              class="sub-h1-regular lg:mobile-header-2-regular text-black-60"
+            >
               {{ response[0].description }}
             </div>
           </div>
@@ -25,10 +32,7 @@
     class="image relative z-[-1]"
     :ref="response[0].designref1 ? response[0].designref1 : ''"
   >
-    <aspect-ratio
-      :height="isMobile ? '100%' : '56.26%'"
-      class="overflow-hidden"
-    >
+    <aspect-ratio :height="isMobile ? '70%' : '56.26%'" class="overflow-hidden">
       <img
         :src="response[0].backgroundImage[3]"
         :srcset="`${response[0].backgroundImage[0]} 400w, ${response[0].backgroundImage[1]} 800w, ${response[0].backgroundImage[2]} 1400w, ${response[0].backgroundImage[3]} 2400w`"
@@ -45,15 +49,15 @@
   </section>
   <section v-if="response[0].subTitle" class="bg-white">
     <div
-      class="container flex flex-col justify-between pb-20 sm:py-40 lg:flex-row lg:py-80"
+      class="container flex flex-col justify-between py-16 lg:flex-row lg:py-60"
       :ref="response[0].subTitle ? response[0].designref2 : ''"
     >
-      <div class="v2-normal-text font-bold">
+      <div class="mobile-header-3-semibold lg:desk-header-3 text-black-87">
         {{ response[0].subTitle }}
       </div>
       <div class="pt-5 lg:pl-16 lg:w-4/5 lg:pt-0">
         <div
-          class="v2-normal-text font-light"
+          class="sub-h1-regular lg:mobile-header-2-regular text-black-60"
           v-html="response[0].subDescription"
         ></div>
       </div>
@@ -63,11 +67,15 @@
   <section class="bg-white relative" v-if="response[1]">
     <div class="relative" :ref="response[1].designref">
       <div
-        class="container py-20 lg:py-80 flex flex-col justify-between xl:flex-row"
+        class="container py-16 lg:py-60 flex flex-col justify-between xl:flex-row"
       >
-        <div class="v2-title-2-text font-bold">{{ response[1].title }}</div>
+        <div class="mobile-header-3-semibold lg:desk-header-3 text-black-87">
+          {{ response[1].title }}
+        </div>
         <div class="description lg:w-11/12 xl:pl-16">
-          <div class="v2-normal-text font-light">
+          <div
+            class="mt-4 sub-h1-regular lg:mobile-header-2-regular text-black-60"
+          >
             {{ response[1].description }}
           </div>
         </div>
@@ -76,10 +84,7 @@
   </section>
 
   <section class="image relative z-[-1]" v-if="response[1]">
-    <aspect-ratio
-      :height="isMobile ? '96.26%' : '56.26%'"
-      class="overflow-hidden"
-    >
+    <aspect-ratio :height="isMobile ? '70%' : '56.26%'" class="overflow-hidden">
       <img
         :src="response[1].backgroundImage[3]"
         :srcset="`${response[1].backgroundImage[0]} 400w, ${response[1].backgroundImage[1]} 800w,${response[1].backgroundImage[2]} 1400w,${response[1].backgroundImage[3]} 2400w`"
