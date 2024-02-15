@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Blog isResource="false" />
+    <Blog :isResource="false" />
   </div>
 </template>
 
