@@ -47,10 +47,10 @@ const { $mixpanel } = useNuxtApp();
 const posts = ref([]);
 const store = useBlogListStore();
 const resources = computed(() => store.items);
+const featurePosts = computed(() => store.featuredItems);
 const count = computed(() => store.totalPosts);
 const status = computed(() => store.status);
 let postLimit = config.POST_PAGINATION_LIMIT;
-let featurePosts = [];
 
 await useAsyncData("blogs", () =>
   store.loadResources(config.SHOW_DRAFT_POSTS, isResource.value, 0, postLimit),
@@ -58,7 +58,6 @@ await useAsyncData("blogs", () =>
 
 if (status.value === config.SUCCESS) {
   posts.value.push(...resources.value);
-  featurePosts = resources.value?.filter((post) => post.is_featured);
 }
 
 const handleScroll = () => {
@@ -66,18 +65,23 @@ const handleScroll = () => {
     window.innerHeight + document.documentElement.scrollTop >=
     document.documentElement.offsetHeight - 100
   ) {
-    if (posts.value.length < count.value) {
-      useAsyncData("blogs", () =>
-        store.loadResources(
-          config.SHOW_DRAFT_POSTS,
-          false,
-          posts.value.length,
-          5,
-        ),
-      ).then(() => {
-        posts.value.push(...resources.value);
-      });
+    if (posts.value.length >= count.value) {
+      return;
     }
+
+    useAsyncData("paginate", () =>
+      store.loadPaginateResources(
+        config.SHOW_DRAFT_POSTS,
+        isResource.value,
+        posts.value.length,
+        postLimit,
+      ),
+    ).then(() => {
+      posts.value.push(...resources.value);
+      posts.value = Array.from(new Set(posts.value.map(JSON.stringify))).map(
+        JSON.parse,
+      );
+    });
   }
 };
 
