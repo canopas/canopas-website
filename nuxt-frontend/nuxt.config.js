@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { defineNuxtConfig } from "nuxt/config";
+import config from "./config";
+
 export default defineNuxtConfig({
   app: {
     head: {
@@ -7,6 +9,7 @@ export default defineNuxtConfig({
         lang: "en",
       },
     },
+    cdnURL: config.CLOUDFRONT_URL,
   },
   devtools: { enabled: true },
   modules: [
@@ -14,6 +17,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
     "@canopassoftware/blog-components",
+    "nuxt-lazy-hydrate",
   ],
   css: ["~/assets/css/global.css", "~/assets/css/app.css"],
   generate: { fallback: true },
@@ -31,8 +35,7 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    prerender: {
-      failOnError: false,
-    },
+    compressPublicAssets: true,
+    preset: "aws-lambda",
   },
 });

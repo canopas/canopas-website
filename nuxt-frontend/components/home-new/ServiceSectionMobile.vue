@@ -31,9 +31,12 @@
           loading="lazy"
           class="-mr-5 h-[50px] w-[50px]"
         />
-        <a :href="service.url" class="mobile-header-3 v2-canopas-gradient-text">
+        <nuxt-link
+          :href="service.url"
+          class="mobile-header-3 v2-canopas-gradient-text"
+        >
           {{ service.title }}
-        </a>
+        </nuxt-link>
         <div class="pt-4 sub-h3-regular text-black-60 sm:w-[70%] md:w-[65%]">
           {{ service.content }}
         </div>

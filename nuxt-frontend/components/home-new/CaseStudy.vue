@@ -22,7 +22,7 @@
       class="container mt-4 mb-6 text-black-60 text-center sub-h1-regular lg:mobile-header-2-regular"
     >
       <span
-        class="sub-h1-semibold lg:mobile-header-2-semibold relative after:absolute after:-bottom-0.5 after:right-0 after:content-[''] after:w-[89px] md:after:w-[90px] lg:after:w-[108px] xl:after:w-[120px] after:h-2.5 md:after:h-3.5 after:bg-[#FFF3F7] after:-z-[1] secondary-color"
+        class="sub-h1-semibold lg:mobile-header-2-semibold relative after:absolute after:-bottom-0.5 after:right-0 after:content-[''] after:w-[89px] md:after:w-[90px] lg:after:w-[108px] xl:after:w-[120px] after:h-2.5 md:after:h-3.5 after:bg-[#FFF3F7] after:-z-[1] v2-canopas-gradient-text"
         >1M+ users</span
       >
       use our apps every day

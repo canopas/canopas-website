@@ -94,6 +94,7 @@ func expectedURLData() []URL {
 		{Loc: baseUrl + "/portfolio", Priority: `0.9`},
 		{Loc: baseUrl + `/contributions`, Priority: `0.9`},
 		{Loc: baseUrl + "/resources", Priority: `0.9`},
+		{Loc: baseUrl + "/blog", Priority: `0.9`},
 		{Loc: baseUrl + "/about", Priority: `0.9`},
 		{Loc: baseUrl + "/contact", Priority: `0.9`},
 		{Loc: baseUrl + "/android-app-development", Priority: `0.9`},

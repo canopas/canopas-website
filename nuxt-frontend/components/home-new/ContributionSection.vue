@@ -7,20 +7,25 @@
       class="mt-4 mb-8 lg:mb-[4.5rem] text-center sub-h1-regular lg:mobile-header-2-regular text-black-60"
     >
       and that starts with the site itself,
-      <span
+      <nuxt-link
         class="sub-h3-semibold lg:mobile-header-2-semibold v2-canopas-gradient-text"
-        >Canopas Is Open Source!</span
+        :to="websiteOpenSourceUrl"
+        target="_blank"
+        @click.native="$mixpanel.track('tap_canopas_website_github')"
+        >canopas is open source!</nuxt-link
       >
     </div>
     <div
       class="flex flex-col border mt-2 lg:mt-0"
       v-for="(contribution, index) in contributions"
-      @click="
-        openBlog(contribution.link, 'tap_home_github_contribution_section')
-      "
       :key="index"
     >
-      <div class="flex-col p-4 lg:p-6">
+      <nuxt-link
+        :to="contribution.link"
+        target="_blank"
+        @click.native="$mixpanel.track('tap_home_github_contribution_section')"
+        class="flex-col p-4 lg:p-6"
+      >
         <div class="mobile-header-3-semibold lg:desk-header-3 text-black-87">
           {{ contribution.title }}
         </div>
@@ -94,7 +99,7 @@
             >
           </div>
         </div>
-      </div>
+      </nuxt-link>
     </div>
   </section>
 </template>
@@ -102,14 +107,13 @@
 import config from "@/config.js";
 import { Swiper, SwiperSlide } from "swiper/vue";
 import { Grid } from "swiper/modules";
-import { openBlog } from "@/utils.js";
 
 export default {
   data() {
     return {
-      openBlog,
       width: 0,
       modules: [Grid],
+      websiteOpenSourceUrl: "https://github.com/canopas/canopas-website",
       contributions: [
         {
           title: "compose-intro-showcase",

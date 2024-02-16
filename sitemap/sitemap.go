@@ -191,20 +191,8 @@ func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
 		return sitemapUrls, nil
 	}
 
-	req, err := http.NewRequest("GET", resourceUrl+"/v1/posts?populate=deep&publicationState=live", nil)
-	if err != nil {
-		log.Error(err)
-		return sitemapUrls, err
-	}
+	responseData, err := doRequest(resourceUrl + "/v1/posts?populate=deep&publicationState=live")
 
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		log.Error(err)
-		return sitemapUrls, err
-	}
-	defer resp.Body.Close()
-
-	responseData, err := io.ReadAll(resp.Body)
 	if err != nil {
 		log.Error(err)
 		return sitemapUrls, err
@@ -218,5 +206,44 @@ func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
 		sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + `/` + data.Attributes.Slug, Priority: `0.9`})
 	}
 
+	// get tags
+	responseTags, err := doRequest(resourceUrl + "/v1/tags?fields[0]=slug")
+
+	if err != nil {
+		log.Error(err)
+		return sitemapUrls, err
+	}
+
+	var tags Resources
+	json.Unmarshal(responseTags, &tags)
+
+	for i := range tags.Data {
+		data := tags.Data[i]
+		sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + `/tag/` + data.Attributes.Slug, Priority: `0.8`})
+	}
+
 	return sitemapUrls, nil
+}
+
+func doRequest(url string) ([]byte, error) {
+	req, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+
+	resp, err := http.DefaultClient.Do(req)
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	responseData, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Error(err)
+		return nil, err
+	}
+
+	return responseData, nil
 }

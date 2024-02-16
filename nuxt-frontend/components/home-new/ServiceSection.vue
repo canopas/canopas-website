@@ -7,7 +7,7 @@
       How we can help you
     </p>
 
-    <a
+    <nuxt-link
       v-for="(service, index) in services"
       :key="service"
       @mouseover="activeIndex = index"
@@ -52,7 +52,7 @@
           {{ service.title }}
         </span>
       </div>
-    </a>
+    </nuxt-link>
   </div>
 </template>
 

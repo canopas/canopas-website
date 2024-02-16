@@ -37,7 +37,6 @@
                   @mouseover="
                     showContributionMenu = navbar.name == 'Contribution'
                   "
-                  v-if="!navbar.target"
                   :to="navbar.url"
                   @click.native="$mixpanel.track(navbar.event)"
                   class="group relative mr-5 inline-block sm:mr-[30px] lg:mr-2 xl:mr-[30px]"
@@ -55,13 +54,6 @@
                     >{{ navbar.name }}</span
                   >
                 </nuxt-link>
-                <a
-                  v-else
-                  class="relative mr-5 inline-block after:absolute after:bottom-0 after:left-0 after:top-[27px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100 sm:mr-[30px] lg:mr-2 xl:mr-[30px]"
-                  :href="navbar.url"
-                  :target="navbar.target"
-                  >{{ navbar.name }}</a
-                >
 
                 <ul
                   v-show="showContributionMenu"
@@ -69,12 +61,12 @@
                   class="absolute w-max flex-col space-y-6 rounded-[5px] border bg-white !px-6 py-[1.5rem] shadow-md lg:top-[4.5rem] lg:left-[169px] xl:left-[296px] 2xl:left-[475px]"
                 >
                   <li v-for="navbar in subMenus" :key="navbar">
-                    <a
+                    <nuxt-link
                       class="relative py-4 font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[42px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
                       :href="navbar.url"
-                      :target="navbar.target"
+                      target="_self"
                       >{{ navbar.name }}
-                    </a>
+                    </nuxt-link>
                   </li>
                 </ul>
               </li>
@@ -128,7 +120,6 @@
             class="my-2 ml-1 py-2 lg:ml-0"
           >
             <nuxt-link
-              v-if="!navbar.target"
               :to="navbar.url == '/contributions' ? '' : navbar.url"
               @click.native="$mixpanel.track(navbar.event)"
               class="group relative mr-5 inline-block sm:mr-[30px] lg:mr-5"
@@ -146,14 +137,6 @@
             >
               {{ navbar.name }}</nuxt-link
             >
-
-            <a
-              v-else
-              class="relative mr-5 inline-block after:absolute after:bottom-0 after:left-0 after:top-[27px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100 sm:mr-[30px]"
-              :href="navbar.url"
-              :target="navbar.target"
-              >{{ navbar.name }}</a
-            >
             <ul
               :class="
                 showContributionMenu && navbar.name == 'Contribution'
@@ -163,12 +146,12 @@
               class="flex-col space-y-6"
             >
               <li v-for="navbar in subMenus" :key="navbar">
-                <a
+                <nuxt-link
                   class="relative py-2 font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] group-hover:z-[1] group-hover:text-white md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[30px] md:after:top-[35px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
                   :href="navbar.url"
-                  :target="navbar.target"
+                  target="_self"
                   >{{ navbar.name }}
-                </a>
+                </nuxt-link>
               </li>
             </ul>
           </li>
@@ -192,7 +175,6 @@
 </template>
 
 <script type="module">
-import config from "@/config.js";
 export default {
   data() {
     return {
@@ -245,20 +227,17 @@ export default {
       subMenus: [
         {
           name: "Open Source",
-          target: "_self",
           url: "/contributions",
           event: "tap_header_contributions",
         },
         {
           name: "Blog",
-          target: "_self",
           url: "/blog",
           event: "tap_header_blog",
         },
         {
           name: "Resources",
           url: "/resources",
-          target: "_self",
           event: "tap_header_resources",
         },
       ],

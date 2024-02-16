@@ -4,12 +4,14 @@
     <LandingSection ref="landing" />
     <ServiceSection class="hidden lg:block" ref="service" />
     <ServiceSectionMobile class="block lg:hidden" ref="service" />
-    <CaseStudy ref="casestudies" />
-    <ClientReview ref="clientReview" />
-    <BlogSection ref="blogs" />
-    <ContributionSection ref="contributions" />
-    <CTASection ref="cta" class="pt-10 bg-[#121212]" />
-    <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
+    <NuxtLazyHydrate when-idle>
+      <CaseStudy ref="casestudies" />
+      <ClientReview ref="clientReview" />
+      <BlogSection ref="blogs" />
+      <ContributionSection ref="contributions" />
+      <CTASection ref="cta" class="pt-10 bg-[#121212]" />
+      <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
+    </NuxtLazyHydrate>
   </div>
 </template>
 

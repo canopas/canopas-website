@@ -55,15 +55,19 @@
           v-for="(story, index) in stories"
           :key="index"
           class="cursor-pointer"
-          @click="openPortfolio(story)"
         >
-          <img
-            :src="story.image[0]"
-            :srcset="`${story.image[0]} 400w, ${story.image[1]} 800w`"
-            class="mb-2 w-full h-[600px] lg:h-full object-cover"
-            alt="story-image"
-            loading="lazy"
-          />
+          <nuxt-link
+            :to="story.url"
+            @click.native="$mixpanel.track(story.event)"
+          >
+            <img
+              :src="story.image[0]"
+              :srcset="`${story.image[0]} 400w, ${story.image[1]} 800w`"
+              class="mb-2 w-full h-[600px] lg:h-full object-cover"
+              alt="story-image"
+              loading="lazy"
+            />
+          </nuxt-link>
         </swiper-slide>
         <div class="swiper-pagination"></div>
       </swiper>
