@@ -14,6 +14,7 @@
     "@canopassoftware/blog-components": "^1.1.9",
     "@ivanv/vue-collapse-transition": "^1.0.2",
     "@nuxt/devtools": "latest",
+    "@types/lozad": "^1.16.4",
     "@vue/cli-plugin-babel": "^5.0.8",
     "@vue/cli-plugin-eslint": "^5.0.8",
     "@vueuse/components": "^10.4.1",
@@ -46,6 +47,7 @@
     "@vueuse/core": "^9.3.0",
     "lozad": "^1.16.0",
     "mixpanel-browser": "^2.47.0",
+    "nuxt-lazy-hydrate": "^1.0.0",
     "pinia": "^2.1.6",
     "serialize-javascript": "^6.0.1"
   },

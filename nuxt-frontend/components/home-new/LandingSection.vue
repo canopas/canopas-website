@@ -80,7 +80,11 @@
                   alt="client-image"
                 />
               </div>
-              <a v-if="client.plusIcon" href="/contact" aria-label="contact">
+              <nuxt-link
+                v-if="client.plusIcon"
+                href="/contact"
+                aria-label="contact"
+              >
                 <div
                   class="w-10 h-10 border-[2px] border-[#EBEBEB] rounded-full bg-white"
                   :class="client.className"
@@ -90,7 +94,7 @@
                     name="fa6-solid:plus"
                   />
                 </div>
-              </a>
+              </nuxt-link>
             </div>
             <div class="pl-2.5 md:pl-1.5">
               <div class="flex mt-[3px]">

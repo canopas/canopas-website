@@ -17,15 +17,16 @@
         </div>
 
         <div :class="service.class" class="px-2.5 sm:px-20 pb-10">
-          <div
-            class="py-5 sm:py-6"
-            @click="service.showServices ? openUrl(service.url) : ''"
-            :class="service.showServices ? 'cursor-pointer' : ''"
-          >
-            <span class="mobile-header-3-semibold text-black-87">{{
-              service.title
-            }}</span>
-          </div>
+          <nuxt-link :to="service.showServices ? service.url : '#'">
+            <div
+              class="py-5 sm:py-6"
+              :class="service.showServices ? 'cursor-pointer' : ''"
+            >
+              <span class="mobile-header-3-semibold text-black-87">{{
+                service.title
+              }}</span>
+            </div>
+          </nuxt-link>
           <div class="sub-h3-regular text-black-60">
             <p>{{ service.description }}</p>
           </div>
@@ -121,11 +122,6 @@ export default {
         },
       ],
     };
-  },
-  methods: {
-    openUrl(url) {
-      window.open(url, "_self");
-    },
   },
 };
 </script>

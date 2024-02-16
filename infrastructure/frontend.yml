@@ -1,82 +1,111 @@
-AWSTemplateFormatVersion: 2010-09-09
-Description: An ECS with launchType EC2 frontend stack
+AWSTemplateFormatVersion: "2010-09-09"
+Transform:
+  - AWS::LanguageExtensions
+  - AWS::Serverless-2016-10-31
+
+Description: Canopas website serverless deployment with SSR.
 
 Parameters:
   EnvName:
     Type: String
-    Description: Name of an environment. 'dev', 'staging', 'prod' and any name.
+    Description: Name of an environment.
     AllowedPattern: ^.*[^0-9]$
     ConstraintDescription: Must end with non-numeric character.
-  ClusterName:
+    AllowedValues:
+      - dev
+      - prod
+  ZipFileName:
     Type: String
-    Description: Name of ECS cluster
-  ImageTag:
+    Description: Name of the zip file.
+  CloudfrontURL:
     Type: String
-    Description: Website Docker frontend image tag
-  NginxImageTag:
-    Type: String
-    Description: NGINX Docker image tag
-  BlogImageTag:
-    Type: String
-    Description: Blog Docker image tag
+    Description: Cloudfront URL.
 
 Resources:
-  TaskDefinition:
-    Type: AWS::ECS::TaskDefinition
+  HttpApi:
+    Type: AWS::Serverless::HttpApi
     Properties:
-      Family:
-        Fn::Sub: canopas-website-${EnvName}-full-stack-task-definition
-      ExecutionRoleArn:
-        Fn::Sub: arn:aws:iam::${AWS::AccountId}:role/ecsTaskExecutionRole
-      NetworkMode: "bridge"
-      ContainerDefinitions:
-        - Name: "canopas-website-nginx"
-          Hostname: "canopas-website-nginx"
-          Memory: 128
-          Cpu: 128
-          Essential: true
-          Image:
-            Fn::Sub: ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/canopas-website-nginx:${NginxImageTag}
-          PortMappings:
-            - ContainerPort: 80
-              HostPort: 80
-              Protocol: tcp
-          Links:
-            - canopas-website-frontend
-            - canopas-blog
+      StageName: $default
+      Description:
+        Fn::Sub: Canopas Website SSR Frontend API ${EnvName}
+      DefinitionBody:
+        openapi: "3.0.1"
+        info:
+          title: 
+            Fn::Sub: canopas-website-ssr-frontend-${EnvName}
+          version: "1.0"
+        paths:
+          /favicon.ico:
+            x-amazon-apigateway-any-method:
+              responses:
+                default:
+                  description: "Default response for ANY /favicon.ico"
+              x-amazon-apigateway-integration:
+                payloadFormatVersion: "1.0"
+                type: "http_proxy"
+                httpMethod: "ANY"
+                uri:
+                  Fn::Sub: "${CloudfrontURL}favicon.ico"
+                connectionType: "INTERNET"
+          /sitemap.xml:
+            x-amazon-apigateway-any-method:
+              responses:
+                default:
+                  description: "Default response for ANY /sitemap.xml"
+              x-amazon-apigateway-integration:
+                payloadFormatVersion: "1.0"
+                type: "http_proxy"
+                httpMethod: "ANY"
+                uri:
+                  Fn::Sub: "${CloudfrontURL}sitemap.xml"
+                connectionType: "INTERNET"
+          /robots.txt:
+            x-amazon-apigateway-any-method:
+              responses:
+                default:
+                  description: "Default response for ANY /robots.txt"
+              x-amazon-apigateway-integration:
+                payloadFormatVersion: "1.0"
+                type: "http_proxy"
+                httpMethod: "ANY"
+                uri:
+                  Fn::Sub: "${CloudfrontURL}robots.txt"
+                connectionType: "INTERNET"
+          /apple-touch-icon.png:
+            x-amazon-apigateway-any-method:
+              responses:
+                default:
+                  description: "Default response for ANY /apple-touch-icon.png"
+              x-amazon-apigateway-integration:
+                payloadFormatVersion: "1.0"
+                type: "http_proxy"
+                httpMethod: "ANY"
+                uri:
+                  Fn::Sub: "${CloudfrontURL}apple-touch-icon.png"
+                connectionType: "INTERNET"
+        x-amazon-apigateway-importexport-version: "1.0"
 
-        - Name: "canopas-website-frontend"
-          Memory: 256
-          Cpu: 256
-          Essential: true
-          Image:
-            Fn::Sub: ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/canopas-website-frontend:${ImageTag}
-          PortMappings:
-            - ContainerPort: 3080
-              HostPort: 3080
-              Protocol: tcp
-
-        - Name: "canopas-blog"
-          Memory: 256
-          Cpu: 256
-          Essential: true
-          Image:
-            Fn::Sub: ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/canopas-blog:${BlogImageTag}
-          PortMappings:
-            - ContainerPort: 3000
-              HostPort: 3000
-              Protocol: tcp
-
-  ECSService:
-    Type: AWS::ECS::Service
+  HttpApiFunction:
+    Type: AWS::Serverless::Function
     Properties:
-      ServiceName: "canopas-website-full-stack"
-      LaunchType: EC2
-      Cluster:
-        Fn::Sub: ${ClusterName}
-      DesiredCount: 1
-      TaskDefinition:
-        Ref: "TaskDefinition"
-      DeploymentConfiguration:
-        MaximumPercent: 100
-        MinimumHealthyPercent: 0
+      PackageType: Zip
+      CodeUri:
+        Fn::Sub: s3://canopas-lambda-handlers/${ZipFileName}
+      Handler: index.handler
+      Runtime: nodejs20.x
+      Architectures:
+        - x86_64
+      MemorySize: 256
+      Timeout: 30
+      FunctionName:
+        Fn::Sub: canopas-website-ssr-frontend-${EnvName}
+      Description:
+        Fn::Sub: Canopas Website SSR Frontend Lambda ${EnvName}
+      Events:
+        ProxyResource:
+          Type: HttpApi
+          Properties:
+            ApiId:
+              Ref: HttpApi
+            Path: $default
+            Method: any

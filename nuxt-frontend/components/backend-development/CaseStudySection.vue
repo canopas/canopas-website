@@ -18,7 +18,7 @@
         class="mt-6 relative lg:hidden"
         :class="item.className"
       >
-        <a
+        <nuxt-link
           class="cursor-pointer"
           :href="item.url"
           @click.native="$mixpanel.track('tap_backend_app_portfolio')"
@@ -41,7 +41,7 @@
             </h2>
             <p class="sub-h3-regular text-black-60" v-html="item.content"></p>
           </div>
-        </a>
+        </nuxt-link>
       </div>
     </div>
     <!-- ------------------------ MOBILE UI END---------------------- -->
@@ -72,7 +72,7 @@
                 </span>
               </div>
               <div class="flex flex-col gap-4">
-                <a
+                <nuxt-link
                   class="cursor-pointer"
                   :href="item.url"
                   @click.native="$mixpanel.track('tap_backend_app_portfolio')"
@@ -82,7 +82,7 @@
                     class="desk-header-3 text-black-87"
                     v-html="item.deskcontent"
                   ></h3
-                ></a>
+                ></nuxt-link>
                 <p
                   class="text-black-60 mobile-header-3-medium"
                   v-html="item.description"
@@ -90,7 +90,7 @@
               </div>
             </div>
             <div class="flex-1">
-              <a
+              <nuxt-link
                 class="cursor-pointer"
                 :href="item.url"
                 @click.native="$mixpanel.track('tap_backend_app_portfolio')"
@@ -102,7 +102,7 @@
                   class="w-[29.79663rem] h-[28.95819rem] object-fit mx-auto"
                   :alt="item.title"
                   loading="lazy"
-              /></a>
+              /></nuxt-link>
             </div>
           </div>
         </swiper-slide>

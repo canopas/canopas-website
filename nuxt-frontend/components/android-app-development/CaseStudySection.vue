@@ -20,7 +20,7 @@
         class="mt-6 relative lg:hidden"
         :class="item.className"
       >
-        <a
+        <nuxt-link
           class="cursor-pointer"
           :href="item.url"
           @click.native="$mixpanel.track('tap_android_app_portfolio')"
@@ -41,7 +41,7 @@
               v-html="item.content"
             ></span>
           </div>
-        </a>
+        </nuxt-link>
       </div>
       <div
         v-for="item in cta"
@@ -104,7 +104,7 @@
                   {{ item.title }}
                 </span>
               </div>
-              <a
+              <nuxt-link
                 class="cursor-pointer"
                 :href="item.url"
                 @click.native="$mixpanel.track('tap_android_app_portfolio')"
@@ -114,7 +114,7 @@
                   class="mt-4 font-opensans-semibold desk-header-3 text-black-87"
                   v-html="item.deskcontent"
                 ></h2
-              ></a>
+              ></nuxt-link>
               <span
                 class="mt-4 text-black-60 sub-h3-medium md:mobile-header-3-medium"
                 v-html="item.description"
@@ -159,7 +159,7 @@
               </div>
             </div>
             <div>
-              <a
+              <nuxt-link
                 class="cursor-pointer"
                 :href="item.url"
                 @click.native="$mixpanel.track('tap_android_app_portfolio')"
@@ -170,7 +170,7 @@
                   :srcset="`${item.images[2]} 400w,${item.images[3]} 800w`"
                   class="mt-12 h-80 lg:h-[24.75006rem] xl:h-[29.75006rem] w-[25.87525rem] lg:w-[30.87525rem] xl:w-[29.87525rem] object-fit"
                   alt="CaseStudyImage"
-              /></a>
+              /></nuxt-link>
             </div>
           </div>
         </swiper-slide>

@@ -2,6 +2,7 @@ services
 portfolio
 contributions
 resources
+blog
 about
 contact
 android-app-development

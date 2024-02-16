@@ -3,7 +3,7 @@
   font-family: Product Sans;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/ProductSans-Regular-Subset.woff2) format("woff2");
+  src: url(~/assets/fonts/ProductSans-Regular-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
   font-family: FuturaLT-Bold;
   font-style: bold;
   font-weight: 700;
-  src: url(../fonts/FuturaLT-Bold-Subset.woff2);
+  src: url(~/assets/fonts/FuturaLT-Bold-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -19,7 +19,7 @@
   font-family: Inter-Bold;
   font-style: bold;
   font-weight: 700;
-  src: url(../fonts/Inter-Bold-Subset.woff2) format("woff2");
+  src: url(~/assets/fonts/Inter-Bold-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -27,7 +27,7 @@
   font-family: Inter-SemiBold;
   font-style: normal;
   font-weight: 600;
-  src: url(../fonts/Inter-SemiBold-Subset.woff2) format("woff2");
+  src: url(~/assets/fonts/Inter-SemiBold-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -35,7 +35,7 @@
   font-family: Inter-Medium;
   font-style: medium;
   font-weight: 500;
-  src: url(../fonts/Inter-Medium-Subset.woff2) format("woff2");
+  src: url(~/assets/fonts/Inter-Medium-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -43,7 +43,7 @@
   font-family: Inter-Regular;
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/Inter-Regular-Subset.woff2) format("woff2");
+  src: url(~/assets/fonts/Inter-Regular-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -51,7 +51,7 @@
   font-family: Inter-Light;
   font-style: normal;
   font-weight: 300;
-  src: url(../fonts/Inter-Light-Subset.woff2) format("woff2");
+  src: url(~/assets/fonts/Inter-Light-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -59,7 +59,7 @@
   font-family: Roboto-Bold;
   font-style: normal;
   font-weight: 600;
-  src: url(../fonts/Roboto-Bold-Subset.woff2);
+  src: url(~/assets/fonts/Roboto-Bold-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -67,7 +67,7 @@
   font-family: Roboto-Medium;
   font-style: normal;
   font-weight: 500;
-  src: url(../fonts/Roboto-Medium-Subset.woff2);
+  src: url(~/assets/fonts/Roboto-Medium-Subset.woff2) format("woff2");
 }
 
 @font-face {
@@ -75,7 +75,7 @@
   font-family: Opensans-Bold;
   font-style: bold;
   font-weight: 700;
-  src: url(../fonts/Open-Sans-Bold.woff2) format("woff2");
+  src: url(~/assets/fonts/Open-Sans-Bold.woff2) format("woff2");
 }
 
 @font-face {
@@ -83,7 +83,71 @@
   font-family: Opensans-SemiBold;
   font-style: normal;
   font-weight: 600;
-  src: url(../fonts/Open-Sans-SemiBold.woff2) format("woff2");
+  src: url(~/assets/fonts/Open-Sans-SemiBold.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Source CodePro;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/Source-codePro.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Poppins Regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/Poppins-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Poppins Medium;
+  font-style: medium;
+  font-weight: 500;
+  src: url(~/assets/fonts/Poppins-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Inter-ExtraLight;
+  font-style: normal;
+  font-weight: 200;
+  src: url(~/assets/fonts/Inter-ExtraLight.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Comme-Light;
+  font-style: normal;
+  font-weight: 300;
+  src: url(~/assets/fonts/Comme-Light.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Comme-Regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/Comme-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Comme-Medium;
+  font-style: normal;
+  font-weight: 500;
+  src: url(~/assets/fonts/Comme-Medium.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Comme-SemiBold;
+  font-style: normal;
+  font-weight: 600;
+  src: url(~/assets/fonts/Comme-SemiBold.woff2) format("woff2");
 }
 
 @font-face {

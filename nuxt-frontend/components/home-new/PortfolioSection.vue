@@ -17,67 +17,71 @@
         @mouseover="activeIndex = portfolio.id"
         @mouseleave="activeIndex = null"
         @touchstart.passive="activeIndex = portfolio.id"
-        @click="openPortfolio(portfolio)"
       >
-        <div
-          class="text-black-87 absolute top-[18px] sm:top-[13px] lg:top-[8px] xl:top-[10px] 2xl:top-[19px] inset-x-0 z-[2] text-center mobile-header-3-semibold lg:desk-header-3"
-          :class="[
-            activeIndex == portfolio.id
-              ? ' lg:scale-[0.8]'
-              : 'lg:text-transparent',
-            portfolio.video ? 'xl:!mt-[8px]' : '',
-            portfolio.id == 7 ? 'lg:!top-[-6px] 2xl:!top-0' : '',
-          ]"
+        <nuxt-link
+          :to="portfolio.url"
+          @click.native="$mixpanel.track(portfolio.event)"
         >
-          {{ portfolio.title }}
-        </div>
-        <div
-          class="flex items-center h-full"
-          :class="portfolio.video ? 'p-0' : 'py-8 sm:p-0 lg:pt-0 lg:pb-2'"
-        >
-          <video
-            v-if="portfolio.video"
-            autoplay
-            loop
-            muted
-            playsinline
-            class="lozad mx-auto sm:h-[400px] 2xl:h-[509px]"
-          >
-            <source :data-src="portfolio.video[1]" type="video/webm" />
-            <source :data-src="portfolio.video[0]" type="video/mp4" />
-          </video>
-          <img
-            v-else
-            :src="portfolio.images[0]"
-            :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w`"
-            class="h-full w-full object-contain z-[1]"
+          <div
+            class="text-black-87 absolute top-[18px] sm:top-[13px] lg:top-[8px] xl:top-[10px] 2xl:top-[19px] inset-x-0 z-[2] text-center mobile-header-3-semibold lg:desk-header-3"
             :class="[
-              portfolio.id == 4
-                ? 'mt-0 sm:mt-4 lg:mt-0 sm:w-full sm:h-[90%]'
-                : '',
-              portfolio.id == 8 ? 'object-cover' : '',
+              activeIndex == portfolio.id
+                ? ' lg:scale-[0.8]'
+                : 'lg:text-transparent',
+              portfolio.video ? 'xl:!mt-[8px]' : '',
+              portfolio.id == 7 ? 'lg:!top-[-6px] 2xl:!top-0' : '',
             ]"
-            :alt="portfolio.title + `-image`"
-            loading="eager"
-          />
-        </div>
-        <div
-          v-if="portfolio.description"
-          class="text-black-60 absolute inset-x-0 -mt-[35px] sm:-mt-[10px] xl:-mt-[25px] z-[2] w-[92%] sm:w-[90%] md:w-[75%] lg:w-full mx-auto text-center sub-h4-semibold lg:sub-h1-regular"
-          :class="[
-            activeIndex == portfolio.id
-              ? 'lg:scale-[0.8]'
-              : 'lg:text-transparent',
-            portfolio.id == 7
-              ? 'lg:px-2.5 lg:-mt-[20px] 2xl:-mt-[23px]'
-              : 'lg:-mt-[46px] 2xl:-mt-[41px]',
-            portfolio.video
-              ? 'sm:-mt-[50px] lg:-mt-[74px] xl:-mt-[70px] 2xl:-mt-[75px]'
-              : '',
-          ]"
-        >
-          {{ portfolio.description }}
-        </div>
+          >
+            {{ portfolio.title }}
+          </div>
+          <div
+            class="flex items-center h-full"
+            :class="portfolio.video ? 'p-0' : 'py-8 sm:p-0 lg:pt-0 lg:pb-2'"
+          >
+            <video
+              v-if="portfolio.video"
+              autoplay
+              loop
+              muted
+              playsinline
+              class="lozad mx-auto sm:h-[400px] 2xl:h-[509px]"
+            >
+              <source :data-src="portfolio.video[1]" type="video/webm" />
+              <source :data-src="portfolio.video[0]" type="video/mp4" />
+            </video>
+            <img
+              v-else
+              :src="portfolio.images[0]"
+              :srcset="`${portfolio.images[0]} 400w, ${portfolio.images[1]} 800w`"
+              class="h-full w-full object-contain z-[1]"
+              :class="[
+                portfolio.id == 4
+                  ? 'mt-0 sm:mt-4 lg:mt-0 sm:w-full sm:h-[90%]'
+                  : '',
+                portfolio.id == 8 ? 'object-cover' : '',
+              ]"
+              :alt="portfolio.title + `-image`"
+              loading="eager"
+            />
+          </div>
+          <div
+            v-if="portfolio.description"
+            class="text-black-60 absolute inset-x-0 -mt-[35px] sm:-mt-[10px] xl:-mt-[25px] z-[2] w-[92%] sm:w-[90%] md:w-[75%] lg:w-full mx-auto text-center sub-h4-semibold lg:sub-h1-regular"
+            :class="[
+              activeIndex == portfolio.id
+                ? 'lg:scale-[0.8]'
+                : 'lg:text-transparent',
+              portfolio.id == 7
+                ? 'lg:px-2.5 lg:-mt-[20px] 2xl:-mt-[23px]'
+                : 'lg:-mt-[46px] 2xl:-mt-[41px]',
+              portfolio.video
+                ? 'sm:-mt-[50px] lg:-mt-[74px] xl:-mt-[70px] 2xl:-mt-[75px]'
+                : '',
+            ]"
+          >
+            {{ portfolio.description }}
+          </div>
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -200,12 +204,6 @@ export default {
   inject: ["mixpanel"],
   mounted() {
     lozad().observe(); // lazy loads videos with default selector as '.lozad'
-  },
-  methods: {
-    openPortfolio(portfolio) {
-      window.open(portfolio.url, portfolio.target ? portfolio.target : "_self");
-      this.$mixpanel.track(portfolio.event);
-    },
   },
 };
 </script>

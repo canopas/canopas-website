@@ -14,16 +14,17 @@
             :ref="'image-' + index"
           >
             <div class="absolute top-1/2 -translate-y-1/2">
-              <div
-                class="py-6"
-                @click="service.showServices ? openUrl(service.url) : ''"
-                :class="service.showServices ? 'cursor-pointer' : ''"
-              >
-                <span
-                  class="desk-header-2 text-black-87 bg-black-underline-out box-decoration-clone bg-no-repeat pb-[5px] bg-[length:100%] hover:animate-mulitpleUnderlineOut"
-                  >{{ service.title }}
-                </span>
-              </div>
+              <nuxt-link :to="service.showServices ? service.url : '#'">
+                <div
+                  class="py-6"
+                  :class="service.showServices ? 'cursor-pointer' : ''"
+                >
+                  <span
+                    class="desk-header-2 text-black-87 bg-black-underline-out box-decoration-clone bg-no-repeat pb-[5px] bg-[length:100%] hover:animate-mulitpleUnderlineOut"
+                    >{{ service.title }}
+                  </span>
+                </div>
+              </nuxt-link>
               <div class="mobile-header-3-regular text-black-60">
                 <p>{{ service.description }}</p>
               </div>
@@ -96,9 +97,8 @@ export default {
           path: [100, 100],
           image: uiuxdesign800w,
           title: "UI/UX Design",
-          description:
-            "We help our clients see themselves through the eyes of the people whom they are trying to reach. Then we design something amazing.\
-            Product design is about how it works, but we make sure it look nice too. Then, we'll design a mobile or web experience that feels great.",
+          description: `We help our clients see themselves through the eyes of the people whom they are trying to reach. Then we design something amazing.
+            Product design is about how it works, but we make sure it look nice too. Then, we'll design a mobile or web experience that feels great.`,
         },
         {
           path: [100, 100],
@@ -183,9 +183,6 @@ export default {
 
         this.lastScrollY = scrollY;
       }
-    },
-    openUrl(url) {
-      window.open(url, "_self");
     },
   },
   mounted() {
