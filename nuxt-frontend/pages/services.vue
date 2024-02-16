@@ -8,8 +8,7 @@
       <CTASection />
       <TechnologyStack />
       <BlogSection ref="blogs" />
-      <ContributionSection class="hidden lg:block" />
-      <ContributionSectionMobile class="block lg:hidden" />
+      <ContributionSection />
       <SuccessStories />
       <ClientReviewSection />
       <CTASection2 ref="cta2" />
@@ -38,9 +37,6 @@ const CTASection = defineAsyncComponent(
 );
 const ContributionSection = defineAsyncComponent(
   () => import("@/components/home-new/ContributionSection.vue"),
-);
-const ContributionSectionMobile = defineAsyncComponent(
-  () => import("@/components/home-new/ContributionSectionMobile.vue"),
 );
 const ClientReviewSection = defineAsyncComponent(
   () => import("@/components/home-new/ClientReviewSection.vue"),
@@ -77,7 +73,6 @@ export default {
     SuccessStories,
     BlogSection,
     ContributionSection,
-    ContributionSectionMobile,
     ClientReviewSection,
     CTASection2,
     NewFooter,

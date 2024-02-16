@@ -85,6 +85,10 @@ module.exports = {
         yellow: "#FFC700",
         "orange-peel": "#f985840d",
         "light-crimson": "#f476950d",
+        "royal-purple": "#A97BFF",
+        flamingo: "#F05138",
+        "soft-yellow": "#F1E05A",
+        "sea-green": "#41B883",
       },
       borderRadius: {
         "x-lg": "20px",

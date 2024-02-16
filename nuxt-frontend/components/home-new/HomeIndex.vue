@@ -7,16 +7,7 @@
     <CaseStudy ref="casestudies" />
     <ClientReview ref="clientReview" />
     <BlogSection ref="blogs" />
-    <ContributionSection
-      class="hidden lg:block"
-      ref="contributions"
-      v-if="width > 992"
-    />
-    <ContributionSectionMobile
-      v-if="width <= 992"
-      class="block lg:hidden"
-      ref="contributions"
-    />
+    <ContributionSection ref="contributions" />
     <CTASection ref="cta" class="pt-10 bg-[#121212]" />
     <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
   </div>
@@ -40,9 +31,6 @@ const ServiceSectionMobile = defineAsyncComponent(
 const ContributionSection = defineAsyncComponent(
   () => import("@/components/home-new/ContributionSection.vue"),
 );
-const ContributionSectionMobile = defineAsyncComponent(
-  () => import("@/components/home-new/ContributionSectionMobile.vue"),
-);
 const ClientReview = defineAsyncComponent(
   () => import("@/components/home-new/ClientReviewSection.vue"),
 );
@@ -65,7 +53,6 @@ export default {
     ServiceSectionMobile,
     ClientReview,
     ContributionSection,
-    ContributionSectionMobile,
     CTASection,
     BlogSection,
     NewFooter,

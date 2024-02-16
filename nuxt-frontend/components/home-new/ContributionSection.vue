@@ -1,191 +1,313 @@
 <template>
-  <div class="relative container my-0 lg:mb-60 mx-auto">
-    <div class="sticky top-0 w-full h-screen">
-      <div
-        class="flex flex-col justify-center w-[36%] xl:w-[34%] 2xl:w-[28%] h-full float-right xl:pl-12"
-      >
-        <span
-          class="text-black-87 mobile-header-2 lg:mobile-header-1 xl:desk-header-2"
-        >
-          We are here to Contribute
-        </span>
-        <div class="mt-2 md:mt-0 text-black-60 mobile-header-2-regular">
-          <span>and that starts with the site itself, </span>
-          <a
-            class="mobile-header-2-semibold v2-canopas-gradient-text gradient-border border-b-2"
-            :href="websiteOpenSourceUrl"
-            target="_blank"
-            @click.native="$mixpanel.track('tap_canopas_website_github')"
-            >canopas is open source!</a
-          >
-        </div>
-      </div>
+  <section class="container my-16 lg:my-60">
+    <div class="text-center mobile-header-2 lg:desk-header-2 text-black-87">
+      We are here to contribute
     </div>
-    <div class="flex flex-col -mt-[90vh] mb-0 w-[62%] xl:w-[64%] 2xl:w-[72%]">
-      <div
-        v-for="(contribution, index) in contributions"
-        :key="contribution"
-        class="relative flex flex-row mt-8 mb-6 cursor-pointer"
-        :class="index % 2 != 0 ? 'flex-row-reverse' : ''"
+    <div
+      class="mt-4 mb-8 lg:mb-[4.5rem] text-center sub-h1-regular lg:mobile-header-2-regular text-black-60"
+    >
+      and that starts with the site itself,
+      <span
+        class="sub-h3-semibold lg:mobile-header-2-semibold v2-canopas-gradient-text"
+        >Canopas Is Open Source!</span
       >
-        <video
-          class="lozad rounded-xl z-[1] shadow-[2px_2px_10px_rgba(0,0,0,0.1)]"
-          autoplay
-          loop
-          muted
-          playsinline
-          style="height: 630px"
-        >
-          <source :data-src="contribution.video[1]" type="video/webm" />
-          <source :data-src="contribution.video[0]" type="video/mp4" />
-        </video>
-
+    </div>
+    <div
+      class="flex flex-col border mt-2 lg:mt-0"
+      v-for="(contribution, index) in contributions"
+      @click="
+        openBlog(contribution.link, 'tap_home_github_contribution_section')
+      "
+      :key="index"
+    >
+      <div class="flex-col p-4 lg:p-6">
+        <div class="mobile-header-3-semibold lg:desk-header-3 text-black-87">
+          {{ contribution.title }}
+        </div>
         <div
-          @click="
-            openBlog(contribution.link, 'tap_home_github_contribution_section')
-          "
-          class="relative flex flex-col basis-1/2 xl:basis-3/5 2xl:basis-[66%] my-auto w-full translate-y-0 bg-white p-4 xl:p-8 shadow-[0_0px_10px_rgba(0,0,0,0.1)] active:scale-[0.98]"
-          :class="[index % 2 == 0 ? 'rounded-r-xl' : 'rounded-l-xl']"
+          class="mt-2 sub-h3-regular lg:mobile-header-2-regular text-black-60"
         >
-          <div>
+          {{ contribution.description }}
+        </div>
+        <div class="mt-6" v-if="width > 991">
+          <div
+            class="mt-1 inline-flex pr-1"
+            v-for="(tag, index) in contribution.tags"
+            :key="index"
+          >
             <div
-              :class="index % 2 != 0 ? 'flex-row-reverse' : ''"
-              class="flex flex-row justify-between items-center"
-            >
-              <div
-                class="flex items-center xl:sub-h1-semibold sub-h4-medium justify-center w-[3.9375rem] h-[2.125rem] xl:w-[5.0625rem] xl:h-[2.25rem] rounded bg-gradient-[270.11deg] from-[#ff835b] to-[#f2709c] xl:px-2.5 text-white"
-              >
-                <span>
-                  <Icon
-                    class="fa w-[18px] h-[18px] pr-[5px] text-white box-content mb-[0.225em]"
-                    name="fa6-solid:star"
-                  />{{ contribution.stars }}</span
-                >
-              </div>
-              <div>
-                <div>
-                  <a
-                    class="flex items-center lg:sub-h4-medium xl:mobile-header-3-semibold duration-300 ease-in-out hover:scale-[1.1]"
-                    :href="contribution.link"
-                    target="_blank"
-                    @click.native="$mixpanel.track('tap_library')"
-                  >
-                    <Icon
-                      class="mr-2.5 w-4 h-4 xl:w-7 xl:h-7 footer-icon"
-                      name="fa6-brands:github"
-                    />
-                    <div class="v2-canopas-gradient-text">GitHub</div>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div>
-              <p class="mt-[41px] text-black-87 mobile-header-2-semibold">
-                {{ contribution.title }}
-              </p>
-            </div>
-            <div class="mt-5">
-              <span
-                class="text-black-60 sub-h3-regular xl:mobile-header-3-regular"
-                >{{ contribution.description }}</span
-              >
-            </div>
+              class="bg-white-smoke rounded-[1.875rem] py-1 px-4 lg:sub-h1-regular text-black-4"
+              v-html="tag"
+            ></div>
+          </div>
+        </div>
+        <swiper
+          v-else
+          :slidesPerView="2"
+          :grid="{
+            rows: 2,
+            fill: 'row',
+          }"
+          :modules="modules"
+          :breakpoints="{
+            '768': {
+              slidesPerView: 4,
+            },
+          }"
+          class="swiper-container mt-4 pl-0"
+        >
+          <swiper-slide
+            v-for="(tag, index) in contribution.tags"
+            :key="index"
+            class="cursor-pointer !mr-1 !w-auto pb-1"
+          >
             <div
-              class="flex flex-row justify-between mt-[30px] text-black-87 sub-h4-regular xl:sub-h1-regular"
+              class="bg-white-smoke inline-flex rounded-[1.875rem] py-1 px-4 sub-h3-regular text-black-4 whitespace-nowrap"
+              v-html="tag"
+            ></div></swiper-slide
+        ></swiper>
+        <div class="flex gap-4 mt-4 lg:mt-6">
+          <div class="flex items-center">
+            <Icon
+              class="fab footer-icon h-[1.625rem] w-[1.625rem] pr-[0.313rem]"
+              name="fa6-solid:star"
+            />
+            <span
+              class="v2-canopas-gradient-text mt-0.5 sub-h3-semibold lg:mobile-header-3-semibold"
+              >{{ contribution.stars }}</span
             >
-              <span>by {{ contribution.author }}</span>
-              <a
-                class="duration-300 ease-in-out hover:scale-[1.1]"
-                :href="contribution.link"
-                :aria-label="contribution.title"
-                target="_blank"
-                @click.native="$mixpanel.track('tap_library')"
-              >
-                <Icon
-                  class="arrow fa w-5 h-5 box-content"
-                  name="fa6-solid:arrow-right-long"
-                  id="leftArrow"
-                />
-              </a>
-            </div>
+          </div>
+          <div class="flex items-center gap-0.5 text-black-87">
+            <span> <Icon class="fa h-5 w-5" name="fa6-solid:code-fork" /></span
+            ><span class="sub-h3-semibold lg:mobile-header-3-semibold">{{
+              contribution.forks
+            }}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span
+              class="h-4 w-4 rounded-full"
+              :class="contribution.color"
+            ></span
+            ><span
+              class="sub-h3-semibold lg:mobile-header-3-semibold text-black-87"
+              >{{ contribution.language }}</span
+            >
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 <script type="module">
-import uIPilotMp4 from "@/assets/images/contribution/animations/UIPilot.mp4";
-import uIPilotWebm from "@/assets/images/contribution/animations/UIPilot.webm";
-import introShowCaseMp4 from "@/assets/images/contribution/animations/introShowCase.mp4";
-import introShowCaseWebm from "@/assets/images/contribution/animations/introShowCase.webm";
-import jcAnimationsMp4 from "@/assets/images/contribution/animations/JetpackComposeAnimations.mp4";
-import jcAnimationsWebm from "@/assets/images/contribution/animations/JetpackComposeAnimations.webm";
 import config from "@/config.js";
-import lozad from "lozad";
-import { setGithubStars, openBlog } from "@/utils.js";
-import { mapState } from "pinia";
-import { useContributionStore } from "@/stores/contribution";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Grid } from "swiper/modules";
+import { openBlog } from "@/utils.js";
 
 export default {
-  computed: {
-    ...mapState(useContributionStore, {
-      cData: "data",
-    }),
-  },
   data() {
     return {
       openBlog,
-      websiteOpenSourceUrl: config.WEBSITE_OPEN_SOURCE_URL,
+      width: 0,
+      modules: [Grid],
       contributions: [
         {
-          title: "Intro Showcase view in jetpack compose",
-          stars: config.INTRO_SHOWCASE_STARS,
+          title: "compose-intro-showcase",
           description:
             "Highlight different features of the app using Jetpack Compose",
-          author: "Radhika S.",
-          video: [introShowCaseMp4, introShowCaseWebm],
-          link: "https://github.com/canopas/Intro-showcase-view",
+          tags: [
+            `android`,
+            `kotlin`,
+            `material-design`,
+            `kotlin-library`,
+            `showcase`,
+            `android-library`,
+            `android-development`,
+            `jetpack`,
+            `intro`,
+            `feature`,
+            `jetpack-android`,
+            `app-intro`,
+            `jetpack-compose`,
+            `jetpack-compose-tutorial`,
+          ],
+          link: "https://github.com/canopas/compose-intro-showcase",
+          stars: config.INTRO_SHOWCASE_STARS,
+          forks: "29",
+          color: "bg-royal-purple",
+          language: "Kotlin",
         },
         {
           title: "UIPilot",
-          stars: config.UIPILOT_STARS,
           description: "The missing typesafe SwiftUI navigation library",
-          author: "Jimmy S.",
-          video: [uIPilotMp4, uIPilotWebm],
+          tags: [
+            `macos`,
+            `swift`,
+            `ios`,
+            `router`,
+            `xcode`,
+            `navigation`,
+            `routing`,
+            `ios-ui`,
+            `navigation-view`,
+            `swiftui`,
+            `swift5`,
+          ],
           link: "https://github.com/canopas/UIPilot",
+          stars: config.UIPILOT_STARS,
+          forks: "22",
+          color: "bg-flamingo",
+          language: "Swift",
         },
         {
           title: "Jetpack Compose animations",
-          stars: config.JETPACK_COMPOSE_ANIMATION_STARS,
           description: "Cool animations implemented with Jetpack compose",
-          author: "Radhika S.",
-          video: [jcAnimationsMp4, jcAnimationsWebm],
-          link: "https://github.com/canopas/Jetpack-compose-animations-examples",
+          tags: [],
+          link: "https://github.com/canopas/compose-animations-examples",
+          stars: config.JETPACK_COMPOSE_ANIMATION_STARS,
+          forks: "29",
+          color: "bg-royal-purple",
+          language: "Kotlin",
+        },
+        {
+          title: "Swiftui-animations-examples",
+          description: "Cool animations implemented with SwiftUI.",
+          tags: [],
+          link: "https://github.com/canopas/swiftui-animations-examples",
+          stars: config.SWIFT_UI_ANIMATION_STARS,
+          forks: "2",
+          color: "bg-flamingo",
+          language: "Swift",
+        },
+        {
+          title: "Tailwind Animations Examples",
+          description: "Cool animations implemented with tailwindcss.",
+          tags: [
+            `css`,
+            `vuejs`,
+            `animations`,
+            `animation-css`,
+            `tailwind`,
+            `tailwindcss`,
+            `tailwind-elements`,
+            `tailwind-animations`,
+            `animation-example`,
+            `tailwindcss-animate`,
+            `tailwind-animations-examples`,
+            `animation-examples`,
+          ],
+          link: "https://github.com/canopas/tailwind-animations-examples",
+          stars: config.TAILWIND_ANIMATIONS_STARS,
+          forks: "6",
+          color: "bg-soft-yellow",
+          language: "JavaScript",
+        },
+        {
+          title: "ComposeRecyclerView",
+          description:
+            "Seamlessly integrate Jetpack Compose composables in RecyclerView with ComposeRecyclerView🔥. This library enhances performance⚡, tackles LazyList issues🔨, and offers built-in drag-and-drop👨🏽‍💻 support for dynamic UIs.",
+          tags: [
+            `kotlin`,
+            `android`,
+            `drag-and-drop`,
+            `recyclerview`,
+            `kotlin-library`,
+            `android-library`,
+            `recyclerview-adapter`,
+            `draggable`,
+            `composer-library`,
+            `lazylist`,
+            `jetpack-compose`,
+            `jetpack-compose-tutorial`,
+            `compose-ui`,
+          ],
+          link: "https://github.com/canopas/compose-recyclerview",
+          stars: config.COMPOSE_RECYCLEVIEW_STARS,
+          forks: "6",
+          color: "bg-royal-purple",
+          language: "Kotlin",
+        },
+        {
+          title: "Canopas - Blog",
+          description:
+            "Feature-Rich blogs platform built with strapi and next.js",
+          tags: [
+            `website`,
+            `development`,
+            `web-development`,
+            `web`,
+            `responsive`,
+            `reactjs`,
+            `nextjs`,
+          ],
+          link: "https://github.com/canopas/canopas-blog",
+          stars: config.CANOPAS_BLOG_WEBSITE_STARS,
+          forks: "5",
+          color: "bg-soft-yellow",
+          language: "JavaScript",
+        },
+        {
+          title: "Canopas - website",
+          description:
+            "Responsive website built with Vue.js and vite by following best practices.",
+          tags: [
+            `golang`,
+            `aws`,
+            `website`,
+            `boilerplate`,
+            `development`,
+            `vuejs`,
+            `web-development`,
+          ],
+          link: "https://github.com/canopas/canopas-website",
+          stars: config.CANOPAS_WEBSITE_STARS,
+          forks: "4",
+          color: "bg-sea-green",
+          language: "Vue",
+        },
+        {
+          title: "RichEditorSwiftUI",
+          description:
+            "RichEditorSwiftUI is swift based library, it is made to make rich text editing easy with SwiftUI.",
+          tags: [
+            `editor`,
+            `swift`,
+            `string`,
+            `uikit`,
+            `rich-text-editor`,
+            `richtext`,
+            `swiftui`,
+          ],
+          link: "https://github.com/canopas/rich-editor-swiftui",
+          stars: config.RICHEDITOR_SWIFTUI_STARS,
+          forks: "1",
+          color: "bg-flamingo",
+          language: "Swift",
+        },
+        {
+          title: "RichEditor",
+          description: "Android WYSIWYG Rich editor for Jetpack compose.",
+          tags: [],
+          link: "https://github.com/canopas/rich-editor-compose",
+          stars: config.RICHEDITOR_STARS,
+          forks: "1",
+          color: "bg-royal-purple",
+          language: "Kotlin",
         },
       ],
     };
   },
   mounted() {
-    if (!config.IS_PROD) {
-      this.$watch(
-        () => this.cData,
-        (data) => {
-          setGithubStars(this.contributions, data);
-        },
-      );
-      if (this.cData != null) {
-        setGithubStars(this.contributions, this.cData);
-      }
-    }
-
-    lozad().observe(); // lazy loads videos with default selector as '.lozad'
+    this.width = window.innerWidth;
+  },
+  components: {
+    Swiper,
+    SwiperSlide,
   },
   inject: ["mixpanel"],
 };
 </script>
-<style scoped>
-.gradient-border {
-  border-image: linear-gradient(to left, #f2709c, #ff835b) 1;
-}
+<style lang="postcss">
+@import "swiper/css";
+@import "swiper/css/grid";
 </style>
