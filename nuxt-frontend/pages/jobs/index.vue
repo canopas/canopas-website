@@ -6,11 +6,11 @@
     <LifeAtCanopas />
     <PerksAndBenefits v-on:scroll-to-career="scrollToCareer" ref="perks" />
     <WhyCanopas
-      class="hidden md:block"
+      class="hidden lg:block"
       v-on:add-animation="handleAnimationOnScroll"
     />
     <WhyCanopasMobile
-      class="block md:hidden"
+      class="block lg:hidden"
       v-on:add-animation="handleAnimationOnScroll"
     />
     <Career id="career" />

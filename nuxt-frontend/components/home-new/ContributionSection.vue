@@ -16,7 +16,7 @@
       >
     </div>
     <div
-      class="flex flex-col border mt-2 lg:mt-0"
+      class="flex flex-col border mt-2 lg:mt-0 p-4 lg:p-6"
       v-for="(contribution, index) in contributions"
       :key="index"
     >
@@ -24,82 +24,79 @@
         :to="contribution.link"
         target="_blank"
         @click.native="$mixpanel.track('tap_home_github_contribution_section')"
-        class="flex-col p-4 lg:p-6"
+        class="flex-col"
       >
-        <div class="mobile-header-3-semibold lg:desk-header-3 text-black-87">
+        <span
+          class="mobile-header-3-semibold lg:desk-header-3 text-black-87 bg-black-underline-out box-decoration-clone bg-no-repeat pb-[5px] bg-[length:100%] hover:animate-mulitpleUnderlineOut"
+        >
           {{ contribution.title }}
-        </div>
+        </span></nuxt-link
+      >
+      <div class="mt-4 sub-h3-regular lg:mobile-header-2-regular text-black-60">
+        {{ contribution.description }}
+      </div>
+      <div class="mt-6" v-if="width > 991">
         <div
-          class="mt-2 sub-h3-regular lg:mobile-header-2-regular text-black-60"
+          class="mt-1 inline-flex pr-1"
+          v-for="(tag, index) in contribution.tags"
+          :key="index"
         >
-          {{ contribution.description }}
-        </div>
-        <div class="mt-6" v-if="width > 991">
           <div
-            class="mt-1 inline-flex pr-1"
-            v-for="(tag, index) in contribution.tags"
-            :key="index"
-          >
-            <div
-              class="bg-white-smoke rounded-[1.875rem] py-1 px-4 lg:sub-h1-regular text-black-4"
-              v-html="tag"
-            ></div>
-          </div>
+            class="bg-white-smoke rounded-[1.875rem] py-1 px-4 lg:sub-h1-regular text-black-4"
+            v-html="tag"
+          ></div>
         </div>
-        <swiper
-          v-else
-          :slidesPerView="2"
-          :grid="{
-            rows: 2,
-            fill: 'row',
-          }"
-          :modules="modules"
-          :breakpoints="{
-            '768': {
-              slidesPerView: 4,
-            },
-          }"
-          class="swiper-container mt-4 pl-0"
+      </div>
+      <swiper
+        v-else
+        :slidesPerView="2"
+        :grid="{
+          rows: 2,
+          fill: 'row',
+        }"
+        :modules="modules"
+        :breakpoints="{
+          '768': {
+            slidesPerView: 4,
+          },
+        }"
+        class="swiper-container mt-4 pl-0"
+      >
+        <swiper-slide
+          v-for="(tag, index) in contribution.tags"
+          :key="index"
+          class="cursor-pointer !mr-1 !w-auto pb-1"
         >
-          <swiper-slide
-            v-for="(tag, index) in contribution.tags"
-            :key="index"
-            class="cursor-pointer !mr-1 !w-auto pb-1"
+          <div
+            class="bg-white-smoke inline-flex rounded-[1.875rem] py-1 px-4 sub-h3-regular text-black-4 whitespace-nowrap"
+            v-html="tag"
+          ></div></swiper-slide
+      ></swiper>
+      <div class="flex gap-4 mt-4 lg:mt-6">
+        <div class="flex items-center">
+          <Icon
+            class="fab footer-icon h-[1.625rem] w-[1.625rem] pr-[0.313rem]"
+            name="fa6-solid:star"
+          />
+          <span
+            class="v2-canopas-gradient-text mt-0.5 sub-h3-semibold lg:mobile-header-3-semibold"
+            >{{ contribution.stars }}</span
           >
-            <div
-              class="bg-white-smoke inline-flex rounded-[1.875rem] py-1 px-4 sub-h3-regular text-black-4 whitespace-nowrap"
-              v-html="tag"
-            ></div></swiper-slide
-        ></swiper>
-        <div class="flex gap-4 mt-4 lg:mt-6">
-          <div class="flex items-center">
-            <Icon
-              class="fab footer-icon h-[1.625rem] w-[1.625rem] pr-[0.313rem]"
-              name="fa6-solid:star"
-            />
-            <span
-              class="v2-canopas-gradient-text mt-0.5 sub-h3-semibold lg:mobile-header-3-semibold"
-              >{{ contribution.stars }}</span
-            >
-          </div>
-          <div class="flex items-center gap-0.5 text-black-87">
-            <span> <Icon class="fa h-5 w-5" name="fa6-solid:code-fork" /></span
-            ><span class="sub-h3-semibold lg:mobile-header-3-semibold">{{
-              contribution.forks
-            }}</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span
-              class="h-4 w-4 rounded-full"
-              :class="contribution.color"
-            ></span
-            ><span
-              class="sub-h3-semibold lg:mobile-header-3-semibold text-black-87"
-              >{{ contribution.language }}</span
-            >
-          </div>
         </div>
-      </nuxt-link>
+        <div class="flex items-center gap-0.5 text-black-87">
+          <span> <Icon class="fa h-5 w-5" name="fa6-solid:code-fork" /></span
+          ><span class="sub-h3-semibold lg:mobile-header-3-semibold">{{
+            contribution.forks
+          }}</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="h-4 w-4 rounded-full" :class="contribution.color"></span
+          ><span
+            class="sub-h3-semibold lg:mobile-header-3-semibold text-black-87"
+            >{{ contribution.language }}</span
+          >
+        </div>
+      </div>
     </div>
   </section>
 </template>

@@ -1,15 +1,12 @@
 <template>
-  <div class="container mb-40">
+  <div class="container mt-16 lg:mt-60 mb-40">
     <div
       class="row flex flex-col md:flex-row gap-4 my-0 mx-[2%] md:my-0 md:mx-[6%] md:-ml-8"
     >
       <div
-        class="text-center header-text canopas-gradient-text title-mobile block md:hidden mb-12"
+        class="text-center mobile-header-2 text-black-87 md:hidden mb-12"
       >
-        <span
-          class="underline-text underline-offset-[0.5rem] sm:underline-offset-[1rem]"
-          >Freq</span
-        >uently Asked Questions
+        Frequently Asked Questions
       </div>
       <div
         class="flex-[33%] image py-0 px-[20%] md:py-0 md:px-0 md:translate-y-60 lg:translate-y-80 xl:translate-y-40 animate__animated"

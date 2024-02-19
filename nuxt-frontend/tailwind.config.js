@@ -85,10 +85,7 @@ module.exports = {
         yellow: "#FFC700",
         "orange-peel": "#f985840d",
         "light-crimson": "#f476950d",
-        "royal-purple": "#A97BFF",
-        flamingo: "#F05138",
-        "soft-yellow": "#F1E05A",
-        "sea-green": "#41B883",
+        "gray-40": "#666666"
       },
       borderRadius: {
         "x-lg": "20px",
@@ -120,14 +117,6 @@ module.exports = {
         "inter-regular": ["Inter-Regular"],
         "opensans-bold": ["Opensans-Bold"],
         "opensans-semibold": ["Opensans-SemiBold"],
-        "source-codepro": ["Source CodePro"],
-        "poppins-regular": ["Poppins Regular"],
-        "poppins-medium": ["Poppins Medium"],
-        "inter-extralight": ["Inter-ExtraLight"],
-        "comme-light": ["Comme-Light"],
-        "comme-regular": ["Comme-Regular"],
-        "comme-medium": ["Comme-Medium"],
-        "comme-semibold": ["Comme-SemiBold"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",

@@ -1,15 +1,13 @@
 <template>
-  <div class="text-center container m-0 p-0 max-w-full relative">
-    <div class="header-text main-text text-[2.5625rem] leading-[2.125rem]">
-      <span class="underline-text">Why Ca</span>nopas?
-    </div>
+  <div class="text-center container max-w-full mt-16 relative">
+    <div class="mobile-header-2 text-black-87">Why Canopas?</div>
     <img
       :src="WhyCanopasImage"
       alt="why-canopas-image"
       loading="lazy"
       class="image w-full h-full top-0 left-0 absolute object-contain sm:object-cover"
     />
-    <div class="reasons-container my-[50px] mx-auto w-full">
+    <div class="my-12 mx-auto w-full">
       <div
         v-for="reason in reasons"
         :key="reason"
@@ -18,16 +16,18 @@
       >
         <div
           :class="reason.class"
-          class="content my-auto mx-5 flex-[70%] flex flex-col"
+          class="content my-auto mx-5 basis-[70%] flex flex-col"
         >
           <img
             :src="reason.bullet"
             alt="why-canopas-image"
             loading="lazy"
-            class="bullets w-[50px] h-[50px] -mr-5"
+            class="bullets w-[3.125rem] h-[3.125rem] -mr-5"
           />
-          <div class="header-text py-[15px] px-0">{{ reason.title }}</div>
-          <div class="normal-text description py-[15px] px-0 sm:w-[70%]">
+          <div class="mobile-header-3-semibold text-black-87">
+            {{ reason.title }}
+          </div>
+          <div class="sub-h3-regular text-black-60 py-4 px-0 sm:w-[70%]">
             {{ reason.description }}
           </div>
         </div>
@@ -35,7 +35,7 @@
           :src="reason.image"
           alt="why-canopas-image"
           loading="lazy"
-          class="reason-image w-[126px] h-full"
+          class="reason-image w-[7.875rem] h-full"
         />
       </div>
     </div>

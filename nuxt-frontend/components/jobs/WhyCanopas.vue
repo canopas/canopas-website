@@ -1,49 +1,41 @@
 <template>
-  <div>
-    <div class="text-center m-0 p-0 relative">
-      <div class="header-text">
-        <span class="underline-text">Why </span>Canopas?
-      </div>
-      <img
-        :src="WhyCanopasImage"
-        alt="why-canopas-image"
-        loading="lazy"
-        class="w-full h-full left-0 absolute object-contain -z-[5]"
-      />
-      <div class="container flex my-[150px] mx-auto m-0 p-0 relative">
+  <div class="text-center m-0 p-0 relative">
+    <div class="desk-header-2 text-black-87">Why Canopas?</div>
+    <img
+      :src="WhyCanopasImage"
+      alt="why-canopas-image"
+      loading="lazy"
+      class="w-full h-full left-0 absolute object-contain -z-[5]"
+    />
+    <div class="container flex my-[150px] mx-auto m-0 p-0 relative">
+      <div
+        v-for="reason in reasons"
+        :key="reason"
+        class="reason flex flex-col basis-[33%] even:mt-[-4.375rem]"
+      >
+        <img
+          :src="reason.image"
+          alt="why-canopas-image "
+          loading="lazy"
+          v-if="reason.image"
+          class="w-full h-full object-contain"
+        />
         <div
-          v-for="reason in reasons"
-          :key="reason"
-          class="reason flex flex-col flex-[33%] even:mt-[-70px]"
+          :class="reason.class"
+          class="content flex flex-col even:mt-[5%] xl:even:mt-[10%] animate__animated"
+          ref="whyCanopas"
         >
           <img
-            :src="reason.image"
-            alt="why-canopas-image "
+            :src="reason.bullet"
+            alt="why-canopas-image"
             loading="lazy"
-            v-if="reason.image"
-            class="w-full h-full object-contain"
+            class="bullets w-[3.125rem] h-[3.125rem] -mr-5"
           />
-          <div
-            :class="reason.class"
-            class="content flex flex-col even:mt-[5%] xl:even:mt-[10%] first-of-type:w-full last-of-type:w-full animate__animated"
-            ref="whyCanopas"
-          >
-            <img
-              :src="reason.bullet"
-              alt="why-canopas-image"
-              loading="lazy"
-              class="bullets w-[50px] h-[50px] -mr-5"
-            />
-            <div
-              class="normal-text even:w-[70%] py-[15px] px-0 w-full text-black-900 font-bold 2xl:w-[65%]"
-            >
-              {{ reason.title }}
-            </div>
-            <div
-              class="normal-2-text even:w-[70%] description py-[15px] px-0 w-full 2xl:w-[65%]"
-            >
-              {{ reason.description }}
-            </div>
+          <div class="py-4 px-0 w-full mobile-header-2-semibold text-black-87">
+            {{ reason.title }}
+          </div>
+          <div class="sub-h1-regular text-black-60 px-0 w-full 2xl:w-[67%]">
+            {{ reason.description }}
           </div>
         </div>
       </div>
