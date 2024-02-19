@@ -70,6 +70,7 @@ export default Object.freeze({
     blog: "https://blog.canopas.com",
     linkedin: "https://www.linkedin.com/company/canopasinc",
     youtube: "https://www.youtube.com/channel/UC77VyeTVJ45HiUS_o2GNcBA/videos",
+    github: "https://github.com/canopas",
   },
 
   // SEO and meta data

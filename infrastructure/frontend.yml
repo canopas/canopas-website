@@ -17,75 +17,10 @@ Parameters:
   ZipFileName:
     Type: String
     Description: Name of the zip file.
-  CloudfrontURL:
-    Type: String
-    Description: Cloudfront URL.
+
 
 Resources:
-  HttpApi:
-    Type: AWS::Serverless::HttpApi
-    Properties:
-      StageName: $default
-      Description:
-        Fn::Sub: Canopas Website SSR Frontend API ${EnvName}
-      DefinitionBody:
-        openapi: "3.0.1"
-        info:
-          title: 
-            Fn::Sub: canopas-website-ssr-frontend-${EnvName}
-          version: "1.0"
-        paths:
-          /favicon.ico:
-            x-amazon-apigateway-any-method:
-              responses:
-                default:
-                  description: "Default response for ANY /favicon.ico"
-              x-amazon-apigateway-integration:
-                payloadFormatVersion: "1.0"
-                type: "http_proxy"
-                httpMethod: "ANY"
-                uri:
-                  Fn::Sub: "${CloudfrontURL}favicon.ico"
-                connectionType: "INTERNET"
-          /sitemap.xml:
-            x-amazon-apigateway-any-method:
-              responses:
-                default:
-                  description: "Default response for ANY /sitemap.xml"
-              x-amazon-apigateway-integration:
-                payloadFormatVersion: "1.0"
-                type: "http_proxy"
-                httpMethod: "ANY"
-                uri:
-                  Fn::Sub: "${CloudfrontURL}sitemap.xml"
-                connectionType: "INTERNET"
-          /robots.txt:
-            x-amazon-apigateway-any-method:
-              responses:
-                default:
-                  description: "Default response for ANY /robots.txt"
-              x-amazon-apigateway-integration:
-                payloadFormatVersion: "1.0"
-                type: "http_proxy"
-                httpMethod: "ANY"
-                uri:
-                  Fn::Sub: "${CloudfrontURL}robots.txt"
-                connectionType: "INTERNET"
-          /apple-touch-icon.png:
-            x-amazon-apigateway-any-method:
-              responses:
-                default:
-                  description: "Default response for ANY /apple-touch-icon.png"
-              x-amazon-apigateway-integration:
-                payloadFormatVersion: "1.0"
-                type: "http_proxy"
-                httpMethod: "ANY"
-                uri:
-                  Fn::Sub: "${CloudfrontURL}apple-touch-icon.png"
-                connectionType: "INTERNET"
-        x-amazon-apigateway-importexport-version: "1.0"
-
-  HttpApiFunction:
+  SSRFunction:
     Type: AWS::Serverless::Function
     Properties:
       PackageType: Zip
@@ -101,11 +36,5 @@ Resources:
         Fn::Sub: canopas-website-ssr-frontend-${EnvName}
       Description:
         Fn::Sub: Canopas Website SSR Frontend Lambda ${EnvName}
-      Events:
-        ProxyResource:
-          Type: HttpApi
-          Properties:
-            ApiId:
-              Ref: HttpApi
-            Path: $default
-            Method: any
+      FunctionUrlConfig:
+        AuthType: NONE   
