@@ -36,10 +36,10 @@ jobs:
           sed -i "s|CLOUDFRONT_URL_VALUE|${{ secrets.CLOUDFRONT_URL_VALUE_DEV }}|g" config.js
           sh ./../deploy/generate-sitemap.sh https://dev-stack.canopas.com https://dev-stack-api.canopas.com
           yarn install --frozen-lockfile && yarn build
-          aws s3 rm s3://canopas-website-ssr-dev --recursive
           cd .output/server && zip canopas_website_SSR_dev_${{ github.sha }}-${{ github.run_attempt }}.zip -r . && aws s3 cp canopas_website_SSR_dev_${{ github.sha }}-${{ github.run_attempt }}.zip s3://canopas-lambda-handlers && cd ../..
           aws s3 sync --cache-control 'max-age=604800' --exclude *.html ./.output/public s3://canopas-website-ssr-dev
           aws s3 sync ./.output/public s3://canopas-website-ssr-dev
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID_DEV }} --paths "/sitemap.xml"
 
       - name: Deploy cloudformation stack
         id: canopas-website-dev-lambda-stack-frontend
@@ -52,5 +52,4 @@ jobs:
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
               EnvName=dev,
-              ZipFileName=canopas_website_SSR_dev_${{ github.sha }}-${{ github.run_attempt }}.zip,
-              CloudfrontURL=${{ secrets.CLOUDFRONT_URL_VALUE_DEV }}
+              ZipFileName=canopas_website_SSR_dev_${{ github.sha }}-${{ github.run_attempt }}.zip
