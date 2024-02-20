@@ -127,12 +127,13 @@ function setPostFields(post, slug) {
     ? author?.image.data?.attributes
     : author?.image;
 
+  post.authorSlug = author ? author.username : "";
   post.authorImage = authorImg?.url || Avatar;
   post.authorAltText = author ? author.username + " image" : "author";
   post.authorBio = author?.bio || "";
   post.authorRole = author?.role || "Editor for Canopas";
 
-  if (slug && post.tags[0]) {
+  if (slug && post.tags && post.tags[0]) {
     post.tags.map((tag) => {
       if (tag.slug == slug) {
         post.tagName = tag.name;

@@ -60,7 +60,8 @@ type UniqueService struct {
 
 // resources structs
 type Attributes struct {
-	Slug string `json:"slug"`
+	Slug     string `json:"slug"`
+	Username string `json:"username"`
 }
 
 type Data struct {
@@ -220,6 +221,22 @@ func addPublishedResources(baseUrl string, sitemapUrls []URL) ([]URL, error) {
 	for i := range tags.Data {
 		data := tags.Data[i]
 		sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + `/tag/` + data.Attributes.Slug, Priority: `0.8`})
+	}
+
+	// get authors
+	responseAuthors, err := doRequest(resourceUrl + "/v1/authors?fields[0]=username")
+
+	if err != nil {
+		log.Error(err)
+		return sitemapUrls, err
+	}
+
+	var authors Resources
+	json.Unmarshal(responseAuthors, &authors)
+
+	for i := range authors.Data {
+		data := authors.Data[i]
+		sitemapUrls = append(sitemapUrls, URL{Loc: baseUrl + `/author/` + data.Attributes.Username, Priority: `0.8`})
 	}
 
 	return sitemapUrls, nil
