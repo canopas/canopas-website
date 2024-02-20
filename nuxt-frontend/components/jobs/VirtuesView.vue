@@ -20,7 +20,7 @@
             class="flex flex-col items-center my-5 mx-auto py-0 px-10 sm:my-2 sm:px-0 lg:my-10"
           >
             <div
-              class="image rounded-full bg-white relative h-0 w-1/2 pb-[50%] mb-5 sm:w-[30%] sm:pb-[30%] lg:w-1/2 lg:pb-[50%]"
+              class="rounded-full bg-white relative h-0 w-1/2 pb-[50%] mb-5 sm:w-[30%] sm:pb-[30%] lg:w-1/2 lg:pb-[50%]"
             >
               <img
                 class="absolute w-[95%] h-[95%] left-0"

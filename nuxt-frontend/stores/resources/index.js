@@ -34,7 +34,7 @@ export const useBlogListStore = defineStore("blog-list", {
           published +
           "&filters[is_resource]=" +
           resources +
-          "&fields[0]=title&fields[1]=slug&fields[2]=published_on&fields[3]=summary&fields[4]=reading_time" +
+          "&fields[0]=title&fields[1]=slug&fields[2]=published_on&fields[3]=summary&fields[4]=reading_time&fields[5]=is_published" +
           limitQuery;
 
         axios
@@ -92,7 +92,7 @@ export const useBlogListStore = defineStore("blog-list", {
           published +
           "&filters[is_resource]=" +
           resources +
-          "&fields[0]=title&fields[1]=slug&fields[2]=published_on&fields[3]=summary&fields[4]=reading_time" +
+          "&fields[0]=title&fields[1]=slug&fields[2]=published_on&fields[3]=summary&fields[4]=reading_time&fields[5]=is_published" +
           limitQuery;
 
         axios

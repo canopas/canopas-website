@@ -5,7 +5,7 @@ on:
     workflows: ["DeployBackendDev"]
     types:
       - completed
-    branches: 
+    branches:
       - "master"
 
 jobs:
@@ -51,5 +51,5 @@ jobs:
           timeout-in-minutes: "10"
           no-fail-on-empty-changeset: "1"
           parameter-overrides: >-
-              EnvName=dev,
-              ZipFileName=canopas_website_SSR_dev_${{ github.sha }}-${{ github.run_attempt }}.zip
+            EnvName=dev,
+            ZipFileName=canopas_website_SSR_dev_${{ github.sha }}-${{ github.run_attempt }}.zip
