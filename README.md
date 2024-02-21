@@ -43,7 +43,7 @@ You can also check out [website](https://canopas.com/) to view a live example of
 
 3. **Server Side Rendering:** We have used Nuxt's different rendering modes for the website. For static pages, its SSG and for dynamic pages, we used SSR/ISR.
 
-4. **SEO-friendly URLs and Metadata:** We prioritize SEO best practices to ensure that canopas website receive the visibility they deserve in search engines. From meta tags to URL structure and sitemaps, canopas website is equipped with all the essential elements for optimal SEO.
+4. **SEO-friendly URLs and Metadata:** We prioritize SEO best practices to ensure that canopas website receive the visibility they deserve in search engines. From meta tags to URL structure and dynamic sitemaps, canopas website is equipped with all the essential elements for optimal SEO.
 
 5. **Responsive and Mobile-friendly Design:** We understand the importance of a mobile-friendly design in modern SEO. Canopas website is fully responsive and adapts seamlessly to various screen sizes, providing a positive user experience across devices.
 

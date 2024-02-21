@@ -1,8 +1,14 @@
 <template>
   <div>
     <Header />
-    <section v-if="slug !== ''" class="container min-h-[50vh]">
-      <div class="md:mx-8 xl:mx-20">
+    <section class="container min-h-[50vh]">
+      <div
+        v-if="status == config.NOT_FOUND"
+        class="h-1/2 flex text-[1.4rem] text-black-900 items-center justify-center"
+      >
+        {{ config.POST_NOT_FOUND_MESSAGE }}
+      </div>
+      <div v-else class="md:mx-8 xl:mx-20">
         <nuxt-link :to="'/author/' + slug" class="flex space-x-4 items-center">
           <div class="w-8 h-8 md:w-9 md:h-9">
             <Icon
@@ -50,7 +56,6 @@ const slug = ref(route.params.slug);
 const posts = ref([]);
 const store = useAuthorListStore();
 const resources = computed(() => store.items);
-const count = computed(() => store.totalPosts);
 const status = computed(() => store.status);
 let postLimit = 10;
 
@@ -58,7 +63,9 @@ await useAsyncData("authors", () =>
   store.loadAuthorBlogs(config.SHOW_DRAFT_POSTS, slug.value, 0, postLimit),
 );
 
-posts.value = resources.value?.slice(0, postLimit);
+if (status.value === config.SUCCESS) {
+  posts.value = resources.value?.slice(0, postLimit);
+}
 
 const handleScroll = () => {
   if (
@@ -78,13 +85,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
-
-if (status.value !== config.SUCCESS) {
-  navigateTo({
-    name: "Error404Page",
-    params: { pathMatch: ["author", slug.value] },
-  });
-}
 
 useSeoMeta({
   title: "Stories by " + slug.value + " | Canopas",

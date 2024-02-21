@@ -1,8 +1,14 @@
 <template>
   <div>
     <Header />
+    <div
+      v-if="slug == '' || status == config.NOT_FOUND"
+      class="h-1/2 flex text-[1.4rem] text-black-900 items-center justify-center"
+    >
+      {{ config.POST_NOT_FOUND_MESSAGE }}
+    </div>
     <section
-      v-if="slug !== ''"
+      v-else
       class="container min-h-[50vh] my-10 md:my-16 sm:mx-auto 3xl:px-24"
     >
       <div class="md:mx-8 xl:mx-20">
@@ -42,13 +48,14 @@ const slug = ref(route.params.slug);
 const posts = ref([]);
 const store = useTagListStore();
 const resources = computed(() => store.items);
-const count = computed(() => store.totalPosts);
 const status = computed(() => store.status);
 let postLimit = 2;
 
 await useAsyncData("tags", () => store.loadTagBlogs(slug.value, 0, postLimit));
 
-posts.value = resources.value?.slice(0, postLimit);
+if (status.value === config.SUCCESS) {
+  posts.value = resources.value?.slice(0, postLimit);
+}
 
 const tagName = posts.value[0].tags.filter((tag) => tag.slug === slug.value)[0]
   .name;
@@ -71,13 +78,6 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
-
-if (status.value !== config.SUCCESS) {
-  navigateTo({
-    name: "Error404Page",
-    params: { pathMatch: ["tag", slug.value] },
-  });
-}
 
 useSeoMeta({
   title: "Stories on " + slug.value + " | Canopas",

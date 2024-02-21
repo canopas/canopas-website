@@ -14,7 +14,7 @@ export const useAuthorListStore = defineStore("authors", {
   },
   actions: {
     async loadAuthorBlogs(showDrafts, slug, start, limit) {
-      return new Promise((resolve) => {
+      return new Promise((resolve, reject) => {
         this.isLoading = true;
         this.error = null;
 
@@ -36,22 +36,32 @@ export const useAuthorListStore = defineStore("authors", {
           limitQuery;
 
         axios
-          .get(url)
-          .then((response) => {
-            let posts = [];
-            response.data.data.forEach((post) => {
-              posts.push(setPostFields(post));
-            });
-            this.items = posts;
-            this.isLoading = false;
-            this.status = posts.length > 0 ? response.status : config.NOT_FOUND;
-            resolve();
+          .get(config.STRAPI_URL + "/favicon.ico")
+          .then(() => {
+            axios
+              .get(url)
+              .then((response) => {
+                let posts = [];
+                response.data.data.forEach((post) => {
+                  posts.push(setPostFields(post));
+                });
+                this.items = posts;
+                this.isLoading = false;
+                this.status =
+                  posts.length > 0 ? response.status : config.NOT_FOUND;
+                resolve();
+              })
+              .catch((error) => {
+                this.error = error;
+                this.isLoading = false;
+                this.status = config.NOT_FOUND;
+                resolve();
+              });
           })
           .catch((error) => {
             this.error = error;
-            this.isLoading = false;
             this.status = config.NOT_FOUND;
-            resolve();
+            reject(error);
           });
       });
     },
