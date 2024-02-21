@@ -259,44 +259,38 @@
     - Status Code: 200 Ok
     - Headers : none
     - Data :
-        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-            <url>
-                <loc>http://canopas.com</loc>
-                <changefreq>monthly</changefreq>
-                <lastmod>2022-03-01T00:00:00.000Z</lastmod>
-                <priority>1</priority>
-            </url>
-            <url>
-                <loc>http://canopas.com/jobs</loc>
-                <changefreq>monthly</changefreq>
-                <lastmod>2022-03-01T00:00:00.000Z</lastmod>
-                <priority>1</priority>
-            </url>
-            <url>
-                <loc>http://canopas.com/contact</loc>
-                <changefreq>monthly</changefreq>
-                <lastmod>2022-03-01T00:00:00.000Z</lastmod>
-                <priority>0.9</priority>
-            </url>
-            <url>
-                <loc>https://blog.canopas.com</loc>
-                <changefreq>monthly</changefreq>
-                <lastmod>2022-03-01T00:00:00.000Z</lastmod>
-                <priority>0.8</priority>
-            </url>
-            <url>
-                <loc>http://canopas.com/jobs/ios-developers-a9b45f34-a1a5-419f-b536-b7c290925d6d</loc>
-                <changefreq>monthly</changefreq>
-                <lastmod>2022-03-01T00:00:00.000Z</lastmod>
-                <priority>0.9</priority>
-            </url>
-            <url>
-                <loc>http://canopas.com/jobs/apply/ios-developers-a9b45f34-a1a5-419f-b536-b7c290925d6d</loc>
-                <changefreq>monthly</changefreq>
-                <lastmod>2022-03-01T00:00:00.000Z</lastmod>
-                <priority>0.9</priority>
-            </url>
-        </urlset>
+        [
+            {
+                "loc": "/services",
+                "changefreq": "monthly",
+                "lastmod": "2024-02-01T00:00:00.000Z",
+                "priority": "0.9"
+            },
+            {
+                "loc": "/portfolio",
+                "changefreq": "monthly",
+                "lastmod": "2024-02-01T00:00:00.000Z",
+                "priority": "0.9"
+            },
+            {
+                "loc": "/contributions",
+                "changefreq": "monthly",
+                "lastmod": "2024-02-01T00:00:00.000Z",
+                "priority": "0.9"
+            },
+            {
+                "loc": "/resources",
+                "changefreq": "monthly",
+                "lastmod": "2024-02-01T00:00:00.000Z",
+                "priority": "0.9"
+            },
+            {
+                "loc": "/blog",
+                "changefreq": "monthly",
+                "lastmod": "2024-02-01T00:00:00.000Z",
+                "priority": "0.9"
+            },
+        ]
 ```
 
 ### 6. Send New Leave Request mail

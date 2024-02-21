@@ -2,7 +2,7 @@ package sitemap
 
 import (
 	"embed"
-	"encoding/xml"
+	"encoding/json"
 	"jobs"
 	"net/http"
 	"net/http/httptest"
@@ -44,8 +44,8 @@ func TestSitemap(t *testing.T) {
 	engine.ServeHTTP(w, req)
 
 	assert.EqualValues(t, http.StatusOK, w.Code)
-	var response URLset
-	err = xml.Unmarshal(w.Body.Bytes(), &response)
+	var response []URL
+	err = json.Unmarshal(w.Body.Bytes(), &response)
 	if err != nil {
 		t.Fatalf("Error decoding response XML: %v", err)
 	}
@@ -67,15 +67,11 @@ func (faker *stubUtilsRepo) SaveJobsToSpreadSheet(input []string) {
 	/** this is stub method for adding jobs details in google spreadsheet */
 }
 
-func expectedSitemapData() URLset {
-	sitemap := URLset{}
+func expectedSitemapData() []URL {
+	sitemapUrls := []URL{}
+	sitemapUrls = append(sitemapUrls, expectedURLData()...)
 
-	sitemap.XMLName.Space = XMLNS
-	sitemap.XMLName.Local = "urlset"
-	sitemap.XMLNS = XMLNS
-	sitemap.URL = append(sitemap.URL, expectedURLData()...)
-
-	return sitemap
+	return sitemapUrls
 }
 
 func BeginningOfMonthDate(t time.Time) time.Time {
@@ -85,7 +81,7 @@ func BeginningOfMonthDate(t time.Time) time.Time {
 func expectedURLData() []URL {
 	t := time.Now()
 	dateFormat := "2006-01-02"
-	date := BeginningOfMonthDate(t).Format(dateFormat) + "T00:00:00.000Z"
+	date := BeginningOfMonthDate(t).Format(dateFormat) + "T00:00:00.000"
 	baseUrl := "http://localhost:8080"
 
 	sitemapUrls := []URL{
@@ -112,9 +108,6 @@ func expectedURLData() []URL {
 	}
 
 	for i := range sitemapUrls {
-		sitemapUrls[i].XMLName.Space = XMLNS
-		sitemapUrls[i].XMLName.Local = "url"
-		sitemapUrls[i].ChangeFreq = "monthly"
 		sitemapUrls[i].LastMod = date
 	}
 
