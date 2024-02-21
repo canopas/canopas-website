@@ -13,7 +13,7 @@
           <h1
             class="my-6 md:my-10 text-2xl md:text-3xl xl:text-4xl leading-7 tracking-none capitalize font-inter-semibold"
           >
-            {{ slug }}
+            {{ tagName }}
           </h1>
         </div>
         <div class="mt-4 md:mt-6 xl:mt-8">
@@ -49,6 +49,9 @@ let postLimit = 2;
 await useAsyncData("tags", () => store.loadTagBlogs(slug.value, 0, postLimit));
 
 posts.value = resources.value?.slice(0, postLimit);
+
+const tagName = posts.value[0].tags.filter((tag) => tag.slug === slug.value)[0]
+  .name;
 
 const handleScroll = () => {
   if (

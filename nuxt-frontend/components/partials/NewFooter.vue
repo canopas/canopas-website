@@ -40,48 +40,41 @@
   </div>
 </template>
 
-<script type="module">
+<script setup>
 import bg from "@/assets/images/footer/new-bg.svg";
 import Config from "@/config.js";
 
-export default {
-  data() {
-    return {
-      bg,
-      hover: false,
-      socialMediaIcons: [
-        {
-          url: Config.FACEBOOK_URL,
-          icon: "fa6-brands:facebook-f",
-          event: "tap_footer_facebook",
-        },
-        {
-          url: Config.INSTAGRAM_URL,
-          icon: "fa6-brands:instagram",
-          event: "tap_footer_instagram",
-        },
-        {
-          url: Config.TWITTER_URL,
-          icon: "fa6-brands:x-twitter",
-          event: "tap_footer_twitter",
-        },
-        {
-          url: Config.LINKEDIN_URL,
-          icon: "fa6-brands:linkedin-in",
-          event: "tap_footer_linkedin",
-        },
-        {
-          url: Config.YOUTUBE_URL,
-          icon: "fa6-brands:youtube",
-          event: "tap_footer_youtube",
-        },
-        {
-          url: Config.GITHUB_URL,
-          icon: "fa6-brands:github",
-          event: "tap_footer_github",
-        },
-      ],
-    };
+const hover = ref(false);
+const socialMediaIcons = [
+  {
+    url: Config.FACEBOOK_URL,
+    icon: "fa6-brands:facebook-f",
+    event: "tap_footer_facebook",
   },
-};
+  {
+    url: Config.INSTAGRAM_URL,
+    icon: "fa6-brands:instagram",
+    event: "tap_footer_instagram",
+  },
+  {
+    url: Config.TWITTER_URL,
+    icon: "fa6-brands:x-twitter",
+    event: "tap_footer_twitter",
+  },
+  {
+    url: Config.LINKEDIN_URL,
+    icon: "fa6-brands:linkedin-in",
+    event: "tap_footer_linkedin",
+  },
+  {
+    url: Config.YOUTUBE_URL,
+    icon: "fa6-brands:youtube",
+    event: "tap_footer_youtube",
+  },
+  {
+    url: Config.GITHUB_URL,
+    icon: "fa6-brands:github",
+    event: "tap_footer_github",
+  },
+];
 </script>

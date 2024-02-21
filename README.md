@@ -1,16 +1,21 @@
+<p align="center"><a href="https://canopas.com/contact"><img src="./assets/banner.png"></a></p>
+
 <h1 align="left"><strong>Website with intuitive UI designs</strong></h1>
 
 We intend to keep this open source. Plan is to keep the repository up to date with latest technologies and best practices.
 
 ## Showcase
 
-This repository contains the working code of [Canopas website](https://canopas.com). You can check out the link to view a live example of this repository.
-
-### [Home Page](https://canopas.com/)
+This repository contains the working code of [Canopas website](https://canopas.com).
+You can also check out [website](https://canopas.com/) to view a live example of this repository.
 
 ### [Services](https://canopas.com/services)
 
-### [Contributions](https://canopas.com/contributions)
+<p align="center"><a href="https://canopas.com/services"><img src="./assets/services.gif" /></a></p>
+
+### [portfolio](https://canopas.com/portfolio)
+
+<p align="center"><a href="https://canopas.com/services"><img src="./assets/portfolio.gif" /></a></p>
 
 ---
 
@@ -32,21 +37,21 @@ This repository contains the working code of [Canopas website](https://canopas.c
 
 # Key Features
 
-1. **Vuejs as Frontend:** Canopas website is built using Vue.js, a progressive JavaScript framework that offers a flexible and efficient way to build user interfaces. Vue.js is renowned for its simplicity and ease of integration, making it an ideal choice for creating dynamic and interactive web applications.
+1. **Nuxt 3 as Frontend:** Canopas website is built using Nuxt 3, a progressive JavaScript framework that offers a flexible and efficient way to build user interfaces. Nuxt is renowned for its simplicity and ease of integration, making it an ideal choice for creating dynamic and interactive web applications.
 
-2. **Go as Backend:** canopas website backend is developed using the Go programming language, commonly referred to as Golang. Go is a statically typed, compiled language designed for simplicity, efficiency, and concurrency. With its focus on performance and readability, Go offers a robust foundation for building scalable applications.
+2. **Go as Backend:** Backend is developed using Golang. Go is a statically typed, compiled language designed for simplicity, efficiency, and concurrency. With its focus on performance and readability, Go offers a robust foundation for building scalable applications.
 
-3. **Server Side Rendering:** We have used SSR(Server Side Rendering) in website to improve performance. Server will render UI in `<!--app-html-->` part of `vue-frontend/index.html`. Due to this, reformating of `index.html` can cause UI breaking.
+3. **Server Side Rendering:** We have used Nuxt's different rendering modes for the website. For static pages, its SSG and for dynamic pages, we used SSR/ISR.
 
 4. **SEO-friendly URLs and Metadata:** We prioritize SEO best practices to ensure that canopas website receive the visibility they deserve in search engines. From meta tags to URL structure and sitemaps, canopas website is equipped with all the essential elements for optimal SEO.
 
 5. **Responsive and Mobile-friendly Design:** We understand the importance of a mobile-friendly design in modern SEO. Canopas website is fully responsive and adapts seamlessly to various screen sizes, providing a positive user experience across devices.
 
-6. **CI/CD and Deployment:** With CI in place, every code change is automatically tested and integrated into the main codebase. This ensures that the main branch always remains stable, reducing the chances of bugs and allowing for rapid deployment. This repository contains AWS ECR/ECS and EC2 stack for frontend and backend deployment.
+6. **CI/CD and Deployment:** With CI in place, every code change is automatically tested and integrated into the main codebase. This ensures that the main branch always remains stable, reducing the chances of bugs and allowing for rapid deployment. This repository contains AWS Lambda, S3 and CloudFront stack for smooth deployment using cloudformation template.
 
 7. **Code formatting and linting:** Clean, readable, and consistent code is the foundation of any successful project. This website follows strict code formatting and linting rules, which are enforced through automated tools. This ensures that the codebase remains maintainable and adheres to industry best practices.
 
-8. **reCAPTCHA Integration:** Security is paramount, especially when it comes to user-generated content. Canopas website integrates reCAPTCHA, a widely trusted CAPTCHA service, to protect your site from spam and abuse while maintaining a user-friendly experience.
+8. **reCAPTCHA Integration:** Security is important aspect, especially when it comes to user-generated content. Canopas website integrates reCAPTCHA, a widely trusted CAPTCHA service, to protect your site from spam and abuse while maintaining a user-friendly experience.
 
 ---
 
@@ -54,7 +59,7 @@ This repository contains the working code of [Canopas website](https://canopas.c
 
 ## Requirements
 
-- Go 1.20
+- Go 1.21
 
 ## Setup
 
@@ -127,13 +132,14 @@ This repository contains the working code of [Canopas website](https://canopas.c
   [Here](https://github.com/canopas/canopas-website/blob/master/api-doc.md) is APIs reference used in the website.
 
 ### For generating sitemap :
+
 - Add your pages to templates/path.txt
 
 # Canopas website -- Frontend
 
 ## Requirements
 
-- Node18
+- Node20
 
 ## Setup
 
@@ -153,16 +159,6 @@ yarn dev
 
 ```
 yarn build
-```
-
-### Server side rendering
-
-```
-yarn build
-```
-
-```
-yarn serve
 ```
 
 You can access the page by pointing a web browser at http://localhost:8080.
@@ -231,6 +227,12 @@ git config core.hooksPath .githooks
 
 - Used for Animation.
 
+## Credits
+
+This repository is owned and maintained by the [Canopas team](https://canopas.com/). If you are interested in building web apps or designing products, please let us know. We'd love to hear from you!
+
+<a href="https://canopas.com/contact"><img src="./assets/cta.png" width=300></a>
+
 ## LICENSE
 
-Canopas is released under the [GNU V3](https://github.com/canopas/canopas-website/blob/master/LICENSE.md).
+Canopas website is released under the [GNU V3](https://github.com/canopas/canopas-website/blob/master/LICENSE.md).
