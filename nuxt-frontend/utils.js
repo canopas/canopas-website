@@ -106,7 +106,7 @@ function parseImageUrls(imageUrls) {
   return imageUrls.split(",").map((url) => url.trim());
 }
 
-function setPostFields(post, slug) {
+function setPostFields(post) {
   post = post.attributes ? post.attributes : post;
   const publishedDate = post.published_on;
   const [date] = formateDate(publishedDate);
@@ -116,36 +116,28 @@ function setPostFields(post, slug) {
     ? post.image.data?.attributes
     : post.image;
   post.image_url = postImg?.url || icon;
-  post.alternativeText = postImg?.alternativeText || post.title;
+  post.alternative_text = postImg?.alternative_text || post.title;
 
   const author = post.author?.data?.attributes
     ? post.author.data?.attributes
     : post.author;
-  post.authorName = author?.name || "author";
 
   const authorImg = author?.image?.data?.attributes
     ? author?.image.data?.attributes
     : author?.image;
 
-  post.authorSlug = author ? author.username : "";
-  post.authorImage = authorImg?.url || Avatar;
-  post.authorAltText = author ? author.username + " image" : "author";
-  post.authorBio = author?.bio || "";
-  post.authorRole = author?.role || "Editor for Canopas";
+  post.author = {
+    username: author?.username || "user",
+    name: author?.name || "author",
+    image: authorImg?.url || Avatar,
+    alt_text: author ? author.username + " image" : "author",
+    bio: author?.bio || "",
+    role: author?.role || "Editor for Canopas",
+  };
 
-  if (slug && post.tags && post.tags[0]) {
-    post.tags.map((tag) => {
-      if (tag.slug == slug) {
-        post.tagName = tag.name;
-      }
-    });
-  }
+  post.recommended_posts = post.recommendedPosts;
 
-  let newPost = post;
-  newPost.id = post.id;
-  newPost.tagName = post.tagName;
-
-  return newPost;
+  return post;
 }
 
 // Formate date and time from millis

@@ -31,7 +31,7 @@ export const useTagListStore = defineStore("tag-list", {
               .then((response) => {
                 let posts = [];
                 response.data.data.forEach((post) => {
-                  posts.push(setPostFields(post, slug));
+                  posts.push(setPostFields(post));
                 });
                 this.items = posts;
                 this.isLoading = false;

@@ -2,18 +2,17 @@
   <div v-if="!assets">
     <Header />
     <BlogDetail
-      :slug="slug"
       :mixpanel="$mixpanel"
-      :recaptchaKey="config.VITE_RECAPTCHA_SITE_KEY"
+      :recaptcha-key="config.VITE_RECAPTCHA_SITE_KEY"
       :post="post"
-      :websiteUrl="config.BASE_URL"
-      :contactApiUrl="config.API_BASE"
+      :website-url="config.BASE_URL"
+      :contact-api-url="config.API_BASE"
     />
     <BlogFooter
       :mixpanel="$mixpanel"
-      :socialMediaData="config.SOCIAL_MEDIA_DATA"
-      :apiUrl="config.STRAPI_URL"
-      :companyName="config.COMPANY_NAME"
+      :social-media-data="config.SOCIAL_MEDIA_DATA"
+      :api-url="config.STRAPI_URL"
+      :company-name="config.COMPANY_NAME"
     />
   </div>
 </template>
