@@ -11,7 +11,7 @@
       v-else
       :mixpanel="$mixpanel"
       :posts="posts"
-      :featurePosts="featurePosts"
+      :feature-posts="featurePosts"
       :count="count"
       :status="status"
     />
@@ -24,9 +24,9 @@
     >
       <BlogFooter
         :mixpanel="$mixpanel"
-        :socialMediaData="config.SOCIAL_MEDIA_DATA"
-        :apiUrl="config.STRAPI_URL"
-        :companyName="config.COMPANY_NAME"
+        :social-media-data="config.SOCIAL_MEDIA_DATA"
+        :api-url="config.STRAPI_URL"
+        :company-name="config.COMPANY_NAME"
       />
     </div>
   </div>

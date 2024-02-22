@@ -14,11 +14,11 @@
             <Icon
               name="fa6-solid:user"
               class="w-full h-full"
-              v-if="posts[0].authorImage == null"
+              v-if="posts[0].author.image == null"
             />
             <img
               v-else
-              :src="posts[0].authorImage"
+              :src="posts[0].author.image"
               :alt="slug"
               class="w-full h-full rounded-full"
             />
@@ -27,7 +27,7 @@
           <h1
             class="my-6 md:my-10 text-2xl md:text-3xl xl:text-4xl leading-7 tracking-none capitalize font-inter-semibold"
           >
-            {{ posts[0].authorName }}
+            {{ posts[0].author.name }}
           </h1>
         </nuxt-link>
         <div class="mb-6 md:mb-10">
@@ -37,9 +37,9 @@
     </section>
     <BlogFooter
       :mixpanel="$mixpanel"
-      :socialMediaData="config.SOCIAL_MEDIA_DATA"
-      :apiUrl="config.STRAPI_URL"
-      :companyName="config.COMPANY_NAME"
+      :social-media-data="config.SOCIAL_MEDIA_DATA"
+      :api-url="config.STRAPI_URL"
+      :company-name="config.COMPANY_NAME"
     />
   </div>
 </template>

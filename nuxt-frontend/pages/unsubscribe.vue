@@ -1,8 +1,8 @@
 <template>
   <div>
     <UnSubscribe
-      :companyTitle="config.COMPANY_TITLE"
-      :apiUrl="config.STRAPI_URL"
+      :company-title="config.COMPANY_TITLE"
+      :api-url="config.STRAPI_URL"
     />
   </div>
 </template>

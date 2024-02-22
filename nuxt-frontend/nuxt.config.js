@@ -16,7 +16,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/tailwindcss",
     "nuxt-icon",
-    "@canopassoftware/blog-components",
+    "@canopassoftware/nuxt-blog-kit",
     "nuxt-lazy-hydrate",
     "@nuxtjs/sitemap",
   ],

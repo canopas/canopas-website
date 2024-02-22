@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.22.15",
-    "@canopassoftware/blog-components": "^1.2.4",
+    "@canopassoftware/nuxt-blog-kit": "^1.0.1",
     "@ivanv/vue-collapse-transition": "^1.0.2",
     "@nuxt/devtools": "latest",
     "@nuxtjs/sitemap": "^5.1.0",
