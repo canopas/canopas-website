@@ -109,7 +109,7 @@
                     class="flex justify-between mt-[0.9375rem] md:mt-4 lg:mt-8 text-black-60"
                   >
                     <span class="w-auto sub-h4-regular lg:sub-h1-semibold">
-                      {{ blog.authorName }}
+                      {{ blog.author.name }}
                     </span>
                     <nuxt-link
                       :to="'/' + blog.slug"
