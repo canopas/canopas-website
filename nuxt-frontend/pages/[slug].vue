@@ -48,9 +48,8 @@ if (status.value !== config.SUCCESS) {
   });
 } else {
   post.value = postData?.value;
+  published_time = new Date(post.value?.published_on).toLocaleTimeString();
 }
-
-published_time = new Date(post?.value?.published_on).toLocaleTimeString();
 
 useHead({
   script: [
@@ -69,7 +68,7 @@ function seoData() {
     ogTitle: post.value.title,
     ogType: "article",
     ogImage: post.value.image_url,
-    ogUrl: config.BASE_URL + post.value.slug,
+    ogUrl: config.BASE_URL + "/" + post.value.slug,
     ogDescription: post.value.meta_description,
     twitterTitle: post.value.title,
     twitterDescription: post.value.meta_description,
@@ -80,15 +79,15 @@ function seoData() {
     twitterCta: "Read on Canopas",
     keywords: post.value.keywords,
     twitterTileInfo1Icon: "Person",
-    twitterTileInfo1Text: post.value.authorName,
+    twitterTileInfo1Text: post.value.author.name,
     twitterTileInfo2Icon: "Calendar",
     twitterTileInfo2Text: post.value.published_on,
     twitterImageSrc: post.value.image_url,
     twitterTileImage: post.value.image_url,
-    articleAuthor: post.value.authorName,
+    articleAuthor: post.value.author.name,
     articlePublished_time: published_time,
     ogSite_name: "Canopas blogs",
-    author: post.value.authorName,
+    author: post.value.author.name,
   };
 }
 
@@ -101,19 +100,20 @@ function getJsonLdSchema() {
     publisher: {
       "@type": "Organization",
       name: "Canopas",
-      url: "https://canopas.com/",
+      url: config.BASE_URL,
     },
-    url: config.BASE_URL + post.value.slug,
+    url: config.BASE_URL + "/" + post.value.slug,
     datePublished: post.value.published_on,
     dateModified: post.value.published_on,
     description: post.value.meta_description,
     author: {
       "@type": "Person",
-      name: post.value.authorName,
+      name: post.value.author.name,
     },
     mainEntityOfPage: {
       "@type": "Blog Website",
-      "@id": "https://canopas.com/resources",
+      "@id":
+        "https://canopas.com/" + post.value.is_resource ? "blog" : "resources",
     },
   };
 }
