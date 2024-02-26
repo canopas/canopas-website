@@ -400,7 +400,7 @@ onMounted(() => {
   recaptchaScript.setAttribute(
     "src",
     "https://www.google.com/recaptcha/enterprise.js?render=" +
-      config.VITE_RECAPTCHA_SITE_KEY
+      config.VITE_RECAPTCHA_SITE_KEY,
   );
   recaptchaScript.setAttribute("async", "true");
   recaptchaScript.setAttribute("defer", "true");
@@ -442,7 +442,6 @@ function showOptions(refer) {
 }
 function previewFiles(event) {
   file.value = event.target.files[0];
-  console.log(file.value);
   if (file.value.name != null) {
     fileButtonName.value = file.value.name;
 
@@ -451,7 +450,6 @@ function previewFiles(event) {
       : fileButtonName.value;
   }
   if (file.value.type == "application/pdf") {
-    console.log(file.value.type);
     imagePreview.src = pdfPreview;
   } else {
     imagePreview.src = filePreview;
@@ -524,7 +522,7 @@ function submitApplication() {
         ? reference.value + " - " + referenceBy.value
         : reference.value && reference.value != ""
         ? reference.value
-        : "NA"
+        : "NA",
     );
 
     formData.append("file", file.value, fileName);
@@ -533,7 +531,7 @@ function submitApplication() {
       "message",
       message.value
         ? message.value.replace(/\n/g, "<br>\n").replace(/\./g, ".\n")
-        : "NA"
+        : "NA",
     );
     formData.append("save_record_to_spreadsheet", config.IS_PROD);
     formData.append("save_data_to_database", config.IS_PROD);
@@ -558,7 +556,7 @@ function submitApplication() {
 
               localStorage.setItem(
                 "applicant-name",
-                JSON.stringify(fullName.value)
+                JSON.stringify(fullName.value),
               );
               fullName.value = "";
               email.value = "";

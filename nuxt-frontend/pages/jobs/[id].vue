@@ -135,6 +135,7 @@ async function setCareerDetails() {
 
 function setBulletsAndIconsInDescription() {
   let descriptionTitles = job.value.description?.match(/<h2>(.*?)<\/h2>/g);
+  
   for (let i = 0; i < descriptionTitles?.length; i++) {
     if (descriptionTitles[i]) {
       let title = descriptionTitles[i].replace(/<(\/*).[^>]*>/g, "");
@@ -220,6 +221,7 @@ function getDescriptionForGoogleSchema() {
 
   //convert string to array
   let descContent = html.split("\n");
+
   //remove empty string
   descContent.forEach(function (element, i) {
     if (descContent[i].length == 0) {
