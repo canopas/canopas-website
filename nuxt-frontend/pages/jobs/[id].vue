@@ -155,7 +155,7 @@ function setBulletsAndIconsInDescription() {
         descriptionLists[i],
         '<li class="mb-2 sub-h3-medium lg:mobile-header-3-medium text-black-60"><span class="chevron right pr-2 !border-black-60 !border-r-2 !border-t-2"></span>' +
           list +
-          "</li>"
+          "</li>",
       );
     }
   }
