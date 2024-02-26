@@ -1,13 +1,13 @@
 <template>
-  <div class="text-center m-0 p-0 relative">
-    <div class="desk-header-2 text-black-87">Why Canopas?</div>
+  <div class="m-0 p-0 relative">
+    <div class="text-center desk-header-2 text-black-87">Why Canopas?</div>
     <img
       :src="WhyCanopasImage"
       alt="why-canopas-image"
       loading="lazy"
       class="w-full h-full left-0 absolute object-contain -z-[5]"
     />
-    <div class="container flex my-[150px] mx-auto m-0 p-0 relative">
+    <div class="container flex my-[9.375rem] mx-auto m-0 p-0 relative">
       <div
         v-for="reason in reasons"
         :key="reason"

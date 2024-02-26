@@ -25,11 +25,11 @@
     </div>
     <div
       v-else
-      class="rounded-2xl border overflow-hidden my-0 mx-[2%] mt-8 lg:mt-[4.5rem] md:mx-[6%]"
+      class="rounded-2xl border overflow-hidden mx-[2%] mt-8 lg:mt-[4.5rem] md:mx-[6%]"
     >
       <div
         v-if="careers.length == 0"
-        class="text-center py-3.5 px-0 normal-text"
+        class="text-center py-3.5 px-0 sub-h2-medium"
       >
         No matching jobs found
       </div>
@@ -115,7 +115,7 @@
               </div>
             </div>
           </collapse-transition>
-          <div class="bg-[#e2e2e2] h-px" v-if="index <= careers.length"></div>
+          <div class="bg-black-8 h-px" v-if="index <= careers.length"></div>
         </div>
       </div>
     </div>

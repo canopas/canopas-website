@@ -5,25 +5,25 @@
 
     <div v-else>
       <div
-        class="container mt-[30px] lg:mt-20 mx-auto mb-[150px] lg:py-0 lg:px-40 overflow-hidden"
+        class="container my-16 lg:mt-[7.5rem] mx-auto lg:py-0 lg:px-40 overflow-hidden"
       >
         <div
-          class="border border-solid border-[#e2e2e2] rounded-[15px] py-8 px-6 md:pt-12 md:px-12 md:pb-0"
+          class="border border-solid border-black-8 rounded-[15px] py-8 px-6 md:pt-12 md:pb-[4.5rem] md:px-12 md:pb-0"
         >
-          <div class="header-2-text text-center pb-4">
-            <h1 class="canopas-gradient-text">Applying For {{ job.title }}</h1>
-          </div>
-
-          <form
-            class="text-[#3d3d3dcc] text-[1rem] md:text-[1.125rem] pt-12 pb-12"
+          <h1
+            class="text-black-87 text-center mobile-header-3-semibold lg:desk-header-3"
           >
+            Applying For {{ job.title }}
+          </h1>
+
+          <form class="pt-12">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div class="mb-2">
-                <label class="after:content-['*'] after:text-[#ff0000]"
+                <label class="sub-h3-regular lg:sub-h1-regular text-black-60"
                   >Full Name</label
                 >
                 <input
-                  class="block w-full border border-solid border-[#e2e2e2] rounded-[10px] text-[#3d3d3d] text-[1.125rem] mt-[5px] py-2.5 px-4 focus:border focus:border-solid focus:border-[#e2e2e2] focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed"
+                  class="block w-full border border-solid border-black-8 rounded-[10px] sub-h3-regular lg:mobile-header-3-regular text-black-87 mt-[0.313rem] py-2.5 px-4 focus:border focus:border-solid focus:border-black-8 focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed"
                   type="text"
                   name="fullname"
                   autocomplete="given-name"
@@ -37,17 +37,17 @@
                 />
                 <span
                   v-if="showNameValidationError"
-                  class="error text-red-600 text-[1rem]"
+                  class="error text-red-600 sub-h3-regular"
                   >Name is required</span
                 >
               </div>
 
               <div class="mb-2">
-                <label class="after:content-['*'] after:text-[#ff0000]"
+                <label class="sub-h3-regular lg:sub-h1-regular text-black-60"
                   >Email</label
                 >
                 <input
-                  class="block w-full border border-solid border-[#e2e2e2] rounded-[10px] text-[#3d3d3d] text-[1.125rem] mt-[5px] py-[10px] px-4 focus:border focus:border-solid focus:border-[#e2e2e2] focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed"
+                  class="block w-full border border-solid border-black-8 rounded-[10px] sub-h3-regular lg:mobile-header-3-regular text-black-87 mt-[0.313rem] py-2.5 px-4 focus:border focus:border-solid focus:border-black-8 focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed"
                   type="text"
                   name="email"
                   id="email"
@@ -63,22 +63,22 @@
                 />
                 <span
                   v-if="showEmailValidationError"
-                  class="error text-red-600 text-[1rem]"
+                  class="error text-red-600 sub-h3-regular"
                   >Email is required</span
                 >
                 <span
                   v-if="email.trim().length != 0 && showValidEmailError"
-                  class="error text-red-600 text-[1rem]"
+                  class="error text-red-600 sub-h3-regular"
                   >Please enter valid email address</span
                 >
               </div>
 
               <div class="mb-[0.5rem]">
-                <label class="after:content-['*'] after:text-[#ff0000]"
+                <label class="sub-h3-regular lg:sub-h1-regular text-black-60"
                   >Phone Number</label
                 >
                 <input
-                  class="block w-full border border-solid border-[#e2e2e2] rounded-[10px] text-[#3d3d3d] text-[1.125rem] mt-[5px] py-2.5 px-4 focus:border focus:border-solid focus:border-[#e2e2e2] focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed"
+                  class="block w-full border border-solid border-black-8 rounded-[10px] sub-h3-regular lg:mobile-header-3-regular text-black-87 mt-[0.313rem] py-2.5 px-4 focus:border focus:border-solid focus:border-black-8 focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed"
                   type="tel"
                   name="phonenumber"
                   autocomplete="tel"
@@ -94,20 +94,22 @@
                 <span id="phoneError"></span>
                 <span
                   v-if="showPhoneValidationError"
-                  class="error text-red-600 text-[1rem]"
+                  class="error text-red-600 sub-h3-regular"
                   >Phone number is required</span
                 >
                 <span
                   v-if="phoneNumber.trim().length != 0 && showValidPhoneError"
-                  class="error text-red-600 text-[1rem]"
+                  class="error text-red-600 sub-h3-regular"
                   >Please enter valid phone number</span
                 >
               </div>
 
               <div class="mb-2">
-                <label>City</label>
+                <label class="sub-h3-regular lg:sub-h1-regular text-black-60"
+                  >City</label
+                >
                 <input
-                  class="block w-full border border-solid border-[#e2e2e2] rounded-[10px] text-[#3d3d3d] text-[1.125rem] mt-[5px] py-2.5 px-4 focus:border focus:border-solid focus:border-[#e2e2e2] focus:outline-hidden focus:outline-0 disabled:opacity-[0.8] disabled:cursor-not-allowed"
+                  class="block w-full border border-solid border-black-8 rounded-[10px] sub-h3-regular lg:mobile-header-3-regular text-black-87 mt-[0.313rem] py-2.5 px-4 focus:border focus:border-solid focus:border-black-8 focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed"
                   type="text"
                   name="city"
                   autocomplete="address-level2"
@@ -117,9 +119,11 @@
               </div>
 
               <div class="mb-2">
-                <label class="">How did you find Canopas?</label>
+                <label class="sub-h3-regular lg:sub-h1-regular text-black-60"
+                  >How did you find Canopas?</label
+                >
                 <div
-                  class="relative mt-[5px] w-full h-[50px] outline-hidden outline-0 before:content-[''] before:absolute before:top-5 before:right-5 before:z-[1] before:w-2 before:h-2 before:border-2 before:border-solid before:border-[#00000080] before:border-t-2 before:border-t-[#fff] before:border-r-2 before:border-r-[#fff] before:rotate-[-45deg] before:duration-[0.5s] before:pointer-events-none"
+                  class="relative mt-[0.313rem] w-full h-[3.125rem] outline-hidden outline-0 before:content-[''] before:absolute before:top-5 before:right-5 before:z-[1] before:w-2 before:h-2 before:border-2 before:border-solid before:border-black-core before:border-t-2 before:border-t-white before:border-r-2 before:border-r-white before:rotate-[-45deg] before:duration-[0.5s] before:pointer-events-none"
                   v-on:click.stop="
                     isShowReferenceOption = !isShowReferenceOption
                   "
@@ -127,7 +131,7 @@
                 >
                   <div>
                     <input
-                      class="absolute top-0 left-0 w-full h-full cursor-pointer bg-[#fff] border border-solid border-[#e2e2e2] outline-hidden outline-0 py-3 px-4 rounded-[10px]"
+                      class="absolute top-0 left-0 w-full h-full cursor-pointer bg-white border border-solid border-black-8 outline-hidden outline-0 py-3 px-4 rounded-[10px]"
                       name="howdidyoufindcanopas"
                       type="text"
                       placeholder="Choose any option"
@@ -141,10 +145,10 @@
                     :style="{
                       display: isShowReferenceOption ? 'block' : 'none',
                     }"
-                    class="absolute top-[50px] z-[1] w-full bg-[#fff] overflow-hidden hidden shadow-[0_5px_20px_rgba(0,0,0,0.1)] rounded-[10px] border border-solid border-[#0000000d]"
+                    class="absolute top-[3.125rem] z-[1] w-full bg-white overflow-hidden hidden shadow-[0_5px_20px_rgba(0,0,0,0.1)] rounded-[10px] border border-solid"
                   >
                     <div
-                      class="py-3 px-3 cursor-pointer hover:bg-[#e2e2e280]"
+                      class="p-3 cursor-pointer sub-h1-regular lg:mobile-header-3-regular text-black-60"
                       v-for="refer in references"
                       :key="refer"
                       @click="showOptions(refer)"
@@ -156,9 +160,11 @@
               </div>
 
               <div v-if="isShowingReferenceInput" class="mb-8 reference-input">
-                <label class="">Reference</label>
+                <label class="sub-h3-regular lg:sub-h1-regular text-black-60"
+                  >Reference</label
+                >
                 <input
-                  class="block w-full border border-solid border-[#e2e2e2] rounded-[10px] text-[#3d3d3d] text-[1.125rem] mt-[5px] py-2.5 px-4 focus:border focus:border-solid focus:border-[#e2e2e2] focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed reference-by-input"
+                  class="block w-full border border-solid border-black-8 rounded-[10px] sub-h3-regular text-black-87 mt-[0.313rem] py-2.5 px-4 focus:border focus:border-solid focus:border-black-8 focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed reference-by-input"
                   type="text"
                   name="referenceby"
                   autocomplete="given-reference-name"
@@ -169,10 +175,10 @@
               </div>
 
               <div class="md:col-span-2 mb-2">
-                <label
+                <label class="sub-h3-regular lg:sub-h1-regular text-black-60"
                   >Message
                   <textarea
-                    class="block w-full min-h-[100px] border border-solid border-[#e2e2e2] rounded-[10px] text-[#3d3d3d] text-[1.125rem] mt-[5px] py-2.5 px-4 focus:border focus:border-solid focus:border-[#e2e2e2] focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed hidden-scrollbar whitespace-pre-wrap"
+                    class="block w-full min-h-[100px] border border-solid border-black-8 rounded-[10px] sub-h3-regular lg:mobile-header-3-regular text-black-87 mt-[0.313rem] py-2.5 px-4 focus:border focus:border-solid focus:border-black-8 focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed hidden-scrollbar whitespace-pre-wrap"
                     name="message"
                     rows="4"
                     v-model="message"
@@ -182,58 +188,65 @@
                 </label>
               </div>
 
-              <div class="">
-                <label class="after:content-['*'] after:text-[#ff0000]"
+              <div class="md:col-span-2">
+                <label class="sub-h3-regular lg:sub-h1-regular text-black-60"
                   >Resume
                 </label>
                 <br />
-                <label class="text-[#999]">
-                  <i>Supported formats:</i
-                  ><span class="black pl-2">PDF and Docs </span>
-                  <i>only</i>
-                </label>
-              </div>
-              <div class="flex">
-                <button
-                  type="button"
-                  class="resume-upload-btns bg-[#fff] text-[#3d3d3d] truncate border break-normal border-solid border-[#e2e2e2] shadow-none outline-hidden outline-0 py-2.5 px-12 rounded-[10px] h-[50px] focus:outline-hidden focus:outline-0"
-                  @click="chooseFiles()"
+                <div
+                  class="border border-dashed rounded-md flex flex-col items-center p-[1.875rem]"
                 >
-                  {{ fileButtonName }}
-                </button>
-                <input
-                  id="fileUpload"
-                  ref="fileUpload"
-                  type="file"
-                  class="block border border-solid border-[#e2e2e2] rounded-[10px] text-[#3d3d3d] text-[1.125rem] mt-[15px] focus:border focus:border-solid focus:border-[#e2e2e2] focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed custom-file-input w-0 opacity-0 p-0 pr-2.5"
-                  name="resume"
-                  accept="application/pdf,.doc,.docx"
-                  @change="previewFiles"
-                  required
-                  @input="showFileValidationError = fileUpload === ''"
-                  aria-label="file upload"
-                />
-
-                <span
-                  v-if="showFileValidationError"
-                  class="mt-2.5 error text-red-600 text-[1rem]"
-                  >Resume is required</span
-                >
+                  <div class="flex">
+                    <button
+                      class="sub-h3-semibold lg:mobile-header-3-semibold v2-canopas-gradient-text"
+                      @click="chooseFiles()"
+                    >
+                      <img
+                        id="imagePreview"
+                        :src="placeHolder"
+                        alt="Image Preview"
+                        class="mb-1 placeholder-img h-9 w-9 mx-auto"
+                      />
+                      {{ fileButtonName }}
+                    </button>
+                    <input
+                      id="fileUpload"
+                      ref="fileUpload"
+                      type="file"
+                      class="block border border-solid border-black-8 rounded-[10px] mt-[15px] focus:border focus:border-solid focus:border-black-8 focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed custom-file-input w-0 opacity-0 p-0 pr-2.5"
+                      name="resume"
+                      accept="application/pdf,.doc,.docx"
+                      @change="previewFiles"
+                      required
+                      @input="showFileValidationError = fileUpload === ''"
+                      aria-label="file upload"
+                    />
+                  </div>
+                  <div class="mt-1 sub-h4-regular text-black-60">
+                    Supported formats: PDF and Docs only
+                  </div>
+                  <div
+                    v-if="showFileValidationError"
+                    class="mt-2.5 error text-red-600 sub-h3-regular"
+                  >
+                    Resume is required
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-center mt-8">
+            <div class="flex items-center mt-6 lg:mt-10">
               <label
-                class="relative block mb-[15px] ml-2 pl-[35px] text-[1.125rem] leading-[1.688rem] font-inter-medium text-black-core/[0.87] box cursor-pointer"
+                class="relative block ml-2 pl-[2.188rem] sub-h4-regular lg:sub-h5-medium text-black-87 box cursor-pointer"
                 for="checkbox"
                 >I acknowledge that Canopas does not conduct remote interviews
                 and does not offer remote job positions.
                 <input type="checkbox" id="checkbox" checked />
                 <span
-                  class="absolute top-0 left-0 mt-[5px] h-6 w-6 border-2 border-solid border-[#999999] rounded after:absolute after:hidden after:content-[''] mark after:left-[9px] after:bottom-[7px] after:w-1.5 after:h-3.5 after:border-solid after:border-[#fff] after:border-t-0 after:border-r-[3px] after:border-b-[3px] after:border-l-0 after:rotate-[45deg]"
+                  class="absolute top-[0.188rem] left-0 h-4 w-4 border-2 border-solid border-black-8 rounded after:absolute after:hidden after:content-[''] mark after:left-[0.313rem] after:bottom-1 after:w-1.5 after:h-3 after:border-solid after:border-white after:border-t-0 after:border-r-2 after:border-b-2 after:border-l-0 after:rotate-[45deg]"
                 ></span>
               </label>
             </div>
-            <div class="flex justify-center mt-4">
+            <div class="flex justify-center mt-6 lg:mt-10">
               <img
                 class="mt-5 mx-auto mb-0 py-0 px-16 md:px-20 lg:mt-5 lg:mx-2 lg:mb-0"
                 :src="loaderImage"
@@ -246,25 +259,22 @@
                 >
                   <span
                     v-if="showErrorMessage"
-                    class="flex mr-0 sm:mr-10 md:mr-14 xl:mr-[8.5rem] 2xl:mr-[11.5rem] text-center text-red-600 text-[1.3rem] sm:text-[1.5rem]"
+                    class="flex mr-0 sm:mr-10 md:mr-14 xl:mr-[8.5rem] 2xl:mr-[11.5rem] text-center text-red-600 sub-h1-regular"
                     :class="
                       errorMessage == 'Invalid Recaptcha score'
-                        ? '!text-[1.5rem] leading-8 sm:!mr-[6.5rem] md:!mr-32 lg:!mr-[7.5rem] xl:!mr-48 2xl:!mr-60'
+                        ? '!mobile-header-2-regular sm:!mr-[6.5rem] md:!mr-32 lg:!mr-[7.5rem] xl:!mr-48 2xl:!mr-60'
                         : ''
                     "
                     >{{ errorMessage }}</span
                   >
                 </div>
                 <button
-                  class="gradient-btn !rounded-full px-16 md:px-20"
+                  class="gradient-btn primary-btn"
                   @click.prevent="submitApplication()"
                 >
-                  <Icon
-                    class="fa"
-                    name="fa6-regular:circle-check"
-                    aria-hidden="true"
-                  />
-                  <span>Apply Now</span>
+                  <span class="sub-h3-semibold lg:sub-h1-semibold"
+                    >Apply Now</span
+                  >
                 </button>
               </div>
             </div>
@@ -283,6 +293,9 @@ import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import axios from "axios";
 import config from "@/config.js";
 import { useJobDetailStore } from "@/stores/jobs";
+import pdfPreview from "@/assets/images/pdf-icon.png";
+import filePreview from "@/assets/images/file-icon.png";
+import placeHolder from "@/assets/images/placeholder.png";
 
 import loaderImage from "@/assets/images/theme/small-loader.svg";
 import { useRoute } from "vue-router";
@@ -362,7 +375,7 @@ const showFileValidationError = ref(false);
 const showErrorMessage = ref(false);
 const showLoader = ref(false);
 const isShowReferenceOption = ref(false);
-const fileButtonName = ref("Upload");
+const fileButtonName = ref("Upload a file");
 const errorMessage = ref("Something went wrong on our side");
 const fileUpload = ref(null);
 
@@ -387,7 +400,7 @@ onMounted(() => {
   recaptchaScript.setAttribute(
     "src",
     "https://www.google.com/recaptcha/enterprise.js?render=" +
-      config.VITE_RECAPTCHA_SITE_KEY,
+      config.VITE_RECAPTCHA_SITE_KEY
   );
   recaptchaScript.setAttribute("async", "true");
   recaptchaScript.setAttribute("defer", "true");
@@ -429,12 +442,19 @@ function showOptions(refer) {
 }
 function previewFiles(event) {
   file.value = event.target.files[0];
+  console.log(file.value);
   if (file.value.name != null) {
     fileButtonName.value = file.value.name;
 
     fileButtonName.value.length > 10
       ? fileButtonName.value.substr(0, 20) + "..."
       : fileButtonName.value;
+  }
+  if (file.value.type == "application/pdf") {
+    console.log(file.value.type);
+    imagePreview.src = pdfPreview;
+  } else {
+    imagePreview.src = filePreview;
   }
 }
 function chooseFiles() {
@@ -455,7 +475,7 @@ function validateForm() {
   showNameValidationError.value = fullName.value.trim().length === 0;
   showEmailValidationError.value = email.value.trim().length === 0;
   showPhoneValidationError.value = phoneNumber.value.trim().length === 0;
-  showFileValidationError.value = fileButtonName.value === "Upload";
+  showFileValidationError.value = fileButtonName.value === "Upload a file";
 
   return (
     showNameValidationError.value ||
@@ -503,8 +523,8 @@ function submitApplication() {
         referenceBy.value != ""
         ? reference.value + " - " + referenceBy.value
         : reference.value && reference.value != ""
-          ? reference.value
-          : "NA",
+        ? reference.value
+        : "NA"
     );
 
     formData.append("file", file.value, fileName);
@@ -513,7 +533,7 @@ function submitApplication() {
       "message",
       message.value
         ? message.value.replace(/\n/g, "<br>\n").replace(/\./g, ".\n")
-        : "NA",
+        : "NA"
     );
     formData.append("save_record_to_spreadsheet", config.IS_PROD);
     formData.append("save_data_to_database", config.IS_PROD);
@@ -538,7 +558,7 @@ function submitApplication() {
 
               localStorage.setItem(
                 "applicant-name",
-                JSON.stringify(fullName.value),
+                JSON.stringify(fullName.value)
               );
               fullName.value = "";
               email.value = "";
@@ -548,7 +568,7 @@ function submitApplication() {
               referenceBy.value = "";
               message.value = "";
               fileUpload.value = null;
-              fileButtonName.value = "Upload";
+              fileButtonName.value = "Upload a file";
               $mixpanel.track("job_apply_success");
             })
             .catch((err) => {
@@ -586,7 +606,7 @@ input[type="checkbox"] {
   @apply invisible;
 }
 .box input:checked + .mark {
-  @apply bg-[#f2709c] border-0;
+  @apply bg-primary-1 border-0;
 }
 
 .box input:checked + .mark:after {

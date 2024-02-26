@@ -40,33 +40,30 @@
           class="container max-w-full px-4 py-12 sm:max-w-[540px] md:max-w-[720px] md:px-24 md:pb-[150px] md:pt-24 lg:max-w-[960px] xl:max-w-[1140px] 2xl:max-w-[1320px]"
         >
           <h1
-            class="canopas-gradient-text text-center text-[1.75rem] font-bold leading-8 tracking-[0.1rem] md:text-[2.25rem] md:leading-[2.729rem]"
+            class="text-center mobile-header-2 lg:desk-header-2 text-black-87"
           >
             {{ job.title }}
           </h1>
-          <hr class="m-0 mt-6 border border-solid border-[#e2e2e2]" />
-          <div class="summary-text mt-12">
+          <hr class="m-0 mt-4 lg:mt-6 border border-black-8" />
+          <div
+            class="sub-h1-regular lg:mobile-header-2-regular text-black-60 mt-4 lg:mt-10"
+          >
             {{ job.summary }}
           </div>
           <div class="mt-12">
             <div
               id="description"
-              class="normal-text"
+              class="sub-h1-semibold lg:mobile-header-2-semibold text-black-87"
               v-html="job.description"
             ></div>
           </div>
-          <div class="mt-12 flex justify-center text-[1rem] md:text-[1.125rem]">
+          <div class="mt-12 flex justify-center">
             <nuxt-link
               @click.native="$mixpanel.track('tap_job_read_more_apply_now')"
-              class="gradient-btn flex items-center px-16 py-4 md:px-20 md:py-4"
+              class="gradient-btn primary-btn"
               :to="jobLink"
             >
-              <Icon
-                class="fa text-[1.1rem] sm:text-[1.3rem]"
-                name="fa6-regular:circle-check"
-                aria-hidden="true"
-              />
-              <span class="tracking-[0.06rem]">Apply Now</span>
+              <span class="sub-h3-semibold lg:sub-h1-semibold">Apply Now</span>
             </nuxt-link>
           </div>
         </div>
@@ -137,14 +134,21 @@ async function setCareerDetails() {
 }
 
 function setBulletsAndIconsInDescription() {
+  console.log(job);
   let descriptionTitles = job.value.description?.match(/<h2>(.*?)<\/h2>/g);
+  let qualification = job.value.qualification;
+  console.log(qualification);
+  job.value.qualification = job.value.qualification.replace(
+    qualification,
+    '<div class="text-2xl">' + job.value.qualification + "</div>"
+  );
 
   for (let i = 0; i < descriptionTitles?.length; i++) {
     if (descriptionTitles[i]) {
       let title = descriptionTitles[i].replace(/<(\/*).[^>]*>/g, "");
       job.value.description = job.value.description.replace(
         descriptionTitles[i],
-        '<h2><span class="bullet"></span><strong>' + title + "</strong></h2>",
+        '<h2><span class="bullet"></span>' + title + "</h2>"
       );
     }
   }
@@ -156,7 +160,9 @@ function setBulletsAndIconsInDescription() {
       let list = descriptionLists[i].replace(/<(\/*).[^>]*>/g, "");
       job.value.description = job.value.description.replace(
         descriptionLists[i],
-        '<li><span class="chevron right pr-2 "></span>' + list + "</li>",
+        '<li class="mb-2 sub-h3-medium lg:mobile-header-3-medium text-black-60"><span class="chevron right pr-2 !border-black-60 !border-r-2 !border-t-2"></span>' +
+          list +
+          "</li>"
       );
     }
   }
@@ -222,7 +228,7 @@ function getDescriptionForGoogleSchema() {
 
   //convert string to array
   let descContent = html.split("\n");
-
+  console.log(descContent);
   //remove empty string
   descContent.forEach(function (element, i) {
     if (descContent[i].length == 0) {
@@ -247,7 +253,7 @@ function getDescriptionForGoogleSchema() {
     if (i == descContent.length - 1) {
       descContent[i] = element.replace(
         element,
-        "<ul><li>" + element + "</li></ul>",
+        "<ul><li>" + element + "</li></ul>"
       );
     }
   });

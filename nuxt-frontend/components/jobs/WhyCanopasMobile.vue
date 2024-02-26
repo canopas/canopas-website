@@ -1,28 +1,28 @@
 <template>
-  <div class="text-center container max-w-full mt-16 relative">
-    <div class="mobile-header-2 text-black-87">Why Canopas?</div>
+  <div class="mt-16 relative">
+    <div class="text-center mobile-header-2 text-black-87">Why Canopas?</div>
     <img
       :src="WhyCanopasImage"
       alt="why-canopas-image"
       loading="lazy"
-      class="image w-full h-full top-0 left-0 absolute object-contain sm:object-cover"
+      class="w-full h-full top-0 left-0 absolute object-contain sm:object-cover"
     />
     <div class="my-12 mx-auto w-full">
       <div
         v-for="reason in reasons"
         :key="reason"
-        class="reason flex justify-end relative py-5 px-0 even:flex-row-reverse animate__animated"
+        class="flex justify-end relative py-5 px-0 even:flex-row-reverse animate__animated"
         ref="whyCanopasMobile"
       >
         <div
           :class="reason.class"
-          class="content my-auto mx-5 basis-[70%] flex flex-col"
+          class="my-auto mx-5 basis-[70%] flex flex-col"
         >
           <img
             :src="reason.bullet"
             alt="why-canopas-image"
             loading="lazy"
-            class="bullets w-[3.125rem] h-[3.125rem] -mr-5"
+            class="w-[3.125rem] h-[3.125rem] -mr-5"
           />
           <div class="mobile-header-3-semibold text-black-87">
             {{ reason.title }}
@@ -35,7 +35,7 @@
           :src="reason.image"
           alt="why-canopas-image"
           loading="lazy"
-          class="reason-image w-[7.875rem] h-full"
+          class="w-[7.875rem] h-full"
         />
       </div>
     </div>

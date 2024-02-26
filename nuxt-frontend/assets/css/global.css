@@ -262,6 +262,9 @@
   .sub-h4-semibold {
     @apply font-inter-semibold text-xs leading-[1.125rem];
   }
+  .sub-h5-medium {
+    @apply font-inter-medium text-sm leading-[1.313rem];
+  }
   .background-text {
     @apply font-inter-regular text-[2.5rem] leading-[1.875rem] lg:text-7xl lg:leading-[4.5rem];
   }
