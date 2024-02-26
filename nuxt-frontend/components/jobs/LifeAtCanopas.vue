@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div
-      class="container normal-text px-5 pt-[3.125rem] pb-[1.875rem] md:px-[3.125rem] md:pt-[6.25rem] md:pb-[3.125rem] lg:pt-[14.063rem] text-center"
-    >
-      <div class="header-text canopas-gradient-text">
-        <span class="underline-text">Life a</span>t Canopas
+    <div class="container mt-16 lg:mt-60 text-center">
+      <div class="mobile-header-2 lg:desk-header-2 text-primary-1">
+        Life at Canopas
       </div>
-      <div class="description mx-auto my-[30px] md:my-[50px]">
+      <div
+        class="xl:w-[90%] 2xl:w-[77%] xl:mx-auto sub-h1-regular lg:mobile-header-2-regular text-black-60 mt-4 lg:mt-6 mb-8 lg:mb-[4.5rem]"
+      >
         We wanted to create an environment that helps you get out of bed in the
         morning and an office that creates excellent work and encourages fun. As
         we play the infinite game, it is not about winning or losing, it's about
@@ -43,7 +43,7 @@
         <swiper-slide v-for="(slider, index) in slides" :key="index">
           <aspect-ratio
             height="66%"
-            class="mb-[80px] border-solid border-transparent border"
+            class="mb-20 border-solid border-transparent border"
           >
             <img
               @click.native="$mixpanel.track('click_life_photo')"
@@ -109,10 +109,10 @@ export default {
 @import "swiper/css/pagination";
 
 .swiper-pagination-bullet {
-  @apply !w-[15px] !h-[15px] !rounded-[3px] !bg-transparent !border !border-solid !border-[#3d3d3d];
+  @apply !w-[0.938rem] !h-[0.938rem] !rounded-[3px] !bg-transparent !border !border-solid !border-black-80;
 }
 
 .swiper-pagination-bullet-active {
-  @apply !border-none !from-[#F69259] !to-[#F16975] !bg-gradient-[45deg];
+  @apply !border-none !from-orange-300 !to-pink-300 !bg-gradient-[45deg];
 }
 </style>
