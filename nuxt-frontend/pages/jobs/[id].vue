@@ -134,21 +134,13 @@ async function setCareerDetails() {
 }
 
 function setBulletsAndIconsInDescription() {
-  console.log(job);
   let descriptionTitles = job.value.description?.match(/<h2>(.*?)<\/h2>/g);
-  let qualification = job.value.qualification;
-  console.log(qualification);
-  job.value.qualification = job.value.qualification.replace(
-    qualification,
-    '<div class="text-2xl">' + job.value.qualification + "</div>"
-  );
-
   for (let i = 0; i < descriptionTitles?.length; i++) {
     if (descriptionTitles[i]) {
       let title = descriptionTitles[i].replace(/<(\/*).[^>]*>/g, "");
       job.value.description = job.value.description.replace(
         descriptionTitles[i],
-        '<h2><span class="bullet"></span>' + title + "</h2>"
+        '<h2><span class="bullet"></span><strong>' + title + "</strong></h2>",
       );
     }
   }
@@ -228,7 +220,6 @@ function getDescriptionForGoogleSchema() {
 
   //convert string to array
   let descContent = html.split("\n");
-  console.log(descContent);
   //remove empty string
   descContent.forEach(function (element, i) {
     if (descContent[i].length == 0) {
@@ -253,7 +244,7 @@ function getDescriptionForGoogleSchema() {
     if (i == descContent.length - 1) {
       descContent[i] = element.replace(
         element,
-        "<ul><li>" + element + "</li></ul>"
+        "<ul><li>" + element + "</li></ul>",
       );
     }
   });

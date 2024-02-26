@@ -89,7 +89,7 @@ module.exports = {
         flamingo: "#F05138",
         "soft-yellow": "#F1E05A",
         "sea-green": "#41B883",
-        "gray-40": "#666666"
+        "gray-40": "#666666",
       },
       borderRadius: {
         "x-lg": "20px",
