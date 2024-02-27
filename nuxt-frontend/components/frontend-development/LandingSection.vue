@@ -15,7 +15,7 @@
           visually stunning, high-performing, and user-centric interfaces.
         </p>
         <nuxt-link
-          class="white-btn gradient-border-btn primary-btn border-none ml-0 mt-6 hidden lg:flex"
+          class="gradient-btn primary-btn border-none ml-0 mt-6 hidden lg:flex"
           to="/contact"
           @click.native="$mixpanel.track('tap_frontend_landing_cta')"
         >
@@ -35,7 +35,7 @@
         />
       </div>
       <nuxt-link
-        class="white-btn gradient-border-btn primary-btn border-none lg:hidden"
+        class="gradient-btn primary-btn border-none lg:hidden"
         to="/contact"
         @click.native="$mixpanel.track('tap_frontend_landing_cta')"
       >

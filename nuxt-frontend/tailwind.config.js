@@ -228,6 +228,15 @@ module.exports = {
             backgroundSize: "100%",
           },
         },
+        popUp: {
+          "0%": {
+            transform: "scale(0)",
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: 1,
+          },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",
@@ -249,6 +258,7 @@ module.exports = {
         moveUp: "moveUp 1s ease-in-out",
         fadeInLeft: "fadeInLeft 1s ease-in-out",
         moveIn: "moveIn 0.5s ease-in-out",
+        popUp: "popUp 0.3s linear forwards",
       },
       zIndex: {
         "-1": "-1",
@@ -309,6 +319,14 @@ module.exports = {
           "radial-gradient(84% 76.48% at 50% 50%, #E7F2FF 0%, rgba(255, 191, 171, 0) 100%)",
         "ios-landing-background":
           "linear-gradient(184deg, #FFF 18.82%, rgba(249, 133, 132, 0.10) 52.46%, rgba(244, 118, 149, 0.10)67.02%)",
+          "web-gradient-background":
+          "linear-gradient(180deg, #FFF 0.13%, rgba(242, 112, 156, 0.3) 28.03%, rgba(255, 148, 114, 0.3) 58.27%, #FFF 90%)",
+        "luxeradio-gradient-background":
+          "linear-gradient(179deg, #FFF 1.45%, rgba(199, 27, 47, 0.3) 33.43%, rgba(210, 174, 67, 0.3) 66.39%, #FFF 98.32%)",
+        "web-desk-gradient-background":
+          "linear-gradient(218deg, #FFF 5.58%, rgba(242, 112, 156, 0.3) 35.04%, rgba(255, 148, 114, 0.3) 70.11%, #FFF 100%)",
+        "luxeradio-desk-gradient-background":
+          "linear-gradient(221deg, #FFF 5.17%, rgba(199, 27, 47, 0.3) 36.97%, rgba(210, 174, 67, 0.3) 70.28%, #FFF 95.97%)",
       },
     },
   },

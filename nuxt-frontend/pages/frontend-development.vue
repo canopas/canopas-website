@@ -1,9 +1,8 @@
 <template>
-  <div>
-    <Header />
-    <LandingSection />
-    <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
-  </div>
+  <Header />
+  <LandingSection />
+  <CaseStudySection />
+  <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
 </template>
 <script>
 import Header from "@/components/partials/NewHeader.vue";
@@ -11,6 +10,9 @@ import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/frontend-development/LandingSection.vue";
+const CaseStudySection = defineAsyncComponent(
+  () => import("@/components/frontend-development/CaseStudySection.vue"),
+);
 export default {
   beforeRouteEnter(to, from, next) {
     if (!config.SHOW_FRONTEND_DEVELOPMENT_PAGE) {
@@ -25,6 +27,7 @@ export default {
   components: {
     Header,
     LandingSection,
+    CaseStudySection,
     NewFooter,
   },
   setup() {
