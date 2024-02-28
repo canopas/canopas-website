@@ -2,6 +2,7 @@
   <div>
     <Header />
     <LandingSection />
+    <DevelopmentSection />
     <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
   </div>
 </template>
@@ -11,6 +12,7 @@ import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/frontend-development/LandingSection.vue";
+import DevelopmentSection from "@/components/frontend-development/DevelopmentSection.vue";
 export default {
   beforeRouteEnter(to, from, next) {
     if (!config.SHOW_FRONTEND_DEVELOPMENT_PAGE) {
@@ -25,6 +27,7 @@ export default {
   components: {
     Header,
     LandingSection,
+    DevelopmentSection,
     NewFooter,
   },
   setup() {
