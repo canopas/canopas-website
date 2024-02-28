@@ -319,7 +319,7 @@ module.exports = {
           "radial-gradient(84% 76.48% at 50% 50%, #E7F2FF 0%, rgba(255, 191, 171, 0) 100%)",
         "ios-landing-background":
           "linear-gradient(184deg, #FFF 18.82%, rgba(249, 133, 132, 0.10) 52.46%, rgba(244, 118, 149, 0.10)67.02%)",
-          "web-gradient-background":
+        "web-gradient-background":
           "linear-gradient(180deg, #FFF 0.13%, rgba(242, 112, 156, 0.3) 28.03%, rgba(255, 148, 114, 0.3) 58.27%, #FFF 90%)",
         "luxeradio-gradient-background":
           "linear-gradient(179deg, #FFF 1.45%, rgba(199, 27, 47, 0.3) 33.43%, rgba(210, 174, 67, 0.3) 66.39%, #FFF 98.32%)",
