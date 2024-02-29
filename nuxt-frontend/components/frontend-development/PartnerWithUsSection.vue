@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-deep-charcoal text-white 3xl:outer-container">
+  <section class="bg-white-smoke text-black-87 3xl:outer-container">
     <div class="py-14 lg:py-[7.5rem] container">
       <!-- ---------------------MOBILE UI START------------------ -->
       <div class="flex flex-col gap-8 lg:hidden">
@@ -18,7 +18,7 @@
                 item.title
               }}</span>
               <span
-                class="sub-h3-regular text-white-core-80"
+                class="sub-h3-regular text-black-60"
                 v-html="item.description"
               ></span>
             </div>
@@ -27,7 +27,7 @@
         <nuxt-link
           class="gradient-btn primary-btn mt-0"
           to="/contact"
-          @click.native="$mixpanel.track('tap_backend_partner_with_us_cta')"
+          @click.native="$mixpanel.track('tap_frontend_partner_with_us_cta')"
         >
           <span class="sub-h3-semibold">Let’s Work Together</span></nuxt-link
         >
@@ -38,7 +38,7 @@
       <div id="partner-with-us" class="hidden lg:block h-[150vh]">
         <div class="sticky top-0 h-[110vh] xl:top-4 xl:h-[100vh] main">
           <div
-            class="absolute -translate-y-1/2 top-1/2 text-white"
+            class="absolute -translate-y-1/2 top-1/2 text-black-87"
             :class="[isAnimated ? '!flex flex-1' : 'left-1/2 -translate-x-1/2']"
           >
             <div class="flex-col my-auto" :class="{ '!flex': isAnimated }">
@@ -81,7 +81,7 @@
                 :class="[!isAnimated ? 'hidden' : '']"
                 to="/contact"
                 @click.native="
-                  $mixpanel.track('tap_backend_partner_with_us_cta')
+                  $mixpanel.track('tap_frontend_partner_with_us_cta')
                 "
               >
                 <span class="sub-h3-semibold lg:sub-h1-semibold"
@@ -93,7 +93,9 @@
               class="gradient-btn primary-btn mt-[5.69rem]"
               :class="{ '!hidden': isAnimated }"
               to="/contact"
-              @click.native="$mixpanel.track('tap_backend_partner_with_us_cta')"
+              @click.native="
+                $mixpanel.track('tap_frontend_partner_with_us_cta')
+              "
             >
               <span class="sub-h3-semibold lg:sub-h1-semibold"
                 >Let’s Work Together</span
@@ -125,7 +127,7 @@
                     >{{ item.title }}</span
                   >
                   <span
-                    class="sub-h3-regular xl:mobile-header-3-regular text-white-core-80"
+                    class="sub-h3-regular xl:mobile-header-3-regular text-black-60"
                     v-html="item.description"
                   ></span>
                 </div>
@@ -139,9 +141,9 @@
   </section>
 </template>
 <script setup>
-import maintainance from "@/assets/images/backend-development/partnerwithus/maintanance.webp";
-import moneyback from "@/assets/images/backend-development/partnerwithus/moneyback.webp";
-import user from "@/assets/images/backend-development/partnerwithus/user.webp";
+import maintainance from "@/assets/images/frontend-development/partnerwithus/maintainance.webp";
+import moneyback from "@/assets/images/frontend-development/partnerwithus/moneyback.webp";
+import user from "@/assets/images/frontend-development/partnerwithus/user.webp";
 const { $mixpanel } = useNuxtApp();
 const isAnimated = ref(false);
 const isVisible = ref(false);

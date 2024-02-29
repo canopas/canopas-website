@@ -3,6 +3,7 @@
     <Header />
     <LandingSection />
     <DevelopmentSection />
+    <PartnerWithUsSection />
     <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
   </div>
 </template>
@@ -13,6 +14,9 @@ import config from "@/config.js";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/frontend-development/LandingSection.vue";
 import DevelopmentSection from "@/components/frontend-development/DevelopmentSection.vue";
+const PartnerWithUsSection = defineAsyncComponent(
+  () => import("@/components/frontend-development/PartnerWithUsSection.vue"),
+);
 export default {
   beforeRouteEnter(to, from, next) {
     if (!config.SHOW_FRONTEND_DEVELOPMENT_PAGE) {
@@ -28,6 +32,7 @@ export default {
     Header,
     LandingSection,
     DevelopmentSection,
+    PartnerWithUsSection,
     NewFooter,
   },
   setup() {
