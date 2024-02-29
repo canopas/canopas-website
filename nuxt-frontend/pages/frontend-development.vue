@@ -4,6 +4,7 @@
     <LandingSection />
     <DevelopmentSection />
     <PartnerWithUsSection />
+    <SuccessStorySection />
     <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
   </div>
 </template>
@@ -11,11 +12,15 @@
 import Header from "@/components/partials/NewHeader.vue";
 import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
+import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
 import LandingSection from "@/components/frontend-development/LandingSection.vue";
 import DevelopmentSection from "@/components/frontend-development/DevelopmentSection.vue";
 const PartnerWithUsSection = defineAsyncComponent(
   () => import("@/components/frontend-development/PartnerWithUsSection.vue"),
+);
+const SuccessStorySection = defineAsyncComponent(
+  () => import("@/components/frontend-development/SuccessStorySection.vue"),
 );
 export default {
   beforeRouteEnter(to, from, next) {
@@ -33,6 +38,7 @@ export default {
     LandingSection,
     DevelopmentSection,
     PartnerWithUsSection,
+    SuccessStorySection,
     NewFooter,
   },
   setup() {
