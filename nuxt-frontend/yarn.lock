@@ -1667,10 +1667,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@canopassoftware/nuxt-blog-kit@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@canopassoftware/nuxt-blog-kit/-/nuxt-blog-kit-1.0.1.tgz#c3c30b26f329da92ee8f0e0edd72bfbf8ba7b3da"
-  integrity sha512-+Wyt76VR8by3pnqagZMn27jZH50TdTnrWucU1Bjc5xpMhst66XjVqW7jCFkfeP6/GtLwgeB2Dou4JEVqIjpGuw==
+"@canopassoftware/nuxt-blog-kit@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@canopassoftware/nuxt-blog-kit/-/nuxt-blog-kit-1.0.2.tgz#5dc401b2fe591aedcebfbd833f246db76bb5f7f9"
+  integrity sha512-KfbrEq+TrlvD0Z3tAweth1Xms0DWYKMozICbRdP6PYuGmqM4AmMQ9bjUWOyQST5GTXAFt0ejT/gX12NrO6LgYw==
   dependencies:
     "@nuxt/kit" "^3.7.4"
     "@pinia/nuxt" "^0.5.0"
