@@ -5,12 +5,15 @@
     <DevelopmentSection />
     <PartnerWithUsSection />
     <SuccessStorySection />
+    <BlogSection />
+    <CtaSection />
+    <FaqSection />
     <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
   </div>
 </template>
+
 <script>
 import Header from "@/components/partials/NewHeader.vue";
-import NewFooter from "@/components/partials/NewFooter.vue";
 import config from "@/config.js";
 import { defineAsyncComponent } from "vue";
 import { elementInViewPort } from "@/utils.js";
@@ -22,6 +25,19 @@ const PartnerWithUsSection = defineAsyncComponent(
 const SuccessStorySection = defineAsyncComponent(
   () => import("@/components/frontend-development/SuccessStorySection.vue"),
 );
+const BlogSection = defineAsyncComponent(
+  () => import("@/components/frontend-development/BlogSection.vue"),
+);
+const CtaSection = defineAsyncComponent(
+  () => import("@/components/frontend-development/CtaSection.vue"),
+);
+const FaqSection = defineAsyncComponent(
+  () => import("@/components/frontend-development/FaqSection.vue"),
+);
+const NewFooter = defineAsyncComponent(
+  () => import("@/components/partials/NewFooter.vue"),
+);
+
 export default {
   beforeRouteEnter(to, from, next) {
     if (!config.SHOW_FRONTEND_DEVELOPMENT_PAGE) {
@@ -39,6 +55,9 @@ export default {
     DevelopmentSection,
     PartnerWithUsSection,
     SuccessStorySection,
+    BlogSection,
+    CtaSection,
+    FaqSection,
     NewFooter,
   },
   setup() {
@@ -54,6 +73,7 @@ export default {
       ogUrl: seoData.url,
       ogImage: seoData.image,
     });
+
     let event = "";
     let events = {
       footer: "view_frontend_development_footer",
