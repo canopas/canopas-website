@@ -152,7 +152,7 @@ export default {
         {
           category: "iOS Weekly",
           image: ios,
-          author: "Amisha L",
+          author: "Amisha I",
           readtime: "2 min read",
           title: "iOS Stack Weekly",
           content:
