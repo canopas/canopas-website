@@ -214,12 +214,8 @@ module.exports = {
           },
         },
         zoomEffect: {
-          "0%": {
-            transform: " scale(1) translateX(0)",
-          },
-          "100%": {
-            transform: " scale(1.2) translateX(15%)",
-          },
+          "0%": { transform: "scale(1.3, 1.3);" },
+          "100%": { transform: "scale(1.3, 1.3);" },
         },
         mulitpleUnderlineOut: {
           "0%": {
@@ -246,7 +242,7 @@ module.exports = {
         fadeUp: "fadeUp 4s ease-in",
         fadeSlide: "fadeIn 4s ease-in-out",
         fadeSlideOut: "fadeOut 2.5s ease-in-out",
-        zoomEffect: "zoomEffect 0.5s ease forwards",
+        zoomEffect: "zoomEffect 40s ease-in",
         moveUp: "moveUp 1s ease-in-out",
         fadeInLeft: "fadeInLeft 1s ease-in-out",
         moveIn: "moveIn 0.5s ease-in-out",
