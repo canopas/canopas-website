@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="mt-16 md:mt-40 lg:-mt-48 xl:-mt-[32rem] 2xl:mt-[-30rem] 3xl:outer-container"
-  >
+  <section class="mt-16 lg:mt-0 3xl:outer-container">
     <div class="container">
       <div class="flex flex-col text-center">
         <span class="mobile-header-2 lg:desk-header-2 text-black-87"

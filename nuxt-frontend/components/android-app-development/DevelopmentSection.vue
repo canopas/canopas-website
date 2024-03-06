@@ -1,193 +1,201 @@
 <template>
-  <div class="mt-16 md:mt-40 xl:mt-60 bg-white h-[70%]">
-    <div class="sticky-parent">
-      <div class="lg:sticky lg:!top-[128px] 3xl:!top-[500px]">
-        <div class="container flex flex-col text-center xll:-mb-72">
-          <span
-            class="mobile-header-2 lg:desk-header-2 text-black-87 lg:!mx-0 lg:!w-full xs:mx-auto xs:w-[71%]"
+  <div class="mt-16 lg:my-60">
+    <div class="container flex flex-col text-center">
+      <span
+        class="mobile-header-2 lg:desk-header-2 text-black-87 lg:!mx-0 lg:!w-full xs:mx-auto xs:w-[71%]"
+      >
+        Android app development services</span
+      >
+      <span
+        class="mt-4 md:mt-6 sub-h1-regular lg:mobile-header-2-regular text-black-60"
+        >With over a decade of expertise in Android app development, our team
+        can help you craft high- quality, user-friendly apps that drive business
+        growth and customer engagement.</span
+      >
+    </div>
+    <!-- ---------------------MOBILE UI START------------------ -->
+    <div class="swiper-content !mt-6 md:!mt-12 lg:hidden">
+      <swiper
+        :slidesPerView="1.1"
+        :centeredSlides="true"
+        :spaceBetween="10"
+        :modules="modules"
+        class="swiper-container"
+        @swiper="setSwiperRef"
+        :breakpoints="{
+          '768': {
+            slidesPerView: 1.3,
+          },
+          '992': {
+            slidesPerView: 1.5,
+          },
+          '1200': {
+            slidesPerView: 1.6,
+          },
+          '1400': {
+            slidesPerView: 1.9,
+          },
+          '1600': {
+            slidesPerView: 2.1,
+          },
+          '1800': {
+            slidesPerView: 2.4,
+          },
+          '2000': {
+            slidesPerView: 2.6,
+          },
+          '2200': {
+            slidesPerView: 2.8,
+          },
+          '2500': {
+            slidesPerView: 3.2,
+          },
+          '2800': {
+            slidesPerView: 3.8,
+          },
+          '3500': {
+            slidesPerView: 4.5,
+          },
+        }"
+      >
+        <swiper-slide
+          v-for="(item, index) in items"
+          :key="index"
+          class="cursor-pointer"
+        >
+          <div
+            class="mr-4 rounded-[1.25rem] px-4 py-6 md:w-[34.7rem] lg:w-[40.75rem] xl:!w-[45.75rem]"
+            :class="[item.bgColor]"
           >
-            Android app development services</span
-          >
-          <span
-            class="mt-4 md:mt-6 sub-h1-regular lg:mobile-header-2-regular text-black-60"
-            >With over a decade of expertise in Android app development, our
-            team can help you craft high- quality, user-friendly apps that drive
-            business growth and customer engagement.</span
-          >
-        </div>
-        <!-- ---------------------MOBILE UI START------------------ -->
-        <div class="swiper-content !mt-6 md:!mt-12 lg:hidden">
-          <swiper
-            :slidesPerView="1.1"
-            :centeredSlides="true"
-            :spaceBetween="10"
-            :modules="modules"
-            class="swiper-container"
-            @swiper="setSwiperRef"
-            :breakpoints="{
-              '768': {
-                slidesPerView: 1.3,
-              },
-              '992': {
-                slidesPerView: 1.5,
-              },
-              '1200': {
-                slidesPerView: 1.6,
-              },
-              '1400': {
-                slidesPerView: 1.9,
-              },
-              '1600': {
-                slidesPerView: 2.1,
-              },
-              '1800': {
-                slidesPerView: 2.4,
-              },
-              '2000': {
-                slidesPerView: 2.6,
-              },
-              '2200': {
-                slidesPerView: 2.8,
-              },
-              '2500': {
-                slidesPerView: 3.2,
-              },
-              '2800': {
-                slidesPerView: 3.8,
-              },
-              '3500': {
-                slidesPerView: 4.5,
-              },
-            }"
-          >
-            <swiper-slide
-              v-for="(item, index) in items"
-              :key="index"
-              class="cursor-pointer"
-            >
-              <div
-                class="mr-4 rounded-[1.25rem] px-4 py-6 md:w-[34.7rem] lg:w-[40.75rem] xl:!w-[45.75rem]"
-                :class="[item.bgColor]"
-              >
-                <div
-                  class="justify-left mb-5 flex flex-row items-center space-x-4"
+            <div class="justify-left mb-5 flex items-center space-x-4">
+              <img
+                alt="development-icon"
+                :src="item.icon"
+                class="h-10 w-10 object-contain lg:hidden"
+                loading="lazy"
+              />
+              <span class="mobile-header-3 text-black-87">{{
+                item.title
+              }}</span>
+            </div>
+            <div class="sub-h3-regular text-black-60 lg:p-4">
+              <ul class="pl-8 pr-4 lg:hidden">
+                <li
+                  v-for="list in item.description"
+                  :key="list"
+                  class="mb-3.5 list-disc"
                 >
-                  <img
-                    alt="development-icon"
-                    :src="item.icon"
-                    class="h-10 w-10 object-contain lg:hidden"
-                    loading="lazy"
-                  />
-                  <span class="mobile-header-3 text-black-87">{{
-                    item.title
-                  }}</span>
-                </div>
-                <div class="sub-h3-regular text-black-60 lg:p-4">
-                  <ul class="pl-8 pr-4 lg:hidden">
-                    <li
-                      v-for="list in item.description"
-                      :key="list"
-                      class="mb-3.5 list-disc"
-                    >
-                      {{ list }}
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </swiper-slide>
-          </swiper>
-        </div>
-        <!-- ---------------------MOBILE UI END------------------ -->
-
-        <!-- ---------------------DESKTOP UI START------------------ -->
-
-        <div class="sticky main overflow-hidden hidden lg:block">
-          <div class="flex">
-            <div
-              v-for="(item, index) in items"
-              :key="index"
-              class="cursor-pointer -mt-12 xll:mt-[43rem] min-w-[100vw] h-[900px] xl:h-full"
-            >
-              <div
-                class="relative !-mr-2 mb-12 mt-24 xl:mt-[6.5rem] xll:-mt-60"
-              >
-                <div
-                  class="border-b-2 border-dotted border-[#000000]/[0.6] text-center"
-                ></div>
-              </div>
-              <div
-                class="absolute top-[2%] xl:top-[15px] xll:top-[37.5%] ml-[45%] xll:ml-[47%] hidden h-20 !bg-white text-center lg:block 2xll:ml-[47%] xll:ml-[48%]"
-              >
-                <span
-                  class="text-center mobile-header-1 lg:desk-header-1 text-black-87"
-                >
-                  0{{ index + 1 }}</span
-                >
-              </div>
-              <div
-                class="ml-auto xll:ml-[12%] xll:ml-auto rounded-[1.25rem] p-[1.88rem] !w-[39.75rem] xl:!w-[45rem] mx-auto"
-                :class="[item.bgColor]"
-              >
-                <div class="justify-left flex flex-row items-center">
-                  <img
-                    alt="development-icon"
-                    :src="item.icon"
-                    class="h-10 w-10 object-contain lg:hidden"
-                    loading="lazy"
-                  />
-                  <span
-                    class="font-opensans-semibold text-black-87 desk-header-3"
-                    >{{ item.title }}</span
-                  >
-                </div>
-                <div
-                  class="text-black-60 sub-h3-medium lg:mobile-header-3-medium"
-                >
-                  <ul class="pl-8 pr-4 lg:hidden">
-                    <li
-                      v-for="list in item.description"
-                      :key="list"
-                      class="mb-3.5 list-disc"
-                    >
-                      {{ list }}
-                    </li>
-                  </ul>
-                  <p
-                    v-for="list in item.description"
-                    :key="list"
-                    class="mt-4 hidden lg:block"
-                  >
-                    {{ list }}
-                  </p>
-                </div>
-              </div>
+                  {{ list }}
+                </li>
+              </ul>
             </div>
           </div>
+        </swiper-slide>
+      </swiper>
+    </div>
+    <!-- ---------------------MOBILE UI END------------------ -->
+
+    <!-- ---------------------DESKTOP UI START------------------ -->
+
+    <div class="hidden lg:flex flex-col container mt-16">
+      <div class="flex gap-10 justify-center items-center -ml-4">
+        <div
+          v-for="(item, index) in items"
+          :key="index"
+          :class="[
+            activeIndex == index
+              ? 'border-primary-1 bg-white animate-zoomEffect'
+              : '',
+            index == 4 || index == 0 ? item.className : '',
+          ]"
+          class="flex justify-center items-center w-12 w-12 rounded-full border-2 border-black-8"
+          @mouseover="slideTo(index), (activeIndex = index)"
+          @touchstart.passive="slideTo(index), (activeIndex = index)"
+          @touchmove.passive="slideTo(index), (activeIndex = index)"
+        >
+          <img
+            v-if="activeIndex != index"
+            :src="item.image[0]"
+            alt="development-service-image"
+            class="p-2.5 h-[2.875rem] w-[2.875rem] object-cover"
+          />
+          <img
+            v-else
+            :src="item.image[1]"
+            alt="development-service-image"
+            class="p-2 object-cover"
+          />
         </div>
       </div>
+      <div class="swiper-content">
+        <swiper
+          :slidesPerView="1"
+          :centeredSlides="true"
+          :spaceBetween="20"
+          :speed="1500"
+          :modules="modules"
+          class="swiper-container flex"
+          @swiper="setSwiperRef"
+          @slideChange="onSlideChange"
+        >
+          <swiper-slide
+            v-for="(item, index) in items"
+            :key="index"
+            class="lg:px-8 2xl:px-11"
+          >
+            <div class="desk-header-3 text-primary-1 text-center mt-4">
+              {{ item.title }}
+            </div>
+            <div
+              class="p-10 xl:w-4/5 2xl:w-[70%] h-full mx-auto bg-white drop-shadow-[0px_0px_26px_rgba(0,0,0,0.08)] rounded-xl mt-6 mb-5"
+            >
+              <p
+                v-for="list in item.description"
+                :key="list"
+                class="mb-6 mobile-header-3-medium text-black-60"
+              >
+                {{ list }}
+              </p>
+            </div>
+          </swiper-slide>
+        </swiper>
+      </div>
     </div>
-    <div
-      class="hidden lg:block h-[25vh] xl:h-[70vh] xll:h-[60vh] w-screen"
-    ></div>
+
     <!-- ---------------------DESKTOP UI END------------------ -->
   </div>
 </template>
 
 <script type="module">
-import consultation from "@/assets/images/andriod-app-development/development/1.webp";
-import design from "@/assets/images/andriod-app-development/development/2.webp";
-import custom from "@/assets/images/andriod-app-development/development/3.webp";
-import app from "@/assets/images/andriod-app-development/development/4.webp";
-import maintenance from "@/assets/images/andriod-app-development/development/5.webp";
+import { Zoom, Autoplay, Pagination } from "swiper/modules";
+import mobile_consultation from "@/assets/images/andriod-app-development/development/1.webp";
+import mobile_design from "@/assets/images/andriod-app-development/development/2.webp";
+import mobile_custom from "@/assets/images/andriod-app-development/development/3.webp";
+import mobile_app from "@/assets/images/andriod-app-development/development/4.webp";
+import mobile_maintenance from "@/assets/images/andriod-app-development/development/5.webp";
+import consultation from "@/assets/images/ios-app-development/development/consultation.webp";
+import design from "@/assets/images/ios-app-development/development/design.webp";
+import development from "@/assets/images/ios-app-development/development/development.webp";
+import deployment from "@/assets/images/ios-app-development/development/deployment.webp";
+import maintenance from "@/assets/images/ios-app-development/development/maintenance.webp";
+import activeconsultation from "@/assets/images/ios-app-development/development/activeconsultation.webp";
+import activedesign from "@/assets/images/ios-app-development/development/activedesign.webp";
+import activedevelopment from "@/assets/images/ios-app-development/development/activedevelopment.webp";
+import activedeployment from "@/assets/images/ios-app-development/development/activedeployment.webp";
+import activemaintenance from "@/assets/images/ios-app-development/development/activemaintenance.webp";
 import { Swiper, SwiperSlide } from "swiper/vue";
 export default {
   data() {
     return {
+      modules: [Zoom, Autoplay, Pagination],
+      activeIndex: 0,
+      swiper: null,
       items: [
         {
           title: "Android App Development Consultation",
           bgColor: "bg-pink-40",
-          icon: consultation,
+          icon: mobile_consultation,
+          image: [consultation, activeconsultation],
           description: [
             "At Canopas, we believe that a successful project begins with a thorough understanding of your vision, goals, and market dynamics.",
 
@@ -199,7 +207,8 @@ export default {
         {
           title: "Android UI/UX Design",
           bgColor: "bg-[#F8F8F8]",
-          icon: design,
+          icon: mobile_design,
+          image: [design, activedesign],
           description: [
             "At Canopas, our design philosophy is centered on creating intuitive, user-friendly, and visually stunning interfaces that resonate with your target audience.",
 
@@ -211,7 +220,8 @@ export default {
         {
           title: "Custom Android Application Development",
           bgColor: "bg-pink-40",
-          icon: custom,
+          icon: mobile_custom,
+          image: [development, activedevelopment],
           description: [
             "Our approach to development is rooted in agility and focused collaboration.  We build in two-week sprints where our team devotes their complete energy and attention to sculpting the foundation of your app.",
 
@@ -223,7 +233,8 @@ export default {
         {
           title: "Android App Deployment",
           bgColor: "bg-[#F8F8F8]",
-          icon: app,
+          icon: mobile_app,
+          image: [deployment, activedeployment],
           description: [
             "Launching your Android app into the marketplace involves more than just hitting 'publish'. At Canopas, we'll guide you through this crucial deployment phase with careful planning, meticulous testing, and comprehensive support.",
 
@@ -235,7 +246,8 @@ export default {
         {
           title: "Maintenance and Support",
           bgColor: "bg-pink-40",
-          icon: maintenance,
+          icon: mobile_maintenance,
+          image: [maintenance, activemaintenance],
           description: [
             "Post-deployment, we monitor the app's performance and user feedback closely, ready to make quick updates or fixes if needed. Our maintenance and support services ensure your app stays relevant, competitive, and effective in the face of new devices, OS updates, and emerging user expectations.",
 
@@ -247,31 +259,19 @@ export default {
       ],
     };
   },
-  mounted() {
-    let sticky = document.querySelector(".main");
-    let stickyParent = document.querySelector(".sticky-parent");
-
-    let scrollWidth = sticky.scrollWidth;
-    let verticalScrollHeight =
-      stickyParent.getBoundingClientRect().height -
-      sticky.getBoundingClientRect().height;
-
-    function horizontalScroll() {
-      let scrolled = stickyParent.getBoundingClientRect().top;
-
-      if (scrolled > 0) {
-        sticky.scrollLeft = 0;
-      } else {
-        sticky.scrollLeft =
-          (scrollWidth / verticalScrollHeight) * -scrolled * 0.9;
-      }
-    }
-    document.addEventListener("scroll", horizontalScroll);
+  methods: {
+    onSlideChange() {
+      this.activeIndex = this.swiperRef.realIndex;
+    },
+    setSwiperRef(swiper) {
+      this.swiperRef = swiper;
+      this.activeIndex = this.swiperRef.realIndex;
+    },
+    slideTo(index) {
+      this.activeIndex = index;
+      this.swiperRef.slideTo(index);
+    },
   },
-  beforeDestroy() {
-    document.removeEventListener("scroll", this.horizontalScroll);
-  },
-
   components: {
     Swiper,
     SwiperSlide,
@@ -281,7 +281,4 @@ export default {
 
 <style lang="postcss" scoped>
 @import "swiper/css";
-.sticky-parent {
-  @apply lg:h-[700vh] xll:!h-[400vh];
-}
 </style>
