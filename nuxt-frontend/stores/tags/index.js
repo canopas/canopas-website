@@ -24,7 +24,11 @@ export const useTagListStore = defineStore("tag-list", {
           slug +
           "?populate=deep&publicationState=live";
         axios
-          .get(config.STRAPI_URL + "/favicon.ico")
+          .request({
+            timeout: 2000,
+            method: "GET",
+            url: config.STRAPI_URL + "/favicon.ico",
+          })
           .then(() => {
             axios
               .get(url)

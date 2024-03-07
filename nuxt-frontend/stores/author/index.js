@@ -36,7 +36,11 @@ export const useAuthorListStore = defineStore("authors", {
           limitQuery;
 
         axios
-          .get(config.STRAPI_URL + "/favicon.ico")
+          .request({
+            timeout: 2000,
+            method: "GET",
+            url: config.STRAPI_URL + "/favicon.ico",
+          })
           .then(() => {
             axios
               .get(url)
