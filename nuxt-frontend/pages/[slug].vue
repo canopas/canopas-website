@@ -1,13 +1,15 @@
 <template>
   <div v-if="!assets">
     <Header />
-    <BlogDetail
-      :mixpanel="$mixpanel"
-      :recaptcha-key="config.VITE_RECAPTCHA_SITE_KEY"
-      :post="post"
-      :website-url="config.BASE_URL"
-      :contact-api-url="config.API_BASE"
-    />
+    <div :class="post.is_resource ? '' : 'container pl-0'">
+      <BlogDetail
+        :mixpanel="$mixpanel"
+        :recaptcha-key="config.VITE_RECAPTCHA_SITE_KEY"
+        :post="post"
+        :website-url="config.BASE_URL"
+        :contact-api-url="config.API_BASE"
+      />
+    </div>
     <BlogFooter
       :mixpanel="$mixpanel"
       :social-media-data="config.SOCIAL_MEDIA_DATA"
