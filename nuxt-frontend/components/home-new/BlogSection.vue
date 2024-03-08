@@ -1,5 +1,8 @@
 <template>
-  <section v-if="activeBlog" class="my-16 lg:my-60 text-black-87 h-full">
+  <section
+    v-if="activeBlog"
+    class="my-16 lg:mt-60 lg:mb-44 text-black-87 h-full"
+  >
     <div class="container flex flex-col items-center m-auto w-full">
       <div class="container">
         <p class="text-white-smoke background-text text-center">Blogs</p>

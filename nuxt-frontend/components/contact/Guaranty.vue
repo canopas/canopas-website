@@ -1,12 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container py-16 lg:py-28 3xl:pb-[23rem]">
     <div
-      class="rounded-xl border bg-[#F8F8F8] shadow-[0px_2px_35px_rgba(0,0,0,0.12)] mt-16 lg:my-28 px-4 py-8 lg:py-14 mb-16 3xl:mb-[23rem]"
+      class="rounded-xl border bg-white-smoke shadow-[0px_2px_35px_rgba(0,0,0,0.12)] px-4 py-8 lg:py-14"
     >
-      <div class="flex flex-row items-center lg:items-end gap-1">
+      <div class="flex items-center lg:items-end gap-1">
         <img
           :src="badge"
-          class="w-14 lg:w-[108px] h-[51px] lg:h-[99px] ml-[-5px] lg:ml-0 lg:mt-[-35px]"
+          class="w-14 lg:w-[6.75rem] h-[3.188rem] lg:h-[6.188rem] ml-[-0.313rem] lg:ml-0 lg:mt-[-2.188rem]"
           alt="badge-image"
         />
         <p

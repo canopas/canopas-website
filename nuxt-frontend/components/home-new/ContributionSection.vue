@@ -1,5 +1,5 @@
 <template>
-  <section class="container my-16 lg:my-60">
+  <section class="container my-16 lg:mb-60 lg:mt-0 lg:pt-60">
     <div class="text-center mobile-header-2 lg:desk-header-2 text-black-87">
       We are here to contribute
     </div>
