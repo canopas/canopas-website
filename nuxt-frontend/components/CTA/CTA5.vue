@@ -1,5 +1,5 @@
 <template>
-  <section class="relative pb-[2.875rem] xll:pb-[2.813rem]">
+  <section class="relative pb-[2.875rem] xll:pb-[2.813rem] bg-deep-charcoal">
     <div
       class="absolute right-0 top-1 hidden h-[8.75rem] border-l-[1.25rem] border-pink-300 lg:block lg:top-9 xl:h-[11.563rem] 2xl:top-[4.25rem]"
     ></div>
@@ -54,6 +54,7 @@
   </section>
 </template>
 <script>
+import cta800 from "../../assets/images/CTA/fifth-cta-800w.webp";
 import ctaImage400w from "@/assets/images/mobile-app-development/cta-2/cta-image-400w.webp";
 import ctaImage800w from "@/assets/images/mobile-app-development/cta-2/cta-image-800w.webp";
 
@@ -66,8 +67,3 @@ export default {
   },
 };
 </script>
-<style scoped>
-.gradient-border {
-  border-image: linear-gradient(to bottom, #f2709c, #ff835b) 1;
-}
-</style>

@@ -10,6 +10,26 @@
         :contact-api-url="config.API_BASE"
       />
     </div>
+    <div class="cta-section">
+      <CTA1 v-if="CTACompName == 'CTA1'" />
+      <CTA2
+        v-if="CTACompName == 'CTA2'"
+        :recaptcha-key="config.VITE_RECAPTCHA_SITE_KEY"
+        :contact-api-url="config.API_BASE"
+      />
+      <CTA3
+        v-if="CTACompName == 'CTA3'"
+        :recaptcha-key="config.VITE_RECAPTCHA_SITE_KEY"
+        :contact-api-url="config.API_BASE"
+      />
+      <div
+        v-if="CTACompName == 'CTA4'"
+        class="mt-5 lg:mt-[150px] xl:mt-[170px] 2xl:mt-[250px] 2x:mt-[280px]"
+      >
+        <CTA4 />
+      </div>
+      <CTA5 v-if="CTACompName == 'CTA5'" />
+    </div>
     <BlogFooter
       :mixpanel="$mixpanel"
       :social-media-data="config.SOCIAL_MEDIA_DATA"
@@ -21,6 +41,11 @@
 
 <script setup>
 import Header from "@/components/partials/NewHeader.vue";
+import CTA1 from "@/components/CTA/CTA1.vue";
+import CTA2 from "@/components/CTA/CTA2.vue";
+import CTA3 from "@/components/CTA/CTA3.vue";
+import CTA4 from "@/components/CTA/CTA4.vue";
+import CTA5 from "@/components/CTA/CTA5.vue";
 import { useRoute } from "vue-router";
 import config from "@/config";
 import { useBlogDetailStore } from "@/stores/resources";
@@ -29,6 +54,7 @@ const { $mixpanel } = useNuxtApp();
 const post = ref({});
 const route = useRoute();
 const slug = ref(route.params.slug);
+const CTACompName = ref("");
 
 const store = useBlogDetailStore();
 const postData = computed(() => store.item);
@@ -52,6 +78,9 @@ if (status.value !== config.SUCCESS) {
   post.value = postData?.value;
   published_time = new Date(post.value?.published_on).toLocaleTimeString();
 }
+
+const CTAData = post.value?.cta?.data;
+CTACompName.value = CTAData?.attributes.component_name;
 
 useHead({
   script: [

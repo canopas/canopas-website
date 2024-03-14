@@ -5,13 +5,13 @@
       <LandingSection />
       <WhatWeOfferMobile class="block lg:hidden" />
       <WhatWeOfferDesktop class="hidden lg:block" />
-      <CTASection />
+      <CTA4 />
       <TechnologyStack />
       <BlogSection ref="blogs" />
       <ContributionSection />
       <SuccessStories />
       <ClientReviewSection />
-      <CTASection2 ref="cta2" />
+      <CTASection ref="cta2" />
     </div>
     <NewFooter />
   </div>
@@ -32,16 +32,14 @@ const SuccessStories = defineAsyncComponent(
 const BlogSection = defineAsyncComponent(
   () => import("@/components/home-new/BlogSection.vue"),
 );
-const CTASection = defineAsyncComponent(
-  () => import("@/components/home-new/PortfolioPageCTASection.vue"),
-);
+const CTA4 = defineAsyncComponent(() => import("@/components/CTA/CTA4.vue"));
 const ContributionSection = defineAsyncComponent(
   () => import("@/components/home-new/ContributionSection.vue"),
 );
 const ClientReviewSection = defineAsyncComponent(
   () => import("@/components/home-new/ClientReviewSection.vue"),
 );
-const CTASection2 = defineAsyncComponent(
+const CTASection = defineAsyncComponent(
   () => import("@/components/services/CTASection.vue"),
 );
 const TechnologyStack = defineAsyncComponent(
@@ -68,13 +66,13 @@ export default {
     LandingSection,
     WhatWeOfferMobile,
     WhatWeOfferDesktop,
-    CTASection,
+    CTA4,
     TechnologyStack,
     SuccessStories,
     BlogSection,
     ContributionSection,
     ClientReviewSection,
-    CTASection2,
+    CTASection,
     NewFooter,
   },
   data() {

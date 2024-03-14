@@ -9,7 +9,7 @@
       <ClientReview ref="clientReview" />
       <BlogSection ref="blogs" />
       <ContributionSection ref="contributions" />
-      <CTASection ref="cta" class="pt-10 bg-[#121212]" />
+      <CTA5 ref="cta" class="pt-10" />
       <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
     </NuxtLazyHydrate>
   </div>
@@ -36,9 +36,7 @@ const ContributionSection = defineAsyncComponent(
 const ClientReview = defineAsyncComponent(
   () => import("@/components/home-new/ClientReviewSection.vue"),
 );
-const CTASection = defineAsyncComponent(
-  () => import("@/components/mobile-app-development/CTASection2.vue"),
-);
+const CTA5 = defineAsyncComponent(() => import("@/components/CTA/CTA5.vue"));
 const BlogSection = defineAsyncComponent(
   () => import("@/components/home-new/BlogSection.vue"),
 );
@@ -55,7 +53,7 @@ export default {
     ServiceSectionMobile,
     ClientReview,
     ContributionSection,
-    CTASection,
+    CTA5,
     BlogSection,
     NewFooter,
   },
