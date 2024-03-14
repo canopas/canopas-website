@@ -28,10 +28,7 @@
       use our apps every day
     </div>
     <PortfolioSection ref="newPortfolio" />
-    <PortfolioPageCTASection
-      ref="portfolioPageCTA"
-      v-if="currentRoutePath == '/portfolio'"
-    />
+    <CTA4 ref="portfolioPageCTA" v-if="currentRoutePath == '/portfolio'" />
     <PortfolioCTASection ref="newPortfolioCTA" v-else />
   </section>
 </template>
@@ -40,7 +37,7 @@
 import config from "@/config.js";
 import PortfolioSection from "@/components/home-new/PortfolioSection.vue";
 import PortfolioCTASection from "@/components/home-new/PortfolioCTASection.vue";
-import PortfolioPageCTASection from "@/components/home-new/PortfolioPageCTASection.vue";
+import CTA4 from "@/components/CTA/CTA4.vue";
 
 export default {
   data() {
@@ -94,7 +91,7 @@ export default {
   components: {
     PortfolioSection,
     PortfolioCTASection,
-    PortfolioPageCTASection,
+    CTA4,
   },
 };
 </script>

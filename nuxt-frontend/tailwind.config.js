@@ -18,6 +18,7 @@ module.exports = {
         xl: "1200px",
         xl2: "1330px",
         "2xl": "1400px",
+        "2x": "1600px",
         "2xll": "1800px",
         xll: "2440px",
         "3xl": "3840px",
@@ -364,6 +365,29 @@ module.exports = {
           maxWidth: "100%",
           "@screen 3xl": {
             maxWidth: "2550px",
+          },
+        },
+        ".blog-container": {
+          margin: "auto",
+          padding: "0 0.75rem",
+          maxWidth: "100%",
+          "@screen sm": {
+            maxWidth: "540px",
+          },
+          "@screen md": {
+            maxWidth: "720px",
+          },
+          "@screen lg": {
+            maxWidth: "960px",
+          },
+          "@screen xl": {
+            maxWidth: "1140px",
+          },
+          "@screen 2xl": {
+            maxWidth: "1320px",
+          },
+          "@screen 2x": {
+            maxWidth: "1470px",
           },
         },
       });

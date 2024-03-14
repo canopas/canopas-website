@@ -66,6 +66,29 @@
     @apply from-[#f2709c] to-[#ff9472] bg-clip-text text-transparent bg-gradient-[89.88deg];
   }
 
+  .cta-gradient-text {
+    @apply bg-gradient-to-r from-[#f2709c] via-[#ff909c] to-[#ff9472] bg-clip-text text-transparent;
+  }
+
+  .cta-gradient-border {
+    border-image: linear-gradient(to bottom, #f2709c, #ff835b) 1;
+  }
+
+  .hoverable-text:hover {
+    @apply bg-gradient-to-r from-[#f2709c] via-[#ff909c] to-[#ff9472] bg-clip-text text-transparent;
+  }
+
+  .cta-section {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+  }
+
+  .cta-box-shadow {
+    -webkit-appearance: none;
+    -webkit-box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.25);
+  }
+
   .v2-canopas-gradient-text {
     @apply from-[#FF835B] to-[#F2709C] bg-clip-text text-transparent bg-gradient-[270.11deg];
   }

@@ -7,11 +7,11 @@
         <Services />
       </div>
       <Portfolio />
-      <CTASection />
+      <CTA1 />
       <DevelopmentProcess ref="developmentprocess" />
       <div class="bg-deep-charcoal 3xl:outer-container">
         <ClientReview />
-        <CTASection2 ref="cta" />
+        <CTA5 />
       </div>
     </div>
     <NewFooter class="bg-gradient-to-b from-pink-0 to-pink-16" />
@@ -29,18 +29,14 @@ import { elementInViewPort } from "@/utils.js";
 const Portfolio = defineAsyncComponent(
   () => import("@/components/mobile-app-development/Portfolio.vue"),
 );
-const CTASection = defineAsyncComponent(
-  () => import("@/components/mobile-app-development/CTASection.vue"),
-);
+const CTA1 = defineAsyncComponent(() => import("@/components/CTA/CTA1.vue"));
 const DevelopmentProcess = defineAsyncComponent(
   () => import("@/components/mobile-app-development/DevelopmentProcess.vue"),
 );
 const ClientReview = defineAsyncComponent(
   () => import("@/components/mobile-app-development/ClientReview.vue"),
 );
-const CTASection2 = defineAsyncComponent(
-  () => import("@/components/mobile-app-development/CTASection2.vue"),
-);
+const CTA5 = defineAsyncComponent(() => import("@/components/CTA/CTA5.vue"));
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
 );
