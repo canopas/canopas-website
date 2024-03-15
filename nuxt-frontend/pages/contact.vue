@@ -9,7 +9,7 @@
         class="basis-3/6 lg:basis-[70%] 2xl:basis-[60%]"
       />
     </div>
-    <Guaranty />
+    <Guaranty id="guaranty" />
     <NewFooter />
   </div>
 </template>

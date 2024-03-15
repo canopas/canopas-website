@@ -57,11 +57,14 @@
             >
               <span class="sub-h3-semibold lg:sub-h1-semibold"
                 >Get Free Consultation
-              </span> </nuxt-link
-            ><small class="lg:hidden sub-h4-regular text-black-60"
-              >100% MONEY BACK GUARANTEE FOR <br />
-              TWO WEEKS</small
-            >
+              </span>
+            </nuxt-link>
+            <div class="lg:hidden sub-h4-regular text-black-60 mt-2">
+              <nuxt-link href="/contact#guaranty" aria-label="contact"
+                >100% MONEY BACK GUARANTEE FOR <br />
+                TWO WEEKS</nuxt-link
+              >
+            </div>
           </div>
 
           <div
@@ -80,21 +83,17 @@
                   alt="client-image"
                 />
               </div>
-              <nuxt-link
+
+              <div
                 v-if="client.plusIcon"
-                href="/contact"
-                aria-label="contact"
+                class="w-10 h-10 border-[2px] border-[#EBEBEB] rounded-full bg-white"
+                :class="client.className"
               >
-                <div
-                  class="w-10 h-10 border-[2px] border-[#EBEBEB] rounded-full bg-white"
-                  :class="client.className"
-                >
-                  <Icon
-                    class="fa w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] pt-[7px] lg:pt-[0.525rem] text-[#999999] box-content pl-2"
-                    name="fa6-solid:plus"
-                  />
-                </div>
-              </nuxt-link>
+                <Icon
+                  class="fa w-[18px] lg:w-[20px] h-[18px] lg:h-[20px] pt-[7px] lg:pt-[0.525rem] text-[#999999] box-content pl-2"
+                  name="fa6-solid:plus"
+                />
+              </div>
             </div>
             <div class="pl-2.5 md:pl-1.5">
               <div class="flex mt-[3px]">
@@ -115,15 +114,19 @@
             </div>
           </div>
         </div>
-        <small
+
+        <div
           class="hidden lg:block w-[74%] xl:w-[72%] pt-3 lg:pt-4 sub-h4-medium text-black-60"
         >
           We offer a
-          <span class="secondary-color"
+          <nuxt-link
+            class="secondary-color cursor-pointer"
+            href="/contact#guaranty"
+            aria-label="contact"
             >100% MONEY BACK GUARANTEE FOR TWO WEEKS
-          </span>
+          </nuxt-link>
           if you don't like our work. No questions asked.
-        </small>
+        </div>
       </div>
     </div>
   </div>
