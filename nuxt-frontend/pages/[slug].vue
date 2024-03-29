@@ -156,6 +156,8 @@ async function copyCode(bash) {
 }
 
 onMounted(() => {
+  $mixpanel.track("view_blog_page", { Title: post.value.title });
+
   const bashes = document.querySelectorAll("pre");
   bashes.forEach((bash) => {
     if (navigator.clipboard) {
