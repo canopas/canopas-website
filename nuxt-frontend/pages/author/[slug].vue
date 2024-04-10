@@ -60,7 +60,7 @@ const status = computed(() => store.status);
 let postLimit = 10;
 
 await useAsyncData("authors", () =>
-  store.loadAuthorBlogs(config.SHOW_DRAFT_POSTS, slug.value, 0, postLimit),
+  store.loadAuthorBlogs(config.SHOW_DRAFT_POSTS, slug.value),
 );
 
 if (status.value === config.SUCCESS) {
