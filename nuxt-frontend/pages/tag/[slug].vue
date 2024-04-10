@@ -51,7 +51,7 @@ const resources = computed(() => store.items);
 const status = computed(() => store.status);
 let postLimit = 2;
 
-await useAsyncData("tags", () => store.loadTagBlogs(slug.value, 0, postLimit));
+await useAsyncData("tags", () => store.loadTagBlogs(slug.value));
 
 if (status.value === config.SUCCESS) {
   posts.value = resources.value?.slice(0, postLimit);
