@@ -107,35 +107,26 @@ function parseImageUrls(imageUrls) {
 }
 
 function setPostFields(post) {
-  post = post.attributes ? post.attributes : post;
   const publishedDate = post.published_on;
   const [date] = formateDate(publishedDate);
   post.published_on = date || "Draft";
 
-  const postImg = post.image?.data?.attributes
-    ? post.image.data?.attributes
-    : post.image;
+  const postImg = post.image;
   post.image_url = postImg?.url || icon;
   post.alternative_text = postImg?.alternative_text || post.title;
 
-  const author = post.author?.data?.attributes
-    ? post.author.data?.attributes
-    : post.author;
-
-  const authorImg = author?.image?.data?.attributes
-    ? author?.image.data?.attributes
-    : author?.image;
+  const author = post.author ?? null;
 
   post.author = {
     username: author?.username || "user",
     name: author?.name || "author",
-    image: authorImg?.url || Avatar,
+    image: author?.image?.url || Avatar,
     alt_text: author ? author.username + " image" : "author",
     bio: author?.bio || "",
     role: author?.role || "Editor for Canopas",
   };
 
-  post.recommended_posts = post.recommendedPosts;
+  post.recommended_posts = post.recommended_posts ?? null;
 
   return post;
 }

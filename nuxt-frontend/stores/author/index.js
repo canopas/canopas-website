@@ -18,52 +18,33 @@ export const useAuthorListStore = defineStore("authors", {
         this.isLoading = true;
         this.error = null;
 
-        let published = showDrafts
-          ? "&publicationState=preview"
-          : "&publicationState=live";
+        let published = showDrafts ? "is_published=false" : "is_published=true";
 
-        const limitQuery = limit
-          ? "&pagination[start]=" + start + "&pagination[limit]=" + limit
-          : "";
+        const limitQuery = limit ? "&skip=" + start + "&limit=" + limit : "";
 
         let url =
-          config.STRAPI_URL +
-          "/v1/paginate?populate=deep" +
-          published +
-          "&filters[author][username]=" +
+          config.API_BASE +
+          "/api/posts/author/" +
           slug +
-          "&fields[0]=title&fields[1]=slug&fields[2]=published_on&fields[3]=summary&fields[4]=reading_time&fields[5]=tags" +
+          "?" +
+          published +
           limitQuery;
 
         axios
-          .request({
-            timeout: 2000,
-            method: "GET",
-            url: config.STRAPI_URL + "/favicon.ico",
-          })
-          .then(() => {
-            axios
-              .get(url)
-              .then((response) => {
-                let posts = [];
-                response.data.data.forEach((post) => {
-                  posts.push(setPostFields(post));
-                });
-                this.items = posts;
-                this.isLoading = false;
-                this.status =
-                  posts.length > 0 ? response.status : config.NOT_FOUND;
-                resolve();
-              })
-              .catch((error) => {
-                this.error = error;
-                this.isLoading = false;
-                this.status = config.NOT_FOUND;
-                resolve();
-              });
+          .get(url)
+          .then((response) => {
+            let posts = [];
+            response.data.forEach((post) => {
+              posts.push(setPostFields(post));
+            });
+            this.items = posts;
+            this.isLoading = false;
+            this.status = posts.length > 0 ? response.status : config.NOT_FOUND;
+            resolve();
           })
           .catch((error) => {
             this.error = error;
+            this.isLoading = false;
             this.status = config.NOT_FOUND;
             reject(error);
           });

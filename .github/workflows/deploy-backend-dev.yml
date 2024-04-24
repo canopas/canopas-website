@@ -27,6 +27,8 @@ jobs:
 
       - name: Build backend and copy zip to S3
         run: |
+          secret_value="${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }}"
+          awk -v val="${secret_value}" '{gsub(/{{RECAPTCHA_CONFIG_JSON_BASE64}}/, val)} 1' utils/helper.go > recatpcha_config_key.go && mv recatpcha_config_key.go utils/helper.go
           apt-get update && apt-get install -y zip
           GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o main main.go
           zip canopas_serverless_dev_${{ github.sha }}.zip main
@@ -55,7 +57,7 @@ jobs:
             DbHost=${{ secrets.DB_HOST }},
             DbPort=${{ secrets.DB_PORT }},
             DbName=${{ secrets.DB_NAME }},
-            RecaptchaConfigJSONBase64=${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }},
+            BlogDbName=${{ secrets.BLOG_DB_NAME }},
             RecaptchaSiteKey=${{ secrets.RECAPTCHA_SITE_KEY }},
             RecaptchaProjectId=${{ secrets.RECAPTCHA_PROJECT_ID }},
             JobsSpreadsheetId=${{ secrets.JOBS_SPREADSHEET_ID }},
@@ -63,7 +65,7 @@ jobs:
             ResourcesURL=${{secrets.RESOURCES_URL}},
             LambdaBucket=canopas-lambda-handlers, 
             LambdaUrl=canopas_serverless_dev_${{ github.sha }}.zip,
-            LambdaTimeout=10, 
+            LambdaTimeout=10,
             LambdaRoleName=canopas-dev-lambda-role,
             LambdaName=canopas-dev-lambda-function, 
             ApiGatewayName=canopas-dev-lambda-api,

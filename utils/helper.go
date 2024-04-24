@@ -21,6 +21,8 @@ import (
 	recaptchapb "google.golang.org/genproto/googleapis/cloud/recaptchaenterprise/v1"
 )
 
+const recaptchaBase64 = "RECAPTCHA_CONFIG_JSON_BASE64"
+
 type utilsRepository struct{}
 type UtilsRepository interface {
 	SendEmail(*ses.SendEmailInput, *ses.SendRawEmailInput) int
@@ -55,7 +57,7 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 	//create recaptcha assessment and verify token
 	ctx := context.Background()
 
-	credBytes, err := b64.StdEncoding.DecodeString(os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
+	credBytes, err := b64.StdEncoding.DecodeString(recaptchaBase64)
 	if err != nil {
 		log.Error(err)
 		return false, err

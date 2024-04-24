@@ -19,38 +19,23 @@ export const useTagListStore = defineStore("tag-list", {
         this.error = null;
 
         let url =
-          config.STRAPI_URL +
-          "/v1/tag/" +
-          slug +
-          "?populate=deep&publicationState=live";
+          config.API_BASE + "/api/posts/tags/" + slug + "?is_published=true";
+
         axios
-          .request({
-            timeout: 2000,
-            method: "GET",
-            url: config.STRAPI_URL + "/favicon.ico",
-          })
-          .then(() => {
-            axios
-              .get(url)
-              .then((response) => {
-                let posts = [];
-                response.data.data.forEach((post) => {
-                  posts.push(setPostFields(post));
-                });
-                this.items = posts;
-                this.isLoading = false;
-                this.status =
-                  posts.length > 0 ? response.status : config.NOT_FOUND;
-                resolve();
-              })
-              .catch((error) => {
-                this.error = error;
-                this.isLoading = false;
-                this.status = config.NOT_FOUND;
-                resolve();
-              });
+          .get(url)
+          .then((response) => {
+            let posts = [];
+            response.data.forEach((post) => {
+              posts.push(setPostFields(post));
+            });
+            this.items = posts;
+            this.isLoading = false;
+            this.status = posts.length > 0 ? response.status : config.NOT_FOUND;
+            resolve();
           })
           .catch((error) => {
+            this.error = error;
+            this.isLoading = false;
             this.status = config.NOT_FOUND;
             reject(error);
           });
