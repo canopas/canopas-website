@@ -79,8 +79,8 @@ if (status.value !== config.SUCCESS) {
   published_time = new Date(post.value?.published_on).toLocaleTimeString();
 }
 
-const CTAData = post.value?.cta?.data;
-CTACompName.value = CTAData?.attributes.component_name;
+const CTAData = post.value?.cta;
+CTACompName.value = CTAData?.component_name;
 
 useHead({
   script: [

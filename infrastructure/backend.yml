@@ -46,9 +46,9 @@ Parameters:
   DbName:
     Type: String
     Description: Postgres database name.
-  RecaptchaConfigJSONBase64:
+  BlogDbName:
     Type: String
-    Description: Recaptcha enterprise credentials in base64 format
+    Description: Postgres database name for blogs.
   RecaptchaSiteKey:
     Type: String
     Description: Use to verify recpatcha token.
@@ -166,8 +166,8 @@ Resources:
             Fn::Sub: ${DbPort}
           DB_NAME:
             Fn::Sub: ${DbName}
-          RECAPTCHA_CONFIG_JSON_BASE64:
-            Fn::Sub: ${RecaptchaConfigJSONBase64}
+          BLOG_DB_NAME:
+            Fn::Sub: ${BlogDbName}
           RECAPTCHA_SITE_KEY:
             Fn::Sub: ${RecaptchaSiteKey}
           RECAPTCHA_PROJECT_ID:

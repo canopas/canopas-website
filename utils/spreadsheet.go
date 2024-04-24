@@ -80,7 +80,7 @@ func (repo *utilsRepository) SaveJobsToSpreadSheet(records []string) {
 }
 
 func googleServiceAuth(ctx context.Context, scope string, sheet bool) interface{} {
-	credBytes, err := b64.StdEncoding.DecodeString(os.Getenv("RECAPTCHA_CONFIG_JSON_BASE64"))
+	credBytes, err := b64.StdEncoding.DecodeString(recaptchaBase64)
 	if err != nil {
 		log.Error(err)
 		return nil

@@ -12,6 +12,7 @@ import (
 	"net/http"
 	"notification"
 	"os"
+	"post"
 	"sitemap"
 	"utils"
 
@@ -92,6 +93,17 @@ func setupRouter() *gin.Engine {
 	router.GET("/api/lifeimages", lifePerksImagesRepo.LifeImages)
 
 	router.GET("/api/perksimages", lifePerksImagesRepo.PerksImages)
+
+	blogSqlDb := db.BlogDBInstance()
+
+	postRepo := post.New(blogSqlDb)
+
+	router.GET("/api/posts", postRepo.Get)
+	router.GET("/api/posts/:slug", postRepo.Show)
+
+	router.GET("/api/posts/tags/:slug", postRepo.GetPostsByTag)
+
+	router.GET("/api/posts/author/:username", postRepo.GetPostsByAuthor)
 
 	return router
 }
