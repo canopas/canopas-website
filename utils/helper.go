@@ -59,7 +59,7 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 
 	credBytes, err := b64.StdEncoding.DecodeString(recaptchaBase64)
 	if err != nil {
-		log.Error(err)
+		log.Error("Error while decoding recaptcha: ", err)
 		return false, err
 	}
 
