@@ -26,9 +26,11 @@ jobs:
           aws-region: ap-south-1
 
       - name: Build backend and copy zip to S3
+        env:
+          RECAPTCHA_CONFIG_JSON_BASE64: ${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }}
         run: |
-          secret_value="${{ secrets.RECAPTCHA_CONFIG_JSON_BASE64 }}"
-          awk -v val="${secret_value}" '{gsub(/{{RECAPTCHA_CONFIG_JSON_BASE64}}/, val)} 1' utils/helper.go > recatpcha_config_key.go && mv recatpcha_config_key.go utils/helper.go
+          escaped_value=$(printf '%s' "$RECAPTCHA_CONFIG_JSON_BASE64" | tr -d '\n')
+          awk -v pattern="RECAPTCHA_CONFIG_JSON_BASE64" -v replacement="$escaped_value" '{gsub(pattern, replacement)} 1' utils/helper.go > recatpcha_config_key && mv recatpcha_config_key utils/helper.go
           apt-get update && apt-get install -y zip
           GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o main main.go
           zip canopas_serverless_dev_${{ github.sha }}.zip main
