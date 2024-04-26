@@ -1,8 +1,6 @@
 package post
 
 import (
-	"time"
-
 	"github.com/jmoiron/sqlx"
 	"gopkg.in/guregu/null.v3"
 )
@@ -14,9 +12,9 @@ type Repository struct {
 type Post struct {
 	Id               int               `json:"id"`
 	Title            string            `json:"title"`
-	Content          string            `json:"content,omitempty"`
+	Content          null.String       `json:"content,omitempty"`
 	Slug             string            `json:"slug"`
-	PublishedOn      time.Time         `json:"published_on,omitempty"`
+	PublishedOn      null.String       `json:"published_on,omitempty"`
 	IsFeatured       bool              `json:"is_featured"`
 	CreatedAt        string            `json:"created_at,omitempty"`
 	UpdatedAt        string            `json:"updated_at,omitempty"`
@@ -24,7 +22,7 @@ type Post struct {
 	Summary          string            `json:"summary,omitempty"`
 	BlogContent      string            `json:"blog_content,omitempty"`
 	MetaDescription  string            `json:"meta_description,omitempty"`
-	Toc              string            `json:"toc,omitempty"`
+	Toc              null.String       `json:"toc,omitempty"`
 	Tag              string            `json:"tag,omitempty"`
 	Tags             []Tag             `json:"tags,omitempty"`
 	IsPublished      bool              `json:"is_published"`
@@ -113,9 +111,9 @@ type Cta struct {
 type RecommendedPost struct {
 	Id              int         `json:"id"`
 	Title           string      `json:"title"`
-	Content         string      `json:"content"`
+	Content         null.String `json:"content"`
 	Slug            string      `json:"slug"`
-	PublishedOn     time.Time   `json:"published_on"`
+	PublishedOn     null.String `json:"published_on"`
 	IsFeatured      bool        `json:"is_featured"`
 	CreatedAt       string      `json:"created_at"`
 	UpdatedAt       string      `json:"updated_at"`
@@ -123,7 +121,7 @@ type RecommendedPost struct {
 	Summary         string      `json:"summary"`
 	BlogContent     string      `json:"blog_content"`
 	MetaDescription string      `json:"meta_description"`
-	Toc             string      `json:"toc"`
+	Toc             null.String `json:"toc"`
 	Tag             string      `json:"tag,omitempty"`
 	Tags            []Tag       `json:"tags"`
 	IsPublished     bool        `json:"is_published"`
