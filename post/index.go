@@ -53,34 +53,36 @@ func (repository *Repository) Get(c *gin.Context) {
 		Count         int    `json:"count"`
 	}
 
-	new_posts := PostData
-	err, new_posts.Posts = repository.GetPosts(false, isResource, isPublished, limit, skip)
+	new_post := PostData
+	err, new_post.Posts = repository.GetPosts(false, isResource, isPublished, limit, skip)
 	if err != nil {
 		c.AbortWithStatus(http.StatusInternalServerError)
 		return
 	}
 
 	if isResource && skip == 0 {
-		err, new_posts.FeaturedPosts = repository.GetPosts(true, isResource, isPublished, 6, 0)
+		err, new_post.FeaturedPosts = repository.GetPosts(true, isResource, isPublished, 6, 0)
 		if err != nil {
 			c.AbortWithStatus(http.StatusInternalServerError)
 			return
 		}
 	}
 
-	resourceQuery := ""
-	if isResource {
-		resourceQuery = "is_resource = true AND"
+	if skip == 0 {
+		resourceQuery := "is_resource = false AND"
+		if isResource {
+			resourceQuery = "is_resource = true AND"
+		}
+
+		publishQuery := ""
+		if isPublished {
+			publishQuery = "AND is_published = true"
+		}
+
+		err = repository.Db.Get(&new_post.Count, `SELECT COUNT(id) FROM posts WHERE `+resourceQuery+` is_featured = false `+publishQuery)
 	}
 
-	publishQuery := ""
-	if isPublished {
-		publishQuery = "AND is_published = true"
-	}
-
-	err = repository.Db.Get(&new_posts.Count, `SELECT COUNT(id) FROM posts WHERE `+resourceQuery+` is_featured = false `+publishQuery)
-
-	c.JSON(http.StatusOK, new_posts)
+	c.JSON(http.StatusOK, new_post)
 }
 
 func (repository *Repository) GetPosts(isFeatured, isResource, isPublished bool, limit, skip int) (error, []Post) {
@@ -183,6 +185,10 @@ func (repository *Repository) Show(c *gin.Context) {
 }
 
 func (repository *Repository) PreparePosts(posts []Post) []Post {
+
+	if len(posts) == 0 {
+		return posts
+	}
 
 	new_posts := repository.SetPostImageInPosts(posts)
 	new_posts = repository.SetAuthorWithImageInPosts(posts)

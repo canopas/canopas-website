@@ -27,6 +27,7 @@ export default defineNuxtConfig({
     defaults: {
       lastmod: new Date(),
     },
+    exclude: ["/unsubscribe", "/thank-you", "/jobs/thank-you"],
     sources: [config.API_BASE + "/api/sitemap"],
     xsl: false,
     xslTips: false,

@@ -15,6 +15,9 @@
       :count="count"
       :status="status"
     />
+    <div v-if="showLoader" class="py-10">
+      <img :src="loaderImage" class="h-20 w-full" />
+    </div>
     <div
       :class="
         count == 0 || status == config.NOT_FOUND
@@ -33,15 +36,16 @@
 </template>
 
 <script setup>
+import loaderImage from "@/assets/images/theme/loader.svg";
 import Header from "@/components/partials/NewHeader.vue";
 import config from "@/config";
 import { useBlogListStore } from "@/stores/resources";
 import { toRefs } from "vue";
-
 const props = defineProps({
   isResource: Boolean,
 });
 
+const showLoader = ref(false);
 const { isResource } = toRefs(props);
 const { $mixpanel } = useNuxtApp();
 const posts = ref([]);
@@ -69,6 +73,8 @@ const handleScroll = () => {
       return;
     }
 
+    showLoader.value = true;
+
     useAsyncData("paginate", () =>
       store.loadPaginateResources(
         config.SHOW_DRAFT_POSTS,
@@ -77,6 +83,7 @@ const handleScroll = () => {
         postLimit,
       ),
     ).then(() => {
+      showLoader.value = false;
       posts.value.push(...resources.value);
       posts.value = Array.from(new Set(posts.value.map(JSON.stringify))).map(
         JSON.parse,
