@@ -33,6 +33,9 @@
         <div class="mb-6 md:mb-10">
           <AuthorPosts :posts="posts" :mixpanel="mixpanel" />
         </div>
+        <div v-if="showLoader" class="py-10">
+          <img :src="loaderImage" class="h-20 w-full" />
+        </div>
       </div>
     </section>
     <BlogFooter
@@ -45,17 +48,20 @@
 </template>
 
 <script setup>
+import loaderImage from "@/assets/images/theme/loader.svg";
 import Header from "@/components/partials/NewHeader.vue";
 import { useRoute } from "vue-router";
 import config from "@/config";
 import { useAuthorListStore } from "@/stores/author";
 
+const showLoader = ref(false);
 const { $mixpanel } = useNuxtApp();
 const route = useRoute();
 const slug = ref(route.params.slug);
 const posts = ref([]);
 const store = useAuthorListStore();
 const resources = computed(() => store.items);
+const count = computed(() => store.totalPosts);
 const status = computed(() => store.status);
 let postLimit = 10;
 
@@ -72,9 +78,26 @@ const handleScroll = () => {
     window.innerHeight + document.documentElement.scrollTop >=
     document.documentElement.offsetHeight - 100
   ) {
-    const oldCount = postLimit;
-    postLimit += 2;
-    posts.value.push(...resources.value.slice(oldCount, postLimit));
+    if (posts.value.length >= count.value) {
+      return;
+    }
+
+    showLoader.value = true;
+
+    useAsyncData("paginate", () =>
+      store.loadPaginateAuthorBlogs(
+        config.SHOW_DRAFT_POSTS,
+        slug.value,
+        posts.value.length,
+        postLimit,
+      ),
+    ).then(() => {
+      showLoader.value = false;
+      posts.value.push(...resources.value);
+      posts.value = Array.from(new Set(posts.value.map(JSON.stringify))).map(
+        JSON.parse,
+      );
+    });
   }
 };
 

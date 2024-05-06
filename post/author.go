@@ -58,7 +58,12 @@ func (repository *Repository) GetPostsByAuthor(c *gin.Context) {
 		return
 	}
 
-	new_posts := []Post{}
+	var PostData struct {
+		Posts []Post `json:"posts"`
+		Count int    `json:"count"`
+	}
+
+	new_post := PostData
 	for _, post := range posts {
 
 		var tags []Tag
@@ -72,12 +77,24 @@ func (repository *Repository) GetPostsByAuthor(c *gin.Context) {
 		post.Tag = ""
 		post.Tags = tags
 
-		new_posts = append(new_posts, post)
+		new_post.Posts = append(new_post.Posts, post)
 	}
 
-	new_posts = repository.PreparePosts(new_posts)
+	new_post.Posts = repository.PreparePosts(new_post.Posts)
 
-	c.JSON(http.StatusOK, new_posts)
+	if skip == 0 {
+		publishQuery := ""
+		if isPublished {
+			publishQuery = "WHERE p.is_published = true"
+		}
+
+		err = repository.Db.Get(&new_post.Count, `SELECT COUNT(p.id) 
+												FROM posts p 
+												JOIN posts_author_links pa ON p.id = pa.post_id 
+												JOIN authors a ON a.id = pa.author_id AND a.username = $1 `+publishQuery, username)
+	}
+
+	c.JSON(http.StatusOK, new_post)
 }
 
 func (repository *Repository) GetAuthorByPostId(id int) (error, Author) {

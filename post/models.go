@@ -19,7 +19,7 @@ type Post struct {
 	CreatedAt        string            `json:"created_at,omitempty"`
 	UpdatedAt        string            `json:"updated_at,omitempty"`
 	PublishedAt      null.String       `json:"published_at"`
-	Summary          string            `json:"summary,omitempty"`
+	Summary          null.String       `json:"summary,omitempty"`
 	BlogContent      string            `json:"blog_content,omitempty"`
 	MetaDescription  string            `json:"meta_description,omitempty"`
 	Toc              null.String       `json:"toc,omitempty"`
@@ -118,7 +118,7 @@ type RecommendedPost struct {
 	CreatedAt       string      `json:"created_at"`
 	UpdatedAt       string      `json:"updated_at"`
 	PublishedAt     null.String `json:"published_at"`
-	Summary         string      `json:"summary"`
+	Summary         null.String `json:"summary"`
 	BlogContent     string      `json:"blog_content"`
 	MetaDescription string      `json:"meta_description"`
 	Toc             null.String `json:"toc"`
