@@ -1,6 +1,6 @@
 module post
 
-go 1.21.3
+go 1.22
 
 replace db => ../db
 

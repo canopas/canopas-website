@@ -17,7 +17,7 @@ jobs:
 
       - uses: actions/setup-go@v2
         with:
-          go-version: "^1.20"
+          go-version: "^1.22.3"
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -32,8 +32,8 @@ jobs:
           escaped_value=$(printf '%s' "$RECAPTCHA_CONFIG_JSON_BASE64" | tr -d '\n')
           awk -v pattern="RECAPTCHA_CONFIG_JSON_BASE64" -v replacement="$escaped_value" '{gsub(pattern, replacement)} 1' utils/helper.go > recatpcha_config_key && mv recatpcha_config_key utils/helper.go
           apt-get update && apt-get install -y zip
-          GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o main main.go
-          zip canopas_serverless_prod_${{ github.sha }}.zip main
+          GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o bootstrap main.go
+          zip canopas_serverless_prod_${{ github.sha }}.zip bootstrap
           aws s3 cp canopas_serverless_prod_${{ github.sha }}.zip s3://canopas-lambda-handlers
 
       - name: Deploy cloudformation stack

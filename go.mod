@@ -1,6 +1,6 @@
 module canopas-website
 
-go 1.21.3
+go 1.22
 
 replace post => ./post
 
