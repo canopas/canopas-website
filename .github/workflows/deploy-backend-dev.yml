@@ -3,7 +3,7 @@ name: DeployBackendDev
 on:
   push:
     branches:
-      - "update-lambda-runtime"
+      - "master"
 
 jobs:
   deploy-backend-dev:
