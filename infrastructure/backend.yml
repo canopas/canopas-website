@@ -120,7 +120,7 @@ Resources:
       FunctionName:
         Fn::Sub: ${LambdaName}
       Description: LambdaFunction for canopas website api
-      Runtime: "go1.x"
+      Runtime: "provided.al2023"
       Code:
         S3Bucket:
           Fn::Sub: ${LambdaBucket}
