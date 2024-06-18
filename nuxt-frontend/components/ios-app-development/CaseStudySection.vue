@@ -76,13 +76,13 @@
           :modules="modules"
           :allowTouchMove="false"
           class="swiper-container h-screen"
-          @swiper="setSwiperRef"
+          @swiper="setCaseStudySwiperRef"
         >
           <swiper-slide v-for="(portfolio, index) in portfolios" :key="index">
             <div class="flex flex-row justify-center h-screen">
               <div
                 :class="portfolio.row1Background"
-                class="flex flex-col justify-center !basis-[40%] justify-around px-8 text-white"
+                class="flex flex-col !basis-[40%] justify-around px-8 text-white"
               >
                 <div class="flex justify-end relative">
                   <div
@@ -116,7 +116,7 @@
                     :src="portfolio.image[2]"
                     :srcset="`${portfolio.image[2]} 800w`"
                     :alt="portfolio.title"
-                    class="image w-[284px] h-[490px] xl:h-[590px] object-cover"
+                    class="w-[284px] h-[490px] xl:h-[590px] object-cover"
                     loading="lazy"
                   />
                 </div>
@@ -126,7 +126,7 @@
                       :src="portfolio.image[3]"
                       :srcset="`${portfolio.image[3]} 800w`"
                       :alt="portfolio.title"
-                      class="image main w-[284px] h-[490px] xl:h-[590px] object-cover"
+                      class="main w-[284px] h-[490px] xl:h-[590px] object-cover"
                       loading="lazy"
                     />
                   </div>
@@ -141,8 +141,8 @@
 </template>
 
 <script type="module">
-import { Pagination, Autoplay, Mousewheel } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { Mousewheel } from "swiper/modules";
 import mobile_justly1 from "@/assets/images/ios-app-development/casestudy/mobile/justly1.webp";
 import mobile_justly2 from "@/assets/images/ios-app-development/casestudy/mobile/justly2.webp";
 import mobile_luxeradio1 from "@/assets/images/ios-app-development/casestudy/mobile/luxeradio1.webp";
@@ -159,9 +159,9 @@ import desktop_togness2 from "@/assets/images/ios-app-development/casestudy/togn
 export default {
   data() {
     return {
-      modules: [Pagination, Autoplay, Mousewheel],
+      modules: [Mousewheel],
       swiper: null,
-      swiperRef: 0,
+      caseStudySwiperRef: 0,
       activeIndex: 0,
       skipNext: true,
       lastScrollY: 0,
@@ -225,8 +225,8 @@ export default {
     document.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    setSwiperRef(swiper) {
-      this.swiperRef = swiper;
+    setCaseStudySwiperRef(swiper) {
+      this.caseStudySwiperRef = swiper;
     },
 
     handleScroll() {
@@ -239,10 +239,10 @@ export default {
         position.bottom >=
           (window.innerHeight || document.documentElement.clientHeight)
       ) {
-        this.swiperRef.mousewheel.enable();
+        this.caseStudySwiperRef.mousewheel.enable();
         this.$emit("sectionFullscreen", false);
       } else {
-        this.swiperRef.mousewheel.disable();
+        this.caseStudySwiperRef.mousewheel.disable();
         this.$emit("sectionFullscreen", true);
       }
     },

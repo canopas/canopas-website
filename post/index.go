@@ -76,7 +76,7 @@ func (repository *Repository) Get(c *gin.Context) {
 
 		publishQuery := ""
 		if isPublished {
-			publishQuery = "AND is_published = true"
+			publishQuery = "AND is_published = true AND published_at IS NOT NULL"
 		}
 
 		err = repository.Db.Get(&new_post.Count, `SELECT COUNT(id) FROM posts WHERE `+resourceQuery+` is_featured = false `+publishQuery)
@@ -94,7 +94,7 @@ func (repository *Repository) GetPosts(isFeatured, isResource, isPublished bool,
 
 	publishQuery := ""
 	if isPublished {
-		publishQuery = " AND is_published = true"
+		publishQuery = " AND is_published = true AND published_at IS NOT NULL "
 	}
 
 	posts := []Post{}

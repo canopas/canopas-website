@@ -3,16 +3,11 @@
     <div class="header-text main-text text-[2.5625rem] leading-[2.125rem]">
       <span class="underline-text">Why Ca</span>nopas?
     </div>
-    <img
-      :src="WhyCanopasImage"
-      alt="why-canopas-image"
-      loading="lazy"
-      class="image w-full h-full top-0 left-0 absolute object-contain sm:object-cover"
-    />
+    <div></div>
     <div class="reasons-container my-[50px] mx-auto w-full">
       <div
-        v-for="reason in reasons"
-        :key="reason"
+        v-for="(reason, index) in reasons"
+        :key="index"
         class="reason flex justify-end relative py-5 px-0 even:flex-row-reverse animate__animated"
         ref="whyCanopasMobile"
       >
@@ -37,14 +32,20 @@
           loading="lazy"
           class="reason-image w-[126px] h-full"
         />
+        <div
+          class="absolute bottom-10 h-3 w-3 bg-[#F98386] rounded-full"
+          :class="index % 2 == 0 ? 'left-5' : 'right-5'"
+        ></div>
+        <div
+          class="absolute top-10 h-1.5 w-1.5 bg-[#F37299] rounded-full"
+          :class="index % 2 == 0 ? 'left-40' : 'right-40'"
+        ></div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import WhyCanopasImage from "@/assets/images/why/why-canopas-mobile-bg.svg";
-
 import bullet1 from "@/assets/images/why/why-canopas-dot-1.svg";
 import bullet2 from "@/assets/images/why/why-canopas-dot-2.svg";
 import bullet3 from "@/assets/images/why/why-canopas-dot-3.svg";
@@ -56,7 +57,6 @@ import circle3 from "@/assets/images/why/why-canopas-mobile-3.webp";
 export default {
   data() {
     return {
-      WhyCanopasImage,
       reasons: [
         {
           title: "Our Vision",

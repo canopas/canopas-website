@@ -1,7 +1,7 @@
 <template>
   <section
     :class="
-      currentRoutePath == '/portfolio' ? 'mt-6 lg:mt-28' : 'mt-16 lg:mt-60'
+      currentRoutePath == '/portfolio' ? 'mt-16 lg:mt-28' : 'mt-16 lg:mt-60'
     "
   >
     <div>

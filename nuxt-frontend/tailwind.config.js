@@ -226,6 +226,10 @@ module.exports = {
             backgroundSize: "100%",
           },
         },
+        scroll: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
       },
       animation: {
         zoomIn: "zoomIn 4s ease-in infinite",

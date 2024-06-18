@@ -70,7 +70,7 @@
             {{ benefit.number }}
           </div>
 
-          <div class="">
+          <div>
             <div class="desk-header-3 text-black-87">
               {{ benefit.title }}
             </div>

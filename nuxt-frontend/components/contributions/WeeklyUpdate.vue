@@ -40,7 +40,6 @@
             <img
               :src="[weekly.image]"
               alt="Weekly-stack-image"
-              class="h-fit w-fit object-contain"
               loading="lazy"
             />
             <div class="bg-white-smoke-1 p-4 pb-14">
@@ -87,7 +86,7 @@
             <img
               :src="[weekly.image]"
               alt="Weekly-stack-image"
-              class="h-[72%] lg:h-full w-fit object-cover"
+              class="h-[72%] lg:h-full w-full object-cover"
               loading="lazy"
             />
           </div>

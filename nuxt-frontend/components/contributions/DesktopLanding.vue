@@ -1,6 +1,6 @@
 <template>
   <section
-    class="pb-28 mt-[1.563rem] bg-gradient-to-r from-white via-pink-5 to-white bg-gradient-[180.05deg]"
+    class="pb-28 mt-[1.563rem] from-white via-pink-5 to-white bg-gradient-[180.05deg]"
   >
     <div class="relative xll:container w-full h-full pb-16 lg:pt-12">
       <div class="container flex flex-col items-center mx-auto md:text-center">
@@ -19,7 +19,7 @@
           fostering innovation, and empowering developers around the globe.
         </div>
         <nuxt-link
-          class="mt-10 gradient-btn primary-btn"
+          class="mt-10 gradient-btn primary-btn z-10"
           to="/contact"
           @click.native="$mixpanel.track('tap_landing_cta')"
         >

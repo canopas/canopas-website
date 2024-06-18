@@ -9,7 +9,7 @@
         class="basis-3/6 lg:basis-[70%] 2xl:basis-[60%]"
       />
     </div>
-    <Guaranty />
+    <Guarantee />
     <NewFooter />
   </div>
 </template>
@@ -20,7 +20,7 @@ import NewFooter from "@/components/partials/NewFooter.vue";
 import ScreenLoader from "@/components/utils/ScreenLoader.vue";
 import NewContactLanding from "@/components/contact/NewContactLanding.vue";
 import NewContactForm from "@/components/contact/NewContactForm.vue";
-import Guaranty from "@/components/contact/Guaranty.vue";
+import Guarantee from "@/components/contact/Guarantee.vue";
 import config from "@/config.js";
 
 export default {
@@ -40,7 +40,7 @@ export default {
     ScreenLoader,
     NewContactLanding,
     NewContactForm,
-    Guaranty,
+    Guarantee,
     NewFooter,
   },
   data() {

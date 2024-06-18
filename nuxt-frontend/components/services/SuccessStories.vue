@@ -49,7 +49,7 @@
           },
         }"
         @swiper="onSwiper"
-        class="swiper-container"
+        class="swiper-container !flex flex-col gap-2"
       >
         <swiper-slide
           v-for="(story, index) in stories"
@@ -146,15 +146,22 @@ export default {
 <style lang="postcss">
 @import "swiper/css";
 @import "swiper/css/pagination";
+
 .swiper-wrapper {
   @apply !items-center;
 }
+
+.swiper-pagination {
+  @apply !w-full !h-2 !rounded-full;
+}
+
 .swiper-horizontal > .swiper-pagination-progressbar,
 .swiper-pagination-horizontal,
 .swiper-pagination-progressbar-fill {
-  @apply lg:hidden !bottom-0 !top-auto !left-auto md:!left-[0.2rem] !right-4 w-[99%] !h-1.5 !rounded-[18px] !bg-neutral-100;
+  @apply lg:hidden !bottom-0 !top-auto !left-0 w-full !bg-neutral-100;
 }
+
 .swiper-pagination-progressbar-fill {
-  @apply !right-0  md:!left-[0.2rem]  !h-1.5 !rounded-[18px]  !bg-gradient-to-r !from-[#FF835B] !to-[#F2709C];
+  @apply !h-2 !bg-gradient-to-r !from-[#FF835B] !to-[#F2709C] !rounded-full;
 }
 </style>
