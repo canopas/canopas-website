@@ -6,9 +6,9 @@
     <div
       class="mt-4 mb-8 lg:mb-[4.5rem] text-center sub-h1-regular lg:mobile-header-2-regular text-black-60"
     >
-      and that starts with the site itself,
+      and that starts with this site itself,
       <nuxt-link
-        class="sub-h3-semibold lg:mobile-header-2-semibold v2-canopas-gradient-text"
+        class="sub-h3-semibold lg:mobile-header-2-semibold v2-canopas-gradient-text border-b border-[#ff835b]"
         :to="websiteOpenSourceUrl"
         target="_blank"
         @click.native="$mixpanel.track('tap_canopas_website_github')"
@@ -34,43 +34,23 @@
         >
           {{ contribution.description }}
         </div>
-        <div class="mt-6" v-if="width > 991">
-          <div
-            class="mt-1 inline-flex pr-1"
-            v-for="(tag, index) in contribution.tags"
-            :key="index"
-          >
+        <div
+          v-if="contribution.tags.length > 0"
+          class="my-6 overflow-hidden overflow-x-scroll scrollbar-hidden"
+        >
+          <div class="w-full min-w-[1000px]">
             <div
-              class="bg-white-smoke rounded-[1.875rem] py-1 px-4 lg:sub-h1-regular text-black-4"
-              v-html="tag"
-            ></div>
+              class="mt-1 inline-flex pr-1"
+              v-for="(tag, index) in contribution.tags"
+              :key="index"
+            >
+              <div
+                class="bg-white-smoke rounded-[1.875rem] py-1 px-4 lg:sub-h1-regular text-black-4"
+                v-html="tag"
+              ></div>
+            </div>
           </div>
         </div>
-        <swiper
-          v-else
-          :slidesPerView="2"
-          :grid="{
-            rows: 2,
-            fill: 'row',
-          }"
-          :modules="modules"
-          :breakpoints="{
-            '768': {
-              slidesPerView: 4,
-            },
-          }"
-          class="swiper-container mt-4 pl-0"
-        >
-          <swiper-slide
-            v-for="(tag, index) in contribution.tags"
-            :key="index"
-            class="cursor-pointer !mr-1 !w-auto pb-1"
-          >
-            <div
-              class="bg-white-smoke inline-flex rounded-[1.875rem] py-1 px-4 sub-h3-regular text-black-4 whitespace-nowrap"
-              v-html="tag"
-            ></div></swiper-slide
-        ></swiper>
         <div class="flex gap-4 mt-4 lg:mt-6">
           <div class="flex items-center">
             <Icon
@@ -82,7 +62,10 @@
               >{{ contribution.stars }}</span
             >
           </div>
-          <div class="flex items-center gap-0.5 text-black-87">
+          <div
+            v-if="contribution.forks > 0"
+            class="flex items-center gap-0.5 text-black-87"
+          >
             <span> <Icon class="fa h-5 w-5" name="fa6-solid:code-fork" /></span
             ><span class="sub-h3-semibold lg:mobile-header-3-semibold">{{
               contribution.forks
@@ -105,14 +88,11 @@
 </template>
 <script type="module">
 import config from "@/config.js";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Grid } from "swiper/modules";
 
 export default {
   data() {
     return {
       width: 0,
-      modules: [Grid],
       websiteOpenSourceUrl: "https://github.com/canopas/canopas-website",
       contributions: [
         {
@@ -137,7 +117,7 @@ export default {
           ],
           link: "https://github.com/canopas/compose-intro-showcase",
           stars: config.INTRO_SHOWCASE_STARS,
-          forks: "29",
+          forks: "32",
           color: "bg-royal-purple",
           language: "Kotlin",
         },
@@ -159,7 +139,7 @@ export default {
           ],
           link: "https://github.com/canopas/UIPilot",
           stars: config.UIPILOT_STARS,
-          forks: "22",
+          forks: "25",
           color: "bg-flamingo",
           language: "Swift",
         },
@@ -169,7 +149,7 @@ export default {
           tags: [],
           link: "https://github.com/canopas/compose-animations-examples",
           stars: config.JETPACK_COMPOSE_ANIMATION_STARS,
-          forks: "29",
+          forks: "34",
           color: "bg-royal-purple",
           language: "Kotlin",
         },
@@ -179,7 +159,7 @@ export default {
           tags: [],
           link: "https://github.com/canopas/swiftui-animations-examples",
           stars: config.SWIFT_UI_ANIMATION_STARS,
-          forks: "2",
+          forks: "3",
           color: "bg-flamingo",
           language: "Swift",
         },
@@ -227,7 +207,7 @@ export default {
           ],
           link: "https://github.com/canopas/compose-recyclerview",
           stars: config.COMPOSE_RECYCLEVIEW_STARS,
-          forks: "6",
+          forks: "7",
           color: "bg-royal-purple",
           language: "Kotlin",
         },
@@ -246,7 +226,7 @@ export default {
           ],
           link: "https://github.com/canopas/canopas-blog",
           stars: config.CANOPAS_BLOG_WEBSITE_STARS,
-          forks: "5",
+          forks: "7",
           color: "bg-soft-yellow",
           language: "JavaScript",
         },
@@ -294,7 +274,7 @@ export default {
           tags: [],
           link: "https://github.com/canopas/rich-editor-compose",
           stars: config.RICHEDITOR_STARS,
-          forks: "1",
+          forks: "0",
           color: "bg-royal-purple",
           language: "Kotlin",
         },
@@ -304,14 +284,18 @@ export default {
   mounted() {
     this.width = window.innerWidth;
   },
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
   inject: ["mixpanel"],
 };
 </script>
-<style lang="postcss">
-@import "swiper/css";
-@import "swiper/css/grid";
+
+<style scoped>
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
 </style>

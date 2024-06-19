@@ -42,7 +42,7 @@ func (repository *Repository) GetPostsByAuthor(c *gin.Context) {
 
 	query := ""
 	if isPublished {
-		query = " WHERE p.is_published = true "
+		query = " WHERE p.is_published = true AND published_at IS NOT NULL "
 	}
 
 	posts := []Post{}
@@ -85,7 +85,7 @@ func (repository *Repository) GetPostsByAuthor(c *gin.Context) {
 	if skip == 0 {
 		publishQuery := ""
 		if isPublished {
-			publishQuery = "WHERE p.is_published = true"
+			publishQuery = "WHERE p.is_published = true AND published_at IS NOT NULL"
 		}
 
 		err = repository.Db.Get(&new_post.Count, `SELECT COUNT(p.id) 

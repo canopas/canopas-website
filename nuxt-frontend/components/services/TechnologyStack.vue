@@ -1,5 +1,5 @@
 <template>
-  <section class="mt-16 lg:mt-60 flex flex-col items-center mt-16 md:mx-auto">
+  <section class="mt-16 lg:mt-60 flex flex-col items-center md:mx-auto">
     <div class="container text-center">
       <span class="mobile-header-2 lg:desk-header-2 text-black-87"
         >Technology Stack</span
@@ -152,6 +152,7 @@ import frontend4 from "@/assets/images/services/technology/frontend-4-200w.webp"
 import frontend5 from "@/assets/images/services/technology/frontend-5-200w.webp";
 import frontend6 from "@/assets/images/services/technology/frontend-6-200w.webp";
 import frontend7 from "@/assets/images/services/technology/frontend-7-200w.webp";
+import frontend8 from "@/assets/images/services/technology/frontend-8-200w.webp";
 
 import desktopfrontend1 from "@/assets/images/services/technology/desktop-icon/frontend-1-200w.webp";
 import desktopfrontend2 from "@/assets/images/services/technology/desktop-icon/frontend-2-200w.webp";
@@ -160,6 +161,7 @@ import desktopfrontend4 from "@/assets/images/services/technology/desktop-icon/f
 import desktopfrontend5 from "@/assets/images/services/technology/desktop-icon/frontend-5-200w.webp";
 import desktopfrontend6 from "@/assets/images/services/technology/desktop-icon/frontend-6-200w.webp";
 import desktopfrontend7 from "@/assets/images/services/technology/desktop-icon/frontend-7-200w.webp";
+import desktopfrontend8 from "@/assets/images/services/technology/desktop-icon/frontend-8-200w.webp";
 
 import backend1 from "@/assets/images/services/technology/backend-1-200w.webp";
 import backend2 from "@/assets/images/services/technology/backend-2-200w.webp";
@@ -223,6 +225,7 @@ export default {
             frontend5,
             frontend6,
             frontend7,
+            frontend8,
           ],
         },
         {
@@ -266,6 +269,7 @@ export default {
             { image: desktopfrontend5, content: "WordPress" },
             { image: desktopfrontend6, content: "Next.js" },
             { image: desktopfrontend7, content: "Nuxt.js" },
+            { image: desktopfrontend8, content: "Angular" },
           ],
         },
         {

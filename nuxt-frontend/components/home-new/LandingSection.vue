@@ -3,15 +3,14 @@
     class="relative bg-gradient-to-t from-pink-5 to-white landing-bg-mobile-clip-path md:landing-bg-clip-path overflow-hidden px-0 pb-[3.125rem] md:pb-[6.25rem] 3xl:outer-container"
   >
     <img
-      :src="background2100"
+      :src="background400"
       :srcset="`${background400} 400w, ${background800} 800w, ${background1200} 1200w, ${background2100} 2100w`"
       class="absolute top-0 left-0 w-full h-full -z-[1] object-contain"
       alt="canopas-landing"
       loading="eager"
     />
-
     <div
-      class="container flex flex-col items-center lg:flex-row-reverse lg:items-start pb-[1.563rem] lg:pb-[3.125rem]"
+      class="relative container flex flex-col items-center lg:flex-row-reverse lg:items-start pb-[1.563rem] lg:pb-[3.125rem]"
     >
       <aspect-ratio
         class="flex-[45%] lg:block hidden mt-10 2xl:mt-6"
@@ -19,7 +18,7 @@
       >
         <img
           class="w-full h-full object-contain"
-          :src="landing800"
+          :src="landing400"
           :srcset="`${landing400} 400w, ${landing800} 800w`"
           alt="landing-view-image"
         />
@@ -30,8 +29,9 @@
         <h1
           class="text-center lg:text-left w-full md:w-[95%] lg:w-[90%] xl:w-[94%] 2xl:w-[81%] mobile-header-1 lg:desk-header-2 xl:desk-header-1"
         >
-          For over a decade we have helped businesses grow exponentially.
-          <div>- <span class="text-primary-1"> Is Yours Next?</span></div>
+          For over a decade we have helped businesses grow exponentially. <br />
+          -
+          <span class="text-primary-1"> Is Yours Next?</span>
         </h1>
         <div
           class="sub-h1-regular lg:mobile-header-2-regular text-black-60 w-full md:w-[75%] lg:w-full 2xl:w-[89%] pt-4 lg:pt-6 text-center lg:text-left"
@@ -57,10 +57,13 @@
             >
               <span class="sub-h3-semibold lg:sub-h1-semibold"
                 >Get Free Consultation
-              </span> </nuxt-link
-            ><small class="lg:hidden sub-h4-regular text-black-60"
+              </span>
+            </nuxt-link>
+            <nuxt-link
+              to="/contact#guarantee"
+              class="lg:hidden sub-h4-regular text-black-60"
               >100% MONEY BACK GUARANTEE FOR <br />
-              TWO WEEKS</small
+              TWO WEEKS</nuxt-link
             >
           </div>
 
@@ -80,11 +83,7 @@
                   alt="client-image"
                 />
               </div>
-              <nuxt-link
-                v-if="client.plusIcon"
-                href="/contact"
-                aria-label="contact"
-              >
+              <div v-if="client.plusIcon">
                 <div
                   class="w-10 h-10 border-[2px] border-[#EBEBEB] rounded-full bg-white"
                   :class="client.className"
@@ -94,7 +93,7 @@
                     name="fa6-solid:plus"
                   />
                 </div>
-              </nuxt-link>
+              </div>
             </div>
             <div class="pl-2.5 md:pl-1.5">
               <div class="flex mt-[3px]">
@@ -105,11 +104,11 @@
                   name="fa6-solid:star"
                 />
               </div>
-              <div class="">
+              <div>
                 <span
                   class="sub-h4-regular lg:sub-h4-medium uppercase text-black-60"
                 >
-                  40+ Reviews
+                  89+ Reviews
                 </span>
               </div>
             </div>
@@ -119,9 +118,11 @@
           class="hidden lg:block w-[74%] xl:w-[72%] pt-3 lg:pt-4 sub-h4-medium text-black-60"
         >
           We offer a
-          <span class="secondary-color"
+          <nuxt-link
+            to="/contact#guarantee"
+            class="secondary-color border-b border-[#F2709C]"
             >100% MONEY BACK GUARANTEE FOR TWO WEEKS
-          </span>
+          </nuxt-link>
           if you don't like our work. No questions asked.
         </small>
       </div>

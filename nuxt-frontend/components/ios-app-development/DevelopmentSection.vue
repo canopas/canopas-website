@@ -107,7 +107,7 @@
           :loop="true"
           :modules="modules"
           class="swiper-container lg:h-[463px] xl:h-[495px] flex"
-          @swiper="setSwiperRef"
+          @swiper="setIosDevelopmentSwiperRef"
           @slideChange="onSlideChange"
         >
           <swiper-slide
@@ -155,7 +155,7 @@ export default {
     return {
       modules: [Autoplay],
       activeIndex: 0,
-      swiperRef: 0,
+      iosDevelopmentSwiperRef: 0,
       items: [
         {
           title: `iOS App Development <br/>Consultation`,
@@ -231,15 +231,15 @@ export default {
   },
   methods: {
     onSlideChange() {
-      this.activeIndex = this.swiperRef.realIndex;
+      this.activeIndex = this.iosDevelopmentSwiperRef.realIndex;
     },
-    setSwiperRef(swiper) {
-      this.swiperRef = swiper;
-      this.activeIndex = this.swiperRef.realIndex;
+    setIosDevelopmentSwiperRef(swiper) {
+      this.iosDevelopmentSwiperRef = swiper;
+      this.activeIndex = this.iosDevelopmentSwiperRef.realIndex;
     },
     slideTo(index) {
       this.activeIndex = index;
-      this.swiperRef.slideToLoop(index);
+      this.iosDevelopmentSwiperRef.slideToLoop(index);
     },
   },
   components: {

@@ -8,12 +8,7 @@
         How we can help you
       </p>
     </div>
-    <img
-      :src="ServiceBackgroundImage"
-      alt="service-background-image"
-      loading="lazy"
-      class="absolute left-0 top-0 h-full w-full object-contain sm:object-cover"
-    />
+    <div></div>
     <div
       v-for="(service, index) in services"
       :key="index"
@@ -30,6 +25,8 @@
           alt="service-bullet"
           loading="lazy"
           class="-mr-5 h-[50px] w-[50px]"
+          height="50"
+          width="50"
         />
         <nuxt-link
           :href="service.url"
@@ -37,25 +34,36 @@
         >
           {{ service.title }}
         </nuxt-link>
-        <div class="pt-4 sub-h3-regular text-black-60 sm:w-[70%] md:w-[65%]">
-          {{ service.content }}
-        </div>
+        <div
+          class="pt-4 sub-h3-regular text-black-60 sm:w-[70%] md:w-[65%]"
+          v-html="service.content"
+        ></div>
+        <div
+          class="absolute bottom-10 h-3 w-3 bg-[#F98386] rounded-full"
+          :class="index % 2 == 0 ? 'left-5' : 'right-5'"
+        ></div>
+        <div
+          class="absolute top-10 h-1.5 w-1.5 bg-[#F37299] rounded-full"
+          :class="index % 2 == 0 ? 'left-40' : 'right-40'"
+        ></div>
       </div>
       <img
         :src="service.image"
         alt="service-background-image"
         loading="lazy"
         class="h-full w-[126px] flex-[30%] sm:flex-[10%] md:flex-[6%]"
+        height="180"
+        width="130"
       />
     </div>
   </div>
 </template>
 
 <script>
-import ServiceBackgroundImage from "@/assets/images/why/why-canopas-mobile-bg.svg";
 import bullet1 from "@/assets/images/why/why-canopas-dot-1.svg";
 import bullet2 from "@/assets/images/why/why-canopas-dot-2.svg";
 import bullet3 from "@/assets/images/why/why-canopas-dot-3.svg";
+
 import circle1 from "@/assets/images/why/why-canopas-mobile-1.webp";
 import circle2 from "@/assets/images/why/why-canopas-mobile-2.webp";
 import circle3 from "@/assets/images/why/why-canopas-mobile-3.webp";
@@ -65,12 +73,11 @@ import circle5 from "@/assets/images/why/why-canopas-mobile-5.webp";
 export default {
   data() {
     return {
-      ServiceBackgroundImage,
       services: [
         {
           title: "Mobile Development",
           content:
-            "Whether your goal is to acquire new users, improve your retention rate, or increase in-app sales, our team will guide you based on our decade-long experience. From native to hybrid, we've got you covered.",
+            "Whether your goal is to acquire new users, improve your retention rate, or increase in-app sales, our team will guide you based on our decade-long experience. <span class='font-bold'>From native to hybrid, we've got you covered.</span>",
           image: circle1,
           bullet: bullet1,
           url: "/mobile-app-development",
@@ -78,28 +85,28 @@ export default {
         {
           title: "Web Development",
           content:
-            "Whether you need help with websites, web apps, an admin panel, an analytical dashboard, or desktop apps, our engineers will develop scalable backend and front-end solutions.",
+            "Whether you need help with websites, web apps, an admin panel, an analytical dashboard, or desktop apps, our engineers will develop <span class='font-bold'>scalable backend and front-end solutions.</span>",
           image: circle2,
           bullet: bullet2,
         },
         {
           title: "Custom Software Development",
           content:
-            "Unlock your business growth with tailored solutions for unique business needs, enabling scalability, seamless integration, competitive edge, long-term cost efficiency, and enhanced security.",
+            "<span class='font-bold'>Unlock your business growth with tailored solutions</span> for unique business needs, enabling scalability, seamless integration, competitive edge, long-term cost efficiency, and enhanced security.",
           image: circle3,
           bullet: bullet3,
         },
         {
           title: "UI/UX Design",
           content:
-            "We design user-centered UI/UX followed by user testing. We make design decisions based on only one thing: Data. Because it ensures our clients get value from our work.",
+            "We design user-centered UI/UX followed by user testing. <span class='font-bold'>We make design decisions based on only one thing: Data.</span> Because it ensures our clients get value from our work.",
           image: circle4,
           bullet: bullet1,
         },
         {
-          title: "DevOps and Maintenance",
+          title: "Bug Fixing and Maintenance",
           content:
-            "Our team values prevention over cure, writes unit tests from an early stage of the project for future maintainability, extendibility, and quick development, and uses auto-deployment to save time.",
+            "Looking to fix bugs in your app? We've helped multiple clients fix bugs and later added new features to match their vision. Plus, <span class='font-bold'>We offer 6 months of FREE maintenance on our work.</span>",
           image: circle5,
           bullet: bullet1,
         },

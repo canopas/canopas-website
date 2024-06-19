@@ -25,7 +25,7 @@
             @click="openBlog(post.link, 'tap_contribution_trending_section')"
           >
             <div class="overflow-hidden rounded-3xl border-1 border-black-80">
-              <div class="">
+              <div>
                 <img
                   @click.native="$mixpanel.track('tap_whats_trending_blog')"
                   :src="post.images[0]"
@@ -52,7 +52,7 @@
     </div>
     <!-- Mobile UI end -->
     <!-- Desktop UI start -->
-    <div class="mt-10 hidden overflow-hidden lg:block mt-20">
+    <div class="hidden overflow-hidden lg:block mt-20">
       <div
         class="animate-gridAnimationReverse"
         :style="{

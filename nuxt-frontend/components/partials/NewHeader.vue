@@ -1,8 +1,8 @@
 <template>
-  <header class="relative z-10 font-inter-medium">
+  <header class="relative z-[100] font-inter-medium">
     <div class="sticky top-0" :style="{ height: navContainerHeight + 'px' }">
       <nav
-        class="ease z-[1] w-full bg-white py-5 tracking-[0] text-black-core/[.87] transition-all duration-500 md:px-0 md:py-4"
+        class="ease w-full bg-white py-5 tracking-[0] text-black-core/[.87] transition-all duration-500 md:px-0 md:py-4"
         :class="[
           showNavbar
             ? 'fixed shadow-[0_13px_35px_-12px_rgba(35,35,35,0.15)]'
@@ -41,10 +41,12 @@
                   @click.native="$mixpanel.track(navbar.event)"
                   class="group relative mr-5 inline-block sm:mr-[30px] lg:mr-2 xl:mr-[30px]"
                   :class="[
+                    isActiveRoute(navbar.name)
+                      ? 'router-link-exact-active'
+                      : '',
                     navbar.className
                       ? navbar.className
-                      : navbar.class +
-                        ' after:absolute after:bottom-0 after:left-0 after:top-[27px] after:h-[3px] after:w-full  after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100 ',
+                      : ' main-menu after:absolute after:bottom-0 after:left-0 after:top-[27px] after:h-[3px] after:w-full  after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100 ',
                   ]"
                 >
                   <span
@@ -56,13 +58,13 @@
                 </nuxt-link>
 
                 <ul
-                  v-show="showContributionMenu"
+                  v-show="showContributionMenu && navbar.subMenus"
                   @mouseleave="showContributionMenu = false"
                   class="absolute w-max flex-col space-y-6 rounded-[5px] border bg-white !px-6 py-[1.5rem] shadow-md lg:top-[4.5rem] lg:left-[169px] xl:left-[296px] 2xl:left-[475px]"
                 >
-                  <li v-for="navbar in subMenus" :key="navbar">
+                  <li v-for="navbar in navbar.subMenus" :key="navbar">
                     <nuxt-link
-                      class="relative py-4 font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[42px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
+                      class="sub-menu relative py-4 font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[42px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
                       :href="navbar.url"
                       target="_self"
                       >{{ navbar.name }}
@@ -72,7 +74,7 @@
               </li>
             </ul>
           </div>
-          <div class="flex h-6 w-6 items-end lg:hidden">
+          <div class="flex h-6 w-6 items-end lg:hidden cursor-pointer">
             <Icon
               name="fa6-solid:bars"
               class="ml-0 mt-[0.20rem] h-full w-full"
@@ -102,7 +104,7 @@
                 </div>
               </nuxt-link>
             </div>
-            <div class="mt-[-3px] h-6 w-6">
+            <div class="mt-[-3px] h-6 w-6 cursor-pointer">
               <Icon
                 name="fa6-solid:xmark"
                 class="h-full w-full"
@@ -112,7 +114,7 @@
           </div>
         </div>
         <ul
-          class="mt-8 flex h-[50%] flex-col justify-start overflow-y-scroll text-[1rem] leading-[1.125rem] sm:h-[45%] md:text-[1.09375rem] md:leading-[1.28125rem] lg:ml-auto lg:items-center lg:text-[1.1875rem] lg:leading-[1.4375rem]"
+          class="mt-8 flex h-[50%] flex-col justify-start overflow-y-scroll scrollbar-hidden text-[1rem] leading-[1.125rem] sm:h-[45%] md:text-[1.09375rem] md:leading-[1.28125rem] lg:ml-auto lg:items-center lg:text-[1.1875rem] lg:leading-[1.4375rem]"
         >
           <li
             v-for="navbar in navbars.slice(0, navbars.length - 1)"
@@ -124,10 +126,10 @@
               @click.native="$mixpanel.track(navbar.event)"
               class="group relative mr-5 inline-block sm:mr-[30px] lg:mr-5"
               :class="[
+                isActiveRoute(navbar.name) ? 'router-link-exact-active' : '',
                 navbar.className
                   ? navbar.className
-                  : navbar.class +
-                    ' after:absolute after:bottom-0 after:left-0 after:top-[27px] after:h-[3px] after:w-full  after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100',
+                  : ' main-menu after:absolute after:bottom-0 after:left-0 after:top-[27px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100',
               ]"
               @click="
                 navbar.name == 'Contribution'
@@ -145,9 +147,9 @@
               "
               class="flex-col space-y-6"
             >
-              <li v-for="navbar in subMenus" :key="navbar">
+              <li v-for="navbar in navbar.subMenus" :key="navbar">
                 <nuxt-link
-                  class="relative py-2 font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] group-hover:z-[1] group-hover:text-white md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[30px] md:after:top-[35px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  class="sub-menu relative py-2 font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] group-hover:z-[1] group-hover:text-white md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[30px] md:after:top-[35px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
                   :href="navbar.url"
                   target="_self"
                   >{{ navbar.name }}
@@ -203,6 +205,23 @@ export default {
           name: "Contribution",
           url: "/contributions",
           event: "tap_header_contribution",
+          subMenus: [
+            {
+              name: "Open Source",
+              url: "/contributions",
+              event: "tap_header_contributions",
+            },
+            {
+              name: "Blog",
+              url: "/blog",
+              event: "tap_header_blog",
+            },
+            {
+              name: "Resources",
+              url: "/resources",
+              event: "tap_header_resources",
+            },
+          ],
         },
         {
           name: "Career",
@@ -224,26 +243,10 @@ export default {
           event: "tap_header_cta",
         },
       ],
-      subMenus: [
-        {
-          name: "Open Source",
-          url: "/contributions",
-          event: "tap_header_contributions",
-        },
-        {
-          name: "Blog",
-          url: "/blog",
-          event: "tap_header_blog",
-        },
-        {
-          name: "Resources",
-          url: "/resources",
-          event: "tap_header_resources",
-        },
-      ],
     };
   },
   mounted() {
+    this.navContainerHeight = this.$refs.mainHeader.clientHeight;
     if (
       this.currentRoutePath.includes("portfolio/") &&
       window.innerWidth > 992 &&
@@ -254,7 +257,6 @@ export default {
       this.podcastRef.addEventListener("scroll", this.handleScroll);
     }
     window.addEventListener("scroll", this.handleScroll);
-    this.navContainerHeight = this.$refs.mainHeader.clientHeight;
     this.width = window.innerWidth;
   },
   unmounted() {
@@ -275,6 +277,41 @@ export default {
       this.animateNavbar = scrollUp || pageYOffset < 100;
       this.lastScrollY = scrollY;
     },
+    isActiveRoute(name) {
+      const navbar = this.navbars.find((item) => item.name === name);
+      if (!navbar) {
+        return false;
+      }
+
+      // Check if any child URL matches
+      if (navbar.subMenus) {
+        return navbar.subMenus.some(
+          (subMenu) => this.$route.path === subMenu.url,
+        );
+      }
+
+      return false;
+    },
   },
 };
 </script>
+
+<style lang="postcss" scoped>
+.main-menu.router-link-exact-active {
+  @apply from-[#ff9472] to-[#f2709c] bg-clip-text text-transparent bg-gradient-[270.11deg];
+}
+
+.sub-menu.router-link-exact-active {
+  @apply from-[#ff9472] to-[#f2709c] bg-clip-text text-transparent bg-gradient-[270.11deg];
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+</style>

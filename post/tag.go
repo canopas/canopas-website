@@ -26,7 +26,7 @@ func (repository *Repository) GetPostsByTag(c *gin.Context) {
 
 	query := ""
 	if isPublished {
-		query = "is_published = true AND"
+		query = "is_published = true AND published_at IS NOT NULL AND"
 	}
 
 	posts := []Post{}

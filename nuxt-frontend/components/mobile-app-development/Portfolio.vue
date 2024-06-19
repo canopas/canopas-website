@@ -42,9 +42,9 @@
         </div>
         <img
           :src="portfolio.image[0]"
-          :srcset="`${portfolio.image[0]} 400w, ${portfolio.image[1]} 600w,  ${portfolio.image[2]} 800w}`"
+          :srcset="`${portfolio.image[0]} 400w, ${portfolio.image[1]} 600w,  ${portfolio.image[2]} 800w`"
           alt="app-image"
-          class="mx-auto mt-4 h-full max-w-[95%] md:max-w-[75%]"
+          class="mt-4 h-full w-full px-8 sm:px-12"
           @click="openPortfolio(portfolio)"
           loading="lazy"
         />

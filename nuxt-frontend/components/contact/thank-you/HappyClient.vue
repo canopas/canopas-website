@@ -79,7 +79,7 @@
                     </div>
                   </a>
                 </div>
-                <div class="">
+                <div>
                   <div
                     class="mobile-header-2-semibold text-black-87 transition-all ease duration-500"
                     :class="client.class"

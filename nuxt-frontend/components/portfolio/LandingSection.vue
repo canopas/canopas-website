@@ -1,6 +1,6 @@
 <template>
   <section class="bg-white" :ref="response.landingref1">
-    <div class="container pt-6 lg:pt-[7.5rem] pb-16 lg:pb-60">
+    <div class="container z pb-16 lg:pb-60">
       <h1
         class="sub-h1-semibold lg:sub-h2-medium text-black-60 animate__animated animate__fadeInUp"
       >

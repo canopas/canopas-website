@@ -117,7 +117,7 @@
               </div>
 
               <div class="mb-2">
-                <label class="">How did you find Canopas?</label>
+                <label>How did you find Canopas?</label>
                 <div
                   class="relative mt-[5px] w-full h-[50px] outline-hidden outline-0 before:content-[''] before:absolute before:top-5 before:right-5 before:z-[1] before:w-2 before:h-2 before:border-2 before:border-solid before:border-[#00000080] before:border-t-2 before:border-t-[#fff] before:border-r-2 before:border-r-[#fff] before:rotate-[-45deg] before:duration-[0.5s] before:pointer-events-none"
                   v-on:click.stop="
@@ -156,7 +156,7 @@
               </div>
 
               <div v-if="isShowingReferenceInput" class="mb-8 reference-input">
-                <label class="">Reference</label>
+                <label>Reference</label>
                 <input
                   class="block w-full border border-solid border-[#e2e2e2] rounded-[10px] text-[#3d3d3d] text-[1.125rem] mt-[5px] py-2.5 px-4 focus:border focus:border-solid focus:border-[#e2e2e2] focus:outline-hidden focus:outline-0 disabled:opacity-80 disabled:cursor-not-allowed reference-by-input"
                   type="text"
@@ -182,7 +182,7 @@
                 </label>
               </div>
 
-              <div class="">
+              <div>
                 <label class="after:content-['*'] after:text-[#ff0000]"
                   >Resume
                 </label>

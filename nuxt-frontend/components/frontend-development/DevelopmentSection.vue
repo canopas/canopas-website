@@ -179,7 +179,7 @@ function handleScroll() {
 @import "swiper/css/pagination";
 
 .swiper-pagination {
-  @apply static pt-8;
+  @apply static !mt-8;
 }
 .swiper-pagination-bullet {
   @apply !w-3 !h-3 !rounded-full !bg-pink-90 !border !border-solid !border-white-core-80;

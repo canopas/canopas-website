@@ -82,7 +82,6 @@
           '1400': {
             slidesPerView: 3.5,
           },
-
           '2400': {
             slidesPerView: 2.5,
           },
