@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { defineNuxtConfig } from "nuxt/config";
 import config from "./config";
+import robots from "./robots.config";
 
 export default defineNuxtConfig({
   app: {
@@ -19,6 +20,7 @@ export default defineNuxtConfig({
     "@canopassoftware/nuxt-blog-kit",
     "nuxt-lazy-hydrate",
     "@nuxtjs/sitemap",
+    ["@nuxtjs/robots", robots],
   ],
   site: {
     url: config.BASE_URL,
