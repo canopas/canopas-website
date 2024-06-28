@@ -18,6 +18,11 @@ Parameters:
     Type: String
     Description: Name of the zip file.
 
+Conditions:
+   IsDev: 
+      Fn::Equals: 
+        - Fn::Sub: ${EnvName}
+        - dev
 
 Resources:
   SSRFunction:
@@ -37,4 +42,11 @@ Resources:
       Description:
         Fn::Sub: Canopas Website SSR Frontend Lambda ${EnvName}
       FunctionUrlConfig:
-        AuthType: NONE   
+        AuthType: NONE
+      Environment:
+        Fn::If:
+          - IsDev
+          - Variables:
+              NUXT_SITE_ENV: 
+                Fn::Sub: ${EnvName}
+          - Ref: AWS::NoValue 
