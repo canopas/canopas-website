@@ -1,14 +1,21 @@
 <template>
   <section class="bg-white relative" :ref="response.ref">
-    <div class="relative container">
+    <div class="relative container py-10 lg:py-20">
       <img
         v-if="response.backgroundImage[3]"
         :src="response.backgroundImage[3]"
         :srcset="`${response.backgroundImage[0]} 400w, ${response.backgroundImage[1]} 800w, ${response.backgroundImage[2]} 1200w, ${response.backgroundImage[3]} 1600w`"
-        class="hidden absolute object-cover w-full py-40 lg:block"
+        class="hidden object-cover w-full py-40 lg:block"
         alt="luxeradio-music-background"
       />
-      <div class="flex flex-col justify-between py-16 lg:flex-row lg:py-60">
+      <div
+        class="flex flex-col justify-between lg:flex-row"
+        :class="
+          response.backgroundImage[3]
+            ? 'absolute bottom-0 items-center h-full'
+            : 'py-16 lg:py-60'
+        "
+      >
         <div class="mobile-header-3-semibold lg:desk-header-3 text-black-87">
           {{ response.title }}
         </div>

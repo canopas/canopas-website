@@ -11,7 +11,7 @@ type Repository struct {
 
 type Post struct {
 	Id               int               `json:"id"`
-	Title            string            `json:"title"`
+	Title            null.String       `json:"title"`
 	Content          null.String       `json:"content,omitempty"`
 	Slug             string            `json:"slug"`
 	PublishedOn      null.String       `json:"published_on,omitempty"`
@@ -110,7 +110,7 @@ type Cta struct {
 
 type RecommendedPost struct {
 	Id              int         `json:"id"`
-	Title           string      `json:"title"`
+	Title           null.String `json:"title"`
 	Content         null.String `json:"content"`
 	Slug            string      `json:"slug"`
 	PublishedOn     null.String `json:"published_on"`

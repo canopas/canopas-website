@@ -31,8 +31,9 @@ func (repository *Repository) GetPostsByTag(c *gin.Context) {
 
 	posts := []Post{}
 	err = repository.Db.Select(&posts, `SELECT id, title, slug, tags as tag, is_featured, is_published, published_on, published_at, reading_time, summary 
-										FROM posts
-										WHERE `+query+` tags @> $1`, `[{"slug": "`+slug+`"}]`)
+										FROM posts 
+										WHERE `+query+` tags @> $1 
+										ORDER BY published_on DESC`, `[{"slug": "`+slug+`"}]`)
 	if err != nil {
 		log.Error("Error while fetching posts: ", err)
 		c.AbortWithStatus(http.StatusInternalServerError)

@@ -1,8 +1,8 @@
 <template>
   <div
-    class="h-[352px] lg:h-[420px] xl:h-[476px] from-[#FF835B] to-[#F2709C] bg-gradient-[174deg] lg:bg-gradient-[180deg] 3xl:outer-container"
+    class="h-[352px] lg:h-[383px] xl:h-[468px] from-[#FF835B] to-[#F2709C] bg-gradient-[174deg] lg:bg-gradient-[180deg] 3xl:outer-container"
   >
-    <div class="container flex flex-col lg:flex-row py-4 lg:py-0">
+    <div class="h-full container flex flex-col lg:flex-row py-4 lg:py-0">
       <div class="hidden lg:block lg:w-full">
         <img
           :src="CTAImage[3]"
@@ -48,15 +48,15 @@
 </template>
 
 <script type="module">
-import cta400 from "@/assets/images/portfolio/new-portfolio/cta-400w.webp";
-import cta800 from "@/assets/images/portfolio/new-portfolio/cta-800w.webp";
-import cta1600 from "@/assets/images/portfolio/new-portfolio/cta-1600w.webp";
-import cta2400 from "@/assets/images/portfolio/new-portfolio/cta-2400w.webp";
-
 export default {
   data() {
     return {
-      CTAImage: [cta400, cta800, cta1600, cta2400],
+      CTAImage: [
+        "/images/portfolio/new-portfolio/cta-400w.webp",
+        "/images/portfolio/new-portfolio/cta-800w.webp",
+        "/images/portfolio/new-portfolio/cta-1600w.webp",
+        "/images/portfolio/new-portfolio/cta-2400w.webp",
+      ],
       reasons: [
         "High-performing mobile apps",
         "Bulletproof cloud solutions",

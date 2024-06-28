@@ -7,6 +7,7 @@
         :loop="true"
         :spaceBetween="20"
         :pagination="pagination"
+        :autoplay="true"
         :modules="modules"
         @swiper="onSwiper"
         class="swiper-container"
@@ -36,7 +37,6 @@
                   <span class="sm:justify-between sub-h4-regular">
                     REVIEWED ON
                   </span>
-
                   <img
                     :src="reviewImage"
                     class="mr-2 w-[5.0625rem] h-[1.4375rem]"
@@ -83,11 +83,11 @@
                     <span class="sm:justify-between mr-2 sub-h4-medium">
                       REVIEWED ON
                     </span>
-
                     <img
                       :src="reviewImage"
                       class="mr-2 w-[5.3125rem] h-[1.5rem]"
                       alt="reviewClutchImage"
+                      loading="lazy"
                     />
                   </div>
                   <div class="flex flex-col mt-2.5 sm:mt-5 sm:justify-end">
@@ -112,17 +112,16 @@
 </template>
 
 <script>
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
-import reviewImage from "@/assets/images/clients/v3-client/ReviewImage.webp";
 import Config from "@/config.js";
 export default {
   data() {
     return {
       swiper: null,
       reading: false,
-      modules: [Pagination, Autoplay],
-      reviewImage: reviewImage,
+      modules: [Autoplay],
+      reviewImage: "/images/clients/v3-client/ReviewImage.webp",
       clutchLink: Config.CLUTCH_URL,
       clients: [
         {

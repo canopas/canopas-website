@@ -61,6 +61,8 @@
                 portfolio.id == 8 ? 'object-cover' : '',
               ]"
               :alt="portfolio.title + `-image`"
+              height="100"
+              width="100"
               loading="eager"
             />
           </div>
@@ -88,30 +90,6 @@
 </template>
 
 <script type="module">
-import justly_1_400w from "@/assets/images/portfolio/new-portfolio/justly-1-400w.webp";
-import justly_1_800w from "@/assets/images/portfolio/new-portfolio/justly-1-800w.webp";
-
-import tognessMp4 from "@/assets/images/portfolio/new-portfolio/togness.mp4";
-import tognessWebm from "@/assets/images/portfolio/new-portfolio/togness.webm";
-
-import luxeradio_1_400w from "@/assets/images/portfolio/new-portfolio/luxeradio-1-400w.webp";
-import luxeradio_1_800w from "@/assets/images/portfolio/new-portfolio/luxeradio-1-800w.webp";
-
-import luxeradio_2_400w from "@/assets/images/portfolio/new-portfolio/luxeradio-2-400w.webp";
-import luxeradio_2_800w from "@/assets/images/portfolio/new-portfolio/luxeradio-2-800w.webp";
-
-import smileMp4 from "@/assets/images/portfolio/new-portfolio/smile.mp4";
-import smileWebm from "@/assets/images/portfolio/new-portfolio/smile.webm";
-
-import justly_2_400w from "@/assets/images/portfolio/new-portfolio/justly-2-400w.webp";
-import justly_2_800w from "@/assets/images/portfolio/new-portfolio/justly-2-800w.webp";
-
-import togness_1_400w from "@/assets/images/portfolio/new-portfolio/togness-1-400w.webp";
-import togness_1_800w from "@/assets/images/portfolio/new-portfolio/togness-1-800w.webp";
-
-import justly_3_400w from "@/assets/images/portfolio/new-portfolio/justly-3-400w.webp";
-import justly_3_800w from "@/assets/images/portfolio/new-portfolio/justly-3-800w.webp";
-
 import config from "@/config.js";
 import lozad from "lozad";
 
@@ -121,7 +99,10 @@ export default {
       portfolios: [
         {
           id: 1,
-          images: [justly_1_400w, justly_1_800w],
+          images: [
+            "/images/portfolio/new-portfolio/justly-1-400w.webp",
+            "/images/portfolio/new-portfolio/justly-1-800w.webp",
+          ],
           classes: "flex-[40%] bg-[#F6EAD0] lg:rounded-none lg:rounded-tl-xl",
           title: "Justly",
           description:
@@ -131,7 +112,10 @@ export default {
         },
         {
           id: 2,
-          video: [tognessMp4, tognessWebm],
+          video: [
+            "/images/portfolio/new-portfolio/togness.mp4",
+            "/images/portfolio/new-portfolio/togness.webm",
+          ],
           classes: "flex-[40%] bg-[#E1F1FF] lg:rounded-none",
           title: "Togness",
           description:
@@ -141,7 +125,10 @@ export default {
         },
         {
           id: 3,
-          images: [luxeradio_1_400w, luxeradio_1_800w],
+          images: [
+            "/images/portfolio/new-portfolio/luxeradio-1-400w.webp",
+            "/images/portfolio/new-portfolio/luxeradio-1-800w.webp",
+          ],
           classes:
             "flex-[20%] hidden lg:block bg-[#EBB7DB] lg:rounded-none lg:rounded-tr-xl",
           title: "Luxeradio",
@@ -150,7 +137,10 @@ export default {
         },
         {
           id: 4,
-          images: [luxeradio_2_400w, luxeradio_2_800w],
+          images: [
+            "/images/portfolio/new-portfolio/luxeradio-2-400w.webp",
+            "/images/portfolio/new-portfolio/luxeradio-2-800w.webp",
+          ],
           classes: "flex-[50%] bg-[#F1E8F2] lg:rounded-none",
           title: "Luxeradio",
           description:
@@ -160,7 +150,10 @@ export default {
         },
         {
           id: 5,
-          video: [smileMp4, smileWebm],
+          video: [
+            "/images/portfolio/new-portfolio/smile.mp4",
+            "/images/portfolio/new-portfolio/smile.webm",
+          ],
           classes: "flex-[50%] bg-[#FFE9E5] lg:rounded-none",
           title: "Smile+",
           description:
@@ -171,7 +164,10 @@ export default {
         },
         {
           id: 6,
-          images: [justly_2_400w, justly_2_800w],
+          images: [
+            "/images/portfolio/new-portfolio/justly-2-400w.webp",
+            "/images/portfolio/new-portfolio/justly-2-800w.webp",
+          ],
           classes:
             "flex-[25%] hidden lg:block bg-[#CDE3F7] lg:rounded-none lg:rounded-bl-xl",
           title: "Justly",
@@ -180,7 +176,10 @@ export default {
         },
         {
           id: 7,
-          images: [togness_1_400w, togness_1_800w],
+          images: [
+            "/images/portfolio/new-portfolio/togness-1-400w.webp",
+            "/images/portfolio/new-portfolio/togness-1-800w.webp",
+          ],
           classes: "flex-[50%] hidden lg:block bg-[#E6F0D0] lg:rounded-none",
           title: "Togness",
           description:
@@ -190,7 +189,10 @@ export default {
         },
         {
           id: 8,
-          images: [justly_3_400w, justly_3_800w],
+          images: [
+            "/images/portfolio/new-portfolio/justly-3-400w.webp",
+            "/images/portfolio/new-portfolio/justly-3-800w.webp",
+          ],
           classes:
             "flex-[25%] hidden lg:block bg-[#AED2F6] lg:rounded-none lg:rounded-br-xl",
           title: "Justly",

@@ -54,15 +54,11 @@
   </section>
 </template>
 <script>
-import cta800 from "../../assets/images/CTA/fifth-cta-800w.webp";
-import ctaImage400w from "@/assets/images/mobile-app-development/cta-2/cta-image-400w.webp";
-import ctaImage800w from "@/assets/images/mobile-app-development/cta-2/cta-image-800w.webp";
-
 export default {
   data() {
     return {
-      ctaImage400w,
-      ctaImage800w,
+      ctaImage400w: "/images/mobile-app-development/cta-2/cta-image-400w.webp",
+      ctaImage800w: "/images/mobile-app-development/cta-2/cta-image-800w.webp",
     };
   },
 };
