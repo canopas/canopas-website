@@ -49,4 +49,4 @@ Resources:
           - Variables:
               NUXT_SITE_ENV: 
                 Fn::Sub: ${EnvName}
-          - Ref: AWS::NoValue 
+          - Ref: AWS::NoValue
