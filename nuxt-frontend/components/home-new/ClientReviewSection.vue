@@ -121,7 +121,7 @@ export default {
       swiper: null,
       reading: false,
       modules: [Autoplay],
-      reviewImage: '/images/clients/v3-client/ReviewImage.webp',
+      reviewImage: "/images/clients/v3-client/ReviewImage.webp",
       clutchLink: Config.CLUTCH_URL,
       clients: [
         {
