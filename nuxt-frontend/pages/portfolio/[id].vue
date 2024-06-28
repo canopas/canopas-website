@@ -25,9 +25,9 @@ import DesignSection from "@/components/portfolio/DesignSection.vue";
 import FooterSection from "@/components/portfolio/FooterSection.vue";
 import NewCTASection from "@/components/portfolio/NewCTASection.vue";
 import ElementSection from "@/components/portfolio/ElementSection.vue";
-import luxeradioResponse from "@/portfolio-json/luxeradio-data.js";
-import justlyResponse from "@/portfolio-json/justly-data.js";
-import tognessResponse from "@/portfolio-json/togness-data.js";
+import luxeradioResponse from "@/json-data/luxeradio-portfolio.js";
+import justlyResponse from "@/json-data/justly-portfolio.js";
+import tognessResponse from "@/json-data/togness-portfolio.js";
 import ErrorPage from "@/error.vue";
 import { elementInViewPort } from "@/utils.js";
 import config from "@/config.js";
@@ -133,3 +133,4 @@ watch(
   }
 }
 </style>
+~/json-data/luxeradio-data.js~/json-data/justly-data.js~/json-data/togness-data.js

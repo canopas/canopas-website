@@ -39,14 +39,14 @@
                   "
                   :to="navbar.url"
                   @click.native="$mixpanel.track(navbar.event)"
-                  class="group relative mr-5 inline-block sm:mr-[30px] lg:mr-2 xl:mr-[30px]"
+                  class="flex gap-2 group relative mr-5 sm:mr-[30px] lg:mr-2 xl:mr-[30px]"
                   :class="[
                     isActiveRoute(navbar.name)
                       ? 'router-link-exact-active'
                       : '',
                     navbar.className
                       ? navbar.className
-                      : ' main-menu after:absolute after:bottom-0 after:left-0 after:top-[27px] after:h-[3px] after:w-full  after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100 ',
+                      : ' main-menu after:absolute after:bottom-0 after:left-0 after:top-[27px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100 ',
                   ]"
                 >
                   <span
@@ -55,6 +55,37 @@
                     ]"
                     >{{ navbar.name }}</span
                   >
+                  <span
+                    v-if="navbar.subMenus"
+                    class="flex items-center transition ease-in-out duration-500"
+                    :class="showContributionMenu ? 'rotate-180' : ''"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="13"
+                      height="7"
+                      viewBox="0 0 13 7"
+                      fill="none"
+                    >
+                      <path
+                        d="M6.5 6.5L0.5 0.5H12.5L6.5 6.5Z"
+                        fill="url(#paint0_linear_8576_22013)"
+                      />
+                      <defs>
+                        <linearGradient
+                          id="paint0_linear_8576_22013"
+                          x1="13.76"
+                          y1="3.49999"
+                          x2="-1.17743"
+                          y2="6.50015"
+                          gradientUnits="userSpaceOnUse"
+                        >
+                          <stop stop-color="#F2709C" />
+                          <stop offset="1" stop-color="#FF835B" />
+                        </linearGradient>
+                      </defs>
+                    </svg>
+                  </span>
                 </nuxt-link>
 
                 <ul
@@ -124,7 +155,7 @@
             <nuxt-link
               :to="navbar.url == '/contributions' ? '' : navbar.url"
               @click.native="$mixpanel.track(navbar.event)"
-              class="group relative mr-5 inline-block sm:mr-[30px] lg:mr-5"
+              class="flex gap-2 group relative mr-5 w-fit sm:mr-[30px] lg:mr-5 cursor-pointer"
               :class="[
                 isActiveRoute(navbar.name) ? 'router-link-exact-active' : '',
                 navbar.className
@@ -137,8 +168,39 @@
                   : ''
               "
             >
-              {{ navbar.name }}</nuxt-link
-            >
+              <span>{{ navbar.name }}</span>
+              <span
+                v-if="navbar.subMenus"
+                class="flex items-center transition ease-in-out duration-500"
+                :class="showContributionMenu ? 'rotate-180' : ''"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="13"
+                  height="7"
+                  viewBox="0 0 13 7"
+                  fill="none"
+                >
+                  <path
+                    d="M6.5 6.5L0.5 0.5H12.5L6.5 6.5Z"
+                    fill="url(#paint1_linear_8576_22013)"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="paint1_linear_8576_22013"
+                      x1="13.76"
+                      y1="3.49999"
+                      x2="-1.17743"
+                      y2="6.50015"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stop-color="#F2709C" />
+                      <stop offset="1" stop-color="#FF835B" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </span>
+            </nuxt-link>
             <ul
               :class="
                 showContributionMenu && navbar.name == 'Contribution'
@@ -288,6 +350,10 @@ export default {
         return navbar.subMenus.some(
           (subMenu) => this.$route.path === subMenu.url,
         );
+      }
+
+      if (name == "Portfolio" && this.$route.path.startsWith("/portfolio")) {
+        return true;
       }
 
       return false;

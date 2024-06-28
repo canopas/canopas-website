@@ -50,13 +50,13 @@
 </template>
 
 <script type="module">
-import cta400 from "@/assets/images/portfolio/new-portfolio/new-cta-400w.webp";
-import cta800 from "@/assets/images/portfolio/new-portfolio/new-cta-800w.webp";
-
 export default {
   data() {
     return {
-      CTAImage: [cta400, cta800],
+      CTAImage: [
+        "/images/portfolio/new-portfolio/new-cta-400w.webp",
+        "/images/portfolio/new-portfolio/new-cta-800w.webp",
+      ],
       reasons: [
         "High-performing mobile apps",
         "Bulletproof cloud solutions",

@@ -167,6 +167,7 @@
         :src="bg"
         :srcset="`${bg} 400w, ${bg400} 800w, ${bg2400} 1200w`"
         alt="blog-background-image"
+        loading="lazy"
       />
     </div>
   </section>

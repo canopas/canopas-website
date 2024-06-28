@@ -1,12 +1,9 @@
 name: DeployFrontendServerlessDev
 
 on:
-  workflow_run:
-    workflows: ["DeployBackendDev"]
-    types:
-      - completed
+  push:
     branches:
-      - "master"
+      - "use-nuxt-image-to-show-images"
 
 jobs:
   deploy-frontend-dev:

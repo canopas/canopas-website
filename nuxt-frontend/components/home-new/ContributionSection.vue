@@ -38,16 +38,17 @@
           v-if="contribution.tags.length > 0"
           class="my-6 overflow-hidden overflow-x-scroll scrollbar-hidden"
         >
-          <div class="w-full min-w-[1000px]">
+          <div class="w-full min-w-[1000px] lg:min-w-full flex-wrap flex gap-2">
             <div
-              class="mt-1 inline-flex pr-1"
+              class="mt-1 inline-flex"
               v-for="(tag, index) in contribution.tags"
               :key="index"
             >
-              <div
+              <p
                 class="bg-white-smoke rounded-[1.875rem] py-1 px-4 lg:sub-h1-regular text-black-4"
-                v-html="tag"
-              ></div>
+              >
+                {{ tag }}
+              </p>
             </div>
           </div>
         </div>
@@ -74,7 +75,7 @@
           <div class="flex items-center gap-2">
             <span
               class="h-4 w-4 rounded-full"
-              :class="contribution.color"
+              :style="{ backgroundColor: contribution.color }"
             ></span
             ><span
               class="sub-h3-semibold lg:mobile-header-3-semibold text-black-87"
@@ -87,198 +88,14 @@
   </section>
 </template>
 <script type="module">
-import config from "@/config.js";
+import contributionsJson from "@/json-data/contribution";
 
 export default {
   data() {
     return {
       width: 0,
       websiteOpenSourceUrl: "https://github.com/canopas/canopas-website",
-      contributions: [
-        {
-          title: "compose-intro-showcase",
-          description:
-            "Highlight different features of the app using Jetpack Compose",
-          tags: [
-            `android`,
-            `kotlin`,
-            `material-design`,
-            `kotlin-library`,
-            `showcase`,
-            `android-library`,
-            `android-development`,
-            `jetpack`,
-            `intro`,
-            `feature`,
-            `jetpack-android`,
-            `app-intro`,
-            `jetpack-compose`,
-            `jetpack-compose-tutorial`,
-          ],
-          link: "https://github.com/canopas/compose-intro-showcase",
-          stars: config.INTRO_SHOWCASE_STARS,
-          forks: "32",
-          color: "bg-royal-purple",
-          language: "Kotlin",
-        },
-        {
-          title: "UIPilot",
-          description: "The missing typesafe SwiftUI navigation library",
-          tags: [
-            `macos`,
-            `swift`,
-            `ios`,
-            `router`,
-            `xcode`,
-            `navigation`,
-            `routing`,
-            `ios-ui`,
-            `navigation-view`,
-            `swiftui`,
-            `swift5`,
-          ],
-          link: "https://github.com/canopas/UIPilot",
-          stars: config.UIPILOT_STARS,
-          forks: "25",
-          color: "bg-flamingo",
-          language: "Swift",
-        },
-        {
-          title: "Jetpack Compose animations",
-          description: "Cool animations implemented with Jetpack compose",
-          tags: [],
-          link: "https://github.com/canopas/compose-animations-examples",
-          stars: config.JETPACK_COMPOSE_ANIMATION_STARS,
-          forks: "34",
-          color: "bg-royal-purple",
-          language: "Kotlin",
-        },
-        {
-          title: "Swiftui-animations-examples",
-          description: "Cool animations implemented with SwiftUI.",
-          tags: [],
-          link: "https://github.com/canopas/swiftui-animations-examples",
-          stars: config.SWIFT_UI_ANIMATION_STARS,
-          forks: "3",
-          color: "bg-flamingo",
-          language: "Swift",
-        },
-        {
-          title: "Tailwind Animations Examples",
-          description: "Cool animations implemented with tailwindcss.",
-          tags: [
-            `css`,
-            `vuejs`,
-            `animations`,
-            `animation-css`,
-            `tailwind`,
-            `tailwindcss`,
-            `tailwind-elements`,
-            `tailwind-animations`,
-            `animation-example`,
-            `tailwindcss-animate`,
-            `tailwind-animations-examples`,
-            `animation-examples`,
-          ],
-          link: "https://github.com/canopas/tailwind-animations-examples",
-          stars: config.TAILWIND_ANIMATIONS_STARS,
-          forks: "6",
-          color: "bg-soft-yellow",
-          language: "JavaScript",
-        },
-        {
-          title: "ComposeRecyclerView",
-          description:
-            "Seamlessly integrate Jetpack Compose composables in RecyclerView with ComposeRecyclerView🔥. This library enhances performance⚡, tackles LazyList issues🔨, and offers built-in drag-and-drop👨🏽‍💻 support for dynamic UIs.",
-          tags: [
-            `kotlin`,
-            `android`,
-            `drag-and-drop`,
-            `recyclerview`,
-            `kotlin-library`,
-            `android-library`,
-            `recyclerview-adapter`,
-            `draggable`,
-            `composer-library`,
-            `lazylist`,
-            `jetpack-compose`,
-            `jetpack-compose-tutorial`,
-            `compose-ui`,
-          ],
-          link: "https://github.com/canopas/compose-recyclerview",
-          stars: config.COMPOSE_RECYCLEVIEW_STARS,
-          forks: "7",
-          color: "bg-royal-purple",
-          language: "Kotlin",
-        },
-        {
-          title: "Canopas - Blog",
-          description:
-            "Feature-Rich blogs platform built with strapi and next.js",
-          tags: [
-            `website`,
-            `development`,
-            `web-development`,
-            `web`,
-            `responsive`,
-            `reactjs`,
-            `nextjs`,
-          ],
-          link: "https://github.com/canopas/canopas-blog",
-          stars: config.CANOPAS_BLOG_WEBSITE_STARS,
-          forks: "7",
-          color: "bg-soft-yellow",
-          language: "JavaScript",
-        },
-        {
-          title: "Canopas - website",
-          description:
-            "Responsive website built with Vue.js and vite by following best practices.",
-          tags: [
-            `golang`,
-            `aws`,
-            `website`,
-            `boilerplate`,
-            `development`,
-            `vuejs`,
-            `web-development`,
-          ],
-          link: "https://github.com/canopas/canopas-website",
-          stars: config.CANOPAS_WEBSITE_STARS,
-          forks: "4",
-          color: "bg-sea-green",
-          language: "Vue",
-        },
-        {
-          title: "RichEditorSwiftUI",
-          description:
-            "RichEditorSwiftUI is swift based library, it is made to make rich text editing easy with SwiftUI.",
-          tags: [
-            `editor`,
-            `swift`,
-            `string`,
-            `uikit`,
-            `rich-text-editor`,
-            `richtext`,
-            `swiftui`,
-          ],
-          link: "https://github.com/canopas/rich-editor-swiftui",
-          stars: config.RICHEDITOR_SWIFTUI_STARS,
-          forks: "1",
-          color: "bg-flamingo",
-          language: "Swift",
-        },
-        {
-          title: "RichEditor",
-          description: "Android WYSIWYG Rich editor for Jetpack compose.",
-          tags: [],
-          link: "https://github.com/canopas/rich-editor-compose",
-          stars: config.RICHEDITOR_STARS,
-          forks: "0",
-          color: "bg-royal-purple",
-          language: "Kotlin",
-        },
-      ],
+      contributions: contributionsJson,
     };
   },
   mounted() {

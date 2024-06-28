@@ -21,6 +21,7 @@
           :src="landing400"
           :srcset="`${landing400} 400w, ${landing800} 800w`"
           alt="landing-view-image"
+          loading="eager"
         />
       </aspect-ratio>
       <div
@@ -61,7 +62,7 @@
             </nuxt-link>
             <nuxt-link
               to="/contact#guarantee"
-              class="lg:hidden sub-h4-regular text-black-60"
+              class="lg:hidden sub-h4-regular text-black-60 border-b border-black-60"
               >100% MONEY BACK GUARANTEE FOR <br />
               TWO WEEKS</nuxt-link
             >
@@ -130,26 +131,20 @@
   </div>
 </template>
 <script>
-import landing400 from "@/assets/images/landing/landing-400w.webp";
-import landing800 from "@/assets/images/landing/landing-800w.webp";
 import client1 from "@/assets/images/landing/client1-100w.webp";
 import client2 from "@/assets/images/landing/client2-100w.webp";
 import client3 from "@/assets/images/landing/client3-100w.webp";
 import client4 from "@/assets/images/landing/client4-100w.webp";
-import background400 from "@/assets/images/landing/bg/background-400w.webp";
-import background800 from "@/assets/images/landing/bg/background-800w.webp";
-import background1200 from "@/assets/images/landing/bg/background-1200w.webp";
-import background2100 from "@/assets/images/landing/bg/background-2100w.webp";
 import AspectRatio from "../utils/AspectRatio.vue";
 export default {
   data() {
     return {
-      landing400,
-      landing800,
-      background400,
-      background800,
-      background1200,
-      background2100,
+      landing400: "/images/landing/landing-400w.webp",
+      landing800: "/images/landing/landing-800w.webp",
+      background400: "/images/landing/bg/background-400w.webp",
+      background800: "/images/landing/bg/background-800w.webp",
+      background1200: "/images/landing/bg/background-1200w.webp",
+      background2100: "/images/landing/bg/background-2100w.webp",
       clients: [
         {
           className: "z-0",
