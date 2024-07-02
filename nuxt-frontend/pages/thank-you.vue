@@ -37,7 +37,6 @@ const NewFooter = defineAsyncComponent(
 const { $mixpanel } = useNuxtApp();
 
 const benefits = ref(null);
-const meeting = ref(null);
 
 const seoData = config.CLIENT_THANKYOU_SEO_META_DATA;
 useSeoMeta({
@@ -53,7 +52,6 @@ let clientName = "";
 let event = "";
 let events = {
   benefits: "view_thankyou_benefits_section",
-  meeting: "view_thankyou_schedule_meeting_section",
 };
 
 let elements;
@@ -61,7 +59,6 @@ let elements;
 onMounted(() => {
   elements = ref({
     benefits: benefits,
-    meeting: meeting,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_thankyou_page");

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-[550px] border-0 pt-10 md:h-screen">
+  <div class="w-full h-[550px] border-0 md:h-screen">
     <div v-if="isLoading" class="iframe-loader">
       <img
         :src="loader"
@@ -7,17 +7,17 @@
         alt="loader-image"
       />
     </div>
+    <div v-if="!isLoading" class="h-20"></div>
     <div
       id="calendly-embed"
-      class="calendly-inline-widget h-screen w-full"
+      class="h-full w-full"
       :data-url="calendlyUrl"
-      style="min-width: 320px; height: 700px"
-      v-on:load="isLoading = false"
+      style="min-width: 320px; max-height: 700px"
     ></div>
   </div>
 </template>
 
-<script>
+<script type="module">
 import config from "@/config.js";
 import loader from "@/assets/images/theme/loader.svg";
 
@@ -58,18 +58,20 @@ export default {
       setTimeout(() => {
         this.isLoading = false;
       }, 1000);
-
-      window.addEventListener("message", function (e) {
-        if (
-          e.data.event &&
-          e.data.event.indexOf("calendly") === 0 &&
-          e.data.event === "calendly.event_scheduled"
-        ) {
+      window.addEventListener("message", this.handleCalendlyEvent);
+    },
+    handleCalendlyEvent(e) {
+      if (
+        e.data.event &&
+        e.data.event.indexOf("calendly") === 0 &&
+        e.data.event === "calendly.event_scheduled"
+      ) {
+        setTimeout(() => {
           this.$router.push({
             path: "/thank-you",
           });
-        }
-      });
+        }, 2000);
+      }
     },
   },
 };

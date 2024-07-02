@@ -231,7 +231,7 @@
 
                 <button
                   type="button"
-                  class="absolute right-2.5 top-0 close modal-close-btn border-none text-pink-300 text-4xl font-light bg-transparent focus:outline-none"
+                  class="absolute right-5 top-28 close modal-close-btn border-none text-pink-300 text-4xl font-bold bg-transparent focus:outline-none"
                   data-dismiss="modal"
                   aria-label="Close"
                 >
@@ -399,6 +399,9 @@ export default {
     },
     closeCalendlyIframeModal() {
       this.openCalendlyIframeModal = false;
+      this.$router.push({
+        path: "/thank-you",
+      });
     },
   },
 };
