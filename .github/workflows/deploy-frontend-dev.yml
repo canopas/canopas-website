@@ -1,12 +1,9 @@
 name: DeployFrontendServerlessDev
 
 on:
-  workflow_run:
-    workflows: ["DeployBackendDev"]
-    types:
-      - completed
+  push:
     branches:
-      - "master"
+      - "change-schedule-meeting-flow"
 
 jobs:
   deploy-frontend-dev:

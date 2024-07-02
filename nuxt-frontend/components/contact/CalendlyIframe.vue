@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-[550px] border-0 pt-5 md:h-screen">
+  <div class="w-full h-[550px] border-0 pt-10 md:h-screen">
     <div v-if="isLoading" class="iframe-loader">
       <img
         :src="loader"
@@ -7,17 +7,17 @@
         alt="loader-image"
       />
     </div>
-    <iframe
-      class="h-screen w-full"
-      :src="calendlyUrl"
-      title="calendly"
+    <div
+      id="calendly-embed"
+      class="calendly-inline-widget h-screen w-full"
+      :data-url="calendlyUrl"
+      style="min-width: 320px; height: 700px"
       v-on:load="isLoading = false"
-      v-show="!isLoading"
-    ></iframe>
+    ></div>
   </div>
 </template>
 
-<script type="module">
+<script>
 import config from "@/config.js";
 import loader from "@/assets/images/theme/loader.svg";
 
@@ -28,6 +28,49 @@ export default {
       loader: loader,
       isLoading: true,
     };
+  },
+  mounted() {
+    this.loadCalendlyWidget();
+    this.initializeCalendlyEventListeners();
+  },
+  beforeDestroy() {
+    window.removeEventListener("message", this.handleCalendlyEvent);
+  },
+  methods: {
+    loadCalendlyWidget() {
+      if (window.Calendly) {
+        this.initCalendlyWidget();
+      } else {
+        const script = document.createElement("script");
+        script.src = "https://assets.calendly.com/assets/external/widget.js";
+        script.async = true;
+        script.onload = this.initCalendlyWidget;
+        document.head.appendChild(script);
+      }
+    },
+    initCalendlyWidget() {
+      Calendly.initInlineWidget({
+        url: this.calendlyUrl,
+        parentElement: document.getElementById("calendly-embed"),
+      });
+    },
+    initializeCalendlyEventListeners() {
+      setTimeout(() => {
+        this.isLoading = false;
+      }, 1000);
+
+      window.addEventListener("message", function (e) {
+        if (
+          e.data.event &&
+          e.data.event.indexOf("calendly") === 0 &&
+          e.data.event === "calendly.event_scheduled"
+        ) {
+          this.$router.push({
+            path: "/thank-you",
+          });
+        }
+      });
+    },
   },
 };
 </script>
