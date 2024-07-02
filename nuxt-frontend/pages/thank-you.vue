@@ -8,7 +8,7 @@
         ref="benefits"
       />
       <HappyClientSection />
-      <ScheduleMeeting ref="meeting" />
+      <InformationPoints />
     </div>
     <NewFooter />
   </div>
@@ -19,14 +19,16 @@ import { defineAsyncComponent } from "vue";
 import config from "@/config.js";
 import Header from "@/components/partials/NewHeader.vue";
 import LandingSection from "@/components/contact/thank-you/LandingSection.vue";
-import BenefitSection from "@/components/contact/thank-you/BenefitSection.vue";
 import { elementInViewPort } from "@/utils.js";
 
+const BenefitSection = defineAsyncComponent(
+  () => import("@/components/contact/thank-you/BenefitSection.vue"),
+);
 const HappyClientSection = defineAsyncComponent(
   () => import("@/components/contact/thank-you/HappyClient.vue"),
 );
-const ScheduleMeeting = defineAsyncComponent(
-  () => import("@/components/contact/thank-you/ScheduleMeeting.vue"),
+const InformationPoints = defineAsyncComponent(
+  () => import("@/components/contact/thank-you/InformationPoints.vue"),
 );
 const NewFooter = defineAsyncComponent(
   () => import("@/components/partials/NewFooter.vue"),
@@ -35,7 +37,6 @@ const NewFooter = defineAsyncComponent(
 const { $mixpanel } = useNuxtApp();
 
 const benefits = ref(null);
-const meeting = ref(null);
 
 const seoData = config.CLIENT_THANKYOU_SEO_META_DATA;
 useSeoMeta({
@@ -51,7 +52,6 @@ let clientName = "";
 let event = "";
 let events = {
   benefits: "view_thankyou_benefits_section",
-  meeting: "view_thankyou_schedule_meeting_section",
 };
 
 let elements;
@@ -59,7 +59,6 @@ let elements;
 onMounted(() => {
   elements = ref({
     benefits: benefits,
-    meeting: meeting,
   });
   window.addEventListener("scroll", sendEvent);
   $mixpanel.track("view_thankyou_page");

@@ -213,6 +213,38 @@
         </div>
       </div>
     </form>
+    <!-- Show Calendly Iframe -->
+    <div v-if="openCalendlyIframeModal">
+      <transition name="modal">
+        <div
+          class="modal-mask fixed top-0 left-0 w-full h-full table mask bg-[#00000080] z-[5]"
+        >
+          <div
+            class="flex mx-auto left-auto sm:mx-auto h-full login-modal modal-xl"
+            role="document"
+          >
+            <div
+              class="relative flex flex-col w-full border-1 border-gray border-solid rounded-md bg-white bg-clip-padding outline-0"
+            >
+              <div class="relative flex-auto">
+                <CalendlyIframe class="w-full h-screen overflow-hidden" />
+
+                <button
+                  type="button"
+                  class="absolute right-5 top-28 close modal-close-btn border-none text-pink-300 text-4xl font-bold bg-transparent focus:outline-none"
+                  data-dismiss="modal"
+                  aria-label="Close"
+                >
+                  <span aria-hidden="true" @click="closeCalendlyIframeModal"
+                    >&times;</span
+                  >
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </transition>
+    </div>
   </div>
 </template>
 
@@ -307,13 +339,11 @@ export default {
               axios
                 .post(config.API_BASE + "/api/send-contact-mail", formData)
                 .then(() => {
-                  this.$router.push({
-                    path: "/thank-you",
-                  });
                   localStorage.setItem(
                     "client-name",
                     JSON.stringify(formData.name),
                   );
+                  this.openCalendlyIframe();
                   this.resetForm();
                 })
                 .catch((err) => {
@@ -362,6 +392,16 @@ export default {
       this.showList = !this.showList;
       this.floatable = this.showList || this.invest.trim().length > 0;
       this.$mixpanel.track("tap_contact_invest_input");
+    },
+    openCalendlyIframe() {
+      this.openCalendlyIframeModal = true;
+      this.$mixpanel.track("tap_schedule_meeting");
+    },
+    closeCalendlyIframeModal() {
+      this.openCalendlyIframeModal = false;
+      this.$router.push({
+        path: "/thank-you",
+      });
     },
   },
 };

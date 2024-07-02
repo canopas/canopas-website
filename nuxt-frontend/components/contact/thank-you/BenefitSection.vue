@@ -3,8 +3,11 @@
     <p
       class="container text-center mobile-header-2 lg:desk-header-2 text-black-87 2xl:max-w-[67%] xll:max-w-[45%] 3xl:max-w-[28%] 2xl:mx-auto"
     >
-      Here are some of the things you will get by working with us that make us
-      special according to our past customers.
+      Why Canopas?
+    </p>
+    <p class="container text-center mt-2 lg:mt-6 text-black-4 lg:text-2xl">
+      Discover what makes us unique through the experiences of our satisfied
+      customers.
     </p>
     <div class="absolute w-full h-full lg:hidden">
       <img
