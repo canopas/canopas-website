@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section class="flex flex-col gap-40">
     <div class="container flex flex-col mt-4 lg:mt-12">
       <p
         class="text-center sub-h4-regular lg:mobile-header-3-regular text-black-60"
@@ -28,20 +28,22 @@
         appreciate the fact that you chose my company.
       </p>
     </div>
-    <div
-      class="mt-16 lg:mt-48 flex flex-col bg-gradient-to-r from-orange-80 to-pink-80 py-12 xl:py-16 lg:container"
-    >
-      <div class="container py-12 xl:py-16">
-        <p class="text-center mobile-header-2 lg:desk-header-2 text-primary-1">
-          At Canopas, Our Vision is
+    <!-- <div class="bg-primary-1 py-5">
+        <p class="container text-center text-white text-xl font-semibold tracking-wider">
+          Thank you for booking a meeting with Canopas. Here's the details of your
+          meeting with Canopas.
+          <br />
+          Time - 9:00am - 9:30am, Wednesday, June 26, 2024 (India Standard Time)
         </p>
-        <p
-          class="mt-3 text-center sub-h3-medium lg:desk-header-3 text-black-87 xl:w-[84%] 2xl:w-[74%] xl:mx-auto"
-        >
-          "To put humanity and the world into a better position compared to what
-          it was prior to our existence in the world."
-        </p>
-      </div>
+    </div> -->
+    <div class="container">
+      <p class="text-center mobile-header-2 lg:desk-header-2">Our Vision</p>
+      <p
+        class="mt-3 text-center sub-h3-medium lg:desk-header-3 text-black-87 w-[68%] mx-auto"
+      >
+        "To put humanity and the world into a better position compared to what
+        it was prior to our existence in the world."
+      </p>
     </div>
   </section>
 </template>

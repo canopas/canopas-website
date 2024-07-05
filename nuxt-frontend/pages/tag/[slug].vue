@@ -3,7 +3,7 @@
     <Header />
     <div
       v-if="slug == '' || status == config.NOT_FOUND"
-      class="h-1/2 flex text-[1.4rem] text-black-900 items-center justify-center"
+      class="h-[50vh] flex text-[1.4rem] text-black-900 items-center justify-center"
     >
       {{ config.POST_NOT_FOUND_MESSAGE }}
     </div>
@@ -51,14 +51,18 @@ const resources = computed(() => store.items);
 const status = computed(() => store.status);
 let postLimit = 2;
 
-await useAsyncData("tags", () => store.loadTagBlogs(slug.value));
+await useAsyncData("tags", () =>
+  store.loadTagBlogs(config.SHOW_DRAFT_POSTS, slug.value),
+);
 
 if (status.value === config.SUCCESS) {
   posts.value = resources.value?.slice(0, postLimit);
 }
 
-const tagName = posts.value[0].tags.filter((tag) => tag.slug === slug.value)[0]
-  .name;
+const tagName =
+  posts.value.length > 0
+    ? posts.value[0].tags.filter((tag) => tag.slug === slug.value)[0].name
+    : "";
 
 const handleScroll = () => {
   if (

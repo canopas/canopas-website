@@ -4,7 +4,7 @@
     <section class="container min-h-[50vh]">
       <div
         v-if="status == config.NOT_FOUND"
-        class="h-1/2 flex text-[1.4rem] text-black-900 items-center justify-center"
+        class="h-[50vh] flex text-[1.4rem] text-black-900 items-center justify-center"
       >
         {{ config.POST_NOT_FOUND_MESSAGE }}
       </div>
