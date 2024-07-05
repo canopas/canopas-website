@@ -67,7 +67,7 @@ export default {
         {
           title: "Mobile Development",
           content:
-            "Whether your goal is to acquire new users, improve your retention rate, or increase in-app sales, our team will guide you based on our decade-long experience. <span class='font-bold'>From native to hybrid, we've got you covered.</span>",
+            "Whether your goal is to acquire new users, improve your retention rate, or increase in-app sales, our team will guide you based on our decade-long experience. <span class='sub-h3-semibold'>From native to hybrid, we've got you covered.</span>",
           image: "/images/why/why-canopas-mobile-1.webp",
           bullet: "/images/why/why-canopas-dot-1.svg",
           url: "/mobile-app-development",
@@ -75,28 +75,28 @@ export default {
         {
           title: "Web Development",
           content:
-            "Whether you need help with websites, web apps, an admin panel, an analytical dashboard, or desktop apps, our engineers will develop <span class='font-bold'>scalable backend and front-end solutions.</span>",
+            "Whether you need help with websites, web apps, an admin panel, an analytical dashboard, or desktop apps, our engineers will develop <span class='sub-h3-semibold'>scalable backend and front-end solutions.</span>",
           image: "/images/why/why-canopas-mobile-2.webp",
           bullet: "/images/why/why-canopas-dot-2.svg",
         },
         {
           title: "Custom Software Development",
           content:
-            "<span class='font-bold'>Unlock your business growth with tailored solutions</span> for unique business needs, enabling scalability, seamless integration, competitive edge, long-term cost efficiency, and enhanced security.",
+            "<span class='sub-h3-semibold'>Unlock your business growth with tailored solutions</span> for unique business needs, enabling scalability, seamless integration, competitive edge, long-term cost efficiency, and enhanced security.",
           image: "/images/why/why-canopas-mobile-3.webp",
           bullet: "/images/why/why-canopas-dot-3.svg",
         },
         {
           title: "UI/UX Design",
           content:
-            "We design user-centered UI/UX followed by user testing. <span class='font-bold'>We make design decisions based on only one thing: Data.</span> Because it ensures our clients get value from our work.",
+            "We design user-centered UI/UX followed by user testing. <span class='sub-h3-semibold'>We make design decisions based on only one thing: Data.</span> Because it ensures our clients get value from our work.",
           image: "/images/why/why-canopas-mobile-4.webp",
           bullet: "/images/why/why-canopas-dot-1.svg",
         },
         {
           title: "Bug Fixing and Maintenance",
           content:
-            "Looking to fix bugs in your app? We've helped multiple clients fix bugs and later added new features to match their vision. Plus, <span class='font-bold'>We offer 6 months of FREE maintenance on our work.</span>",
+            "Looking to fix bugs in your app? We've helped multiple clients fix bugs and later added new features to match their vision. Plus, <span class='sub-h3-semibold'>We offer 6 months of FREE maintenance on our work.</span>",
           image: "/images/why/why-canopas-mobile-5.webp",
           bullet: "/images/why/why-canopas-dot-1.svg",
         },

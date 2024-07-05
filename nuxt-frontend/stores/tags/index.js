@@ -13,13 +13,14 @@ export const useTagListStore = defineStore("tag-list", {
     };
   },
   actions: {
-    async loadTagBlogs(slug) {
+    async loadTagBlogs(showDrafts, slug) {
       return new Promise((resolve, reject) => {
         this.isLoading = true;
         this.error = null;
 
-        let url =
-          config.API_BASE + "/api/posts/tags/" + slug + "?is_published=true";
+        let published = `is_published=${!showDrafts}`;
+
+        let url = config.API_BASE + "/api/posts/tags/" + slug + "?" + published;
 
         axios
           .get(url)

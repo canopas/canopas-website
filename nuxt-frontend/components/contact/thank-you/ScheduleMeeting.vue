@@ -106,14 +106,14 @@
     <div v-if="openCalendlyIframeModal">
       <transition name="modal">
         <div
-          class="modal-mask fixed top-0 left-0 w-full h-full table mask z-[1] bg-[#00000080] z-[5]"
+          class="modal-mask fixed top-0 left-0 w-full h-full table mask bg-[#00000080] z-[5]"
         >
           <div
             class="flex mx-auto left-auto sm:mx-auto h-full login-modal modal-xl"
             role="document"
           >
             <div
-              class="relative flex flex-col w-full border-1 border-gray border-solid rounded-md rounded-3xl bg-white bg-clip-padding outline-0"
+              class="relative flex flex-col w-full border-1 border-gray border-solid rounded-md bg-white bg-clip-padding outline-0"
             >
               <div class="relative flex-auto">
                 <CalendlyIframe class="w-full h-screen overflow-hidden" />

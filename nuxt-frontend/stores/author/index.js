@@ -35,7 +35,7 @@ export const useAuthorListStore = defineStore("authors", {
           .get(url)
           .then((response) => {
             let posts = [];
-            response.data.posts.forEach((post) => {
+            response.data.posts?.forEach((post) => {
               posts.push(setPostFields(post));
             });
             this.items = posts;

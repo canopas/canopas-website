@@ -219,8 +219,8 @@
 <script>
 import axios from "axios";
 import config from "@/config.js";
-import CalendlyIframe from "./CalendlyIframe.vue";
 import loaderImage from "@/assets/images/theme/small-loader.svg";
+
 export default {
   data() {
     return {
@@ -244,15 +244,11 @@ export default {
       showProjectInfoValidationError: false,
       showReferenceValidationError: false,
       showInvestValidationError: false,
-      openCalendlyIframeModal: false,
       errorMessage: "Something went wrong on our side",
       showLoader: false,
       showErrorMessage: false,
       contactType: 1,
     };
-  },
-  components: {
-    CalendlyIframe,
   },
   inject: ["mixpanel"],
   mounted() {
@@ -307,13 +303,13 @@ export default {
               axios
                 .post(config.API_BASE + "/api/send-contact-mail", formData)
                 .then(() => {
-                  this.$router.push({
-                    path: "/thank-you",
-                  });
                   localStorage.setItem(
                     "client-name",
                     JSON.stringify(formData.name),
                   );
+                  this.$router.push({
+                    path: "/thank-you",
+                  });
                   this.resetForm();
                 })
                 .catch((err) => {
