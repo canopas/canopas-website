@@ -18,7 +18,7 @@ export const useTagListStore = defineStore("tag-list", {
         this.isLoading = true;
         this.error = null;
 
-        let published = showDrafts ? "is_published=false" : "is_published=true";
+        let published = `is_published=${!showDrafts}`;
 
         let url = config.API_BASE + "/api/posts/tags/" + slug + "?" + published;
 
