@@ -66,7 +66,9 @@ const assets =
   slug.value === "favicon.ico" || slug.value === "flutter_service_worker.js";
 
 if (!assets) {
-  await useAsyncData("blog", () => store.loadResource(slug.value));
+  await useAsyncData("blog", () =>
+    store.loadResource(slug.value, config.SHOW_DRAFT_POSTS),
+  );
 }
 
 if (status.value !== config.SUCCESS) {

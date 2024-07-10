@@ -122,12 +122,24 @@ func (repository *Repository) Show(c *gin.Context) {
 		return
 	}
 
+	isPublished, err := strconv.ParseBool(c.DefaultQuery("is_published", "false"))
+	if err != nil {
+		log.Warn(err)
+		c.AbortWithStatus(http.StatusBadRequest)
+		return
+	}
+
+	publishQuery := ""
+	if isPublished {
+		publishQuery = " AND is_published = true AND published_at IS NOT NULL"
+	}
+
 	post := Post{}
-	err := repository.Db.Get(&post, `SELECT id, title, content, slug, published_on, is_featured, created_at, updated_at, published_at, 
+	err = repository.Db.Get(&post, `SELECT id, title, content, slug, published_on, is_featured, created_at, updated_at, published_at, 
 									summary, blog_content, meta_description, toc, tags as tag, is_published, keywords, new_content, new_toc, new_blog_content, 
 									is_resource, reading_time 
 									FROM posts 
-									WHERE slug = $1`, slug)
+									WHERE slug = $1`+publishQuery, slug)
 	if err != nil {
 		if err == sql.ErrNoRows {
 			c.AbortWithStatus(http.StatusNotFound)

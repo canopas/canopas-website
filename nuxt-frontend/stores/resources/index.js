@@ -116,11 +116,14 @@ export const useBlogDetailStore = defineStore("resources-detail", {
     };
   },
   actions: {
-    async loadResource(slug) {
+    async loadResource(slug, showDrafts) {
       return new Promise((resolve, reject) => {
         this.isLoading = true;
         this.error = null;
-        let url = config.API_BASE + "/api/posts/" + slug;
+
+        let published = `is_published=${!showDrafts}`;
+
+        let url = config.API_BASE + "/api/posts/" + slug + "?" + published;
 
         axios
           .get(url)
