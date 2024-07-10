@@ -181,7 +181,7 @@ func (repository *Repository) Show(c *gin.Context) {
 											summary, blog_content, meta_description, toc, tags as tag, is_published, keywords, new_content, new_toc, new_blog_content,
 											is_resource, reading_time 
 											FROM posts 
-											WHERE slug != $1`, slug)
+											WHERE slug != $1`+publishQuery, slug)
 		if err != nil {
 			log.Error("Error while fetching recommended post: ", err)
 			c.AbortWithStatus(http.StatusInternalServerError)
