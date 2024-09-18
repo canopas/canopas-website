@@ -24,9 +24,7 @@ jobs:
           cd nuxt-frontend
           sed -i "s|VITE_RECAPTCHA_SITE_KEY_VALUE|${{ secrets.RECAPTCHA_SITE_KEY }}|g" config.js
           sed -i "s|RESOURCES_URL|${{ secrets.RESOURCES_URL }}|g" config.js
-          sed -i "s|CLOUDFRONT_URL_VALUE|${{ secrets.CLOUDFRONT_URL_VALUE_DEV }}|g" config.js
           yarn install && yarn build
-          ls -l dist
       
       - name: Build & Deploy Worker
         uses: cloudflare/wrangler-action@v3
