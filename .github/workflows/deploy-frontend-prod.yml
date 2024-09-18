@@ -1,6 +1,12 @@
 name: DeployFrontendCloudflarePagesProd
 
-on: push
+on:
+  workflow_run:
+    workflows: ["DeployBackendProd"]
+    types:
+      - completed
+    branches:
+      - "master"
 
 jobs:
   deploy-frontend-prod:

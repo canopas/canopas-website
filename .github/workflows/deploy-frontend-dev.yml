@@ -1,6 +1,12 @@
 name: DeployFrontendCloudflarePagesDev
 
-on: push
+on:
+  workflow_run:
+    workflows: ["DeployBackendDev"]
+    types:
+      - completed
+    branches:
+      - "master"
 
 jobs:
   deploy-frontend-dev:
