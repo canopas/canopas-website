@@ -41,38 +41,36 @@
 </template>
 
 <script setup>
-import bg from "@/assets/images/footer/new-bg.svg";
-import Config from "@/config.js";
+import config from "@/config.js";
 
-const hover = ref(false);
 const socialMediaIcons = [
   {
-    url: Config.FACEBOOK_URL,
+    url: config.FACEBOOK_URL,
     icon: "fa6-brands:facebook-f",
     event: "tap_footer_facebook",
   },
   {
-    url: Config.INSTAGRAM_URL,
+    url: config.INSTAGRAM_URL,
     icon: "fa6-brands:instagram",
     event: "tap_footer_instagram",
   },
   {
-    url: Config.TWITTER_URL,
+    url: config.TWITTER_URL,
     icon: "fa6-brands:x-twitter",
     event: "tap_footer_twitter",
   },
   {
-    url: Config.LINKEDIN_URL,
+    url: config.LINKEDIN_URL,
     icon: "fa6-brands:linkedin-in",
     event: "tap_footer_linkedin",
   },
   {
-    url: Config.YOUTUBE_URL,
+    url: config.YOUTUBE_URL,
     icon: "fa6-brands:youtube",
     event: "tap_footer_youtube",
   },
   {
-    url: Config.GITHUB_URL,
+    url: config.GITHUB_URL,
     icon: "fa6-brands:github",
     event: "tap_footer_github",
   },

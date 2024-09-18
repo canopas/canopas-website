@@ -7,7 +7,7 @@
       :srcset="`${background400} 400w, ${background800} 800w, ${background1200} 1200w, ${background2100} 2100w`"
       class="absolute top-0 left-0 w-full h-full -z-[1] object-contain"
       alt="canopas-landing"
-      loading="eager"
+      preload
     />
     <div
       class="relative container flex flex-col items-center lg:flex-row-reverse lg:items-start pb-[1.563rem] lg:pb-[3.125rem]"
@@ -21,7 +21,7 @@
           :src="landing400"
           :srcset="`${landing400} 400w, ${landing800} 800w`"
           alt="landing-view-image"
-          loading="eager"
+          preload
         />
       </aspect-ratio>
       <div

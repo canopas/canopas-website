@@ -4,13 +4,13 @@ import config from "./config";
 import robots from "./robots.config";
 
 export default defineNuxtConfig({
+  compatibilityDate: "2024-04-03",
   app: {
     head: {
       htmlAttrs: {
         lang: "en",
       },
     },
-    cdnURL: config.CLOUDFRONT_URL,
   },
   devtools: { enabled: true },
   modules: [
@@ -34,12 +34,15 @@ export default defineNuxtConfig({
     xsl: false,
     xslTips: false,
   },
-  css: ["~/assets/css/global.css", "~/assets/css/app.css"],
+  css: ["~/assets/css/app.css"],
+  features: {
+    inlineStyles: false,
+  },
   generate: { fallback: true },
   imports: {
     dirs: ["stores"],
   },
-  plugins: [{ src: "~/plugins/mixpanel" }],
+  plugins: [{ src: "~/plugins/mixpanel", mode: "client" }],
   hooks: {
     "pages:extend"(pages) {
       pages.push({
@@ -58,7 +61,9 @@ export default defineNuxtConfig({
     "/": { prerender: true },
     "/services": { prerender: true },
     "/portfolio": { prerender: true },
-    "/portfolio/**": { prerender: true },
+    "/portfolio/justly": { prerender: true },
+    "/portfolio/togness": { prerender: true },
+    "/portfolio/luxeradio": { prerender: true },
     "/contributions": { prerender: true },
     "/about": { prerender: true },
     "/contact": { prerender: true },
@@ -73,6 +78,6 @@ export default defineNuxtConfig({
   },
   nitro: {
     compressPublicAssets: true,
-    preset: "aws-lambda",
+    preset: "cloudflare-pages",
   },
 });
