@@ -1,4 +1,4 @@
-name: DeployFrontendServerlessProd
+name: DeployFrontendCloudflarePagesProd
 
 on:
   workflow_run:
@@ -11,9 +11,6 @@ on:
 jobs:
   deploy-frontend-prod:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write
-      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.3
@@ -22,34 +19,18 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/github-actions-frontend-access
-          aws-region: ap-south-1
-
-      - name: Build frontend and copy zip to S3
+      - name: Install dependencies and Build the project
         run: |
           cd nuxt-frontend
           sed -i "s|VITE_RECAPTCHA_SITE_KEY_VALUE|${{ secrets.RECAPTCHA_SITE_KEY }}|g" config.prod.js
           sed -i "s|RESOURCES_URL|${{ secrets.RESOURCES_URL }}|g" config.prod.js
-          sed -i "s|CLOUDFRONT_URL_VALUE|${{ secrets.CLOUDFRONT_URL_VALUE_PROD }}|g" config.prod.js
           mv config.prod.js config.js
-          yarn install --frozen-lockfile && yarn build
-          cd .output/server && zip canopas_website_SSR_prod_${{ github.sha }}-${{ github.run_attempt }}.zip -r . && aws s3 cp canopas_website_SSR_prod_${{ github.sha }}-${{ github.run_attempt }}.zip s3://canopas-lambda-handlers && cd ../..
-          aws s3 rm s3://canopas-website-ssr-dev --recursive
-          aws s3 sync --cache-control 'max-age=604800' --exclude *.html ./.output/public s3://canopas-website-ssr-prod
-          aws s3 sync ./.output/public s3://canopas-website-ssr-prod
-
-      - name: Deploy cloudformation stack
-        id: canopas-website-prod-lambda-stack-frontend
-        uses: aws-actions/aws-cloudformation-github-deploy@v1
+          yarn install && yarn build
+      
+      - name: Build & Deploy Worker
+        uses: cloudflare/wrangler-action@v3
         with:
-          name: canopas-website-prod-lambda-stack-frontend
-          template: infrastructure/frontend.yml
-          capabilities: CAPABILITY_IAM,CAPABILITY_NAMED_IAM, CAPABILITY_AUTO_EXPAND
-          timeout-in-minutes: "10"
-          no-fail-on-empty-changeset: "1"
-          parameter-overrides: >-
-            EnvName=prod,
-            ZipFileName=canopas_website_SSR_prod_${{ github.sha }}-${{ github.run_attempt }}.zip
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: "nuxt-frontend"
+          command: pages deploy ./dist --project-name=canopas-website --branch=main

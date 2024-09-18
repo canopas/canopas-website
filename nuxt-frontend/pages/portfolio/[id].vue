@@ -31,7 +31,6 @@ import tognessResponse from "@/json-data/togness-portfolio.js";
 import ErrorPage from "@/error.vue";
 import { elementInViewPort } from "@/utils.js";
 import config from "@/config.js";
-
 import { useRoute } from "vue-router";
 
 const { $mixpanel } = useNuxtApp();

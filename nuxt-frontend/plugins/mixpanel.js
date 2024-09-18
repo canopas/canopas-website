@@ -5,6 +5,6 @@ import mixpanel from "mixpanel-browser";
 import config from "../config.js";
 
 export default defineNuxtPlugin((nuxtApp) => {
-  mixpanel.init(config.MIX_PANEL_TOKEN);
+  mixpanel.init(config.MIX_PANEL_TOKEN, { debug: true });
   nuxtApp.provide("mixpanel", mixpanel);
 });

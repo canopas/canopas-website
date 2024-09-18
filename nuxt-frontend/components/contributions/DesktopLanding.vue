@@ -85,7 +85,7 @@
       </div>
 
       <div
-        class="absolute top-[19rem] xl:top-[25rem] left-[46%] flex flex-row justify-between w-4/5"
+        class="absolute top-[19rem] xl:top-[25rem] left-[46%] flex flex-row justify-between w-fit"
       >
         <div
           class="flex flex-row justify-between gap-x-11 xl:gap-x-28 2xll:gap-x-36"
@@ -117,7 +117,7 @@
         </div>
       </div>
       <div
-        class="absolute left-[86%] 2xl:left-[79%] xll:left-[82%] top-[35%] xll:top-[42%] flex flex-row justify-between w-4/5"
+        class="absolute left-[86%] 2xl:left-[79%] xll:left-[82%] top-[35%] xll:top-[42%] flex flex-row justify-between w-fit"
       >
         <div
           class="flex flex-col justify-between gap-y-36 lg:gap-y-40 xl:gap-y-48 2xl:gap-y-36"
@@ -148,7 +148,7 @@
         </div>
       </div>
       <div
-        class="absolute left-[90%] top-[13%] flex flex-row justify-between w-4/5"
+        class="absolute left-[90%] top-[13%] flex flex-row justify-between w-fit"
       >
         <div
           class="flex flex-col justify-between gap-y-20 lg:gap-20 xl:gap-28 2xl:gap-y-36"

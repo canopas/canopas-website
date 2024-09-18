@@ -176,7 +176,10 @@
 </template>
 <script>
 import AspectRatio from "@/components/utils/AspectRatio.vue";
-import LottieAnimation from "@/components/utils/LottieAnimation.vue";
+
+const LottieAnimation = defineAsyncComponent(
+  () => import("@/components/utils/LottieAnimation.vue"),
+);
 
 export default {
   props: ["json"],
