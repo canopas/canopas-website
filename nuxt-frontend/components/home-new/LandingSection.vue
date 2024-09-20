@@ -28,7 +28,7 @@
         class="flex-[55%] flex flex-col items-center lg:items-start mt-6 lg:mt-[6.25rem]"
       >
         <h1
-          class="text-center lg:text-left w-full md:w-[95%] lg:w-[90%] xl:w-[94%] 2xl:w-[81%] mobile-header-1 lg:desk-header-2 xl:desk-header-1"
+          class="open-sans-font font-bold text-center lg:text-left w-full md:w-[95%] lg:w-[90%] xl:w-[94%] 2xl:w-[81%] mobile-header-1 lg:desk-header-2 xl:desk-header-1"
         >
           For over a decade we have helped businesses grow exponentially. <br />
           -
@@ -48,7 +48,7 @@
         </div>
 
         <div
-          class="flex items-center flex-col-reverse lg:flex-row xl:pt-[1.5rem]"
+          class="inter-font flex items-center flex-col-reverse lg:flex-row xl:pt-[1.5rem]"
         >
           <div class="text-center">
             <nuxt-link
@@ -136,6 +136,7 @@ import client2 from "@/assets/images/landing/client2-100w.webp";
 import client3 from "@/assets/images/landing/client3-100w.webp";
 import client4 from "@/assets/images/landing/client4-100w.webp";
 import AspectRatio from "../utils/AspectRatio.vue";
+
 export default {
   data() {
     return {
@@ -175,3 +176,15 @@ export default {
   inject: ["mixpanel"],
 };
 </script>
+
+<style scoped>
+.open-sans-font {
+  font-family:
+    Open Sans,
+    sans-serif;
+}
+
+.inter-font {
+  font-family: Inter, sans-serif;
+}
+</style>

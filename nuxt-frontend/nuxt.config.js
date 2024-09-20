@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     "@canopassoftware/nuxt-blog-kit",
     "nuxt-lazy-hydrate",
     "@nuxtjs/sitemap",
+    "@nuxt/fonts",
     ["@nuxtjs/robots", robots],
   ],
   site: {
