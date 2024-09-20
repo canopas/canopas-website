@@ -1,5 +1,5 @@
 <template>
-  <header class="relative z-[100] font-inter-medium">
+  <header class="relative z-[100] inter-font font-inter-medium">
     <div class="sticky top-0" :style="{ height: navContainerHeight + 'px' }">
       <nav
         class="ease w-full bg-white py-5 tracking-[0] text-black-core/[.87] transition-all duration-500 md:px-0 md:py-4"
@@ -95,7 +95,7 @@
                 >
                   <li v-for="navbar in navbar.subMenus" :key="navbar">
                     <nuxt-link
-                      class="sub-menu relative py-4 font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[42px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
+                      class="sub-menu relative py-4 inter-font font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[42px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
                       :href="navbar.url"
                       target="_self"
                       >{{ navbar.name }}
@@ -211,7 +211,7 @@
             >
               <li v-for="navbar in navbar.subMenus" :key="navbar">
                 <nuxt-link
-                  class="sub-menu relative py-2 font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] group-hover:z-[1] group-hover:text-white md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[30px] md:after:top-[35px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
+                  class="sub-menu relative py-2 inter-font font-inter-medium text-[1rem] leading-[1.125rem] text-black-core/[0.6] group-hover:z-[1] group-hover:text-white md:text-[1.09375rem] md:leading-[1.28125rem] lg:text-[1.188rem] lg:leading-[1.437rem] after:absolute after:bottom-0 after:left-0 after:top-[30px] md:after:top-[35px] after:h-[3px] after:w-full after:origin-bottom-left after:scale-x-0 after:from-[#f2709c] after:to-[#ff9472] after:duration-300 after:bg-gradient-[90deg] hover:from-[#ff9472] hover:to-[#f2709c] hover:bg-clip-text hover:text-transparent hover:bg-gradient-[270.11deg] hover:after:origin-bottom-left hover:after:scale-x-100"
                   :href="navbar.url"
                   target="_self"
                   >{{ navbar.name }}
@@ -362,7 +362,11 @@ export default {
 };
 </script>
 
-<style lang="postcss" scoped>
+<style scoped>
+.inter-font {
+  font-family: Inter, sans-serif;
+}
+
 .main-menu.router-link-exact-active {
   @apply from-[#ff9472] to-[#f2709c] bg-clip-text text-transparent bg-gradient-[270.11deg];
 }
