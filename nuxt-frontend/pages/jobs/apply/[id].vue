@@ -210,14 +210,17 @@
                   accept="application/pdf,.doc,.docx"
                   @change="previewFiles"
                   required
-                  @input="showFileValidationError = fileUpload === ''"
                   aria-label="file upload"
                 />
-
                 <span
                   v-if="showFileValidationError"
                   class="mt-2.5 error text-red-600 text-[1rem]"
                   >Resume is required</span
+                >
+                <span
+                  v-if="showFileSizeValidationError"
+                  class="mt-2.5 error text-red-600 text-[1rem]"
+                  >File should have size less then 1MB</span
                 >
               </div>
             </div>
@@ -341,6 +344,7 @@ const references = [
   },
 ];
 
+const ONE_MB = 1048576
 const event = ref("");
 const currentReferenceIndex = ref(-1);
 const fullName = ref("");
@@ -359,6 +363,7 @@ const showEmailValidationError = ref(false);
 const showPhoneValidationError = ref(false);
 const showValidPhoneError = ref(false);
 const showFileValidationError = ref(false);
+const showFileSizeValidationError = ref(false);
 const showErrorMessage = ref(false);
 const showLoader = ref(false);
 const isShowReferenceOption = ref(false);
@@ -417,6 +422,11 @@ async function setCareerDetails() {
   }
 }
 
+function showFileErrors() {
+  showFileValidationError.value = fileUpload.value === '';
+  showFileSizeValidationError.value = file.value.size > ONE_MB;
+}
+
 function showOptions(refer) {
   reference.value = refer.option;
   let names = ["Canopas Employee", "Job posting website", "Other"];
@@ -436,6 +446,7 @@ function previewFiles(event) {
       ? fileButtonName.value.substr(0, 20) + "..."
       : fileButtonName.value;
   }
+  showFileErrors();
 }
 function chooseFiles() {
   document.getElementById("fileUpload").click();
@@ -456,14 +467,15 @@ function validateForm() {
   showEmailValidationError.value = email.value.trim().length === 0;
   showPhoneValidationError.value = phoneNumber.value.trim().length === 0;
   showFileValidationError.value = fileButtonName.value === "Upload";
-
+  showFileSizeValidationError.value = file.value.size > ONE_MB;
   return (
     showNameValidationError.value ||
     showPhoneValidationError.value ||
-    showFileValidationError.value ||
+    showFileValidationError.value || 
+    showFileSizeValidationError.value ||
     showEmailValidationError.value ||
     showValidPhoneError.value ||
-    showValidEmailError.value
+    showValidEmailError.value 
   );
 }
 
