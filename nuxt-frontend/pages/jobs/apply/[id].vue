@@ -344,7 +344,7 @@ const references = [
   },
 ];
 
-const ONE_MB = 1048576
+const ONE_MB = 1048576;
 const event = ref("");
 const currentReferenceIndex = ref(-1);
 const fullName = ref("");
@@ -423,7 +423,7 @@ async function setCareerDetails() {
 }
 
 function showFileErrors() {
-  showFileValidationError.value = fileUpload.value === '';
+  showFileValidationError.value = fileUpload.value === "";
   showFileSizeValidationError.value = file.value.size > ONE_MB;
 }
 
@@ -471,11 +471,11 @@ function validateForm() {
   return (
     showNameValidationError.value ||
     showPhoneValidationError.value ||
-    showFileValidationError.value || 
+    showFileValidationError.value ||
     showFileSizeValidationError.value ||
     showEmailValidationError.value ||
     showValidPhoneError.value ||
-    showValidEmailError.value 
+    showValidEmailError.value
   );
 }
 
