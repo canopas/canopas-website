@@ -111,12 +111,12 @@ export default {
             image: playStoreImage,
             event: "tap_togness_play_store",
           },
-          {
-            name: "App Store",
-            link: "https://apps.apple.com/au/app/togness-slide-show-maker/id1528833797",
-            image: appStoreImage,
-            event: "tap_togness_app_store",
-          },
+          // {
+          //   name: "App Store",
+          //   link: "https://apps.apple.com/au/app/togness-slide-show-maker/id1528833797",
+          //   image: appStoreImage,
+          //   event: "tap_togness_app_store",
+          // },
         ],
       },
     },
