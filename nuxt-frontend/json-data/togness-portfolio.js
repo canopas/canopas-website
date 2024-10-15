@@ -50,7 +50,6 @@ import element3_800w from "@/assets/images/portfolio/togness/element/togness_ele
 import element3_1200w from "@/assets/images/portfolio/togness/element/togness_element_3-1200w.webp";
 import element3_1600w from "@/assets/images/portfolio/togness/element/togness_element_3-2400w.webp";
 import playStoreImage from "@/assets/images/portfolio/play_store.webp";
-import appStoreImage from "@/assets/images/portfolio/app_store.webp";
 
 import footerBackground400w from "@/assets/images/portfolio/togness/footer/background-400w.webp";
 import footerBackground800w from "@/assets/images/portfolio/togness/footer/background-800w.webp";
