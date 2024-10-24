@@ -1,6 +1,6 @@
 <template>
   <div :class="count == 0 || status == config.NOT_FOUND ? 'h-screen' : ''">
-    <Header />
+    <Header :animateOnScroll="false" />
     <div
       v-if="count == 0 || status == config.NOT_FOUND"
       class="h-1/2 flex text-[1.4rem] text-black-900 items-center justify-center"

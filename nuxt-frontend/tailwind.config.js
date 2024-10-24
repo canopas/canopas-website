@@ -127,6 +127,9 @@ module.exports = {
         "comme-regular": ["Comme-Regular"],
         "comme-medium": ["Comme-Medium"],
         "comme-semibold": ["Comme-SemiBold"],
+        "helvetica-light": ["Helvetica-Light"],
+        "helvetica-regular": ["Helvetica-Regular"],
+        "helvetica-Bold": ["Helvetica-Bold"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",

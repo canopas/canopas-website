@@ -1,6 +1,6 @@
 <template>
   <div v-if="!assets">
-    <Header />
+    <Header :animateOnScroll="false" />
     <div :class="post.is_resource ? '' : 'container pl-0'">
       <BlogDetail
         :mixpanel="$mixpanel"
