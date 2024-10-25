@@ -143,7 +143,7 @@ export default {
           content:
             "Welcome to Android Weekly — a newsletter on new development and updates of Android universe curated by Canopas team, delivered every Monday.",
           color: "bg-lavender-blush",
-          url: "https://blog.canopas.com/tagged/canopas-android-weekly",
+          url: "https://medium.com/canopas/tagged/canopas-android-weekly",
           translate: 0,
           scale: 1,
           event: "tap_contribution_android_weekly",
@@ -157,7 +157,7 @@ export default {
           content:
             "Welcome to iOS Weekly — a newsletter on new development and updates of the iOS universe curated by Canopas team, delivered every Monday.",
           color: "bg-white-smoke",
-          url: "https://blog.canopas.com/tagged/canopas-ios-weekly",
+          url: " https://medium.com/canopas/tagged/canopas-ios-weekly",
           translate: 40,
           scale: 1,
           event: "tap_contribution_ios_weekly",
@@ -171,7 +171,7 @@ export default {
           content:
             "Welcome to Web weekly — a weekly newsletter on new development and updates of Web universe curated by Canopas team, delivered every Monday.",
           color: "bg-lavender-blush",
-          url: "https://blog.canopas.com/tagged/canopas-web-weekly",
+          url: " https://medium.com/canopas/tagged/canopas-web-weekly",
           translate: 80,
           scale: 1,
           event: "tap_contribution_web_weekly",
@@ -185,7 +185,7 @@ export default {
           content:
             "Welcome to Flutter Weekly — a newsletter on new development and updates of Flutter universe curated by Canopas team, delivered every Monday.",
           color: "bg-white-smoke",
-          url: "https://blog.canopas.com/tagged/canopas-flutter-weekly",
+          url: " https://medium.com/canopas/tagged/canopas-flutter-weekly",
           translate: 120,
           scale: 1,
           event: "tap_contribution_flutter_weekly",

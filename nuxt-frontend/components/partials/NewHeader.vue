@@ -240,6 +240,12 @@
 
 <script type="module">
 export default {
+  props: {
+    animateOnScroll: {
+      type: Boolean,
+      default: true, // Default to true if not provided
+    },
+  },
   data() {
     return {
       id: this.$route.params.id,
@@ -309,27 +315,28 @@ export default {
   },
   mounted() {
     this.navContainerHeight = this.$refs.mainHeader.clientHeight;
-    if (
-      this.currentRoutePath.includes("portfolio/") &&
-      window.innerWidth > 992 &&
-      !["/portfolio", "/portfolio/"].includes(this.currentRoutePath)
-    ) {
-      this.podcastRef = document.getElementById("response");
-      this.podcastRef.style.marginTop = -this.navContainerHeight + "px";
-      this.podcastRef.addEventListener("scroll", this.handleScroll);
+
+    // Only add the scroll event listener if animation is enabled
+    if (this.animateOnScroll) {
+      window.addEventListener("scroll", this.handleScroll);
     }
-    window.addEventListener("scroll", this.handleScroll);
     this.width = window.innerWidth;
   },
   unmounted() {
-    if (this.podcastRef) {
+    if (this.animateOnScroll && this.podcastRef) {
       this.podcastRef.removeEventListener("scroll", this.handleScroll);
     }
     window.removeEventListener("scroll", this.handleScroll);
   },
-  inject: ["mixpanel"],
   methods: {
     handleScroll() {
+      // Only animate the navbar if the prop allows it
+      if (!this.animateOnScroll) {
+        this.showNavbar = true;
+        this.animateNavbar = true;
+        return;
+      }
+
       let scrollY = this.podcastRef
         ? this.podcastRef.scrollTop
         : window.scrollY;

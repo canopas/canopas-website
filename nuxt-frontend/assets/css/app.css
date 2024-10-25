@@ -125,3 +125,27 @@
   font-weight: 600;
   src: url(~/assets/fonts/Comme-SemiBold-Subset.woff2) format("woff2");
 }
+
+@font-face {
+  font-display: swap;
+  font-family: Helvetica-Light;
+  font-style: normal;
+  font-weight: 300;
+  src: url(~/assets/fonts/Helvetica-Light.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Helvetica-Regular;
+  font-style: normal;
+  font-weight: 400;
+  src: url(~/assets/fonts/Helvetica-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-display: swap;
+  font-family: Helvetica-Bold;
+  font-style: normal;
+  font-weight: 700;
+  src: url(~/assets/fonts/Helvetica-Bold.woff2) format("woff2");
+}
