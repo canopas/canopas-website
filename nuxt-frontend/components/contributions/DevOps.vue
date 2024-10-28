@@ -149,28 +149,28 @@ export default {
           title:
             "Deploy a website with AWS S3 + CloudFront using CloudFormation",
           readTime: "8 min read",
-          link: "https://blog.canopas.com/deploy-a-website-with-aws-s3-cloudfront-using-cloudformation-c2199dc6c435",
+          link: "https://canopas.com/deploy-a-website-with-aws-s3-cloudfront-using-cloudformation-c2199dc6c435",
         },
         {
           id: 2,
           image: [devops2_400w, devops2_800w],
           title: "Android Continuous integration using Gitlab CI and Fastlane",
           readTime: "4 min read",
-          link: "https://blog.canopas.com/android-continuous-integration-using-gitlab-ci-and-fastlane-1a5bbb8b5b38",
+          link: "https://canopas.com/android-continuous-integration-using-gitlab-ci-and-fastlane-1a5bbb8b5b38",
         },
         {
           id: 3,
           image: [devops3_400w, devops3_800w],
           title: "A Complete Guide to iOS App Auto Deployment with CI-CD",
           readTime: "7 min read",
-          link: "https://blog.canopas.com/a-complete-guide-to-ios-app-auto-deployment-with-ci-cd-b5dc516ba41d",
+          link: "https://canopas.com/a-complete-guide-to-ios-app-auto-deployment-with-ci-cd-b5dc516ba41d",
         },
         {
           id: 4,
           image: [devops4_400w, devops4_800w],
           title: "Golang: Serverless deployment using AWS Cloudformation",
           readTime: "9 min read",
-          link: "https://blog.canopas.com/golang-serverless-deployment-using-aws-cloudformation-4dee745cbf28",
+          link: "https://canopas.com/golang-serverless-deployment-using-aws-cloudformation-4dee745cbf28",
         },
         {
           id: 4,
@@ -178,7 +178,7 @@ export default {
           title:
             "Complete guide to deploying SSR Vite apps on AWS with automation",
           readTime: "5 min read",
-          link: "https://blog.canopas.com/complete-guide-to-deploying-ssr-vite-apps-on-aws-with-automation-27676113d6ac",
+          link: "https://canopas.com/complete-guide-to-deploying-ssr-vite-apps-on-aws-with-automation-27676113d6ac",
         },
       ],
     };

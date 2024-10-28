@@ -214,7 +214,7 @@ export default {
           description:
             "Android — 1 Minute guide to Useful Tips and Libraries in 2022",
           likes: "500",
-          link: "https://blog.canopas.com/android-development-best-practices-2022-203682a440f5",
+          link: "https://canopas.com/android-development-best-practices-2022-203682a440f5",
         },
         {
           id: 2,
@@ -223,7 +223,7 @@ export default {
           description:
             "Android — 9 Useful Kotlin Flow Operators You Need to know",
           likes: "249",
-          link: "https://blog.canopas.com/android-9-useful-kotlin-flow-operators-you-need-to-know-b9daef4b630f",
+          link: "https://canopas.com/android-9-useful-kotlin-flow-operators-you-need-to-know-b9daef4b630f",
         },
         {
           id: 3,
@@ -232,7 +232,7 @@ export default {
           description:
             "Golang — 1 Minute guide to Useful Tips and Libraries in 2022",
           likes: "237",
-          link: "https://blog.canopas.com/1-min-guide-to-golang-development-best-practices-in-2022-b50d846fd6c",
+          link: "https://canopas.com/1-min-guide-to-golang-development-best-practices-in-2022-b50d846fd6c",
         },
         {
           id: 4,
@@ -240,7 +240,7 @@ export default {
           deskImage: [desktop_jetpack_400w, desktop_jetpack_800w],
           description: "Jetpack compose: Cool Button Click Effects",
           likes: "129",
-          link: "https://blog.canopas.com/jetpack-compose-cool-button-click-effects-c6bbecec7bcb",
+          link: "https://canopas.com/jetpack-compose-cool-button-click-effects-c6bbecec7bcb",
         },
         {
           id: 5,
@@ -249,7 +249,7 @@ export default {
           description:
             "Android — How to Drag And Drop Views in Jetpack Compose",
           likes: "101",
-          link: "https://blog.canopas.com/android-drag-and-drop-ui-element-in-jetpack-compose-14922073b3f1",
+          link: "https://canopas.com/android-drag-and-drop-ui-element-in-jetpack-compose-14922073b3f1",
         },
       ],
     };

@@ -125,40 +125,40 @@ export default {
         {
           images: [unittest1_400w, unittest1_800w],
           title: "1 min guide to iOS development best practices in 2022",
-          url: "https://blog.canopas.com/the-ultimate-guide-to-ios-unit-testing-with-best-practices-part-1-c3a484b8dc8d",
+          url: "https://canopas.com/the-ultimate-guide-to-ios-unit-testing-with-best-practices-part-1-c3a484b8dc8d",
         },
         {
           images: [unittest2_400w, unittest2_800w],
           title:
             "The Ultimate Guide to iOS unit testing with best practices — Part 1",
-          url: "https://blog.canopas.com/introduction-to-unit-testing-viewmodels-with-kotlin-coroutine-367630e95831",
+          url: "https://canopas.com/introduction-to-unit-testing-viewmodels-with-kotlin-coroutine-367630e95831",
         },
 
         {
           images: [unittest3_400w, unittest3_800w],
           title: "Vue 3 component testing with Jest?",
-          url: "https://blog.canopas.com/vue-3-component-testing-with-jest-8b80a8a8946b",
+          url: "https://canopas.com/vue-3-component-testing-with-jest-8b80a8a8946b",
         },
         {
           images: [unittest4_400w, unittest4_800w],
           title: "Swift — Essential tips for writing testable code",
-          url: "https://blog.canopas.com/swift-essential-tips-to-know-for-writing-testable-code-65287584d83c",
+          url: "https://canopas.com/swift-essential-tips-to-know-for-writing-testable-code-65287584d83c",
         },
         {
           images: [unittest5_400w, unittest5_800w],
           title:
             "Developing a Todo app with android integration testing following the TDD approach — Part 3 of 3",
-          url: "https://blog.canopas.com/how-to-use-tdd-effectively-to-write-android-integration-tests-5efc7ee48ba8",
+          url: "https://canopas.com/how-to-use-tdd-effectively-to-write-android-integration-tests-5efc7ee48ba8",
         },
         {
           images: [unittest6_400w, unittest6_800w],
           title: "Unit testing in go with MySQL",
-          url: "https://blog.canopas.com/unit-testing-in-go-with-mysql-8db449d86722",
+          url: "https://canopas.com/unit-testing-in-go-with-mysql-8db449d86722",
         },
         {
           images: [unittest7_400w, unittest7_800w],
           title: "Golang: Unit tests with test gin context",
-          url: "https://blog.canopas.com/golang-unit-tests-with-test-gin-context-80e1ac04adcd",
+          url: "https://canopas.com/golang-unit-tests-with-test-gin-context-80e1ac04adcd",
         },
       ],
     };
