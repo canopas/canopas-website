@@ -161,7 +161,7 @@ const blogs = [
       "How to Migrate Large Applications Efficiently from Vue.js To Nuxt.js",
     readTime: "7 min",
     hoverTitle: `<span class="mobile-header-2-semibold text-center text-white">How to Migrate Large Applications Efficiently from Vue.js To Nuxt.js</span>`,
-    link: "https://blog.canopas.com/how-to-migrate-large-applications-efficiently-from-vue-js-to-nuxt-js-bdd9e41f82a1",
+    link: "https://canopas.com/how-to-migrate-large-applications-efficiently-from-vue-js-to-nuxt-js-bdd9e41f82a1",
   },
   {
     id: 2,
@@ -170,7 +170,7 @@ const blogs = [
       "How to configure SSR in Nuxt3 and deploy it with Serverless Architecture",
     readTime: "10 min",
     hoverTitle: `<span class="mobile-header-2-semibold text-center text-white">How to configure SSR in Nuxt3 and deploy it with Serverless Architecture</span>`,
-    link: "https://blog.canopas.com/how-to-configure-ssr-in-nuxt3-and-deploy-it-with-serverless-architecture-f86e63ae8b8d",
+    link: "https://canopas.com/how-to-configure-ssr-in-nuxt3-and-deploy-it-with-serverless-architecture-f86e63ae8b8d",
   },
   {
     id: 3,
@@ -178,7 +178,7 @@ const blogs = [
     title: "Guidelines for Designing a Responsive Website",
     readTime: "8 min",
     hoverTitle: `<span class="mobile-header-2-semibold text-center text-white">Guidelines for Designing a Responsive Website</span>`,
-    link: "https://blog.canopas.com/guidelines-to-consider-while-designing-a-responsive-website-bbee716d0389",
+    link: "https://canopas.com/guidelines-to-consider-while-designing-a-responsive-website-bbee716d0389",
   },
   {
     id: 4,
@@ -186,7 +186,7 @@ const blogs = [
     title: "How to improve the page speed index of your website? — Part 2",
     readTime: "6 min",
     hoverTitle: `<span class="mobile-header-2-semibold text-center text-white">How to improve the page speed index of your website? — Part 2</span>`,
-    link: "https://blog.canopas.com/how-to-improve-the-page-speed-index-of-your-website-part-2-8e747f595f68",
+    link: "https://canopas.com/how-to-improve-the-page-speed-index-of-your-website-part-2-8e747f595f68",
   },
   {
     id: 5,
@@ -194,7 +194,7 @@ const blogs = [
     title: "Vue 3 component testing with Jest",
     readTime: "10 min",
     hoverTitle: `<span class="mobile-header-2-semibold text-center text-white">Vue 3 component testing with Jest</span>`,
-    link: "https://blog.canopas.com/vue-3-component-testing-with-jest-8b80a8a8946b",
+    link: "https://canopas.com/vue-3-component-testing-with-jest-8b80a8a8946b",
   },
 ];
 const canopas = "https://blog.canopas.com";

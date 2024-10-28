@@ -155,14 +155,14 @@ export default {
           image: mobile_blog1_400w,
           readTime: "5 min read",
           deskImage: [dektop_blog1_800w, dektop_blog1_1200w],
-          link: "https://blog.canopas.com/the-ultimate-guide-to-ios-unit-testing-with-best-practices-part-2-f2eacbf3d8d4",
+          link: "https://canopas.com/the-ultimate-guide-to-ios-unit-testing-with-best-practices-part-2-f2eacbf3d8d4",
         },
         {
           title: "SwiftUI Performance Tuning: Tips and Tricks",
           image: mobile_blog2_400w,
           readTime: "8 min read",
           deskImage: [dektop_blog2_800w, dektop_blog2_1200w],
-          link: "https://blog.canopas.com/swiftui-performance-tuning-tips-and-tricks-a8f9eeb23ec4",
+          link: "https://canopas.com/swiftui-performance-tuning-tips-and-tricks-a8f9eeb23ec4",
           className: "-rotate-6",
         },
         {
@@ -170,7 +170,7 @@ export default {
           image: mobile_blog3_400w,
           readTime: "7 min read",
           deskImage: [dektop_blog3_800w, dektop_blog3_1200w],
-          link: "https://blog.canopas.com/ios-designing-data-layer-for-offline-first-apps-f929c83bb195",
+          link: "https://canopas.com/ios-designing-data-layer-for-offline-first-apps-f929c83bb195",
           className: "rotate-6",
         },
         {
@@ -178,7 +178,7 @@ export default {
           image: mobile_blog4_400w,
           readTime: "5 min read",
           deskImage: [dektop_blog4_800w, dektop_blog4_1200w],
-          link: "https://blog.canopas.com/swiftui-complex-navigation-made-easier-with-uipilot-5b33279f3476",
+          link: "https://canopas.com/swiftui-complex-navigation-made-easier-with-uipilot-5b33279f3476",
           className: "-rotate-6",
         },
         {
@@ -186,7 +186,7 @@ export default {
           image: mobile_blog5_400w,
           readTime: "7 min read",
           deskImage: [dektop_blog5_800w, dektop_blog5_1200w],
-          link: "https://blog.canopas.com/a-complete-guide-to-ios-app-auto-deployment-with-ci-cd-b5dc516ba41d",
+          link: "https://canopas.com/a-complete-guide-to-ios-app-auto-deployment-with-ci-cd-b5dc516ba41d",
           className: "rotate-6",
         },
       ],

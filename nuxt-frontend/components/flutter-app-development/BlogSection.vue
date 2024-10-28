@@ -170,7 +170,7 @@ const blogs = [
     title: "How to Use InheritedWidget in Flutter",
     readTime: "7 min",
     hovertitle: `<span class="mobile-header-2-semibold text-center text-white">How to Use InheritedWidget in Flutter</span>`,
-    link: "https://blog.canopas.com/how-to-use-inheritedwidget-in-flutter-5fd64ce52b66",
+    link: "https://canopas.com/how-to-use-inheritedwidget-in-flutter-5fd64ce52b66",
   },
   {
     id: 2,
@@ -178,7 +178,7 @@ const blogs = [
     title: "Flutter Fun Animation A smiley that reacts to your every move",
     readTime: "8 min",
     hovertitle: `<span class="mobile-header-2-semibold text-center text-white">Flutter Fun Animation A smiley that reacts to your every move</span>`,
-    link: "https://blog.canopas.com/flutter-animations-made-fun-a-smiley-that-reacts-to-your-every-move-9ebfb0a0657f",
+    link: "https://canopas.com/flutter-animations-made-fun-a-smiley-that-reacts-to-your-every-move-9ebfb0a0657f",
   },
   {
     id: 3,
@@ -186,7 +186,7 @@ const blogs = [
     title: "Maintain the state of BottomNavigationBar across tabs",
     readTime: "9 min",
     hovertitle: `<span class="mobile-header-2-semibold text-center text-white">Maintain the state of BottomNavigationBar across tabs</span>`,
-    link: "https://blog.canopas.com/how-to-maintain-the-state-of-bottomnavigationbar-across-tabs-528b3699f78b",
+    link: "https://canopas.com/how-to-maintain-the-state-of-bottomnavigationbar-across-tabs-528b3699f78b",
   },
   {
     id: 4,
@@ -194,7 +194,7 @@ const blogs = [
     title: "Customizing Serialization and Deserialization in Flutter",
     readTime: "10 min",
     hovertitle: `<span class="mobile-header-2-semibold text-center text-white">Customizing Serialization and Deserialization in Flutter</span>`,
-    link: "https://blog.canopas.com/flutter-customizing-serialization-and-deserialization-with-json-serializable-db17e3aa90b0",
+    link: "https://canopas.com/flutter-customizing-serialization-and-deserialization-with-json-serializable-db17e3aa90b0",
   },
   {
     id: 5,
@@ -202,7 +202,7 @@ const blogs = [
     title: "Mastering Flutter Inspector DevTools for Effective Debugging",
     readTime: "11 min",
     hovertitle: `<span class="mobile-header-2-semibold text-center text-white">Mastering Flutter Inspector DevTools for Effective Debugging</span>`,
-    link: "https://blog.canopas.com/optimizing-flutter-apps-mastering-flutter-inspector-devtools-for-effective-debugging-493c03f68835",
+    link: "https://canopas.com/optimizing-flutter-apps-mastering-flutter-inspector-devtools-for-effective-debugging-493c03f68835",
   },
 ];
 const canopas = "https://blog.canopas.com";

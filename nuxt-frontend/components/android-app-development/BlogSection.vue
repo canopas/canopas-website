@@ -180,7 +180,7 @@ export default {
           publishDate: "Sep 27, 2021",
           title: "Android code coverage using JaCoCo",
           hovertitle: `<span class="desk-header-3 text-black-87">Android<span><br><span class="mobile-header-2-regular text-black-87">Code coverage using JaCoCo</span>`,
-          link: "https://blog.canopas.com/android-code-coverage-using-jacoco-6639a1fc4293",
+          link: "https://canopas.com/android-code-coverage-using-jacoco-6639a1fc4293",
           bgColor: "bg-gradient-to-b from-[#E7E7E7] to-[#DADADA]",
         },
         {
@@ -189,7 +189,7 @@ export default {
           publishDate: "Dec 3, 2021",
           title: "Jetpack Compose: MVVM State management in a simple way",
           hovertitle: `<span class="desk-header-3 text-white">Jetpack Compose</span><br><span class="text-white mobile-header-2-regular">MVVM State management in a simple way</span>`,
-          link: "https://blog.canopas.com/jetpack-compose-mvvm-state-management-in-a-simple-way-4c632fa6f554",
+          link: "https://canopas.com/jetpack-compose-mvvm-state-management-in-a-simple-way-4c632fa6f554",
           bgColor: "bg-gradient-to-b from-[#282828] to-[#282828]",
         },
         {
@@ -198,7 +198,7 @@ export default {
           publishDate: "Apr 26, 2022",
           title: "Keyboard Handling In Jetpack Compose — All You Need To Know",
           hovertitle: `<span class="text-white mobile-header-2-regular">Keyboard Handling In<br> <span class="desk-header-3 text-white">Jetpack Compose</span><br><span class="text-white mobile-header-2-regular">All You Need To Know</span></span>`,
-          link: "https://blog.canopas.com/keyboard-handling-in-jetpack-compose-all-you-need-to-know-3e6fddd30d9a",
+          link: "https://canopas.com/keyboard-handling-in-jetpack-compose-all-you-need-to-know-3e6fddd30d9a",
           bgColor: "bg-gradient-to-b from-[#070710] to-[#222241]",
         },
         {
@@ -208,7 +208,7 @@ export default {
           title:
             "Retrofit — Effective error handling with Kotlin Coroutine and Result API",
           hovertitle: `<span class="desk-header-3 text-white">Retrofit</span> <br><span class="text-white mobile-header-2-regular">Effective error handling with Kotlin Coroutine and Result API</span>`,
-          link: "https://blog.canopas.com/retrofit-effective-error-handling-with-kotlin-coroutine-and-result-api-405217e9a73d",
+          link: "https://canopas.com/retrofit-effective-error-handling-with-kotlin-coroutine-and-result-api-405217e9a73d",
           className: "basis-[54%]",
           bgColor: "bg-gradient-to-b from-[#282828] to-[#282828]",
         },
@@ -219,7 +219,7 @@ export default {
           title:
             "Android — Send live audio stream from client to server using WebSocket and OkHttp client",
           hovertitle: `<span class="desk-header-3 text-black-87">Android</span><br><span class=" text-black-87 mobile-header-2-regular">Send live audio stream from client to server using WebSocket and OkHttp client</span>`,
-          link: "https://blog.canopas.com/android-send-live-audio-stream-from-client-to-server-using-websocket-and-okhttp-client-ecc9f28118d9",
+          link: "https://canopas.com/android-send-live-audio-stream-from-client-to-server-using-websocket-and-okhttp-client-ecc9f28118d9",
           className: "basis-[60%] ",
           bgColor: "bg-gradient-to-b from-[#FEE4DF] to-[#FDCCBC]",
         },

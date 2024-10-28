@@ -160,7 +160,7 @@ const blogs = [
     image: mobile_blog3_400w,
     readTime: "4 min read",
     deskImage: [dektop_blog3_800w, dektop_blog3_1200w],
-    link: "https://blog.canopas.com/serverless-microservices-aws-lambda-and-api-gateway-d23f9346f0b6",
+    link: "https://canopas.com/serverless-microservices-aws-lambda-and-api-gateway-d23f9346f0b6",
     className: "rotate-6",
   },
   {
@@ -169,7 +169,7 @@ const blogs = [
     image: mobile_blog4_400w,
     readTime: "8 min read",
     deskImage: [dektop_blog4_800w, dektop_blog4_1200w],
-    link: "https://blog.canopas.com/simplified-your-deployment-github-workflow-with-ec2-ecr-and-docker-4c9c392d238d",
+    link: "https://canopas.com/simplified-your-deployment-github-workflow-with-ec2-ecr-and-docker-4c9c392d238d",
     className: "-rotate-6",
   },
   {
@@ -177,7 +177,7 @@ const blogs = [
     image: mobile_blog5_400w,
     readTime: "9 min read",
     deskImage: [dektop_blog5_800w, dektop_blog5_1200w],
-    link: "https://blog.canopas.com/golang-serverless-deployment-using-aws-cloudformation-4dee745cbf28",
+    link: "https://canopas.com/golang-serverless-deployment-using-aws-cloudformation-4dee745cbf28",
     className: "rotate-6",
   },
 ];

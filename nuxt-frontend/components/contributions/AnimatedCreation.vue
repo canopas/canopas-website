@@ -131,7 +131,7 @@ export default {
           image: [animation1_400w, animation1_800w],
           deskImages: [desktop_animation1_400w, desktop_animation1_800w],
           title: "Part 3 — Animations in SwiftUI with Examples",
-          link: "https://blog.canopas.com/animations-in-swiftui-with-examples-part-3-56411ae2ffe0",
+          link: "https://canopas.com/animations-in-swiftui-with-examples-part-3-56411ae2ffe0",
         },
         {
           id: 2,
@@ -139,7 +139,7 @@ export default {
           deskImages: [desktop_animation3_400w, desktop_animation3_800w],
           title:
             "CSS Made Simple: A Guide To Animations, Transitions, And Transformations",
-          link: "https://blog.canopas.com/css-made-simple-a-guide-to-animations-transitions-and-transformations-f9b2ecc8620f",
+          link: "https://canopas.com/css-made-simple-a-guide-to-animations-transitions-and-transformations-f9b2ecc8620f",
         },
         {
           id: 3,
@@ -147,14 +147,14 @@ export default {
           deskImages: [desktop_animation5_400w, desktop_animation5_800w],
           title:
             "Flutter Animations Made Fun: A Smiley That Reacts to Your Every Move",
-          link: "https://blog.canopas.com/flutter-animations-made-fun-a-smiley-that-reacts-to-your-every-move-9ebfb0a0657f",
+          link: "https://canopas.com/flutter-animations-made-fun-a-smiley-that-reacts-to-your-every-move-9ebfb0a0657f",
         },
         {
           id: 4,
           image: [animation2_400w, animation2_800w],
           deskImages: [desktop_animation2_400w, desktop_animation2_800w],
           title: "iOS — Animations in SwiftUI with Examples — Part 2",
-          link: "https://blog.canopas.com/ios-animations-in-swiftui-with-examples-part-2-980a2df69145",
+          link: "https://canopas.com/ios-animations-in-swiftui-with-examples-part-2-980a2df69145",
         },
 
         {
@@ -162,7 +162,7 @@ export default {
           image: [animation4_400w, animation4_800w],
           deskImages: [desktop_animation4_400w, desktop_animation4_800w],
           title: "Jetpack Compose Typewriter animation with highlighted texts",
-          link: "https://blog.canopas.com/jetpack-compose-typewriter-animation-with-highlighted-texts-74397fee42f1",
+          link: "https://canopas.com/jetpack-compose-typewriter-animation-with-highlighted-texts-74397fee42f1",
         },
         {
           id: 6,
