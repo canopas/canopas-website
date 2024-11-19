@@ -189,7 +189,7 @@
             "social_media_links":
                 {
                     "website": "https://canopas.com/",
-                    "facebook": "https://www.facebook.com/canopassoftware","twitter": "https://x.com/canopas_eng" ,"instagram": "https://www.instagram.com/canopassoftware/"
+                    "facebook": "https://www.facebook.com/canopassoftware","twitter": "https://twitter.com/canopassoftware" ,"instagram": "https://www.instagram.com/canopassoftware/"
                 },
             "contact_type": "Chat or Email"
 
@@ -221,7 +221,7 @@
             "social_media_links": {
                 "facebook": "https://www.facebook.com/canopassoftware",
                 "instagram": "https://www.instagram.com/canopassoftware/",
-                "twitter": "https://x.com/canopas_eng",
+                "twitter": "https://twitter.com/canopassoftware",
                 "website": "https://canopas.com/"
             },
             "idea": "I have an idea for my business that I want to implement with your help.",
