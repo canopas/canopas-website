@@ -1,13 +1,14 @@
 <template>
   <div v-if="!assets">
     <Header :animateOnScroll="false" />
-    <div :class="post.is_resource ? '' : 'container pl-0'">
+    <div :class="post.is_resource ? '' : 'container px-0'">
       <BlogDetail
         :mixpanel="$mixpanel"
         :recaptcha-key="config.VITE_RECAPTCHA_SITE_KEY"
         :post="post"
         :website-url="config.BASE_URL"
         :contact-api-url="config.API_BASE"
+        :api-url="config.STRAPI_URL"
       />
     </div>
     <div class="cta-section">
@@ -33,7 +34,6 @@
     <BlogFooter
       :mixpanel="$mixpanel"
       :social-media-data="config.SOCIAL_MEDIA_DATA"
-      :api-url="config.STRAPI_URL"
       :company-name="config.COMPANY_NAME"
     />
   </div>
