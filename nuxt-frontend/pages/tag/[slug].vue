@@ -49,7 +49,7 @@ const posts = ref([]);
 const store = useTagListStore();
 const resources = computed(() => store.items);
 const status = computed(() => store.status);
-let postLimit
+let postLimit;
 
 const setPostLimit = () => {
   if (process.client) {
@@ -67,13 +67,12 @@ const setPostLimit = () => {
   }
 };
 
-
 await useAsyncData("tags", () =>
   store.loadTagBlogs(config.SHOW_DRAFT_POSTS, slug.value),
 );
 
 if (status.value === config.SUCCESS) {
-  setPostLimit()
+  setPostLimit();
   posts.value = resources.value?.slice(0, postLimit);
 }
 
