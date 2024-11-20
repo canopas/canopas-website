@@ -49,13 +49,30 @@ const posts = ref([]);
 const store = useTagListStore();
 const resources = computed(() => store.items);
 const status = computed(() => store.status);
-let postLimit = 2;
+let postLimit;
+
+const setPostLimit = () => {
+  if (process.client) {
+    if (window.innerWidth > 1920 && window.innerHeight > 1080) {
+      postLimit = 7;
+    } else if (window.innerWidth > 1440 && window.innerHeight > 900) {
+      postLimit = 4;
+    } else if (window.innerWidth > 1024 && window.innerHeight > 768) {
+      postLimit = 3;
+    } else if (window.innerWidth <= 1024) {
+      postLimit = 2;
+    } else {
+      postLimit = 2;
+    }
+  }
+};
 
 await useAsyncData("tags", () =>
   store.loadTagBlogs(config.SHOW_DRAFT_POSTS, slug.value),
 );
 
 if (status.value === config.SUCCESS) {
+  setPostLimit();
   posts.value = resources.value?.slice(0, postLimit);
 }
 
