@@ -31,10 +31,10 @@
               :class="
                 pausedId == element.id ? 'scale-[0.97] cursor-pointer' : ''
               "
-              @mouseover="pausedId = element.id"
-              @mouseleave="pausedId = 0"
-              @touchstart.passive="pausedId = element.id"
-              @touchend="pausedId = 0"
+              @mouseover="(pausedId = element.id)"
+              @mouseleave="(pausedId = 0)"
+              @touchstart.passive="(pausedId = element.id)"
+              @touchend="(pausedId = 0)"
               :ref="'card-1-' + element.id"
             >
               {{ element.review }}
@@ -56,10 +56,10 @@
               :class="
                 pausedId == element.id ? 'scale-[0.97] cursor-pointer' : ''
               "
-              @mouseover="pausedId = element.id"
-              @mouseleave="pausedId = 0"
-              @touchstart.passive="pausedId = element.id"
-              @touchend="pausedId = 0"
+              @mouseover="(pausedId = element.id)"
+              @mouseleave="(pausedId = 0)"
+              @touchstart.passive="(pausedId = element.id)"
+              @touchend="(pausedId = 0)"
               :ref="'card-1-' + element.id"
             >
               {{ element.review }}

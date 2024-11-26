@@ -1,5 +1,5 @@
 <template>
-  <div @click="isShowReferenceOption = false">
+  <div @click="(isShowReferenceOption = false)">
     <Header />
     <ScreenLoader v-if="isLoading || job == null" />
 
@@ -30,8 +30,8 @@
                   v-model="fullName"
                   required
                   @input="
-                    showNameValidationError =
-                      $event.target.value.trim().length === 0
+                    (showNameValidationError =
+                      $event.target.value.trim().length === 0)
                   "
                   aria-label="Full Name"
                 />
@@ -55,10 +55,10 @@
                   autocomplete="email"
                   v-model="email"
                   @input="
-                    showEmailValidationError =
-                      $event.target.value.trim().length === 0
+                    (showEmailValidationError =
+                      $event.target.value.trim().length === 0)
                   "
-                  @blur="showValidEmailError = isValidEmail()"
+                  @blur="(showValidEmailError = isValidEmail())"
                   aria-label="User Email "
                 />
                 <span
@@ -83,10 +83,10 @@
                   name="phonenumber"
                   autocomplete="tel"
                   v-model="phoneNumber"
-                  @blur="showValidPhoneError = isValidPhone()"
+                  @blur="(showValidPhoneError = isValidPhone())"
                   @input="
-                    showPhoneValidationError =
-                      $event.target.value.trim().length === 0
+                    (showPhoneValidationError =
+                      $event.target.value.trim().length === 0)
                   "
                   required
                   aria-label="Phone Number"
@@ -121,7 +121,7 @@
                 <div
                   class="relative mt-[5px] w-full h-[50px] outline-hidden outline-0 before:content-[''] before:absolute before:top-5 before:right-5 before:z-[1] before:w-2 before:h-2 before:border-2 before:border-solid before:border-[#00000080] before:border-t-2 before:border-t-[#fff] before:border-r-2 before:border-r-[#fff] before:rotate-[-45deg] before:duration-[0.5s] before:pointer-events-none"
                   v-on:click.stop="
-                    isShowReferenceOption = !isShowReferenceOption
+                    (isShowReferenceOption = !isShowReferenceOption)
                   "
                   :class="isShowReferenceOption ? 'active' : ''"
                 >

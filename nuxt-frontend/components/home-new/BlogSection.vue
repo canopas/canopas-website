@@ -44,7 +44,7 @@
               activeBlog = blog;
               animate = true;
             "
-            @touchstart.passive="activeIndex = index"
+            @touchstart.passive="(activeIndex = index)"
             @click.native="$mixpanel.track('tap_blog_post')"
             class="w-full"
           >
@@ -58,13 +58,13 @@
                 >
                   <span
                     class="mobile-header-2 lg:desk-header-2"
-                    @mouseleave="animate = false"
+                    @mouseleave="(animate = false)"
                   >
                     {{ blog.published_on[1] }}
                   </span>
                   <span
                     class="text-center sub-h4-regular lg:sub-h4-medium"
-                    @mouseleave="animate = false"
+                    @mouseleave="(animate = false)"
                   >
                     {{ blog.published_on[0] }}
                   </span>
@@ -76,14 +76,14 @@
                     activeBlog = blog;
                     animate = true;
                   "
-                  @touchend="animate = false"
+                  @touchend="(animate = false)"
                 >
                   <hr
                     v-if="index == 0"
                     class="h-[0.063rem] mb-4 lg:mb-8 bg-[#C6C6C6]"
                   />
                   <div>
-                    <div @mouseleave="animate = false">
+                    <div @mouseleave="(animate = false)">
                       <nuxt-link
                         :to="'/' + blog.slug"
                         @click.native="$mixpanel.track('tap_blog_post')"

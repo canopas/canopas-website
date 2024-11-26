@@ -17,8 +17,8 @@
                 v-model="name"
                 placeholder=" "
                 @input="
-                  showNameValidationError =
-                    $event.target.value.trim().length === 0
+                  (showNameValidationError =
+                    $event.target.value.trim().length === 0)
                 "
                 @click.native="$mixpanel.track('tap_contact_name_input')"
               />
@@ -42,10 +42,10 @@
                 v-model="email"
                 placeholder=" "
                 @input="
-                  showEmailValidationError =
-                    $event.target.value.trim().length === 0
+                  (showEmailValidationError =
+                    $event.target.value.trim().length === 0)
                 "
-                @blur="showValidEmailError = isValidEmail()"
+                @blur="(showValidEmailError = isValidEmail())"
                 @click.native="$mixpanel.track('tap_contact_email_input')"
               />
               <label
@@ -73,8 +73,8 @@
                 v-model="projectInfo"
                 placeholder=" "
                 @input="
-                  showProjectInfoValidationError =
-                    $event.target.value.trim().length === 0
+                  (showProjectInfoValidationError =
+                    $event.target.value.trim().length === 0)
                 "
                 @click.native="
                   $mixpanel.track('tap_contact_project_info_input')
@@ -102,8 +102,8 @@
                 v-model="reference"
                 placeholder=" "
                 @input="
-                  showReferenceValidationError =
-                    $event.target.value.trim().length === 0
+                  (showReferenceValidationError =
+                    $event.target.value.trim().length === 0)
                 "
                 @click.native="$mixpanel.track('tap_contact_reference_input')"
               />
@@ -139,7 +139,7 @@
                         ? 'text-black-core'
                         : 'text-black-60',
                     ]"
-                    @click="floatable = !floatable"
+                    @click="(floatable = !floatable)"
                     >I'll invest</label
                   >
                   <span class="sub-h1-regular lg:sub-h2-regular">{{
