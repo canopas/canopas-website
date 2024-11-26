@@ -1,7 +1,7 @@
 <template>
   <div v-if="!assets">
     <Header :animateOnScroll="false" />
-    <div :class="post.is_resource ? '' : 'container px-0'">
+    <div class="container px-0">
       <BlogDetail
         :mixpanel="$mixpanel"
         :recaptcha-key="config.VITE_RECAPTCHA_SITE_KEY"
@@ -195,6 +195,6 @@ onMounted(() => {
 </script>
 <style lang="postcss">
 .copy-btn {
-  @apply absolute top-3 right-3 border-1 px-2 bg-white text-[#1f2937] rounded-lg font-semibold;
+  @apply absolute top-3 right-3 border-1 px-2 bg-white text-[#1f2937] text-base rounded-lg font-semibold;
 }
 </style>

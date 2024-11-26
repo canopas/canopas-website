@@ -81,4 +81,11 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
     preset: "cloudflare-pages",
   },
+  vite: {
+    resolve: {
+      alias: {
+        "highlight.js": "highlight.js",
+      },
+    },
+  },
 });
