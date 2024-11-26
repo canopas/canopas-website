@@ -15,9 +15,9 @@
         <div
           v-for="(blog, index) in blogs"
           :key="blog"
-          @mouseover="activeIndex = index"
-          @mouseleave="activeIndex = index"
-          @touchstart.passive="activeIndex = index"
+          @mouseover="(activeIndex = index)"
+          @mouseleave="(activeIndex = index)"
+          @touchstart.passive="(activeIndex = index)"
           class="block mb-4 w-full border border-black-8 rounded-2xl box-border p-4"
         >
           <div
@@ -53,9 +53,9 @@
         <div
           v-for="(blog, index) in blogs.slice(0, 1)"
           :key="blog"
-          @mouseover="activeIndex = index"
-          @mouseleave="activeIndex = index"
-          @touchstart.passive="activeIndex = index"
+          @mouseover="(activeIndex = index)"
+          @mouseleave="(activeIndex = index)"
+          @touchstart.passive="(activeIndex = index)"
           @click="openBlog(blog.link, 'tap_blog_post')"
           class="block grow-[2] basis-3/5 content-stretch mb-5 w-full border border-black-8 rounded-2xl box-border p-4 cursor-pointer"
         >
@@ -87,9 +87,9 @@
           <div
             v-for="(blog, index) in blogs.slice(1, 3)"
             :key="blog"
-            @mouseover="activeIndex = index"
-            @mouseleave="activeIndex = index"
-            @touchstart.passive="activeIndex = index"
+            @mouseover="(activeIndex = index)"
+            @mouseleave="(activeIndex = index)"
+            @touchstart.passive="(activeIndex = index)"
             @click="openBlog(blog.link, 'tap_blog_post')"
             class="block mb-5 w-full border border-black-8 rounded-xl box-border p-4 cursor-pointer"
           >

@@ -109,9 +109,9 @@
             index == 4 || index == 0 ? item.className : '',
           ]"
           class="flex justify-center items-center w-12 w-12 rounded-full border-2 border-black-8"
-          @mouseover="slideTo(index), (activeIndex = index)"
-          @touchstart.passive="slideTo(index), (activeIndex = index)"
-          @touchmove.passive="slideTo(index), (activeIndex = index)"
+          @mouseover="(slideTo(index), (activeIndex = index))"
+          @touchstart.passive="(slideTo(index), (activeIndex = index))"
+          @touchmove.passive="(slideTo(index), (activeIndex = index))"
         >
           <img
             v-if="activeIndex != index"

@@ -13,7 +13,7 @@
           class="relative basis-full lg:basis-[33%]"
           v-for="virtue in virtues.slice(0, 3)"
           :key="virtue.id"
-          @touchstart.passive="activeIndex = virtue.id"
+          @touchstart.passive="(activeIndex = virtue.id)"
           @hover.native="$mixpanel.track('hover_virtue')"
         >
           <div
@@ -54,7 +54,7 @@
           class="relative basis-full lg:basis-1/2"
           v-for="virtue in virtues.slice(3, 5)"
           :key="virtue.id"
-          @touchstart.passive="activeIndex = virtue.id"
+          @touchstart.passive="(activeIndex = virtue.id)"
           @hover.native="$mixpanel.track('hover_virtue')"
         >
           <div
@@ -96,7 +96,7 @@
           class="relative basis-full lg:basis-[33%]"
           v-for="virtue in virtues.slice(5, 8)"
           :key="virtue.id"
-          @touchstart.passive="activeIndex = virtue.id"
+          @touchstart.passive="(activeIndex = virtue.id)"
           @hover.native="$mixpanel.track('hover_virtue')"
         >
           <div
@@ -138,7 +138,7 @@
           class="relative basis-full lg:basis-1/2"
           v-for="virtue in virtues.slice(8, 10)"
           :key="virtue.id"
-          @touchstart.passive="activeIndex = virtue.id"
+          @touchstart.passive="(activeIndex = virtue.id)"
           @hover.native="$mixpanel.track('hover_virtue')"
         >
           <div

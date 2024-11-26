@@ -17,7 +17,7 @@
           v-for="(navbar, index) in navbars"
           :key="index"
           class="portfolio-nav m-0 w-full rounded-lg py-2 text-center sub-h3-semibold lg:sub-h1-semibold active:scale-[0.98] md:py-[0.813rem] lg:hover:from-orange-300 lg:hover:to-pink-300 lg:hover:text-white lg:hover:bg-gradient-[270.11deg]"
-          @click="slideTo(index), changeContributions(index)"
+          @click="(slideTo(index), changeContributions(index))"
           :class="
             activeIndex == index
               ? 'from-orange-300 to-pink-300 text-white bg-gradient-[270.11deg] '

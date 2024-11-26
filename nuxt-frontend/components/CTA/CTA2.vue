@@ -41,8 +41,8 @@
                   autoComplete="given-username"
                   placeholder=" "
                   @input="
-                    showNameValidationError =
-                      $event.target.value.trim().length === 0
+                    (showNameValidationError =
+                      $event.target.value.trim().length === 0)
                   "
                 />
                 <label
@@ -71,10 +71,10 @@
                   autoComplete="given-email"
                   placeholder=" "
                   @input="
-                    showEmailValidationError =
-                      $event.target.value.trim().length === 0
+                    (showEmailValidationError =
+                      $event.target.value.trim().length === 0)
                   "
-                  @blur="showValidEmailError = isValidEmail(email)"
+                  @blur="(showValidEmailError = isValidEmail(email))"
                 />
                 <label
                   htmlFor="email"
@@ -107,10 +107,12 @@
                   autoComplete="given-phonenumber"
                   placeholder=" "
                   @input="
-                    showPhoneNumberValidationError =
-                      $event.target.value.trim().length === 0
+                    (showPhoneNumberValidationError =
+                      $event.target.value.trim().length === 0)
                   "
-                  @blur="showValidPhoneNumberError = isValidPhone(phoneNumber)"
+                  @blur="
+                    (showValidPhoneNumberError = isValidPhone(phoneNumber))
+                  "
                 />
                 <label
                   htmlFor="phonenumber"

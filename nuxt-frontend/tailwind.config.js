@@ -130,6 +130,10 @@ module.exports = {
         "helvetica-light": ["Helvetica-Light"],
         "helvetica-regular": ["Helvetica-Regular"],
         "helvetica-Bold": ["Helvetica-Bold"],
+        "charter-regular": ["Charter-Regular"],
+        "charter-bold": ["Charter-Bold"],
+        "charter-regular-italic": ["Charter-Regular-Italic"],
+        "charter-bold-italic": ["Charter-Bold-Italic"],
       },
       letterSpacing: {
         "extra-wider": "0.0625em",

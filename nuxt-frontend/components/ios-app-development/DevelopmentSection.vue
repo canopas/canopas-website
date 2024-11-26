@@ -76,9 +76,9 @@
             index == 4 || index == 0 ? item.className : '',
           ]"
           class="flex flex-col justify-center items-center h-[7.5rem] h-[5.8rem] xl:h-[6.8rem] w-40 xl:w-60 xl:h-[6.2rem] bg-[#F5F5F5] border-b border-[#E3E3E3] border-r-[5px]"
-          @mouseover="slideTo(index), (activeIndex = index)"
-          @touchstart.passive="slideTo(index), (activeIndex = index)"
-          @touchmove.passive="slideTo(index), (activeIndex = index)"
+          @mouseover="(slideTo(index), (activeIndex = index))"
+          @touchstart.passive="(slideTo(index), (activeIndex = index))"
+          @touchmove.passive="(slideTo(index), (activeIndex = index))"
         >
           <img
             v-if="activeIndex != index"

@@ -60,9 +60,11 @@
                   {{ process.id }}
                 </div>
                 <div
-                  @mouseover="(activeProcess = process), (activeIndex = index)"
+                  @mouseover="
+                    ((activeProcess = process), (activeIndex = index))
+                  "
                   @touchstart.passive="
-                    (activeIndex = index), (activeProcess = process)
+                    ((activeIndex = index), (activeProcess = process))
                   "
                   class="relative w-max cursor-pointer rounded-r-[15px] bg-pink-80 sub-h2-medium text-black-87 py-6 pl-4 pr-8 xl:py-9 xl:pr-12"
                   :class="process.className"
