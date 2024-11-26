@@ -1761,10 +1761,10 @@
     "@babel/helper-string-parser" "^7.25.9"
     "@babel/helper-validator-identifier" "^7.25.9"
 
-"@canopassoftware/nuxt-blog-kit@^1.1.10":
-  version "1.1.10"
-  resolved "https://registry.yarnpkg.com/@canopassoftware/nuxt-blog-kit/-/nuxt-blog-kit-1.1.10.tgz#544e602ea253610c536085520f94b76ab4e29b0f"
-  integrity sha512-elU65TJxITgj/XV6lZ5RU52VhQ9ySVC6R7GwTXmJEdNPeQ3SaC2Lu7BKreHlx8Vmp2WEmN9lN5qyHRzdchC7Mw==
+"@canopassoftware/nuxt-blog-kit@^1.1.11":
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/@canopassoftware/nuxt-blog-kit/-/nuxt-blog-kit-1.1.11.tgz#83f676cf651c8e8238b4de8a1e7923d5ab17a636"
+  integrity sha512-H/uf6pAwRls9mtmmp4T+BnhaldY8cxyVNsZe1eZcVVecA03phlcmjD/i+odoRaibpTffMaV/Lv29h28HXppDZw==
   dependencies:
     "@nuxt/kit" "^3.7.4"
     "@pinia/nuxt" "^0.5.0"
