@@ -1,6 +1,7 @@
 name: DeployFrontendCloudflarePagesDev
 
 on:
+  push:
     branches:
       - "mansi/update-source-code-pro"
 
