@@ -116,7 +116,7 @@
       </collapse-transition>
       <div
         class="border primary-btn mt-8 lg:hidden"
-        @click="(showAdditionalFAQs = !showAdditionalFAQs)"
+        @click="showAdditionalFAQs = !showAdditionalFAQs"
       >
         <span class="sub-h3-semibold"
           >{{ showAdditionalFAQs ? "View Less" : "View More" }}

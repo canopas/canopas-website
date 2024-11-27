@@ -143,7 +143,7 @@
             >
               <div
                 class="m-[5px] rounded-[0.6rem] border border-solid border-transparent bg-gradient-to-r from-[#ff9472] via-[#ff909c] to-[#f2709c] p-[1rem] text-center shadow-[inset_2px_1000px_1px_#fff] active:scale-[0.98] border border-black w-[155px] cursor-pointer h-[57px]"
-                @click="(showAdditionalFAQs = !showAdditionalFAQs)"
+                @click="showAdditionalFAQs = !showAdditionalFAQs"
               >
                 <span class="sub-h3-semibold v2-canopas-gradient-text"
                   >{{ showAdditionalFAQs ? "View Less" : "View More" }}

@@ -10,8 +10,8 @@
     <nuxt-link
       v-for="(service, index) in services"
       :key="service"
-      @mouseover="(activeIndex = index)"
-      @touchstart.passive="(activeIndex = index)"
+      @mouseover="activeIndex = index"
+      @touchstart.passive="activeIndex = index"
       :href="service.url"
       :class="[
         activeIndex === index

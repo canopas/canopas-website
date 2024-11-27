@@ -128,7 +128,7 @@
       ></collapse-transition>
       <div
         class="primary-btn gradient-border-btn white-btn mt-8 lg:hidden mx-auto"
-        @click="(showAdditionalFAQs = !showAdditionalFAQs)"
+        @click="showAdditionalFAQs = !showAdditionalFAQs"
       >
         <span class="sub-h3-semibold"
           >{{ showAdditionalFAQs ? "View Less" : "View More" }}

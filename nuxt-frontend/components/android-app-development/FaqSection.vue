@@ -145,7 +145,7 @@
             <div class="mx-auto my-8 lg:hidden">
               <div
                 class="border border-white primary-btn"
-                @click="(showAdditionalFAQs = !showAdditionalFAQs)"
+                @click="showAdditionalFAQs = !showAdditionalFAQs"
               >
                 <span class="text-white sub-h3-semibold"
                   >{{ showAdditionalFAQs ? "View Less" : "View More" }}
