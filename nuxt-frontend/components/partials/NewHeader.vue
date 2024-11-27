@@ -30,12 +30,12 @@
           <div class="relative flex grow basis-[auto] items-center">
             <ul
               class="hidden w-full flex-wrap justify-evenly text-[1rem] leading-[1.125rem] md:text-[1.09375rem] md:leading-[1.28125rem] lg:flex lg:flex-row lg:items-center xl:justify-end xl:text-[1.1875rem] xl:leading-[1.4375rem]"
-              @mouseleave="(showContributionMenu = false)"
+              @mouseleave="showContributionMenu = false"
             >
               <li v-for="navbar in navbars" :key="navbar" class="my-2 py-2">
                 <nuxt-link
                   @mouseover="
-                    (showContributionMenu = navbar.name == 'Contribution')
+                    showContributionMenu = navbar.name == 'Contribution'
                   "
                   :to="navbar.url"
                   @click.native="$mixpanel.track(navbar.event)"
@@ -90,7 +90,7 @@
 
                 <ul
                   v-show="showContributionMenu && navbar.subMenus"
-                  @mouseleave="(showContributionMenu = false)"
+                  @mouseleave="showContributionMenu = false"
                   class="absolute w-max flex-col space-y-6 rounded-[5px] border bg-white !px-6 py-[1.5rem] shadow-md lg:top-[4.5rem] lg:left-[169px] xl:left-[296px] 2xl:left-[475px]"
                 >
                   <li v-for="navbar in navbar.subMenus" :key="navbar">
@@ -109,7 +109,7 @@
             <Icon
               name="fa6-solid:bars"
               class="ml-0 mt-[0.20rem] h-full w-full"
-              @click="(showMenu = true)"
+              @click="showMenu = true"
             />
           </div>
         </div>
@@ -139,7 +139,7 @@
               <Icon
                 name="fa6-solid:xmark"
                 class="h-full w-full"
-                @click="(showMenu = false)"
+                @click="showMenu = false"
               />
             </div>
           </div>

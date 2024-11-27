@@ -14,9 +14,9 @@
           portfolio.video ? 'sm:!p-0' : '',
         ]"
         class="relative lg:transition-all lg:duration-500 lg:ease-in-out lg:transform cursor-pointer rounded-xl mt-4 lg:mt-0 md:w-[80%] md:mx-auto"
-        @mouseover="(activeIndex = portfolio.id)"
-        @mouseleave="(activeIndex = null)"
-        @touchstart.passive="(activeIndex = portfolio.id)"
+        @mouseover="activeIndex = portfolio.id"
+        @mouseleave="activeIndex = null"
+        @touchstart.passive="activeIndex = portfolio.id"
       >
         <nuxt-link
           :to="portfolio.url"
