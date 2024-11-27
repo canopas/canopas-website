@@ -1,9 +1,12 @@
 name: DeployFrontendCloudflarePagesDev
 
 on:
-  push:
+  workflow_run:
+    workflows: ["DeployBackendDev"]
+    types:
+      - completed
     branches:
-      - "mansi/update-source-code-pro"
+      - "master"
 
 jobs:
   deploy-frontend-dev:
