@@ -132,5 +132,9 @@ type RecommendedPost struct {
 	IsResource      bool        `json:"is_resource"`
 	ReadingTime     null.Int    `json:"reading_time"`
 	Author          Author      `json:"author"`
+	ImageId         int         `json:"image_id"`
+	RelatedId       int         `json:"related_id"`
+	ImageUrl        string      `json:"image_url"`
+	ImageAltText    null.String `json:"image_alternative_text"`
 	Image           Image       `json:"image"`
 }
