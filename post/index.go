@@ -176,19 +176,19 @@ func (repository *Repository) Show(c *gin.Context) {
 	}
 
 	if post.IsResource {
-		posts := []RecommendedPost{}
-		err = repository.Db.Select(&posts, `SELECT id, title, content, slug, published_on, is_featured, created_at, updated_at, published_at,
-											summary, blog_content, meta_description, toc, tags as tag, is_published, keywords, new_content, new_toc, new_blog_content,
-											is_resource, reading_time 
-											FROM posts 
-											WHERE slug != $1`+publishQuery, slug)
+		recommendedPosts := []RecommendedPost{}
+		err = repository.Db.Select(&recommendedPosts, `SELECT id, title, content, slug, published_on, is_featured, created_at, updated_at, published_at,
+													  summary, blog_content, meta_description, toc, tags as tag, is_published, keywords, new_content, new_toc, new_blog_content,
+													  is_resource, reading_time 
+													  FROM posts 
+													  WHERE slug != $1`+publishQuery, slug)
 		if err != nil {
-			log.Error("Error while fetching recommended post: ", err)
+			log.Error("Error while fetching recommended posts: ", err)
 			c.AbortWithStatus(http.StatusInternalServerError)
 			return
 		}
-
-		post.RecommendedPosts = repository.FilterPostsByTags(posts, repository.ExtractTagNames(post.Tags))
+		post.RecommendedPosts = repository.FilterPostsByTags(recommendedPosts, repository.ExtractTagNames(post.Tags))
+		post.RecommendedPosts = repository.SetPostImageInRecommendedPosts(post.RecommendedPosts)
 	}
 
 	new_posts := repository.PreparePosts([]Post{post})
@@ -253,6 +253,53 @@ func (repository *Repository) SetPostImageInPosts(posts []Post) []Post {
 	}
 
 	return posts
+}
+
+func (repository *Repository) SetPostImageInRecommendedPosts(recommendedPosts []RecommendedPost) []RecommendedPost {
+
+	postIds := []string{}
+	for _, post := range recommendedPosts {
+		postIds = append(postIds, strconv.Itoa(post.Id))
+	}
+
+	newPostIds := strings.Join(postIds, ", ")
+
+	images := []Image{}
+	postImageQuery := fmt.Sprintf(`SELECT f.id, frm.related_id as related_id, f.name, f.alternative_text, f.caption, f.width, f.height, f.formats as format, f.hash, f.ext, f.mime, 
+                        f.size, f.url, f.preview_url, f.provider, f.provider_metadata, f.folder_path, f.created_at, f.updated_at 
+                        FROM files f 
+                        JOIN files_related_morphs frm ON frm.related_id IN (%s) AND frm.related_type = 'api::post.post' AND frm.file_id = f.id`, newPostIds)
+
+	err := repository.Db.Select(&images, postImageQuery)
+	if err != nil {
+		log.Error("Error while fetching images for recommended posts: ", err)
+		return recommendedPosts
+	}
+
+	for i, post := range recommendedPosts {
+		for _, image := range images {
+			if post.Id == image.RelatedId {
+				// Set image in the recommended post
+				recommendedPosts[i].Image = image
+
+				// Set format of the image if exists
+				if recommendedPosts[i].Image.Format != "" {
+
+					var postFormats Formats
+					if err := json.Unmarshal([]byte(recommendedPosts[i].Image.Format), &postFormats); err != nil {
+						log.Error("Error while unmarshal recommended post image formats: ", err)
+						return recommendedPosts
+					}
+
+					recommendedPosts[i].Image.Format = ""
+					recommendedPosts[i].Image.Formats = postFormats
+				}
+				break
+			}
+		}
+	}
+
+	return recommendedPosts
 }
 
 // Filter posts based on tags
