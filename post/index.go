@@ -187,8 +187,8 @@ func (repository *Repository) Show(c *gin.Context) {
 			c.AbortWithStatus(http.StatusInternalServerError)
 			return
 		}
-		post.RecommendedPosts = repository.FilterPostsByTags(recommendedPosts, repository.ExtractTagNames(post.Tags))
-		post.RecommendedPosts = repository.SetPostImageInRecommendedPosts(post.RecommendedPosts)
+		filteredRecommendedPosts := repository.FilterPostsByTags(recommendedPosts, repository.ExtractTagNames(post.Tags))
+		post.RecommendedPosts = repository.SetPostImageInRecommendedPosts(filteredRecommendedPosts)
 	}
 
 	new_posts := repository.PreparePosts([]Post{post})
@@ -265,8 +265,7 @@ func (repository *Repository) SetPostImageInRecommendedPosts(recommendedPosts []
 	newPostIds := strings.Join(postIds, ", ")
 
 	images := []Image{}
-	postImageQuery := fmt.Sprintf(`SELECT f.id, frm.related_id as related_id, f.name, f.alternative_text, f.caption, f.width, f.height, f.formats as format, f.hash, f.ext, f.mime, 
-                        f.size, f.url, f.preview_url, f.provider, f.provider_metadata, f.folder_path, f.created_at, f.updated_at 
+	postImageQuery := fmt.Sprintf(`SELECT f.id, frm.related_id as related_id, f.alternative_text, f.url
                         FROM files f 
                         JOIN files_related_morphs frm ON frm.related_id IN (%s) AND frm.related_type = 'api::post.post' AND frm.file_id = f.id`, newPostIds)
 
