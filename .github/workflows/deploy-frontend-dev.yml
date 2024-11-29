@@ -1,12 +1,9 @@
 name: DeployFrontendCloudflarePagesDev
 
 on:
-  workflow_run:
-    workflows: ["DeployBackendDev"]
-    types:
-      - completed
+  push:
     branches:
-      - "master"
+      - "update-version-1.1.13"
 
 jobs:
   deploy-frontend-dev:
