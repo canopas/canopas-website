@@ -128,7 +128,8 @@
           <img
             :src="blog.image[1]"
             :srcset="`${blog.image[1]} 800w`"
-            class="object-cover h-full w-full cursor-pointer rounded-[20px]"
+            class="h-full w-full cursor-pointer rounded-[20px]"
+            :class="blog.subclass"
             loading="lazy"
             :alt="blog.title"
           />
@@ -182,6 +183,7 @@ export default {
           hovertitle: `<span class="desk-header-3 text-black-87">Android<span><br><span class="mobile-header-2-regular text-black-87">Code coverage using JaCoCo</span>`,
           link: "https://canopas.com/android-code-coverage-using-jacoco-6639a1fc4293",
           bgColor: "bg-gradient-to-b from-[#E7E7E7] to-[#DADADA]",
+          subclass : "object-cover"
         },
         {
           id: 2,
@@ -191,6 +193,7 @@ export default {
           hovertitle: `<span class="desk-header-3 text-black-87">Jetpack Compose</span><br><span class="text-black-87 mobile-header-2-regular">MVVM State management in a simple way</span>`,
           link: "https://canopas.com/jetpack-compose-mvvm-state-management-in-a-simple-way-4c632fa6f554",
           bgColor: "bg-gradient-to-b from-[#fffbfd] to-[#fffbfd]",
+          subclass : "object-cover"
         },
         {
           id: 3,
@@ -200,6 +203,7 @@ export default {
           hovertitle: `<span class="text-black-87 mobile-header-2-regular">Keyboard Handling In<br> <span class="desk-header-3 text-black-87">Jetpack Compose</span><br><span class="text-black-87 mobile-header-2-regular">All You Need To Know</span></span>`,
           link: "https://canopas.com/keyboard-handling-in-jetpack-compose-all-you-need-to-know-3e6fddd30d9a",
           bgColor: "bg-gradient-to-b from-[#f9e1e9] to-[#fef2f6]",
+          subclass : "object-cover"
         },
         {
           id: 4,
@@ -211,6 +215,7 @@ export default {
           link: "https://canopas.com/retrofit-effective-error-handling-with-kotlin-coroutine-and-result-api-405217e9a73d",
           className: "basis-[54%]",
           bgColor: "bg-gradient-to-b from-[#1f1f1f] to-[#1f1f1f]",
+          subclass : ""
         },
         {
           id: 5,
@@ -222,6 +227,7 @@ export default {
           link: "https://canopas.com/android-send-live-audio-stream-from-client-to-server-using-websocket-and-okhttp-client-ecc9f28118d9",
           className: "basis-[60%] ",
           bgColor: "bg-gradient-to-b from-[#1f1f1f] to-[#1f1f1f]",
+          subclass : "object-cover"
         },
       ],
     };
