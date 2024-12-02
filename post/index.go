@@ -176,19 +176,27 @@ func (repository *Repository) Show(c *gin.Context) {
 	}
 
 	if post.IsResource {
-		posts := []RecommendedPost{}
-		err = repository.Db.Select(&posts, `SELECT id, title, content, slug, published_on, is_featured, created_at, updated_at, published_at,
-											summary, blog_content, meta_description, toc, tags as tag, is_published, keywords, new_content, new_toc, new_blog_content,
-											is_resource, reading_time 
-											FROM posts 
-											WHERE slug != $1`+publishQuery, slug)
+		recommendedPosts := []RecommendedPost{}
+
+		// Fetch recommended posts along with images
+		query := `
+		SELECT p.id, p.title, p.content, p.slug, p.published_on, p.is_featured, p.created_at, p.updated_at, p.published_at,
+			   p.summary, p.blog_content, p.meta_description, p.toc, p.tags as tag, p.is_published, p.keywords, p.new_content, 
+			   p.new_toc, p.new_blog_content, p.is_resource, p.reading_time, 
+			   f.id AS image_id, frm.related_id AS related_id, f.url AS image_url, f.alternative_text AS image_alternative_text
+		FROM posts p
+		LEFT JOIN files_related_morphs frm ON frm.related_id = p.id AND frm.related_type = 'api::post.post'
+		LEFT JOIN files f ON frm.file_id = f.id
+		WHERE p.slug != $1` + publishQuery
+
+		err := repository.Db.Select(&recommendedPosts, query, slug)
 		if err != nil {
-			log.Error("Error while fetching recommended post: ", err)
+			log.Error("Error while fetching recommended posts and images: ", err)
 			c.AbortWithStatus(http.StatusInternalServerError)
 			return
 		}
-
-		post.RecommendedPosts = repository.FilterPostsByTags(posts, repository.ExtractTagNames(post.Tags))
+		filteredRecommendedPosts := repository.FilterPostsByTags(recommendedPosts, repository.ExtractTagNames(post.Tags))
+		post.RecommendedPosts = repository.SetPostImageInRecommendedPosts(filteredRecommendedPosts)
 	}
 
 	new_posts := repository.PreparePosts([]Post{post})
@@ -253,6 +261,21 @@ func (repository *Repository) SetPostImageInPosts(posts []Post) []Post {
 	}
 
 	return posts
+}
+
+func (repository *Repository) SetPostImageInRecommendedPosts(recommendedPosts []RecommendedPost) []RecommendedPost {
+	for i, post := range recommendedPosts {
+
+		if post.ImageUrl != "" && post.RelatedId != 0 {
+			recommendedPosts[i].Image = Image{
+				Id:              post.ImageId,
+				RelatedId:       post.RelatedId,
+				Url:             post.ImageUrl,
+				AlternativeText: post.ImageAltText,
+			}
+		}
+	}
+	return recommendedPosts
 }
 
 // Filter posts based on tags
