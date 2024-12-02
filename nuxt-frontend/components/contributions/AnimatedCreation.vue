@@ -169,7 +169,7 @@ export default {
           image: [animation6_400w, animation6_800w],
           deskImages: [desktop_animation6_400w, desktop_animation6_800w],
           title: "Animations in Jetpack Compose with examples",
-          link: "https://medium.com/canopas/animations-in-jetpack-compose-with-examples-48307ba9dff1",
+          link: "https://canopas.com/animations-in-jetpack-compose-with-examples-48307ba9dff1",
         },
       ],
     };
