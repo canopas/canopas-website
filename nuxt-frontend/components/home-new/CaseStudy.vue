@@ -6,7 +6,7 @@
   >
     <div>
       <p
-        class="text-[#F8F8F8] background-text text-center"
+        class="hidden text-[#F8F8F8] background-text text-center"
         :class="currentRoutePath == '/portfolio' ? 'hidden' : 'block'"
       >
         Our Portfolio

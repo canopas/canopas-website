@@ -1,6 +1,6 @@
 <template>
   <div class="mt-60">
-    <p class="text-center background-text text-[#F8F8F8]">Services</p>
+    <p class="hidden text-center background-text text-[#F8F8F8]">Services</p>
     <p
       class="-mt-10 pb-16 text-center mobile-header-2 lg:desk-header-2 text-black-87 md:pb-24 xl:mt-[-50px]"
     >
