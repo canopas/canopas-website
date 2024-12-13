@@ -38,7 +38,7 @@ type Career struct {
 	ButtonName          string      `json:"button_name"`
 	Qualification       string      `json:"qualification"`
 	EmploymentType      string      `json:"employment_type"`
-	BaseSalary          string      `json:"base_salary"`
+	BaseSalary          int         `json:"base_salary"`
 	Experience          string      `json:"experience"`
 	IsActive            bool        `json:"is_active"`
 	Skills              null.String `json:"skills"`

@@ -110,7 +110,7 @@ func expectedJobsData() map[string]interface{} {
 	jobs["button_name"] = "Apply"
 	jobs["qualification"] = "B.E/B.Tech/BCA/MCA/MSc IT degree in Computer Science, Engineering, or a related subject "
 	jobs["employment_type"] = "full_time"
-	jobs["base_salary"] = "15000"
+	jobs["base_salary"] = 15000.0
 	jobs["experience"] = "0-3 years"
 	jobs["is_active"] = true
 	jobs["skills"] = ""

@@ -80,7 +80,7 @@ func TestDB() (*sqlx.DB, error) {
 
 func CreateTables(db *sqlx.DB) error {
 
-	jobs := "CREATE TABLE IF NOT EXISTS jobs (id SERIAL PRIMARY KEY, title varchar, summary text, description text, button_name varchar, qualification varchar, employment_type varchar, base_salary varchar, experience varchar, is_active bool DEFAULT false, created_at timestamptz DEFAULT CURRENT_TIMESTAMP, updated_at timestamptz DEFAULT CURRENT_TIMESTAMP, skills text, total_openings int4 DEFAULT 1, responsibilities text, icon_name int4, unique_id varchar NOT NULL, seo_title varchar, seo_description text, apply_seo_title varchar, apply_seo_description text, index int4 NOT NULL DEFAULT 0)"
+	jobs := "CREATE TABLE IF NOT EXISTS jobs (id SERIAL PRIMARY KEY, title varchar, summary text, description text, button_name varchar, qualification varchar, employment_type varchar, base_salary int4, experience varchar, is_active bool DEFAULT false, created_at timestamptz DEFAULT CURRENT_TIMESTAMP, updated_at timestamptz DEFAULT CURRENT_TIMESTAMP, skills text, total_openings int4 DEFAULT 1, responsibilities text, icon_name int4, unique_id varchar NOT NULL, seo_title varchar, seo_description text, apply_seo_title varchar, apply_seo_description text, index int4 NOT NULL DEFAULT 0)"
 
 	_, err := db.Exec(jobs)
 
@@ -107,6 +107,7 @@ func CreateTables(db *sqlx.DB) error {
 	jobsIcons := "CREATE TABLE job_icons ( id SERIAL PRIMARY KEY, name varchar, value varchar, createdAt timestamptz, updatedAt timestamptz)"
 
 	_, err = db.Exec(jobsIcons)
+
 
 	lifeatCanopas := "CREATE TABLE lifeatcanopas (id SERIAL PRIMARY KEY, image_urls varchar, index int4 NOT NULL DEFAULT 0, created_at timestamptz DEFAULT CURRENT_TIMESTAMP,updated_at timestamptz DEFAULT CURRENT_TIMESTAMP)"
 
@@ -141,7 +142,7 @@ func PrepareTablesData(db *sqlx.DB) {
 	db.MustExec("INSERT INTO job_applications(id, name, email, phone, place,reference, resumeURL, position, message, status, created_at, updated_at) VALUES(1, 'New Web Developer', 'developer@gmail.com', '1234567890', 'surat', 'From canopas', '', 'Web Developer from testing', 'I m a very good programer', '1',current_timestamp, current_timestamp)")
 	db.MustExec("INSERT INTO job_applicant_statuses(id, applicant_id, status, index, rejection_with_mail, created_at, updated_at) VALUES(1, 1, 1, 0, false, current_timestamp,current_timestamp )")
 	db.MustExec("INSERT INTO job_icons (id,name,value,createdAt,updatedAt) VALUES ('1','iOS','fab fa-apple',NULL,NULL);")
-	db.MustExec("INSERT INTO lifeatcanopas (id,image_urls,created_at,updated_at) VALUES(1,'https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-400.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-800.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-1600.webp',current_timestamp, current_timestamp)")
+    db.MustExec("INSERT INTO lifeatcanopas (id,image_urls,created_at,updated_at) VALUES(1,'https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-400.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-800.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-1600.webp',current_timestamp, current_timestamp)")
 	db.MustExec("INSERT INTO perks (id,image_urls,created_at,updated_at) VALUES(1,'https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-400.webp,https://canopas-website.s3.ap-south-1.amazonaws.com/lifeCanopas/1-800.webp',current_timestamp, current_timestamp)")
 }
 
