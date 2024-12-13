@@ -181,7 +181,7 @@ function getJsonLdSchema() {
       currency: "INR",
       value: {
         "@type": "QuantitativeValue",
-        minValue: parseInt(career?.base_salary || "10000"),
+        minValue: career?.base_salary || "10000",
         maxValue: 50000,
         unitText: "MONTH",
       },
