@@ -4,20 +4,11 @@
       currentRoutePath == '/portfolio' ? 'mt-16 lg:mt-28' : 'mt-16 lg:mt-60'
     "
   >
-    <div>
-      <p
-        class="text-[#F8F8F8] background-text text-center"
-        :class="currentRoutePath == '/portfolio' ? 'hidden' : 'block'"
-      >
-        Our Portfolio
-      </p>
-      <h2
-        class="container -mt-5 md:mt-[-50px] mobile-header-2 lg:desk-header-2 text-center text-black-87"
-      >
-        Case studies
-      </h2>
-    </div>
-
+    <h2
+      class="container -mt-5 md:mt-[-50px] mobile-header-2 lg:desk-header-2 text-center text-black-87"
+    >
+      Case studies
+    </h2>
     <div
       class="container mt-4 mb-6 text-black-60 text-center sub-h1-regular lg:mobile-header-2-regular"
     >

@@ -8,7 +8,6 @@
   >
     <div class="container flex flex-col items-center m-auto w-full">
       <div class="container">
-        <p class="text-white-smoke background-text text-center">Blogs</p>
         <h2
           class="-mt-5 md:mt-[-50px] mx-auto lg:w-[71%] xl:w-[65%] mobile-header-2 lg:desk-header-2 text-center"
         >
@@ -193,7 +192,7 @@ const resources = computed(() => store.items);
 const status = computed(() => store.status);
 
 await useAsyncData("blogs", () =>
-  store.loadResources(config.SHOW_DRAFT_POSTS, false, 0, 3),
+  store.loadResources(config.SHOW_DRAFT_POSTS, false, 0, 3)
 );
 
 if (status.value === config.SUCCESS) {
