@@ -48,7 +48,7 @@ export default Object.freeze({
 
   // Social media
   FACEBOOK_URL: "https://www.facebook.com/canopassoftware",
-  TWITTER_URL: "https://x.com/canopas_eng",
+  TWITTER_URL: "https://x.com/canopassoftware",
   GITHUB_URL: "https://github.com/canopas",
   INSTAGRAM_URL: "https://www.instagram.com/canopassoftware/",
   LINKEDIN_URL: "https://www.linkedin.com/company/canopasinc",
@@ -66,7 +66,7 @@ export default Object.freeze({
   SOCIAL_MEDIA_DATA: {
     facebook: "https://www.facebook.com/canopassoftware",
     instagram: "https://www.instagram.com/canopassoftware/",
-    twitter: "https://x.com/canopas_eng",
+    twitter: "https://x.com/canopassoftware",
     blog: "https://blog.canopas.com",
     linkedin: "https://www.linkedin.com/company/canopasinc",
     youtube: "https://www.youtube.com/channel/UC77VyeTVJ45HiUS_o2GNcBA/videos",
