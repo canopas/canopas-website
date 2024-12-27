@@ -4,7 +4,6 @@ import config from "./config";
 import robots from "./robots.config";
 
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
   app: {
     head: {
       htmlAttrs: {
@@ -79,7 +78,7 @@ export default defineNuxtConfig({
   },
   nitro: {
     compressPublicAssets: true,
-    preset: "cloudflare-pages",
+    preset: "aws_amplify",
   },
   vite: {
     resolve: {
