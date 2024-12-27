@@ -192,7 +192,7 @@ const resources = computed(() => store.items);
 const status = computed(() => store.status);
 
 await useAsyncData("blogs", () =>
-  store.loadResources(config.SHOW_DRAFT_POSTS, false, 0, 3)
+  store.loadResources(config.SHOW_DRAFT_POSTS, false, 0, 3),
 );
 
 if (status.value === config.SUCCESS) {
