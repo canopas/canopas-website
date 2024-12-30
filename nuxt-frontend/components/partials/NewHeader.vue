@@ -153,7 +153,9 @@
             class="my-2 ml-1 py-2 lg:ml-0"
           >
             <nuxt-link
-              :to="navbar.url == '/contributions' ? '' : navbar.url"
+              :to="
+                navbar.url && navbar.url !== '/contributions' ? navbar.url : '/'
+              "
               @click.native="$mixpanel.track(navbar.event)"
               class="flex gap-2 group relative mr-5 w-fit sm:mr-[30px] lg:mr-5 cursor-pointer"
               :class="[

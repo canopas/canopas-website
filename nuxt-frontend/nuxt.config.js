@@ -39,7 +39,6 @@ export default defineNuxtConfig({
   features: {
     inlineStyles: false,
   },
-  generate: { fallback: true },
   imports: {
     dirs: ["stores"],
   },
