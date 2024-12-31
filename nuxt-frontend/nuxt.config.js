@@ -36,9 +36,6 @@ export default defineNuxtConfig({
     xslTips: false,
   },
   css: ["~/assets/css/app.css"],
-  features: {
-    inlineStyles: false,
-  },
   imports: {
     dirs: ["stores"],
   },
