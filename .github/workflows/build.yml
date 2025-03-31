@@ -32,8 +32,8 @@ jobs:
           DB_NAME: website_admin_test
           SENDER: ${{ secrets.SENDER }}
           RECEIVER: "sumita.k@canopas.com"
-          ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+          ACCESS_KEY_ID: ${{ secrets.DEV_ACCESS_KEY_ID }}
+          SECRET_ACCESS_KEY: ${{ secrets.DEV_SECRET_ACCESS_KEY }}
           REGION: ${{ secrets.AWS_REGION }}
 
   build:
