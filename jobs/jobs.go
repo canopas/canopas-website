@@ -152,12 +152,17 @@ func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
 		c.AbortWithStatus(http.StatusUnauthorized)
 		return
 	}
+
+	log.Info("input: ", input)
+
 	success, err := repository.UtilsRepo.VerifyRecaptcha(input.Token)
 	if err != nil || !success {
 		log.Error(err)
 		c.AbortWithStatus(http.StatusUnauthorized)
 		return
 	}
+
+	log.Info("success: ", success)
 
 	if input.SaveRecordToSpreadsheet {
 		loc, err := time.LoadLocation("Asia/Kolkata")
@@ -167,6 +172,8 @@ func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
 		records := []string{input.Name, input.Email, input.Phone, time.Now().In(loc).Format("2 Jan 2006 03:04PM"), input.Place, input.JobTitle, "", input.References}
 		go repository.UtilsRepo.SaveJobsToSpreadSheet(records)
 	}
+
+	log.Info("save record to spreadsheet: ", input.SaveRecordToSpreadsheet)
 
 	if input.SaveDataToDatabase {
 		err = repository.InsertJobApplication(input)
@@ -178,7 +185,11 @@ func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
 		}
 	}
 
+	log.Info("save data to database: ", input.SaveDataToDatabase)
+
 	repository.SendJobsApplicationMail(c, input)
+
+	log.Info("send jobs application mail")
 
 	c.JSON(http.StatusOK, "Job application received successfully")
 }

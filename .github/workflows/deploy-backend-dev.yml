@@ -1,9 +1,5 @@
 name: DeployBackendDev
-
-on:
-  push:
-    branches:
-      - "master"
+on: push
 
 jobs:
   deploy-backend-dev:
