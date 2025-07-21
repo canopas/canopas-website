@@ -54,6 +54,8 @@ func GetAWSIAMUserSession() (*session.Session, error) {
 
 func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 
+	log.Info("token: ", token)
+
 	//create recaptcha assessment and verify token
 	ctx := context.Background()
 
@@ -63,12 +65,16 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 		return false, err
 	}
 
+	log.Info("credBytes: ", credBytes)
+
 	client, err := recaptcha.NewClient(ctx, option.WithCredentialsJSON(credBytes))
 	if err != nil {
 		log.Error(err)
 		return false, err
 	}
 	defer client.Close()
+
+	log.Info("got client, building request")
 
 	// Build the assessment request
 	request := &recaptchapb.CreateAssessmentRequest{
@@ -81,17 +87,25 @@ func (repo *utilsRepository) VerifyRecaptcha(token string) (bool, error) {
 		Parent: fmt.Sprintf("projects/%s", os.Getenv("RECAPTCHA_PROJECT_ID")),
 	}
 
+	log.Info("request: ", request)
+
 	response, err := client.CreateAssessment(ctx, request)
+
+	log.Info("response1: ", response)
 
 	if err != nil {
 		log.Error(err)
 		return false, err
 	}
 
+	log.Info("response2: ", response)
+
 	// Interpret and verify assessment response
 	if response.TokenProperties.Action == "verify" && response.TokenProperties.Valid {
 		return true, nil
 	}
+
+	log.Info("response3: ", response)
 
 	return false, nil
 }
