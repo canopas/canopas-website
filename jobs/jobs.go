@@ -146,6 +146,8 @@ func (repository *CareerRepository) SaveApplicationsData(c *gin.Context) {
 		return
 	}
 
+	log.Info("Got input data")
+
 	input.Phone = strings.ReplaceAll(input.Phone, " ", "")
 
 	if input.Token == "" {
