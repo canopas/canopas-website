@@ -237,6 +237,7 @@ This repository is owned and maintained by the [Canopas team](https://canopas.co
 
 <a href="https://canopas.com/contact"><img src="./assets/cta.png" width=300></a>
 
+
 ## LICENSE
 
 The Canopas website has been released under the [GNU V3](https://github.com/canopas/canopas-website/blob/master/LICENSE.md).
